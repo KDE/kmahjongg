@@ -13,10 +13,12 @@ Background::Background()
 }
 
 Background::~Background() {
+/* already handled by Qt
   delete sourceImage;
   delete backgroundImage;
   delete backgroundPixmap;
   delete backgroundShadowPixmap;
+*/
 }
 
 bool Background::load(const QString &file, short width, short height) {
