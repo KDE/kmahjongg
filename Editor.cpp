@@ -360,7 +360,7 @@ bool Editor::testSave(void)
 
     int res;
     res=KMessageBox::warningYesNoCancel(this,
-	i18n("The board has been modified. Would you"
+	i18n("The board has been modified. Would you "
 		"like to save the changes?"));
 
     if (res == KMessageBox::Yes) {
