@@ -41,5 +41,8 @@
       <label>Whether an animation should be played on victory.</label>
       <default>true</default>
     </entry>
+    <entry name="ShowMatchingTiles" type="Bool">
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>

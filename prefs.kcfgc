@@ -3,6 +3,5 @@ File=kmahjongg.kcfg
 #IncludeFiles=defines.h
 ClassName=Prefs
 Singleton=true
-#Mutators=true
+Mutators=true
 #CustomAdditions=true
-#Mutators=true
