@@ -168,21 +168,21 @@ void Preview::initialise(const PreviewType type, const char *extension)
 		      setCaption(kapp->makeStdCaption(i18n("Change Background Image")));
 		      selectedFile = back;
 		      fileSelector = i18n("*.bgnd|Background Image\n"
-				     "*.bmp|Windows bitmap file (*.bmp)\n");
+				     "*.bmp|Windows Bitmap File (*.bmp)\n");
 		  break;
             case tileset:
 		      setCaption(kapp->makeStdCaption(i18n("Change Tile Set")));
-		      fileSelector = i18n("*.tileset|Tile set file\n");
+		      fileSelector = i18n("*.tileset|Tile Set File\n");
 		      selectedFile = tile;
 		  break;
             case board:
-		      fileSelector = i18n("*.layout|Board layout file\n");
+		      fileSelector = i18n("*.layout|Board Layout File\n");
 		      setCaption(kapp->makeStdCaption(i18n("Change Board Layout")));
 		      selectedFile = layout;
 	          break;
 
 	    case theme:
-		     fileSelector = i18n("*.theme|KMahjongg theme\n");
+		     fileSelector = i18n("*.theme|KMahjongg Theme\n");
 		     setCaption(kapp->makeStdCaption(i18n("Choose Theme")));
 		     selectedFile="";
 

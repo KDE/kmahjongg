@@ -55,8 +55,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
     if( ! loadBackground(tFile, false ) )
     {
 	KMessageBox::error(this,
-		   i18n("An error occurred when loading the background image\n")+
-		   tFile +
+		   i18n("An error occurred when loading the background image\n%1").arg(tFile)+
 		   i18n("KMahjongg will now terminate."));
 	kapp->quit();
     }

@@ -499,7 +499,7 @@ void HighScore::reset(void) {
                                            "remove all high score entries "
                                            "both in memory and on disk. Do "
 					   "you wish to proceed?"),
-                        		   i18n("Reset high scores" ));
+                        		   i18n("Reset High Scores" ));
         if (res != 1)
                 return ;   
 
