@@ -48,6 +48,10 @@ Editor::Editor
     QDialog( parent, name, TRUE, 0 ), tiles(false)
 {
 
+    clean= true;
+    numTiles=0;
+    mode = insert;
+
     int sWidth = (BoardLayout::width+2)*(tiles.qWidth());
     int sHeight =( BoardLayout::height+2)*tiles.qHeight();
 
@@ -87,9 +91,6 @@ Editor::Editor
    connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent *) ),
 		SLOT(drawFrameMouseMovedEvent(QMouseEvent *)));
 
-   clean= true;
-   mode = insert;
-   numTiles=0;
    statusChanged();
 
    update();

@@ -31,6 +31,9 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
     showHelp = false;
     MouseClickPos1.e = BoardLayout::depth;     // mark tile position as invalid
     MouseClickPos2.e = BoardLayout::depth;
+    memset( &Game.Mask, 0, sizeof( Game.Mask ) );
+    Game.MaxTileNum = 0;
+    gameGenerationNum = 0;
 
     // initially we force a redraw
     updateBackBuffer=true;
