@@ -158,7 +158,7 @@ void KMahjongg::setupKAction()
     redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+    new KAction(i18n("&Board Editor"), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
