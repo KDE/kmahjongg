@@ -223,7 +223,7 @@ void KMahjonggWidget::setupMenuBar()
 
     QString about;
     about = i18n("Mahjongg %1\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)").arg(KMAHJONGG_VERSION);
-    QPopupMenu *help = kapp->helpMenu(true, about);
+    QPopupMenu *help = helpMenu(about);
  
     pMenuBar = new KMenuBar( this );
 
