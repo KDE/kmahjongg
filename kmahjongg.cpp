@@ -251,38 +251,35 @@ KMahjonggWidget::~KMahjonggWidget()
 // ---------------------------------------------------------
 void KMahjonggWidget::setupToolBar()
 {
-
-	KIconLoader *loader = KGlobal::iconLoader();
 	toolBar = new KToolBar( this );
 
-
 	// new game
-	toolBar->insertButton(loader->loadIcon("filenew"),
+	toolBar->insertButton(BarIcon("filenew"),
 		ID_FILE_NEW, TRUE, i18n("New game."));
 	// new numbered game
-	toolBar->insertButton(loader->loadIcon("newnum"),
+	toolBar->insertButton(BarIcon("newnum"),
 		ID_FILE_NEW_NUMERIC, TRUE, i18n("New numbered game."));
 	// open game
-	toolBar->insertButton(loader->loadIcon("fileopen"),
+	toolBar->insertButton(BarIcon("fileopen"),
 		ID_FILE_LOAD_GAME, TRUE, i18n("Open game."));
 	// save game
-	toolBar->insertButton(loader->loadIcon("filefloppy"),
+	toolBar->insertButton(BarIcon("filefloppy"),
 		ID_FILE_SAVE_GAME, TRUE, i18n(" Save game."));
 	// undo move 
-	toolBar->insertButton(loader->loadIcon("undo"),
+	toolBar->insertButton(BarIcon("undo"),
 		ID_EDIT_UNDO, TRUE, i18n("Undo move."));
 	// redo move 
-	toolBar->insertButton(loader->loadIcon("redo"),
+	toolBar->insertButton(BarIcon("redo"),
 		ID_EDIT_REDO, TRUE, i18n("Redo move."));
 	// pause 
-	toolBar->insertButton(loader->loadIcon("pause"),
+	toolBar->insertButton(BarIcon("pause"),
 		ID_GAME_PAUSE, TRUE, i18n("Pause game."));
 	// play 
-	toolBar->insertButton(loader->loadIcon("play"),
+	toolBar->insertButton(BarIcon("play"),
 		ID_GAME_CONTINUE, TRUE, i18n("Play game."));
 	// Show hint 
 
-	toolBar->insertButton(loader->loadIcon("help"),
+	toolBar->insertButton(BarIcon("help"),
 		ID_GAME_HELP, TRUE, i18n("Hint."));
 	
 
@@ -2328,5 +2325,6 @@ void BoardWidget::shuffle(void) {
 	// 300 points per use
 	cheatsUsed += 15;
 }
+
 
 
