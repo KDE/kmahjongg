@@ -152,6 +152,7 @@ class BoardWidget : public QWidget
 	void shuffle(void);
         void helpMove();
         void helpMoveTimeout();
+        void helpMoveStop();
         void demoMoveTimeout();
         void matchAnimationTimeout();
 	void setDisplayedWidth();
@@ -231,9 +232,10 @@ class BoardWidget : public QWidget
 
         short matchCount;
         bool  showMatch;
+    
+        bool showHelp;
 
-	
-	
+        QTimer *timer;
 	
 	// offscreen draw area.
 	QPixmap backBuffer;		// pixmap to render to

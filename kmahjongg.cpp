@@ -759,11 +759,15 @@ BoardWidget::BoardWidget( QWidget* parent )
 {
     setBackgroundColor( QColor( 0,0,0 ) );
 
+    timer = new QTimer(this);
+    connect( timer, SIGNAL(timeout()),
+                 this, SLOT(helpMoveTimeout()) );
     TimerState = Stop;
     gamePaused = false;
     iTimerStep = 0;
     matchCount = 0;
     showMatch = false;
+    showHelp = false;
     MouseClickPos1.e = BoardLayout::depth;     // mark tile position as invalid
     MouseClickPos2.e = BoardLayout::depth;
 
@@ -1216,6 +1220,7 @@ void BoardWidget::helpMove()
     {
 		cheatsUsed++;
         iTimerStep = 1;
+        showHelp = true;
         helpMoveTimeout();
     }
     else
@@ -1236,7 +1241,19 @@ void BoardWidget::helpMoveTimeout()
     }
     // restart timer
     if( iTimerStep++ < 8 )
-        QTimer::singleShot( ANIMSPEED, this, SLOT( helpMoveTimeout() ) );
+      timer->start( ANIMSPEED , true);
+    else
+      showHelp = false;
+}
+// ---------------------------------------------------------
+
+void BoardWidget::helpMoveStop()
+{
+  timer->stop();
+  iTimerStep = 8;
+  hilightTile( TimerPos1, false, false );
+  hilightTile( TimerPos2, false );
+  showHelp = false;
 }
 
 // ---------------------------------------------------------
@@ -2230,6 +2247,9 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
         {
             stopMatchAnimation();
         }
+
+	if( showHelp ) // stop hilighting tiles
+	  helpMoveStop();  
 
         if( MouseClickPos1.e == BoardLayout::depth )       // first tile
         {
