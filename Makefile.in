@@ -15,7 +15,7 @@ INSTALL_DIR = @INSTALL@ -d -m 0755
 prefix = @prefix@
 BINDIR = $(prefix)/bin
 PICSDIR = $(prefix)/share/apps/kmahjongg/pics
-DOCSDIR = $(prefix)/share/doc/HTML
+DOCSDIR = $(prefix)/share/doc/HTML/en/kmanjongg
 APPSDIR = $(prefix)/share/applnk/Games
 
 ####### Defines
@@ -31,7 +31,7 @@ MOC	=	@MOC@
 OBJECTS	=	kmahjongg.o static.o
 SRCMETA	=	kmahjongg.moc
 TARGET	=	kmahjongg
-DOCS    =	kmahjongg.html
+DOCS    =	index.html
 
 ####### Implicit rules
 .SUFFIXES: .cpp
