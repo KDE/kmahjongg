@@ -59,7 +59,6 @@ class KMahjongg : public KMainWindow
     public slots:
         void startNewGame( int num = -1 );
         void showStatusText ( const QString& , long);
-        void showMessage    ( const QString& );
         void showTileNumber( int iMaximum, int iCurrent, int iLeft );
         void demoModeChanged( bool bActive );
         void gameOver( unsigned short removed, unsigned short cheats);

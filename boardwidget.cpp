@@ -266,13 +266,13 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     int xheight = pa->rect().height();
     int xwidth  = pa->rect().width();
 
+    back = theBackground.getBackground();
 
     if (gamePaused) {
         // If the game is paused, then blank out the board.
         // We tolerate no cheats around here folks..
         bitBlt( this, xx, pa->rect().top(),
-                theBackground.getBackground(), xx,
-                pa->rect().top(), xwidth, xheight, CopyROP );
+                back, xx, pa->rect().top(), xwidth, xheight, CopyROP );
 	return;
     }
 
@@ -286,13 +286,11 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
     // update the complete drawArea
 
-    back = theBackground.getBackground();
-
     backBuffer.resize(back->width(), back->height());
 
     // erase out with the background
     bitBlt( &backBuffer, xx, pa->rect().top(),
-                theBackground.getBackground(), xx,pa->rect().top(), xwidth, xheight, CopyROP );
+                back, xx,pa->rect().top(), back->width(), back->height(), CopyROP );
 
     // initial offset on the screen of tile 0,0
     int xOffset = theTiles.width()/2;
@@ -485,6 +483,21 @@ void BoardWidget::pause() {
 	gamePaused = !gamePaused;
 	drawBoard(true);
 }
+
+void BoardWidget::gameLoaded()
+{
+	int i;
+	initialiseRemovedTiles();
+	i = Game.TileNum;
+	// use the history of moves to put in the removed tiles area the correct tiles
+	while (i < Game.MaxTileNum )
+	{
+		setRemovedTilePair(Game.MoveList[i], Game.MoveList[i+1]);
+		i +=2;
+	}
+	drawBoard();
+}
+
 // ---------------------------------------------------------
 int BoardWidget::undoMove()
 {
@@ -1887,13 +1900,6 @@ void BoardWidget::initialiseRemovedTiles(void) {
 	}
 
 }
-
-// ---------------------------------------------------------
-void BoardWidget::showMessage( const QString& pszText )
-{
-    emit message( pszText );
-}
-
 
 // ---------------------------------------------------------
 bool BoardWidget::loadTileset(const QString &path) {

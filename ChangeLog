@@ -2,11 +2,18 @@
 This is the change log for kmahjongg.
 
 Personel
-    Michael Haertjens: Solvable game generation
+	Albert Astals Cid: Some bug fixes and wishlists
+	Michael Haertjens: Solvable game generation
 	David Black: Fold, spindle and mutilate 0.4.1 to 0.5.0	
 	Osvaldo Stark: Tileset creator, doc guinepig and tester 0.5.0
 	Robert Williams: Bug fixes 0.4.0 to 0.4.1
 	Mathias Muller: Implementor of the original kmahjongg.
+
+0.7.4 to 0.7.6
++ Fix bug #73944
++ Implement wishlist #63171
++ Implement wishlist #56607
++ Fix bug #26595
 
 0.7.3 to 0.7.4
 + Fixed bug #31639 Kmahjongg flashes wrong tiles.
