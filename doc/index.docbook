@@ -1,12 +1,12 @@
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
- <!ENTITY kappname "&kmahjongg;">
- <!ENTITY % English "INCLUDE">
- <!ENTITY % addindex "IGNORE">
- <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
- %ents;
+<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+  <!ENTITY kappname "&kmahjongg;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE" -- change language only here -->
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
+  %ents;
 ]>
-
 <book lang="&language;">
+ 
 <bookinfo>
 <title>The &kmahjongg; Handbook</title>
 <authorgroup>
@@ -22,6 +22,8 @@
 <year>1998</year><year>2000</year>
 <holder>Mathias Mueller</holder>
 </copyright>
+
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 
 <legalnotice>&FDLNotice;</legalnotice>
 
@@ -51,6 +53,11 @@ tiles block them on the left or right side.</para>
 <para>This game requires a 256 (or more) color display and a minimum resolution of
 640 x 480.</para>
 
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
 </chapter>
+
 
 </book>
