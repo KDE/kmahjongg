@@ -140,7 +140,7 @@ PrefsDlgData::PrefsDlgData
 	QButtonGroup* TilesGroup =
 	  new QButtonGroup( 1, Horizontal, i18n("Tiles"), this, "TilesGroup" );
 	QButtonGroup* KmahjonggGroup =
-	  new QButtonGroup( 1, Horizontal, i18n("Kmahjongg"), this, "KmahjonggGroup" );
+	  new QButtonGroup( 1, Horizontal, i18n("KMahjongg"), this, "KmahjonggGroup" );
 
 	dlgTileBg = new QRadioButton( i18n("Tile"), BackgroundGroup, "tileRB" );
 	dlgScaleBg = new QRadioButton( i18n("Scale"), BackgroundGroup, "scaleRB" );

@@ -214,7 +214,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	          break;
 
 	    case theme:
-		     fileSelector = i18n("*.theme|Kmahjongg theme\n");
+		     fileSelector = i18n("*.theme|KMahjongg theme\n");
 		     setCaption(kapp->makeStdCaption(i18n("Choose Theme")));
 		     selectedFile="";
 

@@ -643,11 +643,11 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 
         if (res.isEmpty()) {
 		KMessageBox::error(this,
-			    i18n("Kmahjongg could not locate the file: ") +
+			    i18n("KMahjongg could not locate the file: ") +
 			    filename +
 			    i18n("\nOr the default file of type: ")+
 			    type +
-			    i18n("\nKmahjongg will now terminate") );
+			    i18n("\nKMahjongg will now terminate") );
 		exit(0);	
 	}
 }
@@ -692,7 +692,7 @@ void KMahjonggWidget::loadGame(void) {
     fscanf(outFile, "%s\n", buffer);
     if (buffer != gameMagic) {
 	KMessageBox::sorry(this,
-		i18n("File format not recognised."));
+		i18n("File format not recognized."));
 	fclose(outFile);
 	return;
     }
@@ -786,7 +786,7 @@ progress("Loading tileset");
 	KMessageBox::error(this,
 		   i18n("An error ocurred when loading the tileset file\n")+
 		   tFile +
-		   i18n("Kmahjongg will now terminate"));
+		   i18n("KMahjongg will now terminate"));
 	exit(0);
     }
 
@@ -799,7 +799,7 @@ progress("loading background image");
 	KMessageBox::error(this,
 		   i18n("An error ocurred when loading the background image\n")+
 		   tFile +
-		   i18n("Kmahjongg will now terminate"));
+		   i18n("KMahjongg will now terminate"));
 	exit(0);
     }
 
@@ -810,7 +810,7 @@ progress("loading layout");
 	KMessageBox::error(this,
 		   i18n("An error ocurred when loading the board layout\n")+
 		   tFile +
-		   i18n("Kmahjongg will now terminate"));
+		   i18n("KMahjongg will now terminate"));
 	exit(0);
     }
     setDisplayedWidth();	
