@@ -56,7 +56,7 @@ void GameTimer::showTime()
     display( s );				// set LCD number/text
 }
 
-void GameTimer::start(void) {
+void GameTimer::start() {
 	theTimer.setHMS(0,0,0);
 	timerMode = running;
 }
@@ -70,11 +70,11 @@ void GameTimer::fromString(const char*tim) {
 }
 
 
-void GameTimer::stop(void) {
+void GameTimer::stop() {
 	timerMode = stopped;
 }
 
-void GameTimer::pause(void) {
+void GameTimer::pause() {
 
 	if (timerMode == stopped)
 		return;
@@ -86,7 +86,7 @@ void GameTimer::pause(void) {
 	}
 }
 
-int GameTimer::toInt(void) {
+int GameTimer::toInt() {
 
 	return (theTimer.second()+
 		theTimer.minute()*60+

@@ -49,16 +49,16 @@ public slots:
 
 protected slots:
 	void nameChanged(const QString &s);
-	void reset(void);
+	void reset();
 private:
 	void 		addRow(int num);	// generate one table row 
-	void		loadTables(void);	// initialise from saved
-	void		saveTables(void);	// save to disc.
+	void		loadTables();	// initialise from saved
+	void		saveTables();	// save to disc.
 	void		getBoardName(QString in, QString &out);
 	void 		selectTable(const QString &name);
 	void		setComboTo(const QString &to);
 	void		copyTableToScreen(const QString &name);
-	QString		&highScoreFile(void);
+	QString		&highScoreFile();
 	
 	int 		selectedLine;
 	QLineEdit   	*lineEdit;

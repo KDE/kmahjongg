@@ -64,18 +64,18 @@ class KMahjongg : public KMainWindow
         void gameOver( unsigned short removed, unsigned short cheats);
 	void loadBoardLayout(const QString&);
 	void setDisplayedWidth();
-	void newGame(void);
-	void timerReset(void);
+	void newGame();
+	void timerReset();
 
-	void tileSizeChanged(void);
+	void tileSizeChanged();
 
 
 private slots:
   void showSettings();
 
   void startNewNumeric();
-  void saveGame(void);
-  void loadGame(void);
+  void saveGame();
+  void loadGame();
   void restartGame();
   void undo();
   void redo();

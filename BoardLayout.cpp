@@ -18,7 +18,7 @@ BoardLayout::~BoardLayout()
 {
 }
 
-void BoardLayout::clearBoardLayout(void) {
+void BoardLayout::clearBoardLayout() {
 	loadedBoard="";
 	initialiseBoard();	
 }
@@ -98,7 +98,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
     }
 }
 
-void BoardLayout::initialiseBoard(void) {
+void BoardLayout::initialiseBoard() {
 
     short z=0;
     short x=0;          // Rand lassen.
@@ -150,14 +150,14 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
     n = maxTileNum;
 }
 
-const char* BoardLayout::getBoardLayout(void)
+const char* BoardLayout::getBoardLayout()
 {
 	return loadedBoard.ascii();
 }    
 
 
 
-void BoardLayout::shiftLeft(void) {
+void BoardLayout::shiftLeft() {
     for (int z=0; z<depth; z++) {
 	for (int y=0; y<height; y++) {
 	    UCHAR keep=board[z][y][0];
@@ -177,7 +177,7 @@ void BoardLayout::shiftLeft(void) {
 }
 
 
-void BoardLayout::shiftRight(void) {
+void BoardLayout::shiftRight() {
     for (int z=0; z<depth; z++) {
 	for (int y=0; y<height; y++) {
 	    UCHAR keep=board[z][y][width-2];
@@ -195,7 +195,7 @@ void BoardLayout::shiftRight(void) {
 	}
     }
 }
-void BoardLayout::shiftUp(void) {
+void BoardLayout::shiftUp() {
     for (int z=0; z<depth; z++) {
 	// remove tiles going off the top
 	for (int x=0; x<width; x++) {
@@ -219,7 +219,7 @@ void BoardLayout::shiftUp(void) {
 }
 
 
-void BoardLayout::shiftDown(void) {
+void BoardLayout::shiftDown() {
     for (int z=0; z<depth; z++) {
 	// remove tiles going off the top
 	for (int x=0; x<width; x++) {

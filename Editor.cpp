@@ -188,7 +188,7 @@ void Editor::setupToolbar()
 
 }
 
-void Editor::statusChanged(void) {
+void Editor::statusChanged() {
 	bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
 	theLabel->setText(statusText());
  	topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave);
@@ -245,7 +245,7 @@ void Editor::topToolbarOption(int option) {
 
 }
 
-QString Editor::statusText(void) {
+QString Editor::statusText() {
 	QString buf;
 
 	int x=currPos.x;
@@ -265,7 +265,7 @@ QString Editor::statusText(void) {
 }
 
 
-void Editor::loadBoard(void) {
+void Editor::loadBoard() {
 
     if ( !testSave() )
 	return;
@@ -289,7 +289,7 @@ void Editor::loadBoard(void) {
 
 // Clear out the contents of the board. Repaint the screen
 // set values to their defaults.
-void Editor::newBoard(void) {
+void Editor::newBoard() {
     if (!testSave())
 	return;
 
@@ -305,7 +305,7 @@ void Editor::newBoard(void) {
     repaint(false);
 }
 
-bool Editor::saveBoard(void) {
+bool Editor::saveBoard() {
     // get a save file name
     KURL url = KFileDialog::getSaveURL(
 				NULL,
@@ -346,7 +346,7 @@ bool Editor::saveBoard(void) {
 
 // test if a save is required and return true if the app is to continue
 // false if cancel is selected. (if ok then call out to save the board
-bool Editor::testSave(void)
+bool Editor::testSave()
 {
 
     if (clean)

@@ -137,17 +137,17 @@ void Preview::selectionChanged(int which) {
 	markChanged();
 }
 
-bool Preview::isChanged(void)
+bool Preview::isChanged()
 {
 	return changed;
 }
 
-void Preview::markChanged(void)
+void Preview::markChanged()
 {
 	changed = true;
 }
 
-void Preview::markUnchanged(void)
+void Preview::markUnchanged()
 {
 	changed = false;
 }
@@ -262,19 +262,19 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	drawPreview();
 }
 
-void Preview::apply(void) {
+void Preview::apply() {
 	if (isChanged()) {
 		applyChange();
 		markUnchanged();
 	}
 }
 
-void Preview::ok(void) {
+void Preview::ok() {
 	apply();
 	accept();
 }
 
-void Preview::load(void) {
+void Preview::load() {
     KURL url = KFileDialog::getOpenURL(
                                 NULL,
 				fileSelector,
@@ -293,7 +293,7 @@ void Preview::load(void) {
 // of preview dialog we pick up the selected file for one of these
 // chaps.
 
-void Preview::drawPreview(void) {
+void Preview::drawPreview() {
     QString tile = "pics/" + Prefs::tileSet();
     QString back = "pics/" + Prefs::background();
     QString layout = "pics/" + Prefs::layout();
@@ -398,7 +398,7 @@ void Preview::parseFile(const QString &in, QString &out) {
 // the user selected ok, or apply. This method passes the changes
 // across to the game widget and if necessary forces a board redraw
 // (unnecessary on layout changes since it only effects the next game)
-void Preview::applyChange(void) {
+void Preview::applyChange() {
 
     switch (previewType) {
 	case background:
@@ -502,7 +502,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
 }
 
 // this really does not belong here. It will be fixed in v1.1 onwards
-void Preview::saveTheme(void) {
+void Preview::saveTheme() {
     QString tile = "pics/" + Prefs::tileSet();
     QString back = "pics/" + Prefs::background();
     QString layout = "pics/" + Prefs::layout();

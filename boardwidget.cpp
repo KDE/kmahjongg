@@ -691,7 +691,7 @@ void BoardWidget::stopMatchAnimation()
     matchCount = 0;
 }
 
-void BoardWidget::redoMove(void)
+void BoardWidget::redoMove()
 {
 
 	setRemovedTilePair(Game.MoveList[Game.TileNum-1],Game.MoveList[Game.TileNum-2]);
@@ -1265,7 +1265,7 @@ void BoardWidget::getFaces(POSITION &a, POSITION &b) {
 	}
 }
 
-void BoardWidget::randomiseFaces(void) {
+void BoardWidget::randomiseFaces() {
 	int nr;
 	int numAlloced=0;
 	// stick in 144 tiles in pairsa.
@@ -1886,7 +1886,7 @@ void BoardWidget::clearRemovedTilePair(POSITION &a, POSITION &b) {
 
 
 // ---------------------------------------------------------
-void BoardWidget::initialiseRemovedTiles(void) {
+void BoardWidget::initialiseRemovedTiles() {
 	for (int pos=0; pos<9; pos++) {
 		removedCharacter[pos]=0;
 		removedBamboo[pos]=0;
@@ -1920,7 +1920,7 @@ bool BoardWidget::loadBoardLayout(const QString &file) {
   return false;
 }
 
-void BoardWidget::updateScaleMode(void) {
+void BoardWidget::updateScaleMode() {
 
 
 	theBackground.scaleModeChanged();
@@ -1929,20 +1929,20 @@ void BoardWidget::updateScaleMode(void) {
 
 
 // calculate the required window width (board + removed tiles)
-int BoardWidget::requiredWidth(void) {
+int BoardWidget::requiredWidth() {
 	int res = ((BoardLayout::width+12)* theTiles.qWidth());
 
 	return(res);
 }
 
 // calculate the required window height (board + removed tiles)
-int BoardWidget::requiredHeight(void) {
+int BoardWidget::requiredHeight() {
 
 	int res = ((BoardLayout::height+3)* theTiles.qHeight());
 	return(res);
 }
 
-void BoardWidget::tileSizeChanged(void) {
+void BoardWidget::tileSizeChanged() {
 	theTiles.setScaled(Prefs::miniTiles());
 	theBackground.sizeChanged(requiredWidth(), requiredHeight());
 
@@ -1950,7 +1950,7 @@ void BoardWidget::tileSizeChanged(void) {
 
 // shuffle the remaining tiles around, useful if a deadlock ocurrs
 // this is a big cheat so we penalise the user.
-void BoardWidget::shuffle(void) {
+void BoardWidget::shuffle() {
 	int count = 0;
 	// copy positions and faces of the remaining tiles into
 	// the pos table

@@ -21,7 +21,7 @@ public:
 	FrameImage(QWidget *parent=NULL, const char *name = NULL);
 	~FrameImage();
 	void setGeometry(int x, int y, int w, int h);
-	QPixmap *getPreviewPixmap(void) {return thePixmap;};
+	QPixmap *getPreviewPixmap() {return thePixmap;};
 	void setRect(int x, int y, int w, int h, int ss, int type);
 signals:
 	void mousePressed(QMouseEvent *e);
@@ -58,16 +58,16 @@ public:
     virtual ~Preview();
 
     void initialise(const PreviewType type, const char *extension);
-	void saveTheme(void);
+	void saveTheme();
 
 
 protected:
-	void markUnchanged(void);
-	void markChanged(void);
-	bool isChanged(void);
-	QPixmap *getPreviewPixmap(void) {return drawFrame->getPreviewPixmap();};
-	virtual void drawPreview(void);
-        void applyChange(void) ;
+	void markUnchanged();
+	void markChanged();
+	bool isChanged();
+	QPixmap *getPreviewPixmap() {return drawFrame->getPreviewPixmap();};
+	virtual void drawPreview();
+        void applyChange() ;
         void renderBackground(const QString &bg);
         void renderTiles(const QString &file, const QString &layout);
 	void paintEvent( QPaintEvent* pa );
@@ -76,7 +76,7 @@ signals:
         void loadTileset(const QString &);
         void loadBackground(const QString &, bool);
 	void loadBoard(const QString &);
-	void layoutChange(void);
+	void layoutChange();
 
 
 public slots:
@@ -85,9 +85,9 @@ public slots:
 protected slots:
 
 private slots:
-	void apply(void);
-	void ok(void);
-	void load(void);
+	void apply();
+	void ok();
+	void load();
 
 protected:
         FrameImage * drawFrame;

@@ -94,15 +94,15 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
                 SLOT( gameOver(unsigned short , unsigned short)));
 
 
-    connect(bw, SIGNAL(gameCalculated(void)),
-      this, SLOT(timerReset(void)));
+    connect(bw, SIGNAL(gameCalculated()),
+      this, SLOT(timerReset()));
 
     // Make connections for the preview load dialog
     connect( previewLoad, SIGNAL( boardRedraw(bool) ),
               bw,   SLOT( drawBoard(bool) ) );
 
-    connect( previewLoad, SIGNAL( layoutChange(void) ),
-              this,   SLOT( newGame(void) ) );
+    connect( previewLoad, SIGNAL( layoutChange() ),
+              this,   SLOT( newGame() ) );
 
 
     connect( previewLoad, SIGNAL( loadBackground(const QString&, bool) ),
@@ -134,15 +134,15 @@ void KMahjongg::setupKAction()
     KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(this, SLOT(restartGame()), actionCollection());
-    (void)new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
-    (void)new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
-    (void)new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
-    (void)new KAction(i18n("Open &Background..."), 0, this, SLOT(openBackground()), actionCollection(), "game_open_background");
-    (void)new KAction(i18n("Open La&yout..."), 0, this, SLOT(openLayout()), actionCollection(), "game_open_layout");
-    (void)new KAction(i18n("Sa&ve Theme..."), 0, this, SLOT(saveTheme()), actionCollection(), "game_save_theme");
+    new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
+    new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
+    new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
+    new KAction(i18n("Open &Background..."), 0, this, SLOT(openBackground()), actionCollection(), "game_open_background");
+    new KAction(i18n("Open La&yout..."), 0, this, SLOT(openLayout()), actionCollection(), "game_open_layout");
+    new KAction(i18n("Sa&ve Theme..."), 0, this, SLOT(saveTheme()), actionCollection(), "game_save_theme");
     // originally "file" ends here
     KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
-    (void)new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "move_shuffle");
+    new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "move_shuffle");
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "options_show_matching_tiles");
     showMatchingTilesAction->setCheckedState(i18n("Hide &Matching Tiles"));
@@ -158,7 +158,7 @@ void KMahjongg::setupKAction()
     redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+    new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
@@ -317,7 +317,7 @@ void KMahjongg::slotBoardEditor()
 // we don't make startNewGame a slot because it has a default
 // param.
 
-void KMahjongg::newGame(void)
+void KMahjongg::newGame()
 {
     startNewGame();
 }
@@ -342,7 +342,7 @@ void KMahjongg::startNewGame( int item )
 }
 
 // ---------------------------------------------------------
-void KMahjongg::timerReset(void) {
+void KMahjongg::timerReset() {
 
 	// initialise the scoring system
 	gameElapsedTime = 0;
@@ -447,13 +447,13 @@ void KMahjongg::loadBoardLayout(const QString &file) {
 	bw->loadBoardLayout(file);
 }
 
-void KMahjongg::tileSizeChanged(void) {
+void KMahjongg::tileSizeChanged() {
 	bw->tileSizeChanged();
 	setDisplayedWidth();
 }
 
 
-void KMahjongg::loadGame(void) {
+void KMahjongg::loadGame() {
 	GAMEDATA in;
 	char buffer[1024];
     QString fname;
@@ -515,7 +515,7 @@ void KMahjongg::restartGame() {
     }
 }
 
-void KMahjongg::saveGame(void) {
+void KMahjongg::saveGame() {
 
     // Get the name of the file to save
     KURL url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save Game" ) );

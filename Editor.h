@@ -40,17 +40,17 @@ protected:
 	enum {remove=98, insert=99, move=100};
 	void paintEvent( QPaintEvent* pa );
 	void setupToolbar();
-	void loadBoard(void);
-	bool saveBoard(void);
-	void newBoard(void);
+	void loadBoard();
+	bool saveBoard();
+	void newBoard();
 	void drawBackground(QPixmap *to);
 	void drawTiles(QPixmap *to);
-	bool testSave(void);
+	bool testSave();
 	void transformPointToPosition(const QPoint &, POSITION &, bool align);
 	void drawCursor(POSITION &p, bool visible);
 	bool canInsert(POSITION &p);
-	void statusChanged(void);
-	QString statusText(void);
+	void statusChanged();
+	QString statusText();
 private:
 	int mode;
 	int numTiles;

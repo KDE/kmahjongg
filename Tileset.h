@@ -18,12 +18,12 @@ class Tileset {
 
      QRgb *tile(short tnum);
      QRgb *selectedTile(short tnum);
-     short width(void) {return w/divisor;};
-     short height(void) {return h/divisor;};
-     short shadowSize(void) {return ss/divisor;};
-     short size(void) {return s;};
-     short qWidth(void) {return qw/divisor;};
-     short qHeight(void) {return qh/divisor;};
+     short width() {return w/divisor;};
+     short height() {return h/divisor;};
+     short shadowSize() {return ss/divisor;};
+     short size() {return s;};
+     short qWidth() {return qw/divisor;};
+     short qHeight() {return qh/divisor;};
 
 
      QPixmap *selectedPixmaps(int num) {

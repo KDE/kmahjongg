@@ -45,7 +45,7 @@ bool Background::load(const QString &file, short width, short height) {
 }
 
 // slot used when tile/scale option changes
-void Background::scaleModeChanged(void) {
+void Background::scaleModeChanged() {
 	sourceToBackground();
 }
 
@@ -57,7 +57,7 @@ void Background::sizeChanged(int newW, int newH) {
 	sourceToBackground();
 }
 
-void Background::sourceToBackground(void) {
+void Background::sourceToBackground() {
 
   // Deallocate the old image and create the new one
   if (!backgroundImage->isNull())

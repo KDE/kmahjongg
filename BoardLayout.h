@@ -32,13 +32,13 @@ public:
   
 
 
-    const char *getBoardLayout(void);
+    const char *getBoardLayout();
     void copyBoardLayout(UCHAR *to , unsigned short &numTiles); 
-    void clearBoardLayout(void);
-    void shiftLeft(void);
-    void shiftRight(void);
-    void shiftUp(void);
-    void shiftDown(void);
+    void clearBoardLayout();
+    void shiftLeft();
+    void shiftRight();
+    void shiftUp();
+    void shiftDown();
 
  
      enum { width = 32,
@@ -46,11 +46,11 @@ public:
             depth = 5 };
      enum { maxTiles = (depth*width*height)/4 };
 
-     QString &getFilename(void) {return filename;};
+     QString &getFilename() {return filename;};
      
 protected:
 
-    void initialiseBoard(void); 
+    void initialiseBoard(); 
 
 private:
     QString filename;

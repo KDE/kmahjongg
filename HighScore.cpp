@@ -198,7 +198,7 @@ HighScore::~HighScore()
 // saved hi score tables file. If no such file exists then
 // return a single default hiscore table.
 
-void HighScore::loadTables(void) {
+void HighScore::loadTables() {
 	char buff[1024];
 
 	// open the file, on error set up the default table
@@ -250,7 +250,7 @@ error:
 	return;
 }
 
-void HighScore::saveTables(void) {
+void HighScore::saveTables() {
 
 	TableInstance *p;
 	int	      num = 0;
@@ -492,7 +492,7 @@ void HighScore::selectionChanged(int ) {
 // before acting
 
 
-void HighScore::reset(void) {
+void HighScore::reset() {
 
         int res=KMessageBox::warningYesNo(this,
                         i18n("Resetting the high scores will "
@@ -535,7 +535,7 @@ void HighScore::reset(void) {
 	copyTableToScreen("default");
 }
 
-QString &HighScore::highScoreFile(void) {
+QString &HighScore::highScoreFile() {
 	return filename;
 
 } 

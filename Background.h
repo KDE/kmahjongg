@@ -17,11 +17,11 @@ class Background
     
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
-    void scaleModeChanged(void);
-    QPixmap *getBackground(void) {return backgroundPixmap;};
-    QPixmap *getShadowBackground(void) {return backgroundShadowPixmap;};
+    void scaleModeChanged();
+    QPixmap *getBackground() {return backgroundPixmap;};
+    QPixmap *getShadowBackground() {return backgroundShadowPixmap;};
  private:
-    void sourceToBackground(void);
+    void sourceToBackground();
 
     int tileMode;    // scale background = 0, tile = 1
     QImage *backgroundImage;

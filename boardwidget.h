@@ -103,7 +103,7 @@ class BoardWidget : public QWidget
 
         void calculateNewGame(int num = -1 );
         int  undoMove();
-	void redoMove(void);
+	void redoMove();
         void startDemoMode();
         void stopDemoMode();
 
@@ -112,17 +112,17 @@ class BoardWidget : public QWidget
 
         void animateMoveList();
         void setShowMatch( bool );
-	void tileSizeChanged(void);
-	long getGameNum(void) {return gameGenerationNum;};
-	QString &getBoardName(void){return theBoardLayout.getFilename();};
-	QString &getLayoutName(void) {return theBoardLayout.getFilename();};
+	void tileSizeChanged();
+	long getGameNum() {return gameGenerationNum;};
+	QString &getBoardName(){return theBoardLayout.getFilename();};
+	QString &getLayoutName() {return theBoardLayout.getFilename();};
 
 
     public slots:
 	void loadSettings();
         void saveSettings();
 
-	void shuffle(void);
+	void shuffle();
         void helpMove();
         void helpMoveTimeout();
 	void helpMoveStop();
@@ -132,7 +132,7 @@ class BoardWidget : public QWidget
         bool loadTileset    ( const QString & );
         bool loadBoardLayout( const QString& );
         bool loadBoard      ( );
-        void updateScaleMode (void);
+        void updateScaleMode ();
         void drawBoard(bool deferUpdate = true);
         bool loadBackground ( const QString&, bool bShowError = true );
     signals:
@@ -140,7 +140,7 @@ class BoardWidget : public QWidget
         void tileNumberChanged ( int iMaximum, int iCurrent, int iLeft );
         void demoModeChanged   ( bool bActive );
 
-	void gameCalculated(void);
+	void gameCalculated();
 
 		void gameOver(unsigned short removed, unsigned short cheats);
     protected:
@@ -169,16 +169,16 @@ class BoardWidget : public QWidget
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 	void stackTiles(unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
-	void initialiseRemovedTiles(void);
+	void initialiseRemovedTiles();
 
-	int requiredWidth(void);
-	int requiredHeight(void);
+	int requiredWidth();
+	int requiredHeight();
 
 	void calcShadow(int e, int y, int x, int &left, int &right, int &corn);
 
 
 	// new bits for game generation
-	void randomiseFaces(void);
+	void randomiseFaces();
 	int tilesAllocated;
 	int tilesUsed;
 	void getFaces(POSITION &a, POSITION &b);

@@ -27,8 +27,8 @@ class GameTimer: public QLCDNumber
 public:
     GameTimer( QWidget *parent=0, const char *name=0 );
 
-    int toInt(void); 
-    QString toString(void) {return theTimer.toString();};	
+    int toInt(); 
+    QString toString() {return theTimer.toString();};	
     void fromString(const char *);
 
 protected:					// event handlers
