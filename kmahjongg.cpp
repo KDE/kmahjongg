@@ -38,6 +38,8 @@
 
 #include "kmahjongg.moc"
 #include "version.h"
+#include <kconfig.h>
+#include <kmenubar.h>
 
 //----------------------------------------------------------
 // Defines
