@@ -5,7 +5,7 @@
     kmahjongg, the classic mahjongg game for KDE project
 
     Requires the Qt widget libraries, available at no cost at
-    http://www.troll.no 
+    http://www.troll.no
 
     Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
 
@@ -13,15 +13,15 @@
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-  
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-  
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.    
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 */
 
@@ -34,7 +34,7 @@ class QLabel;
 #include <qfiledlg.h>
 
 #include <kapp.h>
-#include <kmessagebox.h> 
+#include <kmessagebox.h>
 #include <krandomsequence.h>
 
 #include <ktmainwindow.h>
@@ -43,7 +43,7 @@ class QLabel;
 #include "Background.h"
 #include "Preferences.h"
 #include "PrefsDlg.h"
-#include "GameTimer.h" 
+#include "GameTimer.h"
 #include "GameNum.h"
 #include "BoardLayout.h"
 #include "Preview.h"
@@ -64,17 +64,17 @@ static const char *gameMagic = "kmahjongg-game-v1.0";
 typedef struct gamedata {
     int      allow_undo;
     int      allow_redo;
-    UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width]; 
-    USHORT   TileNum;          
-    USHORT   MaxTileNum;       
+    UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+    USHORT   TileNum;
+    USHORT   MaxTileNum;
     UCHAR    Mask[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
     UCHAR    hilighted[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
     POSITION MoveList[BoardLayout::maxTiles];
     void putTile( short e, short y, short x, UCHAR f )
     {
-	    
+	
 
-        Board[e][y][x] = Board[e][y+1][x] = 
+        Board[e][y][x] = Board[e][y+1][x] =
 		   Board[e][y+1][x+1] = Board[e][y][x+1] = f;
     }
     void putTile( POSITION& pos )
@@ -94,7 +94,7 @@ typedef struct gamedata {
     int shadowHeight(int z, int y, int x) {
 
 
-    if ((z>=BoardLayout::depth||y>=BoardLayout::height||x>=BoardLayout::width)) 
+    if ((z>=BoardLayout::depth||y>=BoardLayout::height||x>=BoardLayout::width))
 	return 0;
 	
 
@@ -114,8 +114,8 @@ typedef struct gamedata {
 	}
 	return h;
     }
-    
-    
+
+
 } GAMEDATA;
 
 
@@ -149,7 +149,7 @@ class BoardWidget : public QWidget
         void setShowMatch( bool );
 	void tileSizeChanged(void);
 	long getGameNum(void) {return gameGenerationNum;};
-	QString &getBoardName(void){return theBoardLayout.getFilename();}; 
+	QString &getBoardName(void){return theBoardLayout.getFilename();};
 	QString &getLayoutName(void) {return theBoardLayout.getFilename();};
 
 	
@@ -199,7 +199,7 @@ class BoardWidget : public QWidget
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 	void stackTiles(unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
-	void initialiseRemovedTiles(void); 
+	void initialiseRemovedTiles(void);
 
 	int requiredWidth(void);
 	int requiredHeight(void);
@@ -216,7 +216,7 @@ class BoardWidget : public QWidget
 	
 	KRandomSequence random;
 	
-	Tileset  theTiles;         
+	Tileset  theTiles;
 	Background theBackground;
 	
 	
@@ -263,7 +263,7 @@ class BoardWidget : public QWidget
 	unsigned char removedSeason[4];
 	
 public:
-        GAMEDATA Game;         
+        GAMEDATA Game;
 };
 
 
@@ -272,7 +272,7 @@ public:
 
 /**
     ...
-    @author Mathias 
+    @author Mathias
 */
 class KMahjonggWidget : public KTMainWindow
 {
@@ -292,7 +292,7 @@ class KMahjonggWidget : public KTMainWindow
         void showTileNumber( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
 		void gameOver( unsigned short removed, unsigned short cheats);
- 	void statusBarMode(int onOff); 
+ 	void statusBarMode(int onOff);
 	void backgroundMode();
 	void loadBoardLayout(const char *);
 	void setDisplayedWidth();
@@ -336,7 +336,7 @@ class KMahjonggWidget : public KTMainWindow
         bool         bDemoModeActive;
 };
 
-			    
+			
 
 
 #endif
