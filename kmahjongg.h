@@ -33,7 +33,7 @@ class QLabel;
 
 #include <qfiledialog.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <kmessagebox.h>
 #include <krandomsequence.h>
 
