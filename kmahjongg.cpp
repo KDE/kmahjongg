@@ -273,10 +273,10 @@ void KMahjonggWidget::setupToolBar()
 	toolBar->insertButton(BarIcon("redo"),
 		ID_EDIT_REDO, TRUE, i18n("Redo move."));
 	// pause
-	toolBar->insertButton(UserIcon("pause"),
+	toolBar->insertButton(BarIcon("player_pause"),
 		ID_GAME_PAUSE, TRUE, i18n("Pause game."));
 	// play
-	toolBar->insertButton(UserIcon("play"),
+	toolBar->insertButton(BarIcon("1rightarrow"),
 		ID_GAME_CONTINUE, TRUE, i18n("Play game."));
 	// Show hint
 
@@ -344,8 +344,7 @@ void KMahjonggWidget::updateStatusbar( bool bShow )
 void KMahjonggWidget::setDisplayedWidth() {
     bw->setDisplayedWidth();
     setFixedSize( bw->size() +
-                  QSize( 2,
-				  	(preferences.showStatus() ? pStatusBar->height() : 0)
+                  QSize( 2, (preferences.showStatus() ? pStatusBar->height() : 0)
                      + 2 + pMenuBar->height() ) );
 	toolBar->setFixedWidth(bw->width());
 	toolBar->alignItemRight( ID_GAME_TIMER, true );
@@ -359,38 +358,38 @@ void KMahjonggWidget::setupMenuBar()
 
   // set up the file menu
   QPopupMenu *file = new QPopupMenu;
-  file->insertItem(i18n("New game"), ID_FILE_NEW);
+  file->insertItem(SmallIcon("filenew"), i18n("New game"), ID_FILE_NEW);
   file->insertItem(i18n("New numbered game..."), ID_FILE_NEW_NUMERIC);
   file->insertSeparator();
-  file->insertItem(i18n("&Open Game... "), ID_FILE_LOAD_GAME);
+  file->insertItem(SmallIcon("fileopen"), i18n("&Open Game... "), ID_FILE_LOAD_GAME);
   file->insertItem(i18n("Open The&me..."), ID_FILE_LOAD_THEME);
   file->insertItem(i18n("Open &Tileset..."), ID_FILE_LOAD_TILESET);
   file->insertItem(i18n("Open &Background..."), ID_FILE_LOAD_BACKGND);
   file->insertItem( i18n("Open &Layout..."), ID_FILE_LOAD_BOARD );
   file->insertSeparator();
   file->insertItem(i18n("&Save Theme..."), ID_FILE_SAVE_THEME);
-  file->insertItem(i18n("&Save Game..."), ID_FILE_SAVE_GAME);
+  file->insertItem(SmallIcon("filesave"), i18n("&Save Game..."), ID_FILE_SAVE_GAME);
   file->insertSeparator();
-  file->insertItem(i18n("E&xit "), ID_FILE_EXIT);
+  file->insertItem(SmallIcon("exit"), i18n("E&xit "), ID_FILE_EXIT);
 
   QPopupMenu *edit = new QPopupMenu;
-  edit->insertItem(i18n("&Undo"), ID_EDIT_UNDO);
-  edit->insertItem(i18n("&Redo"), ID_EDIT_REDO);
+  edit->insertItem(SmallIcon("undo"), i18n("&Undo"), ID_EDIT_UNDO);
+  edit->insertItem(SmallIcon("redo"), i18n("&Redo"), ID_EDIT_REDO);
   edit->insertSeparator();
   edit->insertItem(i18n("&Board editor..."), ID_EDIT_BOARD_EDIT);
   edit->insertSeparator();
-  edit->insertItem(i18n("&Preferences..."), ID_EDIT_PREFS);
+  edit->insertItem(SmallIcon("configure"), i18n("&Preferences..."), ID_EDIT_PREFS);
 
 
   QPopupMenu *game = new QPopupMenu;
   game->insertItem( i18n("&Help me"),           ID_GAME_HELP );
-  game->insertItem( i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
+  game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
   game->insertItem( i18n("&Demo mode"),         ID_GAME_DEMO );
   game->insertItem( i18n("Show &matching tiles"), ID_GAME_SHOW );
   game->insertItem( i18n("&Show Hiscores..."), ID_GAME_SHOW_HISCORE );
   game->insertSeparator();
-  game->insertItem( i18n("&Pause"), ID_GAME_PAUSE );
-  game->insertItem( i18n("&Continue"), ID_GAME_CONTINUE );
+  game->insertItem( SmallIcon("player_pause"), i18n("&Pause"), ID_GAME_PAUSE );
+  game->insertItem( SmallIcon("1rightarrow"), i18n("&Continue"), ID_GAME_CONTINUE );
 
   QPopupMenu *help = helpMenu(QString(i18n("Mahjongg"))
            + " " + KMAHJONGG_VERSION
