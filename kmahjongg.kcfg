@@ -42,7 +42,7 @@
       <default>true</default>
     </entry>
     <entry name="ShowMatchingTiles" type="Bool">
-      <label>Whether an matching tiles are shown.</label>
+      <label>Whether matching tiles are shown.</label>
       <default>false</default>
     </entry>
   </group>
