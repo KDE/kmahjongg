@@ -8,6 +8,7 @@ Exec=kmahjongg -caption "%c"
 Type=Application
 DocPath=kmahjongg/index.html
 Comment=Smart mahjongg game
+Comment[sv]=Smart mahjongg-spel
 Comment[is_IS]=kmahjongg:  Öflugur mahjongg leikur
 Comment[es]=Un juego de inteligencia
 Comment[fr]=Un beau jeu de Mahjongg
