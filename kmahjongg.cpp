@@ -36,6 +36,7 @@
 
 #include "kmahjongg.moc"
 #include "version.h"
+#include <klocale.h>
 
 //----------------------------------------------------------
 // Defines
