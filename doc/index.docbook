@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kmahjongg;">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
@@ -27,7 +28,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>06/06/1998</date>
+<date>1998-06-06</date>
 <releaseinfo>0.04.00</releaseinfo>
 <abstract>
 <para>This documentation was last updated for kmahjongg version 0.4.0.
