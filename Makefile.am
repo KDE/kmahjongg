@@ -43,7 +43,7 @@ uninstall-local:
 	-rm -f $(kde_minidir)/kmahjongg.xpm
 
 messages:
-	@XGETTEXT@ -ktranslate -ki18n -x../../kdelibs/po/kde.pot *.cpp && mv messages.po ../po/kmahjongg.pot
+	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
 
 kmahjongg.cpp:kmahjongg.moc
 kmahjongg.moc: kmahjongg.h
