@@ -49,6 +49,7 @@
 #include "Progress.h"
 
 #include <kaboutdata.h>
+#include <kpopupmenu.h>
 
 
 static const char *description = I18N_NOOP("KDE Game");
