@@ -78,9 +78,9 @@ void BoardWidget::loadSettings(){
   config->setGroup("General");
   showRemoved = config->readBoolEntry("Show_removed", false);
   miniTiles = config->readBoolEntry("Use_mini_tiles", false);
-  tileFile = config->readEntry("Tileset_file", "default.tileset");
-  backgroundFile = config->readEntry("Background_file", "default.bgnd");
-  layout = config->readEntry("Layout_file", "default.layout");
+  tileFile = config->readPathEntry("Tileset_file", "default.tileset");
+  backgroundFile = config->readPathEntry("Background_file", "default.bgnd");
+  layout = config->readPathEntry("Layout_file", "default.layout");
  
   //loadTileset(tileFile);
   //loadBoardLayout(layout);
@@ -102,9 +102,9 @@ void BoardWidget::saveSettings(){
   //KConfig *config=kapp->config();
   //config->setGroup("General");
   
-  //config->writeEntry("Tileset_file", tileFile);
-  //config->writeEntry("Background_file", backgroundFile);
-  //config->writeEntry("Layout_file", layout);
+  //config->writePathEntry("Tileset_file", tileFile);
+  //config->writePathEntry("Background_file", backgroundFile);
+  //config->writePathEntry("Layout_file", layout);
 }
 
 void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
