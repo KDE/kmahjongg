@@ -108,6 +108,7 @@ class BoardWidget : public QWidget
         void stopDemoMode();
 
 	void pause();
+	void gameLoaded();
 
         void animateMoveList();
         void setShowMatch( bool );
@@ -136,7 +137,6 @@ class BoardWidget : public QWidget
         bool loadBackground ( const QString&, bool bShowError = true );
     signals:
         void statusTextChanged ( const QString&, long );
-        void message           ( const QString& );
         void tileNumberChanged ( int iMaximum, int iCurrent, int iLeft );
         void demoModeChanged   ( bool bActive );
 
@@ -152,7 +152,6 @@ class BoardWidget : public QWidget
         void mousePressEvent ( QMouseEvent* );
 
         void setStatusText ( const QString& );
-        void showMessage   ( const QString& );
         void cancelUserSelectedTiles();
         void drawTileNumber();
 

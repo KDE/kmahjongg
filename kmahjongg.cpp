@@ -87,9 +87,6 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     connect( bw, SIGNAL( statusTextChanged(const QString&, long) ),
                  SLOT( showStatusText(const QString&, long) ) );
 
-    connect( bw, SIGNAL( message(const QString&) ),
-                 SLOT( showMessage(const QString&) ) );
-
     connect( bw, SIGNAL( tileNumberChanged(int,int,int) ),
                  SLOT( showTileNumber(int,int,int) ) );
 
@@ -414,12 +411,6 @@ void KMahjongg::showStatusText( const QString &msg, long board )
 }
 
 // ---------------------------------------------------------
-void KMahjongg::showMessage( const QString &msg )
-{
-    KMessageBox::information( this, msg );
-}
-
-// ---------------------------------------------------------
 void KMahjongg::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 {
     // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
@@ -516,7 +507,7 @@ void KMahjongg::loadGame(void) {
     KIO::NetAccess::removeTempFile( fname );
 
     // refresh the board
-    bw->drawBoard();
+    bw->gameLoaded();
 }
 
 void KMahjongg::restartGame() {

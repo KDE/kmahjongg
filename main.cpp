@@ -17,6 +17,7 @@ int main( int argc, char** argv )
     aboutData.addAuthor("Michael Haertjens", I18N_NOOP("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
     aboutData.addAuthor("Osvaldo Stark", I18N_NOOP("Tile set contributor and web page maintainer"), "starko@dnet.it");
     aboutData.addCredit("Benjamin Meyer", I18N_NOOP("Code cleanup"), "ben+kmahjongg@meyerhome.net");
+    aboutData.addCredit("Albert Astals Cid", 0, "astals11@terra.es");
     
     KCmdLineArgs::init( argc, argv, &aboutData );
 
