@@ -25,21 +25,30 @@
 
 */
 
+#include <string.h>
+
 //#include <qwmatrix.h>
 #include <qmsgbox.h>
 #include <qtimer.h> 
 #include <qaccel.h>
+
 #include <kiconloader.h>
-#include <string.h>
+#include <kglobal.h>
+#include <klocale.h>
+#include <kcmdlineargs.h>
+
 #include "kmahjongg.moc"
 #include "version.h"
 #include "PrefsDlg.h"
 #include "qpainter.h"
-#include <kglobal.h>
-#include <klocale.h>
 #include "kmenubar.h"
 #include "kstddirs.h"
 #include "Progress.h"
+
+
+static const char *description = I18N_NOOP("KDE Game");
+
+
 //----------------------------------------------------------
 // Defines
 //----------------------------------------------------------
@@ -59,14 +68,6 @@
 #define TILE_WIND        (31 + TILE_OFFSET)
 #define TILE_DRAGON      (36 + TILE_OFFSET)
 #define TILE_FLOWER      (39 + TILE_OFFSET)
-
-
-
-
-
-
-
-
 
 #define ID_FILE_NEW              101
 #define ID_FILE_LOAD_TILESET     102
@@ -100,15 +101,7 @@
 #define EXT_LAYOUT              "*.layout"
 #define EXT_THEME		"*.theme"
 
-// use this macro, to mark strings as candidates for translation
-// without generating code
-/*
-#undef i18n
-#define i18n( msg)              msg
-*/
-
 int debug_flag = 0;
-
 
 int is_paused = 0;
 
@@ -124,7 +117,9 @@ void progress(const char *foo) {
 // ---------------------------------------------------------
 int main( int argc, char** argv )
 {
-    KApplication a( argc, argv, "kmahjongg");
+    KCmdLineArgs::init(argc, argv, "kmahjongg", description, KMAHJONGG_VERSION);
+
+    KApplication a;
     
      splash = new Progress();
      splash->show();
