@@ -89,7 +89,6 @@ private slots:
   void openLayout();
   void openBackground();
   void openTileset();
-  void keyBindings();
 
 protected:
   void setupKAction();

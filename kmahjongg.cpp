@@ -31,7 +31,6 @@
 #include <kaction.h>
 #include <kconfigdialog.h>
 #include <kinputdialog.h>
-#include <kkeydialog.h>
 #include <kmenubar.h>
 #include <kmessagebox.h>
 #include <kstdgameaction.h>
@@ -167,7 +166,8 @@ void KMahjongg::setupKAction()
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
-    KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
+    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
 
     createGUI();
 }
@@ -246,11 +246,6 @@ void KMahjongg::showSettings(){
   connect(dialog, SIGNAL(settingsChanged()), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged()), this, SLOT(setDisplayedWidth()));
   dialog->show();
-}
-
-void KMahjongg::keyBindings()
-{
-    KKeyDialog::configure(actionCollection(), this);
 }
 
 void KMahjongg::demoMode()
