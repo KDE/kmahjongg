@@ -32,10 +32,6 @@ Preview::Preview
 	bottomGroup->setMaximumSize( 32767, 32767 );
 	bottomGroup->setFocusPolicy( QWidget::NoFocus );
 	bottomGroup->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300
-	bottomGroup->setFontPropagation( QWidget::NoChildren );
-	bottomGroup->setPalettePropagation( QWidget::NoChildren );
-#endif
 	bottomGroup->setFrameStyle( 49 );
 	bottomGroup->setTitle( "" );
 	bottomGroup->setAlignment( 1 );
@@ -46,10 +42,6 @@ Preview::Preview
 	topGroup->setMaximumSize( 32767, 32767 );
 	topGroup->setFocusPolicy( QWidget::NoFocus );
 	topGroup->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300
-	topGroup->setFontPropagation( QWidget::NoChildren );
-	topGroup->setPalettePropagation( QWidget::NoChildren );
-#endif
 	topGroup->setFrameStyle( 49 );
 	topGroup->setTitle( "" );
 	topGroup->setAlignment( 1 );
@@ -60,10 +52,6 @@ Preview::Preview
 	combo->setMaximumSize( 32767, 32767 );
 	combo->setFocusPolicy( QWidget::StrongFocus );
 	combo->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	combo->setFontPropagation( QWidget::AllChildren );
-	combo->setPalettePropagation( QWidget::AllChildren );
-#endif
 	combo->setSizeLimit( 10 );
 	connect( combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)) );
 
@@ -74,10 +62,6 @@ Preview::Preview
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
 	loadButton->setFocusPolicy( QWidget::TabFocus );
 	loadButton->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	loadButton->setFontPropagation( QWidget::NoChildren );
-	loadButton->setPalettePropagation( QWidget::NoChildren );
-#endif
 	loadButton->setText(i18n("Load"));
 	loadButton->setAutoRepeat( FALSE );
 
@@ -92,10 +76,6 @@ Preview::Preview
 	connect( okButton, SIGNAL(clicked()), SLOT(ok()) );
 	okButton->setFocusPolicy( QWidget::TabFocus );
 	okButton->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	okButton->setFontPropagation( QWidget::NoChildren );
-	okButton->setPalettePropagation( QWidget::NoChildren );
-#endif
 	okButton->setText( i18n("&OK") );
 	okButton->setAutoRepeat( FALSE );
         okButton->setDefault(true);
@@ -108,10 +88,6 @@ Preview::Preview
 	connect( applyButton, SIGNAL(clicked()), SLOT(apply()) );
 	applyButton->setFocusPolicy( QWidget::TabFocus );
 	applyButton->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	applyButton->setFontPropagation( QWidget::NoChildren );
-	applyButton->setPalettePropagation( QWidget::NoChildren );
-#endif
 	applyButton->setText( i18n("Apply") );
 	applyButton->setAutoRepeat( FALSE );
 
@@ -123,10 +99,6 @@ Preview::Preview
 	connect( cancelButton, SIGNAL(clicked()), SLOT(reject()) );
 	cancelButton->setFocusPolicy( QWidget::TabFocus );
 	cancelButton->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	cancelButton->setFontPropagation( QWidget::NoChildren );
-	cancelButton->setPalettePropagation( QWidget::NoChildren );
-#endif
 	cancelButton->setText( i18n("&Cancel") );
 	cancelButton->setAutoRepeat( FALSE );
 
@@ -136,10 +108,6 @@ Preview::Preview
 	drawFrame->setMaximumSize( 32767, 32767 );
 	drawFrame->setFocusPolicy( QWidget::NoFocus );
 	drawFrame->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
-	drawFrame->setFontPropagation( QWidget::NoChildren );
-	drawFrame->setPalettePropagation( QWidget::NoChildren );
-#endif
 	drawFrame->setFrameStyle( 49 );
 
 

@@ -58,10 +58,6 @@ Editor::Editor
     drawFrame->setMaximumSize( 32767, 32767 );
     drawFrame->setFocusPolicy( QWidget::NoFocus );
     drawFrame->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300
-    drawFrame->setFontPropagation( QWidget::NoChildren );
-    drawFrame->setPalettePropagation( QWidget::NoChildren );
-#endif
     drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 
