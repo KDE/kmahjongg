@@ -399,7 +399,9 @@ void KMahjonggWidget::setupMenuBar()
   game->insertItem( i18n("&Show Highscores..."), ID_GAME_SHOW_HISCORE );
   game->insertSeparator();
   game->insertItem( SmallIcon("player_pause"), i18n("&Pause"), ID_GAME_PAUSE );
+  game->setAccel(Key_P, ID_GAME_PAUSE);
   game->insertItem( SmallIcon("1rightarrow"), i18n("&Continue"), ID_GAME_CONTINUE );
+  game->setAccel(Key_C, ID_GAME_CONTINUE);
 
   QPopupMenu *help = helpMenu(QString(i18n("Mahjongg"))
            + " " + KMAHJONGG_VERSION
