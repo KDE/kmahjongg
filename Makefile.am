@@ -1,11 +1,6 @@
 
-####### Defines
 
 INCLUDES=	-I$(top_srcdir)/libkdegames $(all_includes)
-LDFLAGS	=	$(all_libraries) $(KDE_RPATH)
-LDADD   =       $(LIB_KDEGAMES) $(LIB_KFILE)
-
-####### Files
 
 SUBDIRS = pics 
 
@@ -15,7 +10,8 @@ kmahjongg_SOURCES = kmahjongg.cpp  \
 		Preferences.cpp Background.cpp \
 		PrefsDlg.cpp  Preview.cpp \
 		Editor.cpp HighScore.cpp Progress.cpp
-		
+kmahjongg_LDFLAGS =  $(all_libraries) $(KDE_RPATH)
+kmahjongg_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE)
 
 noinst_HEADERS = kmahjongg.h version.h
 
