@@ -264,7 +264,7 @@ void KMahjonggWidget::setupKAction()
     KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+    (void)new KAction(i18n("&Board Editor"), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
     KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection());
@@ -545,7 +545,7 @@ void KMahjonggWidget::closeEvent( QCloseEvent* e )
 void KMahjonggWidget::showStatusText( const QString &msg, long board )
 {
     statusLabel->setText(msg);
-    QString str = i18n("Game Number: %1").arg(board);
+    QString str = i18n("Game number: %1").arg(board);
     gameNumLabel->setText(str);
 
 }
