@@ -26,6 +26,8 @@ BINDIR = $(kde_bindir)
 PICSDIR = $(kde_datadir)/kmahjongg/pics
 DOCSDIR = $(kde_htmldir)/en/kmahjongg
 APPSDIR = $(kde_appsdir)/Games
+ICONDIR = $(kde_icondir)
+MINIDIR = $(kde_minidir)
 
 ####### Defines
 
@@ -71,6 +73,10 @@ install: all
 	$(INSTALL_DIR) $(PICSDIR)
 	$(INSTALL_DATA) kmahjongg.bmp         $(PICSDIR)
 	$(INSTALL_DATA) kmahjongg_bgnd.bmp    $(PICSDIR)
+	$(INSTALL_DIR) $(ICONDIR)
+	$(INSTALL_DATA) icon/kmahjongg.xpm    $(ICONDIR)
+	$(INSTALL_DIR) $(MINIDIR)
+	$(INSTALL_DATA) icon/mini/kmahjongg.xpm	$(MINIDIR)
 
 uninstall:
 	rm -f $(BINDIR)/$(TARGET)
@@ -78,6 +84,8 @@ uninstall:
 	rm -f $(APPSDIR)/kmahjongg.kdelnk
 	rm -f $(PICSDIR)/kmahjongg.bmp
 	rm -f $(PICSDIR)/kmahjongg_bgnd.bmp
+	rm -f $(ICONDIR)/kmahjongg.xpm
+	rm -f $(MINIDIR)/kmahjongg.xpm
 
 clean:
 	-rm -f *.o *.bak *~ *% #*
