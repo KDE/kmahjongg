@@ -29,4 +29,4 @@ KDE_ICON = kmahjongg
 EXTRA_DIST = $(apps_DATA) kmahjongg.desktop
 
 messages:
-	$(XGETTEXT) -C -kTRANS -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
+	$(XGETTEXT) -C -kTRANS -kI18N_NOOP -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot

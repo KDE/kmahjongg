@@ -45,6 +45,8 @@
 #include "kstddirs.h"
 #include "Progress.h"
 
+#include <kaboutdata.h>
+
 
 static const char *description = I18N_NOOP("KDE Game");
 
@@ -117,7 +119,11 @@ void progress(const char *foo) {
 // ---------------------------------------------------------
 int main( int argc, char** argv )
 {
-    KCmdLineArgs::init(argc, argv, "kmahjongg", description, KMAHJONGG_VERSION);
+    KAboutData aboutData( "kmahjongg", I18N_NOOP("KMahjongg"), 
+      KMAHJONGG_VERSION, description, KAboutData::GPL, 
+      "(c) 1997, Mathias Mueller");
+    aboutData.addAuthor("Mathias Mueller",0, "in5y158@public.uni-hamburg.de");
+    KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
     
