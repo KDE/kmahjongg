@@ -556,7 +556,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			repaint(false);
 		    }
 		break;
-		case insert:
+		case insert: {
 		    POSITION n = mPos;
 		    if (n.e == 100)
 			n.e = 0;
@@ -568,6 +568,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			statusChanged();
 			repaint(false);
 		    }
+		  }
 		break;
 		default:
 		break;
