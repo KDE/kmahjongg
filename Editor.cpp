@@ -176,7 +176,7 @@ void Editor::setupToolbar()
    connect( topToolbar,  SIGNAL(clicked(int) ), SLOT( topToolbarOption(int) ) );
 
     topToolbar->updateRects(0);
-     topToolbar->setFullWidth(true);
+     topToolbar->setFullSize(true);
     topToolbar->setBarPos(KToolBar::Top);
 //    topToolbar->enableMoving(false);
     topToolbar->adjustSize();
