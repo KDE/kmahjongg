@@ -265,21 +265,21 @@ const char *Editor::statusText(void) {
 
 void Editor::loadBoard(void) {
 
-    if (!testSave())
+    if ( !testSave() )
 	return;
 
-    QString file = KFileDialog::getOpenFileName( 
+    KURL url = KFileDialog::getOpenURL( 
 				NULL, 
 				"*.layout|Board layout (*.layout)\n"
 				"*.*|All files (*.*)", 
 				this, 
 				i18n("Open board layout." ));
-    QFileInfo f(file);
-    if(file.isEmpty() || f.isDir() )
-	return;
+
+   if ( url.isEmpty() )
+        return;
 
 
-    theBoard.loadBoardLayout(file);
+    theBoard.loadBoardLayout( url.path() );
 
     repaint(false);
 }
@@ -305,17 +305,23 @@ void Editor::newBoard(void) {
 
 bool Editor::saveBoard(void) {
     // get a save file name
-    QString file = KFileDialog::getSaveFileName( 
+    KURL url = KFileDialog::getSaveURL( 
 				NULL, 
 				"*.layout|Board layout (*.layout)\n"
 				"*.*|All files (*.*)", 
 				this, 
 				i18n("Save board layout." ));
+   if( !url.isLocalFile() )
+   {
+      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      return false;
+   }
  
-    QFileInfo f(file);
-    if(file.isEmpty() || f.isDir() )
-	return false;
-    if (f.exists()) {
+   if ( url.isEmpty() )
+       return false;
+
+    QFileInfo f( url.path() );
+    if ( f.exists() ) {
 	// if it already exists, querie the user for replacement
 	int res=KMessageBox::warningYesNo(this, 
 			i18n("A file with that name "
@@ -326,7 +332,7 @@ bool Editor::saveBoard(void) {
 		return false;
     }
 	
-    bool result = theBoard.saveBoardLayout(file);
+    bool result = theBoard.saveBoardLayout( url.path() );
     if (result==true){
         clean = true;
         return true;
@@ -655,4 +661,5 @@ bool Editor::canInsert(POSITION &p) {
     return(!theBoard.anyFilled(p));
 
 }
+
 

@@ -282,13 +282,13 @@ void Preview::ok(void) {
 }
 
 void Preview::load(void) {
-    QString strFile = KFileDialog::getOpenFileName(
+    KURL url = KFileDialog::getOpenURL( 
                                 NULL,
 				fileSelector,
                                 this,
                                 i18n("Open board layout." ));  
-    if( ! strFile.isEmpty() ) {
-        selectedFile = strFile; 
+    if (  !url.isEmpty() ) {
+        selectedFile = url.path(); 
         drawPreview();
         drawFrame->repaint(0,0,-1,-1,false);
         markChanged(); 
@@ -535,16 +535,22 @@ void Preview::saveTheme(void) {
 
 
     // Get the name of the file to save
-    QString strFile = KFileDialog::getSaveFileName(
+    KURL url = KFileDialog::getSaveURL(
         NULL,
         "*.theme",
         this,
         i18n("Save theme." ));
-    if(strFile.isEmpty() )
+    if ( url.isEmpty() )
         return;
+   
+   if( !url.isLocalFile() )
+   {
+      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      return;
+   }
 
     // Are we over writing an existin file, or was a directory selected?
-    QFileInfo f(strFile);
+    QFileInfo f( url.path() );
     if( f.isDir() )
         return;
     if (f.exists()) {
@@ -556,7 +562,7 @@ void Preview::saveTheme(void) {
         if (res != KMessageBox::Yes)
                 return ;
     }
-    FILE *outFile = fopen(strFile, "w");
+    FILE *outFile = fopen( url.path(), "w" );
     if (outFile == NULL) {
         KMessageBox::sorry(this,
                 i18n("Could not write to file. Aborting."));
@@ -655,4 +661,5 @@ void FrameImage::mousePressEvent(QMouseEvent *m) {
 void FrameImage::mouseMoveEvent(QMouseEvent *e) {
 	mouseMoved(e);
 }
+
 

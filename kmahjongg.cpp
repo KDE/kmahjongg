@@ -27,7 +27,6 @@
 
 #include <string.h>
 
-//#include <qwmatrix.h>
 #include <qmsgbox.h>
 #include <qtimer.h> 
 #include <qaccel.h>
@@ -36,6 +35,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
+#include <kio/netaccess.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
@@ -745,22 +745,18 @@ void KMahjonggWidget::tileSizeChanged(void) {
 void KMahjonggWidget::loadGame(void) {
 	GAMEDATA in;
 	char buffer[1024];
+    QString fname;
 
     // Get the name of the file to load 
-    QString strFile = KFileDialog::getOpenFileName(
-        NULL,
-        "*.kmgame",
-        this,
-        i18n("Load game." ));
-    if(strFile.isEmpty() )
+    KURL url = KFileDialog::getOpenURL( NULL, "*.kmgame", this, i18n("Load game." ) );
+
+    if ( url.isEmpty() )
 	return;
 
-    QFileInfo f(strFile);
-    if( f.isDir() )
-        return;
+    KIO::NetAccess::download( url, fname );
 
     // open the file for reading
-    FILE *outFile = fopen(strFile, "r");
+    FILE *outFile = fopen( fname, "r");
     if (outFile == NULL) {
 	KMessageBox::sorry(this,
 		i18n("Could not read from file. Aborting."));
@@ -770,14 +766,11 @@ void KMahjonggWidget::loadGame(void) {
     // verify the magic 
     fscanf(outFile, "%s\n", buffer);
     if (strcmp(buffer,  (const char *) gameMagic) !=0) {
-
-
 	KMessageBox::sorry(this,
 		i18n("File format not recognised."));
 	fclose(outFile);
 	return;
     }
-
 
     //ed the elapsed time
     fscanf(outFile, "%s\n", buffer);
@@ -787,9 +780,10 @@ void KMahjonggWidget::loadGame(void) {
     fread(&in, sizeof(GAMEDATA), 1, outFile);
     memcpy(&bw->Game, &in, sizeof(GAMEDATA));
 
-
     // close the file before exit	
-    fclose(outFile);	
+    fclose(outFile);
+
+    KIO::NetAccess::removeTempFile( fname );	
 
     // refresh the board
     bw->drawBoard();
@@ -798,29 +792,18 @@ void KMahjonggWidget::loadGame(void) {
 void KMahjonggWidget::saveGame(void) {
 
     // Get the name of the file to save
-    QString strFile = KFileDialog::getSaveFileName(
-        NULL,
-        "*.kmgame",
-        this,
-        i18n("Save game." ));
-    if(strFile.isEmpty() )
+    KURL url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save game." ) );
+
+    if ( url.isEmpty() )
 	return;
 
-    // Are we over writing an existin file, or was a directory selected?
-    QFileInfo f(strFile);
-    if( f.isDir() )
-        return;
-    if (f.exists()) {
-        // if it already exists, querie the user for replacement
-        int res=KMessageBox::warningYesNo(this,
-                        i18n("A file with that name "
-                                           "already exists, do you "
-                                           "wish to overwrite it?"),
-                        i18n("Save board layout." ));
-        if (res != KMessageBox::Yes)
-                return ;
-    }
-    FILE *outFile = fopen(strFile, "w");
+   if( !url.isLocalFile() )
+   {
+      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      return;
+   }   
+
+    FILE *outFile = fopen( url.path(), "w");
     if (outFile == NULL) {
 	KMessageBox::sorry(this,
 		i18n("Could not write to file. Aborting."));
@@ -839,7 +822,6 @@ void KMahjonggWidget::saveGame(void) {
 
     // close the file before exit	
     fclose(outFile);	
-
 }
 
 
@@ -2325,6 +2307,7 @@ void BoardWidget::shuffle(void) {
 	// 300 points per use
 	cheatsUsed += 15;
 }
+
 
 
 
