@@ -1,8 +1,6 @@
 SUBDIRS = pics
 
 INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
-LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-LDADD =  $(LIB_KDEGAMES) $(LIB_KFILE)
 KDE_ICON = kmahjongg
 
 bin_PROGRAMS = kmahjongg
@@ -11,6 +9,8 @@ kmahjongg_SOURCES = main.cpp kmahjongg.cpp boardwidget.cpp \
 		Background.cpp \
 		Preview.cpp \
 		Editor.cpp HighScore.cpp settings.ui
+kmahjongg_LDFLAGS = $(all_libraries) $(KDE_RPATH)
+kmahjongg_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE)
 
 METASOURCES = AUTO
 
