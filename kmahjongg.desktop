@@ -60,4 +60,4 @@ Comment[xh]=Umdlalo obukekayo wamaTshayina odlalwa ngamaceba abizwangokuba zitha
 Comment[zh_CN.GB2312]=智力麻将游戏
 Terminal=0
 Icon=kmahjongg
-KDE-X-StartupNotify=true
+X-KDE-StartupNotify=true
