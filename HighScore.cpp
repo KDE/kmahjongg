@@ -234,7 +234,7 @@ void HighScore::loadTables(void) {
 			fgets(buff, sizeof(buff), fp);
 			if (buff[strlen(buff)-1] == '\n')
 				buff[strlen(buff)-1] = '\0';
-			t->entries[e].name=buff;
+			t->entries[e].name=QString::fromUtf8(buff,-1);
 		}
 	}	
 
