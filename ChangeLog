@@ -2,10 +2,22 @@
 This is the change log for kmahjongg.
 
 Personel
+    Michael Haertjens: Solvable game generation
 	David Black: Fold, spindle and mutilate 0.4.1 to 0.5.0	
 	Osvaldo Stark: Tileset creator, doc guinepig and tester 0.5.0
 	Robert Williams: Bug fixes 0.4.0 to 0.4.1
 	Mathias Muller: Implementor of the original kmahjongg.
+
+0.7.3 to 0.7.4
++ Fixed bug #31639 Kmahjongg flashes wrong tiles.
++ Fixed bug #26872 Kmahjongg timer not reset.
+  
+0.7.2 to 0.7.3
++ Added ability to generate solvable games.
+  This includes a fair amount of code in kmahjongg.cpp, plus support
+  for a new entry in the Preferences dialog.
++ Place checkmark on Game menu when Demo Mode is active.
++ Change "Show Hiscores" to "Show High Scores" in Game Menu.
 
 0.7.0 to 0.7.2
 

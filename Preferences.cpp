@@ -14,6 +14,7 @@ static const char *tileKey = "Tileset_file";
 static const char *backKey = "Background_file";
 static const char *layoutKey = "Layout_file";
 static const char *removedKey = "Show_removed";
+static const char *solvableKey = "Solvable_game";
 
 static const char *tilefileDefault = "default.tileset";
 static const char *backfileDefault = "default.bgnd";
@@ -34,7 +35,8 @@ void Preferences::initialise(KConfig *c) {
     shadows = conf->readNumEntry( shadowsKey, FALSE);
     scale = conf->readNumEntry( scaleKey, FALSE);
     save = conf->readNumEntry( saveKey, TRUE);
-    removed = conf->readNumEntry(removedKey, FALSE);	                              
+    removed = conf->readNumEntry(removedKey, FALSE);
+    solvable = conf->readNumEntry(solvableKey, TRUE);
     tileFile = conf->readEntry(tileKey, tilefileDefault);
     backFile = conf->readEntry(backKey, backfileDefault);
     layoutFile = conf->readEntry(layoutKey, layoutfileDefault);
@@ -56,6 +58,7 @@ void Preferences::sync(void) {
     conf->writeEntry(backKey, backFile);
     conf->writeEntry(layoutKey, layoutFile);
     conf->writeEntry(removedKey, removed);
+    conf->writeEntry(solvableKey, solvable);
 }
 
 QString Preferences::defaultBackground(void)

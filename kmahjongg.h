@@ -262,6 +262,19 @@ class BoardWidget : public QWidget
 	unsigned char removedFlower[4];
 	unsigned char removedSeason[4];
 	
+	// new bits for new game generation, with solvability
+	int numTiles;
+	POSITION tilePositions[BoardLayout::maxTiles];
+	DEPENDENCY positionDepends[BoardLayout::maxTiles];
+	void generateTilePositions();
+	void generatePositionDepends();
+	int tileAt(int x, int y, int z);
+	bool generateSolvableGame();
+	bool onlyFreeInLine(int position);
+	int selectPosition(int lastPosition);
+	void placeTile(int position, int tile);
+	void updateDepend(int position);
+
 public:
         GAMEDATA Game;
 };
@@ -327,6 +340,7 @@ class KMahjonggWidget : public KMainWindow
         KStatusBar*  pStatusBar;
 	KToolBar     *toolBar;
         KMenuBar*    pMenuBar;
+	KPopupMenu   *gameMenu;
 	PrefsDlg     *prefsDlg;
 	Preview      *previewLoad;
 	Editor*	     boardEditor;

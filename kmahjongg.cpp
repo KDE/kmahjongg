@@ -60,7 +60,7 @@ static const char *description = I18N_NOOP("KDE Game");
 //----------------------------------------------------------
 #define ID_STATUS_TILENUMBER 1
 #define ID_STATUS_MESSAGE    2
-#define ID_STATUS_GAME	     3
+#define ID_STATUS_GAME       3
 
 #define ANIMSPEED    200
 
@@ -68,23 +68,23 @@ static const char *description = I18N_NOOP("KDE Game");
 #define TILE_OFFSET      2
 
 #define TILE_CHARACTER  ( 0 + TILE_OFFSET)
-#define TILE_BAMBOO      ( 9 + TILE_OFFSET)
-#define TILE_ROD         (18 + TILE_OFFSET)
-#define TILE_SEASON      (27 + TILE_OFFSET)
-#define TILE_WIND        (31 + TILE_OFFSET)
-#define TILE_DRAGON      (36 + TILE_OFFSET)
-#define TILE_FLOWER      (39 + TILE_OFFSET)
+#define TILE_BAMBOO     ( 9 + TILE_OFFSET)
+#define TILE_ROD        (18 + TILE_OFFSET)
+#define TILE_SEASON     (27 + TILE_OFFSET)
+#define TILE_WIND       (31 + TILE_OFFSET)
+#define TILE_DRAGON     (36 + TILE_OFFSET)
+#define TILE_FLOWER     (39 + TILE_OFFSET)
 
 #define ID_FILE_NEW              101
 #define ID_FILE_LOAD_TILESET     102
 #define ID_FILE_LOAD_BACKGND     103
 #define ID_FILE_LOAD_THEME       104
 #define ID_FILE_LOAD_GAME        105
-#define ID_FILE_LOAD_BOARD	 106
+#define ID_FILE_LOAD_BOARD       106
 #define ID_FILE_SAVE_GAME        107
 #define ID_FILE_EXIT             108
-#define ID_FILE_NEW_NUMERIC	 109
-#define ID_FILE_SAVE_THEME	 110
+#define ID_FILE_NEW_NUMERIC      109
+#define ID_FILE_SAVE_THEME       110
 
 #define ID_EDIT_UNDO             201
 #define ID_EDIT_REDO             202
@@ -114,9 +114,9 @@ int is_paused = 0;
 Progress *splash=NULL;
 
 void progress(const QString& foo) {
-	if (splash != NULL) {
-		splash->status(foo);
-	}
+    if (splash != NULL) {
+        splash->status(foo);
+    }
 }
 
 
@@ -201,8 +201,8 @@ progress("Connecting signals");
     connect( bw, SIGNAL( demoModeChanged(bool) ),
                  SLOT( demoModeChanged(bool) ) );
 
-	connect(bw, SIGNAL(  gameOver(unsigned short , unsigned short)),
-		    this, SLOT(  gameOver(unsigned short , unsigned short)));
+    connect( bw, SIGNAL( gameOver(unsigned short , unsigned short)), this, 
+                SLOT( gameOver(unsigned short , unsigned short)));
 
 
 	connect(bw, SIGNAL(gameCalculated(void)),
@@ -396,21 +396,28 @@ void KMahjonggWidget::setupMenuBar()
   game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
   game->insertItem( i18n("&Demo Mode"),         ID_GAME_DEMO );
   game->insertItem( i18n("Show &Matching Tiles"), ID_GAME_SHOW );
-  game->insertItem( i18n("&Show Highscores..."), ID_GAME_SHOW_HISCORE );
+  game->insertItem( i18n("&Show High Scores..."), ID_GAME_SHOW_HISCORE );
   game->insertSeparator();
   game->insertItem( SmallIcon("player_pause"), i18n("&Pause"), ID_GAME_PAUSE );
   game->insertItem( SmallIcon("1rightarrow"), i18n("&Continue"), ID_GAME_CONTINUE );
 
+  // Save a reference to the game menu to allow "Demo Mode" to be checked
+  // and unchecked by demoModeChanged().
+  gameMenu = game;
+
   QPopupMenu *help = helpMenu(QString(i18n("Mahjongg"))
-           + " " + KMAHJONGG_VERSION
-           + i18n("\n\nOriginal version by Mathias Mueller")
-           + " (in5y158@public.uni-hamburg.de)"
-           + i18n("\n\nRewritten and extended by ")
-           + "David Black"
-           + " (david.black@lutris.com)"
-	   + i18n("\n\nTile set contributor and web page maintainer: ")
-	   + "Osvaldo Stark (starko@dnet.it)"
-	   + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
+      + " " + KMAHJONGG_VERSION
+      + i18n("\n\nOriginal version by Mathias Mueller")
+      + " (in5y158@public.uni-hamburg.de)"
+      + i18n("\n\nRewritten and extended by ")
+      + "David Black"
+      + " (david.black@lutris.com)"
+      + i18n("\n\nSolvable game generation by ")
+      + "Michael Haertjens (mhaertjens@modusoperandi.com),"
+      + "\nbased on algorithm by Michael Meeks in GNOME mahjongg"
+      + i18n("\n\nTile set contributor and web page maintainer: ")
+      + "Osvaldo Stark (starko@dnet.it)"
+      + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
 
     pMenuBar = new KMenuBar( this );
 
@@ -552,6 +559,7 @@ void KMahjonggWidget::newGame(void) {
 void KMahjonggWidget::startNewGame( int item )
 {
     if( ! bDemoModeActive ) {
+
         bw->calculateNewGame(item);
 
 	// initialise button states
@@ -562,7 +570,6 @@ void KMahjonggWidget::startNewGame( int item )
     	// update the initial enabled/disabled state for
     	// the menu and the tool bar.
     	demoModeChanged(false);
-	
     }
 }
 
@@ -587,7 +594,10 @@ void KMahjonggWidget::gameOver(
 	int time;
 	int score;
 
-	 int elapsed = gameTimer->toInt();
+	gameTimer->pause();
+	KMessageBox::information(this, i18n("Game over: You have won!"));
+	bw->animateMoveList();
+	int elapsed = gameTimer->toInt();
 
 	time = score = 0;
 
@@ -607,10 +617,9 @@ void KMahjonggWidget::gameOver(
 	if (score < 0)
 		score = 0;
 
-
-
 	theHighScores->checkHighScore(score, elapsed, bw->getGameNum(), bw->getBoardName());
 
+	timerReset();
 }
 
 
@@ -675,7 +684,6 @@ void KMahjonggWidget::demoModeChanged( bool bActive)
 
     if (bActive || is_paused) {
 
-	
         enableItem( ID_EDIT_UNDO, false);
         enableItem( ID_EDIT_REDO, false);
 		if (!is_paused) {
@@ -687,12 +695,17 @@ void KMahjonggWidget::demoModeChanged( bool bActive)
 		    enableItem( ID_GAME_CONTINUE, is_paused);
 	        enableItem( ID_GAME_DEMO, false);
 		}
+
+		gameMenu->setItemChecked(ID_GAME_DEMO, true);
+
     } else {
         enableItem( ID_EDIT_UNDO, bw->Game.allow_undo);
         enableItem( ID_EDIT_REDO, bw->Game.allow_redo);
 	    enableItem( ID_GAME_PAUSE, !is_paused);
 	    enableItem( ID_GAME_CONTINUE, is_paused);
 	    enableItem( ID_GAME_DEMO, true);
+
+		gameMenu->setItemChecked(ID_GAME_DEMO, false);
     }
 
     enableItem( ID_FILE_LOAD_TILESET, !bActive && !is_paused );
@@ -1337,8 +1350,6 @@ void BoardWidget::helpMoveTimeout()
 // ---------------------------------------------------------
 void BoardWidget::startDemoMode()
 {
-    cancelUserSelectedTiles();
-    stopMatchAnimation();
     calculateNewGame();
 
     if( TimerState == Stop )
@@ -1500,6 +1511,7 @@ void BoardWidget::animateMoveList()
 void BoardWidget::calculateNewGame( int gNumber)
 {
     cancelUserSelectedTiles();
+    stopMatchAnimation();
     initialiseRemovedTiles();
     setStatusText( i18n("Calculating new game...") );
 
@@ -1518,7 +1530,16 @@ void BoardWidget::calculateNewGame( int gNumber)
 
     random.setSeed(gameGenerationNum);
 
-    // try max. 64 times
+    // Translate Game.Map to an array of POSITION data.  We only need to
+    // do this once for each new game.
+    memset(tilePositions, 0, sizeof(tilePositions));
+    generateTilePositions();
+
+    // Now use the tile position data to generate tile dependency data.
+    // We only need to do this once for each new game.
+    generatePositionDepends();
+
+    // Now try to position tiles on the board, 64 tries max.
     for( short nr=0; nr<64; nr++ )
     {
         if( generateStartPosition2() )
@@ -1534,27 +1555,427 @@ void BoardWidget::calculateNewGame( int gNumber)
     setStatusText( i18n("Error generating new game!") );
 }
 
+// ---------------------------------------------------------
+// Generate the position data for the layout from contents of Game.Map.
+void BoardWidget::generateTilePositions() {
 
+    numTiles = 0;
+
+    for (int z=0; z< BoardLayout::depth; z++) {
+        for (int y=0; y<BoardLayout::height; y++) {
+            for (int x=0; x<BoardLayout::width; x++) {
+                Game.Board[z][y][x] = 0;
+                if (Game.Mask[z][y][x] == '1') {
+                    tilePositions[numTiles].x = x;
+                    tilePositions[numTiles].y = y;        
+                    tilePositions[numTiles].e = z;
+                    tilePositions[numTiles].f = 254;
+                    numTiles++;
+                }
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------
+// Generate the dependency data for the layout from the position data.
+// Note that the coordinates of each tile in tilePositions are those of
+// the upper left quarter of the tile.
+void BoardWidget::generatePositionDepends() {
+
+    // For each tile,
+    for (int i = 0; i < numTiles; i++) {
+
+        // Get its basic position data
+        int x = tilePositions[i].x;
+        int y = tilePositions[i].y;
+        int z = tilePositions[i].e;
+
+        // LHS dependencies
+        positionDepends[i].lhs_dep[0] = tileAt(x-1, y,   z);
+        positionDepends[i].lhs_dep[1] = tileAt(x-1, y+1, z);
+
+        // Make them unique
+        if (positionDepends[i].lhs_dep[1] == positionDepends[i].lhs_dep[0]) {
+            positionDepends[i].lhs_dep[1] = -1;
+        }
+
+        // RHS dependencies
+        positionDepends[i].rhs_dep[0] = tileAt(x+2, y,   z);
+        positionDepends[i].rhs_dep[1] = tileAt(x+2, y+1, z);
+
+        // Make them unique
+        if (positionDepends[i].rhs_dep[1] == positionDepends[i].rhs_dep[0]) {
+            positionDepends[i].rhs_dep[1] = -1;
+        }
+
+        // Turn dependencies
+        positionDepends[i].turn_dep[0] = tileAt(x,   y,   z+1);
+        positionDepends[i].turn_dep[1] = tileAt(x+1, y,   z+1);
+        positionDepends[i].turn_dep[2] = tileAt(x+1, y+1, z+1);
+        positionDepends[i].turn_dep[3] = tileAt(x,   y+1, z+1);
+
+        // Make them unique
+        for (int j = 0; j < 3; j++) {
+            for (int k = j+1; k < 4; k++) {
+                if (positionDepends[i].turn_dep[j] == 
+                    positionDepends[i].turn_dep[k]) {
+                    positionDepends[i].turn_dep[k] = -1;
+                }
+            }
+        }
+
+        // Placement dependencies
+        positionDepends[i].place_dep[0] = tileAt(x,   y,   z-1);
+        positionDepends[i].place_dep[1] = tileAt(x+1, y,   z-1);
+        positionDepends[i].place_dep[2] = tileAt(x+1, y+1, z-1);
+        positionDepends[i].place_dep[3] = tileAt(x,   y+1, z-1);
+
+        // Make them unique
+        for (int j = 0; j < 3; j++) {
+            for (int k = j+1; k < 4; k++) {
+                if (positionDepends[i].place_dep[j] == 
+                    positionDepends[i].place_dep[k]) {
+                    positionDepends[i].place_dep[k] = -1;
+                }
+            }
+        }
+
+        // Filled and free indicators.
+        positionDepends[i].filled = false;
+        positionDepends[i].free   = false;
+    }
+}
+
+// ---------------------------------------------------------
+// x, y, z are the coordinates of a *quarter* tile.  This returns the
+// index (in positions) of the tile at those coordinates or -1 if there
+// is no tile at those coordinates.  Note that the coordinates of each
+// tile in positions are those of the upper left quarter of the tile.
+int BoardWidget::tileAt(int x, int y, int z) {
+
+    for (int i = 0; i < numTiles; i++) {
+        if (tilePositions[i].e == z) {
+            if ((tilePositions[i].x == x   && tilePositions[i].y == y) ||
+                (tilePositions[i].x == x-1 && tilePositions[i].y == y) ||
+                (tilePositions[i].x == x-1 && tilePositions[i].y == y-1) ||
+                (tilePositions[i].x == x   && tilePositions[i].y == y-1)) {
+
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
+// ---------------------------------------------------------
+bool BoardWidget::generateSolvableGame() {
+
+    // Initially we want to mark positions on layer 0 so that we have only
+    // one free position per apparent horizontal line.
+    for (int i = 0; i < numTiles; i++) {
+
+        // Pick a random tile on layer 0
+        int position, cnt = 0;
+        do {
+            position = (int) random.getLong(numTiles);
+            if (cnt++ > (numTiles*numTiles)) {
+                return false; // bail
+            }
+        } while (tilePositions[position].e != 0);
+
+        // If there are no other free positions on the same apparent 
+        // horizontal line, we can mark that position as free.
+        if (onlyFreeInLine(position)) {
+            positionDepends[position].free = true;
+        }
+    }
+
+    // Check to make sure we really got them all.  Very important for
+    // this algorithm.
+    for (int i = 0; i < numTiles; i++) {
+        if (tilePositions[i].e == 0 && onlyFreeInLine(i)) {
+            positionDepends[i].free = true;
+        }
+    }
+
+    // Get ready to place the tiles
+    int lastPosition = -1;
+    int position = -1;
+    int position2 = -1;
+
+    // For each position,
+    for (int i = 0; i < numTiles; i++) {
+
+        // If this is the first tile in a 144 tile set,
+        if ((i % 144) == 0) {
+
+            // Initialise the faces to allocate. For the classic
+            // dragon board there are 144 tiles. So we allocate and
+            // randomise the assignment of 144 tiles. If there are > 144
+            // tiles we will reallocate and re-randomise as we run out.
+            // One advantage of this method is that the pairs to assign are
+            // non-linear. In kmahjongg 0.4, If there were > 144 the same
+            // allocation series was followed. So 154 = 144 + 10 rods.
+            // 184 = 144 + 40 rods (20 pairs) which overwhemed the board
+            // with rods and made deadlock games more likely.
+            randomiseFaces();
+        }
+
+        // If this is the first half of a pair, there is no previous
+        // position for the pair.
+        if ((i & 1) == 0) {
+            lastPosition = -1;
+        }
+
+        // Select a position for the tile, relative to the position of
+        // the last tile placed.
+        if ((position = selectPosition(lastPosition)) < 0) {
+            return false; // bail
+        }
+        if (i < numTiles-1) {
+            if ((position2 = selectPosition(lastPosition)) < 0) {
+                return false; // bail
+            }
+            if (tilePositions[position2].e > tilePositions[position].e) {
+                position = position2;  // higher is better
+            }
+        }
+
+        // Place the tile.
+        placeTile(position, tilePair[i % 144]);
+
+        // Remember the position
+        lastPosition = position;
+    }
+
+    // The game is solvable.
+    return true;
+}
+
+// ---------------------------------------------------------
+// Determines whether it is ok to mark this position as "free" because
+// there are no other positions marked "free" in its apparent horizontal
+// line.
+bool BoardWidget::onlyFreeInLine(int position) {
+
+    int i, i0, w;
+    int lin, rin, out;
+    static int nextLeft[BoardLayout::maxTiles];
+    static int nextRight[BoardLayout::maxTiles];
+
+    /* Check left, starting at position */
+    lin = 0;
+    out = 0;
+    nextLeft[lin++] = position;
+    do {
+        w = nextLeft[out++];
+        if (positionDepends[w].free || positionDepends[w].filled) {
+            return false;
+        }
+        if ((i = positionDepends[w].lhs_dep[0]) != -1) {
+            nextLeft[lin++] = i;
+        }
+        i0 = i;
+        if ((i = positionDepends[w].lhs_dep[1]) != -1 && i0 != i) {
+            nextLeft[lin++] = i;
+        }
+    }
+    while (lin > out) ;
+
+    /* Check right, starting at position */
+    rin = 0;
+    out = 0;
+    nextRight[rin++] = position;
+    do {
+        w = nextRight[out++];
+        if (positionDepends[w].free || positionDepends[w].filled) {
+            return false;
+        }
+        if ((i = positionDepends[w].rhs_dep[0]) != -1) {
+            nextRight[rin++] = i;
+        }
+        i0 = i;
+        if ((i = positionDepends[w].rhs_dep[1]) != -1 && i0 != i) {
+            nextRight[rin++] = i;
+        }
+    }
+    while (rin > out) ;
+
+    // Here, the position can be marked "free"
+    return true;
+}
+
+// ---------------------------------------------------------
+int BoardWidget::selectPosition(int lastPosition) {
+
+    int position, cnt = 0;
+    bool goodPosition = false;
+  
+    // while a good position has not been found,
+    while (!goodPosition) {
+
+        // Select a random, but free, position.
+        do {
+              position = random.getLong(numTiles);
+            if (cnt++ > (numTiles*numTiles)) {
+                return -1; // bail
+            }
+        } while (!positionDepends[position].free);
+
+        // Found one.
+        goodPosition = true;
+
+        // If there is a previous position to take into account,
+        if (lastPosition != -1) {
+
+            // Check the new position against the last one.
+            for (int i = 0; i < 4; i++) {
+                if (positionDepends[position].place_dep[i] == lastPosition) {
+                    goodPosition = false;  // not such a good position
+                }
+            }
+            for (int i = 0; i < 2; i++) {
+                if ((positionDepends[position].lhs_dep[i] == lastPosition) ||
+                    (positionDepends[position].rhs_dep[i] == lastPosition)) {
+                    goodPosition = false;  // not such a good position
+                }
+            }
+        }
+    }
+
+    return position;
+}
+
+// ---------------------------------------------------------
+void BoardWidget::placeTile(int position, int tile) {
+
+    // Install the tile in the specified position
+    tilePositions[position].f = tile;
+    Game.putTile(tilePositions[position]);
+
+    // Update position dependency data
+    positionDepends[position].filled = true;
+    positionDepends[position].free = false;
+
+    // Now examine the tiles near this to see if this makes them "free".
+    int depend;
+    for (int i = 0; i < 4; i++) {
+        if ((depend = positionDepends[position].turn_dep[i]) != -1) {
+            updateDepend(depend); 
+        }
+    }
+    for (int i = 0; i < 2; i++) {
+        if ((depend = positionDepends[position].lhs_dep[i]) != -1) {
+            updateDepend(depend);
+        }
+        if ((depend = positionDepends[position].rhs_dep[i]) != -1) {
+            updateDepend(depend);
+        }
+    }
+}
+
+// ---------------------------------------------------------
+// Updates the free indicator in the dependency data for a position
+// based on whether the positions on which it depends are filled.
+void BoardWidget::updateDepend(int position) {
+
+    // If the position is valid and not filled
+    if (position >= 0 && !positionDepends[position].filled) {
+
+        // Check placement depends.  If they are not filled, the
+        // position cannot become free.
+        int depend;
+        for (int i = 0; i < 4; i++) {
+            if ((depend = positionDepends[position].place_dep[i]) != -1) {
+                if (!positionDepends[depend].filled) {
+                    return ;
+                }
+            }
+        }
+
+        // If position is first free on apparent horizontal, it is
+        // now free to be filled.
+          if (onlyFreeInLine(position)) {
+              positionDepends[position].free = true;
+            return;
+        }
+
+        // Assume no LHS positions to fill
+        bool lfilled = false;
+
+          // If positions to LHS
+        if ((positionDepends[position].lhs_dep[0] != -1) ||
+            (positionDepends[position].lhs_dep[1] != -1)) {
+
+            // Assume LHS positions filled
+            lfilled = true;      
+
+            for (int i = 0; i < 2; i++) {
+                if ((depend = positionDepends[position].lhs_dep[i]) != -1) {
+                    if (!positionDepends[depend].filled) {
+                         lfilled = false; 
+                    }
+                }
+            }
+        }
+  
+        // Assume no RHS positions to fill
+        bool rfilled = false;
+
+          // If positions to RHS
+        if ((positionDepends[position].rhs_dep[0] != -1) ||
+            (positionDepends[position].rhs_dep[1] != -1)) {
+
+            // Assume LHS positions filled
+            rfilled = true;      
+
+            for (int i = 0; i < 2; i++) {
+                if ((depend = positionDepends[position].rhs_dep[i]) != -1) {
+                    if (!positionDepends[depend].filled) {
+                        rfilled = false;
+                    }
+                }
+            }
+        }
+
+          // If positions to left or right are filled, this position 
+        // is now free to be filled.
+          positionDepends[position].free = (lfilled || rfilled);
+    }
+}
+
+// ---------------------------------------------------------
 bool BoardWidget::generateStartPosition2() {
-	int totalTiles=0;
-	POSITION tilesLeft[BoardLayout::maxTiles];
 
-	memset(tilesLeft, 0, sizeof(tilesLeft));
+	// For each tile,
+	for (int i = 0; i < numTiles; i++) {
 
-	// zero out all face values	
-	for (int z=0; z< BoardLayout::depth; z++) {
-	    for (int y=0; y<BoardLayout::height; y++) {
-		for (int x=0; x<BoardLayout::width; x++) {
-			Game.Board[z][y][x]=0;
-			if (Game.Mask[z][y][x] == '1') {
-				tilesLeft[totalTiles].x = x;		
-				tilesLeft[totalTiles].y = y;		
-				tilesLeft[totalTiles].e = z;
-				tilesLeft[totalTiles].f = 254;		
-				totalTiles++;
-			}
+		// Get its basic position data
+		int x = tilePositions[i].x;
+		int y = tilePositions[i].y;
+		int z = tilePositions[i].e;
+
+		// Clear Game.Board at that position
+		Game.Board[z][y][x] = 0;
+
+		// Clear tile placed/free indicator(s).
+		positionDepends[i].filled = false;
+		positionDepends[i].free   = false;
+
+		// Set tile face blank
+		tilePositions[i].f = 254;
+	}
+
+	// If solvable games should be generated,
+	if (preferences.generateSolvable()) {
+
+		if (generateSolvableGame()) {
+    		Game.TileNum = Game.MaxTileNum;
+			return true;	
+		} else {
+			return false;
 		}
-	    }
 	}
 
 	// Initialise the faces to allocate. For the classic
@@ -1567,16 +1988,12 @@ bool BoardWidget::generateStartPosition2() {
 	// 184 = 144 + 40 rods (20 pairs) which overwhemed the board
 	// with rods and made deadlock games more likely.
 
-
-	int remaining = totalTiles;
+	int remaining = numTiles;
 	randomiseFaces();
 
-	for (int tile=0; tile <totalTiles; tile+=2) {
+	for (int tile=0; tile <numTiles; tile+=2) {
 		int p1;
 		int p2;
-
-
-
 
 		if (remaining > 2) {
 			p2 = p1 = random.getLong(remaining-2);
@@ -1589,8 +2006,8 @@ bool BoardWidget::generateStartPosition2() {
 						break;
 					}
 				}
-				if ((tilesLeft[p1].y == tilesLeft[p2].y) &&
-				    (tilesLeft[p1].e == tilesLeft[p2].e)) {
+				if ((tilePositions[p1].y == tilePositions[p2].y) &&
+				    (tilePositions[p1].e == tilePositions[p2].e)) {
 					// skip if on same y line
 					bail++;
 					p2=p1;
@@ -1602,12 +2019,11 @@ bool BoardWidget::generateStartPosition2() {
 			p2 = 1;
 		}
 		POSITION a, b;
-		a = tilesLeft[p1];
-		b = tilesLeft[p2];
-		tilesLeft[p1] = tilesLeft[remaining - 1];
-		tilesLeft[p2] = tilesLeft[remaining - 2];
+		a = tilePositions[p1];
+		b = tilePositions[p2];
+		tilePositions[p1] = tilePositions[remaining - 1];
+		tilePositions[p2] = tilePositions[remaining - 2];
 		remaining -= 2;	
-
 
 		getFaces(a, b);
 		Game.putTile(a);
@@ -1680,18 +2096,6 @@ void BoardWidget::randomiseFaces(void) {
 
 	tilesAllocated = numAlloced;
 	tilesUsed = 0;
-
-/*
-	printf("Allocated %d tiles\n",numAlloced);
-	for (int t=0; t<numAlloced; t++) {
-		printf("%2.2X ", tilePair[t]);
-		if ((t % 20) == 19)
-			printf("\n");
-	}
-
-	printf("\n");
-*/
-
 }
 
 
@@ -1914,8 +2318,8 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     // remove tile from game board
     Game.putTile( E, Y, X, 0 );
     if (doRepaint) {
-	updateBackBuffer=true;
-    	repaint(0,0,-1, -1, false);
+        updateBackBuffer=true;
+        repaint(0,0,-1, -1, false);
     }
 }
 
@@ -1923,24 +2327,22 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
 void BoardWidget::mousePressEvent ( QMouseEvent* event )
 {
     if (gamePaused)
-	return;
+        return;
 
     if( event->button() == LeftButton )
     {
         if( TimerState == Demo )
-	{
+        {
             stopDemoMode();
         }
         else if( showMatch )
-	{
+        {
             stopMatchAnimation();
         }
 
         if( MouseClickPos1.e == BoardLayout::depth )       // first tile
-	{
+        {
             transformPointToPosition( event->pos(), MouseClickPos1 );
-
-
 
             if( MouseClickPos1.e != BoardLayout::depth && showMatch )
             {
@@ -1948,7 +2350,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                 TimerState = Match;
                 iTimerStep = 1;
                 matchAnimationTimeout();
-				cheatsUsed++;
+                cheatsUsed++;
             }
         }
         else                                // second tile
@@ -1962,27 +2364,24 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
             {
                 if( isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
                 {
-		    // update the removed tiles (we do this before the remove below
-		    // so that we only require 1 screen paint for both actions)
-		    setRemovedTilePair(MouseClickPos1, MouseClickPos2);
+                    // update the removed tiles (we do this before the remove below
+                    // so that we only require 1 screen paint for both actions)
+                    setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
-		    // now we remove the tiles from the board
+                    // now we remove the tiles from the board
                     removeTile(MouseClickPos1, false);
                     removeTile(MouseClickPos2);
 
-		    // removing a tile means redo is impossible without
-		    // a further undo.
-		    Game.allow_redo=false;
-		    demoModeChanged(false);
+                    // removing a tile means redo is impossible without
+                    // a further undo.
+                    Game.allow_redo=false;
+                    demoModeChanged(false);
                     drawTileNumber();
 
                     // if no tiles are left, the player has `won`, so celebrate
                     if( Game.TileNum == 0 )
                     {
-						
-                        KMessageBox::information(this, i18n("Game over: You have won!"));
-                        animateMoveList();
-			gameOver(Game.MaxTileNum,cheatsUsed);
+                        gameOver(Game.MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
@@ -2132,7 +2531,6 @@ void BoardWidget::cancelUserSelectedTiles()
 }
 
 // ---------------------------------------------------------
-
 void BoardWidget::setRemovedTilePair(POSITION &a, POSITION &b) {
 
 	if (isFlower(a.f)) {
@@ -2169,6 +2567,7 @@ void BoardWidget::setRemovedTilePair(POSITION &a, POSITION &b) {
 	}
 }
 
+// ---------------------------------------------------------
 void BoardWidget::clearRemovedTilePair(POSITION &a, POSITION &b) {
 
         if (isFlower(a.f)) {
@@ -2206,6 +2605,7 @@ void BoardWidget::clearRemovedTilePair(POSITION &a, POSITION &b) {
 }
 
 
+// ---------------------------------------------------------
 void BoardWidget::initialiseRemovedTiles(void) {
 	for (int pos=0; pos<9; pos++) {
 		removedCharacter[pos]=0;
@@ -2227,7 +2627,7 @@ void BoardWidget::showMessage( const QString& pszText )
 }
 
 
-
+// ---------------------------------------------------------
 bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
