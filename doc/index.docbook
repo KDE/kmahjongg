@@ -36,11 +36,11 @@ tiles block them on the left or right side. </para>
 </chapter>
 <chapter id="Epilogue">
 <title>Epilogue</title>
-<sect1>
+<sect1 id="developer">
 <title>Developer</title>
 <para><literal remap="tt"><ulink url="mailto:in5y158@public.uni-hamburg.de">Mathias Mueller</ulink></literal></para>
 </sect1>
-<sect1>
+<sect1 id="authors">
 <title>Authors</title>
 <para><literal remap="tt"><ulink url="mailto:in5y158@public.uni-hamburg.de">Mathias Mueller</ulink></literal></para>
 <para><literal remap="tt"><ulink url="mailto:rwilliams@kde.org">Robert Williams</ulink></literal> - Editor</para>
