@@ -1,0 +1,5 @@
+[KDE Desktop Entry]
+Exec=kmahjongg -caption %c
+DocPath=kmahjongg.html
+Info=smart mahjongg game
+Terminal=0

@@ -1,0 +1,13 @@
+Begin3
+Title:			kmahjongg
+Version:		0.3.0
+Entered-date:		Aug 1997
+Description:		Mahjongg game for KDE
+Keywords:		mahjongg linux X11 Qt KDE
+Author:			<in5y158@public.uni-hamburg.de> (Mathias Mueller)
+Maintained-by:		<in5y158@public.uni-hamburg.de> (Mathias Mueller)
+Alternate-site:		ftp://ftp.kde.org/pub/kde/apps/games
+Original-site:
+Platform:		Linux with Qt GUI library and KDE libraries
+Copying-policy:		GPL
+End
