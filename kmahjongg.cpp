@@ -225,7 +225,7 @@ void KMahjonggWidget::setupMenuBar()
     view->insertItem( i18n("&Statusbar"),   ID_VIEW_STATUSBAR );
 
     QString about;
-    about.sprintf(i18n("Mahjongg %s\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)"), KMAHJONGG_VERSION);
+    about = i18n("Mahjongg %1\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)").arg(KMAHJONGG_VERSION);
     QPopupMenu *help = kapp->getHelpMenu(true, about);
  
     pMenuBar = new KMenuBar( this );
@@ -381,7 +381,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     {
         QString str;
         str.sprintf( "%s/kmahjongg/pics/%s", 
-		     kapp->kde_datadir().data(), DEFAULTTILESET );
+		     kapp->kde_datadir(), DEFAULTTILESET );
         if( ! loadTileset( str ) )
 	{
             showMessage( i18n("Unable to open bitmap file !") );
@@ -395,7 +395,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     {
         QString str;
 	str.sprintf( "%s/kmahjongg/pics/%s", 
-                     kapp->kde_datadir().data(), DEFAULTBACKGROUND );
+                     kapp->kde_datadir(), DEFAULTBACKGROUND );
         if( ! loadBackground( str ) )
 	{
             showMessage( i18n("Unable to open bitmap file !") );
@@ -1515,8 +1515,8 @@ void BoardWidget::transformPointToPosition(
 	/*
         {
 	    QString szText;
-            szText.sprintf( i18n("MousePos: %d/%d - BoardPos: %d/%d/%d"), 
-                             point.x(), point.y(), X, Y, E );
+            szText = i18n("MousePos: %1/%2 - BoardPos: %3/%4/%5")
+                             .arg(point.x()).arg(point.y()).arg(X).arg(Y).arg(E);
             setStatusText( szText );
         }
 	*/
@@ -1663,7 +1663,7 @@ bool BoardWidget::loadBackground(
         if( bShowError )
 	{
             QString strMsg;
-            strMsg.sprintf( i18n("Failed to load image:\n%s"), pszFileName );
+            strMsg = i18n("Failed to load image:\n%1").arg( pszFileName );
             showMessage( strMsg );
 	}
         return( false );
@@ -1674,9 +1674,9 @@ bool BoardWidget::loadBackground(
         if( bShowError )
 	{
             QString strMsg;
-            strMsg.sprintf( i18n( "Sorry, this image uses %d colors.\n"
-                                  "Maximum allowed is %d"),
-                            qiBgnd.numColors(), 128 - iTilesNumColors );
+            strMsg = i18n( "Sorry, this image uses %1 colors.\n"
+                                  "Maximum allowed is %2")
+                            .arg(qiBgnd.numColors()).arg(128 - iTilesNumColors );
             showMessage( strMsg );
         }
         return( false );
