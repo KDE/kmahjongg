@@ -688,7 +688,7 @@ void KMahjonggWidget::loadGame(void) {
     }
 
     // verify the magic
-    fscanf(outFile, "%s\n", buffer);
+    fscanf(outFile, "%1023s\n", buffer);
     if (buffer != gameMagic) {
 	KMessageBox::sorry(this,
 		i18n("File format not recognized."));
@@ -697,7 +697,7 @@ void KMahjonggWidget::loadGame(void) {
     }
 
     //ed the elapsed time
-    fscanf(outFile, "%s\n", buffer);
+    fscanf(outFile, "%1023s\n", buffer);
     gameTimer->fromString(buffer);
 
     // suck out all the game data
