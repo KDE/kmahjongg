@@ -319,7 +319,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
 
 
-    // we iterate over the depth stacking order. Each sucessive level is
+    // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
     for (int z=0; z<BoardLayout::depth; z++) {

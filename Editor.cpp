@@ -431,7 +431,7 @@ void Editor::drawTiles(QPixmap *dest) {
     int yOffset = tiles.height()/2;
     short tile = 0;
 
-    // we iterate over the depth stacking order. zach sucessive level is
+    // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
     for (int z=0; z<BoardLayout::depth; z++) {

@@ -69,7 +69,7 @@ void Background::sourceToBackground(void) {
   // to avoid the old color limitation.
   backgroundImage->create(w, h, 32);
 
-  // Now we decide if we should scale the incomming image
+  // Now we decide if we should scale the incoming image
   // or if we tile. First we check for an exact match which
   // should be true for all images created specifically for us.
   if ((sourceImage->width() == w) && (sourceImage->height() == h)) {
