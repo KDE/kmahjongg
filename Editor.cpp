@@ -11,7 +11,6 @@
 #include<kconfig.h>     // Needed to use KConfig
 #include<klocale.h>     // Needed to use KLocale
 #include<kiconloader.h> //
-#include<kconfig.h>
 #include <kstandarddirs.h>
 
 #include <ktoolbarradiogroup.h>

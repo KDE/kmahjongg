@@ -5,7 +5,7 @@
 #include <qtimer.h>
 #include <qpainter.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <qfile.h>
 #include <kconfig.h>
 
