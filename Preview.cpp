@@ -693,3 +693,5 @@ void FrameImage::mouseMoveEvent(QMouseEvent *e) {
 }
 
 
+
+#include "Preview.moc"

@@ -1979,3 +1979,5 @@ void BoardWidget::shuffle(void) {
 	cheatsUsed += 15;
 }
 
+
+#include "boardwidget.moc"

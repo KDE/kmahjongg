@@ -593,3 +593,5 @@ void KMahjongg::saveGame(void) {
     fclose(outFile);
 }
 
+
+#include "kmahjongg.moc"

@@ -682,3 +682,5 @@ bool Editor::canInsert(POSITION &p) {
 }
 
 
+
+#include "Editor.moc"
