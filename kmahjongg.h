@@ -117,8 +117,8 @@ class BoardWidget : public QWidget
         void drawBoard();
 
         bool loadBoard      ( const char* );
-        bool loadTileset    ( const char* );
-        bool loadBackground ( const char*, bool bShowError = true );
+        bool loadTileset    ( const QString& );
+        bool loadBackground ( const QString&, bool bShowError = true );
 
         static BOARDINFO BoardInfo[];
 
@@ -231,8 +231,3 @@ class KMahjonggWidget : public KTopLevelWidget
 
 
 #endif
-
-
-
-
-

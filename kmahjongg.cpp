@@ -91,8 +91,8 @@
 //----------------------------------------------------------
 // STATICS
 //----------------------------------------------------------
-const char DEFAULTTILESET[]    = "pics/kmahjongg.bmp";
-const char DEFAULTBACKGROUND[] = "pics/kmahjongg_bgnd.bmp";
+const char DEFAULTTILESET[]    = "pics/kmahjongg.png";
+const char DEFAULTBACKGROUND[] = "pics/kmahjongg_bgnd.png";
 
 extern char ClassicMask[];
 extern char TowerMask[];
@@ -1567,7 +1567,7 @@ void BoardWidget::setStatusText( const QString& pszText )
 }
 
 // ---------------------------------------------------------
-bool BoardWidget::loadTileset( const char* pszFileName )
+bool BoardWidget::loadTileset( const QString& pszFileName )
 {
     short c;
     short y;
@@ -1640,7 +1640,7 @@ bool BoardWidget::loadTileset( const char* pszFileName )
 
 // ---------------------------------------------------------
 bool BoardWidget::loadBackground(
-        const char* pszFileName,
+        const QString& pszFileName,
         bool        bShowError
     )
 {

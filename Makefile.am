@@ -7,6 +7,8 @@ LDADD   =       $(LIB_KFILE)
 
 ####### Files
 
+SUBDIRS = pics
+
 bin_PROGRAMS = kmahjongg
 kmahjongg_SOURCES = kmahjongg.cpp static.cpp
 
@@ -17,13 +19,10 @@ METASOURCES = kmahjongg.moc
 appsdir = $(kde_appsdir)/Games
 apps_DATA = kmahjongg.desktop
 
-pics_DATA = kmahjongg.bmp kmahjongg_bgnd.bmp
-picsdir = $(kde_datadir)/kmahjongg/pics
-
 icon_DATA = kmahjongg.xpm
 icondir = $(kde_icondir)
 
-EXTRA_DIST = $(apps_DATA) $(pics_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.desktop kmahjongg.bmp kmahjongg_bgnd.bmp
+EXTRA_DIST = $(apps_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.desktop
 
 install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
@@ -34,4 +33,3 @@ uninstall-local:
 
 messages:
 	$(XGETTEXT) -C -kTRANS -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
-
