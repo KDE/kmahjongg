@@ -1810,9 +1810,9 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
 
     for( short E=0; E<BoardLayout::depth; E++ )
     {
-        for( short Y=1; Y<BoardLayout::height-1; Y++ )
+        for( short Y=0; Y<BoardLayout::height-1; Y++ )
         {
-            for( short X=1; X<BoardLayout::width-1; X++ )
+            for( short X=0; X<BoardLayout::width-1; X++ )
             {
                 if( Game.Mask[E][Y][X] != (UCHAR) '1' )
                     continue;
