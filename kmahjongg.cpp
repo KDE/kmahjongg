@@ -374,7 +374,7 @@ void KMahjongg::gameOver(
 
 	gameTimer->pause();
         long gameNum = bw->getGameNum();
-	KMessageBox::information(this, i18n("Game over: You have won!"));
+	KMessageBox::information(this, i18n("You have won!"));
 	bw->animateMoveList();
 	int elapsed = gameTimer->toInt();
 
