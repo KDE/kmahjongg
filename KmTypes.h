@@ -11,6 +11,7 @@ typedef unsigned long  ULONG;
 
 
 typedef struct pos {
+    pos() : e(0), y(0), x(0), f(0) { }
     USHORT e,y,x,f;
 } POSITION;
 

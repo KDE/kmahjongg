@@ -620,7 +620,7 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
     statusChanged();
 
     switch(mode) {
-	case insert:
+	case insert: {
 		POSITION next;
 		next = currPos;
 		if (next.e == 100)
@@ -630,7 +630,7 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 
 		drawCursor(next, canInsert(next));
 	break;
-
+	}
 	case remove:
     		drawCursor(currPos, 1);
 	break;
