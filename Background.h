@@ -13,7 +13,8 @@ class Background
   public:
     Background();
     ~Background();
-
+    bool tile;
+    
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged(void);

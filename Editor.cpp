@@ -5,14 +5,14 @@
 #include <qlayout.h>
 #include <qpainter.h>
 #include "Editor.h"
-#include "Editor.moc"
-#include "Preferences.h"
 #include <kmessagebox.h>
 
 #include<kglobal.h>
 #include<kconfig.h>     // Needed to use KConfig
 #include<klocale.h>     // Needed to use KLocale
 #include<kiconloader.h> //
+#include<kconfig.h>
+#include <kstandarddirs.h>
 
 #include <ktoolbarradiogroup.h>
 
@@ -82,8 +82,11 @@ Editor::Editor
     setMaximumSize( sWidth+60, sHeight+60);
 
 
-   // load in the tile set
-   tiles.loadTileset(preferences.tileset());
+   KConfig *config=kapp->config();
+   config->setGroup("General");
+   QString tile = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+   tile = locate("appdata", tile);
+   tiles.loadTileset(tile);
 
    // tell the user what we do
    setCaption(kapp->makeStdCaption(i18n("Edit Board Layout")));
@@ -415,19 +418,18 @@ void Editor::drawBackground(QPixmap *pixmap) {
 	int nextX=sx+(x*tiles.qWidth());
 	p.drawLine(nextX, sy, nextX, sy+BoardLayout::height*tiles.qHeight());
     }
-
-
 }
-
-
 
 void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
+    KConfig *config=kapp->config();
+    config->setGroup("General");
+    QString tile1 = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+    tile1 = locate("appdata", tile1);
+    tiles.loadTileset(tile1);
 
-    // blast in a white background
-   tiles.loadTileset(preferences.tileset());
 
     int xOffset = tiles.width()/2;
     int yOffset = tiles.height()/2;

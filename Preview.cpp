@@ -7,17 +7,15 @@
 #include <kfiledialog.h>
 #include <qpainter.h>
 #include <qfile.h>
-#include "Preview.h"
-#include "Preview.moc"
-#include "Preferences.h"
-#include "kmessagebox.h"
-#include "kstandarddirs.h"
-#include "klocale.h"
+#include <kmessagebox.h>
+#include <kstandarddirs.h>
+#include <klocale.h>
 #include <qfileinfo.h>
-
 #include <qpushbutton.h>
 #include <qcombobox.h>
 #include <qbuttongroup.h>
+
+#include "Preview.h"
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
@@ -193,24 +191,33 @@ void Preview::markUnchanged(void)
 
 void Preview::initialise(const PreviewType type, const char *extension)
 {
+    KConfig *config=kapp->config();
+    config->setGroup("General");
+    QString tile = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+    QString back = "pics/"+config->readEntry("Background_file", "default.bgnd");
+    QString layout = "pics/"+config->readEntry("Layout_file", "default.layout");
+    back = locate("appdata", back);
+    layout = locate("appdata", layout);
+    tile = locate("appdata", tile);
+
 	// set up the concept of the current file. Initialised to the preferences
 	// value initially. Set the caption to indicate what we are doing
 	switch (type) {
 	    case background:
 		      setCaption(kapp->makeStdCaption(i18n("Change Background Image")));
-		      selectedFile = preferences.background();
+		      selectedFile = back;
 		      fileSelector = i18n("*.bgnd|Background Image\n"
 				     "*.bmp|Windows bitmap file (*.bmp)\n");
 		  break;
             case tileset:
 		      setCaption(kapp->makeStdCaption(i18n("Change Tile Set")));
 		      fileSelector = i18n("*.tileset|Tile set file\n");
-		      selectedFile = preferences.tileset();
+		      selectedFile = tile;
 		  break;
             case board:
 		      fileSelector = i18n("*.layout|Board layout file\n");
 		      setCaption(kapp->makeStdCaption(i18n("Change Board Layout")));
-		      selectedFile = preferences.layout();
+		      selectedFile = layout;
 	          break;
 
 	    case theme:
@@ -326,11 +333,15 @@ void Preview::load(void) {
 // chaps.
 
 void Preview::drawPreview(void) {
-
-
-    QString back = preferences.background();
-    QString tile = preferences.tileset();
-    QString layout = preferences.layout();
+    KConfig *config=kapp->config();
+    config->setGroup("General");
+    QString tile = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+    QString back = "pics/"+config->readEntry("Background_file", "default.bgnd");
+    QString layout = "pics/"+config->readEntry("Layout_file", "default.layout");
+    back = locate("appdata", back);
+    layout = locate("appdata", layout);
+    tile = locate("appdata", tile);
+    
     switch (previewType) {
 	case background:
 		back = selectedFile;
@@ -370,27 +381,36 @@ void Preview::drawPreview(void) {
 		    }
 
 		    in.readLine(tilesetRaw, MAXPATHLEN);
-
-
 		    in.readLine(backRaw, MAXPATHLEN);
 		    in.readLine(layoutRaw, MAXPATHLEN);
+	            
+		    tile = QString("pics") + tilesetRaw;
+		    back = QString("pics") + backRaw;
+		    layout = QString("pics") + layoutRaw;
 
-		    parseFile(tilesetRaw, tile);
-		    parseFile(backRaw, back);
-		    parseFile(layoutRaw, layout);
+		    layout.replace(QRegExp(":"), "/");
+		    layout.replace(QRegExp("\n"), QString::null);
+		    tile.replace(QRegExp(":"), "/");
+		    tile.replace(QRegExp("\n"), QString::null);
+		    back.replace(QRegExp(":"), "/");
+		    back.replace(QRegExp("\n"), QString::null);
+		    
+		    
+		    tile = locate("appdata", tile);
+		    back = locate("appdata", back);
+		    layout = locate("appdata", layout);
 
+		    //parseFile(tilesetRaw, tile);
+		    //parseFile(backRaw, back);
+		    //parseFile(layoutRaw, layout);
 
 		    in.close();
 
 		    themeBack=back;
 		    themeLayout=layout;
 		    themeTileset=tile;
-
 		}
-
    	    }
-
-
              break;
     }
 
@@ -398,30 +418,23 @@ void Preview::drawPreview(void) {
     renderTiles(tile, layout);
 }
 
-
 void Preview::paintEvent( QPaintEvent*  ){
-	drawFrame->repaint(false);
+  drawFrame->repaint(false);
 }
 
-
-void Preview::parseFile(const QString &, QString &out) {
-	QString tmp;
-
-	QString prefix;
-	prefix=locate("appdata", "pics/default.tileset");
-	QFileInfo f(prefix);
-	prefix=f.dirPath();
+void Preview::parseFile(const QString &in, QString &out) {
+	//QString prefix = locate("appdata", QString("pics/") +in);
+	QString prefix = locate("appdata", "pics/default.tileset");
+	QFileInfo f( prefix );
+	prefix = f.dirPath();
 
 	// remove any trailing \n
+	QString tmp;
 	tmp.replace(QRegExp("\n"), QString::null);
 	tmp.replace(QRegExp(":"), prefix + '/');
 
 	out = tmp;
 }
-
-
-
-
 
 // the user selected ok, or apply. This method passes the changes
 // across to the game widget and if necessary forces a board redraw
@@ -463,7 +476,6 @@ void Preview::applyChange(void) {
 }
 
 // Render the background to the pixmap.
-
 void Preview::renderBackground(const QString &bg) {
    QImage img;
    QImage tmp;
@@ -474,8 +486,6 @@ void Preview::renderBackground(const QString &bg) {
    b = back.getBackground();
    bitBlt( p, 0,0,
             b,0,0, b->width(), b->height(), CopyROP );
-
-
 }
 
 // This method draws a mini-tiled board with no tiles missing.
@@ -532,17 +542,18 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
     }
 }
 
-
-
 // this really does not belong here. It will be fixed in v1.1 onwards
 void Preview::saveTheme(void) {
-
-    QString back = preferences.background();
-    QString tile = preferences.tileset();
-    QString layout = preferences.layout();
+    KConfig *config=kapp->config();
+    config->setGroup("General");
+    QString tile = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+    QString back = "pics/"+config->readEntry("Background_file", "default.bgnd");
+    QString layout = "pics/"+config->readEntry("Layout_file", "default.layout");
+    back = locate("appdata", back);
+    layout = locate("appdata", layout);
+    tile = locate("appdata", tile);
+    
     QString with = ":";
-
-
     // we want to replace any path in the default store
     // with a +
     QRegExp p(locate("data_dir", "/kmahjongg/pics/"));

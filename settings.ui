@@ -1,0 +1,163 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>Settings</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>Settings</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>274</width>
+            <height>200</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <property name="spacing">
+            <number>0</number>
+        </property>
+        <widget class="QFrame">
+            <property name="name">
+                <cstring>frame3</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Raised</enum>
+            </property>
+            <property name="lineWidth">
+                <number>0</number>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QGroupBox" row="0" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>groupBox1</cstring>
+                    </property>
+                    <property name="title">
+                        <string>General</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>Show_removed</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show removed tiles</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>Solvable_game</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Generate solvable games</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <spacer row="2" column="0">
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QButtonGroup" row="1" column="1">
+                    <property name="name">
+                        <cstring>buttonGroup1</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Background</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>Background_scale</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Scale</string>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton">
+                            <property name="name">
+                                <cstring>Background_tiled</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Tiled</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QGroupBox" row="1" column="0">
+                    <property name="name">
+                        <cstring>groupBox2</cstring>
+                    </property>
+                    <property name="title">
+                        <string>Tiles</string>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>Shadows_on</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Draw shadows</string>
+                            </property>
+                            <property name="checked">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>Use_mini_tiles</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Use mini-tiles</string>
+                            </property>
+                        </widget>
+                    </vbox>
+                </widget>
+            </grid>
+        </widget>
+    </vbox>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

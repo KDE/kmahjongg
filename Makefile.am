@@ -6,13 +6,13 @@ LDADD =  $(LIB_KDEGAMES) $(LIB_KFILE)
 KDE_ICON = kmahjongg
 
 bin_PROGRAMS = kmahjongg
-kmahjongg_SOURCES = kmahjongg.cpp  \
+kmahjongg_SOURCES = main.cpp kmahjongg.cpp boardwidget.cpp \
 		Tileset.cpp BoardLayout.cpp GameTimer.cpp \
-		Preferences.cpp Background.cpp \
-		PrefsDlg.cpp  Preview.cpp \
-		Editor.cpp HighScore.cpp Progress.cpp
-METASOURCES = kmahjongg.moc GameTimer.moc Preview.moc Editor.moc \
-        HighScore.moc PrefsDlg.moc Progress.moc
+		Background.cpp \
+		Preview.cpp \
+		Editor.cpp HighScore.cpp settings.ui
+
+METASOURCES = AUTO
 
 xdg_apps_DATA = kmahjongg.desktop
 

@@ -46,7 +46,6 @@ class Preview: public QDialog
     Q_OBJECT
 
 public:
-
     enum PreviewType {background, tileset, board, theme};
 
     Preview

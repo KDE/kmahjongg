@@ -1,11 +1,11 @@
 
 #include "KmTypes.h"
 #include "Background.h"
-#include "Preferences.h"
 #include <qimage.h>
 #include <qpixmap.h>
-Background::Background()
-{
+
+Background::Background(): tile(true) {
+
   sourceImage = 0;
   backgroundImage = 0;
   backgroundPixmap = 0;
@@ -13,7 +13,7 @@ Background::Background()
 }
 
 Background::~Background() {
-/* already handled by Qt
+/* already handled by Qt TODO
   delete sourceImage;
   delete backgroundImage;
   delete backgroundPixmap;
@@ -22,7 +22,6 @@ Background::~Background() {
 }
 
 bool Background::load(const QString &file, short width, short height) {
- 
   w=width;
   h=height; 
 
@@ -80,7 +79,7 @@ void Background::sourceToBackground(void) {
     return;
   }
     
-  if (!preferences.scaleMode()) {
+  if (tile) {
     // copy new to background wrapping on w and height
     for (int y=0; y<backgroundImage->height(); y++) {
       QRgb *dest = (QRgb *) backgroundImage->scanLine(y);

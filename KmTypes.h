@@ -14,8 +14,6 @@ typedef struct pos {
     USHORT e,y,x,f;
 } POSITION;
 
-
-
 typedef struct dep {
     int turn_dep[4];   // Turn dependencies
     int place_dep[4];  // Placing dependencies
