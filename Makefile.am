@@ -33,5 +33,5 @@ uninstall-local:
 	-rm -f $(kde_minidir)/kmahjongg.xpm
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
+	$(XGETTEXT) -C -kTRANS -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
 

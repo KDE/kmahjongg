@@ -23,20 +23,21 @@
 
 */
 
-#include <qmessagebox.h>
-#include <qtimer.h> 
-#include <qaccel.h>
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#include <qmessagebox.h>
+#include <qtimer.h> 
+#include <qaccel.h>
+
 #include <kfiledialog.h>
 #include <kmsgbox.h>
+#include <klocale.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
-#include <klocale.h>
 
 //----------------------------------------------------------
 // Defines
@@ -83,8 +84,7 @@
 
 // use this macro, to mark strings as candidates for translation
 // without generating code
-#undef i18n
-#define i18n( msg)              msg
+#define TRANS( msg)              msg
 
 
 //----------------------------------------------------------
@@ -99,22 +99,17 @@ extern char PyramideMask[];
 extern char TriangleMask[];
 
 BOARDINFO BoardWidget::BoardInfo[] = {
-  { i18n( "Classic" ),  ClassicMask  },
-  { i18n( "Tower"),     TowerMask    },
-  { i18n( "Triangle"),  TriangleMask },
-  { i18n( "Pyramide"),  PyramideMask },
+  { TRANS( "Classic" ),  ClassicMask  },
+  { TRANS( "Tower"),     TowerMask    },
+  { TRANS( "Triangle"),  TriangleMask },
+  { TRANS( "Pyramide"),  PyramideMask },
   { NULL,       NULL     }
 };
-
-KLocale* locale;
-
 
 // ---------------------------------------------------------
 int main( int argc, char** argv )
 {
     KApplication a( argc, argv, "kmahjongg");
-    locale = a.getLocale();
-
     KMahjonggWidget w;
 
     w.show();
