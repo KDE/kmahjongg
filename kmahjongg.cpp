@@ -612,10 +612,9 @@ void KMahjonggWidget::closeEvent( QCloseEvent* e )
 // ---------------------------------------------------------
 void KMahjonggWidget::showStatusText( const char* msg, long board )
 {
-    char buff[256];
-    sprintf(buff,"%s %ld",(const char *) i18n("Game Number:"), board);
     statusLabel->setText(i18n(msg));
-    gameNumLabel->setText(buff);
+    QString str = i18n("Game Number: %1").arg(board);
+    gameNumLabel->setText(str);
 
 }
 
@@ -628,8 +627,7 @@ void KMahjonggWidget::showMessage( const char* msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent )
 {
-    char szBuffer[128];
-    sprintf( szBuffer, i18n("Removed: %d/%d"), iCurrent, iMaximum );
+    QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
     tilesLeftLabel->setText(szBuffer);
     
     // Update here since undo allow is effected by demo mode
@@ -2113,11 +2111,7 @@ bool BoardWidget::loadBackground(
     if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
     {
         if( bShowError )
-	{
-            QString strMsg;
-            strMsg.sprintf( i18n("Failed to load image:\n%s"), pszFileName );
-            showMessage( strMsg );
-	}
+            showMessage( i18n("Failed to load image:\n%1").arg(pszFileName) );
         return( false );
     }
     preferences.setBackground(pszFileName);
