@@ -164,7 +164,7 @@ class BoardWidget : public QWidget
     signals:
         void statusTextChanged ( const QString&, long );
         void message           ( const QString& );
-        void tileNumberChanged ( int iMaximum, int iCurrent );
+        void tileNumberChanged ( int iMaximum, int iCurrent, int iLeft );
         void demoModeChanged   ( bool bActive );
 
 	void gameCalculated(void);
@@ -193,6 +193,7 @@ class BoardWidget : public QWidget
         bool isMatchingTile( POSITION&, POSITION& );
         bool generateStartPosition2();
         bool findMove( POSITION&, POSITION& );
+        int  moveCount( );
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 	void stackTiles(unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
@@ -298,7 +299,7 @@ class KMahjonggWidget : public KMainWindow
         void startNewGame( int num = -1 );
         void showStatusText ( const QString& , long);
         void showMessage    ( const QString& );
-        void showTileNumber( int iMaximum, int iCurrent );
+        void showTileNumber( int iMaximum, int iCurrent, int iLeft );
         void demoModeChanged( bool bActive );
 		void gameOver( unsigned short removed, unsigned short cheats);
  	void statusBarMode(int onOff);

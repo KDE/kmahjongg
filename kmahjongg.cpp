@@ -171,8 +171,8 @@ progress("Connecting signals");
     connect( bw, SIGNAL( message(const QString&) ),
                  SLOT( showMessage(const QString&) ) );
 
-    connect( bw, SIGNAL( tileNumberChanged(int,int) ),
-                 SLOT( showTileNumber(int,int) ) );
+    connect( bw, SIGNAL( tileNumberChanged(int,int,int) ),
+                 SLOT( showTileNumber(int,int,int) ) );
 
     connect( bw, SIGNAL( demoModeChanged(bool) ),
                  SLOT( demoModeChanged(bool) ) );
@@ -557,11 +557,11 @@ void KMahjonggWidget::showMessage( const QString &msg )
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent )
+void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 {
     // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
     //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
-    QString szBuffer = i18n("Removed: %1/%2").arg(iMaximum-iCurrent).arg(iMaximum);
+    QString szBuffer = i18n("Removed: %1/%2  Pairs left: %3").arg(iMaximum-iCurrent).arg(iMaximum).arg(iLeft);
     tilesLeftLabel->setText(szBuffer);
 
     // Update here since undo allow is effected by demo mode
@@ -2107,6 +2107,63 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
         return( false );
 }
 
+int BoardWidget::moveCount( )
+{
+    short Pos_Ende = Game.MaxTileNum;  // end of PosTable
+
+    for( short E=0; E<BoardLayout::depth; E++ )
+    {
+        for( short Y=0; Y<BoardLayout::height-1; Y++ )
+        {
+            for( short X=0; X<BoardLayout::width-1; X++ )
+            {
+                if( Game.Mask[E][Y][X] != (UCHAR) '1' )
+                    continue;
+                if( ! Game.Board[E][Y][X] )
+                    continue;
+                if( E < 4 )
+                {
+                    if( Game.Board[E+1][Y][X] || Game.Board[E+1][Y+1][X] ||
+                        Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
+                        continue;
+                }
+                if( (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
+                    (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                    continue;
+
+                Pos_Ende--;
+                PosTable[Pos_Ende].e = E;
+                PosTable[Pos_Ende].y = Y;
+                PosTable[Pos_Ende].x = X;
+                PosTable[Pos_Ende].f = Game.Board[E][Y][X];
+
+            }
+        }
+    }
+
+    iPosCount = 0;  // store number of pairs found
+
+    while( Pos_Ende < Game.MaxTileNum-1 && iPosCount <BoardLayout::maxTiles-2)
+    {
+        for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
+        {
+            if( isMatchingTile(PosTable[Pos], PosTable[Pos_Ende]) )
+            {
+		if (iPosCount <BoardLayout::maxTiles-2) {
+                	PosTable[iPosCount++] = PosTable[Pos_Ende];
+                	PosTable[iPosCount++] = PosTable[Pos];
+		}
+            }
+        }
+        Pos_Ende++;
+    }
+
+    return iPosCount/2;
+}
+
+
+
+
 // ---------------------------------------------------------
 short BoardWidget::findAllMatchingTiles( POSITION& posA )
 {
@@ -2408,7 +2465,7 @@ bool BoardWidget::loadBackground(
 // ---------------------------------------------------------
 void BoardWidget::drawTileNumber()
 {
-    emit tileNumberChanged( Game.MaxTileNum, Game.TileNum );
+    emit tileNumberChanged( Game.MaxTileNum, Game.TileNum, moveCount( ) );
 }
 
 // ---------------------------------------------------------
