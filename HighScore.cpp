@@ -4,7 +4,6 @@
 
 
 #include <qlabel.h>
-#include <qpushbutton.h>
 #include <qfileinfo.h>
 #include <kmessagebox.h>
 #include "klocale.h"
@@ -13,6 +12,8 @@
 #include <qlineedit.h>
 #include <qcombobox.h>
 #include <kapplication.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
 static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";  
@@ -107,12 +108,11 @@ HighScore::HighScore
 		addRow(row);
 
 	QPushButton* qtarch_PushButton_1;
-	qtarch_PushButton_1 = new QPushButton( this, "PushButton_1" );
+	qtarch_PushButton_1 = new KPushButton( KStdGuiItem::ok(), this, "PushButton_1" );
 	qtarch_PushButton_1->setGeometry( 110+35, 340+50, 100, 30 );
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
 	qtarch_PushButton_1->setFocusPolicy( QWidget::TabFocus );
-	qtarch_PushButton_1->setText(i18n( "&OK" ));
 	qtarch_PushButton_1->setAutoRepeat( FALSE );
         qtarch_PushButton_1->setAutoResize( FALSE );
         qtarch_PushButton_1->setDefault(true);

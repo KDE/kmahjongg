@@ -7,9 +7,10 @@
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
-#include <qpushbutton.h>
 #include <qcombobox.h>
 #include <qbuttongroup.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #include "prefs.h"
 #include "Preview.h"
@@ -70,37 +71,34 @@ Preview::Preview
 	int bw = ((310+dx) - ((90+(dx/3))*3))/4 ;
 	int pos = bw +10;
 
-	okButton = new QPushButton( this, "okButton" );
+	okButton = new KPushButton( KStdGuiItem::ok(), this, "okButton" );
 	okButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 ); // was 20
 	okButton->setMinimumSize( 0, 0 );
 	okButton->setMaximumSize( 32767, 32767 );
 	connect( okButton, SIGNAL(clicked()), SLOT(ok()) );
 	okButton->setFocusPolicy( QWidget::TabFocus );
 	okButton->setBackgroundMode( QWidget::PaletteBackground );
-	okButton->setText( i18n("&OK") );
 	okButton->setAutoRepeat( FALSE );
         okButton->setDefault(true);
 
 	pos += (90+(dx/3))+bw;
-	applyButton = new QPushButton( this, "applyButton" );
+	applyButton = new KPushButton( KStdGuiItem::apply(), this, "applyButton" );
 	applyButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 );
 	applyButton->setMinimumSize( 0, 0 );
 	applyButton->setMaximumSize( 32767, 32767 );
 	connect( applyButton, SIGNAL(clicked()), SLOT(apply()) );
 	applyButton->setFocusPolicy( QWidget::TabFocus );
 	applyButton->setBackgroundMode( QWidget::PaletteBackground );
-	applyButton->setText( i18n("Apply") );
 	applyButton->setAutoRepeat( FALSE );
 
 	pos += (90+(dx/3))+bw;
-	cancelButton = new QPushButton( this, "cancelButton" );
+	cancelButton = new KPushButton( KStdGuiItem::cancel(), this, "cancelButton" );
 	cancelButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 );
 	cancelButton->setMinimumSize( 0, 0 );
 	cancelButton->setMaximumSize( 32767, 32767 );
 	connect( cancelButton, SIGNAL(clicked()), SLOT(reject()) );
 	cancelButton->setFocusPolicy( QWidget::TabFocus );
 	cancelButton->setBackgroundMode( QWidget::PaletteBackground );
-	cancelButton->setText( i18n("&Cancel") );
 	cancelButton->setAutoRepeat( FALSE );
 
 	drawFrame = new FrameImage( this, "drawFrame" );
