@@ -47,6 +47,7 @@ protected:
    QCheckBox* dlgSavePrefs;
    QCheckBox* dlgShowStatus;
    QCheckBox* dlgMiniTiles;
+   QCheckBox* dlgGenerateSolvable;
 							    
 };                     
 
@@ -88,6 +89,7 @@ private:
     int oRemoved;
     int oScale;
     int oMini;
+    int oSolvable;
  
 };
 #endif // PrefsDlg_included

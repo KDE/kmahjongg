@@ -18,10 +18,10 @@
 
 #define Inherited QDialog
 
-#include <qbuttongroup.h>
-#include <qpushbutton.h>
-#include <qcheckbox.h>
-#include <qradiobutton.h>
+#include <qbttngrp.h>
+#include <qpushbt.h>
+#include <qchkbox.h>
+#include <qradiobt.h>
 #include <kapp.h>
 
 #include <qlayout.h>
@@ -156,6 +156,8 @@ PrefsDlgData::PrefsDlgData
 	dlgSavePrefs->setChecked( TRUE );
 	dlgShowStatus = new QCheckBox( i18n("Show status bar"), KmahjonggGroup, "stautsCB" );
 	dlgShowStatus->setChecked( TRUE );
+	dlgGenerateSolvable = new QCheckBox( i18n("Generate solvable games"), KmahjonggGroup, "solvableCB" );
+	dlgGenerateSolvable->setChecked( TRUE );
 
 	QPushButton* applyBtn = new QPushButton( i18n("Apply"), this, "applyBtn" );
 	connect( applyBtn, SIGNAL(clicked()), SLOT(acceptClicked()) );
@@ -210,6 +212,7 @@ void PrefsDlg::initialise(void) {
 	dlgMiniTiles->setChecked((oMini= preferences.miniTiles()));
 	dlgSavePrefs->setChecked((oSave = preferences.autosave()));
 	dlgShowRemoved->setChecked((oRemoved = preferences.showRemoved()));
+	dlgGenerateSolvable->setChecked((oSolvable = preferences.generateSolvable()));
 	
 	// initialise the radoi buttons
 	dlgScaleBg->setChecked((oScale = preferences.scaleMode()));
@@ -239,7 +242,11 @@ void PrefsDlg::updatePreferences(void) {
 		preferences.setRemoved(tmp);	
 		oRemoved = tmp;
 		showRemovedChanged();
-		
+	}
+
+	if ((tmp=dlgGenerateSolvable->isChecked()) != oSolvable) {
+		preferences.setSolvable(tmp);	
+		oSolvable = tmp;
 	}
 
 	if ((tmp=dlgScaleBg->isChecked()) != oScale) {

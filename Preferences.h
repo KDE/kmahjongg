@@ -16,9 +16,10 @@ class Preferences {
   int showStatus(void) {return status;};    // Draw status bar ?
   int showShadows(void) {return shadows;};  // Render shadows ?
   int miniTiles(void) {return mini;};
-  int  scaleMode(void) {return scale;};     // Scale background (false = tile)
-  int  autosave(void) {return save;};     // Scale background (false = tile)
-  int  showRemoved(void) {return removed;}; // show removed tiles
+  int scaleMode(void) {return scale;};     // Scale background (false = tile)
+  int autosave(void) {return save;};     // Scale background (false = tile)
+  int showRemoved(void) {return removed;}; // show removed tiles
+  int generateSolvable(void) {return solvable;} // Generate solvable game
   QString tileset(void) {return tileFile;};   // Filename of the tile set
   QString background(void) {return backFile;}; //Filename of the background 
   QString layout(void) {return layoutFile;};  // File name of board layout
@@ -32,6 +33,7 @@ class Preferences {
   void setStatus(int s) {status = s;};
   void setScale(int s) {scale = s;};
   void setRemoved(int s) {removed = s;};
+  void setSolvable(int s) {solvable = s;};
   void setAutosave(int s) {save = s;};
   void setTileset(QString s) {tileFile = s;};
   void setBackground(QString s) {backFile = s;};
@@ -49,7 +51,8 @@ class Preferences {
   int     scale;
   int	  mini;
   int     save;
-  int removed;
+  int     removed;
+  int     solvable;
 };
 
 extern Preferences preferences;

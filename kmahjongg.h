@@ -31,7 +31,7 @@
 class KMenuBar;
 class QLabel;
 
-#include <qfiledialog.h>
+#include <qfiledlg.h>
 
 #include <kapp.h>
 #include <kmessagebox.h>
@@ -194,7 +194,7 @@ class BoardWidget : public QWidget
         void transformPointToPosition( const QPoint&, POSITION& );
 
         bool isMatchingTile( POSITION&, POSITION& );
-        bool generateStartPosition2();
+    	bool generateStartPosition2();
         bool findMove( POSITION&, POSITION& );
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
@@ -262,6 +262,19 @@ class BoardWidget : public QWidget
 	unsigned char removedFlower[4];
 	unsigned char removedSeason[4];
 	
+	// new bits for new game generation, with solvability
+	int numTiles;
+	POSITION tilePositions[BoardLayout::maxTiles];
+	DEPENDENCY positionDepends[BoardLayout::maxTiles];
+	void generateTilePositions();
+	void generatePositionDepends();
+	int tileAt(int x, int y, int z);
+	bool generateSolvableGame();
+	bool onlyFreeInLine(int position);
+	int selectPosition(int lastPosition);
+	void placeTile(int position, int tile);
+	void updateDepend(int position);
+
 public:
         GAMEDATA Game;
 };
