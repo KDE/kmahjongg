@@ -27,6 +27,7 @@
 
 #include <qmsgbox.h>
 #include <qtimer.h> 
+#include <qaccel.h>
 
 #include <string.h>
 #include <stdio.h>
@@ -39,7 +40,7 @@
 //----------------------------------------------------------
 // Defines
 //----------------------------------------------------------
-#define KM_VERSION   "0.3.0"
+#define KM_VERSION   "0.4.0"
 
 #define ID_STATUS_TILENUMBER 1
 #define ID_STATUS_MESSAGE    2
@@ -77,6 +78,7 @@
 #define ID_HELP_ABOUT            900
 #define ID_HELP_HELP             901
 
+#define CONFIG_STATUSBAR_VIS     "StatusBar_visible"
 
 //----------------------------------------------------------
 // STATICS
@@ -97,11 +99,14 @@ BOARDINFO BoardWidget::BoardInfo[] = {
   { NULL,       NULL     }
 };
 
+KLocale* locale;
+
 
 // ---------------------------------------------------------
 int main( int argc, char** argv )
 {
     KApplication a( argc, argv, "kmahjongg");
+    locale = a.getLocale();
 
     KMahjonggWidget w;
 
@@ -120,6 +125,11 @@ KMahjonggWidget::KMahjonggWidget()
 {
     setCaption( kapp->getCaption() );
 
+    // read configuration
+    KConfig* conf = kapp->getConfig();
+    conf->setGroup("");
+    bShowStatusbar = conf->readNumEntry( CONFIG_STATUSBAR_VIS, TRUE );
+
     setupStatusBar();
     setupMenuBar();
 
@@ -128,14 +138,13 @@ KMahjonggWidget::KMahjonggWidget()
     bw->move( 0, pMenuBar->height()+1 );
     setView( bw );
 
-    bShowStatusbar = true;
     bDemoModeActive = false;
     bShowMatchingTiles = false;
 
     updateStatusbar( bShowStatusbar );
 
-    connect( bw, SIGNAL( statusMsgChanged(char*) ),
-                 SLOT( showStatusMsg(char*) ) );
+    connect( bw, SIGNAL( statusMsgChanged(const char*) ),
+                 SLOT( showStatusMsg(const char*) ) );
 
     connect( bw, SIGNAL( tileNumberChanged(int,int) ),
                  SLOT( showTileNumber(int,int) ) );
@@ -181,47 +190,51 @@ void KMahjonggWidget::updateStatusbar( bool bShow )
 // ---------------------------------------------------------
 void KMahjonggWidget::setupMenuBar()
 {
+    // Menu IDs from 0 ... ID_GAME_NEW-1 are reserved for new game index numbers
     QPopupMenu* board = new QPopupMenu;
     for( int i=0; BoardWidget::BoardInfo[i].pszName; i++ )
     {
-        board->insertItem( BoardWidget::BoardInfo[i].pszName, i );
+        board->insertItem( locale->translate(BoardWidget::BoardInfo[i].pszName), i );
     }
 
     QPopupMenu *game = new QPopupMenu;
     game->setCheckable( true );
-    game->insertItem( "&Start new game",    board, ID_GAME_NEW );
+    game->insertItem( locale->translate("&Start new game"),    board, ID_GAME_NEW );
     game->insertSeparator();
-    game->insertItem( "&Help me",           ID_GAME_HELP );
-    game->insertItem( "&Undo last move",    ID_GAME_UNDO );
-    game->insertItem( "&Demo mode",         ID_GAME_DEMO );
-    game->insertItem( "Show &matching tiles", ID_GAME_SHOW );
+    game->insertItem( locale->translate("&Help me"),           ID_GAME_HELP );
+    game->insertItem( locale->translate("&Undo last move"),    ID_GAME_UNDO );
+    game->insertItem( locale->translate("&Demo mode"),         ID_GAME_DEMO );
+    game->insertItem( locale->translate("Show &matching tiles"), ID_GAME_SHOW );
     game->insertSeparator();
-    game->insertItem( "&Quit",              ID_GAME_QUIT );
+    game->insertItem( locale->translate("&Quit"),              ID_GAME_QUIT );
 
     QPopupMenu *view = new QPopupMenu;
     view->setCheckable( true );
-    view->insertItem( "&Load Background image...",  ID_VIEW_BACKGROUND_LOAD );
+    view->insertItem( locale->translate("&Load Background image..."),  ID_VIEW_BACKGROUND_LOAD );
     view->insertSeparator( -1 );
-    view->insertItem( "&Statusbar",   ID_VIEW_STATUSBAR );
+    view->insertItem( locale->translate("&Statusbar"),   ID_VIEW_STATUSBAR );
 
     QPopupMenu *help = new QPopupMenu;
-    help->insertItem( "&Help",       ID_HELP_HELP );
+    help->insertItem( locale->translate("&Help"),       ID_HELP_HELP );
     help->insertSeparator( -1 );
-    help->insertItem( "&About...",   ID_HELP_ABOUT );
+    help->insertItem( locale->translate("&About..."),   ID_HELP_ABOUT );
   
-    connect( game,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
-    connect( board, SIGNAL(activated(int) ), SLOT( startNewGame(int) ) );
-    connect( view,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
-    connect( help,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
-
     pMenuBar = new KMenuBar( this );
-    pMenuBar->insertItem( "&Game", game );
-    pMenuBar->insertItem( "&View", view );
+
+    pMenuBar->insertItem( locale->translate("&Game"), game );
+    pMenuBar->insertItem( locale->translate("&View"), view );
     pMenuBar->insertSeparator();
-    pMenuBar->insertItem( "&Help", help );
-    pMenuBar->enableFloating( false );
-    pMenuBar->enableMoving( false );
+    pMenuBar->insertItem( locale->translate("&Help"), help );
+
+    // initialize menu accelerators
+    pMenuBar->setAccel( CTRL+Key_Q, ID_GAME_QUIT );
+    pMenuBar->setAccel( Key_F1,     ID_HELP_HELP );
+
+    //    pMenuBar->enableFloating( false );
+    //    pMenuBar->enableMoving( false );
     pMenuBar->show();
+
+    connect( pMenuBar,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
 
     setMenu( pMenuBar );
 }
@@ -229,12 +242,23 @@ void KMahjonggWidget::setupMenuBar()
 // ---------------------------------------------------------
 void KMahjonggWidget::menuCallback( int item )
 {
-    switch( item )
+    // Menu IDs from 0 ... ID_GAME_NEW-1 are reserved for new game index numbers
+    if( item < ID_GAME_NEW )
+    {
+        startNewGame( item );
+    }
+    else  switch( item )
     {
         case ID_GAME_QUIT:
+	{
+	    // write configuration
+	    KConfig* conf = kapp->getConfig();
+	    conf->setGroup("");
+	    conf->writeEntry(CONFIG_STATUSBAR_VIS, bShowStatusbar );
+
             kapp->quit();
             break;
-
+	}
         case ID_GAME_HELP:
             bw->helpMove();
             break;
@@ -280,14 +304,15 @@ void KMahjonggWidget::menuCallback( int item )
 
         case ID_HELP_ABOUT:
             QString about;
-            about.sprintf( "About %s", kapp->getCaption() );
+            about.sprintf( locale->translate("About %s"), kapp->getCaption() );
             QString version;
-            version.sprintf( "%s V%s\n\n"
+            version.sprintf( locale->translate(
+                             "%s V%s\n\n"
                              "by Mathias Mueller\n"
-                             "(in5y158@public.uni-hamburg.de)", 
+                             "(in5y158@public.uni-hamburg.de)"), 
  			     kapp->getCaption(), KM_VERSION );
             KMsgBox::message( 0, about, version,
-	      	              KMsgBox::INFORMATION, "Close" );
+	      	              KMsgBox::INFORMATION, locale->translate("Close") );
             break;
     }
 }
@@ -307,9 +332,9 @@ void KMahjonggWidget::closeEvent( QCloseEvent* e )
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showStatusMsg( char* pszMessage )
+void KMahjonggWidget::showStatusMsg( const char* pszMessage )
 {
-    pStatusBar->changeItem( pszMessage, ID_STATUS_MESSAGE );
+    pStatusBar->changeItem( locale->translate(pszMessage), ID_STATUS_MESSAGE );
 }
 
 // ---------------------------------------------------------
@@ -360,22 +385,22 @@ BoardWidget::BoardWidget( QWidget* parent )
     // Load tileset
     if( ! loadTileset( DEFAULTTILESET ) )
     {
-        char szFileName[257];
-        sprintf( szFileName, "%s/share/apps/kmahjongg/pics/%s",
-                 kapp->kdedir().data(), DEFAULTTILESET );
-        if( ! loadTileset( szFileName ) )
-            fatal( "Unable to open bitmap file: %s !", szFileName );
+        QString str;
+        str.sprintf( "%s/share/apps/kmahjongg/pics/%s", 
+		     kapp->kdedir().data(), DEFAULTTILESET );
+        if( ! loadTileset( str ) )
+            fatal( "Unable to open bitmap file %s !", (const char*)str );
     }
 
     // Load background
     Bgnd = NULL;
     if( ! loadBackground( DEFAULTBACKGROUND, false ) )
     {
-        char szFileName[257];
-        sprintf( szFileName, "%s/share/apps/kmahjongg/pics/%s", 
-                 kapp->kdedir().data(), DEFAULTBACKGROUND );
-        if( ! loadBackground( szFileName ) )
-            fatal( "Unable to open bitmap file: %s !", szFileName );
+        QString str;
+	str.sprintf( "%s/share/apps/kmahjongg/pics/%s", 
+                     kapp->kdedir().data(), DEFAULTBACKGROUND );
+        if( ! loadBackground( str ) )
+            fatal( "Unable to open bitmap file: %s !", (const char*)str );
     }
 
     setFixedSize( SX, SY-SYOFFSET );
@@ -384,7 +409,7 @@ BoardWidget::BoardWidget( QWidget* parent )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::paintEvent(QPaintEvent *pa)
+void BoardWidget::paintEvent( QPaintEvent* pa )
 {
     QPixmap  pm;
 
@@ -430,7 +455,7 @@ void BoardWidget::undoMove()
         setStatusText( "Undo operation done successfully." );
     }
     else
-        setStatusText( "What do you want to undo ? You have done nothing!" );
+        setStatusText( "What do you want to undo? You have done nothing!" );
 }
 
 // ---------------------------------------------------------
@@ -445,7 +470,7 @@ void BoardWidget::helpMove()
         helpMoveTimeout();
     }
     else
-        setStatusText( "Sorry, you have lost." );
+        setStatusText( "Sorry, you have lost the game." );
 }
 // ---------------------------------------------------------
 void BoardWidget::helpMoveTimeout()
@@ -504,7 +529,7 @@ void BoardWidget::demoMoveTimeout()
                 // else computer has lost
                 else
                 {
-                    setStatusText( "Your computer has lost." );
+                    setStatusText( "Your computer has lost the game." );
                     while( Game.TileNum < Game.MaxTileNum )
                     {
                         putTile( Game.MoveList[Game.TileNum] );
@@ -563,14 +588,14 @@ void BoardWidget::matchAnimationTimeout()
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-            hilightTile(Pos_Tabelle[Pos]);
+            hilightTile(PosTable[Pos]);
         }
     }
     else
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-            drawTile(Pos_Tabelle[Pos]);
+            drawTile(PosTable[Pos]);
         }
     }
     if( TimerState == Match )
@@ -581,7 +606,7 @@ void BoardWidget::stopMatchAnimation()
 {
     for(short Pos = 0; Pos < matchCount; Pos++)
     {
-        drawTile(Pos_Tabelle[Pos]);
+        drawTile(PosTable[Pos]);
     }
     TimerState = Stop;
     matchCount = 0;
@@ -590,7 +615,7 @@ void BoardWidget::stopMatchAnimation()
 // ---------------------------------------------------------
 void BoardWidget::animateMoveList()
 {
-    setStatusText( "You have won!" );
+    setStatusText( "Congratulations. You have won!" );
 
     while( Game.TileNum < Game.MaxTileNum )
     {
@@ -622,7 +647,7 @@ void BoardWidget::calculateNewGame( int iBoard )
 
     if( !loadBoard( BoardInfo[iCurrentBoard].pszGameMask ) )
     {
-        setStatusText( "Error converting board information !" );
+        setStatusText( "Error converting board information!" );
         return;
     }
 
@@ -644,20 +669,7 @@ void BoardWidget::calculateNewGame( int iBoard )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::putTileAtPosition( POSITION &Pos )
-{
-    short E=Pos.e;
-    short Y=Pos.y;
-    short X=Pos.x;
-
-    Game.Board[E][Y][X] =
-    Game.Board[E][Y+1][X] =
-    Game.Board[E][Y+1][X+1] =
-    Game.Board[E][Y][X+1] = Pos.f;
-}
-
-// ---------------------------------------------------------
-void BoardWidget::findFreePositions( POSITION Pos )
+void BoardWidget::findFreePositions( POSITION& Pos )
 {
     static const short PosOffsets[] = {
         0,-1,-2,  0,0,-2,  0,1,-2,  0,-1,2,  0,0,2,  0,1,2,
@@ -720,12 +732,12 @@ void BoardWidget::findFreePositions( POSITION Pos )
                     continue;  // illegal
             }
         }
-        Pos_Tabelle[Pos_Anzahl].e = E;
-        Pos_Tabelle[Pos_Anzahl].y = Y;
-        Pos_Tabelle[Pos_Anzahl].x = X;
-        Game.Board[E][Y][X] = Game.Board[E][Y+1][X] =
-        Game.Board[E][Y+1][X+1] = Game.Board[E][Y][X+1] = 1;
-        Pos_Anzahl++;
+        PosTable[iPosCount].e = E;
+        PosTable[iPosCount].y = Y;
+        PosTable[iPosCount].x = X;
+        iPosCount++;
+        // mark position in gameboard
+        Game.putTile( E, Y, X, 1 );
     }
 }
 
@@ -764,20 +776,20 @@ bool BoardWidget::generateStartPosition()
     memset( Game.Board, 0, sizeof(Game.Board) );
 
     // find first two position
-    Pos_Anzahl=0;
+    iPosCount=0;
     for (short Y=YBorder; Y<YMax-YBorder; Y++)
     {
         for (short X=XBorder; X<XMax-XBorder; X++)
         {
             if (Game.Mask[0][Y][X] == (UCHAR) '1')
             {
-                Pos_Tabelle[Pos_Anzahl].e = 0;
-                Pos_Tabelle[Pos_Anzahl].y = Y;
-                Pos_Tabelle[Pos_Anzahl++].x = X;
+                PosTable[iPosCount].e = 0;
+                PosTable[iPosCount].y = Y;
+                PosTable[iPosCount++].x = X;
             }
         }
     }
-    if( Pos_Anzahl == 0 )
+    if( iPosCount == 0 )
         return( false );  // Error: no start position.
 
     // try max. 200.
@@ -785,11 +797,11 @@ bool BoardWidget::generateStartPosition()
     {
         do
         {
-            Pos1 = rand() % Pos_Anzahl;
-            Pos2 = rand() % Pos_Anzahl;
+            Pos1 = rand() % iPosCount;
+            Pos2 = rand() % iPosCount;
         } while( Pos1 == Pos2 );
         // distance must be min. 4
-        if( abs(Pos_Tabelle[Pos1].y - Pos_Tabelle[Pos2].y) < 4 )
+        if( abs(PosTable[Pos1].y - PosTable[Pos2].y) < 4 )
             continue;
 
         // Pos1 *has to be* smaller than Pos2 .
@@ -799,40 +811,40 @@ bool BoardWidget::generateStartPosition()
             Pos1 = Pos2; 
             Pos2 = PosBB;
         }
-        Pos_Tabelle[0] = Pos_Tabelle[Pos1];     
-        Pos_Tabelle[1] = Pos_Tabelle[Pos2];
+        PosTable[0] = PosTable[Pos1];     
+        PosTable[1] = PosTable[Pos2];
         break;                              
     }
     if( nr==0 )
         return( false );    // Error: no start position.
 
-    Pos_Anzahl=2;
+    iPosCount=2;
 
     // put tiles on board, while tiles are left
     while( Game.TileNum>0 )
     {  
-        if( Pos_Anzahl<2 )
+        if( iPosCount<2 )
             return( false ); // Error: 
 
         short Figur = (rand() % Game.TileNum) & -2;   // tile number
         do
         {
-            Pos1 = rand() % Pos_Anzahl;
-            Pos2 = rand() % Pos_Anzahl;
+            Pos1 = rand() % iPosCount;
+            Pos2 = rand() % iPosCount;
         } while( Pos1 == Pos2 );
 
-        Pos_Tabelle[Pos1].f = Figuren_Tabelle[Figur]+2;
-        putTileAtPosition( Pos_Tabelle[Pos1] );
+        PosTable[Pos1].f = Figuren_Tabelle[Figur]+2;
+        Game.putTile( PosTable[Pos1] );
 
-        Pos_Tabelle[Pos2].f = Figuren_Tabelle[Figur+1]+2;
-        putTileAtPosition( Pos_Tabelle[Pos2] );
+        PosTable[Pos2].f = Figuren_Tabelle[Figur+1]+2;
+        Game.putTile( PosTable[Pos2] );
 
         Game.TileNum-=2;
         Figuren_Tabelle[Figur]   = Figuren_Tabelle[Game.TileNum];
         Figuren_Tabelle[Figur+1] = Figuren_Tabelle[Game.TileNum+1];
 
-        findFreePositions( Pos_Tabelle[Pos1] );
-        findFreePositions( Pos_Tabelle[Pos2] );
+        findFreePositions( PosTable[Pos1] );
+        findFreePositions( PosTable[Pos2] );
 
         // remove position from pos table
         // Pos1 *before* Pos2.
@@ -842,8 +854,8 @@ bool BoardWidget::generateStartPosition()
             Pos1 = Pos2;
             Pos2 = PosBB;
         }
-        Pos_Tabelle[Pos1] = Pos_Tabelle[--Pos_Anzahl];
-        Pos_Tabelle[Pos2] = Pos_Tabelle[--Pos_Anzahl];
+        PosTable[Pos1] = PosTable[--iPosCount];
+        PosTable[Pos2] = PosTable[--iPosCount];
     }
 
     // game generated successfully
@@ -852,7 +864,7 @@ bool BoardWidget::generateStartPosition()
 }
 
 // ---------------------------------------------------------
-bool BoardWidget::isMatchingTile( POSITION Pos1, POSITION Pos2 )
+bool BoardWidget::isMatchingTile( POSITION& Pos1, POSITION& Pos2 )
 {
     if ( Pos1.e != Pos2.e || Pos1.y != Pos2.y || Pos1.x != Pos2.x)
     {
@@ -867,9 +879,9 @@ bool BoardWidget::isMatchingTile( POSITION Pos1, POSITION Pos2 )
 }
 
 // ---------------------------------------------------------
-bool BoardWidget::findMove( POSITION &posA, POSITION &posB )
+bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 {
-    short Pos_Ende = Game.MaxTileNum;  // Ende der Pos_Tabelle
+    short Pos_Ende = Game.MaxTileNum;  // Ende der PosTable
 
     for( short E=0; E<EMax; E++ )
     {
@@ -889,36 +901,36 @@ bool BoardWidget::findMove( POSITION &posA, POSITION &posB )
                      (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
                     continue;
                 Pos_Ende--;
-                Pos_Tabelle[Pos_Ende].e = E;
-                Pos_Tabelle[Pos_Ende].y = Y;
-                Pos_Tabelle[Pos_Ende].x = X;
-                Pos_Tabelle[Pos_Ende].f = Game.Board[E][Y][X];
+                PosTable[Pos_Ende].e = E;
+                PosTable[Pos_Ende].y = Y;
+                PosTable[Pos_Ende].x = X;
+                PosTable[Pos_Ende].f = Game.Board[E][Y][X];
             }
         }
     }
 
-    Pos_Tabelle[0].e = EMax;  // 1. Paar noch nicht gefunden
-    Pos_Anzahl = 0;  // Hier Anzahl der gefunden Paare merken
+    PosTable[0].e = EMax;  // 1. Paar noch nicht gefunden
+    iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
 
     while( Pos_Ende < Game.MaxTileNum-1 )
     {
         for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
         {
-            if( isMatchingTile(Pos_Tabelle[Pos], Pos_Tabelle[Pos_Ende]) )
+            if( isMatchingTile(PosTable[Pos], PosTable[Pos_Ende]) )
             {
-                Pos_Tabelle[Pos_Anzahl++] = Pos_Tabelle[Pos_Ende];
-                Pos_Tabelle[Pos_Anzahl++] = Pos_Tabelle[Pos];
+                PosTable[iPosCount++] = PosTable[Pos_Ende];
+                PosTable[iPosCount++] = PosTable[Pos];
             }
         }
         Pos_Ende++;
     }
 
-    if( Pos_Anzahl>=2 )
+    if( iPosCount>=2 )
     {
         srand( time(NULL) );
-        short Pos = ( rand() % Pos_Anzahl ) & -2;  // Gerader Wert
-        posA = Pos_Tabelle[Pos];
-        posB = Pos_Tabelle[Pos+1];
+        short Pos = ( rand() % iPosCount ) & -2;  // Gerader Wert
+        posA = PosTable[Pos];
+        posB = PosTable[Pos+1];
         return( true );
     }
     else
@@ -926,7 +938,7 @@ bool BoardWidget::findMove( POSITION &posA, POSITION &posB )
 }
 
 // ---------------------------------------------------------
-short BoardWidget::findAllMatchingTiles( POSITION &posA )
+short BoardWidget::findAllMatchingTiles( POSITION& posA )
 {
     short Pos = 0;
 
@@ -947,11 +959,11 @@ short BoardWidget::findAllMatchingTiles( POSITION &posA )
                 if( (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
                      (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
                     continue;
-                Pos_Tabelle[Pos].e = E;
-                Pos_Tabelle[Pos].y = Y;
-                Pos_Tabelle[Pos].x = X;
-                Pos_Tabelle[Pos].f = Game.Board[E][Y][X];
-                if( isMatchingTile(posA, Pos_Tabelle[Pos]) )
+                PosTable[Pos].e = E;
+                PosTable[Pos].y = Y;
+                PosTable[Pos].x = X;
+                PosTable[Pos].f = Game.Board[E][Y][X];
+                if( isMatchingTile(posA, PosTable[Pos]) )
                     Pos++;
             }
         }
@@ -1155,11 +1167,11 @@ void BoardWidget::drawBuffer( short E, short Y, short X )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::hilightTile( POSITION Pos )
+void BoardWidget::hilightTile( POSITION& Pos )
 {
-    short E=Pos.e;
-    short Y=Pos.y;
-    short X=Pos.x;
+    short E = Pos.e;
+    short Y = Pos.y;
+    short X = Pos.x;
     BYTE  F=Game.Board[E][Y][X]-2;
     BYTE* src =  Tiles + F*TX*TY + TSOX;
     BYTE* dest = TileBuffer + TSOX;
@@ -1266,13 +1278,10 @@ void BoardWidget::putTile( POSITION& Pos )
     short Y=Pos.y;
     short X=Pos.x;
 
-    Game.Board[E][Y][X] =         // insert tile in gameboard
-    Game.Board[E][Y+1][X] =
-    Game.Board[E][Y+1][X+1] =
-    Game.Board[E][Y][X+1] = Pos.f;
+    Game.putTile( E, Y, X, Pos.f );
 
-    memset( Reparier_Buffer, 0 , sizeof(Reparier_Buffer) );
-    drawTile(E,Y,X);   
+    memset( RepairBuffer, 0 , sizeof(RepairBuffer) );
+    drawTile( E,Y,X );
 
     for( short dy=-1; dy<3; dy++)
     {
@@ -1298,15 +1307,15 @@ void BoardWidget::putTile( POSITION& Pos )
                     // if ground is reached
                     if( E2==-1 )
                     {
-                        if (! Reparier_Buffer[dx+2][dy+2])
+                        if (! RepairBuffer[dx+2][dy+2])
                         {
                             drawTile(-1,Y2,X2);
                             // mark repaired positions to avoid
                             // positions to be updated twice
-                            Reparier_Buffer[dx+2][dy+2] = 1;
-                            Reparier_Buffer[dx+3][dy+2] = 1;
-                            Reparier_Buffer[dx+3][dy+3] = 1;
-                            Reparier_Buffer[dx+2][dy+3] = 1;
+                            RepairBuffer[dx+2][dy+2] = 1;
+                            RepairBuffer[dx+3][dy+2] = 1;
+                            RepairBuffer[dx+3][dy+3] = 1;
+                            RepairBuffer[dx+2][dy+3] = 1;
                         }
                     }
                 }
@@ -1317,33 +1326,20 @@ void BoardWidget::putTile( POSITION& Pos )
 
 
 // ---------------------------------------------------------
-#define Repariere_Figur(x,y) drawTile(E,Y+y,X+x);
-
-void BoardWidget::removeTile( POSITION Pos )
+void BoardWidget::removeTile( POSITION& Pos )
 {
-    short E=Pos.e;
-    short Y=Pos.y;
-    short X=Pos.x;
+    short E = Pos.e;
+    short Y = Pos.y;
+    short X = Pos.x;
 
     Game.TileNum--;                    // Eine Figur weniger
     Game.MoveList[Game.TileNum] = Pos; // Position ins Protokoll eintragen
 
-    memset(Reparier_Buffer, 0 , sizeof(Reparier_Buffer));
+    memset(RepairBuffer, 0 , sizeof(RepairBuffer));
 
     // remove tile from game board
-    Game.Board[E][Y][X] =       
-    Game.Board[E][Y+1][X] =
-    Game.Board[E][Y+1][X+1] =
-    Game.Board[E][Y][X+1] = 0;
+    Game.putTile( E, Y, X, 0 );
 
-/*      Repariere_Figur(-1,-2); // Figuren auf der gleichen Ebene reparieren
-        Repariere_Figur(0,-2);
-        Repariere_Figur(1,-2);
-        Repariere_Figur(2,-2);
-        Repariere_Figur(2,-1);
-        Repariere_Figur(2,0);
-        Repariere_Figur(2,1);
-*/
     for ( short dy=-2; dy<3; dy++)
     {
         short Y2 = Y+dy;
@@ -1368,15 +1364,15 @@ void BoardWidget::removeTile( POSITION Pos )
                     // if floor is reached
                     if (E2==-1)
                     {
-                        if (! Reparier_Buffer[dx+2][dy+2])
+                        if (! RepairBuffer[dx+2][dy+2])
                         {
                             drawTile(-1,Y2,X2);
                             // to avoid multiple draing operations,
                             // remember updated positions in
-                            Reparier_Buffer[dx+2][dy+2]=1;
-                            Reparier_Buffer[dx+3][dy+2]=1;
-                            Reparier_Buffer[dx+3][dy+3]=1;
-                            Reparier_Buffer[dx+2][dy+3]=1;
+                            RepairBuffer[dx+2][dy+2]=1;
+                            RepairBuffer[dx+3][dy+2]=1;
+                            RepairBuffer[dx+3][dy+3]=1;
+                            RepairBuffer[dx+2][dy+3]=1;
                         }
                     }
                 }
@@ -1432,7 +1428,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
                         QMessageBox::message( NULL,
-                                              "Sorry, you have lost.",
+                                              locale->translate("Sorry, you have lost the game."),
                                               NULL, this );
                     }
                 }
@@ -1567,7 +1563,7 @@ bool BoardWidget::loadBoard( const char* pszMask )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::setStatusText( char* pszText )
+void BoardWidget::setStatusText( const char* pszText )
 {
     emit statusMsgChanged( pszText );
 }

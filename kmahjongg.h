@@ -61,17 +61,32 @@ typedef unsigned char  BYTE;
 typedef unsigned short USHORT;
 typedef unsigned long  ULONG;
 
+
 typedef struct pos {
     USHORT e,y,x,f;
 } POSITION;
+
 
 typedef struct gamedata {
     UCHAR    Board[EMax][YMax][XMax]; 
     USHORT   TileNum;          
     USHORT   MaxTileNum;       
     UCHAR    Mask[EMax][YMax][XMax];
-    POSITION MoveList[FMax];   
+    POSITION MoveList[FMax];
+
+    void putTile( short E, short Y, short X, UCHAR f )
+    {
+        Board[E][Y][X] =
+	Board[E][Y+1][X] =
+        Board[E][Y+1][X+1] =
+        Board[E][Y][X+1] = f;
+    }
+    void putTile( POSITION& pos )
+    {
+        putTile( pos.e, pos.y, pos.x, pos.f );
+    }
 } GAMEDATA;
+
 
 typedef struct boardinfo {
     char*    pszName;
@@ -115,7 +130,7 @@ class BoardWidget : public QWidget
         void matchAnimationTimeout();
 
     signals:
-        void statusMsgChanged( char* pszMessage );
+        void statusMsgChanged( const char* );
         void tileNumberChanged( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
 
@@ -123,36 +138,34 @@ class BoardWidget : public QWidget
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
-        void setStatusText ( char* );
+        void setStatusText ( const char* );
         void cancelUserSelectedTiles();
         void drawTileNumber();
 
         void drawBuffer  ( short, short, short );
         void drawTile    ( short, short, short );
-        void hilightTile ( POSITION );
-        void drawTile    ( POSITION Pos ) { drawTile( Pos.e, Pos.y, Pos.x ); }
+        void hilightTile ( POSITION& );
+        void drawTile    ( POSITION& Pos ) { drawTile( Pos.e, Pos.y, Pos.x ); }
         void putTile     ( POSITION& );
-        void removeTile  ( POSITION );
+        void removeTile  ( POSITION& );
 
-        void transformPointToPosition( const QPoint&, POSITION & );
+        void transformPointToPosition( const QPoint&, POSITION& );
 
-        void putTileAtPosition( POSITION & );
-        void findFreePositions( POSITION );
-        bool isMatchingTile( POSITION, POSITION );
+        void findFreePositions( POSITION& );
+        bool isMatchingTile( POSITION&, POSITION& );
         bool generateStartPosition();
-        bool findMove( POSITION &posA, POSITION& );
+        bool findMove( POSITION&, POSITION& );
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 
         GAMEDATA Game;         
 
-        BYTE Reparier_Buffer[6][6];
+        BYTE RepairBuffer[6][6];
 
-        POSITION Pos_Tabelle[FMax];   // Table of all possible positions
+        int iPosCount;             // count of valid positions in PosTable
+        POSITION PosTable[FMax];   // Table of all possible positions
         POSITION MouseClickPos1, MouseClickPos2;
         POSITION TimerPos1, TimerPos2;
-
-        USHORT Pos_Anzahl;            // Anzahl der moeglichen Positionen
 
         enum STATES { Stop, Demo, Help, Animation, Match } TimerState;
         int iTimerStep;
@@ -198,7 +211,7 @@ class KMahjonggWidget : public KTopLevelWidget
     public slots:
         void menuCallback( int );
         void startNewGame( int );
-        void showStatusMsg( char* pszMessage );
+        void showStatusMsg( const char* );
         void showTileNumber( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
   

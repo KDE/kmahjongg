@@ -1,14 +1,11 @@
 # KDE Config File  
 [KDE Desktop Entry]
 Name=Mahjongg
-Name[hu]=Mahjongg
-Exec=kmahjongg -caption %c
+Exec=kmahjongg
 Type=Application
 DocPath=kmahjongg.html
-Comment=smart mahjongg game
+Comment=Smart mahjongg game
 Comment[de]=Ein Mahjongg-Spiel
 Comment[pl]=Gra w Mahjongg.
 Comment[fi]=Mahjongg peli
-Comment[hu]=Okos mahjongg játék
-Comment[pt]=Um jogo de Mahjongg inteligente
 Terminal=0
