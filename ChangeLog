@@ -1,0 +1,67 @@
+
+This is the change log for kmahjongg.
+
+Personel
+	David Black: Fold, spindle and mutilate 0.4.1 to 0.5.0	
+	Osvaldo Stark: Tileset creator, doc guinepig and tester 0.5.0
+	Robert Williams: Bug fixes 0.4.0 to 0.4.1
+	Mathias Muller: Implementor of the original kmahjongg.
+
+
+Version 0.4.1 to 0.7.0 (beta)
+
++ Took over sources from Mathias Muller.
++ Changed tileset highlighting which previousely used a swap of two
+  fixed pallete colours, to a new tileset format where the designer 
+  supplies the selected and unselected tile backgrounds.
++ Changed the main game engine to a 24 bit colour system. This removed
+  the old problem where the tileset and background combined could
+  only use a maximum of 128 colours. No limitations now exist. For
+  low color depths the game screen is dithered.
++ converted the rendering method to use pixmaps and blitting.
++ added a tool bar for commonly used features.
++ Added a tileset load feature (Yeah!!).
++ Added preferences dialog
++ Added preference to disable shadow generation (after complaints
+  about 3D visualisation.
++ Configuration and preferences now persist across sessions.
++ Tidied up transparency for tilesets. Now the top left colour of
+  the background tile determines the transparency colour, not a
+  fixed value of 0.
++ Added a hiscore system based on time taken, tiles removed and
+  penalties for using _cheats_
++ Added a game timer to the tool bar.
++ added a hiscore dialog.
++ Added a pause mode for hiscore play (blanks the screen because lets face it
+  people cheat).
++ Background images may be tiled or scalled. Saved as a preference
++ The main rendering functions are now independant of the tileset
+  metric. In future this will allow for variable size tiles.
++ Added preview dialogs for load background, tileset and game board,
+  now you can see what you will get.
++ Added a redo to compliment the undo.
++ Fixed up the menu system and added more accelerators.
++ Added a play with mini-tiles option. Not necessarily for everyone,
+  but some people (well at least one, and thats me, so there) use
+  kmahjongg on an 800x600 lcd laptop display. So this helps!
++ Added a show removed tiles option. This allows you to determine if
+  it is safe to remove a pair etc. Nice aid to game play.
++ Moved the file selectors over to the kde style. This should
+  allow urls to be supplied for tilesets, backgrounds and boards etc. In
+  future I hope to maintain a web page with new tilesets and layout etc.
+  Ultimately it would be nice to have a per-boardlayout internet hiscore
+  table (mayhaps in version 0.6)
++ Started documenting how to design tilesets etc.
++ Fixed a few bugs and introduced many (probably)
++ Added an embryonic board editor 
++ Rewrote game generation for new board layout possibilities
++ Speed improvements for tile set load using fixed masks
++ High score now displays time as well as score (requested feature)
++ Plus lots of bits I forgot :-) 
+
+
+
+Version original to 0.4.1
+* [Robert Williams] New games now start at 10
+* [Robert Williams] Added kapp->getHelpMenu()
+* [Robert Williams] Added -caption "%c" to kmahjongg.kdelnk
