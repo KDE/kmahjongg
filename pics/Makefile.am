@@ -12,6 +12,6 @@ bgnd_DATA = default.bgnd haze.bgnd pirates.bgnd slate.bgnd \
 bgnddir = $(kde_datadir)/kmahjongg/pics
 
 tileset_DATA = default.tileset pirates.tileset
-tilesetdir = $(kde_datadir)/kmhajongg/pics
+tilesetdir = $(kde_datadir)/kmahjongg/pics
 
 EXTRA_DIST = $(pics_DATA) $(layout_DATA) $(bgnd_DATA) $(tileset_DATA)
