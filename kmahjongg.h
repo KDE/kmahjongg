@@ -42,7 +42,6 @@ class QLabel;
 #include "Preferences.h"
 #include "PrefsDlg.h"
 #include "GameTimer.h"
-#include "GameNum.h"
 #include "BoardLayout.h"
 #include "Preview.h"
 #include "HighScore.h"
@@ -349,7 +348,6 @@ class KMahjonggWidget : public KMainWindow
 	QLabel *tilesLeftLabel;
 	QLabel *statusLabel;
 	
-	GameNum	     *gameNum;
 	GameTimer    *gameTimer;
 	HighScore    *theHighScores;
         KStatusBar*  pStatusBar;

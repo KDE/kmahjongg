@@ -30,12 +30,14 @@
 
 #include <qtimer.h>
 #include <qfile.h>
+#include <qvalidator.h>
 
 #include <kmessagebox.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
 #include <kio/netaccess.h>
+#include <klineeditdlg.h>
 #include <kmenubar.h>
 #include <kstandarddirs.h>
 #include <kaction.h>
@@ -155,9 +157,6 @@ progress("Initialising highscores");
     theHighScores = new HighScore(this);
 
 
-progress("Initialising game number dialog");
-    gameNum = new GameNum(this);
-
     bDemoModeActive = false;
     bShowMatchingTiles = false;
 
@@ -227,7 +226,6 @@ KMahjonggWidget::~KMahjonggWidget()
     delete prefsDlg;
     delete previewLoad;
     delete theHighScores;
-    delete gameNum;
     delete bw;
 }
 
@@ -351,8 +349,11 @@ void KMahjonggWidget::setDisplayedWidth() {
 // ---------------------------------------------------------
 void KMahjonggWidget::startNewNumeric()
 {
-	if (gameNum->exec()) {
-		startNewGame(gameNum->getNumber());
+        QIntValidator v( 0, 268435457, this );
+        bool ok;
+        QString s = KLineEditDlg::getText(i18n("New Game"),i18n("Enter game number:"),QString::null,&ok,this,&v);
+	if (ok) {
+		startNewGame( KGlobal::locale()->readNumber(s, &ok) );
 	}
 }
 

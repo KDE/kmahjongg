@@ -11,7 +11,7 @@ SUBDIRS = pics
 
 bin_PROGRAMS = kmahjongg
 kmahjongg_SOURCES = kmahjongg.cpp  \
-		Tileset.cpp BoardLayout.cpp GameNum.cpp GameTimer.cpp \
+		Tileset.cpp BoardLayout.cpp GameTimer.cpp \
 		Preferences.cpp Background.cpp \
 		PrefsDlg.cpp  Preview.cpp \
 		Editor.cpp HighScore.cpp Progress.cpp
@@ -19,7 +19,7 @@ kmahjongg_SOURCES = kmahjongg.cpp  \
 
 noinst_HEADERS = kmahjongg.h version.h
 
-METASOURCES = kmahjongg.moc GameNum.moc GameTimer.moc Preview.moc Editor.moc HighScore.moc PrefsDlg.moc Progress.moc
+METASOURCES = kmahjongg.moc GameTimer.moc Preview.moc Editor.moc HighScore.moc PrefsDlg.moc Progress.moc
 
 appsdir   = $(kde_appsdir)/Games/Board
 apps_DATA = kmahjongg.desktop
