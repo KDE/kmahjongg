@@ -21,7 +21,7 @@ noinst_HEADERS = kmahjongg.h version.h
 
 METASOURCES = kmahjongg.moc GameNum.moc GameTimer.moc Preview.moc Editor.moc HighScore.moc PrefsDlg.moc Progress.moc
 
-appsdir   = $(kde_appsdir)/Games
+appsdir   = $(kde_appsdir)/Games/Board
 apps_DATA = kmahjongg.desktop
 
 KDE_ICON = kmahjongg
