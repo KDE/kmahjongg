@@ -126,10 +126,10 @@ int main( int argc, char** argv )
 */
 KMahjonggWidget::KMahjonggWidget()
 {
-    setCaption( kapp->getCaption() );
+    setCaption( kapp->caption() );
 
     // read configuration
-    KConfig* conf = kapp->getConfig();
+    KConfig* conf = kapp->config();
     conf->setGroup("");
     bShowStatusbar = conf->readNumEntry( CONFIG_STATUSBAR_VIS, TRUE );
 
@@ -223,7 +223,7 @@ void KMahjonggWidget::setupMenuBar()
 
     QString about;
     about = i18n("Mahjongg %1\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)").arg(KMAHJONGG_VERSION);
-    QPopupMenu *help = kapp->getHelpMenu(true, about);
+    QPopupMenu *help = kapp->helpMenu(true, about);
  
     pMenuBar = new KMenuBar( this );
 
@@ -254,7 +254,7 @@ void KMahjonggWidget::menuCallback( int item )
         case ID_GAME_QUIT:
 	{
 	    // write configuration
-	    KConfig* conf = kapp->getConfig();
+	    KConfig* conf = kapp->config();
 	    conf->setGroup("");
 	    conf->writeEntry(CONFIG_STATUSBAR_VIS, bShowStatusbar );
 
@@ -325,7 +325,7 @@ void KMahjonggWidget::showStatusText( const QString &msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showMessage( const QString &msg )
 {
-    QMessageBox::information(this, kapp->getCaption(), msg, i18n("OK"));
+    QMessageBox::information(this, kapp->caption(), msg, i18n("OK"));
 }
 
 // ---------------------------------------------------------
