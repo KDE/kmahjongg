@@ -196,7 +196,7 @@ class BoardWidget : public QWidget
     ...
     @author Mathias 
 */
-class KMahjonggWidget : public KTopLevelWidget
+class KMahjonggWidget : public KTMainWindow
 {
     Q_OBJECT
 
