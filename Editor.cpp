@@ -1,5 +1,5 @@
 
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <kapplication.h>
 #include <qpixmap.h>
 #include <qlayout.h>
@@ -31,7 +31,7 @@
 #define ID_TOOL_UP 112
 #define ID_TOOL_DOWN 113
 
-#define ID_TOOL_STATUS 199 
+#define ID_TOOL_STATUS 199
 
 #define ID_META_EXIT 201
 
@@ -56,13 +56,13 @@ Editor::Editor
 
     sWidth += 4*tiles.shadowSize();
 
-    drawFrame = new FrameImage( this, "drawFrame" ); 
+    drawFrame = new FrameImage( this, "drawFrame" );
     drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
     drawFrame->setMinimumSize( 0, 0 );
     drawFrame->setMaximumSize( 32767, 32767 );
     drawFrame->setFocusPolicy( QWidget::NoFocus );
     drawFrame->setBackgroundMode( QWidget::PaletteBackground );
-#if QT_VERSION < 300  
+#if QT_VERSION < 300
     drawFrame->setFontPropagation( QWidget::NoChildren );
     drawFrame->setPalettePropagation( QWidget::NoChildren );
 #endif
@@ -81,7 +81,7 @@ Editor::Editor
     setMinimumSize( sWidth+60, sHeight+60);
     setMaximumSize( sWidth+60, sHeight+60);
 
-   
+
    // load in the tile set
    tiles.loadTileset(preferences.tileset());
 
@@ -90,9 +90,9 @@ Editor::Editor
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
-		SLOT(drawFrameMousePressEvent(QMouseEvent *))); 
+		SLOT(drawFrameMousePressEvent(QMouseEvent *)));
    connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent *) ),
-		SLOT(drawFrameMouseMovedEvent(QMouseEvent *))); 
+		SLOT(drawFrameMouseMovedEvent(QMouseEvent *)));
 
    clean= true;
    mode = insert;
@@ -127,7 +127,7 @@ void Editor::setupToolbar()
             ID_TOOL_SAVE, TRUE, i18n("Save board"));
 
 #ifdef FUTURE_OPTIONS
-    // Select 
+    // Select
     topToolbar->insertSeparator();
     topToolbar->insertButton(loader->loadIcon("rectangle_select", KIcon::Toolbar),
             ID_TOOL_SELECT, TRUE, i18n("Select"));
@@ -154,7 +154,7 @@ void Editor::setupToolbar()
     radio->addButton(ID_TOOL_ADD);
 #ifdef FUTURE_OPTIONS
     radio->addButton(ID_TOOL_MOVE);
-#endif    
+#endif
     radio->addButton(ID_TOOL_DEL);
 
     // board shift
@@ -179,7 +179,7 @@ void Editor::setupToolbar()
     int lWidth = theLabel->sizeHint().width();
 
     topToolbar->insertWidget(ID_TOOL_STATUS,lWidth, theLabel );
-     topToolbar->alignItemRight( ID_TOOL_STATUS, true ); 
+     topToolbar->alignItemRight( ID_TOOL_STATUS, true );
 
     //addToolBar(topToolbar);
    connect( topToolbar,  SIGNAL(clicked(int) ), SLOT( topToolbarOption(int) ) );
@@ -192,12 +192,12 @@ void Editor::setupToolbar()
     setMinimumWidth(topToolbar->width());
 
 
-}                   
+}
 
 void Editor::statusChanged(void) {
 	bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
 	theLabel->setText(statusText());
- 	topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave); 
+ 	topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave);
 }
 
 
@@ -205,7 +205,7 @@ void Editor::topToolbarOption(int option) {
 
     switch(option) {
 	case ID_TOOL_NEW:
-		newBoard();		
+		newBoard();
 		break;
 	case ID_TOOL_LOAD:
 		loadBoard();
@@ -230,11 +230,11 @@ void Editor::topToolbarOption(int option) {
 		repaint(false);
 	        break;
 	case ID_TOOL_DEL:
-			mode=remove;	
+			mode=remove;
 		break;
 
 	case ID_TOOL_MOVE:
-			mode=move;	
+			mode=move;
 		break;
 
 	case ID_TOOL_ADD:
@@ -257,7 +257,7 @@ QString Editor::statusText(void) {
 	int x=currPos.x;
 	int y=currPos.y;
 	int z= currPos.e;
-	
+
 	if (z == 100)
 		z = 0;
 	else
@@ -266,8 +266,7 @@ QString Editor::statusText(void) {
 	if (x >=BoardLayout::width || x <0 || y >=BoardLayout::height || y <0)
 		x = y = z = 0;
 
-	buf = QString::fromUtf8(QCString().sprintf(i18n("Tiles: %3.3d Pos: %2.2d,%2.2d,%2.2d").utf8().data(), numTiles,
-		x,y,z) );
+	buf = i18n("Tiles: %1 Pos: %2,%3,%4").arg(numTiles).arg(x).arg(y).arg(z);
 	return buf;
 }
 
@@ -277,11 +276,11 @@ void Editor::loadBoard(void) {
     if ( !testSave() )
 	return;
 
-    KURL url = KFileDialog::getOpenURL( 
-				NULL, 
-				"*.layout|Board layout (*.layout)\n"
-				"*|All files", 
-				this, 
+    KURL url = KFileDialog::getOpenURL(
+				NULL,
+				i18n("*.layout|Board layout (*.layout)\n"
+				"*|All files"),
+				this,
 				i18n("Open Board Layout" ));
 
    if ( url.isEmpty() )
@@ -314,33 +313,33 @@ void Editor::newBoard(void) {
 
 bool Editor::saveBoard(void) {
     // get a save file name
-    KURL url = KFileDialog::getSaveURL( 
-				NULL, 
-				"*.layout|Board layout (*.layout)\n"
-				"*|All files", 
-				this, 
+    KURL url = KFileDialog::getSaveURL(
+				NULL,
+				i18n("*.layout|Board layout (*.layout)\n"
+				"*|All files"),
+				this,
 				i18n("Save Board Layout" ));
    if( !url.isLocalFile() )
    {
       KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return false;
    }
- 
+
    if ( url.isEmpty() )
        return false;
 
     QFileInfo f( url.path() );
     if ( f.exists() ) {
 	// if it already exists, querie the user for replacement
-	int res=KMessageBox::warningYesNo(this, 
+	int res=KMessageBox::warningYesNo(this,
 			i18n("A file with that name "
 					   "already exists, do you "
 					   "wish to overwrite it?"),
 					i18n("Save Board Layout" ));
-	if (res != KMessageBox::Yes) 
+	if (res != KMessageBox::Yes)
 		return false;
     }
-	
+
     bool result = theBoard.saveBoardLayout( url.path() );
     if (result==true){
         clean = true;
@@ -353,15 +352,15 @@ bool Editor::saveBoard(void) {
 
 // test if a save is required and return true if the app is to continue
 // false if cancel is selected. (if ok then call out to save the board
-bool Editor::testSave(void) 
+bool Editor::testSave(void)
 {
 
     if (clean)
 	return(true);
 
     int res;
-    res=KMessageBox::warningYesNoCancel(this,  
-	i18n("The board has been modified, would you" 
+    res=KMessageBox::warningYesNoCancel(this,
+	i18n("The board has been modified, would you"
 		"like to save the changes?"));
 
     if (res == KMessageBox::Yes) {
@@ -369,7 +368,7 @@ bool Editor::testSave(void)
 	if (saveBoard()) {
   	    return true;
 	} else {
-	    KMessageBox::sorry(this, i18n("Save failed. Aborting operation."));	
+	    KMessageBox::sorry(this, i18n("Save failed. Aborting operation."));
 	}
     } else {
 	return (res != KMessageBox::Cancel);
@@ -378,7 +377,7 @@ bool Editor::testSave(void)
 }
 
 
-// The main paint event, draw in the grid and blit in 
+// The main paint event, draw in the grid and blit in
 // the tiles as specified by the layout.
 
 void Editor::paintEvent( QPaintEvent*  ) {
@@ -387,10 +386,10 @@ void Editor::paintEvent( QPaintEvent*  ) {
     // first we layer on a background grid
     QPixmap buff;
     QPixmap *dest=drawFrame->getPreviewPixmap();
-    buff.resize(dest->width(), dest->height()); 
+    buff.resize(dest->width(), dest->height());
     drawBackground(&buff);
-    drawTiles(&buff); 
-    bitBlt(dest, 0,0,&buff, 0,0,buff.width(), buff.height(), CopyROP); 
+    drawTiles(&buff);
+    bitBlt(dest, 0,0,&buff, 0,0,buff.width(), buff.height(), CopyROP);
 
     drawFrame->repaint(false);
 }
@@ -399,7 +398,7 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
     QPainter p(pixmap);
 
-    // blast in a white background   
+    // blast in a white background
     p.fillRect(0,0,pixmap->width(), pixmap->height(), QColor(white));
 
 
@@ -409,12 +408,12 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
     for (int y=0; y<=BoardLayout::height; y++) {
 	int nextY=sy+(y*tiles.qHeight());
-	p.drawLine(sx, nextY,sx+(BoardLayout::width*tiles.qWidth()), nextY); 
+	p.drawLine(sx, nextY,sx+(BoardLayout::width*tiles.qWidth()), nextY);
     }
 
     for (int x=0; x<=BoardLayout::width; x++) {
 	int nextX=sx+(x*tiles.qWidth());
-	p.drawLine(nextX, sy, nextX, sy+BoardLayout::height*tiles.qHeight()); 
+	p.drawLine(nextX, sy, nextX, sy+BoardLayout::height*tiles.qHeight());
     }
 
 
@@ -427,9 +426,9 @@ void Editor::drawTiles(QPixmap *dest) {
     QPainter p(dest);
 
 
-    // blast in a white background   
+    // blast in a white background
    tiles.loadTileset(preferences.tileset());
-   
+
     int xOffset = tiles.width()/2;
     int yOffset = tiles.height()/2;
     short tile = 0;
@@ -487,7 +486,7 @@ void Editor::drawTiles(QPixmap *dest) {
         }
         xOffset +=tiles.shadowSize();
         yOffset -=tiles.shadowSize();
-    }                                 
+    }
 }
 
 
@@ -498,7 +497,7 @@ void Editor::drawTiles(QPixmap *dest) {
 void Editor::transformPointToPosition(
         const QPoint& point,
         POSITION& MouseClickPos,
-	bool align) 
+	bool align)
 {
 
     short z = 0; // shut the compiler up about maybe uninitialised errors
@@ -510,17 +509,17 @@ void Editor::transformPointToPosition(
     for( z=BoardLayout::depth-1; z>=0; z-- )
     {
         // calculate mouse coordiantes --> position in game board
-	// the factor -theTiles.width()/2 must keep track with the 
+	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print zvent (FIX ME)
         x = ((point.x()-tiles.width()/2)-(z+1)*tiles.shadowSize())/ tiles.qWidth();
         y = ((point.y()-tiles.height()/2)+ z*tiles.shadowSize()) / tiles.qHeight();
 
 
         // skip when position is illegal
-        if (x<0 || x>=BoardLayout::width || y<0 || y>=BoardLayout::height) 
+        if (x<0 || x>=BoardLayout::width || y<0 || y>=BoardLayout::height)
 		continue;
 
-        // 
+        //
         switch( theBoard.getBoardData(z,y,x) )
         {
 	case (UCHAR)'3':    if (align) {
@@ -542,7 +541,7 @@ void Editor::transformPointToPosition(
             default :           continue;
         }
         // if gameboard is empty, skip
-        if ( ! theBoard.getBoardData(z,y,x) ) 
+        if ( ! theBoard.getBoardData(z,y,x) )
 		continue;
 
         // here, position is legal
@@ -554,7 +553,7 @@ void Editor::transformPointToPosition(
     }
     if (MouseClickPos.e == 100) {
     	MouseClickPos.x = x;
-    	MouseClickPos.y = y;	
+    	MouseClickPos.y = y;
     	MouseClickPos.f=0;
     }
 }
@@ -565,7 +564,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 {
 
 	POSITION mPos;
-	transformPointToPosition(e->pos(), mPos, (mode == remove));	
+	transformPointToPosition(e->pos(), mPos, (mode == remove));
 
 	switch (mode) {
 		case remove:
@@ -596,20 +595,20 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 	}
 
 }
- 
+
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
     int x = (tiles.width()/2)+(p.e*tiles.shadowSize())+(p.x * tiles.qWidth());
     int y = (tiles.height()/2)-(p.e*tiles.shadowSize())+(p.y * tiles.qHeight());
     int w = tiles.width();
-    int h = tiles.height(); 
+    int h = tiles.height();
 
 
     if (p.e==100 || !visible)
 	x = -1;
     drawFrame->setRect(x,y,w,h, tiles.shadowSize(), mode-remove);
-    drawFrame->repaint(false);    
+    drawFrame->repaint(false);
 
 
 
@@ -622,10 +621,10 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 
 
     POSITION mPos;
-    transformPointToPosition(e->pos(), mPos, (mode == remove));	
-	
+    transformPointToPosition(e->pos(), mPos, (mode == remove));
+
     if ((mPos.x==currPos.x) && (mPos.y==currPos.y) && (mPos.e==currPos.e))
-	return; 
+	return;
     currPos = mPos;
 
     statusChanged();
@@ -638,7 +637,7 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 			next.e = 0;
 		else
 			next.e += 1;
-		
+
 		drawCursor(next, canInsert(next));
 	break;
 
@@ -657,7 +656,7 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 // can we inser a tile here. We can iff
 //	there are tiles in all positions below us (or we are a ground level)
 //	there are no tiles intersecting with us on this level
-	
+
 bool Editor::canInsert(POSITION &p) {
 
 
@@ -672,7 +671,7 @@ bool Editor::canInsert(POSITION &p) {
     if (p.e != 0) {
 	n.e -= 1;
 	if (!theBoard.allFilled(n)) {
-	    return(false);	
+	    return(false);
 	}
     }
     int any = theBoard.anyFilled(p);

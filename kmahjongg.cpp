@@ -110,6 +110,7 @@ int main( int argc, char** argv )
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
+    KGlobal::locale()->insertCatalogue("libkdegames");
 
  //    splash = new Progress();
  //    splash->show();
@@ -176,7 +177,7 @@ progress("Connecting signals");
     connect( bw, SIGNAL( demoModeChanged(bool) ),
                  SLOT( demoModeChanged(bool) ) );
 
-    connect( bw, SIGNAL( gameOver(unsigned short , unsigned short)), this, 
+    connect( bw, SIGNAL( gameOver(unsigned short , unsigned short)), this,
                 SLOT( gameOver(unsigned short , unsigned short)));
 
 
@@ -196,7 +197,7 @@ progress("Connecting signals");
     connect( prefsDlg, SIGNAL(tileSizeChanged(void) ),
 	      SLOT(tileSizeChanged() ));
 
-	
+
     // Make connections for the preview load dialog
     connect( previewLoad, SIGNAL( boardRedraw(bool) ),
               bw,   SLOT( drawBoard(bool) ) );
@@ -391,7 +392,7 @@ void KMahjonggWidget::demoMode()
     } else {
         // we assume demo mode removes tiles so we can
         // disbale redo here.
-        bw->Game.allow_redo=false;	
+        bw->Game.allow_redo=false;
         bw->startDemoMode();
     }
 
@@ -459,7 +460,7 @@ void KMahjonggWidget::slotBoardEditor()
 // we don't make startNewGame a slot because it has a default
 // param.
 
-void KMahjonggWidget::newGame(void) 
+void KMahjonggWidget::newGame(void)
 {
     startNewGame();
 }
@@ -638,21 +639,18 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 	if (test.exists()) {
 		res = filename;
 	}
-        else {
-	        res = locate("appdata", picsPos);
+    else {
+        res = locate("appdata", picsPos);
 	}
 
-        if (res.isEmpty()) {
-		KMessageBox::error(this,
-			    i18n("KMahjongg could not locate the file: ") +
-			    filename +
-			    i18n("\nOr the default file of type: ")+
-			    type +
-			    i18n("\nKMahjongg will now terminate") );
-		exit(0);	
+    if (res.isEmpty()) {
+		KMessageBox::error(this, i18n("KMahjongg could not locate the file: %1\n"
+                                      "or the default file of type: %2\n"
+                                      "KMahjongg will now terminate").arg(filename).arg(type) );
+		exit(0);
 	}
 }
-	
+
 
 void KMahjonggWidget::backgroundMode(void) {
 	bw->updateScaleMode();
@@ -706,10 +704,10 @@ void KMahjonggWidget::loadGame(void) {
     fread(&in, sizeof(GAMEDATA), 1, outFile);
     memcpy(&bw->Game, &in, sizeof(GAMEDATA));
 
-    // close the file before exit	
+    // close the file before exit
     fclose(outFile);
 
-    KIO::NetAccess::removeTempFile( fname );	
+    KIO::NetAccess::removeTempFile( fname );
 
     // refresh the board
     bw->drawBoard();
@@ -746,8 +744,8 @@ void KMahjonggWidget::saveGame(void) {
     // chuck in all the game data
     fwrite(&bw->Game, sizeof(GAMEDATA), 1, outFile);
 
-    // close the file before exit	
-    fclose(outFile);	
+    // close the file before exit
+    fclose(outFile);
 }
 
 
@@ -784,11 +782,10 @@ progress("Loading tileset");
     getFileOrDefault(preferences.tileset(), "tileset", tFile);
 
     if (!loadTileset(tFile)){
-	KMessageBox::error(this,
-		   i18n("An error ocurred when loading the tileset file\n")+
-		   tFile +
-		   i18n("KMahjongg will now terminate"));
-	exit(0);
+        KMessageBox::error(this,
+                           i18n("An error ocurred when loading the tileset file %1\n"
+                                "KMahjongg will now terminate").arg(tFile));
+        exit(0);
     }
 
 progress("loading background image");
@@ -809,12 +806,11 @@ progress("loading layout");
     if( ! loadBoardLayout(tFile) )
     {
 	KMessageBox::error(this,
-		   i18n("An error ocurred when loading the board layout\n")+
-		   tFile +
-		   i18n("KMahjongg will now terminate"));
+		   i18n("An error ocurred when loading the board layout %1\n"
+                "KMahjongg will now terminate").arg(tFile));
 	exit(0);
     }
-    setDisplayedWidth();	
+    setDisplayedWidth();
 
 progress("drawing board");
     show();
@@ -837,13 +833,13 @@ void BoardWidget::setDisplayedWidth() {
 // c = width and height of corner shadow
 
 void BoardWidget::calcShadow(int e, int y, int x, int &l, int &t, int &c) {
-	
+
 	l = t = c = 0;
 	if ((Game.shadowHeight(e,y,x) != 0) ||
 	   (Game.shadowHeight(e,y-1,x) != 0) ||
 	   (Game.shadowHeight(e,y,x-1) != 0)) {
 		return;
-	}	
+	}
 	int a,b;
 
 	a=Game.shadowHeight(e,y,x-2);
@@ -867,9 +863,9 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
 	if (depth) {
 		int shadowPixels= (depth+1) * theTiles.shadowSize();
 		int xOffset=theTiles.qWidth()-shadowPixels;
-	    	for (int p=0; p<shadowPixels; p++) {	
+	    	for (int p=0; p<shadowPixels; p++) {
              	    bitBlt( &backBuffer,
-			    sx+xOffset,	sy+p,	
+			    sx+xOffset,	sy+p,
                     	    src,
 			    rx+xOffset,	ry+p,
 			    shadowPixels-p,
@@ -879,7 +875,7 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
 		// the quater width
 		if (flag && ((theTiles.qWidth() - shadowPixels) > 0))
              	    bitBlt( &backBuffer,
-			    sx,	sy,	
+			    sx,	sy,
                     	    src,
 			    rx,	ry,
 			    theTiles.qWidth() - shadowPixels,
@@ -892,7 +888,7 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 	if (depth) {
 		int shadowPixels= (depth+1) * theTiles.shadowSize();
 		int xOffset=theTiles.qWidth();
-	    	for (int p=0; p<shadowPixels; p++) {	
+	    	for (int p=0; p<shadowPixels; p++) {
              	    bitBlt( &backBuffer,
 			    sx+xOffset-p, 	/* step to shadow right start */
 			    sy+p,		/* down for each line */
@@ -904,8 +900,8 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 		}
 		if (flag && ((theTiles.qHeight() - shadowPixels) >0))
              	    bitBlt( &backBuffer,
-			    sx+xOffset-shadowPixels,	
-			    sy+shadowPixels,	
+			    sx+xOffset-shadowPixels,
+			    sy+shadowPixels,
                     	    src,
 			    rx+xOffset-shadowPixels,
 			    ry+shadowPixels,
@@ -935,7 +931,7 @@ void BoardWidget::shadowArea(int z, int y, int x, int sx, int sy,int rx, int ry,
 	// offset to pass tile depth indicator
 	sx+=theTiles.shadowSize();
 	rx+=theTiles.shadowSize();
-	
+
 
 
 	// We shadow the top right hand edge of the tile with a
@@ -1002,9 +998,9 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
         for (int by=0; by <BoardLayout::height+1; by++)
 	    for (int bx=-1; bx < BoardLayout::width+1; bx++)
  	        shadowArea(-1, by, bx,
-			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(), 	
+			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
 			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
-			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(), 	
+			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
 			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
 			theBackground.getShadowBackground());
     }
@@ -1064,7 +1060,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                     t, 0,0, t->width(), t->height(), CopyROP );
                 }
 
-		
+
 		if (preferences.showShadows() && z<BoardLayout::depth - 1) {
 		    for (int xp = 0; xp <= 1; xp++)  {
 			for (int yp=0; yp <= 1; yp++) {
@@ -1118,7 +1114,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 			    last++;
 			    tile=TILE_FLOWER+t;
 			}
-		    }			
+		    }
 		} else {
 		    for (int t=0; t<4;t++) {
 		        if (removedSeason[t]) {
@@ -1137,7 +1133,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 		xPos - (2*(theTiles.width() - theTiles.shadowSize())) , yPos);
 	    stackTiles(TILE_CHARACTER+pos, removedCharacter[pos],
 		xPos - (3*(theTiles.width() - theTiles.shadowSize())) , yPos);
-	
+
 
 
 	yPos += theTiles.height()-theTiles.shadowSize();
@@ -1162,8 +1158,8 @@ void BoardWidget::stackTiles(unsigned char t, unsigned short h, unsigned short x
 
 
 
-    line.setWidth(1);	
-    line.setColor(white);	
+    line.setWidth(1);
+    line.setColor(white);
     p.setPen(line);
     int x2 = x+theTiles.width()-ss-1;
     int y2 = y+theTiles.height()-1;
@@ -1177,7 +1173,7 @@ void BoardWidget::stackTiles(unsigned char t, unsigned short h, unsigned short x
     for (unsigned short pos=0; pos < h; pos++) {
        QPixmap *p = theTiles.unselectedPixmaps(t-TILE_OFFSET);
        bitBlt( &backBuffer, x+(pos*ss), y-(pos*ss),
-                    p, 0,0, p->width(), p->height(), CopyROP );  	
+                    p, 0,0, p->width(), p->height(), CopyROP );
     }
 
 }
@@ -1194,7 +1190,7 @@ int BoardWidget::undoMove()
 
     if( Game.TileNum < Game.MaxTileNum )
     {
-	
+
         clearRemovedTilePair(Game.MoveList[Game.TileNum], Game.MoveList[Game.TileNum+1]);
         putTile( Game.MoveList[Game.TileNum], false );
         Game.TileNum++;
@@ -1279,7 +1275,7 @@ void BoardWidget::demoMoveTimeout()
 	        if( Game.TileNum == 0 )
                 {
                     animateMoveList();
-                }		
+                }
                 // else computer has lost
                 else
                 {
@@ -1307,7 +1303,7 @@ void BoardWidget::demoMoveTimeout()
                 hilightTile( TimerPos2, true );
             }
             break;
-	
+
         case 2:
         case 4:
             hilightTile( TimerPos1, false, false );
@@ -1315,7 +1311,7 @@ void BoardWidget::demoMoveTimeout()
             break;
 	// remove matching tiles from game board
         case 5:
-            setRemovedTilePair(TimerPos1, TimerPos2);	
+            setRemovedTilePair(TimerPos1, TimerPos2);
             removeTile( TimerPos1, false );
             removeTile( TimerPos2 );
             drawTileNumber();
@@ -1371,7 +1367,7 @@ void BoardWidget::stopMatchAnimation()
 
 void BoardWidget::redoMove(void)
 {
-        	
+
 	setRemovedTilePair(Game.MoveList[Game.TileNum-1],Game.MoveList[Game.TileNum-2]);
         removeTile(Game.MoveList[Game.TileNum-1], false);
         removeTile(Game.MoveList[Game.TileNum-1]);
@@ -1463,7 +1459,7 @@ void BoardWidget::generateTilePositions() {
                 Game.Board[z][y][x] = 0;
                 if (Game.Mask[z][y][x] == '1') {
                     tilePositions[numTiles].x = x;
-                    tilePositions[numTiles].y = y;        
+                    tilePositions[numTiles].y = y;
                     tilePositions[numTiles].e = z;
                     tilePositions[numTiles].f = 254;
                     numTiles++;
@@ -1514,7 +1510,7 @@ void BoardWidget::generatePositionDepends() {
         // Make them unique
         for (int j = 0; j < 3; j++) {
             for (int k = j+1; k < 4; k++) {
-                if (positionDepends[i].turn_dep[j] == 
+                if (positionDepends[i].turn_dep[j] ==
                     positionDepends[i].turn_dep[k]) {
                     positionDepends[i].turn_dep[k] = -1;
                 }
@@ -1530,7 +1526,7 @@ void BoardWidget::generatePositionDepends() {
         // Make them unique
         for (int j = 0; j < 3; j++) {
             for (int k = j+1; k < 4; k++) {
-                if (positionDepends[i].place_dep[j] == 
+                if (positionDepends[i].place_dep[j] ==
                     positionDepends[i].place_dep[k]) {
                     positionDepends[i].place_dep[k] = -1;
                 }
@@ -1580,7 +1576,7 @@ bool BoardWidget::generateSolvableGame() {
             }
         } while (tilePositions[position].e != 0);
 
-        // If there are no other free positions on the same apparent 
+        // If there are no other free positions on the same apparent
         // horizontal line, we can mark that position as free.
         if (onlyFreeInLine(position)) {
             positionDepends[position].free = true;
@@ -1707,7 +1703,7 @@ int BoardWidget::selectPosition(int lastPosition) {
 
     int position, cnt = 0;
     bool goodPosition = false;
-  
+
     // while a good position has not been found,
     while (!goodPosition) {
 
@@ -1758,7 +1754,7 @@ void BoardWidget::placeTile(int position, int tile) {
     int depend;
     for (int i = 0; i < 4; i++) {
         if ((depend = positionDepends[position].turn_dep[i]) != -1) {
-            updateDepend(depend); 
+            updateDepend(depend);
         }
     }
     for (int i = 0; i < 2; i++) {
@@ -1805,17 +1801,17 @@ void BoardWidget::updateDepend(int position) {
             (positionDepends[position].lhs_dep[1] != -1)) {
 
             // Assume LHS positions filled
-            lfilled = true;      
+            lfilled = true;
 
             for (int i = 0; i < 2; i++) {
                 if ((depend = positionDepends[position].lhs_dep[i]) != -1) {
                     if (!positionDepends[depend].filled) {
-                         lfilled = false; 
+                         lfilled = false;
                     }
                 }
             }
         }
-  
+
         // Assume no RHS positions to fill
         bool rfilled = false;
 
@@ -1824,7 +1820,7 @@ void BoardWidget::updateDepend(int position) {
             (positionDepends[position].rhs_dep[1] != -1)) {
 
             // Assume LHS positions filled
-            rfilled = true;      
+            rfilled = true;
 
             for (int i = 0; i < 2; i++) {
                 if ((depend = positionDepends[position].rhs_dep[i]) != -1) {
@@ -1835,7 +1831,7 @@ void BoardWidget::updateDepend(int position) {
             }
         }
 
-          // If positions to left or right are filled, this position 
+          // If positions to left or right are filled, this position
         // is now free to be filled.
           positionDepends[position].free = (lfilled || rfilled);
     }
@@ -1868,7 +1864,7 @@ bool BoardWidget::generateStartPosition2() {
 
 		if (generateSolvableGame()) {
     		Game.TileNum = Game.MaxTileNum;
-			return true;	
+			return true;
 		} else {
 			return false;
 		}
@@ -1893,7 +1889,7 @@ bool BoardWidget::generateStartPosition2() {
 
 		if (remaining > 2) {
 			p2 = p1 = random.getLong(remaining-2);
-			int bail = 0;	
+			int bail = 0;
 			while (p1 == p2) {
 				p2 = random.getLong(remaining-2);
 
@@ -1919,7 +1915,7 @@ bool BoardWidget::generateStartPosition2() {
 		b = tilePositions[p2];
 		tilePositions[p1] = tilePositions[remaining - 1];
 		tilePositions[p2] = tilePositions[remaining - 2];
-		remaining -= 2;	
+		remaining -= 2;
 
 		getFaces(a, b);
 		Game.putTile(a);
@@ -1927,7 +1923,7 @@ bool BoardWidget::generateStartPosition2() {
 	}
 
     Game.TileNum = Game.MaxTileNum;
-	return 1;	
+	return 1;
 }
 
 void BoardWidget::getFaces(POSITION &a, POSITION &b) {
@@ -1937,7 +1933,7 @@ void BoardWidget::getFaces(POSITION &a, POSITION &b) {
 
 	if (tilesUsed >= 144) {
 		randomiseFaces();
-	}	
+	}
 }
 
 void BoardWidget::randomiseFaces(void) {
@@ -2078,7 +2074,7 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
  //   PosTable[0].e = BoardLayout::depth;  // 1. Paar noch nicht gefunden
     iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
 
-	
+
     // The new tile layout with non-contiguos horizantle spans
     // can lead to huge numbers of matching pairs being exposed.
     // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
@@ -2357,7 +2353,7 @@ void BoardWidget::transformPointToPosition(
 	// No left test on left edge
         if (( X > 0) && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1])) {
 		if ((X<BoardLayout::width-2) && (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2])) {
-	
+
 
             	continue;
 		}
@@ -2510,7 +2506,7 @@ void BoardWidget::initialiseRemovedTiles(void) {
 		removedFlower[pos % 4] = 0;
 		removedWind[pos % 4] = 0;
 		removedSeason[pos % 4] = 0;
-		
+
 	}
 
 }
@@ -2611,7 +2607,7 @@ void BoardWidget::shuffle(void) {
 
 
 	// force a redraw
-	
+
 	updateBackBuffer=true;
        repaint(0,0,-1,-1, false);
 
