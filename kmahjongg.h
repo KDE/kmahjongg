@@ -76,8 +76,6 @@ private slots:
   void showSettings();
   void closeSettings();
 	
-  void toggleToolbar();
-  void toggleStatusbar();
   void startNewNumeric();
   void saveGame(void);
   void loadGame(void);
@@ -101,7 +99,6 @@ protected:
   void enableItem(int item, bool state){}
 
 private:
-  KToggleAction *showToolbar, *showStatusbar;
   KDialogBase *options;
  
   // number of seconds since the start of the game

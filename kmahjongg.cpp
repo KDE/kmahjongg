@@ -86,9 +86,6 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     toolBar()->alignItemRight( ID_GAME_TIMER, true );
     
     setAutoSaveSettings();
-    showStatusbar->setChecked(!statusBar()->isHidden());
-    showToolbar->setChecked(!toolBar()->isHidden());
-
     theHighScores = new HighScore(this);
 
 
@@ -176,10 +173,8 @@ void KMahjongg::setupKAction()
     (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
-    showToolbar = KStdAction::showToolbar(this, SLOT(toggleToolbar()),
-	actionCollection());
-    showStatusbar = KStdAction::showStatusbar(this, SLOT(toggleStatusbar()),
-	actionCollection());
+    createStandardStatusBarAction();
+    setStandardToolBarMenuEnabled(true);
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
     KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
 
@@ -273,21 +268,6 @@ void  KMahjongg::showSettings(){
 
 void  KMahjongg::closeSettings(){
   options->close(true);
-}
-
-void KMahjongg::toggleToolbar(){
- if (toolBar()->isHidden())
-   toolBar()->show();
- else
-   toolBar()->hide();
-}
-
-void KMahjongg::toggleStatusbar(){
-  if (statusBar()->isHidden())
-    statusBar()->show();
-  else 
-    statusBar()->hide();
-  setDisplayedWidth();
 }
 
 void KMahjongg::keyBindings()
