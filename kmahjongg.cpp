@@ -783,7 +783,7 @@ progress("Loading tileset");
 
     if (!loadTileset(tFile)){
         KMessageBox::error(this,
-                           i18n("An error ocurred when loading the tileset file %1\n"
+                           i18n("An error occurred when loading the tileset file %1\n"
                                 "KMahjongg will now terminate").arg(tFile));
         exit(0);
     }
@@ -795,7 +795,7 @@ progress("loading background image");
     if( ! loadBackground(tFile, false ) )
     {
 	KMessageBox::error(this,
-		   i18n("An error ocurred when loading the background image\n")+
+		   i18n("An error occurred when loading the background image\n")+
 		   tFile +
 		   i18n("KMahjongg will now terminate"));
 	exit(0);
@@ -806,7 +806,7 @@ progress("loading layout");
     if( ! loadBoardLayout(tFile) )
     {
 	KMessageBox::error(this,
-		   i18n("An error ocurred when loading the board layout %1\n"
+		   i18n("An error occurred when loading the board layout %1\n"
                 "KMahjongg will now terminate").arg(tFile));
 	exit(0);
     }
