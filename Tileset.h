@@ -56,7 +56,7 @@ class Tileset {
 
   protected:
 
-     static const int maxTiles=45;
+     enum { maxTiles=45 };
   	void  createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow);
   
 

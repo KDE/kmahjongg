@@ -41,10 +41,10 @@ public:
     void shiftDown(void);
 
  
-     static const int width = 32;
-     static const int height = 16;
-     static const int depth = 5;
-     static const int maxTiles = (depth*width*height)/4;
+     enum { width = 32,
+            height = 16,
+            depth = 5 };
+     enum { maxTiles = (depth*width*height)/4 };
 
      QString &getFilename(void) {return filename;};
      
