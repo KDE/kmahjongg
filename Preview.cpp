@@ -72,7 +72,6 @@ Preview::Preview
 	combo->setPalettePropagation( QWidget::AllChildren );
 #endif
 	combo->setSizeLimit( 10 );
-	combo->setAutoResize( FALSE );
 	connect( combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)) );
 
 	loadButton = new QPushButton( this, "loadButton" );
@@ -88,7 +87,6 @@ Preview::Preview
 #endif
 	loadButton->setText(i18n("Load"));
 	loadButton->setAutoRepeat( FALSE );
-	loadButton->setAutoResize( FALSE );
 
 	//       total w  - button tot wid /4 (space left)
 	int bw = ((310+dx) - ((90+(dx/3))*3))/4 ;
@@ -107,7 +105,6 @@ Preview::Preview
 #endif
 	okButton->setText( i18n("&OK") );
 	okButton->setAutoRepeat( FALSE );
-        okButton->setAutoResize( FALSE );
         okButton->setDefault(true);
 
 	pos += (90+(dx/3))+bw;
@@ -124,7 +121,6 @@ Preview::Preview
 #endif
 	applyButton->setText( i18n("Apply") );
 	applyButton->setAutoRepeat( FALSE );
-	applyButton->setAutoResize( FALSE );
 
 	pos += (90+(dx/3))+bw;
 	cancelButton = new QPushButton( this, "cancelButton" );
@@ -140,7 +136,6 @@ Preview::Preview
 #endif
 	cancelButton->setText( i18n("&Cancel") );
 	cancelButton->setAutoRepeat( FALSE );
-	cancelButton->setAutoResize( FALSE );
 
 	drawFrame = new FrameImage( this, "drawFrame" );
 	drawFrame->setGeometry( 10, 60, 310+dx, 170+dy );
