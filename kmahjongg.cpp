@@ -305,21 +305,26 @@ void KMahjonggWidget::setupStatusBar()
 {
     pStatusBar = new KStatusBar( this );
 
-    pStatusBar->setInsertOrder( KStatusBar::RightToLeft );
+    // The following isn't possible with the new KStatusBar anymore.
+    // The correct fix is probably to reverse the order of adding the
+    // widgets. :/
+    // Just commenting it out for now (order is not as important
+    // as compilation), in case someone comes up with a better fix.
+    // pStatusBar->setInsertOrder( KStatusBar::RightToLeft );
 
     tilesLeftLabel= new QLabel("Removed: 0000/0000", pStatusBar);
     tilesLeftLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->insertWidget(tilesLeftLabel, tilesLeftLabel->sizeHint().width(), ID_STATUS_GAME);
+    pStatusBar->addWidget(tilesLeftLabel, tilesLeftLabel->sizeHint().width(), ID_STATUS_GAME);
 
 
     gameNumLabel = new QLabel("Game: 000000000000000000000", pStatusBar);
     gameNumLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->insertWidget(gameNumLabel, gameNumLabel->sizeHint().width(), ID_STATUS_TILENUMBER);
+    pStatusBar->addWidget(gameNumLabel, gameNumLabel->sizeHint().width(), ID_STATUS_TILENUMBER);
 
 
     statusLabel= new QLabel("Kmahjongg", pStatusBar);
     statusLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->insertWidget(statusLabel, statusLabel->sizeHint().width(), ID_STATUS_MESSAGE);
+    pStatusBar->addWidget(statusLabel, statusLabel->sizeHint().width(), ID_STATUS_MESSAGE);
 
   //  pStatusBar->setAlignment( ID_STATUS_TILENUMBER, AlignCenter );
 
