@@ -1418,7 +1418,7 @@ void BoardWidget::calculateNewGame( int gNumber)
     }
 
     if (gNumber == -1) {
-    	gameGenerationNum = 0;
+    	gameGenerationNum = kapp->random();
     } else {
 	gameGenerationNum = gNumber;
     }
