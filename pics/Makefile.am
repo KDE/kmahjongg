@@ -1,7 +1,7 @@
 toolbar_DATA = newnum.xpm pause.xpm play.xpm
 toolbardir = $(kde_datadir)/kmahjongg/toolbar
 
-pics_DATA = kmahjongg.png kmahjongg_bgnd.png 
+pics_DATA = kmahjongg.png kmahjongg_bgnd.png splash.png
 picsdir = $(kde_datadir)/kmahjongg/pics
 
 layout_DATA = default.layout cross.layout pirates.layout \
