@@ -399,7 +399,7 @@ void KMahjonggWidget::setupMenuBar()
            + i18n("\n\nRewritten and extended by ")
            + "David Black"
            + " (david.black@connectfree.co.uk)"
-	   + i18n("\n\nTile set contributer and web page maintainer: ")
+	   + i18n("\n\nTile set contributor and web page maintainer: ")
 	   + "Osvaldo Stark (starko@dnet.it)"
 	   + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
 
