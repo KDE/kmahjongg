@@ -31,7 +31,7 @@ picsdir = $(kde_datadir)/kmahjongg/pics
 icon_DATA = kmahjongg.xpm
 icondir = $(kde_icondir)
 
-install-local-data: mini-kmahjongg.xpm
+install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) mini-kmahjongg.xpm $(kde_minidir)
 
