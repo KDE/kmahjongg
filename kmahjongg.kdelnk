@@ -3,7 +3,7 @@
 Name=Mahjongg
 Exec=kmahjongg
 Type=Application
-DocPath=kmahjongg.html
+DocPath=kmahjongg/index.html
 Comment=Smart mahjongg game
 Comment[de]=Ein Mahjongg-Spiel
 Comment[pl]=Gra w Mahjongg.
