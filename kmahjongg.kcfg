@@ -3,40 +3,40 @@
 <kcfg>
   <kcfgfile name="kmahjonggrc"/>
   <group name="General">
-    <entry name="TileSet" type="QString" key="Tileset_file">
-      <desc>The tile-set to use.</desc>
+    <entry name="TileSet" type="String" key="Tileset_file">
+      <label>The tile-set to use.</label>
       <default>default.tileset</default>
     </entry>
-    <entry name="Background" type="QString" key="Background_file">
-      <desc>The background to use.</desc>
+    <entry name="Background" type="String" key="Background_file">
+      <label>The background to use.</label>
       <default>default.bgnd</default>
     </entry>
-    <entry name="Layout" type="QString" key="Layout_file">
-      <desc>The layout of the tiles.</desc>
+    <entry name="Layout" type="String" key="Layout_file">
+      <label>The layout of the tiles.</label>
       <default>default.layout</default>
     </entry>
-    <entry name="ShowRemoved" type="bool" key="showRemoved">
-      <desc>Whether to show removed tiles.</desc>
+    <entry name="ShowRemoved" type="Bool" key="showRemoved">
+      <label>Whether to show removed tiles.</label>
       <default>false</default>
     </entry>
-    <entry name="MiniTiles" type="bool" key="Use_mini_tiles">
-      <desc>Whether to use miniature tiles.</desc>
+    <entry name="MiniTiles" type="Bool" key="Use_mini_tiles">
+      <label>Whether to use miniature tiles.</label>
       <default>false</default>
     </entry>
-    <entry name="ShowShadows" type="bool" key="Shadows_on">
-      <desc>Whether the tiles have shadows.</desc>
+    <entry name="ShowShadows" type="Bool" key="Shadows_on">
+      <label>Whether the tiles have shadows.</label>
       <default>false</default>
     </entry>
-    <entry name="SolvableGames" type="bool" key="Solvable_game">
-      <desc>Whether all games should be solvable.</desc>
+    <entry name="SolvableGames" type="Bool" key="Solvable_game">
+      <label>Whether all games should be solvable.</label>
       <default>true</default>
     </entry>
-    <entry name="TiledBackground" type="bool" key="Background_tiled">
-      <desc>Whether the background should be tiled instead of scaled.</desc>
+    <entry name="TiledBackground" type="Bool" key="Background_tiled">
+      <label>Whether the background should be tiled instead of scaled.</label>
       <default>true</default>
     </entry>
-    <entry name="PlayAnimation" type="bool" key="Play_animation">
-      <desc>Whether an animation should be played on victory.</desc>
+    <entry name="PlayAnimation" type="Bool" key="Play_animation">
+      <label>Whether an animation should be played on victory.</label>
       <default>true</default>
     </entry>
   </group>
