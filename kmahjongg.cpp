@@ -481,7 +481,7 @@ void KMahjongg::loadGame(void) {
     if ( url.isEmpty() )
 	return;
 
-    KIO::NetAccess::download( url, fname );
+    KIO::NetAccess::download( url, fname, this );
 
     // open the file for reading
     FILE *outFile = fopen( QFile::encodeName(fname), "r");
