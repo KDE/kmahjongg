@@ -22,7 +22,7 @@ INSTALL_DIR = @INSTALL@ -d -m 0755
 
 prefix = @prefix@
 BINDIR = $(kde_bindir)
-PICSDIR = $(kde_datadir)kmahjongg/pics
+PICSDIR = $(kde_datadir)/kmahjongg/pics
 DOCSDIR = $(kde_htmldir)/en/kmahjongg
 APPSDIR = $(kde_appsdir)/Games
 
