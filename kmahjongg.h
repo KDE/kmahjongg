@@ -130,15 +130,17 @@ class BoardWidget : public QWidget
         void matchAnimationTimeout();
 
     signals:
-        void statusMsgChanged( const char* );
-        void tileNumberChanged( int iMaximum, int iCurrent );
-        void demoModeChanged( bool bActive );
+        void statusTextChanged ( const char* );
+        void message           ( const char* );
+        void tileNumberChanged ( int iMaximum, int iCurrent );
+        void demoModeChanged   ( bool bActive );
 
     protected:
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
         void setStatusText ( const char* );
+        void showMessage   ( const char* );
         void cancelUserSelectedTiles();
         void drawTileNumber();
 
@@ -160,8 +162,6 @@ class BoardWidget : public QWidget
 
         GAMEDATA Game;         
 
-        BYTE RepairBuffer[6][6];
-
         int iPosCount;             // count of valid positions in PosTable
         POSITION PosTable[FMax];   // Table of all possible positions
         POSITION MouseClickPos1, MouseClickPos2;
@@ -175,7 +175,6 @@ class BoardWidget : public QWidget
 
         QImage qiScreen;
 
-        BYTE* Screen;
         BYTE* Bgnd;
         BYTE* Tiles;
         BYTE* TileBuffer;
@@ -211,7 +210,8 @@ class KMahjonggWidget : public KTopLevelWidget
     public slots:
         void menuCallback( int );
         void startNewGame( int );
-        void showStatusMsg( const char* );
+        void showStatusText ( const char* );
+        void showMessage    ( const char* );
         void showTileNumber( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
   
