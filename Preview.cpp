@@ -1,5 +1,4 @@
-#include <iostream.h>
-#include <sys/param.h> 
+#include <sys/param.h>
 #include <kapp.h>
 #include <qdir.h>
 #include <qpixmap.h>
@@ -19,7 +18,7 @@
 
 #include <qpushbt.h>
 #include <qcombobox.h>
-#include <qbttngrp.h>                       
+#include <qbttngrp.h>
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
@@ -86,7 +85,7 @@ Preview::Preview
 	//       total w  - button tot wid /4 (space left)
 	int bw = ((310+dx) - ((90+(dx/3))*3))/4 ;
 	int pos = bw +10;
-	
+
 	okButton = new QPushButton( this, "okButton" );
 	okButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 ); // was 20
 	okButton->setMinimumSize( 0, 0 );
@@ -167,7 +166,7 @@ void Preview::selectionChanged(int which) {
 	markChanged();
 }
 
-bool Preview::isChanged(void) 
+bool Preview::isChanged(void)
 {
 	return changed;
 }
@@ -244,7 +243,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	fileList.clear();
 
 	// deep copy the file list as we need to keen to keep it
-	QFileInfoList *list = (QFileInfoList *) files.entryInfoList(); 
+	QFileInfoList *list = (QFileInfoList *) files.entryInfoList();
 	// put the curent entry in the returned list to test for
 	// duplicates on insertion
 
@@ -269,7 +268,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 		}
 		info=list->next();
 	}
-	
+
 	// copy the file basenames into the combo box
 	combo->clear();
 	if (fileList.count() >0) {
@@ -279,16 +278,16 @@ void Preview::initialise(const PreviewType type, const char *extension)
 			combo->insertItem(insert);
 			cur = fileList.next();
 		}
-		oneFound = true;	
+		oneFound = true;
 	}
 	combo->setEnabled(oneFound);
-	drawPreview();	
+	drawPreview();
 }
 
 void Preview::apply(void) {
 	if (isChanged()) {
 		applyChange();
-		markUnchanged();	
+		markUnchanged();
 	}
 }
 
@@ -298,16 +297,16 @@ void Preview::ok(void) {
 }
 
 void Preview::load(void) {
-    KURL url = KFileDialog::getOpenURL( 
+    KURL url = KFileDialog::getOpenURL(
                                 NULL,
 				fileSelector,
                                 this,
-                                i18n("Open board layout." ));  
+                                i18n("Open board layout." ));
     if (  !url.isEmpty() ) {
-        selectedFile = url.path(); 
+        selectedFile = url.path();
         drawPreview();
         drawFrame->repaint(0,0,-1,-1,false);
-        markChanged(); 
+        markChanged();
     }
 }
 
@@ -333,11 +332,11 @@ void Preview::drawPreview(void) {
 		layout = selectedFile;
 	     break;
 
-	
+
 	case theme:
 
 	     // a theme is quite a bit of work. We load the
-	     // specified bits in (layout, background and tileset	
+	     // specified bits in (layout, background and tileset
 	    if (selectedFile != "") {
 		char backRaw[MAXPATHLEN];
 		char layoutRaw[MAXPATHLEN];
@@ -354,7 +353,7 @@ void Preview::drawPreview(void) {
 
 		    if (strncmp(themeMagicV1_0, magic, strlen(magic)) != 0) {
 			in.close();
-			
+
         		KMessageBox::sorry(this,
                 		i18n("Thats not a valid theme file."));
 			break;
@@ -379,12 +378,12 @@ void Preview::drawPreview(void) {
 
 		}
 
-   	    } 
+   	    }
 
 
              break;
     }
-  
+
     renderBackground(back);
     renderTiles(tile, layout);
 }
@@ -450,10 +449,10 @@ void Preview::applyChange(void) {
     }
 
     // either way we mark the current value as unchanged
-    markUnchanged();     
+    markUnchanged();
 }
 
-// Render the background to the pixmap. 
+// Render the background to the pixmap.
 
 void Preview::renderBackground(const QString &bg) {
    QImage img;
@@ -465,9 +464,9 @@ void Preview::renderBackground(const QString &bg) {
    b = back.getBackground();
    bitBlt( p, 0,0,
             b,0,0, b->width(), b->height(), CopyROP );
-    
-	 
-}             
+
+
+}
 
 // This method draws a mini-tiled board with no tiles missing.
 
@@ -521,7 +520,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
         xOffset +=tiles.shadowSize();
         yOffset -=tiles.shadowSize();
     }
-}         
+}
 
 
 
@@ -551,7 +550,7 @@ void Preview::saveTheme(void) {
         i18n("Save theme." ));
     if ( url.isEmpty() )
         return;
-   
+
    if( !url.isLocalFile() )
    {
       KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
@@ -576,7 +575,7 @@ void Preview::saveTheme(void) {
         KMessageBox::sorry(this,
                 i18n("Could not write to file. Aborting."));
         return;
-    }       
+    }
 
     fprintf(outFile,"%s\n%s\n%s\n%s\n",
 		themeMagicV1_0,
@@ -611,10 +610,10 @@ void FrameImage::paintEvent( QPaintEvent* pa )
     line.setStyle(DotLine);
     line.setWidth(2);
     line.setColor(yellow);
-    p.setPen(line);      
+    p.setPen(line);
     p.setBackgroundMode(OpaqueMode);
     p.setBackgroundColor(black);
- 
+
     int x = pa->rect().left();
     int y = pa->rect().top();
     int h = pa->rect().height();
@@ -648,9 +647,9 @@ void FrameImage::paintEvent( QPaintEvent* pa )
 	}
 
     }
-}           
+}
 
-void FrameImage::setRect(int x,int y,int w,int h, int s, int t) 
+void FrameImage::setRect(int x,int y,int w,int h, int s, int t)
 {
 	rx = x;
 	ry = y;

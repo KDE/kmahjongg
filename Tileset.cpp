@@ -3,7 +3,6 @@
 #include "Tileset.h"
 #include <qimage.h>
 #include <qbitmap.h>
-#include <iostream.h>
 
 
 #define mini_width 20
@@ -16,7 +15,7 @@ static unsigned char mini_bits[] = {
   0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
   0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
   0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x07, 0xff, 0xff, 0x03,
-  };      
+  };
 
 #define mask_width 40
 #define mask_height 56
@@ -44,37 +43,37 @@ static unsigned char mask_bits[] = {
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
   0x7f, 0xff, 0xff, 0xff, 0xff, 0x3f, 0xff, 0xff, 0xff, 0xff, 0x1f, 0xff,
-  0xff, 0xff, 0xff, 0x0f, };    
+  0xff, 0xff, 0xff, 0x0f, };
 
 
 // ---------------------------------------------------------
 
-Tileset::Tileset(bool scale): 
+Tileset::Tileset(bool scale):
 	maskBits(mask_width, mask_height, mask_bits, true),
 	maskBitsMini(mini_width, mini_height, mini_bits, true)
 {
 	isScaled = scale;
-	divisor =  (isScaled) ? 2 : 1; 
+	divisor =  (isScaled) ? 2 : 1;
 
 	// set up tile metrics (fixed for now)
 	ss     = 4;    // left/bottom shadow width
-	bs     = 1;    // tile boarder width 
+	bs     = 1;    // tile boarder width
 	w      = 40;   // tile width (inc boarder & shadow)
 	h      = 56;   // tile height (inc boarder and shadow)
 	s      = w*h;  // RGBA's required per tile
-	
+
 	// Allocate memory for the 9*5 tile arrays
     	tiles         = new QRgb [9*5*s];
     	selectedTiles = new QRgb [9*5*s];
 
-    	// allocate memory for single tile storage 
+    	// allocate memory for single tile storage
     	selectedFace   = new QRgb [s];
     	unselectedFace = new QRgb [s];
 
 	// quarter widths are used as an offset when
 	// overlaying tiles in 3 dimensions.
-	qw  = ((w-ss)/2) ;    
-	qh = ((h-ss)/2) ;	
+	qw  = ((w-ss)/2) ;
+	qh = ((h-ss)/2) ;
 
 	filename = "";
 }
@@ -83,11 +82,11 @@ Tileset::Tileset(bool scale):
 // ---------------------------------------------------------
 
 Tileset::~Tileset() {
-	
-	// deallocate all memory 
-    	delete [] tiles;         
-    	delete [] selectedTiles; 
-    	delete [] selectedFace;  
+
+	// deallocate all memory
+    	delete [] tiles;
+    	delete [] selectedTiles;
+    	delete [] selectedFace;
     	delete [] unselectedFace;
 }
 
@@ -119,7 +118,7 @@ QRgb *Tileset::copyTileImage(short tileX, short tileY, QRgb *to, QImage &from) {
 // color).
 
 
-QRgb *Tileset::createTile(short x, short y, 
+QRgb *Tileset::createTile(short x, short y,
 		QRgb *det, QImage &allTiles , QRgb *face) {
   QRgb *image ;
   QRgb *to = det;
@@ -128,15 +127,15 @@ QRgb *Tileset::createTile(short x, short y,
   image = new QRgb[s];
 
   // copy in the background
-  memcpy(to, face, s*sizeof(QRgb)); 
-  
+  memcpy(to, face, s*sizeof(QRgb));
+
   // get the tile gylph
-  copyTileImage(x, y , image, allTiles); 
+  copyTileImage(x, y , image, allTiles);
 
   // copy the image over the background using the
   // top left colour as the transparency. We step over
   // the shadow and the boarder
-  
+
   QRgb* src =  image+                        // image
     ss+             // past the left shadow
     bs+             // then the tile border
@@ -156,16 +155,16 @@ QRgb *Tileset::createTile(short x, short y,
       if (*src != trans)
 	*to = *src;
       src++;
-      to++;  
+      to++;
     }
     // step over the border to get to the next row
     src  += ss + (2 * bs);
     to += ss + (2 * bs);
     }
- 
+
   // Free allocated space
   delete [] image;
- 
+
   // calculate the address of the next tile
   return(det+s);
 }
@@ -194,7 +193,7 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 	}
 
 	src += w;
-    }	
+    }
 
 
     // create the pixmap and initialise the drawing mask
@@ -237,8 +236,8 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 
 
     // Read in the unselected and selected tile backgrounds
-    copyTileImage(7, 4 , unselectedFace, qiTiles); 
-    copyTileImage(8, 4, selectedFace, qiTiles); 
+    copyTileImage(7, 4 , unselectedFace, qiTiles);
+    copyTileImage(8, 4, selectedFace, qiTiles);
 
 
 
