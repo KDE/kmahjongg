@@ -149,8 +149,9 @@ int main( int argc, char** argv )
     Constructor.
 */
 KMahjonggWidget::KMahjonggWidget()
-    : KMainWindow(0, "kmahjonggwidget")
+    : KMainWindow(0, "kmahjonggwidget"), prefsDlg(this), previewLoad(this)
 {
+    setCaption("");
     boardEditor = 0;
     progress("Reading Preferences");
     preferences.initialise(KGlobal::config());
@@ -172,11 +173,11 @@ progress("Setting up tool bar");
     setupToolBar();
 
 progress("Initialising highscores");
-    theHighScores = new HighScore();
+    theHighScores = new HighScore(this);
 
 
 progress("Initialising game number dialog");
-    gameNum = new GameNum();
+    gameNum = new GameNum(this);
 
     bDemoModeActive = false;
     bShowMatchingTiles = false;
@@ -357,7 +358,7 @@ void KMahjonggWidget::setupMenuBar()
 {
 
   // set up the file menu
-  QPopupMenu *file = new QPopupMenu;
+  KPopupMenu *file = new KPopupMenu;
   file->insertItem(SmallIcon("filenew"), i18n("New game"), ID_FILE_NEW);
   file->insertItem(i18n("New numbered game..."), ID_FILE_NEW_NUMERIC);
   file->insertSeparator();
@@ -370,9 +371,9 @@ void KMahjonggWidget::setupMenuBar()
   file->insertItem(i18n("&Save Theme..."), ID_FILE_SAVE_THEME);
   file->insertItem(SmallIcon("filesave"), i18n("&Save Game..."), ID_FILE_SAVE_GAME);
   file->insertSeparator();
-  file->insertItem(SmallIcon("exit"), i18n("E&xit "), ID_FILE_EXIT);
+  file->insertItem(SmallIcon("exit"), i18n("&Quit "), ID_FILE_EXIT);
 
-  QPopupMenu *edit = new QPopupMenu;
+  KPopupMenu *edit = new KPopupMenu;
   edit->insertItem(SmallIcon("undo"), i18n("&Undo"), ID_EDIT_UNDO);
   edit->insertItem(SmallIcon("redo"), i18n("&Redo"), ID_EDIT_REDO);
   edit->insertSeparator();
@@ -381,7 +382,7 @@ void KMahjonggWidget::setupMenuBar()
   edit->insertItem(SmallIcon("configure"), i18n("&Preferences..."), ID_EDIT_PREFS);
 
 
-  QPopupMenu *game = new QPopupMenu;
+  KPopupMenu *game = new KPopupMenu;
   game->insertItem( i18n("&Help me"),           ID_GAME_HELP );
   game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
   game->insertItem( i18n("&Demo mode"),         ID_GAME_DEMO );
@@ -506,7 +507,7 @@ void KMahjonggWidget::menuCallback( int item )
 	    	break;
 	case ID_EDIT_BOARD_EDIT:
 		if (!boardEditor)
-		    boardEditor = new Editor();
+		    boardEditor = new Editor(this);
 		boardEditor->exec();
 		break;
 	case ID_GAME_SHOW_HISCORE:
@@ -804,7 +805,7 @@ void KMahjonggWidget::saveGame(void) {
 
    if( !url.isLocalFile() )
    {
-      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return;
    }
 
@@ -1967,14 +1968,14 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     if( Game.TileNum == 0 )
                     {
 						
-                        KMessageBox::information(0, i18n("Game over: You have won!"));
+                        KMessageBox::information(this, i18n("Game over: You have won!"));
                         animateMoveList();
 			gameOver(Game.MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
-                        KMessageBox::information(0, i18n("Game over: You have no moves left"));
+                        KMessageBox::information(this, i18n("Game over: You have no moves left"));
                     }
                 }
                 else
@@ -2095,7 +2096,7 @@ bool BoardWidget::loadBackground(
     if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
     {
         if( bShowError )
-            KMessageBox::sorry(0, i18n("Failed to load image:\n%1").arg(pszFileName) );
+            KMessageBox::sorry(this, i18n("Failed to load image:\n%1").arg(pszFileName) );
         return( false );
     }
     preferences.setBackground(pszFileName);

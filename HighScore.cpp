@@ -14,6 +14,7 @@
 #include <qlineedit.h>
 #include <qcombobox.h>
 #include <qpushbt.h>
+#include <kapp.h>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
 static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";  
@@ -116,9 +117,10 @@ HighScore::HighScore
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
 	qtarch_PushButton_1->setFocusPolicy( QWidget::TabFocus );
-	qtarch_PushButton_1->setText(i18n( "OK" ));
+	qtarch_PushButton_1->setText(i18n( "&OK" ));
 	qtarch_PushButton_1->setAutoRepeat( FALSE );
-	qtarch_PushButton_1->setAutoResize( FALSE );
+        qtarch_PushButton_1->setAutoResize( FALSE );
+        qtarch_PushButton_1->setDefault(true);
 
 	QPushButton* resetBtn;
 	resetBtn= new QPushButton( this, "resetBtn" );
@@ -131,7 +133,7 @@ HighScore::HighScore
 	resetBtn->setAutoResize( FALSE );
 
  	KIconLoader *loader = KGlobal::iconLoader();
-        resetBtn->setPixmap(loader->loadIcon("delete", KIcon::Toolbar));
+        resetBtn->setPixmap(loader->loadIcon("editdelete", KIcon::Toolbar));
        
 
 
@@ -165,7 +167,7 @@ HighScore::HighScore
 	loadTables();
 	currTable = tables;
 
-	setCaption(i18n("Scores"));
+	setCaption(kapp->makeStdCaption(i18n("Scores")));
 
 	selectedLine = -1;	
 

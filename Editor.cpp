@@ -70,18 +70,24 @@ Editor::Editor
     drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 
+   // setup the tool bar
+   setupToolbar();
+
+   QVBoxLayout *layout = new QVBoxLayout(this);
+   layout->addWidget(topToolbar,0);
+   layout->addWidget(drawFrame,1);
+   layout->activate();
+
     resize( sWidth+60, sHeight+60);
     setMinimumSize( sWidth+60, sHeight+60);
     setMaximumSize( sWidth+60, sHeight+60);
 
-   // setup the tool bar
-   setupToolbar();
-
+   
    // load in the tile set
    tiles.loadTileset(preferences.tileset());
 
    // tell the user what we do
-   setCaption(i18n("Edit board layout")); 
+   setCaption(kapp->makeStdCaption(i18n("Edit board layout")));
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
@@ -137,7 +143,7 @@ void Editor::setupToolbar()
 #endif
     topToolbar->insertButton(loader->loadIcon("pencil", KIcon::Toolbar),
             ID_TOOL_ADD, TRUE, i18n("Add tiles."));
-    topToolbar->insertButton(loader->loadIcon("delete", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("editdelete", KIcon::Toolbar),
             ID_TOOL_DEL, TRUE, i18n("Remove tiles."));
 
     topToolbar->setToggle(ID_TOOL_ADD);
@@ -315,7 +321,7 @@ bool Editor::saveBoard(void) {
 				i18n("Save board layout." ));
    if( !url.isLocalFile() )
    {
-      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return false;
    }
  

@@ -96,9 +96,10 @@ Preview::Preview
 	okButton->setBackgroundMode( QWidget::PaletteBackground );
 	okButton->setFontPropagation( QWidget::NoChildren );
 	okButton->setPalettePropagation( QWidget::NoChildren );
-	okButton->setText( i18n("OK") );
+	okButton->setText( i18n("&OK") );
 	okButton->setAutoRepeat( FALSE );
-	okButton->setAutoResize( FALSE );
+        okButton->setAutoResize( FALSE );
+        okButton->setDefault(true);
 
 	pos += (90+(dx/3))+bw;
 	applyButton = new QPushButton( this, "applyButton" );
@@ -124,7 +125,7 @@ Preview::Preview
 	cancelButton->setBackgroundMode( QWidget::PaletteBackground );
 	cancelButton->setFontPropagation( QWidget::NoChildren );
 	cancelButton->setPalettePropagation( QWidget::NoChildren );
-	cancelButton->setText( i18n("Cancel") );
+	cancelButton->setText( i18n("&Cancel") );
 	cancelButton->setAutoRepeat( FALSE );
 	cancelButton->setAutoResize( FALSE );
 
@@ -187,25 +188,25 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	// value initially. Set the caption to indicate what we are doing
 	switch (type) {
 	    case background:
-		      setCaption(i18n("Change background image")); 
+		      setCaption(kapp->makeStdCaption(i18n("Change background image")));
 		      selectedFile = preferences.background();
 		      fileSelector = i18n("*.bgnd|Background Image\n"
 				     "*.bmp|Windows bitmap file (*.bmp)\n");
 		  break;
             case tileset:
-		      setCaption(i18n("Change tile set")); 
+		      setCaption(kapp->makeStdCaption(i18n("Change tile set")));
 		      fileSelector = i18n("*.tileset|Tile set file\n");
 		      selectedFile = preferences.tileset();
 		  break;
             case board:
 		      fileSelector = i18n("*.layout|Board layout file\n");
-		      setCaption(i18n("Change board layout")); 
+		      setCaption(kapp->makeStdCaption(i18n("Change board layout")));
 		      selectedFile = preferences.layout();
 	          break;
 
 	    case theme:
 		     fileSelector = i18n("*.theme|Kmahjongg theme\n");
-		     setCaption(i18n("Choose a theme"));
+		     setCaption(kapp->makeStdCaption(i18n("Choose a theme")));
 		     selectedFile="";
 
 		     themeLayout="";
@@ -531,14 +532,14 @@ void Preview::saveTheme(void) {
     KURL url = KFileDialog::getSaveURL(
         NULL,
         "*.theme",
-        this,
+        parentWidget(),
         i18n("Save theme." ));
     if ( url.isEmpty() )
         return;
    
    if( !url.isLocalFile() )
    {
-      KMessageBox::sorry( 0L, i18n( "Only saving to local files currently supported." ) );
+      KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return;
    }
 

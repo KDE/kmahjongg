@@ -9,6 +9,7 @@
 
 #include <klocale.h>
 #include <kglobal.h>
+#include <kapp.h>
 
 GameNum::GameNum
 (
@@ -36,20 +37,21 @@ GameNum::GameNum
 	okBtn = new QPushButton( this, "PushButton_1" );
 	okBtn->setGeometry( 10, 90, 95, 30 );
 	okBtn->setFocusPolicy( QWidget::TabFocus );
-	okBtn->setText(i18n( "OK" ));
+	okBtn->setText(i18n( "&OK" ));
 	okBtn->setAutoRepeat( FALSE );
-	okBtn->setAutoResize( FALSE );
+        okBtn->setAutoResize( FALSE );
+        okBtn->setDefault(true);
 
 	//  cancel button	
 	canBtn = new QPushButton( this, "PushButton_1" );
 	canBtn->setGeometry( 115, 90, 95, 30 );
 	canBtn->setFocusPolicy( QWidget::TabFocus );
-	canBtn->setText(i18n( "Cancel" ));
+	canBtn->setText(i18n( "&Cancel" ));
 	canBtn->setAutoRepeat( FALSE );
 	canBtn->setAutoResize( FALSE );
 
 
-	setCaption(i18n("New game"));
+	setCaption(kapp->makeStdCaption(i18n("New game")));
 
 	resize( 220,130 );
 	setFixedSize(220,130);

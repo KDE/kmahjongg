@@ -21,7 +21,8 @@
 #include <qbttngrp.h>
 #include <qpushbt.h>
 #include <qchkbox.h>
-#include <qradiobt.h> 
+#include <qradiobt.h>
+#include <kapp.h>
 
 
 PrefsDlgData::PrefsDlgData
@@ -32,6 +33,7 @@ PrefsDlgData::PrefsDlgData
 	:
 	Inherited( parent, name, TRUE, 0 )
 {
+        setCaption(kapp->makeStdCaption(""));
 	QButtonGroup* BackgroundGroup;
 	BackgroundGroup = new QButtonGroup( this, "BackgroundGroup" );
 	BackgroundGroup->setGeometry( 198, 66, 187, 56 );
@@ -87,13 +89,14 @@ PrefsDlgData::PrefsDlgData
 	OkBtn = new QPushButton( this, "OkBtn" );
 	OkBtn->setGeometry( 5, 127, 123, 28 );
 	connect( OkBtn, SIGNAL(clicked()), SLOT(okClicked()) );
-	OkBtn->setText( i18n("OK") );
+        OkBtn->setText( i18n("&OK") );
+        OkBtn->setDefault(true);
 
 	QPushButton* cancelBtn;
 	cancelBtn = new QPushButton( this, "cancelBtn" );
 	cancelBtn->setGeometry( 262, 127, 123, 28 );
 	connect( cancelBtn, SIGNAL(clicked()), SLOT(reject()) );
-	cancelBtn->setText( i18n("Cancel") );
+	cancelBtn->setText( i18n("&Cancel") );
 
 	dlgMiniTiles = new QCheckBox( TilesGroup, "miniCB" );
 	dlgMiniTiles->setGeometry( 5, 34, 177, 17 );
