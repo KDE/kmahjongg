@@ -34,12 +34,12 @@ TARGET	=	kmahjongg
 DOCS    =	index.html
 
 ####### Implicit rules
-.SUFFIXES: .cpp
+.SUFFIXES: .cpp .moc
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(DEFS) -c $<
 
-%.moc: %.h
+.h.moc:
 	$(MOC) $< -o $@
 
 ####### Build rules
