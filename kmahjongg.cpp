@@ -380,8 +380,8 @@ BoardWidget::BoardWidget( QWidget* parent )
     if( ! loadTileset( DEFAULTTILESET ) )
     {
         QString str;
-        str.sprintf( "%s/share/apps/kmahjongg/pics/%s", 
-		     kapp->kdedir().data(), DEFAULTTILESET );
+        str.sprintf( "%s/kmahjongg/pics/%s", 
+		     kapp->kde_datadir().data(), DEFAULTTILESET );
         if( ! loadTileset( str ) )
 	{
             showMessage( i18n("Unable to open bitmap file !") );
@@ -394,8 +394,8 @@ BoardWidget::BoardWidget( QWidget* parent )
     if( ! loadBackground( DEFAULTBACKGROUND, false ) )
     {
         QString str;
-	str.sprintf( "%s/share/apps/kmahjongg/pics/%s", 
-                     kapp->kdedir().data(), DEFAULTBACKGROUND );
+	str.sprintf( "%s/kmahjongg/pics/%s", 
+                     kapp->kde_datadir().data(), DEFAULTBACKGROUND );
         if( ! loadBackground( str ) )
 	{
             showMessage( i18n("Unable to open bitmap file !") );
