@@ -388,16 +388,9 @@ void Preview::parseFile(const QString &in, QString &out) {
 	prefix=f.dirPath();
 
 	// remove any trailing \n
-	for (const char *p=in; *p; p++)
-		if (*p == ':') {
-			tmp += prefix;
-			tmp += "/"; 
-		} else {
-			if (*p != '\n')
-				tmp += *p;
+	tmp.replace(QRegExp("\n"), QString::null);
+	tmp.replace(QRegExp(":"), prefix + '/');
 
-		}
-	
 	out = tmp;
 }
 
@@ -562,7 +555,7 @@ void Preview::saveTheme(void) {
         if (res != KMessageBox::Yes)
                 return ;
     }
-    FILE *outFile = fopen( url.path(), "w" );
+    FILE *outFile = fopen( QFile::encodeName(url.path()), "w" );
     if (outFile == NULL) {
         KMessageBox::sorry(this,
                 i18n("Could not write to file. Aborting."));
@@ -571,9 +564,9 @@ void Preview::saveTheme(void) {
 
     fprintf(outFile,"%s\n%s\n%s\n%s\n",
 		themeMagicV1_0,
-		(const char *) tile,
-		(const char *) back,
-		(const char *) layout);
+		tile.utf8().data(),
+		back.utf8().data(),
+		layout.utf8().data());
     fclose(outFile);
 }
 

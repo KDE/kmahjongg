@@ -201,7 +201,7 @@ void HighScore::loadTables(void) {
 	char buff[1024];
 
 	// open the file, on error set up the default table
-	FILE *fp = fopen((const char *) highScoreFile(), "r");
+	FILE *fp = fopen( QFile::encodeName(highScoreFile()), "r");
 	if (fp == NULL) 
 		goto error;	
 
@@ -260,7 +260,7 @@ void HighScore::saveTables(void) {
 
 
 	// open the outrput file, with naff error handling
-	FILE *fp = fopen((const char *) highScoreFile(), "w");
+	FILE *fp = fopen( QFile::encodeName(highScoreFile()), "w");
 	if (fp == NULL)
 		return;
 	
@@ -269,20 +269,20 @@ void HighScore::saveTables(void) {
 		num++;
 
 	// output the file magic
-	fprintf(fp,"%s\n", (const char *) highScoreMagic1_1);
+	fprintf(fp,"%s\n", highScoreMagic1_1.utf8().data());
 	
 	// output the count of tables to process
 	fprintf(fp, "%d\n", num);
 
 	// output each table
 	for (p=tables; p != NULL; p = p->next) {
-		fprintf(fp, "%s\n", (const char *) p->name);
+		fprintf(fp, "%s\n", p->name.utf8().data());
 		for (int e=0; e<numScores; e++) {
 			fprintf(fp,"%ld\n%ld\n%ld\n%s\n", 
 				p->entries[e].score,
 				p->entries[e].elapsed,
 				p->entries[e].board,
-				(const char *) p->entries[e].name);
+				p->entries[e].name.utf8().data());
 		}
 	}
 	fclose(fp);	
@@ -503,7 +503,7 @@ void HighScore::reset(void) {
                 return ;   
 
 	// delete the file
-	res = unlink((const char *) highScoreFile());
+	res = unlink( QFile::encodeName(highScoreFile()));
 	
 	// wipe ou the in memory list of tables	
 	TableInstance *t, *d;

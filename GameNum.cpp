@@ -1,16 +1,14 @@
-//#include <kapp.h>
 #include "GameNum.h"
 #include "GameNum.moc"
 #include <ctype.h>
 #include <stdlib.h>
-#include "klocale.h"
 
 #include <qlabel.h>
 #include <qpushbt.h>
 #include <qlineedit.h>
 
-
-
+#include <klocale.h>
+#include <kglobal.h>
 
 GameNum::GameNum
 (
@@ -73,29 +71,23 @@ int GameNum::exec() {
 
 
 
-int GameNum::getNumber(void) {
-	return(atoi(lineEdit->text()));
-
+int GameNum::getNumber(void)
+{
+	return((int)KGlobal::locale()->readNumber(lineEdit->text()));
 }
 
 
-void GameNum::checkOK(const QString &s) {
+void GameNum::checkOK(const QString &s)
+{
 	bool ok = true;
-
-	if (s != "") {
-	    for (unsigned int p=0; p<s.length(); p++)
-		if (!isdigit(s[p]))
-	  	    ok = false;
-	} else {
-		ok = false;
-	}
+        KGlobal::locale()->readNumber(s, &ok);
 
 	okBtn->setEnabled(ok);
 }
 
-void GameNum::numChanged(const QString &s) {
+void GameNum::numChanged(const QString &s)
+{
 	checkOK(s);
-		
 }
 
 GameNum::~GameNum()

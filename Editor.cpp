@@ -245,7 +245,7 @@ void Editor::topToolbarOption(int option) {
 }
 
 QString Editor::statusText(void) {
-	static char buff[256];
+	QString buf;
 
 	int x=currPos.x;
 	int y=currPos.y;
@@ -259,9 +259,9 @@ QString Editor::statusText(void) {
 	if (x >=BoardLayout::width || x <0 || y >=BoardLayout::height || y <0)
 		x = y = z = 0;
 
-	sprintf(buff, i18n("Tiles: %3.3d Pos: %2.2d,%2.2d,%2.2d"), numTiles,
+	buf.sprintf(i18n("Tiles: %3.3d Pos: %2.2d,%2.2d,%2.2d").utf8().data(), numTiles,
 		x,y,z);
-	return buff;
+	return buf;
 }
 
 

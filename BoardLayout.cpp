@@ -2,7 +2,7 @@
 #include "BoardLayout.h"
 #include <qfile.h>
 #include <qtextstream.h>
-
+#include <qtextcodec.h>
 
 
 
@@ -29,7 +29,8 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	    return false;
 	}
 
-	if (f.writeBlock(layoutMagic1_0, layoutMagic1_0.length()) == -1) {
+	QCString tmp = layoutMagic1_0.utf8();
+	if (f.writeBlock(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
 
@@ -66,7 +67,8 @@ bool BoardLayout::loadBoardLayout(const QString from)
     QString all = "";
 
     if ( f.open(IO_ReadOnly) ) {    
- 	QTextStream t( &f );        
+ 	QTextStream t( &f );
+        t.setCodec(QTextCodec::codecForName("UTF-8"));
 	QString s;
 	s = t.readLine();
 	if (s != layoutMagic1_0) {
@@ -103,7 +105,7 @@ void BoardLayout::initialiseBoard(void) {
     short y=0;
     maxTileNum = 0;
 
-    const char *pos = (const char *) loadedBoard;
+    const char *pos = (const char *) loadedBoard.ascii();
 
     memset( &board, 0, sizeof( board) );
 
@@ -150,7 +152,7 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
 
 const char* BoardLayout::getBoardLayout(void)
 {
-	return loadedBoard;
+	return loadedBoard.ascii();
 }    
 
 

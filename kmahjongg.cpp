@@ -31,6 +31,7 @@
 #include <qmsgbox.h>
 #include <qtimer.h>
 #include <qaccel.h>
+#include <qfile.h>
 
 #include <kmessagebox.h>
 #include <kiconloader.h>
@@ -764,7 +765,7 @@ void KMahjonggWidget::loadGame(void) {
     KIO::NetAccess::download( url, fname );
 
     // open the file for reading
-    FILE *outFile = fopen( fname, "r");
+    FILE *outFile = fopen( QFile::encodeName(fname), "r");
     if (outFile == NULL) {
 	KMessageBox::sorry(this,
 		i18n("Could not read from file. Aborting."));
@@ -811,7 +812,7 @@ void KMahjonggWidget::saveGame(void) {
       return;
    }
 
-    FILE *outFile = fopen( url.path(), "w");
+    FILE *outFile = fopen( QFile::encodeName(url.path()), "w");
     if (outFile == NULL) {
 	KMessageBox::sorry(this,
 		i18n("Could not write to file. Aborting."));
@@ -822,7 +823,7 @@ void KMahjonggWidget::saveGame(void) {
     fprintf(outFile, "%s\n", gameMagic);
 
     // Now stick in the elapsed time for the game
-    fprintf(outFile, "%s\n", (const char *)gameTimer->toString());
+    fprintf(outFile, "%s\n", gameTimer->toString().utf8().data());
 
 
     // chuck in all the game data
