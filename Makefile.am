@@ -35,4 +35,4 @@ messages: rc.cpp
 	$(XGETTEXT) -kTRANS rc.cpp $(kmahjongg_SOURCES) -o $(podir)/kmahjongg.pot
 
 install-data-local:
-	rm -rf $(kde_appsdir)/Games/kmahjongg.desktop
+	rm -rf $(DESTDIR)$(kde_appsdir)/Games/kmahjongg.desktop
