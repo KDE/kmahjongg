@@ -99,6 +99,8 @@ Editor::Editor
    mode = insert;
    numTiles=0;
    statusChanged();
+
+   update();
 }
 
 
@@ -381,6 +383,8 @@ bool Editor::testSave(void)
 // the tiles as specified by the layout.
 
 void Editor::paintEvent( QPaintEvent*  ) {
+
+
     // first we layer on a background grid
     QPixmap buff;
     QPixmap *dest=drawFrame->getPreviewPixmap();
@@ -395,7 +399,6 @@ void Editor::paintEvent( QPaintEvent*  ) {
 void Editor::drawBackground(QPixmap *pixmap) {
 
     QPainter p(pixmap);
-
 
     // blast in a white background   
     p.fillRect(0,0,pixmap->width(), pixmap->height(), QColor(white));
@@ -417,6 +420,8 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
 
 }
+
+
 
 void Editor::drawTiles(QPixmap *dest) {
 
@@ -496,6 +501,7 @@ void Editor::transformPointToPosition(
         POSITION& MouseClickPos,
 	bool align) 
 {
+
     short z = 0; // shut the compiler up about maybe uninitialised errors
     short y = 0;
     short x = 0;
@@ -518,8 +524,10 @@ void Editor::transformPointToPosition(
         // 
         switch( theBoard.getBoardData(z,y,x) )
         {
-            case (UCHAR)'3':    if (align)
-				    x--;y--;
+	case (UCHAR)'3':    if (align) {
+				    x--;
+                                    y--;
+	                        }
                                 break;
 
             case (UCHAR)'2':    if (align)
@@ -598,6 +606,7 @@ void Editor::drawCursor(POSITION &p, bool visible)
     int w = tiles.width();
     int h = tiles.height(); 
 
+
     if (p.e==100 || !visible)
 	x = -1;
     drawFrame->setRect(x,y,w,h, tiles.shadowSize(), mode-remove);
@@ -663,10 +672,12 @@ bool Editor::canInsert(POSITION &p) {
     POSITION n = p;
     if (p.e != 0) {
 	n.e -= 1;
-	if (!theBoard.allFilled(n))
+	if (!theBoard.allFilled(n)) {
 	    return(false);	
+	}
     }
-    return(!theBoard.anyFilled(p));
+    int any = theBoard.anyFilled(p);
+    return(!any);
 
 }
 
