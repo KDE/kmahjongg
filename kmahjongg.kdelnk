@@ -5,6 +5,7 @@ Exec=kmahjongg -caption "%c"
 Type=Application
 DocPath=kmahjongg/index.html
 Comment=Smart mahjongg game
+Comment[fr]=Un beau jeu de Mahjongg
 Comment[de]=Ein Mahjongg-Spiel
 Comment[no]=Et smart Mahjongg-spill
 Comment[pl]=Gra w Mahjongg.
