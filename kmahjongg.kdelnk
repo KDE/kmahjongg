@@ -1,6 +1,7 @@
 # KDE Config File  
 [KDE Desktop Entry]
 Name=Mahjongg
+Name[no]=Mahjongg
 Name[es]=Mahjongg
 Name[pl]=Mahjongg
 Exec=kmahjongg -caption "%c"
