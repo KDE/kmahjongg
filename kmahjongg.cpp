@@ -204,36 +204,36 @@ void KMahjonggWidget::setupMenuBar()
     QPopupMenu* board = new QPopupMenu;
     for( int i=0; BoardWidget::BoardInfo[i].pszName; i++ )
     {
-        board->insertItem( locale->translate(BoardWidget::BoardInfo[i].pszName),
+        board->insertItem( i18n(BoardWidget::BoardInfo[i].pszName),
                            ID_GAME_NEW_START + i );
     }
     QPopupMenu *game = new QPopupMenu;
     game->setCheckable( true );
-    game->insertItem( locale->translate("&Start new game"),    board, ID_GAME_NEW );
+    game->insertItem( i18n("&Start new game"),    board, ID_GAME_NEW );
     game->insertSeparator();
-    game->insertItem( locale->translate("&Help me"),           ID_GAME_HELP );
-    game->insertItem( locale->translate("&Undo last move"),    ID_GAME_UNDO );
-    game->insertItem( locale->translate("&Demo mode"),         ID_GAME_DEMO );
-    game->insertItem( locale->translate("Show &matching tiles"), ID_GAME_SHOW );
+    game->insertItem( i18n("&Help me"),           ID_GAME_HELP );
+    game->insertItem( i18n("&Undo last move"),    ID_GAME_UNDO );
+    game->insertItem( i18n("&Demo mode"),         ID_GAME_DEMO );
+    game->insertItem( i18n("Show &matching tiles"), ID_GAME_SHOW );
     game->insertSeparator();
-    game->insertItem( locale->translate("&Quit"),              ID_GAME_QUIT );
+    game->insertItem( i18n("&Quit"),              ID_GAME_QUIT );
 
     QPopupMenu *view = new QPopupMenu;
     view->setCheckable( true );
-    view->insertItem( locale->translate("&Load Background image..."),  ID_VIEW_BACKGROUND_LOAD );
+    view->insertItem( i18n("&Load Background image..."),  ID_VIEW_BACKGROUND_LOAD );
     view->insertSeparator( -1 );
-    view->insertItem( locale->translate("&Statusbar"),   ID_VIEW_STATUSBAR );
+    view->insertItem( i18n("&Statusbar"),   ID_VIEW_STATUSBAR );
 
     QString about;
-    about.sprintf(locale->translate("Mahjongg %s\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)"), KMAHJONGG_VERSION);
+    about.sprintf(i18n("Mahjongg %s\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)"), KMAHJONGG_VERSION);
     QPopupMenu *help = kapp->getHelpMenu(true, about);
  
     pMenuBar = new KMenuBar( this );
 
-    pMenuBar->insertItem( locale->translate("&Game"), game );
-    pMenuBar->insertItem( locale->translate("&View"), view );
+    pMenuBar->insertItem( i18n("&Game"), game );
+    pMenuBar->insertItem( i18n("&View"), view );
     pMenuBar->insertSeparator();
-    pMenuBar->insertItem( locale->translate("&Help"), help );
+    pMenuBar->insertItem( i18n("&Help"), help );
 
     // initialize menu accelerators
     pMenuBar->setAccel( CTRL+Key_Q, ID_GAME_QUIT );
