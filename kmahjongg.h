@@ -30,12 +30,9 @@
 
 class QLabel;
 
-#include <qfiledialog.h>
-
-#include <kapplication.h>
 #include <krandomsequence.h>
-
 #include <kmainwindow.h>
+
 #include "KmTypes.h"
 #include "Tileset.h"
 #include "Background.h"
@@ -69,7 +66,7 @@ typedef struct gamedata {
     POSITION MoveList[BoardLayout::maxTiles];
     void putTile( short e, short y, short x, UCHAR f )
     {
-	
+
 
         Board[e][y][x] = Board[e][y+1][x] =
 		   Board[e][y+1][x+1] = Board[e][y][x+1] = f;
@@ -93,21 +90,21 @@ typedef struct gamedata {
 
     if ((z>=BoardLayout::depth||y>=BoardLayout::height||x>=BoardLayout::width))
 	return 0;
-	
+
 
 	if ((y < 0) || (x < 0))
 		return 0;
-	
+
 	int h=0;
 	for (int e=z; e<BoardLayout::depth; e++) {
 		if (Board[e][y][x] && Mask[e][y][x]) {
-			
-			
+
+
 			h++;
 		} else {
-			return h;	
+			return h;
 		}
-			
+
 	}
 	return h;
     }
@@ -147,7 +144,7 @@ class BoardWidget : public QWidget
 	QString &getBoardName(void){return theBoardLayout.getFilename();};
 	QString &getLayoutName(void) {return theBoardLayout.getFilename();};
 
-	
+
     public slots:
 	void shuffle(void);
         void helpMove();
@@ -168,13 +165,13 @@ class BoardWidget : public QWidget
         void demoModeChanged   ( bool bActive );
 
 	void gameCalculated(void);
-	
+
 		void gameOver(unsigned short removed, unsigned short cheats);
     protected:
-	void getFileOrDefault(QString filename, QString type, QString &res);		
+	void getFileOrDefault(QString filename, QString type, QString &res);
 	void shadowArea(int z, int y, int x, int sx, int sy, int rx, int ry, QPixmap *src);
-	void shadowTopLeft(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);	
-	void shadowBotRight(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);	
+	void shadowTopLeft(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);
+	void shadowBotRight(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
@@ -211,14 +208,14 @@ class BoardWidget : public QWidget
 	int tilesUsed;
 	void getFaces(POSITION &a, POSITION &b);
 	UCHAR tilePair[144];
-	
+
 	KRandomSequence random;
-	
+
 	Tileset  theTiles;
 	Background theBackground;
-	
-	
-	
+
+
+
 	BoardLayout theBoardLayout;
 
 
@@ -233,13 +230,13 @@ class BoardWidget : public QWidget
         short matchCount;
         bool  showMatch;
 
-	
-	
-	
+
+
+
 	// offscreen draw area.
 	QPixmap backBuffer;		// pixmap to render to
-	
-	
+
+
 
 	bool    updateBackBuffer;	// does board need redrawing. Not if it is just a repaint
 
@@ -250,7 +247,7 @@ class BoardWidget : public QWidget
 
 	// seed for the random number generator used for this game
 	long  gameGenerationNum;
-	
+
 	// storage to keep track of removed tiles
 	unsigned char removedCharacter[9];
 	unsigned char removedBamboo[9];
@@ -259,7 +256,7 @@ class BoardWidget : public QWidget
 	unsigned char removedWind[9];
 	unsigned char removedFlower[4];
 	unsigned char removedSeason[4];
-	
+
 	// new bits for new game generation, with solvability
 	int numTiles;
 	POSITION tilePositions[BoardLayout::maxTiles];
@@ -308,7 +305,7 @@ class KMahjonggWidget : public KMainWindow
 	void setDisplayedWidth();
 	void newGame(void);
 	void timerReset(void);
-	
+
 	void tileSizeChanged(void);
 
     protected slots:
@@ -331,38 +328,37 @@ class KMahjonggWidget : public KMainWindow
 	void keyBindings();
 
     protected:
-        void closeEvent ( QCloseEvent* );
-
-        void setupKAction();
-        void setupStatusBar();
-        void setupMenuBar();
-        void setupToolBar();
-        void updateStatusbar( bool );
+    void setupKAction();
+    void setupStatusBar();
+    void setupMenuBar();
+    void setupToolBar();
+    void updateStatusbar( bool );
 	void enableItem(int item, bool state){}
 
     private:
 	// number of seconds since the start of the game
 	unsigned long gameElapsedTime;
-        BoardWidget* bw;
+    BoardWidget* bw;
 
 	QLabel *gameNumLabel;
 	QLabel *tilesLeftLabel;
 	QLabel *statusLabel;
-	
+
 	GameTimer    *gameTimer;
 	HighScore    *theHighScores;
-        KStatusBar*  pStatusBar;
-	KToolBar     *toolBar;
 	PrefsDlg     *prefsDlg;
 	Preview      *previewLoad;
 	Editor*	     boardEditor;
 
-        bool         bShowStatusbar;
-        bool         bShowMatchingTiles;
-        bool         bDemoModeActive;
+    bool         bShowStatusbar;
+    bool         bShowMatchingTiles;
+    bool         bDemoModeActive;
+
+    KToggleAction *showMatchingTilesAction, *pauseAction, *demoAction;
+    KAction *undoAction, *redoAction;
 };
 
-			
+
 
 
 #endif

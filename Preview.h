@@ -1,10 +1,10 @@
-#ifndef _PreviewLoadBase_H 
-#define _PreviewLoadBase_H 
+#ifndef _PreviewLoadBase_H
+#define _PreviewLoadBase_H
 
 #include <qdialog.h>
-#include <qframe.h>   
+#include <qframe.h>
+#include <qfiledialog.h>
 
-#include <qfileinfo.h>
 #include "Tileset.h"
 #include "BoardLayout.h"
 #include "Background.h"
@@ -28,7 +28,7 @@ signals:
 protected:
 	void mousePressEvent(QMouseEvent *e);
 	void mouseMoveEvent(QMouseEvent *e);
-	void paintEvent( QPaintEvent* pa );	
+	void paintEvent( QPaintEvent* pa );
 private:
 	QPixmap *thePixmap;
 	int rx;
@@ -65,11 +65,11 @@ protected:
 	void markUnchanged(void);
 	void markChanged(void);
 	bool isChanged(void);
-	QPixmap *getPreviewPixmap(void) {return drawFrame->getPreviewPixmap();};	
+	QPixmap *getPreviewPixmap(void) {return drawFrame->getPreviewPixmap();};
 	virtual void drawPreview(void);
         void applyChange(void) ;
         void renderBackground(const QString &bg);
-        void renderTiles(const QString &file, const QString &layout); 
+        void renderTiles(const QString &file, const QString &layout);
 	void paintEvent( QPaintEvent* pa );
 signals:
         void boardRedraw(bool);
@@ -77,18 +77,18 @@ signals:
         void loadBackground(const QString &, bool);
 	void loadBoard(const QString &);
 	void layoutChange(void);
- 
+
 
 public slots:
 	void selectionChanged(int which);
 
 protected slots:
-	
+
 private slots:
 	void apply(void);
 	void ok(void);
 	void load(void);
-	
+
 protected:
         FrameImage * drawFrame;
         QPushButton* cancelButton;
@@ -101,19 +101,19 @@ protected:
 
 	QString selectedFile;
         Tileset tiles;
-        BoardLayout boardLayout; 
+        BoardLayout boardLayout;
 	Background back;
- 
+
 private:
 	void parseFile(const QString &f, QString &g);
 	QString fileSelector;
 	bool changed;
 	QFileInfoList	fileList;
 	PreviewType previewType;
-	
+
 	QString themeBack;
 	QString themeLayout;
 	QString themeTileset;
 };
 
-#endif 
+#endif

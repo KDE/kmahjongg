@@ -1,5 +1,6 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="kmahjongg" version="1">
+<kpartgui name="kmahjongg" version="2">
+
 <MenuBar>
   <Menu name="game"><text>&amp;Game</text>
     <Action name="game_new_numeric" append="new_merge" />
@@ -8,18 +9,19 @@
     <Action name="game_open_background" append="new_merge" />
     <Action name="game_open_layout" append="new_merge" />
     <Action name="game_save_theme" append="save_merge" />
-    <Action name="game_hint" />
-    <Action name="game_shuffle" />
-    <Action name="game_demo_mode" />
-    <Action name="game_show_matching_tiles" />
-  </Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
   </Menu>
   <Menu name="edit"><text>&amp;Edit</text>
     <Action name="edit_board_editor" />
   </Menu>
+  <Menu name="move"><text>&amp;Move</text>
+    <Action name="move_shuffle"/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <Action name="options_show_matching_tiles" append="show_merge"/>
+  </Menu>
 </MenuBar>
-<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+
+<ToolBar name="mainToolBar" noMerge="1"><text>Main Toolbar</text>
   <Action name="game_new" />
   <Action name="game_new_numeric" />
   <Action name="game_load" />
@@ -27,6 +29,77 @@
   <Action name="move_undo" />
   <Action name="move_redo" />
   <Action name="game_pause" />
-  <Action name="game_hint" />
+  <Action name="move_hint" />
 </ToolBar>
+
+<State name="inactive">
+  <enable>
+    <Action name="game_new"/>
+    <Action name="game_new_numeric"/>
+    <Action name="game_load"/>
+    <Action name="game_save"/>
+    <Action name="options_configure"/>
+    <Action name="game_highscores"/>
+    <Action name="game_open_theme"/>
+    <Action name="game_open_tileset"/>
+    <Action name="game_open_background"/>
+    <Action name="game_open_layout"/>
+    <Action name="edit_board_editor"/>
+    <Action name="move_hint"/>
+    <Action name="game_show_matching_tiles"/>
+    <Action name="game_pause"/>
+    <Action name="move_demo"/>
+  </enable>
+  <disable>
+  </disable>
+</State>
+
+<State name="active">
+  <enable>
+    <Action name="move_demo"/>
+  </enable>
+  <disable>
+    <Action name="game_new"/>
+    <Action name="game_new_numeric"/>
+    <Action name="game_load"/>
+    <Action name="game_save"/>
+    <Action name="options_configure"/>
+    <Action name="game_highscores"/>
+    <Action name="game_open_theme"/>
+    <Action name="game_open_tileset"/>
+    <Action name="game_open_background"/>
+    <Action name="game_open_layout"/>
+    <Action name="edit_board_editor"/>
+    <Action name="move_hint"/>
+    <Action name="game_show_matching_tiles"/>
+    <Action name="game_pause"/>
+    <Action name="move_undo"/>
+    <Action name="move_redo"/>
+  </disable>
+</State>
+
+<State name="paused">
+  <enable>
+    <Action name="game_pause"/>
+  </enable>
+  <disable>
+    <Action name="game_new"/>
+    <Action name="game_new_numeric"/>
+    <Action name="game_load"/>
+    <Action name="game_save"/>
+    <Action name="options_configure"/>
+    <Action name="game_highscores"/>
+    <Action name="game_open_theme"/>
+    <Action name="game_open_tileset"/>
+    <Action name="game_open_background"/>
+    <Action name="game_open_layout"/>
+    <Action name="edit_board_editor"/>
+    <Action name="move_hint"/>
+    <Action name="game_show_matching_tiles"/>
+    <Action name="move_undo"/>
+    <Action name="move_redo"/>
+    <Action name="move_demo"/>
+  </disable>
+</State>
+
 </kpartgui>

@@ -31,6 +31,7 @@
 #include <qtimer.h>
 #include <qfile.h>
 #include <qvalidator.h>
+#include <qpainter.h>
 
 #include <kmessagebox.h>
 #include <kglobal.h>
@@ -44,14 +45,13 @@
 #include <kstdaction.h>
 #include <kstdgameaction.h>
 #include <kkeydialog.h>
+#include <kaboutdata.h>
+#include <kapplication.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
 #include "PrefsDlg.h"
-#include <qpainter.h>
 #include "Progress.h"
-
-#include <kaboutdata.h>
 
 
 static const char *description = I18N_NOOP("KDE Game");
@@ -115,14 +115,15 @@ int main( int argc, char** argv )
  //    splash = new Progress();
  //    splash->show();
 
-     //p.repaint(0,0,-1,-1);
-
-    KMahjonggWidget *w = new KMahjonggWidget();
-
+    if (a.isRestored())
+        RESTORE(KMahjonggWidget)
+    else {
+        KMahjonggWidget *w = new KMahjonggWidget;
+        a.setMainWidget(w);
+        w->show();
+    }
  //   splash->hide();
-    w->show();
-
-    return( a.exec() );
+    return a.exec();
 }
 
 
@@ -135,9 +136,8 @@ KMahjonggWidget::KMahjonggWidget()
 {
     prefsDlg = new PrefsDlg(this);
     previewLoad = new Preview(this);
-    setCaption("");
     boardEditor = 0;
-    progress("Reading Preferences");
+progress("Reading Preferences");
     preferences.initialise(KGlobal::config());
 
     bShowStatusbar = preferences.showStatus();
@@ -223,7 +223,6 @@ progress("Starting new game");
 // ---------------------------------------------------------
 KMahjonggWidget::~KMahjonggWidget()
 {
-    delete pStatusBar;
     delete prefsDlg;
     delete previewLoad;
     delete theHighScores;
@@ -239,7 +238,7 @@ void KMahjonggWidget::setupKAction()
     KStdGameAction::gameNew(this, SLOT(newGame()), actionCollection());
     KStdGameAction::load(this, SLOT(loadGame()), actionCollection());
     KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
-    KStdGameAction::quit(kapp, SLOT(quit()), actionCollection());
+    KStdGameAction::quit(this, SLOT(close()), actionCollection());
     (void)new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
     (void)new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
     (void)new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
@@ -247,12 +246,12 @@ void KMahjonggWidget::setupKAction()
     (void)new KAction(i18n("Open La&yout..."), 0, this, SLOT(openLayout()), actionCollection(), "game_open_layout");
     (void)new KAction(i18n("Sa&ve Theme..."), 0, this, SLOT(saveTheme()), actionCollection(), "game_save_theme");
     // originally "file" ends here
-    (void)new KAction(i18n("&Help Me"), "help", Qt::Key_H, bw, SLOT(helpMove()), actionCollection(), "game_hint");
-    (void)new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "game_shuffle");
-    (void)new KToggleAction(i18n("&Demo Mode"), 0, this, SLOT(demoMode()), actionCollection(), "game_demo_mode");
-    (void)new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "game_show_matching_tiles");
+    KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
+    (void)new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "move_shuffle");
+    demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
+    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "options_show_matching_tiles");
     KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-    KStdGameAction::pause(this, SLOT(pause()), actionCollection());
+    pauseAction = KStdGameAction::pause(this, SLOT(pause()), actionCollection());
 
 
     // TODO: store the background ; open on startup
@@ -260,18 +259,15 @@ void KMahjonggWidget::setupKAction()
     // TODO: same about theme
 
     // move
-    KStdGameAction::undo(this, SLOT(undo()), actionCollection());
-    KStdGameAction::redo(this, SLOT(redo()), actionCollection());
+    undoAction = KStdGameAction::undo(this, SLOT(undo()), actionCollection());
+    redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    (void)new KAction(i18n("&Board Editor"), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+    (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
     KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection());
     KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
-
-
-
 
 
     createGUI();
@@ -280,24 +276,19 @@ void KMahjonggWidget::setupKAction()
 // ---------------------------------------------------------
 void KMahjonggWidget::setupToolBar()
 {
-    toolBar = KMainWindow::toolBar();
-
     // add the timer widget
+    gameTimer = new GameTimer(toolBar());
+    toolBar()->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
 
-    gameTimer = new GameTimer(toolBar);
-    toolBar->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
-
-    toolBar->alignItemRight( ID_GAME_TIMER, true );
-    toolBar->setBarPos(KToolBar::Top);
-    toolBar->show();
+    toolBar()->alignItemRight( ID_GAME_TIMER, true );
+    toolBar()->setBarPos(KToolBar::Top);
+    toolBar()->show();
 }
 
 
 // ---------------------------------------------------------
 void KMahjonggWidget::setupStatusBar()
 {
-    pStatusBar = new KStatusBar( this );
-
     // The following isn't possible with the new KStatusBar anymore.
     // The correct fix is probably to reverse the order of adding the
     // widgets. :/
@@ -305,23 +296,21 @@ void KMahjonggWidget::setupStatusBar()
     // as compilation), in case someone comes up with a better fix.
     // pStatusBar->setInsertOrder( KStatusBar::RightToLeft );
 
-    tilesLeftLabel= new QLabel("Removed: 0000/0000", pStatusBar);
+    tilesLeftLabel= new QLabel("Removed: 0000/0000", statusBar());
     tilesLeftLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->addWidget(tilesLeftLabel, tilesLeftLabel->sizeHint().width(), ID_STATUS_GAME);
+    statusBar()->addWidget(tilesLeftLabel, tilesLeftLabel->sizeHint().width(), ID_STATUS_GAME);
 
 
-    gameNumLabel = new QLabel("Game: 000000000000000000000", pStatusBar);
+    gameNumLabel = new QLabel("Game: 000000000000000000000", statusBar());
     gameNumLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->addWidget(gameNumLabel, gameNumLabel->sizeHint().width(), ID_STATUS_TILENUMBER);
+    statusBar()->addWidget(gameNumLabel, gameNumLabel->sizeHint().width(), ID_STATUS_TILENUMBER);
 
 
-    statusLabel= new QLabel("Kmahjongg", pStatusBar);
+    statusLabel= new QLabel("Kmahjongg", statusBar());
     statusLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    pStatusBar->addWidget(statusLabel, statusLabel->sizeHint().width(), ID_STATUS_MESSAGE);
+    statusBar()->addWidget(statusLabel, statusLabel->sizeHint().width(), ID_STATUS_MESSAGE);
 
   //  pStatusBar->setAlignment( ID_STATUS_TILENUMBER, AlignCenter );
-
-    pStatusBar->show();
 }
 
 // ---------------------------------------------------------
@@ -336,13 +325,14 @@ void KMahjonggWidget::updateStatusbar( bool bShow )
 
 }
 
-void KMahjonggWidget::setDisplayedWidth() {
+void KMahjonggWidget::setDisplayedWidth()
+{
     bw->setDisplayedWidth();
     setFixedSize( bw->size() +
-                  QSize( 2, (preferences.showStatus() ? pStatusBar->height() : 0)
+                  QSize( 2, (preferences.showStatus() ? statusBar()->height() : 0)
                      + 2 + menuBar()->height() ) );
-	toolBar->setFixedWidth(bw->width());
-	toolBar->alignItemRight( ID_GAME_TIMER, true );
+	toolBar()->setFixedWidth(bw->width());
+	toolBar()->alignItemRight( ID_GAME_TIMER, true );
 	bw->drawBoard();
 }
 
@@ -354,7 +344,7 @@ void KMahjonggWidget::startNewNumeric()
         bool ok;
         QString s = KLineEditDlg::getText(i18n("New Game"),i18n("Enter game number:"),QString::null,&ok,this,&v);
 	if (ok) {
-		startNewGame( KGlobal::locale()->readNumber(s, &ok) );
+		startNewGame( (int)KGlobal::locale()->readNumber(s, &ok) );
 	}
 }
 
@@ -410,7 +400,7 @@ void KMahjonggWidget::showMatchingTiles()
 {
     bShowMatchingTiles = ! bShowMatchingTiles;
     bw->setShowMatch( bShowMatchingTiles );
-    ((KToggleAction*)actionCollection()->action("game_show_matching_tiles"))->setChecked(bShowMatchingTiles);
+    showMatchingTilesAction->setChecked(bShowMatchingTiles);
 }
 
 void KMahjonggWidget::showHighscores()
@@ -533,14 +523,6 @@ void KMahjonggWidget::gameOver(
 	timerReset();
 }
 
-
-// ---------------------------------------------------------
-void KMahjonggWidget::closeEvent( QCloseEvent* e )
-{
-    kapp->quit();
-    e->accept();
-}
-
 // ---------------------------------------------------------
 void KMahjonggWidget::showStatusText( const QString &msg, long board )
 {
@@ -575,7 +557,7 @@ void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 
 //        pMenuBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
 //        toolBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
-        actionCollection()->action("move_undo")->setEnabled(bw->Game.allow_undo);
+        undoAction->setEnabled(bw->Game.allow_undo);
     }
 }
 
@@ -584,42 +566,19 @@ void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 void KMahjonggWidget::demoModeChanged( bool bActive)
 {
     bDemoModeActive = bActive;
-    if (bActive || is_paused) {
-	    actionCollection()->action("move_undo")->setEnabled(false);
-	    actionCollection()->action("move_redo")->setEnabled(false);
-	    if (!is_paused) {
-		    actionCollection()->action("game_demo_mode")->setEnabled(true);
-		    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(false);
 
-	    } else {
-		    actionCollection()->action("game_demo_mode")->setEnabled(false);
-		    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(true);
-		    ((KToggleAction*)actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause)))->setChecked(is_paused);
-	    }
-	    ((KToggleAction*)actionCollection()->action("game_demo_mode"))->setChecked(true);
-    } else {
-	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Undo))->setEnabled(bw->Game.allow_undo);
-	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Redo))->setEnabled(bw->Game.allow_redo);
-	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(true);
-	    ((KToggleAction*)actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause)))->setChecked(is_paused);
-	    actionCollection()->action("game_demo_mode")->setEnabled(true);
-	    ((KToggleAction*)actionCollection()->action("game_demo_mode"))->setChecked(false);
+    pauseAction->setChecked(is_paused);
+    demoAction->setChecked(bActive || is_paused);
+
+    if (is_paused)
+        stateChanged("paused");
+    else if (bActive)
+        stateChanged("active");
+    else {
+        stateChanged("inactive");
+        undoAction->setEnabled(bw->Game.allow_undo);
+	    redoAction->setEnabled(bw->Game.allow_redo);
     }
-
-    bool e = (!bActive && !is_paused);
-    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::New))->setEnabled(e);
-    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Load))->setEnabled(e);
-    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Save))->setEnabled(e);
-    actionCollection()->action(KStdAction::name(KStdAction::Preferences))->setEnabled(e);
-    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Highscores))->setEnabled(e);
-    actionCollection()->action("game_open_tileset")->setEnabled(e);
-    actionCollection()->action("game_open_background")->setEnabled(e);
-    actionCollection()->action("game_open_theme")->setEnabled(e);
-    actionCollection()->action("game_open_layout")->setEnabled(e);
-    actionCollection()->action("edit_board_editor")->setEnabled(e);
-    actionCollection()->action("game_hint")->setEnabled(e);
-    actionCollection()->action("game_show_matching_tiles")->setEnabled(e);
-    actionCollection()->action("game_open_layout")->setEnabled(e);
 }
 
 
