@@ -9,7 +9,7 @@ class Tileset {
      Tileset(bool scaled=false);	     
      ~Tileset();	
 
-     bool loadTileset(const char *filesetPath, const bool isPreview = false);
+     bool loadTileset(const QString &filesetPath, const bool isPreview = false);
      QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face);
      QRgb *copyTileImage(short tileX, short tileY, QRgb *to, QImage &from);  
 

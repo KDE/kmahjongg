@@ -148,9 +148,9 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
     n = maxTileNum;
 }
 
-const char *BoardLayout::getBoardLayout(void)
+const char* BoardLayout::getBoardLayout(void)
 {
-	return (const char *) loadedBoard;
+	return loadedBoard;
 }    
 
 

@@ -14,7 +14,7 @@ class Background
     Background();
     ~Background();
 
-    bool load(const char *file, short width, short height);
+    bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged(void);
     QPixmap *getBackground(void) {return backgroundPixmap;};

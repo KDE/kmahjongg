@@ -158,15 +158,15 @@ class BoardWidget : public QWidget
         void demoMoveTimeout();
         void matchAnimationTimeout();
 	void setDisplayedWidth();
-        bool loadTileset    ( const char* );
-        bool loadBoardLayout( const char* );
+        bool loadTileset    ( const QString & );
+        bool loadBoardLayout( const QString& );
         bool loadBoard      ( );
         void updateScaleMode (void);
         void drawBoard(bool deferUpdate = true);
-        bool loadBackground ( const char*, bool bShowError = true );
+        bool loadBackground ( const QString&, bool bShowError = true );
     signals:
-        void statusTextChanged ( const char*, long );
-        void message           ( const char* );
+        void statusTextChanged ( const QString&, long );
+        void message           ( const QString& );
         void tileNumberChanged ( int iMaximum, int iCurrent );
         void demoModeChanged   ( bool bActive );
 
@@ -181,8 +181,8 @@ class BoardWidget : public QWidget
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
-        void setStatusText ( const char* );
-        void showMessage   ( const char* );
+        void setStatusText ( const QString& );
+        void showMessage   ( const QString& );
         void cancelUserSelectedTiles();
         void drawTileNumber();
 
@@ -287,14 +287,14 @@ class KMahjonggWidget : public KTMainWindow
     public slots:
         void menuCallback( int );
         void startNewGame( int num = -1 );
-        void showStatusText ( const char* , long);
-        void showMessage    ( const char* );
+        void showStatusText ( const QString& , long);
+        void showMessage    ( const QString& );
         void showTileNumber( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
 		void gameOver( unsigned short removed, unsigned short cheats);
  	void statusBarMode(int onOff);
 	void backgroundMode();
-	void loadBoardLayout(const char *);
+	void loadBoardLayout(const QString&);
 	void setDisplayedWidth();
 	void newGame(void);
 	void timerReset(void);
@@ -340,8 +340,3 @@ class KMahjonggWidget : public KTMainWindow
 
 
 #endif
-
-
-
-
-

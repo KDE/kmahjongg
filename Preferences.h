@@ -19,12 +19,12 @@ class Preferences {
   int  scaleMode(void) {return scale;};     // Scale background (false = tile)
   int  autosave(void) {return save;};     // Scale background (false = tile)
   int  showRemoved(void) {return removed;}; // show removed tiles
-  const char *tileset(void) {return tileFile;};   // Filename of the tile set
-  const char *background(void) {return backFile;}; //Filename of the background 
-  const char *layout(void) {return layoutFile;};  // File name of board layout
-  const char *defaultBackground(void); 
-  const char *defaultTileset(void);
-  const char *defaultLayout(void);
+  QString tileset(void) {return tileFile;};   // Filename of the tile set
+  QString background(void) {return backFile;}; //Filename of the background 
+  QString layout(void) {return layoutFile;};  // File name of board layout
+  QString defaultBackground(void); 
+  QString defaultTileset(void);
+  QString defaultLayout(void);
   
   // initialisers
   void setShadows(int s) {shadows = s;};

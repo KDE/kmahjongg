@@ -210,7 +210,7 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 
 
 // ---------------------------------------------------------
-bool Tileset::loadTileset( const char* tilesetPath, const bool isPreview)
+bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 {
 
     QImage qiTiles;

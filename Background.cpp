@@ -13,7 +13,7 @@ Background::~Background() {
 
 }
 
-bool Background::load(const char *file, short width, short height) {
+bool Background::load(const QString &file, short width, short height) {
  
   w=width;
   h=height; 

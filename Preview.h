@@ -68,14 +68,14 @@ protected:
 	QPixmap *getPreviewPixmap(void) {return drawFrame->getPreviewPixmap();};	
 	virtual void drawPreview(void);
         void applyChange(void) ;
-        void renderBackground(const char *bg);
-        void renderTiles(const char *file, const char *layout); 
+        void renderBackground(const QString &bg);
+        void renderTiles(const QString &file, const QString &layout); 
 	void paintEvent( QPaintEvent* pa );
 signals:
         void boardRedraw(bool);
-        void loadTileset(const char *);
-        void loadBackground(const char *, bool);
-	void loadBoard(const char *);
+        void loadTileset(const QString &);
+        void loadBackground(const QString &, bool);
+	void loadBoard(const QString &);
 	void layoutChange(void);
  
 
@@ -105,7 +105,7 @@ protected:
 	Background back;
  
 private:
-	void parseFile(const char *f, QString &g);
+	void parseFile(const QString &f, QString &g);
 	QString fileSelector;
 	bool changed;
 	QFileInfoList	fileList;

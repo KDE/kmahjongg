@@ -242,7 +242,7 @@ void Editor::topToolbarOption(int option) {
 
 }
 
-const char *Editor::statusText(void) {
+QString Editor::statusText(void) {
 	static char buff[256];
 
 	int x=currPos.x;

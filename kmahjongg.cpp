@@ -31,6 +31,7 @@
 #include <qtimer.h>
 #include <qaccel.h>
 
+#include <kmessagebox.h>
 #include <kiconloader.h>
 #include <kglobal.h>
 #include <klocale.h>
@@ -185,11 +186,11 @@ progress("Updating status bar");
     updateStatusbar( bShowStatusbar );
 
 progress("Connecting signals");
-    connect( bw, SIGNAL( statusTextChanged(const char*, long) ),
-                 SLOT( showStatusText(const char*, long) ) );
+    connect( bw, SIGNAL( statusTextChanged(const QString& long) ),
+                 SLOT( showStatusText(const QString&, long) ) );
 
-    connect( bw, SIGNAL( message(const char*) ),
-                 SLOT( showMessage(const char*) ) );
+    connect( bw, SIGNAL( message(const QString&) ),
+                 SLOT( showMessage(const QString&) ) );
 
     connect( bw, SIGNAL( tileNumberChanged(int,int) ),
                  SLOT( showTileNumber(int,int) ) );
@@ -226,13 +227,13 @@ progress("Connecting signals");
               this,   SLOT( newGame(void) ) );
 
 
-    connect( &previewLoad, SIGNAL( loadBackground(const char *, bool) ),
-              bw,   SLOT(loadBackground(const char *, bool) ) );
+    connect( &previewLoad, SIGNAL( loadBackground(const QString&, bool) ),
+              bw,   SLOT(loadBackground(const QString&, bool) ) );
 
-    connect( &previewLoad, SIGNAL( loadTileset(const char *) ),
-               bw,  SLOT(loadTileset(const char *) ) );
-    connect( &previewLoad, SIGNAL( loadBoard(const char *) ),
-                 SLOT(loadBoardLayout(const char *) ) );
+    connect( &previewLoad, SIGNAL( loadTileset(const QString &) ),
+               bw,  SLOT(loadTileset(const QString&) ) );
+    connect( &previewLoad, SIGNAL( loadBoard(const QString&) ),
+                 SLOT(loadBoardLayout(const QString&) ) );
 
 progress("Starting new game");
 
@@ -613,18 +614,18 @@ void KMahjonggWidget::closeEvent( QCloseEvent* e )
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showStatusText( const char* msg, long board )
+void KMahjonggWidget::showStatusText( const QString &msg, long board )
 {
-    statusLabel->setText(i18n(msg));
+    statusLabel->setText(msg);
     QString str = i18n("Game Number: %1").arg(board);
     gameNumLabel->setText(str);
 
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showMessage( const char* msg )
+void KMahjonggWidget::showMessage( const QString &msg )
 {
-    QMessageBox::message( NULL, i18n(msg), NULL, this );
+    KMessageBox::information( this, msg );
 }
 
 // ---------------------------------------------------------
@@ -738,7 +739,7 @@ void KMahjonggWidget::backgroundMode(void) {
 	bw->updateScaleMode();
 }
 
-void KMahjonggWidget::loadBoardLayout(const char *file) {
+void KMahjonggWidget::loadBoardLayout(const QString &file) {
 	bw->loadBoardLayout(file);
 }
 
@@ -771,7 +772,7 @@ void KMahjonggWidget::loadGame(void) {
 
     // verify the magic
     fscanf(outFile, "%s\n", buffer);
-    if (strcmp(buffer,  (const char *) gameMagic) !=0) {
+    if (buffer != gameMagic) {
 	KMessageBox::sorry(this,
 		i18n("File format not recognised."));
 	fclose(outFile);
@@ -820,7 +821,7 @@ void KMahjonggWidget::saveGame(void) {
     fprintf(outFile, "%s\n", gameMagic);
 
     // Now stick in the elapsed time for the game
-    fprintf(outFile, "%s\n", (const char *) gameTimer->toString());
+    fprintf(outFile, "%s\n", (const char *)gameTimer->toString());
 
 
     // chuck in all the game data
@@ -1968,14 +1969,14 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     if( Game.TileNum == 0 )
                     {
 						
-                        showMessage( i18n("Game over: You have won!"));
+                        KMessageBox::information(0, i18n("Game over: You have won!"));
                         animateMoveList();
 			gameOver(Game.MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
-                        showMessage( i18n("Game over: You have no moves left"));
+                        KMessageBox::information(0, i18n("Game over: You have no moves left"));
                     }
                 }
                 else
@@ -2080,7 +2081,7 @@ bool BoardWidget::loadBoard( )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::setStatusText( const char* pszText )
+void BoardWidget::setStatusText( const QString & pszText )
 {
     emit statusTextChanged( pszText, gameGenerationNum );
 }
@@ -2089,14 +2090,14 @@ void BoardWidget::setStatusText( const char* pszText )
 
 // ---------------------------------------------------------
 bool BoardWidget::loadBackground(
-        const char* pszFileName,
+        const QString& pszFileName,
         bool        bShowError
     )
 {
     if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
     {
         if( bShowError )
-            showMessage( i18n("Failed to load image:\n%1").arg(pszFileName) );
+            KMessageBox::sorry(0, i18n("Failed to load image:\n%1").arg(pszFileName) );
         return( false );
     }
     preferences.setBackground(pszFileName);
@@ -2209,14 +2210,14 @@ void BoardWidget::initialiseRemovedTiles(void) {
 }
 
 // ---------------------------------------------------------
-void BoardWidget::showMessage( const char* pszText )
+void BoardWidget::showMessage( const QString& pszText )
 {
     emit message( pszText );
 }
 
 
 
-bool BoardWidget::loadTileset(const char *path) {
+bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
     preferences.setTileset(path);
@@ -2227,7 +2228,7 @@ bool BoardWidget::loadTileset(const char *path) {
 
 }
 
-bool BoardWidget::loadBoardLayout(const char *file) {
+bool BoardWidget::loadBoardLayout(const QString &file) {
   if (theBoardLayout.loadBoardLayout(file)) {
 	preferences.setLayout(file);
 	return true;

@@ -57,7 +57,7 @@ protected:
 	void drawCursor(POSITION &p, bool visible);
 	bool canInsert(POSITION &p);
 	void statusChanged(void);
-	const char *statusText(void);
+	QString statusText(void);
 private:
 	int mode;
 	int numTiles;

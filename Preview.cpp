@@ -379,7 +379,7 @@ void Preview::paintEvent( QPaintEvent*  ){
 }
 
 
-void Preview::parseFile(const char *in, QString &out) {
+void Preview::parseFile(const QString &in, QString &out) {
 	QString tmp;
 
 	QString prefix;
@@ -446,7 +446,7 @@ void Preview::applyChange(void) {
 
 // Render the background to the pixmap. 
 
-void Preview::renderBackground(const char *bg) {
+void Preview::renderBackground(const QString &bg) {
    QImage img;
    QImage tmp;
    QPixmap *p;
@@ -462,7 +462,7 @@ void Preview::renderBackground(const char *bg) {
 
 // This method draws a mini-tiled board with no tiles missing.
 
-void Preview::renderTiles(const char *file, const char *layout) {
+void Preview::renderTiles(const QString &file, const QString &layout) {
     tiles.loadTileset(file, true);
     boardLayout.loadBoardLayout(layout);
 
@@ -577,7 +577,8 @@ void Preview::saveTheme(void) {
     fclose(outFile);
 }
 
-FrameImage::FrameImage (QWidget *parent, const char *name) : QFrame(parent, name)
+FrameImage::FrameImage (QWidget *parent, const char *name)
+  : QFrame(parent, name)
 {
 	rx = -1;
 	thePixmap = new QPixmap();

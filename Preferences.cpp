@@ -58,18 +58,17 @@ void Preferences::sync(void) {
     conf->writeEntry(removedKey, removed);
 }
 
-const char *Preferences::defaultBackground(void)
+QString Preferences::defaultBackground(void)
 {
   return backfileDefault;
 }
 
-
-
-const char *Preferences::defaultLayout(void)
+QString Preferences::defaultLayout(void)
 {
   return layoutfileDefault;
 }
-const char *Preferences::defaultTileset(void)
+
+QString Preferences::defaultTileset(void)
 {
   return tilefileDefault;
 }
