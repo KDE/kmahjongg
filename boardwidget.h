@@ -246,7 +246,7 @@ class BoardWidget : public QWidget
 
 public:
   GAMEDATA Game;
-	
+
 private:
   // Settings
   QString backgroundFile;
@@ -256,6 +256,7 @@ private:
   bool showRemoved;
   bool generateSolvable;
   bool miniTiles;
+  bool playAnimation;
 
 };
 

@@ -81,16 +81,17 @@ void BoardWidget::loadSettings(){
   tileFile = config->readPathEntry("Tileset_file", "default.tileset");
   backgroundFile = config->readPathEntry("Background_file", "default.bgnd");
   layout = config->readPathEntry("Layout_file", "default.layout");
- 
+
   //loadTileset(tileFile);
   //loadBoardLayout(layout);
   // TODO somehow...
   //theBackground.load(backgroundFile);
-		
+
   showShadows = config->readBoolEntry("Shadows_on", false);
   generateSolvable = config->readBoolEntry("Solvable_game", true);
   theBackground.tile = !config->readBoolEntry("Background_scale", false);
-  
+  playAnimation = config->readBoolEntry("Play_animation", true);
+
   setDisplayedWidth();
   tileSizeChanged();
   updateScaleMode();
@@ -101,7 +102,7 @@ void BoardWidget::saveSettings(){
   // Preview can't handle this.  TODO
   //KConfig *config=kapp->config();
   //config->setGroup("General");
-  
+
   //config->writePathEntry("Tileset_file", tileFile);
   //config->writePathEntry("Background_file", backgroundFile);
   //config->writePathEntry("Layout_file", layout);
@@ -290,10 +291,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
     back = theBackground.getBackground();
 
-
     backBuffer.resize(back->width(), back->height());
-
-
 
     // erase out with the background
     bitBlt( &backBuffer, xx, pa->rect().top(),
@@ -395,9 +393,6 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     }
 
 
-
-
-
     // Now we add the list of cancelled tiles
 
     // we start blitting as usuall right to left, top to bottom, first
@@ -449,7 +444,6 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
 	yPos += theTiles.height()-theTiles.shadowSize();
     }
-
 
     updateBackBuffer=false;
     bitBlt(this, xx,pa->rect().top(), &backBuffer, xx, pa->rect().top(), xwidth, xheight, CopyROP);
@@ -521,7 +515,7 @@ int BoardWidget::undoMove()
 void BoardWidget::helpMove()
 {
     cancelUserSelectedTiles();
-    stopMatchAnimation();
+    if (showHelp) helpMoveStop();
 
     if( findMove( TimerPos1, TimerPos2 ) )
     {
@@ -589,61 +583,60 @@ void BoardWidget::stopDemoMode()
 // ---------------------------------------------------------
 void BoardWidget::demoMoveTimeout()
 {
-    switch( iTimerStep++ % 6 )
+    if( TimerState == Demo )
     {
-        // at firts, find new matching tiles
-        case 0:
-            if( ! findMove( TimerPos1, TimerPos2 ) )
-	    {
-                // if computer has won
-	        if( Game.TileNum == 0 )
-                {
-                    animateMoveList();
-                }
-                // else computer has lost
-                else
-                {
-                    setStatusText( i18n("Your computer has lost the game.") );
-                    while( Game.TileNum < Game.MaxTileNum )
+        switch( iTimerStep++ % 6 )
+        {
+            // at firts, find new matching tiles
+            case 0:
+                if( ! findMove( TimerPos1, TimerPos2 ) )
+	        {
+                    // if computer has won
+	            if( Game.TileNum == 0 )
                     {
-                        putTile( Game.MoveList[Game.TileNum], false );
-                        Game.TileNum++;
-                        putTile( Game.MoveList[Game.TileNum] );
-                        Game.TileNum++;
-                        drawTileNumber();
+                        animateMoveList();
                     }
+                    // else computer has lost
+                    else
+                    {
+                        setStatusText( i18n("Your computer has lost the game.") );
+                        while( Game.TileNum < Game.MaxTileNum )
+                        {
+                            putTile( Game.MoveList[Game.TileNum], false );
+                            Game.TileNum++;
+                            putTile( Game.MoveList[Game.TileNum] );
+                            Game.TileNum++;
+                            drawTileNumber();
+                        }
+                    }
+                    TimerState = Stop;
+                    startDemoMode();
+                    return;
                 }
-                TimerState = Stop;
-                startDemoMode();
-                return;
-            }
-            break;
-	// hilight matching tiles two times
-        case 1:
-        case 3:
-            if( TimerState == Demo )
-	    {
+                break;
+	    // hilight matching tiles two times
+            case 1:
+            case 3:
                 hilightTile( TimerPos1, true, false );
                 hilightTile( TimerPos2, true );
-            }
             break;
 
-        case 2:
-        case 4:
-            hilightTile( TimerPos1, false, false );
-            hilightTile( TimerPos2, false );
-            break;
-	// remove matching tiles from game board
-        case 5:
-            setRemovedTilePair(TimerPos1, TimerPos2);
-            removeTile( TimerPos1, false );
-            removeTile( TimerPos2 );
-            drawTileNumber();
-            break;
-    }
-    // restart timer if demo mode is still active
-    if( TimerState == Demo )
+            case 2:
+            case 4:
+                hilightTile( TimerPos1, false, false );
+                hilightTile( TimerPos2, false );
+                break;
+	    // remove matching tiles from game board
+            case 5:
+                setRemovedTilePair(TimerPos1, TimerPos2);
+                removeTile( TimerPos1, false );
+                removeTile( TimerPos2 );
+                drawTileNumber();
+                break;
+        }
+        // restart timer
         QTimer::singleShot( ANIMSPEED, this, SLOT( demoMoveTimeout() ) );
+    }
 }
 
 // ---------------------------------------------------------
@@ -703,21 +696,24 @@ void BoardWidget::animateMoveList()
 {
     setStatusText( i18n("Congratulations. You have won!") );
 
-    while( Game.TileNum < Game.MaxTileNum )
+    if (playAnimation)
     {
-        // put back all tiles
-        putTile(Game.MoveList[Game.TileNum]);
-        Game.TileNum++;
-        putTile(Game.MoveList[Game.TileNum], false);
-        Game.TileNum++;
-        drawTileNumber();
-    }
-    while( Game.TileNum > 0 )
-    {
-        // remove all tiles
-        removeTile(Game.MoveList[Game.TileNum-1], false);
-        removeTile(Game.MoveList[Game.TileNum-1]);
-        drawTileNumber();
+        while( Game.TileNum < Game.MaxTileNum )
+        {
+            // put back all tiles
+            putTile(Game.MoveList[Game.TileNum]);
+            Game.TileNum++;
+            putTile(Game.MoveList[Game.TileNum], false);
+            Game.TileNum++;
+            drawTileNumber();
+        }
+        while( Game.TileNum > 0 )
+        {
+            // remove all tiles
+            removeTile(Game.MoveList[Game.TileNum-1], false);
+            removeTile(Game.MoveList[Game.TileNum-1]);
+            drawTileNumber();
+        }
     }
 
     calculateNewGame();
@@ -1543,7 +1539,7 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	}
 	if (doRepaint) {
 		updateBackBuffer=true;
-		repaint(0,0,-1,-1, false);
+		repaint(false);
 	}
 }
 
@@ -1553,7 +1549,7 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 void BoardWidget::drawBoard(bool )
 {
    updateBackBuffer=true;
-   repaint(0,0,-1,-1,false);
+   repaint(false);
    drawTileNumber();
 }
 
@@ -1569,7 +1565,7 @@ void BoardWidget::putTile( POSITION& Pos, bool doRepaint )
 	Game.hilighted[E][Y][X] = 0;
     if (doRepaint) {
 	updateBackBuffer=true;
-       repaint(0,0,-1,-1, false);
+       repaint(false);
     }
 }
 
@@ -1591,7 +1587,7 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game.putTile( E, Y, X, 0 );
     if (doRepaint) {
         updateBackBuffer=true;
-        repaint(0,0,-1, -1, false);
+        repaint(false);
     }
 }
 
@@ -1992,7 +1988,7 @@ void BoardWidget::shuffle(void) {
 	// force a redraw
 
 	updateBackBuffer=true;
-       repaint(0,0,-1,-1, false);
+       repaint(false);
 
 
 	// I consider this s very bad cheat so, I punish the user

@@ -25,20 +25,21 @@
 
 */
 
-#include <qvalidator.h>
+#include <limits.h>
 
-#include <kmessagebox.h>
-#include <kio/netaccess.h>
-#include <klineeditdlg.h>
-#include <kmenubar.h>
-#include <kaction.h>
-#include <kstdgameaction.h>
-#include <kkeydialog.h>
 #include <kaboutdata.h>
+#include <kaction.h>
+#include <kautoconfigdialog.h>
+#include <kinputdialog.h>
+#include <kkeydialog.h>
+#include <kmenubar.h>
+#include <kmessagebox.h>
+#include <kstdgameaction.h>
+
+#include <kio/netaccess.h>
 
 #include "kmahjongg.h"
 #include "settings.h"
-#include <kautoconfigdialog.h>
 #include "GameTimer.h"
 #include "Editor.h"
 
@@ -201,10 +202,10 @@ void KMahjongg::setupStatusBar()
 void KMahjongg::setDisplayedWidth()
 {
   bw->setDisplayedWidth();
-  setFixedSize( bw->size() +
+/*  setFixedSize( bw->size() +
     QSize( 2, (!statusBar()->isHidden() ? statusBar()->height() : 0)
          + 2 + menuBar()->height() ) );
-  toolBar()->setFixedWidth(bw->width());
+  toolBar()->setFixedWidth(bw->width());*/
   toolBar()->alignItemRight( ID_GAME_TIMER, true );
   bw->drawBoard();
 }
@@ -213,12 +214,9 @@ void KMahjongg::setDisplayedWidth()
 // ---------------------------------------------------------
 void KMahjongg::startNewNumeric()
 {
-        QIntValidator v( 0, 268435457, this );
-        bool ok;
-        QString s = KLineEditDlg::getText(i18n("New Game"),i18n("Enter game number:"),QString::null,&ok,this,&v);
-	if (ok) {
-		startNewGame( (int)KGlobal::locale()->readNumber(s, &ok) );
-	}
+    bool ok;
+    int s = KInputDialog::getInteger(i18n("New Game"),i18n("Enter game number:"),0,0,INT_MAX,1,&ok,this);
+    if (ok) startNewGame(s);
 }
 
 void KMahjongg::undo()

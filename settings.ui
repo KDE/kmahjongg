@@ -69,6 +69,17 @@
                                 <bool>true</bool>
                             </property>
                         </widget>
+                        <widget class="QCheckBox">
+                            <property name="name">
+                                <cstring>Play_animation</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Play winning animation</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
                     </vbox>
                 </widget>
                 <spacer row="2" column="0">
