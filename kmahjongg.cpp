@@ -249,6 +249,11 @@ KMahjonggWidget::~KMahjonggWidget()
 {
     delete pStatusBar;
     delete pMenuBar;
+    delete prefsDlg;
+    delete previewLoad;
+    delete theHighScores;
+    delete gameNum;
+    delete bw;
 }
 
 
