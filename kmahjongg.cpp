@@ -495,7 +495,7 @@ void KMahjongg::loadGame(void) {
 
     // verify the magic
     fscanf(outFile, "%1023s\n", buffer);
-    if (buffer != gameMagic) {
+    if (strcmp(buffer, gameMagic) != 0) {
 	KMessageBox::sorry(this,
 		i18n("File format not recognized."));
 	fclose(outFile);
