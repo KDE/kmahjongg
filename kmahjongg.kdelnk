@@ -1,26 +1,23 @@
 # KDE Config File  
 [KDE Desktop Entry]
 Name=Mahjongg
-Name[no]=Mahjongg
-Name[es]=Mahjongg
-Name[pl]=Mahjongg
 Exec=kmahjongg -caption "%c"
 Type=Application
 DocPath=kmahjongg/index.html
 Comment=Smart mahjongg game
-Comment[sv]=Smart mahjongg-spel
-Comment[is_IS]=kmahjongg:  Öflugur mahjongg leikur
-Comment[es]=Un juego de inteligencia
-Comment[fr]=Un beau jeu de Mahjongg
 Comment[de]=Ein Mahjongg-Spiel
-Comment[no]=Et smart Mahjongg-spill
-Comment[pl]=Gra w Mahjongg
-Comment[fi]=Mahjongg peli
+Comment[fr]=Un beau jeu de Mahjongg
 Comment[cs]=Inteligentní hra - Mahjongg
-Comment[sk]=Inteligentná hra - Mahjongg
-Comment[hr]=Inteligentna igra Mahjongga
+Comment[sv]=Smart mahjongg-spel
+Comment[es]=Un juego de inteligencia
+Comment[fi]=Mahjongg peli
 Comment[pt]=Jogo de Mahjongg inteligente
-Comment[pt_BR]=Jogo de Mahjongg
+Comment[pl]=Gra w Mahjongg
+Comment[hr]=Inteligentna igra Mahjongga
 Comment[ro]=Joc de Mahjongg (destul de inteligent)
+Comment[no]=Et smart Mahjongg-spill
+Comment[sk]=Inteligentná hra - Mahjongg
+Comment[pt_BR]=Jogo de Mahjongg
+Comment[is]=kmahjongg: Öflugur mahjongg leikur
 Terminal=0
 Icon=kmahjongg.xpm
