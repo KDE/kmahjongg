@@ -279,7 +279,7 @@ void Editor::loadBoard(void) {
     KURL url = KFileDialog::getOpenURL( 
 				NULL, 
 				"*.layout|Board layout (*.layout)\n"
-				"*.*|All files (*.*)", 
+				"*|All files", 
 				this, 
 				i18n("Open board layout." ));
 
@@ -316,7 +316,7 @@ bool Editor::saveBoard(void) {
     KURL url = KFileDialog::getSaveURL( 
 				NULL, 
 				"*.layout|Board layout (*.layout)\n"
-				"*.*|All files (*.*)", 
+				"*|All files", 
 				this, 
 				i18n("Save board layout." ));
    if( !url.isLocalFile() )
