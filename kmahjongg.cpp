@@ -400,7 +400,7 @@ void KMahjonggWidget::setupMenuBar()
            + " (in5y158@public.uni-hamburg.de)"
            + i18n("\n\nRewritten and extended by ")
            + "David Black"
-           + " (david.black@connectfree.co.uk)"
+           + " (david.black@lutris.com)"
 	   + i18n("\n\nTile set contributor and web page maintainer: ")
 	   + "Osvaldo Stark (starko@dnet.it)"
 	   + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
@@ -1578,8 +1578,9 @@ bool BoardWidget::generateStartPosition2() {
 				p2 = random.getLong(remaining-2);
 
 				if (bail >= 100) {
-					printf("Bail!\n");
-					break;
+					if (p1 != p2) {
+						break;
+					}
 				}
 				if ((tilesLeft[p1].y == tilesLeft[p2].y) &&
 				    (tilesLeft[p1].e == tilesLeft[p2].e)) {
