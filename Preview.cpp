@@ -198,25 +198,25 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	// value initially. Set the caption to indicate what we are doing
 	switch (type) {
 	    case background:
-		      setCaption(kapp->makeStdCaption(i18n("Change background image")));
+		      setCaption(kapp->makeStdCaption(i18n("Change Background Image")));
 		      selectedFile = preferences.background();
 		      fileSelector = i18n("*.bgnd|Background Image\n"
 				     "*.bmp|Windows bitmap file (*.bmp)\n");
 		  break;
             case tileset:
-		      setCaption(kapp->makeStdCaption(i18n("Change tile set")));
+		      setCaption(kapp->makeStdCaption(i18n("Change Tile Set")));
 		      fileSelector = i18n("*.tileset|Tile set file\n");
 		      selectedFile = preferences.tileset();
 		  break;
             case board:
 		      fileSelector = i18n("*.layout|Board layout file\n");
-		      setCaption(kapp->makeStdCaption(i18n("Change board layout")));
+		      setCaption(kapp->makeStdCaption(i18n("Change Board Layout")));
 		      selectedFile = preferences.layout();
 	          break;
 
 	    case theme:
 		     fileSelector = i18n("*.theme|Kmahjongg theme\n");
-		     setCaption(kapp->makeStdCaption(i18n("Choose a theme")));
+		     setCaption(kapp->makeStdCaption(i18n("Choose a Theme")));
 		     selectedFile="";
 
 		     themeLayout="";
@@ -558,7 +558,7 @@ void Preview::saveTheme(void) {
         NULL,
         "*.theme",
         parentWidget(),
-        i18n("Save theme." ));
+        i18n("Save Theme" ));
     if ( url.isEmpty() )
         return;
 

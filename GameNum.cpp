@@ -51,7 +51,7 @@ GameNum::GameNum
 	canBtn->setAutoResize( FALSE );
 
 
-	setCaption(kapp->makeStdCaption(i18n("New game")));
+	setCaption(kapp->makeStdCaption(i18n("New Game")));
 
 	resize( 220,130 );
 	setFixedSize(220,130);

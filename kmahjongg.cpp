@@ -260,33 +260,33 @@ void KMahjonggWidget::setupToolBar()
 
 	// new game
 	toolBar->insertButton(BarIcon("filenew"),
-		ID_FILE_NEW, TRUE, i18n("New game."));
+		ID_FILE_NEW, TRUE, i18n("New Game."));
 	// new numbered game
 	toolBar->insertButton(UserIcon("newnum"),
-		ID_FILE_NEW_NUMERIC, TRUE, i18n("New numbered game."));
+		ID_FILE_NEW_NUMERIC, TRUE, i18n("New Numbered Game."));
 	// open game
 	toolBar->insertButton(BarIcon("fileopen"),
-		ID_FILE_LOAD_GAME, TRUE, i18n("Open game."));
+		ID_FILE_LOAD_GAME, TRUE, i18n("Open Game."));
 	// save game
 	toolBar->insertButton(BarIcon("filesave"),
-		ID_FILE_SAVE_GAME, TRUE, i18n(" Save game."));
+		ID_FILE_SAVE_GAME, TRUE, i18n(" Save Game."));
 	// undo move
 	toolBar->insertButton(BarIcon("undo"),
-		ID_EDIT_UNDO, TRUE, i18n("Undo move."));
+		ID_EDIT_UNDO, TRUE, i18n("Undo Move."));
 	// redo move
 	toolBar->insertButton(BarIcon("redo"),
-		ID_EDIT_REDO, TRUE, i18n("Redo move."));
+		ID_EDIT_REDO, TRUE, i18n("Redo Move."));
 	// pause
 	toolBar->insertButton(BarIcon("player_pause"),
-		ID_GAME_PAUSE, TRUE, i18n("Pause game."));
+		ID_GAME_PAUSE, TRUE, i18n("Pause Game."));
 	// play
 	toolBar->insertButton(BarIcon("1rightarrow"),
-		ID_GAME_CONTINUE, TRUE, i18n("Play game."));
+		ID_GAME_CONTINUE, TRUE, i18n("Play Game."));
 	// Show hint
 
 	toolBar->insertButton(BarIcon("help"),
 		ID_GAME_HELP, TRUE, i18n("Hint."));
-	
+
 
 
 	// add the timer widget
@@ -297,7 +297,7 @@ void KMahjonggWidget::setupToolBar()
 	toolBar->alignItemRight( ID_GAME_TIMER, true );
 	toolBar->setBarPos(KToolBar::Top);
 	toolBar->show();
-	
+
     connect( toolBar,  SIGNAL(clicked(int) ), SLOT( menuCallback(int) ) );
 }
 
@@ -362,8 +362,8 @@ void KMahjonggWidget::setupMenuBar()
 
   // set up the file menu
   KPopupMenu *file = new KPopupMenu;
-  file->insertItem(SmallIcon("filenew"), i18n("New game"), ID_FILE_NEW);
-  file->insertItem(i18n("New numbered game..."), ID_FILE_NEW_NUMERIC);
+  file->insertItem(SmallIcon("filenew"), i18n("New Game"), ID_FILE_NEW);
+  file->insertItem(i18n("New Numbered Game..."), ID_FILE_NEW_NUMERIC);
   file->insertSeparator();
   file->insertItem(SmallIcon("fileopen"), i18n("&Open Game... "), ID_FILE_LOAD_GAME);
   file->insertItem(i18n("Open The&me..."), ID_FILE_LOAD_THEME);
@@ -380,18 +380,18 @@ void KMahjonggWidget::setupMenuBar()
   edit->insertItem(SmallIcon("undo"), i18n("&Undo"), ID_EDIT_UNDO);
   edit->insertItem(SmallIcon("redo"), i18n("&Redo"), ID_EDIT_REDO);
   edit->insertSeparator();
-  edit->insertItem(i18n("&Board editor..."), ID_EDIT_BOARD_EDIT);
+  edit->insertItem(i18n("&Board Editor..."), ID_EDIT_BOARD_EDIT);
   edit->insertSeparator();
   edit->insertItem(SmallIcon("configure"), i18n("&Preferences..."), ID_EDIT_PREFS);
 
 
   KPopupMenu *game = new KPopupMenu;
-  game->insertItem( i18n("&Help me"),           ID_GAME_HELP );
+  game->insertItem( i18n("&Help Me"),           ID_GAME_HELP );
   game->setAccel(Key_H, ID_GAME_HELP);
   game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
-  game->insertItem( i18n("&Demo mode"),         ID_GAME_DEMO );
-  game->insertItem( i18n("Show &matching tiles"), ID_GAME_SHOW );
-  game->insertItem( i18n("&Show Hiscores..."), ID_GAME_SHOW_HISCORE );
+  game->insertItem( i18n("&Demo Mode"),         ID_GAME_DEMO );
+  game->insertItem( i18n("Show &Matching Tiles"), ID_GAME_SHOW );
+  game->insertItem( i18n("&Show Highscores..."), ID_GAME_SHOW_HISCORE );
   game->insertSeparator();
   game->insertItem( SmallIcon("player_pause"), i18n("&Pause"), ID_GAME_PAUSE );
   game->insertItem( SmallIcon("1rightarrow"), i18n("&Continue"), ID_GAME_CONTINUE );
@@ -760,7 +760,7 @@ void KMahjonggWidget::loadGame(void) {
     QString fname;
 
     // Get the name of the file to load
-    KURL url = KFileDialog::getOpenURL( NULL, "*.kmgame", this, i18n("Load game." ) );
+    KURL url = KFileDialog::getOpenURL( NULL, "*.kmgame", this, i18n("Load Game" ) );
 
     if ( url.isEmpty() )
 	return;
@@ -804,7 +804,7 @@ void KMahjonggWidget::loadGame(void) {
 void KMahjonggWidget::saveGame(void) {
 
     // Get the name of the file to save
-    KURL url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save game." ) );
+    KURL url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save Game" ) );
 
     if ( url.isEmpty() )
 	return;

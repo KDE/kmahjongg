@@ -89,7 +89,7 @@ Editor::Editor
    tiles.loadTileset(preferences.tileset());
 
    // tell the user what we do
-   setCaption(kapp->makeStdCaption(i18n("Edit board layout")));
+   setCaption(kapp->makeStdCaption(i18n("Edit Board Layout")));
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
