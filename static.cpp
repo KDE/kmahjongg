@@ -1,9 +1,4 @@
 /*
-    $Id$
-*/
-
-
-/*
 *  Note: 
 *  Each tile is represented by four characters '1', '2', '3', '4'
 *  Array consists of 5 levels each with 32x16 pieces.

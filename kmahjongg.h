@@ -1,7 +1,5 @@
 /*
 
-    $Id$
-
     kmahjongg, the classic mahjongg game for KDE project
 
     Requires the Qt widget libraries, available at no cost at

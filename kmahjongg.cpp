@@ -1,7 +1,5 @@
 /*
 
-    $Id$
-
     kmahjongg, the classic mahjongg game for KDE project
 
     Requires the Qt widget libraries, available at no cost at
@@ -650,7 +648,7 @@ void BoardWidget::calculateNewGame( int iBoard )
         return;
     }
 
-    srand( time(NULL) );
+    srandom( time(NULL) );
 
     // try max. 64 times
     for( short nr=0; nr<64; nr++ )
@@ -790,8 +788,8 @@ bool BoardWidget::generateStartPosition()
     // try max. 200.
     for( nr=200; nr>0; nr-- )
     {
-        Pos1 = rand() % iPosCount;
-        Pos2 = rand() % iPosCount;
+        Pos1 = random() % iPosCount;
+        Pos2 = random() % iPosCount;
         // distance must be min. 4
         if( abs(PosTable[Pos1].y - PosTable[Pos2].y) >= 4 )
             break;
@@ -817,11 +815,11 @@ bool BoardWidget::generateStartPosition()
         if( iPosCount<2 )
             return( false ); // Error: 
 
-        short Figur = (rand() % Game.TileNum) & -2;   // tile number
+        short Figur = (random() % Game.TileNum) & -2;   // tile number
         do
         {
-            Pos1 = rand() % iPosCount;
-            Pos2 = rand() % iPosCount;
+            Pos1 = random() % iPosCount;
+            Pos2 = random() % iPosCount;
         } while( Pos1 == Pos2 );
 
         PosTable[Pos1].f = TilePair[Figur];
@@ -931,8 +929,8 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 
     if( iPosCount>=2 )
     {
-        srand( time(NULL) );
-        short Pos = ( rand() % iPosCount ) & -2;  // Gerader Wert
+        srandom( time(NULL) );
+        short Pos = ( random() % iPosCount ) & -2;  // Gerader Wert
         posA = PosTable[Pos];
         posB = PosTable[Pos+1];
         return( true );
