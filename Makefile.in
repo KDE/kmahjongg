@@ -1,6 +1,7 @@
 ####### Makefile for khmahjongg
 
 kde_libraries = @kde_libraries@
+exec_prefix = @exec_prefix@
 qt_libraries = @qt_libraries@
 top_builddir = ..
 LIBTOOL = @LIBTOOL@
