@@ -120,7 +120,7 @@ void progress(const char *foo) {
 int main( int argc, char** argv )
 {
     KAboutData aboutData( "kmahjongg", I18N_NOOP("KMahjongg"), 
-      KMAHJONGG_VERSION, description, KAboutData::GPL, 
+      KMAHJONGG_VERSION, description, KAboutData::License_GPL, 
       "(c) 1997, Mathias Mueller");
     aboutData.addAuthor("Mathias Mueller",0, "in5y158@public.uni-hamburg.de");
     KCmdLineArgs::init( argc, argv, &aboutData );
