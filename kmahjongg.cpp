@@ -378,8 +378,8 @@ BoardWidget::BoardWidget( QWidget* parent )
     {
         if( ! loadTileset( locate("appdata",DEFAULTTILESET) ) )
 	{      
-            showMessage( i18n("Unable to open tile bitmap file !") );
-	    fatal( "Unable to open bitmap file !" );
+            showMessage( i18n("Unable to open tile bitmap file!") );
+	    fatal( "Unable to open bitmap file!" );
 	}
     }
 
@@ -391,8 +391,8 @@ BoardWidget::BoardWidget( QWidget* parent )
 	
         if( ! loadBackground( locate("appdata",DEFAULTBACKGROUND)  ) )
 	{
-            showMessage( i18n("Unable to open bitmap file !") );
-	    fatal( "Unable to open background bitmap file !" );
+            showMessage( i18n("Unable to open bitmap file!") );
+	    fatal( "Unable to open background bitmap file!" );
 	}
     }
 
