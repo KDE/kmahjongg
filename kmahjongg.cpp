@@ -223,10 +223,9 @@ void KMahjonggWidget::setupMenuBar()
     view->insertSeparator( -1 );
     view->insertItem( locale->translate("&Statusbar"),   ID_VIEW_STATUSBAR );
 
-    QPopupMenu *help = kapp->getHelpMenu(true, QString(i18n("Mahjongg"))
-                                         + " " + KMAHJONGG_VERSION
-                                         + i18n("\n\nby Mathias Mueller")
-                                         + " (in5y158@public.uni-hamburg.de)");  
+    QString about;
+    about.sprintf(locale->translate("Mahjongg %s\n\nby Mathias Mueller (in5y158@public.uni-hamburg.de)"), KMAHJONGG_VERSION);
+    QPopupMenu *help = kapp->getHelpMenu(true, about);
  
     pMenuBar = new KMenuBar( this );
 
