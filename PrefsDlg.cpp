@@ -24,7 +24,10 @@
 #include <qradiobt.h>
 #include <kapp.h>
 
+#include <qlayout.h>
 
+// Replacing this with a layout-based constructor ...
+/*
 PrefsDlgData::PrefsDlgData
 (
 	QWidget* parent,
@@ -119,6 +122,59 @@ PrefsDlgData::PrefsDlgData
 
 	setMinimumSize( 0, 0 );
 	setMaximumSize( 32767, 32767 );
+}
+*/
+
+PrefsDlgData::PrefsDlgData
+(
+	QWidget* parent,
+	const char* name
+)
+	:
+	Inherited( parent, name, TRUE, 0 )
+{
+        setCaption(kapp->makeStdCaption(""));
+
+	QButtonGroup* BackgroundGroup =
+	  new QButtonGroup( 1, Horizontal, i18n("Background"), this, "BackgroundGroup" );
+	QButtonGroup* TilesGroup =
+	  new QButtonGroup( 1, Horizontal, i18n("Tiles"), this, "TilesGroup" );
+	QButtonGroup* KmahjonggGroup =
+	  new QButtonGroup( 1, Horizontal, i18n("Kmahjong"), this, "KmahjonggGroup" );
+
+	dlgTileBg = new QRadioButton( i18n("Tile"), BackgroundGroup, "tileRB" );
+	dlgScaleBg = new QRadioButton( i18n("Scale"), BackgroundGroup, "scaleRB" );
+	dlgScaleBg->setChecked( TRUE );
+
+	dlgShowShadows = new QCheckBox( i18n("Draw shadows"), TilesGroup, "shadowsCB" );
+	dlgShowShadows->setChecked( TRUE );
+	dlgShowRemoved = new QCheckBox( i18n("Show removed tiles"), KmahjonggGroup, "removedCB" );
+	dlgShowRemoved->setChecked( TRUE );
+	dlgMiniTiles = new QCheckBox( i18n("Use mini-tiles"), TilesGroup, "miniCB" );
+
+	dlgSavePrefs = new QCheckBox( i18n("Save Preferences on exit"), KmahjonggGroup, "saveCB" );
+	dlgSavePrefs->setChecked( TRUE );
+	dlgShowStatus = new QCheckBox( i18n("Show status bar"), KmahjonggGroup, "stautsCB" );
+	dlgShowStatus->setChecked( TRUE );
+
+	QPushButton* applyBtn = new QPushButton( i18n("Apply"), this, "applyBtn" );
+	connect( applyBtn, SIGNAL(clicked()), SLOT(acceptClicked()) );
+	QPushButton* OkBtn = new QPushButton( i18n("&OK"), this, "OkBtn" );
+	connect( OkBtn, SIGNAL(clicked()), SLOT(okClicked()) );
+        OkBtn->setDefault(true);
+	QPushButton* cancelBtn = new QPushButton( i18n("&Cancel"), this, "cancelBtn" );
+	connect( cancelBtn, SIGNAL(clicked()), SLOT(reject()) );
+
+	QBoxLayout * topLayout = new QVBoxLayout ( this, 5 );
+	QBoxLayout * lay1 = new QHBoxLayout ( topLayout );
+	lay1->addWidget ( KmahjonggGroup );
+	QBoxLayout * lay2 = new QVBoxLayout ( lay1 );
+	lay2->addWidget ( TilesGroup );
+	lay2->addWidget ( BackgroundGroup );
+	QBoxLayout * blay = new QHBoxLayout ( topLayout );
+	blay->addWidget ( OkBtn );
+	blay->addWidget ( applyBtn );
+	blay->addWidget ( cancelBtn );
 }
 
 
