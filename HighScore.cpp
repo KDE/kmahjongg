@@ -496,7 +496,7 @@ void HighScore::reset(void) {
 
         int res=KMessageBox::warningYesNo(this,
                         i18n("Resetting the high scores will "
-                                           "remove all high score entries\n"
+                                           "remove all high score entries "
                                            "both in memory an on disk. Do "
 					   "you want to proceede?"),
                         		   i18n("Reset high scores" ));
