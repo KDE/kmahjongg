@@ -19,7 +19,7 @@
 #include <qlcdnumber.h>
 #include <qdatetime.h>
 
-typedef enum TimerMode {running = -53 , stopped= -54 , paused = -55};
+enum TimerMode {running = -53 , stopped= -54 , paused = -55};
 
 class GameTimer: public QLCDNumber 
 {
