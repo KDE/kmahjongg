@@ -1434,7 +1434,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     // else if no more moves are possible, notify player
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
-                        QMessageBox::message( NULL,
+                        QMessageBox::message( kapp->getCaption(),
                                               locale->translate("Sorry, you have lost the game."),
                                               NULL, this );
                     }
