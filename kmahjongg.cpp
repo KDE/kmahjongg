@@ -80,6 +80,11 @@
 
 #define CONFIG_STATUSBAR_VIS     "StatusBar_visible"
 
+// use this macro, to mark strings as candidates for translation
+// without generating code
+#undef i18n
+#define i18n( msg)              msg
+
 
 //----------------------------------------------------------
 // STATICS
@@ -93,10 +98,10 @@ extern char PyramideMask[];
 extern char TriangleMask[];
 
 BOARDINFO BoardWidget::BoardInfo[] = {
-  { "Classic",  ClassicMask  },
-  { "Tower",    TowerMask    },
-  { "Triangle", TriangleMask },
-  { "Pyramide", PyramideMask },
+  { i18n( "Classic" ),  ClassicMask  },
+  { i18n( "Tower"),     TowerMask    },
+  { i18n( "Triangle"),  TriangleMask },
+  { i18n( "Pyramide"),  PyramideMask },
   { NULL,       NULL     }
 };
 
@@ -379,7 +384,7 @@ BoardWidget::BoardWidget( QWidget* parent )
 		     kapp->kdedir().data(), DEFAULTTILESET );
         if( ! loadTileset( str ) )
 	{
-            showMessage( "Unable to open bitmap file !" );
+            showMessage( i18n("Unable to open bitmap file !") );
 	    fatal( "Unable to open bitmap file !" );
 	}
     }
@@ -393,7 +398,7 @@ BoardWidget::BoardWidget( QWidget* parent )
                      kapp->kdedir().data(), DEFAULTBACKGROUND );
         if( ! loadBackground( str ) )
 	{
-            showMessage( "Unable to open bitmap file !" );
+            showMessage( i18n("Unable to open bitmap file !") );
 	    fatal( "Unable to open bitmap file !" );
 	}
     }
@@ -447,10 +452,10 @@ void BoardWidget::undoMove()
         putTile( Game.MoveList[Game.TileNum] );
         Game.TileNum++;
         drawTileNumber();
-        setStatusText( "Undo operation done successfully." );
+        setStatusText( i18n("Undo operation done successfully.") );
     }
     else
-        setStatusText( "What do you want to undo? You have done nothing!" );
+        setStatusText( i18n("What do you want to undo? You have done nothing!") );
 }
 
 // ---------------------------------------------------------
@@ -465,7 +470,7 @@ void BoardWidget::helpMove()
         helpMoveTimeout();
     }
     else
-        setStatusText( "Sorry, you have lost the game." );
+        setStatusText( i18n("Sorry, you have lost the game.") );
 }
 // ---------------------------------------------------------
 void BoardWidget::helpMoveTimeout()
@@ -496,7 +501,7 @@ void BoardWidget::startDemoMode()
         TimerState = Demo;
         iTimerStep = 0;
         emit demoModeChanged( true );
-        setStatusText( "Demo mode. Click mousebutton to stop." );
+        setStatusText( i18n("Demo mode. Click mousebutton to stop.") );
         demoMoveTimeout();
     }
 }
@@ -504,7 +509,7 @@ void BoardWidget::startDemoMode()
 void BoardWidget::stopDemoMode()
 {
     TimerState = Stop;    // stop demo
-    setStatusText( "Now it's you again." );
+    setStatusText( i18n("Now it's you again.") );
     emit demoModeChanged( false );
 }
 // ---------------------------------------------------------
@@ -524,7 +529,7 @@ void BoardWidget::demoMoveTimeout()
                 // else computer has lost
                 else
                 {
-                    setStatusText( "Your computer has lost the game." );
+                    setStatusText( i18n("Your computer has lost the game.") );
                     while( Game.TileNum < Game.MaxTileNum )
                     {
                         putTile( Game.MoveList[Game.TileNum] );
@@ -610,7 +615,7 @@ void BoardWidget::stopMatchAnimation()
 // ---------------------------------------------------------
 void BoardWidget::animateMoveList()
 {
-    setStatusText( "Congratulations. You have won!" );
+    setStatusText( i18n("Congratulations. You have won!") );
 
     while( Game.TileNum < Game.MaxTileNum )
     {
@@ -636,13 +641,13 @@ void BoardWidget::animateMoveList()
 void BoardWidget::calculateNewGame( int iBoard )
 {
     cancelUserSelectedTiles();
-    setStatusText( "Calculating new game..." );
+    setStatusText( i18n("Calculating new game...") );
 
     if( iBoard>=0 )  iCurrentBoard = iBoard;
 
     if( !loadBoard( BoardInfo[iCurrentBoard].pszGameMask ) )
     {
-        setStatusText( "Error converting board information!" );
+        setStatusText( i18n("Error converting board information!") );
         return;
     }
 
@@ -654,13 +659,13 @@ void BoardWidget::calculateNewGame( int iBoard )
         if( generateStartPosition() )
         {
             drawBoard();
-            setStatusText( "Ready. Now it's your turn." );
+            setStatusText( i18n("Ready. Now it's your turn.") );
             return;
         }
     }
 
     drawBoard();
-    setStatusText( "Error generating new game!" );
+    setStatusText( i18n("Error generating new game!") );
 }
 
 // ---------------------------------------------------------
@@ -1429,7 +1434,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     // else if no more moves are possible, notify player
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
-                        showMessage( "Sorry, you have lost the game." );
+                        showMessage( i18n("Sorry, you have lost the game.") );
                     }
                 }
                 else
@@ -1658,7 +1663,7 @@ bool BoardWidget::loadBackground(
         if( bShowError )
 	{
             QString strMsg;
-            strMsg.sprintf( "Failed to load image:\n%s", pszFileName );
+            strMsg.sprintf( i18n("Failed to load image:\n%s"), pszFileName );
             showMessage( strMsg );
 	}
         return( false );
@@ -1669,8 +1674,8 @@ bool BoardWidget::loadBackground(
         if( bShowError )
 	{
             QString strMsg;
-            strMsg.sprintf( "Sorry, this image uses %d colors.\n"
-                            "Maximum allowed is %d",
+            strMsg.sprintf( i18n( "Sorry, this image uses %d colors.\n"
+                                  "Maximum allowed is %d"),
                             qiBgnd.numColors(), 128 - iTilesNumColors );
             showMessage( strMsg );
         }
