@@ -1513,8 +1513,8 @@ void BoardWidget::transformPointToPosition(
         hilightTile( MouseClickPos ); 
 	/*
         {
-            char szText[128];
-            sprintf( szText, "MousePos: %d/%d - BoardPos: %d/%d/%d", 
+	    QString szText;
+            szText.sprintf( i18n("MousePos: %d/%d - BoardPos: %d/%d/%d"), 
                              point.x(), point.y(), X, Y, E );
             setStatusText( szText );
         }
