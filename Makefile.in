@@ -42,7 +42,7 @@ MOC	=	@MOC@
 OBJECTS	=	kmahjongg.o static.o
 SRCMETA	=	kmahjongg.moc
 TARGET	=	kmahjongg
-DOCS    =	index.html
+DOCS    =	index.html index-1.html index-2.html logotp3.gif
 
 ####### Implicit rules
 .SUFFIXES: .cpp .moc
