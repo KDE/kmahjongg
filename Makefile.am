@@ -16,7 +16,7 @@ noinst_HEADERS = kmahjongg.h version.h
 
 METASOURCES = kmahjongg.moc
 
-appsdir   = $(kde_appsdir)/Programs/Games
+appsdir   = $(kde_appsdir)/Games
 apps_DATA = kmahjongg.desktop
 
 KDE_ICON = kmahjongg
