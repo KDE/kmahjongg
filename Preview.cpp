@@ -258,7 +258,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	// duplicates on insertion
 
 
-	if (current->fileName() != "")
+	if (!current->fileName().isEmpty())
 		list->insert(0, current);
 
 	QFileInfo *info=list->first();
@@ -347,7 +347,7 @@ void Preview::drawPreview(void) {
 
 	     // a theme is quite a bit of work. We load the
 	     // specified bits in (layout, background and tileset
-	    if (selectedFile != "") {
+	    if (!selectedFile.isEmpty()) {
 		char backRaw[MAXPATHLEN];
 		char layoutRaw[MAXPATHLEN];
 		char tilesetRaw[MAXPATHLEN];
@@ -440,7 +440,7 @@ void Preview::applyChange(void) {
              break;
 
 	case theme:
-		if (themeLayout != "" && themeBack != "" && themeTileset !="") {
+		if (!themeLayout.isEmpty() && !themeBack.isEmpty() && !themeTileset.isEmpty()) {
 		    loadBackground(themeBack, false);
 		    loadTileset(themeTileset);
 		    loadBoard(themeLayout);

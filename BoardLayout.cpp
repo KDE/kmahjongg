@@ -109,7 +109,7 @@ void BoardLayout::initialiseBoard(void) {
 
     memset( &board, 0, sizeof( board) );
 
-    if (loadedBoard == "")
+    if (loadedBoard.isEmpty())
 	return;
 
     // loop will be left by break or return

@@ -460,7 +460,7 @@ void HighScore::nameChanged(const QString &s) {
 	if (selectedLine == -1)
 		return;
 		
-	if (s == "")
+	if (s.isEmpty())
 		currTable->entries[selectedLine].name = 
 			i18n("Anonymous");
 	else
