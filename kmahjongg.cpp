@@ -275,7 +275,7 @@ void KMahjonggWidget::menuCallback( int item )
             break;
 
         case ID_HELP_HELP: 
-            kapp->invokeHTMLHelp( "kmahjongg.html", "" );
+            kapp->invokeHTMLHelp( "", "" );
             break;
 
         case ID_HELP_ABOUT:
