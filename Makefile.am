@@ -30,3 +30,6 @@ EXTRA_DIST = $(apps_DATA) kmahjongg.desktop
 
 messages:
 	$(XGETTEXT) -kTRANS $(kmahjongg_SOURCES) -o ../po/kmahjongg.pot
+
+install-data-local:
+	rm -rf $(kde_appsdir)/Games/kmahjongg.desktop
