@@ -26,6 +26,7 @@
 */
 
 #include <string.h>
+#include <stdlib.h>
 
 #include <qmsgbox.h>
 #include <qtimer.h>
