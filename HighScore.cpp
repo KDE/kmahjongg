@@ -270,20 +270,20 @@ void HighScore::saveTables(void) {
 		num++;
 
 	// output the file magic
-	fprintf(fp,"%s\n", highScoreMagic1_1.utf8().data());
+	fprintf(fp,"%s\n", highScoreMagic1_1.local8Bit().data());
 	
 	// output the count of tables to process
 	fprintf(fp, "%d\n", num);
 
 	// output each table
 	for (p=tables; p != NULL; p = p->next) {
-		fprintf(fp, "%s\n", p->name.utf8().data());
+		fprintf(fp, "%s\n", p->name.local8Bit().data());
 		for (int e=0; e<numScores; e++) {
 			fprintf(fp,"%ld\n%ld\n%ld\n%s\n", 
 				p->entries[e].score,
 				p->entries[e].elapsed,
 				p->entries[e].board,
-				p->entries[e].name.utf8().data());
+				p->entries[e].name.local8Bit().data());
 		}
 	}
 	fclose(fp);	
