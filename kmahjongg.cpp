@@ -148,6 +148,7 @@ void KMahjongg::setupKAction()
     (void)new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "move_shuffle");
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "options_show_matching_tiles");
+    showMatchingTilesAction->setCheckedState(i18n("Hide &Matching Tiles"));
     KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     pauseAction = KStdGameAction::pause(this, SLOT(pause()), actionCollection());
 
