@@ -127,14 +127,14 @@ int main( int argc, char** argv )
 
     KApplication a;
     
-     splash = new Progress();
-     splash->show();
+ //    splash = new Progress();
+ //    splash->show();
 
      //p.repaint(0,0,-1,-1);
 
     KMahjonggWidget w;
 
-    splash->hide();
+ //   splash->hide();
     w.show();
 
     return( a.exec() );
@@ -2307,6 +2307,7 @@ void BoardWidget::shuffle(void) {
 	// 300 points per use
 	cheatsUsed += 15;
 }
+
 
 
 
