@@ -5,7 +5,6 @@ Exec=kmahjongg -caption "%c"
 Type=Application
 DocPath=kmahjongg/index.html
 Comment=Smart mahjongg game
-Comment[br]=Ur c'hoari mahjongg poellek
 Comment[ca]=Joc mahjongg murri
 Comment[cs]=Inteligentní hra - Mahjongg
 Comment[da]=Et mahjongg spil
