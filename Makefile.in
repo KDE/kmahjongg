@@ -68,6 +68,9 @@ clean:
 	-rm -f *.o *.bak *~ *% #*
 	-rm -f $(SRCMETA) $(TARGET)
 
+distclean: clean
+	rm -f Makefile
+
 depend:
 	makedepend -I$(QTDIR)/include -I$(KDEDIR)/include *.cpp 
 
