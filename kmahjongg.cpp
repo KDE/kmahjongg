@@ -149,15 +149,18 @@ int main( int argc, char** argv )
     Constructor.
 */
 KMahjonggWidget::KMahjonggWidget()
-    : KTMainWindow("kmahjonggwidget")
+    : KMainWindow(0, "kmahjonggwidget")
 {
-
-
+    boardEditor = 0;
     progress("Reading Preferences");
     preferences.initialise(KGlobal::config());
 
     bShowStatusbar = preferences.showStatus();
 
+progress("Creating board widget");
+    // init board widget
+    bw = new BoardWidget( this );
+    setCentralWidget( bw );
 
 progress("Initialising status bar");
     setupStatusBar();
@@ -167,12 +170,6 @@ progress("Initialising menu bar");
 
 progress("Setting up tool bar");
     setupToolBar();
-
-progress("Creating board widget");
-    // init board widget
-    bw = new BoardWidget( this );
-    bw->move( 0, pMenuBar->height()+1 );
-    setView( bw );
 
 progress("Initialising highscores");
     theHighScores = new HighScore();
@@ -188,7 +185,7 @@ progress("Updating status bar");
     updateStatusbar( bShowStatusbar );
 
 progress("Connecting signals");
-    connect( bw, SIGNAL( statusTextChanged(const QString& long) ),
+    connect( bw, SIGNAL( statusTextChanged(const QString&, long) ),
                  SLOT( showStatusText(const QString&, long) ) );
 
     connect( bw, SIGNAL( message(const QString&) ),
@@ -294,13 +291,10 @@ void KMahjonggWidget::setupToolBar()
     	toolBar->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
 
 	toolBar->alignItemRight( ID_GAME_TIMER, true );
-	// Add the tool bar to the application, set the position and show it
-	addToolBar(toolBar);
 	toolBar->setBarPos(KToolBar::Top);
 	toolBar->show();
 	
     connect( toolBar,  SIGNAL(clicked(int) ), SLOT( menuCallback(int) ) );
-
 }
 
 
@@ -333,14 +327,16 @@ void KMahjonggWidget::setupStatusBar()
   //  pStatusBar->setAlignment( ID_STATUS_TILENUMBER, AlignCenter );
 
     pStatusBar->show();
-    setStatusBar( pStatusBar );
 }
 
 // ---------------------------------------------------------
 void KMahjonggWidget::updateStatusbar( bool bShow )
 {
   //    pMenuBar->setItemChecked( ID_VIEW_STATUSBAR, bShow );
-    enableStatusBar( bShow ? KStatusBar::Show : KStatusBar::Hide );
+    if (bShow)
+       statusBar()->show();
+    else
+       statusBar()->hide();
     setDisplayedWidth();
 
 }
@@ -428,7 +424,6 @@ void KMahjonggWidget::setupMenuBar()
     pMenuBar->show();
 
     connect( pMenuBar,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
-    setMenu( pMenuBar );
 }
 
 // ---------------------------------------------------------
@@ -511,7 +506,9 @@ void KMahjonggWidget::menuCallback( int item )
 	    	previewLoad.exec();
 	    	break;
 	case ID_EDIT_BOARD_EDIT:
-		boardEditor.exec();
+		if (!boardEditor)
+		    boardEditor = new Editor();
+		boardEditor->exec();
 		break;
 	case ID_GAME_SHOW_HISCORE:
 		theHighScores->exec(bw->getLayoutName());

@@ -37,7 +37,7 @@ class QLabel;
 #include <kmessagebox.h>
 #include <krandomsequence.h>
 
-#include <ktmainwindow.h>
+#include <kmainwindow.h>
 #include "KmTypes.h"
 #include "Tileset.h"
 #include "Background.h"
@@ -274,7 +274,7 @@ public:
     ...
     @author Mathias
 */
-class KMahjonggWidget : public KTMainWindow
+class KMahjonggWidget : public KMainWindow
 {
     Q_OBJECT
 
@@ -329,7 +329,7 @@ class KMahjonggWidget : public KTMainWindow
         KMenuBar*    pMenuBar;
 	PrefsDlg     prefsDlg;
 	Preview      previewLoad;
-	Editor	     boardEditor;
+	Editor*	     boardEditor;
 
         bool         bShowStatusbar;
         bool         bShowMatchingTiles;
