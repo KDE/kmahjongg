@@ -42,7 +42,6 @@ class GameTimer;
 class Editor;
 
 class KToggleAction;
-class KDialogBase;
 class QLabel;
 
 /**
@@ -74,7 +73,6 @@ class KMahjongg : public KMainWindow
 
 private slots:
   void showSettings();
-  void closeSettings();
 	
   void startNewNumeric();
   void saveGame(void);
@@ -99,8 +97,6 @@ protected:
   void enableItem(int item, bool state){}
 
 private:
-  KDialogBase *options;
- 
   // number of seconds since the start of the game
   unsigned long gameElapsedTime;
   BoardWidget* bw;

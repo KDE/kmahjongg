@@ -25,31 +25,21 @@
 
 */
 
-#include <qfile.h>
 #include <qvalidator.h>
 
 #include <kmessagebox.h>
-#include <kglobal.h>
-#include <klocale.h>
 #include <kio/netaccess.h>
 #include <klineeditdlg.h>
 #include <kmenubar.h>
-#include <kstandarddirs.h>
 #include <kaction.h>
-#include <kstdaction.h>
 #include <kstdgameaction.h>
 #include <kkeydialog.h>
 #include <kaboutdata.h>
-#include <kapplication.h>
-#include <qlabel.h>
-#include <kstatusbar.h>
 
 #include "kmahjongg.h"
-#include "version.h"
 #include "settings.h"
-#include "kautoconfig.h"
+#include <kautoconfigdialog.h>
 #include "GameTimer.h"
-#include "Preview.h"
 #include "Editor.h"
 
 static const char *gameMagic = "kmahjongg-game-v1.0";
@@ -246,28 +236,18 @@ void KMahjongg::redo()
     }
 }
 
-void  KMahjongg::showSettings(){
-  options = new KDialogBase (this, "Settings", false, i18n("Settings"), KDialogBase::Default | KDialogBase::Ok | KDialogBase::Apply | KDialogBase::Cancel);
-  KAutoConfig *kautoconfig = new KAutoConfig(options, "KAutoConfig");
-
-  connect(options, SIGNAL(okClicked()), kautoconfig, SLOT(saveSettings()));
-  connect(options, SIGNAL(okClicked()), this, SLOT(closeSettings()));
-  connect(options, SIGNAL(applyClicked()), kautoconfig, SLOT(saveSettings()));
-  connect(options, SIGNAL(defaultClicked()), kautoconfig, SLOT(resetSettings()));
-
-  Settings *settings = new Settings(options, "Settings");
-  options->setMainWidget(settings);
-  kautoconfig->addWidget(settings, "General");
-
-  kautoconfig->retrieveSettings();
-  options->show();
-
-  connect(kautoconfig, SIGNAL(settingsChanged()), bw, SLOT(loadSettings()));
-  connect(kautoconfig, SIGNAL(settingsChanged()), SLOT(setDisplayedWidth()));
-}
-
-void  KMahjongg::closeSettings(){
-  options->close(true);
+/**
+ * Show Configure dialog.
+ */
+void KMahjongg::showSettings(){
+  if(KAutoConfigDialog::showDialog("settings"))
+    return;
+  
+  KAutoConfigDialog *dialog = new KAutoConfigDialog(this, "settings", KDialogBase::Swallow);
+  dialog->addPage(new Settings(0, "General"), i18n("General"), "General", "package_settings");
+  connect(dialog, SIGNAL(settingsChanged()), bw, SLOT(loadSettings()));
+  connect(dialog, SIGNAL(settingsChanged()), this, SLOT(setDisplayedWidth()));
+  dialog->show();
 }
 
 void KMahjongg::keyBindings()

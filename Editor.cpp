@@ -1,14 +1,11 @@
 
 #include <stdlib.h>
 #include <kapplication.h>
-#include <qpixmap.h>
 #include <qlayout.h>
 #include <qpainter.h>
 #include "Editor.h"
 #include <kmessagebox.h>
 
-#include<kglobal.h>
-#include<kconfig.h>     // Needed to use KConfig
 #include<klocale.h>     // Needed to use KLocale
 #include<kiconloader.h> //
 #include <kstandarddirs.h>

@@ -1,16 +1,12 @@
 #include <sys/param.h>
 #include <kapplication.h>
-#include <qdir.h>
-#include <qpixmap.h>
 #include <qimage.h>
 #include <qregexp.h>
 #include <kfiledialog.h>
 #include <qpainter.h>
-#include <qfile.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
-#include <qfileinfo.h>
 #include <qpushbutton.h>
 #include <qcombobox.h>
 #include <qbuttongroup.h>

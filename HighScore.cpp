@@ -7,7 +7,6 @@
 #include <qpushbutton.h>
 #include <qfileinfo.h>
 #include <kmessagebox.h>
-#include "kglobal.h"
 #include "klocale.h"
 #include <kstandarddirs.h>                       
 #include <kiconloader.h>
