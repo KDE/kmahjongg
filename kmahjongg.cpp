@@ -35,12 +35,12 @@
 #include <time.h>
 
 #include "kmahjongg.moc"
-
+#include "version.h"
 
 //----------------------------------------------------------
 // Defines
 //----------------------------------------------------------
-#define KM_VERSION   "0.4.0"
+//#define KM_VERSION   "0.4.0"
 
 #define ID_STATUS_TILENUMBER 1
 #define ID_STATUS_MESSAGE    2
@@ -75,8 +75,8 @@
 #define ID_VIEW_BACKGROUND_LOAD  201
 #define ID_VIEW_STATUSBAR        202
 
-#define ID_HELP_ABOUT            900
-#define ID_HELP_HELP             901
+//#define ID_HELP_ABOUT            900
+//#define ID_HELP_HELP             901
 
 #define CONFIG_STATUSBAR_VIS     "StatusBar_visible"
 
@@ -190,13 +190,12 @@ void KMahjonggWidget::updateStatusbar( bool bShow )
 // ---------------------------------------------------------
 void KMahjonggWidget::setupMenuBar()
 {
-    // Menu IDs from 0 ... ID_GAME_NEW-1 are reserved for new game index numbers
+    // Menu IDs from 10 ... ID_GAME_NEW-1 are reserved for new game index numbers
     QPopupMenu* board = new QPopupMenu;
-    for( int i=0; BoardWidget::BoardInfo[i].pszName; i++ )
+    for( int i=10; BoardWidget::BoardInfo[i-10].pszName; i++ )
     {
-        board->insertItem( locale->translate(BoardWidget::BoardInfo[i].pszName), i );
+        board->insertItem( locale->translate(BoardWidget::BoardInfo[i-10].pszName), i );
     }
-
     QPopupMenu *game = new QPopupMenu;
     game->setCheckable( true );
     game->insertItem( locale->translate("&Start new game"),    board, ID_GAME_NEW );
@@ -213,12 +212,17 @@ void KMahjonggWidget::setupMenuBar()
     view->insertItem( locale->translate("&Load Background image..."),  ID_VIEW_BACKGROUND_LOAD );
     view->insertSeparator( -1 );
     view->insertItem( locale->translate("&Statusbar"),   ID_VIEW_STATUSBAR );
-
+/*
     QPopupMenu *help = new QPopupMenu;
     help->insertItem( locale->translate("&Help"),       ID_HELP_HELP );
     help->insertSeparator( -1 );
     help->insertItem( locale->translate("&About..."),   ID_HELP_ABOUT );
-  
+ */
+   QPopupMenu *help = kapp->getHelpMenu(true, QString(i18n("Mahjongg"))
+                                       + " " + KMAHJONGG_VERSION
+                                       + i18n("\n\nby Mathias Mueller")
+                                       + " (in5y158@public.uni-hamburg.de)");  
+ 
     pMenuBar = new KMenuBar( this );
 
     pMenuBar->insertItem( locale->translate("&Game"), game );
@@ -228,11 +232,13 @@ void KMahjonggWidget::setupMenuBar()
 
     // initialize menu accelerators
     pMenuBar->setAccel( CTRL+Key_Q, ID_GAME_QUIT );
-    pMenuBar->setAccel( Key_F1,     ID_HELP_HELP );
+//    pMenuBar->setAccel( Key_F1,     ID_HELP_HELP );
 
     //    pMenuBar->enableFloating( false );
     //    pMenuBar->enableMoving( false );
     pMenuBar->show();
+
+    
 
     connect( pMenuBar,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
 
@@ -242,10 +248,10 @@ void KMahjonggWidget::setupMenuBar()
 // ---------------------------------------------------------
 void KMahjonggWidget::menuCallback( int item )
 {
-    // Menu IDs from 0 ... ID_GAME_NEW-1 are reserved for new game index numbers
-    if( item < ID_GAME_NEW )
+    // Menu IDs from 10 ... ID_GAME_NEW-1 are reserved for new game index numbers
+    if( item < ID_GAME_NEW && item > 9 )
     {
-        startNewGame( item );
+        startNewGame( item-10 );
     }
     else  switch( item )
     {
@@ -297,7 +303,7 @@ void KMahjonggWidget::menuCallback( int item )
             bShowStatusbar = !bShowStatusbar;
             updateStatusbar( bShowStatusbar );
             break;
-
+/*
         case ID_HELP_HELP: 
             kapp->invokeHTMLHelp( "", "" );
             break;
@@ -314,6 +320,7 @@ void KMahjonggWidget::menuCallback( int item )
             KMsgBox::message( 0, about, version,
 	      	              KMsgBox::INFORMATION, locale->translate("Close") );
             break;
+*/
     }
 }
 

@@ -1,0 +1,4 @@
+Version 0.4.1
+* [Robert Williams] New games now start at 10
+* [Robert Williams] Added kapp->getHelpMenu()
+
