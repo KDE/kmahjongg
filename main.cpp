@@ -5,7 +5,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
-static const char *description = I18N_NOOP("KDE Game");
+static const char description[] = I18N_NOOP("KDE Game");
 
 int main( int argc, char** argv )
 {
