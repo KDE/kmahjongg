@@ -572,6 +572,11 @@ FrameImage::FrameImage (QWidget *parent, const char *name)
 	thePixmap = new QPixmap();
 }
 
+FrameImage::~FrameImage()
+{
+	delete thePixmap;
+}
+
 void FrameImage::setGeometry(int x, int y, int w, int h) {
     QFrame::setGeometry(x,y,w,h);
 

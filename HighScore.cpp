@@ -178,12 +178,16 @@ HighScore::HighScore
 	
 HighScore::~HighScore()
 {
-	TableInstance *t;
+	TableInstance *t, *t1;
 
 	if (tables != NULL) {
-		for (t = tables; t != NULL; t=t->next)
-			if (t != NULL)
-				delete t;
+		t = tables;
+		while(t != NULL)
+		{
+			t1 = t;
+			t = t -> next;
+			delete t1;
+		}
 	}
 	tables = NULL;
 }
