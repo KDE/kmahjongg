@@ -267,7 +267,7 @@ void KMahjonggWidget::setupToolBar()
 	toolBar->insertButton(BarIcon("fileopen"),
 		ID_FILE_LOAD_GAME, TRUE, i18n("Open game."));
 	// save game
-	toolBar->insertButton(BarIcon("filefloppy"),
+	toolBar->insertButton(BarIcon("filesave"),
 		ID_FILE_SAVE_GAME, TRUE, i18n(" Save game."));
 	// undo move
 	toolBar->insertButton(BarIcon("undo"),

@@ -116,7 +116,7 @@ void Editor::setupToolbar()
     topToolbar->insertButton(loader->loadIcon("fileopen", KIcon::Toolbar),
             ID_TOOL_LOAD, TRUE, i18n("Open board."));
     // save game
-    topToolbar->insertButton(loader->loadIcon("filefloppy", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("filesave", KIcon::Toolbar),
             ID_TOOL_SAVE, TRUE, i18n(" Save board."));
 
 #ifdef FUTURE_OPTIONS
