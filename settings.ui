@@ -52,7 +52,7 @@
                         </property>
                         <widget class="QCheckBox">
                             <property name="name">
-                                <cstring>Show_removed</cstring>
+                                <cstring>kcfg_ShowRemoved</cstring>
                             </property>
                             <property name="text">
                                 <string>Show removed tiles</string>
@@ -60,7 +60,7 @@
                         </widget>
                         <widget class="QCheckBox">
                             <property name="name">
-                                <cstring>Solvable_game</cstring>
+                                <cstring>kcfg_SolvableGames</cstring>
                             </property>
                             <property name="text">
                                 <string>Generate solvable games</string>
@@ -71,7 +71,7 @@
                         </widget>
                         <widget class="QCheckBox">
                             <property name="name">
-                                <cstring>Play_animation</cstring>
+                                <cstring>kcfg_PlayAnimation</cstring>
                             </property>
                             <property name="text">
                                 <string>Play winning animation</string>
@@ -101,7 +101,7 @@
                 </spacer>
                 <widget class="QButtonGroup" row="1" column="1">
                     <property name="name">
-                        <cstring>buttonGroup1</cstring>
+                        <cstring>kcfg_TiledBackground</cstring>
                     </property>
                     <property name="title">
                         <string>Background</string>
@@ -144,7 +144,7 @@
                         </property>
                         <widget class="QCheckBox">
                             <property name="name">
-                                <cstring>Shadows_on</cstring>
+                                <cstring>kcfg_ShowShadows</cstring>
                             </property>
                             <property name="text">
                                 <string>Draw shadows</string>
@@ -155,7 +155,7 @@
                         </widget>
                         <widget class="QCheckBox">
                             <property name="name">
-                                <cstring>Use_mini_tiles</cstring>
+                                <cstring>kcfg_MiniTiles</cstring>
                             </property>
                             <property name="text">
                                 <string>Use mini-tiles</string>

@@ -1,0 +1,8 @@
+# Code generation options for kconfig_compiler
+File=kmahjongg.kcfg
+#IncludeFiles=defines.h
+ClassName=Prefs
+Singleton=true
+#Mutators=true
+#CustomAdditions=true
+#Mutators=true

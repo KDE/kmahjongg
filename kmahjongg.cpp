@@ -29,7 +29,7 @@
 
 #include <kaboutdata.h>
 #include <kaction.h>
-#include <kautoconfigdialog.h>
+#include <kconfigdialog.h>
 #include <kinputdialog.h>
 #include <kkeydialog.h>
 #include <kmenubar.h>
@@ -38,6 +38,7 @@
 
 #include <kio/netaccess.h>
 
+#include "prefs.h"
 #include "kmahjongg.h"
 #include "settings.h"
 #include "GameTimer.h"
@@ -239,11 +240,11 @@ void KMahjongg::redo()
  * Show Configure dialog.
  */
 void KMahjongg::showSettings(){
-  if(KAutoConfigDialog::showDialog("settings"))
+  if(KConfigDialog::showDialog("settings"))
     return;
 
-  KAutoConfigDialog *dialog = new KAutoConfigDialog(this, "settings", KDialogBase::Swallow);
-  dialog->addPage(new Settings(0, "General"), i18n("General"), "General", "package_settings");
+  KConfigDialog *dialog = new KConfigDialog(this, "settings", Prefs::self(), KDialogBase::Swallow);
+  dialog->addPage(new Settings(0, "General"), i18n("General"), "package_settings");
   connect(dialog, SIGNAL(settingsChanged()), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged()), this, SLOT(setDisplayedWidth()));
   dialog->show();

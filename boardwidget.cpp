@@ -1,4 +1,5 @@
 #include "boardwidget.h"
+#include "prefs.h"
 
 #include <kmessagebox.h>
 #include <kapplication.h>
@@ -74,23 +75,16 @@ BoardWidget::~BoardWidget(){
 }
 
 void BoardWidget::loadSettings(){
-  KConfig *config=kapp->config();
-  config->setGroup("General");
-  showRemoved = config->readBoolEntry("Show_removed", false);
-  miniTiles = config->readBoolEntry("Use_mini_tiles", false);
-  tileFile = config->readPathEntry("Tileset_file", "default.tileset");
-  backgroundFile = config->readPathEntry("Background_file", "default.bgnd");
-  layout = config->readPathEntry("Layout_file", "default.layout");
+  tileFile = Prefs::tileSet();
+  backgroundFile = Prefs::background();
+  layout = Prefs::layout();
 
   //loadTileset(tileFile);
   //loadBoardLayout(layout);
   // TODO somehow...
   //theBackground.load(backgroundFile);
 
-  showShadows = config->readBoolEntry("Shadows_on", false);
-  generateSolvable = config->readBoolEntry("Solvable_game", true);
-  theBackground.tile = !config->readBoolEntry("Background_scale", false);
-  playAnimation = config->readBoolEntry("Play_animation", true);
+  theBackground.tile = Prefs::tiledBackground();
 
   setDisplayedWidth();
   tileSizeChanged();
@@ -132,7 +126,7 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 }
 
 void BoardWidget::setDisplayedWidth() {
-  if (showRemoved)
+  if (Prefs::showRemoved())
     setFixedSize( requiredWidth() , requiredHeight());
   else
     setFixedSize( requiredWidth() - ((theTiles.width())*4)
@@ -303,7 +297,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     //short tile = 0;
 
     // shadow the background first
-    if (showShadows) {
+    if (Prefs::showShadows()) {
         for (int by=0; by <BoardLayout::height+1; by++)
 	    for (int bx=-1; bx < BoardLayout::width+1; bx++)
  	        shadowArea(-1, by, bx,
@@ -370,7 +364,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                 }
 
 
-		if (showShadows && z<BoardLayout::depth - 1) {
+		if (Prefs::showShadows() && z<BoardLayout::depth - 1) {
 		    for (int xp = 0; xp <= 1; xp++)  {
 			for (int yp=0; yp <= 1; yp++) {
 				shadowArea(z, y+yp, x+xp,
@@ -696,7 +690,7 @@ void BoardWidget::animateMoveList()
 {
     setStatusText( i18n("Congratulations. You have won!") );
 
-    if (playAnimation)
+    if (Prefs::playAnimation())
     {
         while( Game.TileNum < Game.MaxTileNum )
         {
@@ -1180,7 +1174,7 @@ bool BoardWidget::generateStartPosition2() {
 	}
 
 	// If solvable games should be generated,
-	if (generateSolvable) {
+	if (Prefs::solvableGames()) {
 
 		if (generateSolvableGame()) {
     		Game.TileNum = Game.MaxTileNum;
@@ -1941,7 +1935,7 @@ int BoardWidget::requiredHeight(void) {
 }
 
 void BoardWidget::tileSizeChanged(void) {
-	theTiles.setScaled(miniTiles);
+	theTiles.setScaled(Prefs::miniTiles());
 	theBackground.sizeChanged(requiredWidth(), requiredHeight());
 
 }

@@ -250,14 +250,8 @@ public:
 private:
   // Settings
   QString backgroundFile;
-  bool showShadows;
   QString tileFile;
   QString layout;
-  bool showRemoved;
-  bool generateSolvable;
-  bool miniTiles;
-  bool playAnimation;
-
 };
 
 #endif // BOARDWIDGET_H

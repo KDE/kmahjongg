@@ -3,13 +3,14 @@
 #include <kapplication.h>
 #include <qlayout.h>
 #include <qpainter.h>
+
 #include "Editor.h"
+#include "prefs.h"
+
 #include <kmessagebox.h>
-
-#include<klocale.h>     // Needed to use KLocale
-#include<kiconloader.h> //
+#include <klocale.h>     // Needed to use KLocale
+#include <kiconloader.h> //
 #include <kstandarddirs.h>
-
 #include <ktoolbarradiogroup.h>
 
 #define ID_TOOL_NEW  100
@@ -73,10 +74,7 @@ Editor::Editor
     setMinimumSize( sWidth+60, sHeight+60);
     setMaximumSize( sWidth+60, sHeight+60);
 
-
-   KConfig *config=kapp->config();
-   config->setGroup("General");
-   QString tile = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+   QString tile = "pics/" + Prefs::tileSet();
    tile = locate("appdata", tile);
    tiles.loadTileset(tile);
 
@@ -416,9 +414,7 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    KConfig *config=kapp->config();
-    config->setGroup("General");
-    QString tile1 = "pics/"+config->readEntry("Tileset_file", "default.tileset");
+    QString tile1 = "pics/" + Prefs::tileSet();
     tile1 = locate("appdata", tile1);
     tiles.loadTileset(tile1);
 

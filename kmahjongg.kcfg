@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg>
+  <kcfgfile name="kmahjonggrc"/>
+  <group name="General">
+    <entry name="TileSet" type="QString" key="Tileset_file">
+      <desc>The tile-set to use.</desc>
+      <default>default.tileset</default>
+    </entry>
+    <entry name="Background" type="QString" key="Background_file">
+      <desc>The background to use.</desc>
+      <default>default.bgnd</default>
+    </entry>
+    <entry name="Layout" type="QString" key="Layout_file">
+      <desc>The layout of the tiles.</desc>
+      <default>default.layout</default>
+    </entry>
+    <entry name="ShowRemoved" type="bool" key="showRemoved">
+      <desc>Whether to show removed tiles.</desc>
+      <default>false</default>
+    </entry>
+    <entry name="MiniTiles" type="bool" key="Use_mini_tiles">
+      <desc>Whether to use miniature tiles.</desc>
+      <default>false</default>
+    </entry>
+    <entry name="ShowShadows" type="bool" key="Shadows_on">
+      <desc>Whether the tiles have shadows.</desc>
+      <default>false</default>
+    </entry>
+    <entry name="SolvableGames" type="bool" key="Solvable_game">
+      <desc>Whether all games should be solvable.</desc>
+      <default>true</default>
+    </entry>
+    <entry name="TiledBackground" type="bool" key="Background_tiled">
+      <desc>Whether the background should be tiled instead of scaled.</desc>
+      <default>true</default>
+    </entry>
+    <entry name="PlayAnimation" type="bool" key="Play_animation">
+      <desc>Whether an animation should be played on victory.</desc>
+      <default>true</default>
+    </entry>
+  </group>
+</kcfg>
