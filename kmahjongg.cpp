@@ -396,12 +396,12 @@ void KMahjonggWidget::setupMenuBar()
            + " " + KMAHJONGG_VERSION
            + i18n("\n\nOriginal version by Mathias Mueller")
            + " (in5y158@public.uni-hamburg.de)"
-           + i18n("\n\nRewritten and extended by")
+           + i18n("\n\nRewritten and extended by ")
            + "David Black"
            + " (david.black@connectfree.co.uk)"
-	   + i18n("\n\nTile set contributer and web page maintainer")
+	   + i18n("\n\nTile set contributer and web page maintainer: ")
 	   + "Osvaldo Stark (starko@dnet.it)"
-	   + "\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts");
+	   + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
 
     pMenuBar = new KMenuBar( this );
 
