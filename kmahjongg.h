@@ -62,7 +62,7 @@ typedef unsigned short USHORT;
 typedef unsigned long  ULONG;
 
 typedef struct pos {
-    UCHAR e,y,x,f;
+    USHORT e,y,x,f;
 } POSITION;
 
 typedef struct gamedata {
