@@ -14,9 +14,6 @@ noinst_HEADERS = kmahjongg.h version.h
 
 METASOURCES = kmahjongg.moc
 
-docs_DATA    =	index.html index-1.html index-2.html logotp3.gif
-docsdir = $(kde_htmldir)/en/kmahjongg
-
 appsdir = $(kde_appsdir)/Games
 apps_DATA = kmahjongg.kdelnk
 
@@ -26,7 +23,7 @@ picsdir = $(kde_datadir)/kmahjongg/pics
 icon_DATA = kmahjongg.xpm
 icondir = $(kde_icondir)
 
-EXTRA_DIST = $(docs_DATA) $(apps_DATA) $(pics_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.kdelnk kmahjongg.bmp kmahjongg_bgnd.bmp
+EXTRA_DIST = $(apps_DATA) $(pics_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.kdelnk kmahjongg.bmp kmahjongg_bgnd.bmp
 
 install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
