@@ -75,8 +75,8 @@ install: all
 	$(INSTALL_DATA) kmahjongg_bgnd.bmp    $(PICSDIR)
 	$(INSTALL_DIR) $(ICONDIR)
 	$(INSTALL_DATA) icon/kmahjongg.xpm    $(ICONDIR)
-#	$(INSTALL_DIR) $(MINIDIR)
-#	$(INSTALL_DATA) icon/mini/kmahjongg.xpm	$(MINIDIR)
+	$(INSTALL_DIR) $(MINIDIR)
+	$(INSTALL_DATA) icon/mini/kmahjongg.xpm	$(MINIDIR)
 
 uninstall:
 	rm -f $(BINDIR)/$(TARGET)
@@ -85,7 +85,7 @@ uninstall:
 	rm -f $(PICSDIR)/kmahjongg.bmp
 	rm -f $(PICSDIR)/kmahjongg_bgnd.bmp
 	rm -f $(ICONDIR)/kmahjongg.xpm
-#	rm -f $(MINIDIR)/kmahjongg.xpm
+	rm -f $(MINIDIR)/kmahjongg.xpm
 
 clean:
 	-rm -f *.o *.bak *~ *% #*
