@@ -14,10 +14,9 @@ kmahjongg_SOURCES = kmahjongg.cpp  \
 METASOURCES = kmahjongg.moc GameTimer.moc Preview.moc Editor.moc \
         HighScore.moc PrefsDlg.moc Progress.moc
 
-appsdir   = $(kde_appsdir)/Games/Board
-apps_DATA = kmahjongg.desktop
+xdg_apps_DATA = kmahjongg.desktop
 
-EXTRA_DIST = $(apps_DATA)
+EXTRA_DIST = $(xdg_apps_DATA)
 
 rcdir = $(kde_datadir)/kmahjongg
 rc_DATA = kmahjonggui.rc
@@ -25,5 +24,3 @@ rc_DATA = kmahjonggui.rc
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kmahjongg.pot
 
-install-data-local:
-	rm -rf $(DESTDIR)$(kde_appsdir)/Games/kmahjongg.desktop
