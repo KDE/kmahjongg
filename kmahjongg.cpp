@@ -36,13 +36,13 @@
 #include <klocale.h>
 #include <kcmdlineargs.h>
 #include <kio/netaccess.h>
+#include <kmenubar.h>
+#include <kstddirs.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
 #include "PrefsDlg.h"
-#include "qpainter.h"
-#include "kmenubar.h"
-#include "kstddirs.h"
+#include <qpainter.h>
 #include "Progress.h"
 
 #include <kaboutdata.h>
