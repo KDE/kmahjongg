@@ -228,7 +228,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
             default:
                   break;
 	}
-	fileSelector += i18n("*|All files\n");
+	fileSelector += i18n("*|All Files\n");
 	applyButton->setEnabled(type != board);
 
 
