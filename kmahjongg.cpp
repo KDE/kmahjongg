@@ -257,7 +257,7 @@ void KMahjonggWidget::setupToolBar()
 	toolBar->insertButton(BarIcon("filenew"),
 		ID_FILE_NEW, TRUE, i18n("New game."));
 	// new numbered game
-	toolBar->insertButton(BarIcon("newnum"),
+	toolBar->insertButton(UserIcon("newnum"),
 		ID_FILE_NEW_NUMERIC, TRUE, i18n("New numbered game."));
 	// open game
 	toolBar->insertButton(BarIcon("fileopen"),
@@ -272,10 +272,10 @@ void KMahjonggWidget::setupToolBar()
 	toolBar->insertButton(BarIcon("redo"),
 		ID_EDIT_REDO, TRUE, i18n("Redo move."));
 	// pause 
-	toolBar->insertButton(BarIcon("pause"),
+	toolBar->insertButton(UserIcon("pause"),
 		ID_GAME_PAUSE, TRUE, i18n("Pause game."));
 	// play 
-	toolBar->insertButton(BarIcon("play"),
+	toolBar->insertButton(UserIcon("play"),
 		ID_GAME_CONTINUE, TRUE, i18n("Play game."));
 	// Show hint 
 
@@ -2312,6 +2312,7 @@ void BoardWidget::shuffle(void) {
 	// 300 points per use
 	cheatsUsed += 15;
 }
+
 
 
 
