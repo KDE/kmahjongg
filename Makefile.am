@@ -39,7 +39,7 @@ install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) mini-kmahjongg.xpm $(kde_minidir)/kmahjongg.xpm
 
-uninstall:
+uninstall-local:
 	-rm -f $(kde_minidir)/kmahjongg.xpm
 
 messages:
