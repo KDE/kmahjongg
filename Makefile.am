@@ -19,17 +19,9 @@ METASOURCES = kmahjongg.moc
 appsdir = $(kde_appsdir)/Games
 apps_DATA = kmahjongg.desktop
 
-icon_DATA = kmahjongg.xpm
-icondir = $(kde_icondir)
+KDE_ICON = kmahjongg
 
-EXTRA_DIST = $(apps_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.desktop
-
-install-data-local: mini-kmahjongg.xpm
-	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) $(srcdir)/mini-kmahjongg.xpm $(kde_minidir)/kmahjongg.xpm
-
-uninstall-local:
-	-rm -f $(kde_minidir)/kmahjongg.xpm
+EXTRA_DIST = $(apps_DATA) kmahjongg.desktop
 
 messages:
 	$(XGETTEXT) -C -kTRANS -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
