@@ -34,7 +34,6 @@
 
 #include <kapp.h>
 #include <kurl.h>
-#include <kmsgbox.h> 
 #include <ktopwidget.h>
 
 

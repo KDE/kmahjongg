@@ -33,7 +33,6 @@
 #include <qaccel.h>
 
 #include <kfiledialog.h>
-#include <kmsgbox.h>
 #include <klocale.h>
 #include <kstddirs.h>
 
@@ -324,7 +323,7 @@ void KMahjonggWidget::showStatusText( const QString &msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showMessage( const QString &msg )
 {
-    KMsgBox::message(this, QString::null, msg );
+    QMessageBox::information(this, kapp->getCaption(), msg );
 }
 
 // ---------------------------------------------------------
