@@ -6,4 +6,5 @@ Type=Application
 DocPath=kmahjongg.html
 Comment=smart mahjongg game
 Comment[de]=Ein Mahjongg-Spiel
+Comment[pl]=Gra w Mahjongg.
 Terminal=0
