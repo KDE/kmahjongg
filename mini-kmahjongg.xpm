@@ -1,0 +1,31 @@
+/* XPM */
+/* Drawn  by Nico Shirwing for the K Desktop Environment */
+/* See http://www.kde.org */
+static char*kmahjongg[]={
+"16 16 9 1",
+"# c #000000",
+"c c #008000",
+"a c #ff0000",
+"e c #0000ff",
+"g c #ff00ff",
+"d c #ffffc0",
+"f c #c05800",
+"b c #ffdca8",
+". c None",
+"....####...####.",
+"....#aa#...#bcb#",
+"....#ab#...#bcb#",
+"####dab#...#bcb#",
+"#eefdbbf####bbb#",
+"#ebf####bbb#####",
+"#ebfbbb#bab#....",
+"#bbfbbb#bab#....",
+"#dd#bbb#bbb#....",
+"#gbfbcb#fff#....",
+"#bgffffdbbfd##..",
+"#ggf####ggfbbb#.",
+"#bbf#..#gbfbeb#.",
+".####..#bgfbeb#.",
+".......#fffbbb#.",
+"........#######."};
+
