@@ -131,7 +131,7 @@ HighScore::HighScore
 	resetBtn->setAutoResize( FALSE );
 
  	KIconLoader *loader = KGlobal::iconLoader();
-        resetBtn->setPixmap(loader->loadIcon("delete.xpm"));
+        resetBtn->setPixmap(loader->loadIcon("delete", KIcon::Toolbar));
        
 
 
