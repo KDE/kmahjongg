@@ -506,6 +506,7 @@ void KMahjonggWidget::gameOver(
 	int score;
 
 	gameTimer->pause();
+        long gameNum = bw->getGameNum();
 	KMessageBox::information(this, i18n("Game over: You have won!"));
 	bw->animateMoveList();
 	int elapsed = gameTimer->toInt();
@@ -528,7 +529,7 @@ void KMahjonggWidget::gameOver(
 	if (score < 0)
 		score = 0;
 
-	theHighScores->checkHighScore(score, elapsed, bw->getGameNum(), bw->getBoardName());
+	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
 
 	timerReset();
 }
