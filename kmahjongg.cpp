@@ -79,7 +79,6 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
 
 
     bDemoModeActive = false;
-    bShowMatchingTiles = false;
 
     connect( bw, SIGNAL( statusTextChanged(const QString&, long) ),
                  SLOT( showStatusText(const QString&, long) ) );
@@ -146,6 +145,8 @@ void KMahjongg::setupKAction()
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "options_show_matching_tiles");
     showMatchingTilesAction->setCheckedState(i18n("Hide &Matching Tiles"));
+    showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
+    bw->setShowMatch( Prefs::showMatchingTiles() );
     KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     pauseAction = KStdGameAction::pause(this, SLOT(pause()), actionCollection());
 
@@ -265,9 +266,10 @@ void KMahjongg::pause()
 
 void KMahjongg::showMatchingTiles()
 {
-    bShowMatchingTiles = ! bShowMatchingTiles;
-    bw->setShowMatch( bShowMatchingTiles );
-    showMatchingTilesAction->setChecked(bShowMatchingTiles);
+    Prefs::setShowMatchingTiles(!Prefs::showMatchingTiles());
+    bw->setShowMatch( Prefs::showMatchingTiles() );
+    showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
+    Prefs::writeConfig();
 }
 
 void KMahjongg::showHighscores()

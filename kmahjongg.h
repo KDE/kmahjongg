@@ -109,7 +109,6 @@ private:
   Preview      *previewLoad;
   Editor*      boardEditor;
 
-  bool         bShowMatchingTiles;
   bool         bDemoModeActive;
 
   KToggleAction *showMatchingTilesAction, *pauseAction, *demoAction;
