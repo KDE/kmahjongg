@@ -9,7 +9,7 @@ MINIDIR = $(kde_minidir)
 
 INCLUDES=	$(all_includes)
 LDFLAGS	=	$(all_libraries) $(KDE_RPATH)
-LDADD   =       -lkdeui -lkdecore   -lXext $(LIB_QT)
+LDADD   =             $(LIB_KDEUI)
 
 ####### Files
 
