@@ -1511,7 +1511,7 @@ void BoardWidget::calculateNewGame( int gNumber)
     }
 
     if (gNumber == -1) {
-    	gameGenerationNum = 0;
+    	gameGenerationNum = kapp->random();
     } else {
 	gameGenerationNum = gNumber;
     }
@@ -1541,7 +1541,7 @@ bool BoardWidget::generateStartPosition2() {
 
 	memset(tilesLeft, 0, sizeof(tilesLeft));
 
-	// zero out all face values	
+	// zero out all face values
 	for (int z=0; z< BoardLayout::depth; z++) {
 	    for (int y=0; y<BoardLayout::height; y++) {
 		for (int x=0; x<BoardLayout::width; x++) {
