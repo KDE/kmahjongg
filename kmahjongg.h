@@ -87,8 +87,8 @@ typedef struct gamedata {
 
 
 typedef struct boardinfo {
-    char*    pszName;
-    char*    pszGameMask;
+  const char*    pszName;
+  const char*    pszGameMask;
 } BOARDINFO;
 
 
