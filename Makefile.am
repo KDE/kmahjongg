@@ -16,6 +16,8 @@ LDADD   =       -lkdeui -lkdecore -lqt -lX11 -lXext $(LIBSOCKET)
 bin_PROGRAMS = kmahjongg
 kmahjongg_SOURCES = kmahjongg.cpp static.cpp
 
+noinst_HEADERS = kmahjongg.h version.h
+
 SRCMETA	=	kmahjongg.moc
 DISTCLEANFILES = $(SRCMETA)
 
@@ -30,6 +32,8 @@ picsdir = $(kde_datadir)/kmahjongg/pics
 
 icon_DATA = kmahjongg.xpm
 icondir = $(kde_icondir)
+
+EXTRA_DIST = $(docs_DATA) $(apps_DATA) $(pics_DATA) $(icon_DATA) mini-kmahjongg.xpm kmahjongg.xpm kmahjongg.kdelnk kmahjongg.bmp kmahjongg_bgnd.bmp
 
 install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
