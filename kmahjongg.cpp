@@ -35,6 +35,7 @@
 #include <kfiledialog.h>
 #include <kmsgbox.h>
 #include <klocale.h>
+#include <kstddirs.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
@@ -90,8 +91,8 @@
 //----------------------------------------------------------
 // STATICS
 //----------------------------------------------------------
-const char DEFAULTTILESET[]    = "kmahjongg.bmp";
-const char DEFAULTBACKGROUND[] = "kmahjongg_bgnd.bmp";
+const char DEFAULTTILESET[]    = "pics/kmahjongg.bmp";
+const char DEFAULTBACKGROUND[] = "pics/kmahjongg_bgnd.bmp";
 
 extern char ClassicMask[];
 extern char TowerMask[];
@@ -374,12 +375,9 @@ BoardWidget::BoardWidget( QWidget* parent )
     // Load tileset
     if( ! loadTileset( DEFAULTTILESET ) )
     {
-        QString str;
-        str.arg( "%1/kmahjongg/pics/%2").
-		     arg(kapp->kde_datadir()).arg(DEFAULTTILESET);
-        if( ! loadTileset( str ) )
-	{
-            showMessage( i18n("Unable to open bitmap file !") );
+        if( ! loadTileset( locate("appdata",DEFAULTTILESET) ) )
+	{      
+            showMessage( i18n("Unable to open tile bitmap file !") );
 	    fatal( "Unable to open bitmap file !" );
 	}
     }
@@ -389,12 +387,11 @@ BoardWidget::BoardWidget( QWidget* parent )
     if( ! loadBackground( DEFAULTBACKGROUND, false ) )
     {
         QString str;
-	str.sprintf( "%1/kmahjongg/pics/%2").
-                     arg(kapp->kde_datadir()).arg(DEFAULTBACKGROUND);
-        if( ! loadBackground( str ) )
+	
+        if( ! loadBackground( locate("appdata",DEFAULTBACKGROUND)  ) )
 	{
             showMessage( i18n("Unable to open bitmap file !") );
-	    fatal( "Unable to open bitmap file !" );
+	    fatal( "Unable to open background bitmap file !" );
 	}
     }
 

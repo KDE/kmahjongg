@@ -1,3 +1,7 @@
+* [Robert Williams] Fixed the 'locate' bitmap troubles with KDE 2.0
+                    with help from [John Corey] <whoop@mtco.com>
+                    and [Stephan Kulow].
+
 Version 0.4.1
 * [Robert Williams] New games now start at 10
 * [Robert Williams] Added kapp->getHelpMenu()
