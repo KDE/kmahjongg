@@ -23,7 +23,7 @@
 
 */
 
-#include <qmsgbox.h>
+#include <qmessagebox.h>
 #include <qtimer.h> 
 #include <qaccel.h>
 
@@ -31,6 +31,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <kfiledialog.h>
+#include <kmsgbox.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
@@ -146,11 +148,11 @@ KMahjonggWidget::KMahjonggWidget()
 
     updateStatusbar( bShowStatusbar );
 
-    connect( bw, SIGNAL( statusTextChanged(const char*) ),
-                 SLOT( showStatusText(const char*) ) );
+    connect( bw, SIGNAL( statusTextChanged(const QString&) ),
+                 SLOT( showStatusText(const QString&) ) );
 
-    connect( bw, SIGNAL( message(const char*) ),
-                 SLOT( showMessage(const char*) ) );
+    connect( bw, SIGNAL( message(const QString&) ),
+                 SLOT( showMessage(const QString&) ) );
 
     connect( bw, SIGNAL( tileNumberChanged(int,int) ),
                  SLOT( showTileNumber(int,int) ) );
@@ -286,7 +288,15 @@ void KMahjonggWidget::menuCallback( int item )
 
         case ID_VIEW_BACKGROUND_LOAD:
 	{
+<<<<<<< kmahjongg.cpp
+<<<<<<< kmahjongg.cpp
+            QString strFile = QFileDialog::getOpenFileName( QString::null, QString::null, this );
+=======
+            QString strFile = KFileDialog::getOpenFileName( QString::null, QString::null, this );
+>>>>>>> 1.11.4.3
+=======
             QString strFile = QFileDialog::getOpenFileName( NULL, NULL, this );
+>>>>>>> 1.12
             if( ! strFile.isEmpty() )
 	    {
                 if( bw->loadBackground( strFile ) )
@@ -325,7 +335,15 @@ void KMahjonggWidget::showStatusText( const char* msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showMessage( const char* msg )
 {
+<<<<<<< kmahjongg.cpp
+<<<<<<< kmahjongg.cpp
+    QMessageBox::message( QString::null, locale->translate(msg), QString::null, this );
+=======
+    KMsgBox::message(this, QString::null,msg );
+>>>>>>> 1.11.4.3
+=======
     QMessageBox::message( NULL, locale->translate(msg), NULL, this );
+>>>>>>> 1.12
 }
 
 // ---------------------------------------------------------
@@ -1566,7 +1584,7 @@ bool BoardWidget::loadBoard( const char* pszMask )
 }
 
 // ---------------------------------------------------------
-void BoardWidget::setStatusText( const char* pszText )
+void BoardWidget::setStatusText( const QString& pszText )
 {
     emit statusTextChanged( pszText );
 }
@@ -1732,7 +1750,7 @@ void BoardWidget::cancelUserSelectedTiles()
 }
 
 // ---------------------------------------------------------
-void BoardWidget::showMessage( const char* pszText )
+void BoardWidget::showMessage( const QString& pszText )
 {
     emit message( pszText );
 }

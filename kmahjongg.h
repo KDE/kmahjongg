@@ -26,11 +26,11 @@
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
-#include <qapp.h>
+#include <qapplication.h>
 #include <qmenubar.h>
-#include <qpopmenu.h>
+#include <qpopupmenu.h>
 #include <qimage.h>
-#include <qfiledlg.h>
+#include <qfiledialog.h>
 
 #include <kapp.h>
 #include <kurl.h>
@@ -128,8 +128,8 @@ class BoardWidget : public QWidget
         void matchAnimationTimeout();
 
     signals:
-        void statusTextChanged ( const char* );
-        void message           ( const char* );
+        void statusTextChanged ( const QString& );
+        void message           ( const QString& );
         void tileNumberChanged ( int iMaximum, int iCurrent );
         void demoModeChanged   ( bool bActive );
 
@@ -137,8 +137,8 @@ class BoardWidget : public QWidget
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
-        void setStatusText ( const char* );
-        void showMessage   ( const char* );
+        void setStatusText ( const QString& );
+        void showMessage   ( const QString& );
         void cancelUserSelectedTiles();
         void drawTileNumber();
 
@@ -208,8 +208,8 @@ class KMahjonggWidget : public KTopLevelWidget
     public slots:
         void menuCallback( int );
         void startNewGame( int );
-        void showStatusText ( const char* );
-        void showMessage    ( const char* );
+        void showStatusText ( const QString& );
+        void showMessage    ( const QString& );
         void showTileNumber( int iMaximum, int iCurrent );
         void demoModeChanged( bool bActive );
   
