@@ -1,5 +1,8 @@
+# KDE Config File  
 [KDE Desktop Entry]
+Name=Mahjongg
 Exec=kmahjongg -caption %c
 DocPath=kmahjongg.html
 Info=smart mahjongg game
+Info[de]=Ein Mahjongg-Spiel
 Terminal=0

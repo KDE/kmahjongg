@@ -361,7 +361,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     if( ! loadTileset( DEFAULTTILESET ) )
     {
         char szFileName[257];
-        sprintf( szFileName, "%s/lib/pics/%s", 
+        sprintf( szFileName, "%s/share/apps/kmahjongg/%s",
                  kapp->kdedir().data(), DEFAULTTILESET );
         if( ! loadTileset( szFileName ) )
             fatal( "Unable to open bitmap file: %s !", szFileName );
@@ -372,7 +372,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     if( ! loadBackground( DEFAULTBACKGROUND, false ) )
     {
         char szFileName[257];
-        sprintf( szFileName, "%s/lib/pics/%s", 
+        sprintf( szFileName, "%s/share/apps/kmahjongg/%s", 
                  kapp->kdedir().data(), DEFAULTBACKGROUND );
         if( ! loadBackground( szFileName ) )
             fatal( "Unable to open bitmap file: %s !", szFileName );
