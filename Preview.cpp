@@ -247,11 +247,25 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	QFileInfoList *list = (QFileInfoList *) files.entryInfoList(); 
 	// put the curent entry in the returned list to test for
 	// duplicates on insertion
-	list->insert(0, current);
+
+
+	if (current->fileName() != "")
+		list->insert(0, current);
+
 	QFileInfo *info=list->first();
 	for (unsigned int p=0; p<list->count(); p++) {
-		if (fileList.find(info) == -1) {
-		fileList.append( new QFileInfo(*info));
+
+		int duplicate = 0;
+
+		for (unsigned int c=0; c<fileList.count(); c++) {
+			if (info->fileName() == fileList.at(c)->fileName()) {
+				duplicate = 1;
+			}
+		}
+
+
+		if (!duplicate) {
+			fileList.append( new QFileInfo(*info));
 		}
 		info=list->next();
 	}
@@ -261,7 +275,8 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	if (fileList.count() >0) {
 		QFileInfo *cur=fileList.first();
 		for (unsigned int each=0; each < fileList.count(); each++) {
-			combo->insertItem(cur->baseName());
+			QString insert = cur->baseName();
+			combo->insertItem(insert);
 			cur = fileList.next();
 		}
 		oneFound = true;	
@@ -380,7 +395,7 @@ void Preview::paintEvent( QPaintEvent*  ){
 }
 
 
-void Preview::parseFile(const QString &in, QString &out) {
+void Preview::parseFile(const QString &, QString &out) {
 	QString tmp;
 
 	QString prefix;
