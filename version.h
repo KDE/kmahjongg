@@ -1,1 +1,1 @@
-#define KMAHJONGG_VERSION	"0.7.1"
+#define KMAHJONGG_VERSION	"0.7.2"
