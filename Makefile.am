@@ -10,6 +10,7 @@ kmahjongg_SOURCES = main.cpp kmahjongg.cpp boardwidget.cpp \
 		Editor.cpp HighScore.cpp settings.ui
 kmahjongg_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kmahjongg_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE)
+kmahjongg_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 METASOURCES = AUTO
 
