@@ -288,15 +288,7 @@ void KMahjonggWidget::menuCallback( int item )
 
         case ID_VIEW_BACKGROUND_LOAD:
 	{
-<<<<<<< kmahjongg.cpp
-<<<<<<< kmahjongg.cpp
-            QString strFile = QFileDialog::getOpenFileName( QString::null, QString::null, this );
-=======
             QString strFile = KFileDialog::getOpenFileName( QString::null, QString::null, this );
->>>>>>> 1.11.4.3
-=======
-            QString strFile = QFileDialog::getOpenFileName( NULL, NULL, this );
->>>>>>> 1.12
             if( ! strFile.isEmpty() )
 	    {
                 if( bw->loadBackground( strFile ) )
@@ -327,23 +319,15 @@ void KMahjonggWidget::closeEvent( QCloseEvent* e )
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showStatusText( const char* msg )
+void KMahjonggWidget::showStatusText( const QString &msg )
 {
-    pStatusBar->changeItem( locale->translate(msg), ID_STATUS_MESSAGE );
+    pStatusBar->changeItem( msg, ID_STATUS_MESSAGE );
 }
 
 // ---------------------------------------------------------
-void KMahjonggWidget::showMessage( const char* msg )
+void KMahjonggWidget::showMessage( const QString &msg )
 {
-<<<<<<< kmahjongg.cpp
-<<<<<<< kmahjongg.cpp
-    QMessageBox::message( QString::null, locale->translate(msg), QString::null, this );
-=======
-    KMsgBox::message(this, QString::null,msg );
->>>>>>> 1.11.4.3
-=======
-    QMessageBox::message( NULL, locale->translate(msg), NULL, this );
->>>>>>> 1.12
+    KMsgBox::message(this, QString::null, msg );
 }
 
 // ---------------------------------------------------------
