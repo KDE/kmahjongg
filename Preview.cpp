@@ -50,9 +50,7 @@ Preview::~Preview()
 
 void Preview::selectionChanged(int which)
 {
-	QFileInfo *f= fileList.at(which);
-
-	selectedFile = f->filePath();
+	selectedFile = fileList[which];
 	drawPreview();
 	drawFrame->repaint(0,0,-1,-1,false);
 	markChanged();
@@ -128,7 +126,6 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	QString kmDir;
 	QDir files;
 	QFileInfo *current=new QFileInfo(selectedFile);
-	bool oneFound = false;
 
 	// we pick up system files from the kde dir
 	kmDir = locate("appdata", "pics/default.tileset");
@@ -142,6 +139,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 
 	// get rid of files from the last invocation
 	fileList.clear();
+	combo->clear();
 
 	// deep copy the file list as we need to keen to keep it
 	QFileInfoList *list = (QFileInfoList *) files.entryInfoList();
@@ -152,35 +150,26 @@ void Preview::initialise(const PreviewType type, const char *extension)
 		list->insert(0, current);
 
 	QFileInfo *info=list->first();
-	for (unsigned int p=0; p<list->count(); p++) {
+	for (unsigned int p=0; p<list->count(); p++)
+	{
+		bool duplicate = false;
 
-		int duplicate = 0;
-
-		for (unsigned int c=0; c<fileList.count(); c++) {
-			if (info->fileName() == fileList.at(c)->fileName()) {
-				duplicate = 1;
+		for (unsigned int c=0; c<fileList.count(); c++)
+		{
+			if (info->filePath() == fileList[c]) {
+				duplicate = true;
 			}
 		}
 
-
-		if (!duplicate) {
-			fileList.append( new QFileInfo(*info));
+		if (!duplicate)
+		{
+			fileList.append(info->filePath());
+			combo->insertItem(info->baseName());
 		}
 		info=list->next();
 	}
 
-	// copy the file basenames into the combo box
-	combo->clear();
-	if (fileList.count() >0) {
-		QFileInfo *cur=fileList.first();
-		for (unsigned int each=0; each < fileList.count(); each++) {
-			QString insert = cur->baseName();
-			combo->insertItem(insert);
-			cur = fileList.next();
-		}
-		oneFound = true;
-	}
-	combo->setEnabled(oneFound);
+	combo->setEnabled(fileList.count());
 	drawPreview();
 }
 
@@ -211,88 +200,85 @@ void Preview::load() {
 // of preview dialog we pick up the selected file for one of these
 // chaps.
 
-void Preview::drawPreview() {
-    QString tile = "pics/" + Prefs::tileSet();
-    QString back = "pics/" + Prefs::background();
-    QString layout = "pics/" + Prefs::layout();
-    tile = locate("appdata", tile);
-    back = locate("appdata", back);
-    layout = locate("appdata", layout);
-    
-    switch (previewType) {
-	case background:
-		back = selectedFile;
-	     break;
-        case tileset:
-		tile = selectedFile;
-             break;
-        case board:
-		layout = selectedFile;
-	     break;
-
-
-	case theme:
-
-	     // a theme is quite a bit of work. We load the
-	     // specified bits in (layout, background and tileset
-	    if (!selectedFile.isEmpty()) {
-		char backRaw[MAXPATHLEN];
-		char layoutRaw[MAXPATHLEN];
-		char tilesetRaw[MAXPATHLEN];
-		char magic[MAXPATHLEN];
-
-		QFile in(selectedFile);
-		if (in.open(IO_ReadOnly)){
-		    in.readLine(magic, MAXPATHLEN);
-		    if (magic[strlen(magic)-1]=='\n')
-			magic[strlen(magic)-1]='\0';
-
-
-
-		    if (strncmp(themeMagicV1_0, magic, strlen(magic)) != 0) {
-			in.close();
-
-        		KMessageBox::sorry(this,
-                		i18n("That is not a valid theme file."));
-			break;
-		    }
-
-		    in.readLine(tilesetRaw, MAXPATHLEN);
-		    in.readLine(backRaw, MAXPATHLEN);
-		    in.readLine(layoutRaw, MAXPATHLEN);
-	            
-		    tile = QString("pics") + tilesetRaw;
-		    back = QString("pics") + backRaw;
-		    layout = QString("pics") + layoutRaw;
-
-		    layout.replace(QRegExp(":"), "/");
-		    layout.replace(QRegExp("\n"), QString::null);
-		    tile.replace(QRegExp(":"), "/");
-		    tile.replace(QRegExp("\n"), QString::null);
-		    back.replace(QRegExp(":"), "/");
-		    back.replace(QRegExp("\n"), QString::null);
-		    
-		    
-		    tile = locate("appdata", tile);
-		    back = locate("appdata", back);
-		    layout = locate("appdata", layout);
-
-		    //parseFile(tilesetRaw, tile);
-		    //parseFile(backRaw, back);
-		    //parseFile(layoutRaw, layout);
-
-		    in.close();
-
-		    themeBack=back;
-		    themeLayout=layout;
-		    themeTileset=tile;
-		}
-   	    }
-             break;
-    }
-
-    renderBackground(back);
-    renderTiles(tile, layout);
+void Preview::drawPreview()
+{
+	QString tile = "pics/" + Prefs::tileSet();
+	QString back = "pics/" + Prefs::background();
+	QString layout = "pics/" + Prefs::layout();
+	tile = locate("appdata", tile);
+	back = locate("appdata", back);
+	layout = locate("appdata", layout);
+	
+	switch (previewType)
+	{
+		case background:
+			back = selectedFile;
+		break;
+		
+		case tileset:
+			tile = selectedFile;
+		break;
+		
+		case board:
+			layout = selectedFile;
+		break;
+		
+		case theme:
+			// a theme is quite a bit of work. We load the
+			// specified bits in (layout, background and tileset
+			if (!selectedFile.isEmpty())
+			{
+				char backRaw[MAXPATHLEN];
+				char layoutRaw[MAXPATHLEN];
+				char tilesetRaw[MAXPATHLEN];
+				char magic[MAXPATHLEN];
+				
+				QFile in(selectedFile);
+				if (in.open(IO_ReadOnly))
+				{
+					in.readLine(magic, MAXPATHLEN);
+					if (magic[strlen(magic)-1]=='\n') magic[strlen(magic)-1]='\0';
+					if (strncmp(themeMagicV1_0, magic, strlen(magic)) != 0)
+					{
+						in.close();
+						KMessageBox::sorry(this, i18n("That is not a valid theme file."));
+						break;
+					}
+					in.readLine(tilesetRaw, MAXPATHLEN);
+					in.readLine(backRaw, MAXPATHLEN);
+					in.readLine(layoutRaw, MAXPATHLEN);
+					
+					tile = QString("pics") + tilesetRaw;
+					back = QString("pics") + backRaw;
+					layout = QString("pics") + layoutRaw;
+					
+					layout.replace(QRegExp(":"), "/");
+					layout.replace(QRegExp("\n"), QString::null);
+					tile.replace(QRegExp(":"), "/");
+					tile.replace(QRegExp("\n"), QString::null);
+					back.replace(QRegExp(":"), "/");
+					back.replace(QRegExp("\n"), QString::null);
+					
+					tile = locate("appdata", tile);
+					back = locate("appdata", back);
+					layout = locate("appdata", layout);
+					
+					//parseFile(tilesetRaw, tile);
+					//parseFile(backRaw, back);
+					//parseFile(layoutRaw, layout);
+					
+					in.close();
+					
+					themeBack=back;
+					themeLayout=layout;
+					themeTileset=tile;
+				}
+			}
+		break;
+	}
+	
+	renderBackground(back);
+	renderTiles(tile, layout);
 }
 
 void Preview::paintEvent( QPaintEvent*  ){
@@ -316,40 +302,38 @@ void Preview::parseFile(const QString &in, QString &out) {
 // the user selected ok, or apply. This method passes the changes
 // across to the game widget and if necessary forces a board redraw
 // (unnecessary on layout changes since it only effects the next game)
-void Preview::applyChange() {
-
-    switch (previewType) {
-	case background:
-                 loadBackground(selectedFile, false);
-	     break;
-        case tileset:
-                 loadTileset(selectedFile);
-             break;
-        case board:
-		 loadBoard(selectedFile);
-             break;
-
-	case theme:
-		if (!themeLayout.isEmpty() && !themeBack.isEmpty() && !themeTileset.isEmpty()) {
-		    loadBackground(themeBack, false);
-		    loadTileset(themeTileset);
-		    loadBoard(themeLayout);
-		}
-	     break;
+void Preview::applyChange()
+{
+	switch (previewType)
+	{
+		case background:
+			loadBackground(selectedFile, false);
+		break;
+		
+		case tileset:
+			loadTileset(selectedFile);
+		break;
+		
+		case board:
+			loadBoard(selectedFile);
+		break;
+		
+		case theme:
+			if (!themeLayout.isEmpty() && !themeBack.isEmpty() && !themeTileset.isEmpty())
+			{
+				loadBackground(themeBack, false);
+				loadTileset(themeTileset);
+				loadBoard(themeLayout);
+			}
+		break;
     }
 
-    // don't redraw for a layout change
+	// don't redraw for a layout change
+	if (previewType == board  || previewType == theme) layoutChange();
+	else boardRedraw(true);
 
-
-    if (previewType == board  || previewType == theme) {
-	layoutChange();
-    } else {
-
-        boardRedraw(true);
-    }
-
-    // either way we mark the current value as unchanged
-    markUnchanged();
+	// either way we mark the current value as unchanged
+	markUnchanged();
 }
 
 // Render the background to the pixmap.

@@ -4,7 +4,6 @@
 #include <kdialogbase.h>
 
 #include <qframe.h>
-#include <qfiledialog.h>
 
 #include "Tileset.h"
 #include "BoardLayout.h"
@@ -95,7 +94,7 @@ private:
 	void parseFile(const QString &f, QString &g);
 	QString fileSelector;
 	bool changed;
-	QFileInfoList fileList;
+	QStringList fileList;
 	PreviewType previewType;
 
 	QString themeBack;
