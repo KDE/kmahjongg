@@ -30,12 +30,12 @@ EXTRA_DIST = $(docs_DATA) $(apps_DATA) $(pics_DATA) $(icon_DATA) mini-kmahjongg.
 
 install-data-local: mini-kmahjongg.xpm
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) $(srcdir)/mini-kmahjongg.xpm $(kde_minidir)/kmahjongg.xpm
-	$(mkinstalldirs) $(kde_minidir)/../large
-	$(INSTALL_DATA) $(srcdir)/large-kmahjongg.xpm $(kde_minidir)/../large/kmahjongg.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kmahjongg.xpm $(kde_icondir)ahjongg.xpm
+	$(mkinstalldirs) $(kde_icondir)/large
+	$(INSTALL_DATA) $(srcdir)/large-kmahjongg.xpm $(kde_icondir)/large/kmahjongg.xpm
 
 uninstall-local:
-	-rm -f $(kde_minidir)/kmahjongg.xpm
+	-rm -f $(kde_icondir)ahjongg.xpm
 
 messages:
 	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(kmahjongg_SOURCES) && mv messages.po ../po/kmahjongg.pot
