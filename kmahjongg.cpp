@@ -323,7 +323,7 @@ void KMahjonggWidget::showStatusText( const QString &msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showMessage( const QString &msg )
 {
-    QMessageBox::information(this, kapp->getCaption(), msg );
+    QMessageBox::information(this, kapp->getCaption(), msg, i18n("OK"));
 }
 
 // ---------------------------------------------------------
