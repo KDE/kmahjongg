@@ -365,7 +365,7 @@ void Preview::drawPreview(void) {
 			in.close();
 
         		KMessageBox::sorry(this,
-                		i18n("Thats not a valid theme file."));
+                		i18n("That is not a valid theme file."));
 			break;
 		    }
 
@@ -575,7 +575,7 @@ void Preview::saveTheme(void) {
         // if it already exists, querie the user for replacement
         int res=KMessageBox::warningYesNo(this,
                         i18n("A file with that name "
-                                           "already exists, do you "
+                                           "already exists. Do you "
                                            "wish to overwrite it?"));
         if (res != KMessageBox::Yes)
                 return ;

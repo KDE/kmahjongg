@@ -784,7 +784,7 @@ progress("Loading tileset");
     if (!loadTileset(tFile)){
         KMessageBox::error(this,
                            i18n("An error occurred when loading the tileset file %1\n"
-                                "KMahjongg will now terminate").arg(tFile));
+                                "KMahjongg will now terminate.").arg(tFile));
         exit(0);
     }
 
@@ -797,7 +797,7 @@ progress("loading background image");
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the background image\n")+
 		   tFile +
-		   i18n("KMahjongg will now terminate"));
+		   i18n("KMahjongg will now terminate."));
 	exit(0);
     }
 
@@ -807,7 +807,7 @@ progress("loading layout");
     {
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the board layout %1\n"
-                "KMahjongg will now terminate").arg(tFile));
+                "KMahjongg will now terminate.").arg(tFile));
 	exit(0);
     }
     setDisplayedWidth();
@@ -1437,7 +1437,7 @@ void BoardWidget::calculateNewGame( int gNumber)
         if( generateStartPosition2() )
         {
             drawBoard();
-            setStatusText( i18n("Ready. Now it's your turn.") );
+            setStatusText( i18n("Ready. Now it is your turn.") );
 			cheatsUsed=0;
 	    return;
         }
@@ -2277,7 +2277,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     // else if no more moves are possible, display the sour grapes dialog
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
                     {
-                        KMessageBox::information(this, i18n("Game over: You have no moves left"));
+                        KMessageBox::information(this, i18n("Game over: You have no moves left."));
                     }
                 }
                 else

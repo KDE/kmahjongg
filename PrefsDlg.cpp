@@ -152,7 +152,7 @@ PrefsDlgData::PrefsDlgData
 	dlgShowRemoved->setChecked( TRUE );
 	dlgMiniTiles = new QCheckBox( i18n("Use mini-tiles"), TilesGroup, "miniCB" );
 
-	dlgSavePrefs = new QCheckBox( i18n("Save preferences on exit"), KmahjonggGroup, "saveCB" );
+	dlgSavePrefs = new QCheckBox( i18n("Save Preferences on exit"), KmahjonggGroup, "saveCB" );
 	dlgSavePrefs->setChecked( TRUE );
 	dlgShowStatus = new QCheckBox( i18n("Show status bar"), KmahjonggGroup, "stautsCB" );
 	dlgShowStatus->setChecked( TRUE );

@@ -333,7 +333,7 @@ bool Editor::saveBoard(void) {
 	// if it already exists, querie the user for replacement
 	int res=KMessageBox::warningYesNo(this,
 			i18n("A file with that name "
-					   "already exists, do you "
+					   "already exists. Do you "
 					   "wish to overwrite it?"),
 					i18n("Save Board Layout" ));
 	if (res != KMessageBox::Yes)
@@ -360,7 +360,7 @@ bool Editor::testSave(void)
 
     int res;
     res=KMessageBox::warningYesNoCancel(this,
-	i18n("The board has been modified, would you"
+	i18n("The board has been modified. Would you"
 		"like to save the changes?"));
 
     if (res == KMessageBox::Yes) {
