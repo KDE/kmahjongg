@@ -73,10 +73,11 @@ class KMahjongg : public KMainWindow
 
 private slots:
   void showSettings();
-	
+
   void startNewNumeric();
   void saveGame(void);
   void loadGame(void);
+  void restartGame();
   void undo();
   void redo();
   void pause();

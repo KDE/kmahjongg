@@ -138,6 +138,7 @@ void KMahjongg::setupKAction()
     KStdGameAction::load(this, SLOT(loadGame()), actionCollection());
     KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
+    KStdGameAction::restart(this, SLOT(restartGame()), actionCollection());
     (void)new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
     (void)new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
     (void)new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
@@ -515,6 +516,21 @@ void KMahjongg::loadGame(void) {
 
     // refresh the board
     bw->drawBoard();
+}
+
+void KMahjongg::restartGame() {
+    if( ! bDemoModeActive ) {
+        bw->calculateNewGame(bw->getGameNum());
+
+	// initialise button states
+	bw->Game.allow_redo = bw->Game.allow_undo = 0;
+
+	timerReset();
+
+    	// update the initial enabled/disabled state for
+    	// the menu and the tool bar.
+    	demoModeChanged(false);
+    }
 }
 
 void KMahjongg::saveGame(void) {
