@@ -5,6 +5,14 @@ qt_libraries = @qt_libraries@
 top_builddir = ..
 LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@
+install_root    = @install_root@
+kde_datadir     = @kde_datadir@
+kde_appsdir     = @kde_appsdir@
+kde_bindir      = @kde_bindir@
+kde_minidir     = @kde_minidir@
+kde_icondir     = @kde_icondir@
+kde_confdir     = @kde_confdir@
+kde_htmldir     = @kde_htmldir@
 
 ####### Install
 
@@ -13,10 +21,10 @@ INSTALL_DATA = @INSTALL@ -m 0644
 INSTALL_DIR = @INSTALL@ -d -m 0755
 
 prefix = @prefix@
-BINDIR = $(prefix)/bin
-PICSDIR = $(prefix)/share/apps/kmahjongg/pics
-DOCSDIR = $(prefix)/share/doc/HTML/en/kmahjongg
-APPSDIR = $(prefix)/share/applnk/Games
+BINDIR = $(kde_bindir)
+PICSDIR = $(kde_datadir)kmahjongg/pics
+DOCSDIR = $(kde_htmldir)/en/kmahjongg
+APPSDIR = $(kde_appsdir)/Games
 
 ####### Defines
 
