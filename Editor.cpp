@@ -119,7 +119,8 @@ void Editor::setupToolbar()
     // save game
     topToolbar->insertButton(loader->loadIcon("filesave", KIcon::Toolbar),
             ID_TOOL_SAVE, TRUE, i18n("Save board"));
-
+    topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", KIcon::Toolbar));
+    
 #ifdef FUTURE_OPTIONS
     // Select
     topToolbar->insertSeparator();
