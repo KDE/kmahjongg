@@ -16,4 +16,4 @@ bgnddir = $(kde_datadir)/kmahjongg/pics
 tileset_DATA = default.tileset pirates.tileset traditional.tileset
 tilesetdir = $(kde_datadir)/kmahjongg/pics
 
-EXTRA_DIST = $(toolbar_DATA) $(pics_DATA) $(layout_DATA) $(bgnd_DATA) $(tileset_DATA) $(theme_DATA)
+EXTRA_DIST = $(pics_DATA) $(layout_DATA) $(bgnd_DATA) $(tileset_DATA) $(theme_DATA)
