@@ -259,7 +259,7 @@ QString Editor::statusText(void) {
 	if (x >=BoardLayout::width || x <0 || y >=BoardLayout::height || y <0)
 		x = y = z = 0;
 
-	buf = QString::fromUtf(QCString().sprintf(i18n("Tiles: %3.3d Pos: %2.2d,%2.2d,%2.2d").utf8().data(), numTiles,
+	buf = QString::fromUtf8(QCString().sprintf(i18n("Tiles: %3.3d Pos: %2.2d,%2.2d,%2.2d").utf8().data(), numTiles,
 		x,y,z) );
 	return buf;
 }
