@@ -1,11 +1,7 @@
-toolbar_DATA = newnum.xpm
-toolbardir = $(kde_datadir)/kmahjongg/toolbar
-
 theme_DATA = default.theme pirates.theme
 themedir = $(kde_datadir)/kmahjongg/pics
 
-
-pics_DATA = kmahjongg.png kmahjongg_bgnd.png splash.png
+pics_DATA = kmahjongg.png kmahjongg_bgnd.png splash.png newnum.xpm
 picsdir = $(kde_datadir)/kmahjongg/pics
 
 layout_DATA = default.layout cross.layout pirates.layout \
