@@ -69,14 +69,12 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     previewLoad = new Preview(this);
 
     setupStatusBar();
-
     setupKAction();
 
     gameTimer = new GameTimer(toolBar());
     toolBar()->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
     toolBar()->alignItemRight( ID_GAME_TIMER, true );
 
-    setAutoSaveSettings();
     theHighScores = new HighScore(this);
 
 
@@ -163,13 +161,9 @@ void KMahjongg::setupKAction()
     (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
 
     // settings
-    createStandardStatusBarAction();
-    setStandardToolBarMenuEnabled(true);
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
-    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
-actionCollection());
-
-    createGUI();
+    
+    setupGUI();
 }
 
 // ---------------------------------------------------------
