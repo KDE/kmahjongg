@@ -16,8 +16,6 @@ METASOURCES = AUTO
 
 xdg_apps_DATA = kmahjongg.desktop
 
-EXTRA_DIST = $(xdg_apps_DATA)
-
 rcdir = $(kde_datadir)/kmahjongg
 rc_DATA = kmahjonggui.rc
 
