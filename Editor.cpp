@@ -145,7 +145,9 @@ void Editor::setupToolbar()
     topToolbar->setToggle(ID_TOOL_DEL);
     topToolbar->toggleButton(ID_TOOL_ADD);
     radio->addButton(ID_TOOL_ADD);
+#ifdef FUTURE_OPTIONS
     radio->addButton(ID_TOOL_MOVE);
+#endif    
     radio->addButton(ID_TOOL_DEL);
 
     // board shift
