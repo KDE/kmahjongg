@@ -22,7 +22,7 @@ GameNum::GameNum
 
 	label= new QLabel( this, "Label" );
 	label->setGeometry( 10, 10, 200, 30 );
-	label->setText( i18n("Enter game number") );
+	label->setText( i18n("Enter game number:") );
 
 	// Line edit for numeric entry
 	lineEdit = new QLineEdit(this, "");

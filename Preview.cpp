@@ -215,7 +215,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 
 	    case theme:
 		     fileSelector = i18n("*.theme|Kmahjongg theme\n");
-		     setCaption(kapp->makeStdCaption(i18n("Choose a Theme")));
+		     setCaption(kapp->makeStdCaption(i18n("Choose Theme")));
 		     selectedFile="";
 
 		     themeLayout="";
@@ -311,7 +311,7 @@ void Preview::load(void) {
                                 NULL,
 				fileSelector,
                                 this,
-                                i18n("Open board layout." ));
+                                i18n("Open Board Layout" ));
     if (  !url.isEmpty() ) {
         selectedFile = url.path();
         drawPreview();
