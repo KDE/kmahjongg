@@ -35,6 +35,7 @@ class QLabel;
 
 #include <kapp.h>
 #include <kmessagebox.h> 
+#include <krandomsequence.h>
 
 #include <ktmainwindow.h>
 #include "KmTypes.h"
@@ -213,6 +214,7 @@ class BoardWidget : public QWidget
 	void getFaces(POSITION &a, POSITION &b);
 	UCHAR tilePair[144];
 	
+	KRandomSequence random;
 	
 	Tileset  theTiles;         
 	Background theBackground;

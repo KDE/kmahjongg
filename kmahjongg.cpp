@@ -705,41 +705,30 @@ void KMahjonggWidget::statusBarMode(int onOff) {
 }
 
 
-void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res) {
-
+void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res) 
+{
 	QString picsPos = "pics/";
 	picsPos += "default.";
 	picsPos += type;
-	
-
-	QString local=locateLocal("appdata", picsPos);
-	QString global=locate("appdata", picsPos);
-
+        
 	QFile test;
 	test.setName(filename);
 	if (test.exists()) {
 		res = filename;
-		return;
 	}
-	test.setName(local);
-	if (test.exists()) {
-		res = local;
-		return;
-	}
-	test.setName(global);
-	if (test.exists()) {
-		res = global;
-		return;
+        else {
+	        res = locate("appdata", picsPos);
 	}
 
-
-	KMessageBox::error(this,
+        if (res.isEmpty()) {
+		KMessageBox::error(this,
 			    i18n("Kmahjongg could not locate the file: ") +
 			    filename + 
 			    i18n("\nOr the default file of type: ")+
 			    type +
 			    i18n("\nKmahjongg will now terminate") );
-	exit(0);	
+		exit(0);	
+	}
 }
 	
 
@@ -1527,13 +1516,12 @@ void BoardWidget::calculateNewGame( int gNumber)
     }
 
     if (gNumber == -1) {
-    	gameGenerationNum = time(NULL);
+    	gameGenerationNum = 0;
     } else {
 	gameGenerationNum = gNumber;
     }
-    srand(gameGenerationNum);
 
-
+    random.setSeed(gameGenerationNum);
 
     // try max. 64 times
     for( short nr=0; nr<64; nr++ )
@@ -1596,10 +1584,10 @@ bool BoardWidget::generateStartPosition2() {
 
 
 		if (remaining > 2) {
-			p2 = p1 = rand() % (remaining-2);
+			p2 = p1 = random.getLong(remaining-2);
 			int bail = 0;	
 			while (p1 == p2) {
-				p2 = rand() %(remaining-2);
+				p2 = random.getLong(remaining-2);
 
 				if (bail >= 100) {
 					printf("Bail!\n");
@@ -1675,7 +1663,7 @@ void BoardWidget::randomiseFaces(void) {
 
 		to=at;
 		while (to==at) {
-			to = rand() % 144;
+			to = random.getLong(144);
 
 			if ((to & 1) != 0)
 				to--;
@@ -1816,11 +1804,10 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 
     if( iPosCount>=2 )
     {
-        srand( time(NULL) );
-        short Pos = ( rand() % iPosCount ) & -2;  // Gerader Wert
+        random.setSeed(0); // WABA: Why is the seed reset?
+        short Pos = random.getLong(iPosCount) & -2;  // Gerader Wert
         posA = PosTable[Pos];
         posB = PosTable[Pos+1];
-
 
         return( true );
     }
@@ -2322,8 +2309,8 @@ void BoardWidget::shuffle(void) {
 	// now lets randomise the faces, selecting 400 pairs at random and
 	// swapping the faces. 
 	for (int ran=0; ran < 400; ran++) {
-		int pos1 = rand() % count;
-		int pos2 = rand() % count;
+		int pos1 = random.getLong(count);
+		int pos2 = random.getLong(count);
 		if (pos1 == pos2)
 			continue;
 		BYTE f = PosTable[pos1].f;
