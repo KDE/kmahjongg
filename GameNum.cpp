@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #include <qlabel.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <qlineedit.h>
 
 #include <klocale.h>

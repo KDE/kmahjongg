@@ -31,7 +31,7 @@
 class KMenuBar;
 class QLabel;
 
-#include <qfiledlg.h>
+#include <qfiledialog.h>
 
 #include <kapp.h>
 #include <kmessagebox.h>

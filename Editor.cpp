@@ -5,7 +5,7 @@
 #include <qpixmap.h>
 #include <qimage.h>
 #include <qlayout.h>
-#include <qfiledlg.h>
+#include <qfiledialog.h>
 #include <qpainter.h>
 #include "Editor.h"
 #include "Editor.moc"

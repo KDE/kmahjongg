@@ -2,9 +2,9 @@
 #define _EditorLoadBase_H 
 
 #include <qdialog.h>
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qcombo.h>
+#include <qbuttongroup.h>
+#include <qpushbutton.h>
+#include <qcombobox.h>
 #include <qframe.h>   
 #include <qstrlist.h>
 #include <qdir.h>

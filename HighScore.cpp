@@ -4,7 +4,7 @@
 
 
 #include <qlabel.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <qfileinfo.h>
 #include <kmessagebox.h>
 #include "kglobal.h"
@@ -13,7 +13,7 @@
 #include <kiconloader.h>
 #include <qlineedit.h>
 #include <qcombobox.h>
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <kapp.h>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";

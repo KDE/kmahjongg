@@ -18,10 +18,10 @@
 
 #define Inherited QDialog
 
-#include <qbttngrp.h>
-#include <qpushbt.h>
-#include <qchkbox.h>
-#include <qradiobt.h>
+#include <qbuttongroup.h>
+#include <qpushbutton.h>
+#include <qcheckbox.h>
+#include <qradiobutton.h>
 #include <kapp.h>
 
 #include <qlayout.h>

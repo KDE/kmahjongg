@@ -16,9 +16,9 @@
 #include "klocale.h"
 #include <qfileinfo.h>
 
-#include <qpushbt.h>
+#include <qpushbutton.h>
 #include <qcombobox.h>
-#include <qbttngrp.h>
+#include <qbuttongroup.h>
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 

@@ -28,7 +28,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <qmsgbox.h>
+#include <qmessagebox.h>
 #include <qtimer.h>
 #include <qaccel.h>
 #include <qfile.h>
