@@ -1,11 +1,8 @@
 
 #include <stdlib.h> 
 #include <kapplication.h>
-#include <qdir.h>
 #include <qpixmap.h>
-#include <qimage.h>
 #include <qlayout.h>
-#include <qfiledialog.h>
 #include <qpainter.h>
 #include "Editor.h"
 #include "Editor.moc"

@@ -28,13 +28,11 @@
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
-class KMenuBar;
 class QLabel;
 
 #include <qfiledialog.h>
 
 #include <kapplication.h>
-#include <kmessagebox.h>
 #include <krandomsequence.h>
 
 #include <kmainwindow.h>
@@ -136,7 +134,6 @@ class BoardWidget : public QWidget
         BoardWidget( QWidget* parent );
 
         void calculateNewGame(int num = -1 );
-        void helpMove();
         int  undoMove();
 	void redoMove(void);
         void startDemoMode();
@@ -144,7 +141,6 @@ class BoardWidget : public QWidget
 
 	void pause();
 
-	void shuffle(void);
         void animateMoveList();
         void setShowMatch( bool );
 	void tileSizeChanged(void);
@@ -154,6 +150,8 @@ class BoardWidget : public QWidget
 
 	
     public slots:
+	void shuffle(void);
+        void helpMove();
         void helpMoveTimeout();
         void demoMoveTimeout();
         void matchAnimationTimeout();
@@ -298,7 +296,6 @@ class KMahjonggWidget : public KMainWindow
 
 
     public slots:
-        void menuCallback( int );
         void startNewGame( int num = -1 );
         void showStatusText ( const QString& , long);
         void showMessage    ( const QString& );
@@ -314,16 +311,34 @@ class KMahjonggWidget : public KMainWindow
 	
 	void tileSizeChanged(void);
 
+    protected slots:
+	void startNewNumeric();
+	void saveGame(void);
+	void loadGame(void);
+	void undo();
+	void redo();
+	void slotPreferences();
+	void pause();
+	void demoMode();
+	void showMatchingTiles();
+	void showHighscores();
+	void slotBoardEditor();
+	void openTheme();
+	void saveTheme();
+	void openLayout();
+	void openBackground();
+	void openTileset();
+	void keyBindings();
+
     protected:
         void closeEvent ( QCloseEvent* );
 
+        void setupKAction();
         void setupStatusBar();
         void setupMenuBar();
         void setupToolBar();
         void updateStatusbar( bool );
-	void enableItem(int item, bool state);
-	void loadGame(void);
-	void saveGame(void);
+	void enableItem(int item, bool state){}
 
     private:
 	// number of seconds since the start of the game
@@ -339,8 +354,6 @@ class KMahjonggWidget : public KMainWindow
 	HighScore    *theHighScores;
         KStatusBar*  pStatusBar;
 	KToolBar     *toolBar;
-        KMenuBar*    pMenuBar;
-	KPopupMenu   *gameMenu;
 	PrefsDlg     *prefsDlg;
 	Preview      *previewLoad;
 	Editor*	     boardEditor;

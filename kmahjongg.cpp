@@ -28,19 +28,20 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <qmessagebox.h>
 #include <qtimer.h>
-#include <qaccel.h>
 #include <qfile.h>
 
 #include <kmessagebox.h>
-#include <kiconloader.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
 #include <kio/netaccess.h>
 #include <kmenubar.h>
 #include <kstandarddirs.h>
+#include <kaction.h>
+#include <kstdaction.h>
+#include <kstdgameaction.h>
+#include <kkeydialog.h>
 
 #include "kmahjongg.moc"
 #include "version.h"
@@ -49,7 +50,6 @@
 #include "Progress.h"
 
 #include <kaboutdata.h>
-#include <kpopupmenu.h>
 
 
 static const char *description = I18N_NOOP("KDE Game");
@@ -74,31 +74,6 @@ static const char *description = I18N_NOOP("KDE Game");
 #define TILE_WIND       (31 + TILE_OFFSET)
 #define TILE_DRAGON     (36 + TILE_OFFSET)
 #define TILE_FLOWER     (39 + TILE_OFFSET)
-
-#define ID_FILE_NEW              101
-#define ID_FILE_LOAD_TILESET     102
-#define ID_FILE_LOAD_BACKGND     103
-#define ID_FILE_LOAD_THEME       104
-#define ID_FILE_LOAD_GAME        105
-#define ID_FILE_LOAD_BOARD       106
-#define ID_FILE_SAVE_GAME        107
-#define ID_FILE_EXIT             108
-#define ID_FILE_NEW_NUMERIC      109
-#define ID_FILE_SAVE_THEME       110
-
-#define ID_EDIT_UNDO             201
-#define ID_EDIT_REDO             202
-#define ID_EDIT_BOARD_EDIT       203
-#define ID_EDIT_PREFS            204
-
-
-#define ID_GAME_HELP             301
-#define ID_GAME_DEMO             302
-#define ID_GAME_SHOW             303
-#define ID_GAME_SHOW_HISCORE     305
-#define ID_GAME_PAUSE            306
-#define ID_GAME_CONTINUE	 307
-#define ID_GAME_SHUFFLE		 308
 
 #define ID_GAME_TIMER 		999
 
@@ -126,7 +101,10 @@ int main( int argc, char** argv )
     KAboutData aboutData( "kmahjongg", I18N_NOOP("KMahjongg"),
       KMAHJONGG_VERSION, description, KAboutData::License_GPL,
       "(c) 1997, Mathias Mueller");
-    aboutData.addAuthor("Mathias Mueller",0, "in5y158@public.uni-hamburg.de");
+    aboutData.addAuthor("Mathias Mueller", I18N_NOOP("Original Author"), "in5y158@public.uni-hamburg.de");
+    aboutData.addAuthor("David Black", I18N_NOOP("Rewrite and Extension"), "david.black@lutris.com");
+    aboutData.addAuthor("Michael Haertjens", I18N_NOOP("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
+    aboutData.addAuthor("Osvaldo Stark", I18N_NOOP("Tile set contributor and web page maintainer"), "starko@dnet.it", "http://freeweb.dnet.it/kmj/");
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
@@ -169,11 +147,9 @@ progress("Creating board widget");
 progress("Initialising status bar");
     setupStatusBar();
 
-progress("Initialising menu bar");
-    setupMenuBar();
-
-progress("Setting up tool bar");
-    setupToolBar();
+progress("Initialising actions");
+    setupKAction();
+    setupToolBar(); // a few non-KAction things
 
 progress("Initialising highscores");
     theHighScores = new HighScore(this);
@@ -248,7 +224,6 @@ progress("Starting new game");
 KMahjonggWidget::~KMahjonggWidget()
 {
     delete pStatusBar;
-    delete pMenuBar;
     delete prefsDlg;
     delete previewLoad;
     delete theHighScores;
@@ -259,51 +234,63 @@ KMahjonggWidget::~KMahjonggWidget()
 
 
 // ---------------------------------------------------------
+void KMahjonggWidget::setupKAction()
+{
+    // game
+    KStdGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    KStdGameAction::load(this, SLOT(loadGame()), actionCollection());
+    KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
+    KStdGameAction::quit(kapp, SLOT(quit()), actionCollection());
+    (void)new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
+    (void)new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
+    (void)new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
+    (void)new KAction(i18n("Open &Background..."), 0, this, SLOT(openBackground()), actionCollection(), "game_open_background");
+    (void)new KAction(i18n("Open La&yout..."), 0, this, SLOT(openLayout()), actionCollection(), "game_open_layout");
+    (void)new KAction(i18n("Sa&ve Theme..."), 0, this, SLOT(saveTheme()), actionCollection(), "game_save_theme");
+    // originally "file" ends here
+    (void)new KAction(i18n("&Help Me"), "help", Qt::Key_H, bw, SLOT(helpMove()), actionCollection(), "game_hint");
+    (void)new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "game_shuffle");
+    (void)new KToggleAction(i18n("&Demo Mode"), 0, this, SLOT(demoMode()), actionCollection(), "game_demo_mode");
+    (void)new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "game_show_matching_tiles");
+    KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+    KStdGameAction::pause(this, SLOT(pause()), actionCollection());
+
+
+    // TODO: store the background ; open on startup
+    // TODO: same about layout
+    // TODO: same about theme
+
+    // move
+    KStdGameAction::undo(this, SLOT(undo()), actionCollection());
+    KStdGameAction::redo(this, SLOT(redo()), actionCollection());
+
+    // edit
+    (void)new KAction(i18n("&Board Editor..."), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+
+    // settings
+    KStdAction::preferences(this, SLOT(slotPreferences()), actionCollection());
+    KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
+
+
+
+
+
+    createGUI();
+}
+
+// ---------------------------------------------------------
 void KMahjonggWidget::setupToolBar()
 {
-	toolBar = new KToolBar( this );
+    toolBar = KMainWindow::toolBar();
 
-	// new game
-	toolBar->insertButton(BarIcon("filenew"),
-		ID_FILE_NEW, TRUE, i18n("New Game."));
-	// new numbered game
-	toolBar->insertButton(UserIcon("newnum"),
-		ID_FILE_NEW_NUMERIC, TRUE, i18n("New Numbered Game."));
-	// open game
-	toolBar->insertButton(BarIcon("fileopen"),
-		ID_FILE_LOAD_GAME, TRUE, i18n("Open Game."));
-	// save game
-	toolBar->insertButton(BarIcon("filesave"),
-		ID_FILE_SAVE_GAME, TRUE, i18n(" Save Game."));
-	// undo move
-	toolBar->insertButton(BarIcon("undo"),
-		ID_EDIT_UNDO, TRUE, i18n("Undo Move."));
-	// redo move
-	toolBar->insertButton(BarIcon("redo"),
-		ID_EDIT_REDO, TRUE, i18n("Redo Move."));
-	// pause
-	toolBar->insertButton(BarIcon("player_pause"),
-		ID_GAME_PAUSE, TRUE, i18n("Pause Game."));
-	// play
-	toolBar->insertButton(BarIcon("1rightarrow"),
-		ID_GAME_CONTINUE, TRUE, i18n("Play Game."));
-	// Show hint
+    // add the timer widget
 
-	toolBar->insertButton(BarIcon("help"),
-		ID_GAME_HELP, TRUE, i18n("Hint."));
+    gameTimer = new GameTimer(toolBar);
+    toolBar->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
 
-
-
-	// add the timer widget
-
-   	 gameTimer = new GameTimer(toolBar);
-    	toolBar->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
-
-	toolBar->alignItemRight( ID_GAME_TIMER, true );
-	toolBar->setBarPos(KToolBar::Top);
-	toolBar->show();
-
-    connect( toolBar,  SIGNAL(clicked(int) ), SLOT( menuCallback(int) ) );
+    toolBar->alignItemRight( ID_GAME_TIMER, true );
+    toolBar->setBarPos(KToolBar::Top);
+    toolBar->show();
 }
 
 
@@ -354,7 +341,7 @@ void KMahjonggWidget::setDisplayedWidth() {
     bw->setDisplayedWidth();
     setFixedSize( bw->size() +
                   QSize( 2, (preferences.showStatus() ? pStatusBar->height() : 0)
-                     + 2 + pMenuBar->height() ) );
+                     + 2 + menuBar()->height() ) );
 	toolBar->setFixedWidth(bw->width());
 	toolBar->alignItemRight( ID_GAME_TIMER, true );
 	bw->drawBoard();
@@ -362,195 +349,118 @@ void KMahjonggWidget::setDisplayedWidth() {
 
 
 // ---------------------------------------------------------
-void KMahjonggWidget::setupMenuBar()
+void KMahjonggWidget::startNewNumeric()
 {
-
-  // set up the file menu
-  KPopupMenu *file = new KPopupMenu;
-  file->insertItem(SmallIcon("filenew"), i18n("New Game"), ID_FILE_NEW);
-  file->insertItem(i18n("New Numbered Game..."), ID_FILE_NEW_NUMERIC);
-  file->insertSeparator();
-  file->insertItem(SmallIcon("fileopen"), i18n("&Open Game... "), ID_FILE_LOAD_GAME);
-  file->insertItem(i18n("Open The&me..."), ID_FILE_LOAD_THEME);
-  file->insertItem(i18n("Open &Tileset..."), ID_FILE_LOAD_TILESET);
-  file->insertItem(i18n("Open &Background..."), ID_FILE_LOAD_BACKGND);
-  file->insertItem( i18n("Open &Layout..."), ID_FILE_LOAD_BOARD );
-  file->insertSeparator();
-  file->insertItem(i18n("&Save Theme..."), ID_FILE_SAVE_THEME);
-  file->insertItem(SmallIcon("filesave"), i18n("&Save Game..."), ID_FILE_SAVE_GAME);
-  file->insertSeparator();
-  file->insertItem(SmallIcon("exit"), i18n("&Quit "), ID_FILE_EXIT);
-
-  KPopupMenu *edit = new KPopupMenu;
-  edit->insertItem(SmallIcon("undo"), i18n("&Undo"), ID_EDIT_UNDO);
-  edit->insertItem(SmallIcon("redo"), i18n("&Redo"), ID_EDIT_REDO);
-  edit->insertSeparator();
-  edit->insertItem(i18n("&Board Editor..."), ID_EDIT_BOARD_EDIT);
-  edit->insertSeparator();
-  edit->insertItem(SmallIcon("configure"), i18n("&Preferences..."), ID_EDIT_PREFS);
-
-
-  KPopupMenu *game = new KPopupMenu;
-  game->insertItem( i18n("&Help Me"),           ID_GAME_HELP );
-  game->setAccel(Key_H, ID_GAME_HELP);
-  game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
-  game->insertItem( i18n("&Demo Mode"),         ID_GAME_DEMO );
-  game->insertItem( i18n("Show &Matching Tiles"), ID_GAME_SHOW );
-  game->insertItem( i18n("&Show High Scores..."), ID_GAME_SHOW_HISCORE );
-  game->insertSeparator();
-  game->insertItem( SmallIcon("player_pause"), i18n("&Pause"), ID_GAME_PAUSE );
-  game->insertItem( SmallIcon("1rightarrow"), i18n("&Continue"), ID_GAME_CONTINUE );
-
-  // Save a reference to the game menu to allow "Demo Mode" to be checked
-  // and unchecked by demoModeChanged().
-  gameMenu = game;
-
-  QPopupMenu *help = helpMenu(QString(i18n("Mahjongg"))
-      + " " + KMAHJONGG_VERSION
-      + i18n("\n\nOriginal version by Mathias Mueller")
-      + " (in5y158@public.uni-hamburg.de)"
-      + i18n("\n\nRewritten and extended by ")
-      + "David Black"
-      + " (david.black@lutris.com)"
-      + i18n("\n\nSolvable game generation by ")
-      + "Michael Haertjens (mhaertjens@modusoperandi.com),"
-      + "\nbased on algorithm by Michael Meeks in GNOME mahjongg"
-      + i18n("\n\nTile set contributor and web page maintainer: ")
-      + "Osvaldo Stark (starko@dnet.it)"
-      + i18n("\nsee http://freeweb.dnet.it/kmj/ for tile sets and layouts") );
-
-    pMenuBar = new KMenuBar( this );
-
-    pMenuBar->insertItem( i18n("&File"), file );
-    pMenuBar->insertItem( i18n("&Edit"), edit );
-    pMenuBar->insertItem( i18n("&Game"), game );
-    pMenuBar->insertSeparator();
-    pMenuBar->insertItem( i18n("&Help"), help );
-
-    // initialize menu accelerators
-    //
-    // file menu
-    pMenuBar->setAccel(CTRL+Key_N, ID_FILE_NEW);
-    pMenuBar->setAccel(CTRL+Key_O, ID_FILE_LOAD_GAME);
-    pMenuBar->setAccel(CTRL+Key_S, ID_FILE_SAVE_GAME);
-    pMenuBar->setAccel( CTRL+Key_Q, ID_FILE_EXIT );
-
-    pMenuBar->setAccel(CTRL+Key_Z, ID_EDIT_UNDO);
-
-    pMenuBar->show();
-
-    connect( pMenuBar,  SIGNAL(activated(int) ), SLOT( menuCallback(int) ) );
+	if (gameNum->exec()) {
+		startNewGame(gameNum->getNumber());
+	}
 }
 
-// ---------------------------------------------------------
-void KMahjonggWidget::menuCallback( int item )
+void KMahjonggWidget::undo()
 {
-    switch( item )
-    {
-        case ID_FILE_NEW:
-	  	startNewGame();
-	  	break;
-	case ID_FILE_NEW_NUMERIC:
-		if (gameNum->exec()) {
-			startNewGame(gameNum->getNumber());
-		}
-		break;
-        case ID_FILE_EXIT:
-	    	// write configuration
-	    	kapp->quit();
-            	break;
-        case ID_GAME_HELP:
-            	bw->helpMove();
-            	break;
-        case ID_EDIT_UNDO:
-            	bw->Game.allow_redo += bw->undoMove();
-	    	demoModeChanged(false);
-            	break;
-        case ID_EDIT_REDO:
-	    	if (bw->Game.allow_redo >0) {
-            		bw->Game.allow_redo--;
-			bw->redoMove();
-	    		demoModeChanged(false);
-	    	}
-            	break;
-        case ID_EDIT_PREFS:
-	      	prefsDlg->initialise();
-	      	prefsDlg->exec();
-            preferences.sync();
-            	break;
+    bw->Game.allow_redo += bw->undoMove();
+    demoModeChanged(false);
+}
 
-        case ID_GAME_DEMO:
-            	if( bDemoModeActive ) {
-                	bw->stopDemoMode();
-            	} else {
-			// we assume demo mode removes tiles so we can
-			// disbale redo here.
-			bw->Game.allow_redo=false;	
-            		bw->startDemoMode();
-	    	}
-            	break;
-
-        case ID_GAME_PAUSE:
-        case ID_GAME_CONTINUE:
-	    	is_paused = !is_paused;
-	    	demoModeChanged(false);
-	    	gameTimer->pause();
-	    	bw->pause();
-            	break;
-	case ID_GAME_SHUFFLE:
-		bw->shuffle();
-		break;
-        case ID_GAME_SHOW:
-            	bShowMatchingTiles = ! bShowMatchingTiles;
-            	bw->setShowMatch( bShowMatchingTiles );
-            	pMenuBar->setItemChecked( ID_GAME_SHOW, bShowMatchingTiles );
-            	break;
-        case ID_FILE_LOAD_BOARD:
-	    	previewLoad->initialise(Preview::board, EXT_LAYOUT);
-	 	previewLoad->exec();
-	    	break;
-        case ID_FILE_LOAD_BACKGND:
-	    	previewLoad->initialise(Preview::background, EXT_BACKGROUND);
-	    	previewLoad->exec();
-	    	break;
-        case ID_FILE_LOAD_TILESET:
-	    	previewLoad->initialise(Preview::tileset, EXT_TILESET);
-	    	previewLoad->exec();
-	    	break;
-        case ID_FILE_LOAD_THEME:
-	    	previewLoad->initialise(Preview::theme, EXT_THEME);
-	    	previewLoad->exec();
-	    	break;
-	case ID_EDIT_BOARD_EDIT:
-		if (!boardEditor)
-		    boardEditor = new Editor(this);
-		boardEditor->exec();
-		break;
-	case ID_GAME_SHOW_HISCORE:
-		theHighScores->exec(bw->getLayoutName());
-		break;
-	case ID_FILE_LOAD_GAME:
-		loadGame();
-		break;
-	case ID_FILE_SAVE_GAME:
-		saveGame();
-		break;
-	case ID_FILE_SAVE_THEME:
-	    	previewLoad->initialise(Preview::theme, EXT_THEME);
-	    	previewLoad->saveTheme();
-		break;
+void KMahjonggWidget::redo()
+{
+    if (bw->Game.allow_redo >0) {
+            bw->Game.allow_redo--;
+            bw->redoMove();
+            demoModeChanged(false);
     }
 }
 
+void KMahjonggWidget::slotPreferences()
+{
+    prefsDlg->initialise();
+    prefsDlg->exec();
+    preferences.sync();
+}
+
+void KMahjonggWidget::keyBindings()
+{
+    KKeyDialog::configure(actionCollection(), this);
+}
+
+void KMahjonggWidget::demoMode()
+{
+    if( bDemoModeActive ) {
+            bw->stopDemoMode();
+    } else {
+        // we assume demo mode removes tiles so we can
+        // disbale redo here.
+        bw->Game.allow_redo=false;	
+        bw->startDemoMode();
+    }
+
+}
+
+void KMahjonggWidget::pause()
+{
+    is_paused = !is_paused;
+    demoModeChanged(false);
+    gameTimer->pause();
+    bw->pause();
+}
+
+void KMahjonggWidget::showMatchingTiles()
+{
+    bShowMatchingTiles = ! bShowMatchingTiles;
+    bw->setShowMatch( bShowMatchingTiles );
+    ((KToggleAction*)actionCollection()->action("game_show_matching_tiles"))->setChecked(bShowMatchingTiles);
+}
+
+void KMahjonggWidget::showHighscores()
+{
+    theHighScores->exec(bw->getLayoutName());
+}
+
+void KMahjonggWidget::openTheme()
+{
+    previewLoad->initialise(Preview::theme, EXT_THEME);
+    previewLoad->exec();
+}
+
+void KMahjonggWidget::saveTheme()
+{
+    previewLoad->initialise(Preview::theme, EXT_THEME);
+    previewLoad->saveTheme();
+}
+
+void KMahjonggWidget::openLayout()
+{
+    previewLoad->initialise(Preview::board, EXT_LAYOUT);
+    previewLoad->exec();
+}
+
+void KMahjonggWidget::openBackground()
+{
+    previewLoad->initialise(Preview::background, EXT_BACKGROUND);
+    previewLoad->exec();
+}
+
+void KMahjonggWidget::openTileset()
+{
+    previewLoad->initialise(Preview::tileset, EXT_TILESET);
+    previewLoad->exec();
+}
+
+void KMahjonggWidget::slotBoardEditor()
+{
+    if (!boardEditor)
+            boardEditor = new Editor(this);
+    boardEditor->exec();
+}
 
 //----------------------------------------------------------
 // signalled from the prieview dialog to generate a new game
 // we don't make startNewGame a slot because it has a default
 // param.
 
-void KMahjonggWidget::newGame(void) {
-	startNewGame();
-
+void KMahjonggWidget::newGame(void) 
+{
+    startNewGame();
 }
 
 
@@ -559,7 +469,6 @@ void KMahjonggWidget::newGame(void) {
 void KMahjonggWidget::startNewGame( int item )
 {
     if( ! bDemoModeActive ) {
-
         bw->calculateNewGame(item);
 
 	// initialise button states
@@ -661,19 +570,11 @@ void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent )
     // update undo menu item, if demomode is inactive
     if( ! bDemoModeActive && !is_paused)
     {
-        pMenuBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
-        toolBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
+
+//        pMenuBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
+//        toolBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
+        actionCollection()->action("move_undo")->setEnabled(bw->Game.allow_undo);
     }
-}
-
-
-// ---------------------------------------------------------
-// Set a menu button and tool bar items enabled state. Saves
-// a lot of redundant code for menu's and toolbars.
-void KMahjonggWidget::enableItem(int item, bool state)
-{
-	pMenuBar->setItemEnabled( item, state);
-    	toolBar->setItemEnabled( item,  state);
 }
 
 
@@ -681,48 +582,42 @@ void KMahjonggWidget::enableItem(int item, bool state)
 void KMahjonggWidget::demoModeChanged( bool bActive)
 {
     bDemoModeActive = bActive;
-
     if (bActive || is_paused) {
+	    actionCollection()->action("move_undo")->setEnabled(false);
+	    actionCollection()->action("move_redo")->setEnabled(false);
+	    if (!is_paused) {
+		    actionCollection()->action("game_demo_mode")->setEnabled(true);
+		    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(false);
 
-        enableItem( ID_EDIT_UNDO, false);
-        enableItem( ID_EDIT_REDO, false);
-		if (!is_paused) {
-	      enableItem( ID_GAME_PAUSE, false);
-	      enableItem( ID_GAME_CONTINUE, false);
-	      enableItem( ID_GAME_DEMO, true);
-		} else {
-		    enableItem( ID_GAME_PAUSE, !is_paused);
-		    enableItem( ID_GAME_CONTINUE, is_paused);
-	        enableItem( ID_GAME_DEMO, false);
-		}
-
-		gameMenu->setItemChecked(ID_GAME_DEMO, true);
-
+	    } else {
+		    actionCollection()->action("game_demo_mode")->setEnabled(false);
+		    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(true);
+		    ((KToggleAction*)actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause)))->setChecked(is_paused);
+	    }
+	    ((KToggleAction*)actionCollection()->action("game_demo_mode"))->setChecked(true);
     } else {
-        enableItem( ID_EDIT_UNDO, bw->Game.allow_undo);
-        enableItem( ID_EDIT_REDO, bw->Game.allow_redo);
-	    enableItem( ID_GAME_PAUSE, !is_paused);
-	    enableItem( ID_GAME_CONTINUE, is_paused);
-	    enableItem( ID_GAME_DEMO, true);
-
-		gameMenu->setItemChecked(ID_GAME_DEMO, false);
+	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Undo))->setEnabled(bw->Game.allow_undo);
+	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Redo))->setEnabled(bw->Game.allow_redo);
+	    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause))->setEnabled(true);
+	    ((KToggleAction*)actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Pause)))->setChecked(is_paused);
+	    actionCollection()->action("game_demo_mode")->setEnabled(true);
+	    ((KToggleAction*)actionCollection()->action("game_demo_mode"))->setChecked(false);
     }
 
-    enableItem( ID_FILE_LOAD_TILESET, !bActive && !is_paused );
-    enableItem( ID_FILE_NEW,  !bActive  && !is_paused);
-    enableItem( ID_FILE_LOAD_BACKGND, !bActive && !is_paused );
-    enableItem( ID_FILE_LOAD_THEME, !bActive  && !is_paused);
-    enableItem( ID_FILE_LOAD_GAME, !bActive  && !is_paused);
-    enableItem( ID_FILE_SAVE_GAME, !bActive  && !is_paused);
-
-    enableItem( ID_EDIT_BOARD_EDIT, !bActive  && !is_paused);
-    enableItem( ID_EDIT_PREFS, !bActive  && !is_paused);
-
-    enableItem( ID_GAME_HELP, !bActive  && !is_paused);
-    enableItem( ID_GAME_SHOW, !bActive  && !is_paused);
-    enableItem( ID_GAME_SHOW_HISCORE, !bActive  && !is_paused);
-    enableItem( ID_FILE_LOAD_BOARD, !bActive  && !is_paused);
-
+    bool e = (!bActive && !is_paused);
+    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::New))->setEnabled(e);
+    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Load))->setEnabled(e);
+    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Save))->setEnabled(e);
+    actionCollection()->action(KStdAction::name(KStdAction::Preferences))->setEnabled(e);
+    actionCollection()->action(KStdGameAction::stdName(KStdGameAction::Highscores))->setEnabled(e);
+    actionCollection()->action("game_open_tileset")->setEnabled(e);
+    actionCollection()->action("game_open_background")->setEnabled(e);
+    actionCollection()->action("game_open_theme")->setEnabled(e);
+    actionCollection()->action("game_open_layout")->setEnabled(e);
+    actionCollection()->action("edit_board_editor")->setEnabled(e);
+    actionCollection()->action("game_hint")->setEnabled(e);
+    actionCollection()->action("game_show_matching_tiles")->setEnabled(e);
+    actionCollection()->action("game_open_layout")->setEnabled(e);
 }
 
 
@@ -2279,7 +2174,6 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 // ---------------------------------------------------------
 void BoardWidget::drawBoard(bool )
 {
-
    updateBackBuffer=true;
    repaint(0,0,-1,-1,false);
    drawTileNumber();

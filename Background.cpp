@@ -6,7 +6,10 @@
 #include <qpixmap.h>
 Background::Background()
 {
-
+  sourceImage = 0;
+  backgroundImage = 0;
+  backgroundPixmap = 0;
+  backgroundShadowPixmap = 0;
 }
 
 Background::~Background() {
@@ -14,7 +17,6 @@ Background::~Background() {
   delete backgroundImage;
   delete backgroundPixmap;
   delete backgroundShadowPixmap;
-
 }
 
 bool Background::load(const QString &file, short width, short height) {

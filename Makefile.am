@@ -1,9 +1,9 @@
 
 ####### Defines
 
-INCLUDES=	$(all_includes)
+INCLUDES=	-I$(top_srcdir)/libkdegames $(all_includes)
 LDFLAGS	=	$(all_libraries) $(KDE_RPATH)
-LDADD   =       $(LIB_KFILE)
+LDADD   =       $(top_builddir)/libkdegames/libkdegames.la $(LIB_KFILE)
 
 ####### Files
 
@@ -28,8 +28,11 @@ KDE_ICON = kmahjongg
 
 EXTRA_DIST = $(apps_DATA) kmahjongg.desktop
 
-messages:
-	$(XGETTEXT) -kTRANS $(kmahjongg_SOURCES) -o ../po/kmahjongg.pot
+rcdir = $(kde_datadir)/kmahjongg
+rc_DATA = kmahjonggui.rc
+
+messages: rc.cpp
+	$(XGETTEXT) -kTRANS rc.cpp $(kmahjongg_SOURCES) -o $(podir)/kmahjongg.pot
 
 install-data-local:
 	rm -rf $(kde_appsdir)/Games/kmahjongg.desktop

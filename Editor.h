@@ -2,14 +2,7 @@
 #define _EditorLoadBase_H 
 
 #include <qdialog.h>
-#include <qbuttongroup.h>
-#include <qpushbutton.h>
-#include <qcombobox.h>
 #include <qframe.h>   
-#include <qstrlist.h>
-#include <qdir.h>
-#include <qimage.h>
-#include <qpixmap.h>
 #include <ktoolbar.h>
 #include <kstatusbar.h>
 #include <kfiledialog.h>

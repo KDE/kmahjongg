@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "Tileset.h"
 #include <qimage.h>
-#include <qbitmap.h>
 
 
 #define mini_width 20

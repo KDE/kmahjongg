@@ -1,4 +1,4 @@
-toolbar_DATA = newnum.xpm pause.xpm play.xpm
+toolbar_DATA = newnum.xpm
 toolbardir = $(kde_datadir)/kmahjongg/toolbar
 
 theme_DATA = default.theme pirates.theme

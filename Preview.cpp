@@ -12,7 +12,6 @@
 #include "Preferences.h"
 #include "kmessagebox.h"
 #include "kstandarddirs.h"
-#include "kglobal.h"
 #include "klocale.h"
 #include <qfileinfo.h>
 
