@@ -74,7 +74,6 @@ HighScore::HighScore
 	qtarch_Label_4->setGeometry( 40, 45, 150, 30 );
 	qtarch_Label_4->setFrameStyle( 50 );
 	qtarch_Label_4->setText( i18n("Name") );
-	qtarch_Label_4->setAlignment( 289 );
 	qtarch_Label_4->setFont(fnt);
 
 
@@ -92,7 +91,6 @@ HighScore::HighScore
 	qtarch_Label_5->setGeometry( 270, 45, 70, 30 );
 	qtarch_Label_5->setFrameStyle( 50 );
 	qtarch_Label_5->setText( i18n("Score") );
-	qtarch_Label_5->setAlignment( 289 );
 	qtarch_Label_5->setFont(fnt);
 
         // time
@@ -101,7 +99,6 @@ HighScore::HighScore
         qtarch_Label_6->setGeometry( 340, 45, 70, 30 );
         qtarch_Label_6->setFrameStyle( 50 );
         qtarch_Label_6->setText( i18n("Time") );
-        qtarch_Label_6->setAlignment( 289 );
         qtarch_Label_6->setFont(fnt); 
 
 
