@@ -25,7 +25,6 @@
   <Action name="game_new" />
   <Action name="game_new_numeric" />
   <Action name="game_load" />
-  <Action name="game_restart" />
   <Action name="game_save" />
   <Action name="move_undo" />
   <Action name="move_redo" />
@@ -38,7 +37,6 @@
     <Action name="game_new"/>
     <Action name="game_new_numeric"/>
     <Action name="game_load"/>
-    <Action name="game_restart" />
     <Action name="game_save"/>
     <Action name="game_highscores"/>
     <Action name="game_open_theme"/>
@@ -63,7 +61,6 @@
     <Action name="game_new"/>
     <Action name="game_new_numeric"/>
     <Action name="game_load"/>
-    <Action name="game_restart" />
     <Action name="game_save"/>
     <Action name="game_highscores"/>
     <Action name="game_open_theme"/>
@@ -87,7 +84,6 @@
     <Action name="game_new"/>
     <Action name="game_new_numeric"/>
     <Action name="game_load"/>
-    <Action name="game_restart" />
     <Action name="game_save"/>
     <Action name="game_highscores"/>
     <Action name="game_open_theme"/>
