@@ -632,7 +632,9 @@ void KMahjonggWidget::showMessage( const QString &msg )
 // ---------------------------------------------------------
 void KMahjonggWidget::showTileNumber( int iMaximum, int iCurrent )
 {
-    QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
+    // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
+    //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
+    QString szBuffer = i18n("Removed: %1/%2").arg(iMaximum-iCurrent).arg(iMaximum);
     tilesLeftLabel->setText(szBuffer);
 
     // Update here since undo allow is effected by demo mode
