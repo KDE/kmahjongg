@@ -5,7 +5,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
-static const char description[] = I18N_NOOP("KDE Game");
+static const char description[] = I18N_NOOP("Mahjongg for KDE");
 
 int main( int argc, char** argv )
 {
@@ -18,7 +18,7 @@ int main( int argc, char** argv )
     aboutData.addAuthor("Osvaldo Stark", I18N_NOOP("Tile set contributor and web page maintainer"), "starko@dnet.it");
     aboutData.addCredit("Benjamin Meyer", I18N_NOOP("Code cleanup"), "ben+kmahjongg@meyerhome.net");
     aboutData.addCredit("Albert Astals Cid", I18N_NOOP("Implemented some bugfixes and wishes"), "astals11@terra.es");
-    
+
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication a;
