@@ -4,18 +4,19 @@
 
 
 #include <qlabel.h>
-#include <qpushbutton.h>
 #include <qfileinfo.h>
 #include <kmessagebox.h>
 #include "klocale.h"
-#include <kstandarddirs.h>                       
+#include <kstandarddirs.h>
 #include <kiconloader.h>
 #include <qlineedit.h>
 #include <qcombobox.h>
 #include <kapplication.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
-static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";  
+static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";
 
 static const char * highScoreFilename = "/kmahjonggHiscores";
 
@@ -32,11 +33,11 @@ const char * defNames[numScores] = {
     "Phil Lamdin"
 };
 
-int defScores[numScores] = 
-	{400, 350, 300, 250, 200, 150, 100, 50, 20, 10}; 
- 
-const int ages = 59+(59*60)+(2*60*60);    
-int defTimes[numScores] = {ages, ages-1, ages-2, ages-3,  
+int defScores[numScores] =
+	{400, 350, 300, 250, 200, 150, 100, 50, 20, 10};
+
+const int ages = 59+(59*60)+(2*60*60);
+int defTimes[numScores] = {ages, ages-1, ages-2, ages-3,
 				ages-4, ages-5, ages-6, ages-7, ages-8, ages-9};
 
 
@@ -99,7 +100,7 @@ HighScore::HighScore
         qtarch_Label_6->setGeometry( 340, 45, 70, 30 );
         qtarch_Label_6->setFrameStyle( 50 );
         qtarch_Label_6->setText( i18n("Time") );
-        qtarch_Label_6->setFont(fnt); 
+        qtarch_Label_6->setFont(fnt);
 
 
 
@@ -107,12 +108,11 @@ HighScore::HighScore
 		addRow(row);
 
 	QPushButton* qtarch_PushButton_1;
-	qtarch_PushButton_1 = new QPushButton( this, "PushButton_1" );
+	qtarch_PushButton_1 = new KPushButton( KStdGuiItem::ok(), this, "PushButton_1" );
 	qtarch_PushButton_1->setGeometry( 110+35, 340+50, 100, 30 );
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
 	qtarch_PushButton_1->setFocusPolicy( QWidget::TabFocus );
-	qtarch_PushButton_1->setText(i18n( "&OK" ));
 	qtarch_PushButton_1->setAutoRepeat( FALSE );
         qtarch_PushButton_1->setAutoResize( FALSE );
         qtarch_PushButton_1->setDefault(true);
@@ -129,7 +129,7 @@ HighScore::HighScore
 
  	KIconLoader *loader = KGlobal::iconLoader();
         resetBtn->setPixmap(loader->loadIcon("editdelete", KIcon::Toolbar));
-       
+
 
 
 	/* We create the ediat area for the hi score name entry and move it */
@@ -158,13 +158,13 @@ HighScore::HighScore
 	resize( 350+70,390+45 );
 	setFixedSize(350+70,390+45);
 
-	tables = NULL; 
+	tables = NULL;
 	loadTables();
 	currTable = tables;
 
 	setCaption(kapp->makeStdCaption(i18n("Scores")));
 
-	selectedLine = -1;	
+	selectedLine = -1;
 
 	connect(lineEdit, SIGNAL( textChanged(const QString &)),
 					  SLOT( nameChanged(const QString &)));
@@ -175,7 +175,7 @@ HighScore::HighScore
 }
 
 // free up the table structures
-	
+
 HighScore::~HighScore()
 {
 	TableInstance *t, *t1;
@@ -203,13 +203,13 @@ void HighScore::loadTables(void) {
 
 	// open the file, on error set up the default table
 	FILE *fp = fopen( QFile::encodeName(highScoreFile()), "r");
-	if (fp == NULL) 
-		goto error;	
+	if (fp == NULL)
+		goto error;
 
 	// check magic
  	fscanf(fp, "%1023s\n", buff);
 	if (highScoreMagic1_1 != buff) {
-		goto error;	
+		goto error;
 	}
 
 	int num;
@@ -229,7 +229,7 @@ void HighScore::loadTables(void) {
 		combo->insertItem(t->name);
 		setComboTo(t->name);
 		for (int e=0; e<numScores; e++) {
-			fscanf(fp, "%ld\n", &(t->entries[e].score)); 
+			fscanf(fp, "%ld\n", &(t->entries[e].score));
 			fscanf(fp, "%ld\n", &(t->entries[e].elapsed));
 			fscanf(fp, "%ld\n", &(t->entries[e].board));
 			fgets(buff, sizeof(buff), fp);
@@ -237,13 +237,13 @@ void HighScore::loadTables(void) {
 				buff[strlen(buff)-1] = '\0';
 			t->entries[e].name=QString::fromUtf8(buff,-1);
 		}
-	}	
+	}
 
 
 	fclose(fp);
 	return;
 
-	
+
 error:
 	selectTable("default");
 	saveTables();
@@ -264,14 +264,14 @@ void HighScore::saveTables(void) {
 	FILE *fp = fopen( QFile::encodeName(highScoreFile()), "w");
 	if (fp == NULL)
 		return;
-	
+
 	// count up the number of tables to save
  	for (p=tables; p != NULL; p = p->next)
 		num++;
 
 	// output the file magic
 	fprintf(fp,"%s\n", highScoreMagic1_1.utf8().data());
-	
+
 	// output the count of tables to process
 	fprintf(fp, "%d\n", num);
 
@@ -279,19 +279,19 @@ void HighScore::saveTables(void) {
 	for (p=tables; p != NULL; p = p->next) {
 		fprintf(fp, "%s\n", p->name.utf8().data());
 		for (int e=0; e<numScores; e++) {
-			fprintf(fp,"%ld\n%ld\n%ld\n%s\n", 
+			fprintf(fp,"%ld\n%ld\n%ld\n%s\n",
 				p->entries[e].score,
 				p->entries[e].elapsed,
 				p->entries[e].board,
 				p->entries[e].name.utf8().data());
 		}
 	}
-	fclose(fp);	
+	fclose(fp);
 
 }
 
 // traverse the list of hi score tables and set the
-// current table to the specified board. Create it if it does not 
+// current table to the specified board. Create it if it does not
 // exist.
 
 void HighScore::selectTable(const QString &board) {
@@ -303,7 +303,7 @@ void HighScore::selectTable(const QString &board) {
 		if (pos->name == board)
 			break;
 		pos = pos->next;
-	}	
+	}
 
 
 
@@ -311,14 +311,14 @@ void HighScore::selectTable(const QString &board) {
 		// not found, add new board to the front of the list
 	        TableInstance *n = new TableInstance;
         	n->next = tables;
-       	 	n->name = board; 
+       	 	n->name = board;
 
 
 
         	for (int p =0; p < numScores; p ++) {
                 	n->entries[p].name = defNames[p];
                 	n->entries[p].score = defScores[p];
-                	n->entries[p].board = 928364243l+(p *3); 
+                	n->entries[p].board = 928364243l+(p *3);
 			n->entries[p].elapsed = defTimes[p];
         	}
 		tables = n;
@@ -350,8 +350,8 @@ void HighScore::addRow(int num) {
 	namesWidgets[num]->setGeometry( 40, 75+(num*30), 150, 30 );
 	namesWidgets[num]->setFrameStyle( 50 );
 	namesWidgets[num]->setAlignment( 289 );
-	
-	// board 
+
+	// board
 	boardWidgets[num] = new QLabel( this);
 	boardWidgets[num]->setGeometry( 190, 75+(num*30), 80, 30 );
 	boardWidgets[num]->setFrameStyle( 50 );
@@ -371,9 +371,9 @@ void HighScore::addRow(int num) {
         elapsedWidgets[num]->setFrameStyle( 50 );
         tmp = elapsedWidgets[num]->font();
         tmp.setItalic(true);
-        elapsedWidgets[num]->setFont(tmp);    
+        elapsedWidgets[num]->setFont(tmp);
 
-	
+
 }
 
 void HighScore::copyTableToScreen(const QString &name) {
@@ -393,14 +393,14 @@ void HighScore::copyTableToScreen(const QString &name) {
                 e = e - (e % (60*60));
                 int h = (e % (60*60*60)) / (60*60);
                 sprintf(buff, "%2.2d:%2.2d:%2.2d", h, m , s);
-                elapsedWidgets[p]->setText(buff);   
+                elapsedWidgets[p]->setText(buff);
 
 	}
 	repaint(false);
 }
 
 int HighScore::exec(QString &layout) {
-	copyTableToScreen(layout);	
+	copyTableToScreen(layout);
 	return(QDialog::exec());
 }
 
@@ -414,7 +414,7 @@ void HighScore::checkHighScore(int s, int e, long gameNum, QString &name) {
 	// creates it if it does not exist
 	selectTable(board);
 
-	
+
 	for (pos=0; pos <numScores; pos++) {
 		if (s > currTable->entries[pos].score) {
 			break;
@@ -435,7 +435,7 @@ void HighScore::checkHighScore(int s, int e, long gameNum, QString &name) {
 	currTable->entries[pos].elapsed = e;
 
 	lineEdit->setEnabled(true);
-	lineEdit->setGeometry( 40, 75+(pos*30), 150, 30 ); 	
+	lineEdit->setGeometry( 40, 75+(pos*30), 150, 30 );
 	lineEdit->setFocus();
 	lineEdit->setText("");
 	selectedLine = pos;
@@ -449,19 +449,19 @@ void HighScore::checkHighScore(int s, int e, long gameNum, QString &name) {
 	selectedLine = -1;
 	lineEdit->setGeometry( 40, 75+(20*30), 150, 30);
 	lineEdit->setEnabled(false);
-	
+
 	// sync the hiscore table to disk now
 	saveTables();
-	
+
 }
 
 void HighScore::nameChanged(const QString &s) {
 
 	if (selectedLine == -1)
 		return;
-		
+
 	if (s.isEmpty())
-		currTable->entries[selectedLine].name = 
+		currTable->entries[selectedLine].name =
 			i18n("Anonymous");
 	else
 		currTable->entries[selectedLine].name = s;
@@ -501,12 +501,12 @@ void HighScore::reset(void) {
 					   "you wish to proceed?"),
                         		   i18n("Reset high scores" ));
         if (res != 1)
-                return ;   
+                return ;
 
 	// delete the file
 	res = unlink( QFile::encodeName(highScoreFile()));
-	
-	// wipe ou the in memory list of tables	
+
+	// wipe ou the in memory list of tables
 	TableInstance *t, *d;
 
 	if (tables != NULL) {
@@ -519,14 +519,14 @@ void HighScore::reset(void) {
 	    }
 
 	}
-	
+
 	// set the list empty
 	tables = NULL;
-	currTable=NULL;	
+	currTable=NULL;
 
 	// clear out the combobox
 	combo->clear();
-	
+
 	// stick in a default
 	selectTable("default");
 
@@ -538,4 +538,4 @@ void HighScore::reset(void) {
 QString &HighScore::highScoreFile(void) {
 	return filename;
 
-} 
+}
