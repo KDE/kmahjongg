@@ -443,7 +443,6 @@ void KMahjonggWidget::menuCallback( int item )
 		break;
         case ID_FILE_EXIT:
 	    	// write configuration
-	    	preferences.sync();
 	    	kapp->quit();
             	break;
         case ID_GAME_HELP:
@@ -463,6 +462,7 @@ void KMahjonggWidget::menuCallback( int item )
         case ID_EDIT_PREFS:
 	      	prefsDlg->initialise();
 	      	prefsDlg->exec();
+            preferences.sync();
             	break;
 
         case ID_GAME_DEMO:
