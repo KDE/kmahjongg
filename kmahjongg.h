@@ -34,7 +34,7 @@
 
 #include <kapp.h>
 #include <kurl.h>
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 
 
 //----------------------------------------------------------
