@@ -1,134 +1,55 @@
 #include <sys/param.h>
-#include <kapplication.h>
+
+#include <kfiledialog.h>
+#include <klocale.h>
+#include <kmessagebox.h>
+#include <kpushbutton.h>
+#include <kstandarddirs.h>
+#include <kstdguiitem.h>
+
+#include <qcombobox.h>
+#include <qhgroupbox.h>
 #include <qimage.h>
 #include <qregexp.h>
-#include <kfiledialog.h>
 #include <qpainter.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <klocale.h>
-#include <qcombobox.h>
-#include <qbuttongroup.h>
-#include <kpushbutton.h>
-#include <kstdguiitem.h>
+#include <qvbox.h>
 
 #include "prefs.h"
 #include "Preview.h"
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
-Preview::Preview
-(
-	QWidget* parent,
-	const char* name
-)
-	:
-	QDialog( parent, name, TRUE, 0 ), tiles(true)
+Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
 {
-	const int dx=0;
-	const int dy = 66;
+	KPushButton *loadButton;
+	QGroupBox *group;
+	QVBox *page;
+	 
+	page = new QVBox(this);
 
-	bottomGroup = new QButtonGroup( this, "bottomGroup" );
-	bottomGroup->setGeometry( 10, 230+dy, 310+dx, 50 );
-	bottomGroup->setMinimumSize( 0, 0 );
-	bottomGroup->setMaximumSize( 32767, 32767 );
-	bottomGroup->setFocusPolicy( QWidget::NoFocus );
-	bottomGroup->setBackgroundMode( QWidget::PaletteBackground );
-	bottomGroup->setFrameStyle( 49 );
-	bottomGroup->setTitle( "" );
-	bottomGroup->setAlignment( 1 );
+	group = new QHGroupBox(page);
+	
+	combo = new QComboBox(false, group);
+	connect(combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
-	topGroup = new QButtonGroup( this, "topGroup" );
-	topGroup->setGeometry( 10, 10, 310+dx, 50);
-	topGroup->setMinimumSize( 0, 0 );
-	topGroup->setMaximumSize( 32767, 32767 );
-	topGroup->setFocusPolicy( QWidget::NoFocus );
-	topGroup->setBackgroundMode( QWidget::PaletteBackground );
-	topGroup->setFrameStyle( 49 );
-	topGroup->setTitle( "" );
-	topGroup->setAlignment( 1 );
-
-	combo = new QComboBox( FALSE, this, "combo" );
-	combo->setGeometry( 20, 20, 220+dx, 25 );
-	combo->setMinimumSize( 0, 0 );
-	combo->setMaximumSize( 32767, 32767 );
-	combo->setFocusPolicy( QWidget::StrongFocus );
-	combo->setBackgroundMode( QWidget::PaletteBackground );
-	combo->setSizeLimit( 10 );
-	connect( combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)) );
-
-	loadButton = new QPushButton( this, "loadButton" );
-	loadButton->setGeometry( 250+dx, 20, 61, 26 );
-	loadButton->setMinimumSize( 0, 0 );
-	loadButton->setMaximumSize( 32767, 32767 );
+	loadButton = new KPushButton(i18n("Load"), group);
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
-	loadButton->setFocusPolicy( QWidget::TabFocus );
-	loadButton->setBackgroundMode( QWidget::PaletteBackground );
-	loadButton->setText(i18n("Load"));
-	loadButton->setAutoRepeat( FALSE );
-
-	//       total w  - button tot wid /4 (space left)
-	int bw = ((310+dx) - ((90+(dx/3))*3))/4 ;
-	int pos = bw +10;
-
-	okButton = new KPushButton( KStdGuiItem::ok(), this, "okButton" );
-	okButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 ); // was 20
-	okButton->setMinimumSize( 0, 0 );
-	okButton->setMaximumSize( 32767, 32767 );
-	connect( okButton, SIGNAL(clicked()), SLOT(ok()) );
-	okButton->setFocusPolicy( QWidget::TabFocus );
-	okButton->setBackgroundMode( QWidget::PaletteBackground );
-	okButton->setAutoRepeat( FALSE );
-        okButton->setDefault(true);
-
-	pos += (90+(dx/3))+bw;
-	applyButton = new KPushButton( KStdGuiItem::apply(), this, "applyButton" );
-	applyButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 );
-	applyButton->setMinimumSize( 0, 0 );
-	applyButton->setMaximumSize( 32767, 32767 );
-	connect( applyButton, SIGNAL(clicked()), SLOT(apply()) );
-	applyButton->setFocusPolicy( QWidget::TabFocus );
-	applyButton->setBackgroundMode( QWidget::PaletteBackground );
-	applyButton->setAutoRepeat( FALSE );
-
-	pos += (90+(dx/3))+bw;
-	cancelButton = new KPushButton( KStdGuiItem::cancel(), this, "cancelButton" );
-	cancelButton->setGeometry( pos, 240+dy, 90+(dx/3), 26 );
-	cancelButton->setMinimumSize( 0, 0 );
-	cancelButton->setMaximumSize( 32767, 32767 );
-	connect( cancelButton, SIGNAL(clicked()), SLOT(reject()) );
-	cancelButton->setFocusPolicy( QWidget::TabFocus );
-	cancelButton->setBackgroundMode( QWidget::PaletteBackground );
-	cancelButton->setAutoRepeat( FALSE );
-
-	drawFrame = new FrameImage( this, "drawFrame" );
-	drawFrame->setGeometry( 10, 60, 310+dx, 170+dy );
-	drawFrame->setMinimumSize( 0, 0 );
-	drawFrame->setMaximumSize( 32767, 32767 );
-	drawFrame->setFocusPolicy( QWidget::NoFocus );
-	drawFrame->setBackgroundMode( QWidget::PaletteBackground );
-	drawFrame->setFrameStyle( 49 );
-
-
-	bottomGroup->insert( okButton );
-	bottomGroup->insert( applyButton );
-	bottomGroup->insert( cancelButton );
-
-	topGroup->insert( loadButton );
-
-	resize( 330+dx, 290+dy );
-	setMinimumSize( 330+dx, 290+dy );
-	setMaximumSize( 330+dx, 290+dy );
+	
+	drawFrame = new FrameImage(page);
+	drawFrame->setFixedSize(310, 236);
 
 	changed = false;
+	
+	setMainWidget(page);
+	setFixedSize(sizeHint());
 }
-
 
 Preview::~Preview()
 {
 }
 
-void Preview::selectionChanged(int which) {
+void Preview::selectionChanged(int which)
+{
 	QFileInfo *f= fileList.at(which);
 
 	selectedFile = f->filePath();
@@ -154,48 +75,51 @@ void Preview::markUnchanged()
 
 void Preview::initialise(const PreviewType type, const char *extension)
 {
-    QString tile = "pics/" + Prefs::tileSet();
-    QString back = "pics/" + Prefs::background();
-    QString layout = "pics/" + Prefs::layout();
-    tile = locate("appdata", tile);
-    back = locate("appdata", back);
-    layout = locate("appdata", layout);
+	QString tile = "pics/" + Prefs::tileSet();
+	QString back = "pics/" + Prefs::background();
+	QString layout = "pics/" + Prefs::layout();
+	tile = locate("appdata", tile);
+	back = locate("appdata", back);
+	layout = locate("appdata", layout);
 
 	// set up the concept of the current file. Initialised to the preferences
 	// value initially. Set the caption to indicate what we are doing
-	switch (type) {
-	    case background:
-		      setCaption(kapp->makeStdCaption(i18n("Change Background Image")));
-		      selectedFile = back;
-		      fileSelector = i18n("*.bgnd|Background Image\n"
+	switch (type)
+	{
+		case background:
+			setCaption(i18n("Change Background Image"));
+			selectedFile = back;
+			fileSelector = i18n("*.bgnd|Background Image\n"
 				     "*.bmp|Windows Bitmap File (*.bmp)\n");
-		  break;
-            case tileset:
-		      setCaption(kapp->makeStdCaption(i18n("Change Tile Set")));
-		      fileSelector = i18n("*.tileset|Tile Set File\n");
-		      selectedFile = tile;
-		  break;
-            case board:
-		      fileSelector = i18n("*.layout|Board Layout File\n");
-		      setCaption(kapp->makeStdCaption(i18n("Change Board Layout")));
-		      selectedFile = layout;
-	          break;
-
-	    case theme:
-		     fileSelector = i18n("*.theme|KMahjongg Theme\n");
-		     setCaption(kapp->makeStdCaption(i18n("Choose Theme")));
-		     selectedFile="";
-
-		     themeLayout="";
-		     themeBack="";
-		     themeTileset="";
-
-            default:
-                  break;
+		break;
+		
+		case tileset:
+			setCaption(i18n("Change Tile Set"));
+			fileSelector = i18n("*.tileset|Tile Set File\n");
+			selectedFile = tile;
+		break;
+		
+		case board:
+			fileSelector = i18n("*.layout|Board Layout File\n");
+			setCaption(i18n("Change Board Layout"));
+			selectedFile = layout;
+		break;
+		
+		case theme:
+			fileSelector = i18n("*.theme|KMahjongg Theme\n");
+			setCaption(i18n("Choose Theme"));
+			selectedFile="";
+			
+			themeLayout="";
+			themeBack="";
+			themeTileset="";
+		
+		default:
+		break;
 	}
+	
 	fileSelector += i18n("*|All Files\n");
-	applyButton->setEnabled(type != board);
-
+	enableButtonApply(type != board);
 
 	previewType = type;
 	// we start with no change indicated
@@ -212,7 +136,6 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	QFileInfo f(kmDir);
 	kmDir = f.dirPath();
 
-
 	files.cd(kmDir);
 	files.setNameFilter(extension);
 	files.setFilter(QDir::Files | QDir::Readable);
@@ -224,7 +147,6 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	QFileInfoList *list = (QFileInfoList *) files.entryInfoList();
 	// put the curent entry in the returned list to test for
 	// duplicates on insertion
-
 
 	if (!current->fileName().isEmpty())
 		list->insert(0, current);
@@ -262,25 +184,21 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	drawPreview();
 }
 
-void Preview::apply() {
+void Preview::slotApply() {
 	if (isChanged()) {
 		applyChange();
 		markUnchanged();
 	}
 }
 
-void Preview::ok() {
-	apply();
+void Preview::slotOk() {
+	slotApply();
 	accept();
 }
 
 void Preview::load() {
-    KURL url = KFileDialog::getOpenURL(
-                                NULL,
-				fileSelector,
-                                this,
-                                i18n("Open Board Layout" ));
-    if (  !url.isEmpty() ) {
+    KURL url = KFileDialog::getOpenURL(QString::null, fileSelector, this, i18n("Open Board Layout" ));
+    if ( !url.isEmpty() ) {
         selectedFile = url.path();
         drawPreview();
         drawFrame->repaint(0,0,-1,-1,false);
@@ -642,8 +560,6 @@ void FrameImage::setRect(int x,int y,int w,int h, int s, int t)
 	rs = s;
 }
 
-
-
 // Pass on the mouse presed event to our owner
 
 void FrameImage::mousePressEvent(QMouseEvent *m) {
@@ -653,7 +569,5 @@ void FrameImage::mousePressEvent(QMouseEvent *m) {
 void FrameImage::mouseMoveEvent(QMouseEvent *e) {
 	mouseMoved(e);
 }
-
-
 
 #include "Preview.moc"

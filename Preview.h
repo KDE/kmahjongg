@@ -1,7 +1,8 @@
 #ifndef _PreviewLoadBase_H
 #define _PreviewLoadBase_H
 
-#include <qdialog.h>
+#include <kdialogbase.h>
+
 #include <qframe.h>
 #include <qfiledialog.h>
 
@@ -9,9 +10,7 @@
 #include "BoardLayout.h"
 #include "Background.h"
 
-class QPushButton;
 class QComboBox;
-class QButtonGroup;
 class QPixmap;
 
 class FrameImage: public QFrame
@@ -42,24 +41,18 @@ private:
 
 
 
-class Preview: public QDialog
+class Preview: public KDialogBase
 {
     Q_OBJECT
 
 public:
-    enum PreviewType {background, tileset, board, theme};
+	enum PreviewType {background, tileset, board, theme};
 
-    Preview
-    (
-        QWidget* parent = NULL,
-        const char* name = NULL
-    );
+	Preview(QWidget* parent);
+	~Preview();
 
-    virtual ~Preview();
-
-    void initialise(const PreviewType type, const char *extension);
+	void initialise(const PreviewType type, const char *extension);
 	void saveTheme();
-
 
 protected:
 	void markUnchanged();
@@ -67,48 +60,42 @@ protected:
 	bool isChanged();
 	QPixmap *getPreviewPixmap() {return drawFrame->getPreviewPixmap();};
 	virtual void drawPreview();
-        void applyChange() ;
-        void renderBackground(const QString &bg);
-        void renderTiles(const QString &file, const QString &layout);
+	void applyChange() ;
+	void renderBackground(const QString &bg);
+	void renderTiles(const QString &file, const QString &layout);
 	void paintEvent( QPaintEvent* pa );
+
 signals:
-        void boardRedraw(bool);
-        void loadTileset(const QString &);
-        void loadBackground(const QString &, bool);
+	void boardRedraw(bool);
+	void loadTileset(const QString &);
+	void loadBackground(const QString &, bool);
 	void loadBoard(const QString &);
 	void layoutChange();
-
 
 public slots:
 	void selectionChanged(int which);
 
 protected slots:
-
+	void slotApply();
+	void slotOk();
+	
 private slots:
-	void apply();
-	void ok();
 	void load();
 
 protected:
-        FrameImage * drawFrame;
-        QPushButton* cancelButton;
-        QPushButton* applyButton;
-        QPushButton* okButton;
-        QPushButton* loadButton;
-        QComboBox* combo;
-        QButtonGroup* topGroup;
-        QButtonGroup* bottomGroup;
+	FrameImage *drawFrame;
+	QComboBox *combo;
 
 	QString selectedFile;
-        Tileset tiles;
-        BoardLayout boardLayout;
+	Tileset tiles;
+	BoardLayout boardLayout;
 	Background back;
 
 private:
 	void parseFile(const QString &f, QString &g);
 	QString fileSelector;
 	bool changed;
-	QFileInfoList	fileList;
+	QFileInfoList fileList;
 	PreviewType previewType;
 
 	QString themeBack;
