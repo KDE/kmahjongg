@@ -15,7 +15,7 @@ INSTALL_DIR = @INSTALL@ -d -m 0755
 prefix = @prefix@
 BINDIR = $(prefix)/bin
 PICSDIR = $(prefix)/share/apps/kmahjongg/pics
-DOCSDIR = $(prefix)/share/doc/HTML/en/kmanjongg
+DOCSDIR = $(prefix)/share/doc/HTML/en/kmahjongg
 APPSDIR = $(prefix)/share/applnk/Games
 
 ####### Defines
