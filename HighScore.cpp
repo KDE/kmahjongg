@@ -208,7 +208,7 @@ void HighScore::loadTables(void) {
 		goto error;	
 
 	// check magic
- 	fscanf(fp, "%s\n", buff);
+ 	fscanf(fp, "%1023s\n", buff);
 	if (highScoreMagic1_1 != buff) {
 		goto error;	
 	}
