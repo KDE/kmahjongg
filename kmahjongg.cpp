@@ -64,17 +64,17 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     // init board widget
     bw = new BoardWidget( this );
     setCentralWidget( bw );
- 
+
     previewLoad = new Preview(this);
-    
+
     setupStatusBar();
 
     setupKAction();
-    
+
     gameTimer = new GameTimer(toolBar());
     toolBar()->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
     toolBar()->alignItemRight( ID_GAME_TIMER, true );
-    
+
     setAutoSaveSettings();
     theHighScores = new HighScore(this);
 
@@ -242,7 +242,7 @@ void KMahjongg::redo()
 void KMahjongg::showSettings(){
   if(KAutoConfigDialog::showDialog("settings"))
     return;
-  
+
   KAutoConfigDialog *dialog = new KAutoConfigDialog(this, "settings", KDialogBase::Swallow);
   dialog->addPage(new Settings(0, "General"), i18n("General"), "General", "package_settings");
   connect(dialog, SIGNAL(settingsChanged()), bw, SLOT(loadSettings()));
@@ -376,6 +376,7 @@ void KMahjongg::gameOver(
 	int score;
 
 	gameTimer->pause();
+        long gameNum = bw->getGameNum();
 	KMessageBox::information(this, i18n("Game over: You have won!"));
 	bw->animateMoveList();
 	int elapsed = gameTimer->toInt();
@@ -398,7 +399,7 @@ void KMahjongg::gameOver(
 	if (score < 0)
 		score = 0;
 
-	theHighScores->checkHighScore(score, elapsed, bw->getGameNum(), bw->getBoardName());
+	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
 
 	timerReset();
 }
