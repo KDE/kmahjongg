@@ -327,8 +327,8 @@ class KMahjonggWidget : public KMainWindow
         KStatusBar*  pStatusBar;
 	KToolBar     *toolBar;
         KMenuBar*    pMenuBar;
-	PrefsDlg     prefsDlg;
-	Preview      previewLoad;
+	PrefsDlg     *prefsDlg;
+	Preview      *previewLoad;
 	Editor*	     boardEditor;
 
         bool         bShowStatusbar;

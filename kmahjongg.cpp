@@ -149,8 +149,10 @@ int main( int argc, char** argv )
     Constructor.
 */
 KMahjonggWidget::KMahjonggWidget()
-    : KMainWindow(0, "kmahjonggwidget"), prefsDlg(this), previewLoad(this)
+    : KMainWindow(0, "kmahjonggwidget")
 {
+    prefsDlg = new PrefsDlg(this);
+    previewLoad = new Preview(this);
     setCaption("");
     boardEditor = 0;
     progress("Reading Preferences");
@@ -207,32 +209,32 @@ progress("Connecting signals");
 
 
     // preferences signals
-    connect( &prefsDlg, SIGNAL( boardRedraw(bool ) ),
+    connect( prefsDlg, SIGNAL( boardRedraw(bool ) ),
                 bw, SLOT( drawBoard(bool) ) );
-    connect( &prefsDlg, SIGNAL( statusBar(int) ),
+    connect( prefsDlg, SIGNAL( statusBar(int) ),
                  SLOT( statusBarMode(int) ) );
-    connect( &prefsDlg, SIGNAL( backgroundModeChanged(void) ),
+    connect( prefsDlg, SIGNAL( backgroundModeChanged(void) ),
                  SLOT( backgroundMode(void) ) );
-    connect( &prefsDlg, SIGNAL(showRemovedChanged(void) ),
+    connect( prefsDlg, SIGNAL(showRemovedChanged(void) ),
 	      SLOT(setDisplayedWidth() ));
-    connect( &prefsDlg, SIGNAL(tileSizeChanged(void) ),
+    connect( prefsDlg, SIGNAL(tileSizeChanged(void) ),
 	      SLOT(tileSizeChanged() ));
 
 	
     // Make connections for the preview load dialog
-    connect( &previewLoad, SIGNAL( boardRedraw(bool) ),
+    connect( previewLoad, SIGNAL( boardRedraw(bool) ),
               bw,   SLOT( drawBoard(bool) ) );
 
-    connect( &previewLoad, SIGNAL( layoutChange(void) ),
+    connect( previewLoad, SIGNAL( layoutChange(void) ),
               this,   SLOT( newGame(void) ) );
 
 
-    connect( &previewLoad, SIGNAL( loadBackground(const QString&, bool) ),
+    connect( previewLoad, SIGNAL( loadBackground(const QString&, bool) ),
               bw,   SLOT(loadBackground(const QString&, bool) ) );
 
-    connect( &previewLoad, SIGNAL( loadTileset(const QString &) ),
+    connect( previewLoad, SIGNAL( loadTileset(const QString &) ),
                bw,  SLOT(loadTileset(const QString&) ) );
-    connect( &previewLoad, SIGNAL( loadBoard(const QString&) ),
+    connect( previewLoad, SIGNAL( loadBoard(const QString&) ),
                  SLOT(loadBoardLayout(const QString&) ) );
 
 progress("Starting new game");
@@ -459,8 +461,8 @@ void KMahjonggWidget::menuCallback( int item )
 	    	}
             	break;
         case ID_EDIT_PREFS:
-	      	prefsDlg.initialise();
-	      	prefsDlg.exec();
+	      	prefsDlg->initialise();
+	      	prefsDlg->exec();
             	break;
 
         case ID_GAME_DEMO:
@@ -490,20 +492,20 @@ void KMahjonggWidget::menuCallback( int item )
             	pMenuBar->setItemChecked( ID_GAME_SHOW, bShowMatchingTiles );
             	break;
         case ID_FILE_LOAD_BOARD:
-	    	previewLoad.initialise(Preview::board, EXT_LAYOUT);
-	 	previewLoad.exec();
+	    	previewLoad->initialise(Preview::board, EXT_LAYOUT);
+	 	previewLoad->exec();
 	    	break;
         case ID_FILE_LOAD_BACKGND:
-	    	previewLoad.initialise(Preview::background, EXT_BACKGROUND);
-	    	previewLoad.exec();
+	    	previewLoad->initialise(Preview::background, EXT_BACKGROUND);
+	    	previewLoad->exec();
 	    	break;
         case ID_FILE_LOAD_TILESET:
-	    	previewLoad.initialise(Preview::tileset, EXT_TILESET);
-	    	previewLoad.exec();
+	    	previewLoad->initialise(Preview::tileset, EXT_TILESET);
+	    	previewLoad->exec();
 	    	break;
         case ID_FILE_LOAD_THEME:
-	    	previewLoad.initialise(Preview::theme, EXT_THEME);
-	    	previewLoad.exec();
+	    	previewLoad->initialise(Preview::theme, EXT_THEME);
+	    	previewLoad->exec();
 	    	break;
 	case ID_EDIT_BOARD_EDIT:
 		if (!boardEditor)
@@ -520,8 +522,8 @@ void KMahjonggWidget::menuCallback( int item )
 		saveGame();
 		break;
 	case ID_FILE_SAVE_THEME:
-	    	previewLoad.initialise(Preview::theme, EXT_THEME);
-	    	previewLoad.saveTheme();
+	    	previewLoad->initialise(Preview::theme, EXT_THEME);
+	    	previewLoad->saveTheme();
 		break;
     }
 }
