@@ -9,11 +9,11 @@
 #include <kmessagebox.h>
 #include "kglobal.h"
 #include "klocale.h"
-#include <kstddirs.h>                       
+#include <kstandarddirs.h>                       
 #include <kiconloader.h>
 #include <qlineedit.h>
 #include <qcombobox.h>
-#include <kapp.h>
+#include <kapplication.h>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
 static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";  

@@ -40,7 +40,7 @@
 #include <kcmdlineargs.h>
 #include <kio/netaccess.h>
 #include <kmenubar.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 #include "kmahjongg.moc"
 #include "version.h"

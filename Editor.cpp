@@ -1,6 +1,6 @@
 
 #include <stdlib.h> 
-#include <kapp.h>
+#include <kapplication.h>
 #include <qdir.h>
 #include <qpixmap.h>
 #include <qimage.h>

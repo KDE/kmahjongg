@@ -22,7 +22,7 @@
 #include <qpushbutton.h>
 #include <qcheckbox.h>
 #include <qradiobutton.h>
-#include <kapp.h>
+#include <kapplication.h>
 
 #include <qlayout.h>
 

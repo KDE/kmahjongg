@@ -2,7 +2,7 @@
 #include <qlabel.h>
 #include <qpixmap.h>
 #include "Progress.moc"
-#include <kstddirs.h>                       
+#include <kstandarddirs.h>                       
 
 
 

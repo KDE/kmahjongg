@@ -1,5 +1,5 @@
 #include <sys/param.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <qdir.h>
 #include <qpixmap.h>
 #include <qimage.h>
@@ -11,7 +11,7 @@
 #include "Preview.moc"
 #include "Preferences.h"
 #include "kmessagebox.h"
-#include "kstddirs.h"
+#include "kstandarddirs.h"
 #include "kglobal.h"
 #include "klocale.h"
 #include <qfileinfo.h>
