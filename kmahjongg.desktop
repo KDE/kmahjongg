@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KMahjongg
-Name[af]=kmahjong
+Name[af]=Kmahjong
 Name[eo]=Mahjongo
 Name[lv]=KMahdžongs
 Name[pl]=Mahjongg
@@ -14,7 +14,7 @@ Exec=kmahjongg %i %m -caption "%c"
 Type=Application
 DocPath=kmahjongg/index.html
 GenericName=Tile Game
-GenericName[af]=teël speletjie
+GenericName[af]=Teël Speletjie
 GenericName[ar]=لعبة القرميد
 GenericName[bs]=Igra s poljima
 GenericName[cs]=Hra s dlaždicemi
