@@ -504,14 +504,20 @@ void KMahjongg::restartGame() {
     if( ! bDemoModeActive ) {
         bw->calculateNewGame(bw->getGameNum());
 
-	// initialise button states
-	bw->Game.allow_redo = bw->Game.allow_undo = 0;
+        // initialise button states
+        bw->Game.allow_redo = bw->Game.allow_undo = 0;
 
-	timerReset();
+        timerReset();
 
-    	// update the initial enabled/disabled state for
-    	// the menu and the tool bar.
-    	demoModeChanged(false);
+        // update the initial enabled/disabled state for
+        // the menu and the tool bar.
+        demoModeChanged(false);
+        if (is_paused)
+        {
+            pauseAction->setChecked(false);
+            is_paused = false;
+            bw->pause();
+        }
     }
 }
 
