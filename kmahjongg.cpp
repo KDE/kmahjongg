@@ -386,6 +386,7 @@ void KMahjonggWidget::setupMenuBar()
 
   KPopupMenu *game = new KPopupMenu;
   game->insertItem( i18n("&Help me"),           ID_GAME_HELP );
+  game->setAccel(Key_H, ID_GAME_HELP);
   game->insertItem( SmallIcon("reload"), i18n("Shu&ffle"),           ID_GAME_SHUFFLE );
   game->insertItem( i18n("&Demo mode"),         ID_GAME_DEMO );
   game->insertItem( i18n("Show &matching tiles"), ID_GAME_SHOW );
