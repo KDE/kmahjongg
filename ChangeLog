@@ -16,6 +16,8 @@ Personel
   provided by Robert Schroeter.
 + Fixed bug where the default tileset was listed twice in the
   preview dialog
++ Fixed bug in the board editor, which stopped you putting
+  tiles in completely legal places.
 
 Version 0.4.1 to 0.7.0 (beta)
 
