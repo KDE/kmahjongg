@@ -53,18 +53,4 @@ tiles block them on the left or right side.</para>
 
 </chapter>
 
-<chapter id="epilogue">
-<title>Epilogue</title>
-
-<sect1 id="credits">
-<title>Credits</title>
-
-<para>Mathias Mueller <email>in5y158@public.uni-hamburg.de</email> - developper</para>
-<para>Robert Williams <email>rwilliams@kde.org</email> - Editor</para>
-
-&underFDL;
-&underGPL;
-
-</sect1>
-</chapter>
 </book>
