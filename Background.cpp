@@ -10,6 +10,10 @@ Background::Background()
 }
 
 Background::~Background() {
+  delete sourceImage;
+  delete backgroundImage;
+  delete backgroundPixmap;
+  delete backgroundShadowPixmap;
 
 }
 
