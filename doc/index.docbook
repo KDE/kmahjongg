@@ -1,18 +1,30 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
- <!ENTITY kmahjongg "<application>Kmahjongg</application>">
+ <!ENTITY kappname "&kmahjongg;">
+ <!ENTITY % English "INCLUDE">
  <!ENTITY % addindex "IGNORE">
- <![ %addindex; [ <!ENTITY docindex SYSTEM "docindex.docbook"> ]]>
+ <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
+ %ents;
 ]>
 
-<book lang="en">
+<book lang="&language;">
 <bookinfo>
-<title>The KMahjongg Handbook</title>
+<title>The &kmahjongg; Handbook</title>
 <authorgroup>
 <author>
 <firstname>Mathias</firstname>
 <surname>Mueller</surname>
+<affiliation>
+<address><email>in5y158@public.uni-hamburg.de</email></address></affiliation>
 </author>
 </authorgroup>
+
+<copyright>
+<year>1998</year><year>2000</year>
+<holder>Mathias Mueller</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
 <date>06/06/1998</date>
 <releaseinfo>0.04.00</releaseinfo>
 <abstract>
@@ -27,7 +39,7 @@ Please make any comments and additions to the author.</para>
 </keywordset>
 </bookinfo>
 
-<chapter id="Introduction">
+<chapter id="introduction">
 <title>Introduction</title>
 
 <para>This program is a clone of the well known Mahjongg game.</para>
@@ -41,7 +53,7 @@ tiles block them on the left or right side.</para>
 
 </chapter>
 
-<chapter id="Epilogue">
+<chapter id="epilogue">
 <title>Epilogue</title>
 
 <sect1 id="credits">
@@ -49,6 +61,9 @@ tiles block them on the left or right side.</para>
 
 <para>Mathias Mueller <email>in5y158@public.uni-hamburg.de</email> - developper</para>
 <para>Robert Williams <email>rwilliams@kde.org</email> - Editor</para>
+
+&underFDL;
+&underGPL;
 
 </sect1>
 </chapter>
