@@ -56,3 +56,4 @@ Terminal=0
 Icon=kmahjongg
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
+Categories=QT;KDE;Game;BoardGame
