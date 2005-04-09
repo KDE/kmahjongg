@@ -91,7 +91,6 @@ protected:
 	Background back;
 
 private:
-	void parseFile(const QString &f, QString &g);
 	QString fileSelector;
 	bool changed;
 	QStringList fileList;

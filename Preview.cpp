@@ -263,10 +263,6 @@ void Preview::drawPreview()
 					back = locate("appdata", back);
 					layout = locate("appdata", layout);
 					
-					//parseFile(tilesetRaw, tile);
-					//parseFile(backRaw, back);
-					//parseFile(layoutRaw, layout);
-					
 					in.close();
 					
 					themeBack=back;
@@ -283,20 +279,6 @@ void Preview::drawPreview()
 
 void Preview::paintEvent( QPaintEvent*  ){
   drawFrame->repaint(false);
-}
-
-void Preview::parseFile(const QString &in, QString &out) {
-	//QString prefix = locate("appdata", QString("pics/") +in);
-	QString prefix = locate("appdata", "pics/default.tileset");
-	QFileInfo f( prefix );
-	prefix = f.dirPath();
-
-	// remove any trailing \n
-	QString tmp;
-	tmp.replace(QRegExp("\n"), QString::null);
-	tmp.replace(QRegExp(":"), prefix + '/');
-
-	out = tmp;
 }
 
 // the user selected ok, or apply. This method passes the changes
