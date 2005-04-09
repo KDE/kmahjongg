@@ -55,8 +55,7 @@ private:
 	int mode;
 	int numTiles;
 	KToolBar *topToolbar;
-	KToolBar *sideToolbar;
-        FrameImage * drawFrame;
+	FrameImage * drawFrame;
 	Tileset tiles;
 	BoardLayout theBoard;
 	bool clean;
