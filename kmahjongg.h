@@ -93,7 +93,6 @@ private slots:
 protected:
   void setupKAction();
   void setupStatusBar();
-  void enableItem(int item, bool state){}
 
 private:
   // number of seconds since the start of the game
