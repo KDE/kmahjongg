@@ -1996,6 +1996,7 @@ void BoardWidget::shuffle() {
 	// I consider this s very bad cheat so, I punish the user
 	// 300 points per use
 	cheatsUsed += 15;
+	drawTileNumber();
 }
 
 
