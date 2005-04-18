@@ -75,9 +75,8 @@ void Preview::initialise(const PreviewType type, const char *extension)
 {
 	QString tile = Prefs::tileSet();
 	QString back = "pics/" + Prefs::background();
-	QString layout = "pics/" + Prefs::layout();
+	QString layout = Prefs::layout();
 	back = locate("appdata", back);
-	layout = locate("appdata", layout);
 
 	// set up the concept of the current file. Initialised to the preferences
 	// value initially. Set the caption to indicate what we are doing
@@ -203,9 +202,8 @@ void Preview::drawPreview()
 {
 	QString tile = Prefs::tileSet();
 	QString back = "pics/" + Prefs::background();
-	QString layout = "pics/" + Prefs::layout();
+	QString layout = Prefs::layout();
 	back = locate("appdata", back);
-	layout = locate("appdata", layout);
 	
 	switch (previewType)
 	{
@@ -385,12 +383,10 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
 
 // this really does not belong here. It will be fixed in v1.1 onwards
 void Preview::saveTheme() {
-    QString tile = "pics/" + Prefs::tileSet();
+    QString tile = Prefs::tileSet();
     QString back = "pics/" + Prefs::background();
-    QString layout = "pics/" + Prefs::layout();
-    tile = locate("appdata", tile);
+    QString layout = Prefs::layout();
     back = locate("appdata", back);
-    layout = locate("appdata", layout);
     
     QString with = ":";
     // we want to replace any path in the default store

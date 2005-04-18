@@ -14,7 +14,6 @@
     </entry>
     <entry name="Layout" type="String" key="Layout_file">
       <label>The layout of the tiles.</label>
-      <default>default.layout</default>
     </entry>
     <entry name="ShowRemoved" type="Bool" key="showRemoved">
       <label>Whether to show removed tiles.</label>

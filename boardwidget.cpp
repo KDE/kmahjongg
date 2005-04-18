@@ -60,7 +60,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
 	kapp->quit();
     }
 
-    getFileOrDefault(layout, "layout", tFile);
+    getFileOrDefault(Prefs::layout(), "layout", tFile);
     if( ! loadBoardLayout(tFile) )
     {
 	KMessageBox::error(this,
@@ -78,7 +78,6 @@ BoardWidget::~BoardWidget(){
 
 void BoardWidget::loadSettings(){
   backgroundFile = Prefs::background();
-  layout = Prefs::layout();
 
   //loadTileset(tileFile);
   //loadBoardLayout(layout);
@@ -1903,16 +1902,17 @@ bool BoardWidget::loadTileset(const QString &path) {
   if (theTiles.loadTileset(path)) {
     Prefs::setTileSet(path);
     Prefs::writeConfig();
-    return(true);
+    return true;
   } else {
-    return(false);
+    return false;
   }
 
 }
 
 bool BoardWidget::loadBoardLayout(const QString &file) {
   if (theBoardLayout.loadBoardLayout(file)) {
-    layout = file;
+    Prefs::setLayout(file);
+    Prefs::writeConfig();
     return true;
   }
   return false;
