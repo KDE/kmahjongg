@@ -7,7 +7,6 @@
   <group name="General">
     <entry name="TileSet" type="String" key="Tileset_file">
       <label>The tile-set to use.</label>
-      <default>default.tileset</default>
     </entry>
     <entry name="Background" type="String" key="Background_file">
       <label>The background to use.</label>

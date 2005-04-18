@@ -249,7 +249,6 @@ public:
 private:
   // Settings
   QString backgroundFile;
-  QString tileFile;
   QString layout;
 };
 

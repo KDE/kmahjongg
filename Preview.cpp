@@ -73,10 +73,9 @@ void Preview::markUnchanged()
 
 void Preview::initialise(const PreviewType type, const char *extension)
 {
-	QString tile = "pics/" + Prefs::tileSet();
+	QString tile = Prefs::tileSet();
 	QString back = "pics/" + Prefs::background();
 	QString layout = "pics/" + Prefs::layout();
-	tile = locate("appdata", tile);
 	back = locate("appdata", back);
 	layout = locate("appdata", layout);
 
@@ -202,10 +201,9 @@ void Preview::load() {
 
 void Preview::drawPreview()
 {
-	QString tile = "pics/" + Prefs::tileSet();
+	QString tile = Prefs::tileSet();
 	QString back = "pics/" + Prefs::background();
 	QString layout = "pics/" + Prefs::layout();
-	tile = locate("appdata", tile);
 	back = locate("appdata", back);
 	layout = locate("appdata", layout);
 	

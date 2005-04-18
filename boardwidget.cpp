@@ -40,7 +40,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
 
     // Load tileset. First try to load the last use tileset
     QString tFile;
-    getFileOrDefault(tileFile, "tileset", tFile);
+    getFileOrDefault(Prefs::tileSet(), "tileset", tFile);
 
     if (!loadTileset(tFile)){
         KMessageBox::error(this,
@@ -77,7 +77,6 @@ BoardWidget::~BoardWidget(){
 }
 
 void BoardWidget::loadSettings(){
-  tileFile = Prefs::tileSet();
   backgroundFile = Prefs::background();
   layout = Prefs::layout();
 
@@ -1904,7 +1903,8 @@ void BoardWidget::initialiseRemovedTiles() {
 bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
-    tileFile = path;
+    Prefs::setTileSet(path);
+    Prefs::writeConfig();
     return(true);
   } else {
     return(false);

@@ -78,8 +78,7 @@ Editor::Editor
     setMinimumSize( sWidth+60, sHeight+60);
     setMaximumSize( sWidth+60, sHeight+60);
 
-   QString tile = "pics/" + Prefs::tileSet();
-   tile = locate("appdata", tile);
+   QString tile = Prefs::tileSet();
    tiles.loadTileset(tile);
 
    // tell the user what we do
@@ -416,8 +415,7 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    QString tile1 = "pics/" + Prefs::tileSet();
-    tile1 = locate("appdata", tile1);
+    QString tile1 = Prefs::tileSet();
     tiles.loadTileset(tile1);
 
 
