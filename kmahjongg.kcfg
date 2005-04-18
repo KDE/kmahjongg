@@ -10,7 +10,6 @@
     </entry>
     <entry name="Background" type="String" key="Background_file">
       <label>The background to use.</label>
-      <default>default.bgnd</default>
     </entry>
     <entry name="Layout" type="String" key="Layout_file">
       <label>The layout of the tiles.</label>

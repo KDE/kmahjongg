@@ -49,7 +49,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
         kapp->quit();
     }
 
-    getFileOrDefault(backgroundFile, "bgnd", tFile);
+    getFileOrDefault(Prefs::background(), "bgnd", tFile);
 
     // Load background
     if( ! loadBackground(tFile, false ) )
@@ -77,13 +77,6 @@ BoardWidget::~BoardWidget(){
 }
 
 void BoardWidget::loadSettings(){
-  backgroundFile = Prefs::background();
-
-  //loadTileset(tileFile);
-  //loadBoardLayout(layout);
-  // TODO somehow...
-  //theBackground.load(backgroundFile);
-
   theBackground.tile = Prefs::tiledBackground();
 
   setDisplayedWidth();
@@ -1786,8 +1779,9 @@ bool BoardWidget::loadBackground(
             KMessageBox::sorry(this, i18n("Failed to load image:\n%1").arg(pszFileName) );
         return( false );
     }
-    backgroundFile =  pszFileName;
-    return( true );
+    Prefs::setBackground(pszFileName);
+    Prefs::writeConfig();
+    return true;
 }
 
 // ---------------------------------------------------------

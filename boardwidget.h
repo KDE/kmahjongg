@@ -245,10 +245,6 @@ class BoardWidget : public QWidget
 
 public:
   GAMEDATA Game;
-
-private:
-  // Settings
-  QString backgroundFile;
 };
 
 #endif // BOARDWIDGET_H
