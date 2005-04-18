@@ -109,9 +109,7 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 	picsPos += "default.";
 	picsPos += type;
 
-	QFile test;
-	test.setName(filename);
-	if (test.exists()) {
+	if (QFile::exists(filename)) {
 		res = filename;
 	}
     else {
