@@ -113,7 +113,7 @@ void BoardLayout::initialiseBoard() {
 	return;
 
     // loop will be left by break or return
-    while( TRUE )
+    while( true )
     {
         BYTE c = *pos++;
 

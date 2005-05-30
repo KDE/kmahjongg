@@ -47,7 +47,7 @@ HighScore::HighScore
 	const char* name
 )
 	:
-	QDialog( parent, name, TRUE, 0 )
+	QDialog( parent, name, true, 0 )
 {
 
 	// form the target name
@@ -113,8 +113,8 @@ HighScore::HighScore
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
 	qtarch_PushButton_1->setFocusPolicy( QWidget::TabFocus );
-	qtarch_PushButton_1->setAutoRepeat( FALSE );
-        qtarch_PushButton_1->setAutoResize( FALSE );
+	qtarch_PushButton_1->setAutoRepeat( false );
+        qtarch_PushButton_1->setAutoResize( false );
         qtarch_PushButton_1->setDefault(true);
 
 	QPushButton* resetBtn;
@@ -124,8 +124,8 @@ HighScore::HighScore
 	resetBtn->setMaximumSize( 32767, 32767 );
 	resetBtn->setFocusPolicy( QWidget::TabFocus );
 	//resetBtn->setText(i18n( "Reset" ));
-	resetBtn->setAutoRepeat( FALSE );
-	resetBtn->setAutoResize( FALSE );
+	resetBtn->setAutoRepeat( false );
+	resetBtn->setAutoResize( false );
 
  	KIconLoader *loader = KGlobal::iconLoader();
         resetBtn->setPixmap(loader->loadIcon("editdelete", KIcon::Toolbar));
@@ -145,13 +145,13 @@ HighScore::HighScore
 
 	// the drop down for the board names
 
-        combo = new QComboBox( FALSE, this, "combo" );
+        combo = new QComboBox( false, this, "combo" );
         combo->setGeometry( 65, 5, 220, 25 );
         combo->setMinimumSize( 0, 0 );
         combo->setMaximumSize( 32767, 32767 );
         combo->setFocusPolicy( QWidget::StrongFocus );
         combo->setSizeLimit( 10 );
-        combo->setAutoResize( FALSE );
+        combo->setAutoResize( false );
         connect( combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)) );
 
 
