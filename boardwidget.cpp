@@ -166,7 +166,7 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
                     	    src,
 			    rx+xOffset,	ry+p,
 			    shadowPixels-p,
-			    1, CopyROP );
+			    1 );
 		}
 		// Now aafter rendering the triangle, fill in the rest of
 		// the quater width
@@ -176,7 +176,7 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
                     	    src,
 			    rx,	ry,
 			    theTiles.qWidth() - shadowPixels,
-			    shadowPixels, CopyROP );
+			    shadowPixels );
 	}
 }
 
@@ -193,7 +193,7 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 			    rx+xOffset-p,	/* step to shadow right start */
 			    ry+p,
 			    p, 			/* increace width each line down */
-			    1, CopyROP );
+			    1 );
 		}
 		if (flag && ((theTiles.qHeight() - shadowPixels) >0))
              	    bitBlt( &backBuffer,
@@ -203,7 +203,7 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 			    rx+xOffset-shadowPixels,
 			    ry+shadowPixels,
 			    shadowPixels,
-			    theTiles.qHeight()-shadowPixels, CopyROP );
+			    theTiles.qHeight()-shadowPixels );
 
 	}
 }
@@ -260,7 +260,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
         // If the game is paused, then blank out the board.
         // We tolerate no cheats around here folks..
         bitBlt( this, xx, pa->rect().top(),
-                back, xx, pa->rect().top(), xwidth, xheight, CopyROP );
+                back, xx, pa->rect().top(), xwidth, xheight );
 	return;
     }
 
@@ -268,7 +268,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     // or a menu roll up, then just blit in the last rendered image
     if (!updateBackBuffer) {
     	bitBlt(this, xx,pa->rect().top(),
-		&backBuffer, xx, pa->rect().top(), xwidth, xheight, CopyROP);
+		&backBuffer, xx, pa->rect().top(), xwidth, xheight );
 	return;
     }
 
@@ -278,7 +278,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
     // erase out with the background
     bitBlt( &backBuffer, xx, pa->rect().top(),
-                back, xx,pa->rect().top(), back->width(), back->height(), CopyROP );
+                back, xx,pa->rect().top(), back->width(), back->height() );
 
     // initial offset on the screen of tile 0,0
     int xOffset = theTiles.width()/2;
@@ -343,13 +343,13 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 			    sx+theTiles.shadowSize(), sy,
                             t, theTiles.shadowSize() ,0,
 		            t->width()-theTiles.shadowSize(),
-		  	    t->height()/2, CopyROP );
+		  	    t->height()/2 );
                     bitBlt( &backBuffer, sx, sy+t->height()/2,
-                        t, 0,t->height()/2,t->width(),t->height()/2,CopyROP);
+                        t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
 
                 bitBlt( &backBuffer, sx, sy,
-                    t, 0,0, t->width(), t->height(), CopyROP );
+                    t, 0,0, t->width(), t->height() );
                 }
 
 
@@ -429,7 +429,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     }
 
     updateBackBuffer=false;
-    bitBlt(this, xx,pa->rect().top(), &backBuffer, xx, pa->rect().top(), xwidth, xheight, CopyROP);
+    bitBlt(this, xx,pa->rect().top(), &backBuffer, xx, pa->rect().top(), xwidth, xheight);
 
 
 }
@@ -440,14 +440,14 @@ void BoardWidget::stackTiles(unsigned char t, unsigned short h, unsigned short x
     int ss = theTiles.shadowSize();
     QPainter p(&backBuffer);
     QPen line;
-    p.setBackgroundMode(OpaqueMode);
-    p.setBackgroundColor(black);
+    p.setBackgroundMode(Qt::OpaqueMode);
+    p.setBackgroundColor(Qt::black);
 
 
 
 
     line.setWidth(1);
-    line.setColor(white);
+    line.setColor(Qt::white);
     p.setPen(line);
     int x2 = x+theTiles.width()-ss-1;
     int y2 = y+theTiles.height()-1;
@@ -461,7 +461,7 @@ void BoardWidget::stackTiles(unsigned char t, unsigned short h, unsigned short x
     for (unsigned short pos=0; pos < h; pos++) {
        QPixmap *p = theTiles.unselectedPixmaps(t-TILE_OFFSET);
        bitBlt( &backBuffer, x+(pos*ss), y-(pos*ss),
-                    p, 0,0, p->width(), p->height(), CopyROP );
+                    p, 0,0, p->width(), p->height() );
     }
 
 }
@@ -1595,7 +1595,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
     if (gamePaused)
         return;
 
-    if( event->button() == LeftButton )
+    if( event->button() == Qt::LeftButton )
     {
         if( TimerState == Demo )
         {

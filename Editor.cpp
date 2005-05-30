@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <kapplication.h>
 #include <qlayout.h>
+#include <qevent.h>
 #include <qpainter.h>
 
 #include "Editor.h"
@@ -61,8 +62,8 @@ Editor::Editor
     drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
     drawFrame->setMinimumSize( 0, 0 );
     drawFrame->setMaximumSize( 32767, 32767 );
-    drawFrame->setFocusPolicy( QWidget::NoFocus );
-    drawFrame->setBackgroundMode( QWidget::PaletteBackground );
+    drawFrame->setFocusPolicy( Qt::NoFocus );
+    drawFrame->setBackgroundMode( Qt::PaletteBackground );
     drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 
@@ -383,7 +384,7 @@ void Editor::paintEvent( QPaintEvent*  ) {
     buff.resize(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
-    bitBlt(dest, 0,0,&buff, 0,0,buff.width(), buff.height(), CopyROP);
+    bitBlt(dest, 0,0,&buff, 0,0,buff.width(), buff.height());
 
     drawFrame->repaint(false);
 }
@@ -393,7 +394,7 @@ void Editor::drawBackground(QPixmap *pixmap) {
     QPainter p(pixmap);
 
     // blast in a white background
-    p.fillRect(0,0,pixmap->width(), pixmap->height(), QColor(white));
+    p.fillRect(0,0,pixmap->width(), pixmap->height(), Qt::white);
 
 
     // now put in a grid of tile quater width squares
@@ -458,15 +459,15 @@ void Editor::drawTiles(QPixmap *dest) {
                             sx+tiles.shadowSize(), sy,
                             t, tiles.shadowSize() ,0,
                             t->width()-tiles.shadowSize(),
-                            t->height()/2, CopyROP );
+                            t->height()/2);
 
 
                     bitBlt( dest, sx, sy+t->height()/2,
-                        t, 0,t->height()/2,t->width(),t->height()/2,CopyROP);
+                        t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
 
                 bitBlt( dest, sx, sy,
-                    t, 0,0, t->width(), t->height(), CopyROP );
+                    t, 0,0, t->width(), t->height());
                 }
 
 

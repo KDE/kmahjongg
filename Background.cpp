@@ -1,6 +1,7 @@
 
 #include "Background.h"
 #include <qimage.h>
+#include <qpixmap.h>
 
 Background::Background(): tile(true) {
 

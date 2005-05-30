@@ -29,7 +29,7 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	    return false;
 	}
 
-	QCString tmp = layoutMagic1_0.utf8();
+	QByteArray tmp = layoutMagic1_0.utf8();
 	if (f.writeBlock(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
@@ -76,7 +76,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
 	    return(false);
 	}
 	int lines = 0;
-	while ( !t.eof() ) {        
+	while ( !t.atEnd() ) {        
 	    s = t.readLine();
 	    if (s[0] == '#')
 		continue;
