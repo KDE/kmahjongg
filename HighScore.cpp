@@ -47,7 +47,7 @@ HighScore::HighScore
 	const char* name
 )
 	:
-	QDialog( parent, name, TRUE, 0 )
+	QDialog( parent, name, true, 0 )
 {
 
 	// form the target name
@@ -141,7 +141,7 @@ HighScore::HighScore
 
 	// the drop down for the board names
 
-        combo = new QComboBox( FALSE, this, "combo" );
+        combo = new QComboBox( false, this, "combo" );
         combo->setGeometry( 65, 5, 220, 25 );
         combo->setMinimumSize( 0, 0 );
         combo->setMaximumSize( 32767, 32767 );

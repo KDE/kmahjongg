@@ -14,7 +14,7 @@
 GameTimer::GameTimer( QWidget *parent, const char *name )
     : QLCDNumber( parent, name )
 {
-    showingColon = FALSE;
+    showingColon = false;
     setNumDigits(7);	
     setFrameStyle(QFrame::Panel | QFrame::Sunken);
     setFrameStyle(QFrame::NoFrame);
