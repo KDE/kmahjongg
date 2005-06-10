@@ -60,8 +60,6 @@ int is_paused = 0;
 KMahjongg::KMahjongg( QWidget* parent, const char *name)
     : KMainWindow(parent, name)
 {
-    boardEditor = 0;
-
     // init board widget
     bw = new BoardWidget( this );
     setCentralWidget( bw );
@@ -309,9 +307,9 @@ void KMahjongg::openTileset()
 
 void KMahjongg::slotBoardEditor()
 {
-    if (!boardEditor)
-            boardEditor = new Editor(this);
+    Editor *boardEditor = new Editor(this);
     boardEditor->exec();
+    delete boardEditor;
 }
 
 //----------------------------------------------------------

@@ -46,7 +46,7 @@ Editor::Editor
 	const char* name
 )
     :
-    QDialog( parent, name, true, 0 ), tiles(false)
+    QDialog( parent, name, true ), tiles(false)
 {
 
     clean= true;
