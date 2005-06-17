@@ -18,6 +18,7 @@ Exec=kmahjongg %i %m -caption "%c"
 Type=Application
 GenericName=Mahjongg-like Tile Game
 GenericName[bg]=Игра с плочки
+GenericName[bn]=মাহজং-জাতীয় টালির খেলা
 GenericName[ca]=Joc de mosaics a l'estil Mahjongg
 GenericName[cs]=Hra s dlaždicemi podobná Mahjongg
 GenericName[da]=Mahjongg-lignende flisespil
