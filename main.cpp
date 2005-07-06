@@ -4,6 +4,7 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+#include <kimageio.h>
 
 static const char description[] = I18N_NOOP("Mahjongg for KDE");
 
@@ -23,6 +24,7 @@ int main( int argc, char** argv )
 
     KApplication a;
     KGlobal::locale()->insertCatalogue("libkdegames");
+    KImageIO::registerFormats();
 
     if (a.isRestored())
         RESTORE(KMahjongg)

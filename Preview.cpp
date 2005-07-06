@@ -6,6 +6,7 @@
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
 #include <kstdguiitem.h>
+#include <kimageio.h>
 
 #include <qcombobox.h>
 #include <q3groupbox.h>
@@ -33,7 +34,7 @@ Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
 	combo = new QComboBox(false, group);
 	connect(combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
-	loadButton = new KPushButton(i18n("Load"), group);
+	loadButton = new KPushButton(i18n("Load..."), group);
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
 	
 	drawFrame = new FrameImage(page);
@@ -85,24 +86,24 @@ void Preview::initialise(const PreviewType type, const char *extension)
 		case background:
 			setCaption(i18n("Change Background Image"));
 			selectedFile = back;
-			fileSelector = i18n("*.bgnd|Background Image\n"
-				     "*.bmp|Windows Bitmap File (*.bmp)\n");
+			fileSelector = i18n("*.bgnd|Background Image (*.bgnd)\n");
+			fileSelector += KImageIO::pattern()+"\n";
 		break;
 		
 		case tileset:
 			setCaption(i18n("Change Tile Set"));
-			fileSelector = i18n("*.tileset|Tile Set File\n");
+			fileSelector = i18n("*.tileset|Tile Set File (*.tileset)\n");
 			selectedFile = tile;
 		break;
 		
 		case board:
-			fileSelector = i18n("*.layout|Board Layout File\n");
+			fileSelector = i18n("*.layout|Board Layout File (*.layout)\n");
 			setCaption(i18n("Change Board Layout"));
 			selectedFile = layout;
 		break;
 		
 		case theme:
-			fileSelector = i18n("*.theme|KMahjongg Theme\n");
+			fileSelector = i18n("*.theme|KMahjongg Theme File (*.theme)\n");
 			setCaption(i18n("Choose Theme"));
 			selectedFile="";
 			
@@ -114,7 +115,7 @@ void Preview::initialise(const PreviewType type, const char *extension)
 		break;
 	}
 	
-	fileSelector += i18n("*|All Files\n");
+	fileSelector += i18n("*|All Files");
 	enableButtonApply(type != board);
 
 	previewType = type;
