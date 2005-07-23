@@ -325,12 +325,12 @@ bool Editor::saveBoard() {
     QFileInfo f( url.path() );
     if ( f.exists() ) {
 	// if it already exists, querie the user for replacement
-	int res=KMessageBox::warningYesNo(this,
+	int res=KMessageBox::warningContinueCancel(this,
 			i18n("A file with that name "
 					   "already exists. Do you "
 					   "wish to overwrite it?"),
-					i18n("Save Board Layout" ));
-	if (res != KMessageBox::Yes)
+					i18n("Save Board Layout" ), KStdGuiItem::save());
+	if (res != KMessageBox::Continue)
 		return false;
     }
 
@@ -355,7 +355,7 @@ bool Editor::testSave()
     int res;
     res=KMessageBox::warningYesNoCancel(this,
 	i18n("The board has been modified. Would you "
-		"like to save the changes?"));
+		"like to save the changes?"),QString::null,KStdGuiItem::save(),KStdGuiItem::dontSave());
 
     if (res == KMessageBox::Yes) {
 	// yes to save

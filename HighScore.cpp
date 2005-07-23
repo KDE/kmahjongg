@@ -494,13 +494,13 @@ void HighScore::selectionChanged(int ) {
 
 void HighScore::reset() {
 
-        int res=KMessageBox::warningYesNo(this,
+        int res=KMessageBox::warningContinueCancel(this,
                         i18n("Resetting the high scores will "
                                            "remove all high score entries "
                                            "both in memory and on disk. Do "
 					   "you wish to proceed?"),
-                        		   i18n("Reset High Scores" ));
-        if (res != 1)
+                        		   i18n("Reset High Scores"),i18n("Reset"));
+        if (res != KMessageBox::Continue)
                 return ;   
 
 	// delete the file
