@@ -420,11 +420,11 @@ void Preview::saveTheme() {
         return;
     if (f.exists()) {
         // if it already exists, querie the user for replacement
-        int res=KMessageBox::warningYesNo(this,
+        int res=KMessageBox::warningContinueCancel(this,
                         i18n("A file with that name "
                                            "already exists. Do you "
-                                           "wish to overwrite it?"));
-        if (res != KMessageBox::Yes)
+                                           "wish to overwrite it?"),QString::null,i18n("Overwrite"));
+        if (res != KMessageBox::Continue)
                 return ;
     }
     FILE *outFile = fopen( QFile::encodeName(url.path()), "w" );
