@@ -39,7 +39,6 @@
 #include "boardwidget.h"
 
 class GameTimer;
-class Editor;
 
 class KToggleAction;
 class QLabel;
@@ -106,7 +105,6 @@ private:
   GameTimer    *gameTimer;
   HighScore    *theHighScores;
   Preview      *previewLoad;
-  Editor*      boardEditor;
 
   bool         bDemoModeActive;
 

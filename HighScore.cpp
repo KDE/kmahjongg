@@ -62,7 +62,7 @@ HighScore::HighScore
 	qtarch_Label_3->setGeometry( 10, 45, 30, 30 );
 	qtarch_Label_3->setFrameStyle( 50 );
 	qtarch_Label_3->setText( i18n("Pos") );
-	qtarch_Label_3->setAlignment( AlignCenter );
+	qtarch_Label_3->setAlignment( Qt::AlignCenter );
 	fnt = qtarch_Label_3->font();
 	fnt.setBold(true);
 	qtarch_Label_3->setFont(fnt);
@@ -112,9 +112,7 @@ HighScore::HighScore
 	qtarch_PushButton_1->setGeometry( 110+35, 340+50, 100, 30 );
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
-	qtarch_PushButton_1->setFocusPolicy( QWidget::TabFocus );
-	qtarch_PushButton_1->setAutoRepeat( false );
-        qtarch_PushButton_1->setAutoResize( false );
+	qtarch_PushButton_1->setFocusPolicy( Qt::TabFocus );
         qtarch_PushButton_1->setDefault(true);
 
 	QPushButton* resetBtn;
@@ -122,10 +120,8 @@ HighScore::HighScore
 	resetBtn->setGeometry( 10, 5, 25, 25);
 	resetBtn->setMinimumSize( 0, 0 );
 	resetBtn->setMaximumSize( 32767, 32767 );
-	resetBtn->setFocusPolicy( QWidget::TabFocus );
+	resetBtn->setFocusPolicy( Qt::TabFocus );
 	//resetBtn->setText(i18n( "Reset" ));
-	resetBtn->setAutoRepeat( false );
-	resetBtn->setAutoResize( false );
 
  	KIconLoader *loader = KGlobal::iconLoader();
         resetBtn->setPixmap(loader->loadIcon("editdelete", KIcon::Toolbar));
@@ -138,7 +134,7 @@ HighScore::HighScore
 
 	lineEdit = new QLineEdit(this, "");
 	lineEdit->setGeometry( 50, 40+(20*30), 190, 30 );
-	lineEdit->setFocusPolicy(QWidget::StrongFocus);
+	lineEdit->setFocusPolicy(Qt::StrongFocus);
 	lineEdit->setFrame(true);
 	lineEdit->setEchoMode(QLineEdit::Normal);
 	lineEdit->setText("");
@@ -149,9 +145,7 @@ HighScore::HighScore
         combo->setGeometry( 65, 5, 220, 25 );
         combo->setMinimumSize( 0, 0 );
         combo->setMaximumSize( 32767, 32767 );
-        combo->setFocusPolicy( QWidget::StrongFocus );
-        combo->setSizeLimit( 10 );
-        combo->setAutoResize( false );
+        combo->setFocusPolicy( Qt::StrongFocus );
         connect( combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)) );
 
 
@@ -341,7 +335,7 @@ void HighScore::addRow(int num) {
 	numbersWidgets[num] = new QLabel( this);
 	numbersWidgets[num]->setGeometry( 10, 75+(num*30), 30, 30 );
 	numbersWidgets[num]->setFrameStyle( 50 );
-	numbersWidgets[num]->setAlignment( AlignRight | AlignVCenter );
+	numbersWidgets[num]->setAlignment( Qt::AlignRight | Qt::AlignVCenter );
 	numbersWidgets[num]->setNum(num+1);
 
 

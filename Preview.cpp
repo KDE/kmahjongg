@@ -9,11 +9,12 @@
 #include <kimageio.h>
 
 #include <qcombobox.h>
-#include <qhgroupbox.h>
+#include <q3groupbox.h>
+#include <qevent.h>
 #include <qimage.h>
 #include <qregexp.h>
 #include <qpainter.h>
-#include <qvbox.h>
+#include <q3vbox.h>
 
 #include "prefs.h"
 #include "Preview.h"
@@ -24,11 +25,11 @@ Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
-	QVBox *page;
+	Q3VBox *page;
 	 
-	page = new QVBox(this);
+	page = new Q3VBox(this);
 
-	group = new QHGroupBox(page);
+	group = new Q3GroupBox(page);
 	
 	combo = new QComboBox(false, group);
 	connect(combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
@@ -139,32 +140,34 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	fileList.clear();
 	combo->clear();
 
-	// deep copy the file list as we need to keen to keep it
-	QFileInfoList *list = (QFileInfoList *) files.entryInfoList();
+	QFileInfoList list = files.entryInfoList();
 	// put the curent entry in the returned list to test for
 	// duplicates on insertion
 
 	if (!current->fileName().isEmpty())
-		list->insert(0, current);
+		list.insert(0, *current);
 
-	QFileInfo *info=list->first();
-	for (unsigned int p=0; p<list->count(); p++)
+	QFileInfoList::const_iterator it;
+	QFileInfo info;
+	it = list.begin();
+	for (int p=0; p<list.count(); p++)
 	{
+		info=*it;
 		bool duplicate = false;
 
-		for (unsigned int c=0; c<fileList.count(); c++)
+		for (int c=0; c<fileList.count(); c++)
 		{
-			if (info->filePath() == fileList[c]) {
+			if (info.filePath() == fileList[c]) {
 				duplicate = true;
 			}
 		}
 
 		if (!duplicate)
 		{
-			fileList.append(info->filePath());
-			combo->insertItem(info->baseName());
+			fileList.append(info.filePath());
+			combo->insertItem(info.baseName());
 		}
-		info=list->next();
+		++it;
 	}
 
 	combo->setEnabled(fileList.count());
@@ -243,9 +246,9 @@ void Preview::drawPreview()
 					in.readLine(backRaw, MAXPATHLEN);
 					in.readLine(layoutRaw, MAXPATHLEN);
 					
-					tile = QString("pics") + tilesetRaw;
-					back = QString("pics") + backRaw;
-					layout = QString("pics") + layoutRaw;
+					tile = QString("pics%1").arg(tilesetRaw);
+					back = QString("pics%1").arg(backRaw);
+					layout = QString("pics%1").arg(layoutRaw);
 					
 					layout.replace(QRegExp(":"), "/");
 					layout.replace(QRegExp("\n"), QString::null);
@@ -323,7 +326,7 @@ void Preview::renderBackground(const QString &bg) {
    back.load(bg, p->width(), p->height());
    b = back.getBackground();
    bitBlt( p, 0,0,
-            b,0,0, b->width(), b->height(), CopyROP );
+            b,0,0, b->width(), b->height() );
 }
 
 // This method draws a mini-tiled board with no tiles missing.
@@ -361,13 +364,13 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
 
                 if ((x>1) && (y>0) && boardLayout.getBoardData(z,y-1,x-2)=='1'){
                     bitBlt( dest, sx+2, sy,
-                        t, 2,0, t->width(), t->height()/2, CopyROP );
+                        t, 2,0, t->width(), t->height()/2 );
                     bitBlt( dest, sx, sy+t->height()/2,
-			t, 0,t->height()/2,t->width(),t->height()/2,CopyROP);
+			t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
 
                 bitBlt( dest, sx, sy,
-                    t, 0,0, t->width(), t->height(), CopyROP );
+                    t, 0,0, t->width(), t->height() );
                 }
                 tile++;
                 if (tile == 35)
@@ -466,12 +469,12 @@ void FrameImage::paintEvent( QPaintEvent* pa )
 
 
     QPen line;
-    line.setStyle(DotLine);
+    line.setStyle(Qt::DotLine);
     line.setWidth(2);
-    line.setColor(yellow);
+    line.setColor(Qt::yellow);
     p.setPen(line);
-    p.setBackgroundMode(OpaqueMode);
-    p.setBackgroundColor(black);
+    p.setBackgroundMode(Qt::OpaqueMode);
+    p.setBackgroundColor(Qt::black);
 
     int x = pa->rect().left();
     int y = pa->rect().top();
