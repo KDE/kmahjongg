@@ -14,7 +14,7 @@ int main( int argc, char** argv )
       KMAHJONGG_VERSION, description, KAboutData::License_GPL,
       "(c) 1997, Mathias Mueller");
     aboutData.addAuthor("Mathias Mueller", I18N_NOOP("Original Author"), "in5y158@public.uni-hamburg.de");
-    aboutData.addAuthor("Albert Astals Cid", I18N_NOOP("Current mantainer"), "astals11@terra.es");
+    aboutData.addAuthor("Albert Astals Cid", I18N_NOOP("Current maintainer"), "astals11@terra.es");
     aboutData.addAuthor("David Black", I18N_NOOP("Rewrite and Extension"), "david.black@lutris.com");
     aboutData.addAuthor("Michael Haertjens", I18N_NOOP("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
     aboutData.addAuthor("Osvaldo Stark", I18N_NOOP("Tile set contributor and web page maintainer"), "starko@dnet.it");
