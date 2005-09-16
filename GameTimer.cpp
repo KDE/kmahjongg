@@ -11,8 +11,8 @@
 // Constructs a GameTimer widget with a parent and a name.
 //
 
-GameTimer::GameTimer( QWidget *parent, const char *name )
-    : QLCDNumber( parent, name )
+GameTimer::GameTimer( QWidget *parent )
+    : QLCDNumber( parent )
 {
     showingColon = false;
     setNumDigits(7);	

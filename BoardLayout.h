@@ -1,5 +1,5 @@
-#ifndef __BOARD__LAYOUT_
-#define __BOARD__LAYOUT_
+#ifndef BOARD_LAYOUT_H
+#define BOARD_LAYOUT_H
 
 #include <qstring.h>
 #include "KmTypes.h"
@@ -60,3 +60,4 @@ private:
 };
 
 #endif
+
