@@ -14,7 +14,8 @@
 #include <qimage.h>
 #include <qregexp.h>
 #include <qpainter.h>
-#include <q3vbox.h>
+#include <kvbox.h>
+
 
 #include "prefs.h"
 #include "Preview.h"
@@ -25,9 +26,9 @@ Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
-	Q3VBox *page;
+	KVBox *page;
 	 
-	page = new Q3VBox(this);
+	page = new KVBox(this);
 
 	group = new Q3GroupBox(page);
 	
