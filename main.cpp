@@ -5,6 +5,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kimageio.h>
+#include <klocale.h>
 
 static const char description[] = I18N_NOOP("Mahjongg for KDE");
 

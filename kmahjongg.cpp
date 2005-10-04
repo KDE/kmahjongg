@@ -36,6 +36,7 @@
 #include <kstdgameaction.h>
 
 #include <kio/netaccess.h>
+#include <klocale.h>
 
 #include "prefs.h"
 #include "kmahjongg.h"
