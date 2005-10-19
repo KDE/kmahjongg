@@ -30,8 +30,8 @@ int main( int argc, char** argv )
     if (application.isSessionRestored())
         RESTORE(KMahjongg)
     else {
-        KMahjongg window;
-        window.show();
+        KMahjongg *window = new KMahjongg;
+        window->show();
     }
     return application.exec();
 }
