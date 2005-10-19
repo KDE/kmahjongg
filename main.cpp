@@ -23,17 +23,16 @@ int main( int argc, char** argv )
 
     KCmdLineArgs::init( argc, argv, &aboutData );
 
-    KApplication a;
+    KApplication application;
     KGlobal::locale()->insertCatalog("libkdegames");
     KImageIO::registerFormats();
 
-    if (a.isRestored())
+    if (application.isSessionRestored())
         RESTORE(KMahjongg)
     else {
-        KMahjongg *app = new KMahjongg;
-        a.setMainWidget(app);
-        app->show();
+        KMahjongg window;
+        window.show();
     }
-    return a.exec();
+    return application.exec();
 }
 

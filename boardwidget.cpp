@@ -2,12 +2,13 @@
 #include "prefs.h"
 
 #include <kmessagebox.h>
-#include <kapplication.h>
+#include <krandom.h>
 #include <qtimer.h>
 #include <qpainter.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <qfile.h>
+#include <qapplication.h>
 #include <kconfig.h>
 
 /**
@@ -46,7 +47,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
         KMessageBox::error(this,
                            i18n("An error occurred when loading the tileset file %1\n"
                                 "KMahjongg will now terminate.").arg(tFile));
-        kapp->quit();
+        qApp->quit();
     }
 
     getFileOrDefault(Prefs::background(), "bgnd", tFile);
@@ -57,7 +58,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the background image\n%1").arg(tFile)+
 		   i18n("KMahjongg will now terminate."));
-	kapp->quit();
+	qApp->quit();
     }
 
     getFileOrDefault(Prefs::layout(), "layout", tFile);
@@ -66,7 +67,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the board layout %1\n"
                 "KMahjongg will now terminate.").arg(tFile));
-	kapp->quit();
+	qApp->quit();
     }
     setDisplayedWidth();
     loadSettings();
@@ -112,7 +113,7 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 		KMessageBox::error(this, i18n("KMahjongg could not locate the file: %1\n"
                                       "or the default file of type: %2\n"
                                       "KMahjongg will now terminate").arg(filename).arg(type) );
-		kapp->quit();
+		qApp->quit();
 	}
 }
 
@@ -733,7 +734,7 @@ void BoardWidget::calculateNewGame( int gNumber)
     }
 
     if (gNumber == -1) {
-    	gameGenerationNum = kapp->random();
+    	gameGenerationNum = KRandom::random();
     } else {
 	gameGenerationNum = gNumber;
     }

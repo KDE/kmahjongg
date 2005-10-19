@@ -58,7 +58,7 @@ HighScore::HighScore
 	QFont fnt;
 	// Number
 	QLabel* qtarch_Label_3;
-	qtarch_Label_3 = new QLabel( this, "Label_3" );
+	qtarch_Label_3 = new QLabel( this );
 	qtarch_Label_3->setGeometry( 10, 45, 30, 30 );
 	qtarch_Label_3->setFrameStyle( 50 );
 	qtarch_Label_3->setText( i18n("Pos") );
@@ -71,7 +71,7 @@ HighScore::HighScore
 	// name
 
 	QLabel* qtarch_Label_4;
-	qtarch_Label_4 = new QLabel( this, "Label_4" );
+	qtarch_Label_4 = new QLabel( this );
 	qtarch_Label_4->setGeometry( 40, 45, 150, 30 );
 	qtarch_Label_4->setFrameStyle( 50 );
 	qtarch_Label_4->setText( i18n("Name") );
@@ -80,7 +80,7 @@ HighScore::HighScore
 
 	// board number
 	QLabel* boardTitle;
-	boardTitle= new QLabel( this, "" );
+	boardTitle= new QLabel( this );
 	boardTitle->setGeometry( 190, 45, 80, 30 );
 	boardTitle->setFrameStyle( 50 );
 	boardTitle->setText( i18n("Board") );
@@ -88,7 +88,7 @@ HighScore::HighScore
 
 	// score
 	QLabel* qtarch_Label_5;
-	qtarch_Label_5 = new QLabel( this, "Label_5" );
+	qtarch_Label_5 = new QLabel( this );
 	qtarch_Label_5->setGeometry( 270, 45, 70, 30 );
 	qtarch_Label_5->setFrameStyle( 50 );
 	qtarch_Label_5->setText( i18n("Score") );
@@ -96,7 +96,7 @@ HighScore::HighScore
 
         // time
         QLabel* qtarch_Label_6;
-        qtarch_Label_6 = new QLabel( this, "Label_6" );
+        qtarch_Label_6 = new QLabel( this );
         qtarch_Label_6->setGeometry( 340, 45, 70, 30 );
         qtarch_Label_6->setFrameStyle( 50 );
         qtarch_Label_6->setText( i18n("Time") );
@@ -108,7 +108,7 @@ HighScore::HighScore
 		addRow(row);
 
 	QPushButton* qtarch_PushButton_1;
-	qtarch_PushButton_1 = new KPushButton( KStdGuiItem::ok(), this, "PushButton_1" );
+	qtarch_PushButton_1 = new KPushButton( KStdGuiItem::ok(), this );
 	qtarch_PushButton_1->setGeometry( 110+35, 340+50, 100, 30 );
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );
@@ -116,7 +116,7 @@ HighScore::HighScore
         qtarch_PushButton_1->setDefault(true);
 
 	QPushButton* resetBtn;
-	resetBtn= new QPushButton( this, "resetBtn" );
+	resetBtn= new QPushButton( this );
 	resetBtn->setGeometry( 10, 5, 25, 25);
 	resetBtn->setMinimumSize( 0, 0 );
 	resetBtn->setMaximumSize( 32767, 32767 );
@@ -132,7 +132,7 @@ HighScore::HighScore
 	/* off screen. it is moved over and placed in position when a */
 	/* new name is added */
 
-	lineEdit = new QLineEdit(this, "");
+	lineEdit = new QLineEdit(this);
 	lineEdit->setGeometry( 50, 40+(20*30), 190, 30 );
 	lineEdit->setFocusPolicy(Qt::StrongFocus);
 	lineEdit->setFrame(true);
@@ -141,7 +141,7 @@ HighScore::HighScore
 
 	// the drop down for the board names
 
-        combo = new QComboBox( false, this, "combo" );
+        combo = new QComboBox( false, this );
         combo->setGeometry( 65, 5, 220, 25 );
         combo->setMinimumSize( 0, 0 );
         combo->setMaximumSize( 32767, 32767 );
