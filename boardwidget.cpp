@@ -10,6 +10,7 @@
 #include <qfile.h>
 #include <qapplication.h>
 #include <kconfig.h>
+#include <kglobal.h>
 
 /**
  * Constructor.
@@ -88,7 +89,7 @@ void BoardWidget::loadSettings(){
 
 void BoardWidget::saveSettings(){
   // Preview can't handle this.  TODO
-  //KConfig *config=kapp->config();
+  //KConfig *config=KGlobal::config();
   //config->setGroup("General");
 
   //config->writePathEntry("Tileset_file", tileFile);
