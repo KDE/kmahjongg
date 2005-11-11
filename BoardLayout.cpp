@@ -25,7 +25,7 @@ void BoardLayout::clearBoardLayout() {
 
 bool BoardLayout::saveBoardLayout(const QString where) {
 	QFile f(where);
-	if (!f.open(IO_ReadWrite)) {
+	if (!f.open(QIODevice::ReadWrite)) {
 	    return false;
 	}
 
@@ -66,7 +66,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
     QFile f(from);
     QString all = "";
 
-    if ( f.open(IO_ReadOnly) ) {    
+    if ( f.open(QIODevice::ReadOnly) ) {    
  	QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
 	QString s;

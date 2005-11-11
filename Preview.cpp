@@ -233,7 +233,7 @@ void Preview::drawPreview()
 				char magic[MAXPATHLEN];
 				
 				QFile in(selectedFile);
-				if (in.open(IO_ReadOnly))
+				if (in.open(QIODevice::ReadOnly))
 				{
 					in.readLine(magic, MAXPATHLEN);
 					if (magic[strlen(magic)-1]=='\n') magic[strlen(magic)-1]='\0';
