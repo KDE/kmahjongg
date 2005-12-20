@@ -1537,7 +1537,14 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	}
 	if (doRepaint) {
 		updateBackBuffer=true;
-		repaint(false);
+		if (testWFlags(WNoAutoErase)) 
+			update(); 
+		else 
+		{ 
+			setWFlags(getWFlags() | WNoAutoErase ); 
+			update(); 
+			setWFlags(getWFlags() & (~WNoAutoErase) ); 
+		} 
 	}
 }
 
@@ -1547,7 +1554,14 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 void BoardWidget::drawBoard(bool )
 {
    updateBackBuffer=true;
-   repaint(false);
+   if (testWFlags(WNoAutoErase)) 
+      update(); 
+   else 
+   { 
+      setWFlags(getWFlags() | WNoAutoErase ); 
+      update(); 
+      setWFlags(getWFlags() & (~WNoAutoErase) ); 
+   } 
    drawTileNumber();
 }
 
@@ -1563,7 +1577,14 @@ void BoardWidget::putTile( POSITION& Pos, bool doRepaint )
 	Game.hilighted[E][Y][X] = 0;
     if (doRepaint) {
 	updateBackBuffer=true;
-       repaint(false);
+	if (testWFlags(WNoAutoErase)) 
+		update(); 
+	else 
+	{ 
+		setWFlags(getWFlags() | WNoAutoErase ); 
+		update(); 
+		setWFlags(getWFlags() & (~WNoAutoErase) ); 
+	} 
     }
 }
 
@@ -1585,7 +1606,14 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game.putTile( E, Y, X, 0 );
     if (doRepaint) {
         updateBackBuffer=true;
-        repaint(false);
+	if (testWFlags(WNoAutoErase)) 
+		update(); 
+	else 
+	{ 
+		setWFlags(getWFlags() | WNoAutoErase ); 
+		update(); 
+		setWFlags(getWFlags() & (~WNoAutoErase) ); 
+	} 
     }
 }
 
