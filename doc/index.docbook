@@ -78,7 +78,7 @@
 
 <abstract>
 <para>
-&kmahjongg; is a game similar to famous oriental game Mahjongg<trademark/>.
+&kmahjongg; is a game similar to famous oriental game <trademark>Mahjongg</trademark>.
 </para>
 </abstract>
 
@@ -96,7 +96,7 @@
 <title>Introduction</title>
 
 <para>
-&kmahjongg; is a game similar to the famous oriental game Mahjongg<trademark/>. The purpose of the game
+&kmahjongg; is a game similar to the famous oriental game <trademark>Mahjongg</trademark>. The purpose of the game
 is to remove all of the tiles from the gameboard. Tiles are removed by matching tiles in
 pairs. The matched tiles must have a free side on the left or on the right. Please report
 any problems or feature requests to the &kde; mailing lists.
