@@ -188,7 +188,7 @@ void Preview::slotOk() {
 }
 
 void Preview::load() {
-    KURL url = KFileDialog::getOpenURL(QString::null, fileSelector, this, i18n("Open Board Layout" ));
+    KUrl url = KFileDialog::getOpenURL(QString::null, fileSelector, this, i18n("Open Board Layout" ));
     if ( !url.isEmpty() ) {
         selectedFile = url.path();
         drawPreview();
@@ -401,7 +401,7 @@ void Preview::saveTheme() {
 
 
     // Get the name of the file to save
-    KURL url = KFileDialog::getSaveURL(
+    KUrl url = KFileDialog::getSaveURL(
         NULL,
         "*.theme",
         parentWidget(),

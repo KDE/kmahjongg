@@ -25,7 +25,7 @@ int main( int argc, char** argv )
 
     KApplication application;
     KGlobal::locale()->insertCatalog("libkdegames");
-    KImageIO::registerFormats();
+    
 
     if (application.isSessionRestored())
         RESTORE(KMahjongg)

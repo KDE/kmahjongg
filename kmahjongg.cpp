@@ -460,7 +460,7 @@ void KMahjongg::loadGame() {
     QString fname;
 
     // Get the name of the file to load
-    KURL url = KFileDialog::getOpenURL( NULL, "*.kmgame", this, i18n("Load Game" ) );
+    KUrl url = KFileDialog::getOpenURL( NULL, "*.kmgame", this, i18n("Load Game" ) );
 
     if ( url.isEmpty() )
 	return;
@@ -525,7 +525,7 @@ void KMahjongg::restartGame() {
 void KMahjongg::saveGame() {
 
     // Get the name of the file to save
-    KURL url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save Game" ) );
+    KUrl url = KFileDialog::getSaveURL( NULL, "*.kmgame", this, i18n("Save Game" ) );
 
     if ( url.isEmpty() )
 	return;
