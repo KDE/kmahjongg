@@ -279,31 +279,31 @@ void KMahjongg::showHighscores()
 
 void KMahjongg::openTheme()
 {
-    previewLoad->initialise(Preview::theme, EXT_THEME);
+    previewLoad->initialise(Preview::theme);
     previewLoad->exec();
 }
 
 void KMahjongg::saveTheme()
 {
-    previewLoad->initialise(Preview::theme, EXT_THEME);
+    previewLoad->initialise(Preview::theme);
     previewLoad->saveTheme();
 }
 
 void KMahjongg::openLayout()
 {
-    previewLoad->initialise(Preview::board, EXT_LAYOUT);
+    previewLoad->initialise(Preview::board);
     previewLoad->exec();
 }
 
 void KMahjongg::openBackground()
 {
-    previewLoad->initialise(Preview::background, EXT_BACKGROUND);
+    previewLoad->initialise(Preview::background);
     previewLoad->exec();
 }
 
 void KMahjongg::openTileset()
 {
-    previewLoad->initialise(Preview::tileset, EXT_TILESET);
+    previewLoad->initialise(Preview::tileset);
     previewLoad->exec();
 }
 

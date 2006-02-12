@@ -83,13 +83,6 @@ typedef struct gamedata {
 
 #define ID_GAME_TIMER 		999
 
-#define EXT_BACKGROUND		"*.bgnd"
-#define EXT_TILESET		"*.tileset"
-#define EXT_LAYOUT              "*.layout"
-#define EXT_THEME		"*.theme"
-
-
-
 /**
  *  @author Mathias Mueller
  */
