@@ -128,7 +128,6 @@ void Preview::initialise(const PreviewType type)
 	markUnchanged();
 
 	m_fileList = kapp->dirs()->findAllResources("appdata",  "pics/*"+extension, false, true);
-	kdDebug() << m_fileList << endl;
 
 	// get rid of files from the last invocation
 	m_combo->clear();
