@@ -1,5 +1,6 @@
 #include <sys/param.h>
 
+#include <kapplication.h>
 #include <kfiledialog.h>
 #include <klocale.h>
 #include <kmessagebox.h>
@@ -22,7 +23,7 @@
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
-Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
+Preview::Preview(QWidget* parent) : KDialogBase(parent), m_tiles(true)
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
@@ -32,16 +33,16 @@ Preview::Preview(QWidget* parent) : KDialogBase(parent), tiles(true)
 
 	group = new Q3GroupBox(page);
 	
-	combo = new QComboBox(false, group);
-	connect(combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
+	m_combo = new QComboBox(false, group);
+	connect(m_combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
 	loadButton = new KPushButton(i18n("Load..."), group);
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
 	
-	drawFrame = new FrameImage(page);
-	drawFrame->setFixedSize(310, 236);
+	m_drawFrame = new FrameImage(page);
+	m_drawFrame->setFixedSize(310, 236);
 
-	changed = false;
+	m_changed = false;
 	
 	setMainWidget(page);
 	setFixedSize(sizeHint());
@@ -53,29 +54,30 @@ Preview::~Preview()
 
 void Preview::selectionChanged(int which)
 {
-	selectedFile = fileList[which];
+	m_selectedFile = m_fileList[which];
 	drawPreview();
-	drawFrame->repaint(0,0,-1,-1,false);
+	m_drawFrame->repaint(0,0,-1,-1,false);
 	markChanged();
 }
 
 bool Preview::isChanged()
 {
-	return changed;
+	return m_changed;
 }
 
 void Preview::markChanged()
 {
-	changed = true;
+	m_changed = true;
 }
 
 void Preview::markUnchanged()
 {
-	changed = false;
+	m_changed = false;
 }
 
-void Preview::initialise(const PreviewType type, const char *extension)
+void Preview::initialise(const PreviewType type)
 {
+	QString extension;
 	QString tile = Prefs::tileSet();
 	QString back = Prefs::background();
 	QString layout = Prefs::layout();
@@ -86,92 +88,65 @@ void Preview::initialise(const PreviewType type, const char *extension)
 	{
 		case background:
 			setCaption(i18n("Change Background Image"));
-			selectedFile = back;
-			fileSelector = i18n("*.bgnd|Background Image (*.bgnd)\n");
-			fileSelector += KImageIO::pattern()+"\n";
+			m_selectedFile = back;
+			m_fileSelector = i18n("*.bgnd|Background Image (*.bgnd)\n");
+			m_fileSelector += KImageIO::pattern()+"\n";
+			extension = "*.bgnd";
 		break;
 		
 		case tileset:
 			setCaption(i18n("Change Tile Set"));
-			fileSelector = i18n("*.tileset|Tile Set File (*.tileset)\n");
-			selectedFile = tile;
+			m_fileSelector = i18n("*.tileset|Tile Set File (*.tileset)\n");
+			m_selectedFile = tile;
+			extension = "*.tileset";
 		break;
 		
 		case board:
-			fileSelector = i18n("*.layout|Board Layout File (*.layout)\n");
+			m_fileSelector = i18n("*.layout|Board Layout File (*.layout)\n");
 			setCaption(i18n("Change Board Layout"));
-			selectedFile = layout;
+			m_selectedFile = layout;
+			extension = "*.layout";
 		break;
 		
 		case theme:
-			fileSelector = i18n("*.theme|KMahjongg Theme File (*.theme)\n");
+			m_fileSelector = i18n("*.theme|KMahjongg Theme File (*.theme)\n");
 			setCaption(i18n("Choose Theme"));
-			selectedFile="";
+			m_selectedFile="";
+			extension = "*.theme";
 			
-			themeLayout="";
-			themeBack="";
-			themeTileset="";
+			m_themeLayout="";
+			m_themeBack="";
+			m_themeTileset="";
 		
 		default:
 		break;
 	}
 	
-	fileSelector += i18n("*|All Files");
+	m_fileSelector += i18n("*|All Files");
 	enableButtonApply(type != board);
 
-	previewType = type;
+	m_previewType = type;
 	// we start with no change indicated
 	markUnchanged();
 
-	QString kmDir;
-	QDir files;
-	QFileInfo *current=new QFileInfo(selectedFile);
-
-	// we pick up system files from the kde dir
-	kmDir = locate("appdata", "pics/default.tileset");
-
-	QFileInfo f(kmDir);
-	kmDir = f.dirPath();
-
-	files.cd(kmDir);
-	files.setNameFilter(extension);
-	files.setFilter(QDir::Files | QDir::Readable);
+	m_fileList = kapp->dirs()->findAllResources("appdata",  "pics/*"+extension, false, true);
 
 	// get rid of files from the last invocation
-	fileList.clear();
-	combo->clear();
+	m_combo->clear();
 
-	QFileInfoList list = files.entryInfoList();
-	// put the curent entry in the returned list to test for
-	// duplicates on insertion
-
-	if (!current->fileName().isEmpty())
-		list.insert(0, *current);
-
-	QFileInfoList::const_iterator it;
-	QFileInfo info;
-	it = list.begin();
-	for (int p=0; p<list.count(); p++)
+	QStringList names;
+	QStringList::const_iterator it, itEnd;
+	it = m_fileList.begin();
+	itEnd = m_fileList.end();
+	for ( ; it != itEnd; ++it)
 	{
-		info=*it;
-		bool duplicate = false;
-
-		for (int c=0; c<fileList.count(); c++)
-		{
-			if (info.filePath() == fileList[c]) {
-				duplicate = true;
-			}
-		}
-
-		if (!duplicate)
-		{
-			fileList.append(info.filePath());
-			combo->insertItem(info.baseName());
-		}
-		++it;
+		QFileInfo fi(*it);
+		names << fi.baseName();
 	}
-
-	combo->setEnabled(fileList.count());
+	
+	names.sort();
+	m_combo->insertStringList(names);
+	m_combo->setEnabled(m_fileList.count());
 	drawPreview();
 }
 
@@ -188,11 +163,11 @@ void Preview::slotOk() {
 }
 
 void Preview::load() {
-    KUrl url = KFileDialog::getOpenURL(QString::null, fileSelector, this, i18n("Open Board Layout" ));
+    KUrl url = KFileDialog::getOpenURL(QString::null, m_fileSelector, this, i18n("Open Board Layout" ));
     if ( !url.isEmpty() ) {
-        selectedFile = url.path();
+        m_selectedFile = url.path();
         drawPreview();
-        drawFrame->repaint(0,0,-1,-1,false);
+        m_drawFrame->repaint(0,0,-1,-1,false);
         markChanged();
     }
 }
@@ -208,31 +183,31 @@ void Preview::drawPreview()
 	QString back = Prefs::background();
 	QString layout = Prefs::layout();
 	
-	switch (previewType)
+	switch (m_previewType)
 	{
 		case background:
-			back = selectedFile;
+			back = m_selectedFile;
 		break;
 		
 		case tileset:
-			tile = selectedFile;
+			tile = m_selectedFile;
 		break;
 		
 		case board:
-			layout = selectedFile;
+			layout = m_selectedFile;
 		break;
 		
 		case theme:
 			// a theme is quite a bit of work. We load the
 			// specified bits in (layout, background and tileset
-			if (!selectedFile.isEmpty())
+			if (!m_selectedFile.isEmpty())
 			{
 				char backRaw[MAXPATHLEN];
 				char layoutRaw[MAXPATHLEN];
 				char tilesetRaw[MAXPATHLEN];
 				char magic[MAXPATHLEN];
 				
-				QFile in(selectedFile);
+				QFile in(m_selectedFile);
 				if (in.open(QIODevice::ReadOnly))
 				{
 					in.readLine(magic, MAXPATHLEN);
@@ -264,9 +239,9 @@ void Preview::drawPreview()
 					
 					in.close();
 					
-					themeBack=back;
-					themeLayout=layout;
-					themeTileset=tile;
+					m_themeBack=back;
+					m_themeLayout=layout;
+					m_themeTileset=tile;
 				}
 			}
 		break;
@@ -277,7 +252,7 @@ void Preview::drawPreview()
 }
 
 void Preview::paintEvent( QPaintEvent*  ){
-  drawFrame->repaint(false);
+  m_drawFrame->repaint(false);
 }
 
 // the user selected ok, or apply. This method passes the changes
@@ -285,32 +260,32 @@ void Preview::paintEvent( QPaintEvent*  ){
 // (unnecessary on layout changes since it only effects the next game)
 void Preview::applyChange()
 {
-	switch (previewType)
+	switch (m_previewType)
 	{
 		case background:
-			loadBackground(selectedFile, false);
+			loadBackground(m_selectedFile, false);
 		break;
 		
 		case tileset:
-			loadTileset(selectedFile);
+			loadTileset(m_selectedFile);
 		break;
 		
 		case board:
-			loadBoard(selectedFile);
+			loadBoard(m_selectedFile);
 		break;
 		
 		case theme:
-			if (!themeLayout.isEmpty() && !themeBack.isEmpty() && !themeTileset.isEmpty())
+			if (!m_themeLayout.isEmpty() && !m_themeBack.isEmpty() && !m_themeTileset.isEmpty())
 			{
-				loadBackground(themeBack, false);
-				loadTileset(themeTileset);
-				loadBoard(themeLayout);
+				loadBackground(m_themeBack, false);
+				loadTileset(m_themeTileset);
+				loadBoard(m_themeLayout);
 			}
 		break;
     }
 
 	// don't redraw for a layout change
-	if (previewType == board  || previewType == theme) layoutChange();
+	if (m_previewType == board  || m_previewType == theme) layoutChange();
 	else boardRedraw(true);
 
 	// either way we mark the current value as unchanged
@@ -323,9 +298,9 @@ void Preview::renderBackground(const QString &bg) {
    QImage tmp;
    QPixmap *p;
    QPixmap *b;
-   p = drawFrame->getPreviewPixmap();
-   back.load(bg, p->width(), p->height());
-   b = back.getBackground();
+   p = m_drawFrame->getPreviewPixmap();
+   m_back.load(bg, p->width(), p->height());
+   b = m_back.getBackground();
    bitBlt( p, 0,0,
             b,0,0, b->width(), b->height() );
 }
@@ -333,12 +308,12 @@ void Preview::renderBackground(const QString &bg) {
 // This method draws a mini-tiled board with no tiles missing.
 
 void Preview::renderTiles(const QString &file, const QString &layout) {
-    tiles.loadTileset(file, true);
-    boardLayout.loadBoardLayout(layout);
+    m_tiles.loadTileset(file, true);
+    m_boardLayout.loadBoardLayout(layout);
 
-    QPixmap *dest = drawFrame->getPreviewPixmap();
-    int xOffset = tiles.width()/2;
-    int yOffset = tiles.height()/2;
+    QPixmap *dest = m_drawFrame->getPreviewPixmap();
+    int xOffset = m_tiles.width()/2;
+    int yOffset = m_tiles.height()/2;
     short tile = 0;
 
     // we iterate over the depth stacking order. Each successive level is
@@ -349,12 +324,12 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
         for (int y = 0; y < BoardLayout::height; y++) {
             // drawing right to left to prevent border overwrite
             for (int x=BoardLayout::width-1; x>=0; x--) {
-                int sx = x*(tiles.qWidth()  )+xOffset;
-                int sy = y*(tiles.qHeight()  )+yOffset;
-                if (boardLayout.getBoardData(z, y, x) != '1') {
+                int sx = x*(m_tiles.qWidth()  )+xOffset;
+                int sy = y*(m_tiles.qHeight()  )+yOffset;
+                if (m_boardLayout.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-                QPixmap *t = tiles.unselectedPixmaps(tile);
+                QPixmap *t = m_tiles.unselectedPixmaps(tile);
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:
@@ -363,7 +338,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 // we simply split the tile draw so the top half is drawn
                 // minus border
 
-                if ((x>1) && (y>0) && boardLayout.getBoardData(z,y-1,x-2)=='1'){
+                if ((x>1) && (y>0) && m_boardLayout.getBoardData(z,y-1,x-2)=='1'){
                     bitBlt( dest, sx+2, sy,
                         t, 2,0, t->width(), t->height()/2 );
                     bitBlt( dest, sx, sy+t->height()/2,
@@ -379,8 +354,8 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 tile = tile % 43;
             }
         }
-        xOffset +=tiles.shadowSize();
-        yOffset -=tiles.shadowSize();
+        xOffset +=m_tiles.shadowSize();
+        yOffset -=m_tiles.shadowSize();
     }
 }
 

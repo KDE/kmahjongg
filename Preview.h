@@ -50,14 +50,14 @@ public:
 	Preview(QWidget* parent);
 	~Preview();
 
-	void initialise(const PreviewType type, const char *extension);
+	void initialise(const PreviewType type);
 	void saveTheme();
 
 protected:
 	void markUnchanged();
 	void markChanged();
 	bool isChanged();
-	QPixmap *getPreviewPixmap() {return drawFrame->getPreviewPixmap();};
+	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); };
 	virtual void drawPreview();
 	void applyChange() ;
 	void renderBackground(const QString &bg);
@@ -82,23 +82,23 @@ private slots:
 	void load();
 
 protected:
-	FrameImage *drawFrame;
-	QComboBox *combo;
+	FrameImage *m_drawFrame;
+	QComboBox *m_combo;
 
-	QString selectedFile;
-	Tileset tiles;
-	BoardLayout boardLayout;
-	Background back;
+	QString m_selectedFile;
+	Tileset m_tiles;
+	BoardLayout m_boardLayout;
+	Background m_back;
 
 private:
-	QString fileSelector;
-	bool changed;
-	QStringList fileList;
-	PreviewType previewType;
+	QString m_fileSelector;
+	bool m_changed;
+	QStringList m_fileList;
+	PreviewType m_previewType;
 
-	QString themeBack;
-	QString themeLayout;
-	QString themeTileset;
+	QString m_themeBack;
+	QString m_themeLayout;
+	QString m_themeTileset;
 };
 
 #endif
