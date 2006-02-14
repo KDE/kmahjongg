@@ -142,7 +142,6 @@ void Preview::initialise(const PreviewType type)
 		names << fi.baseName();
 	}
 	
-	names.sort();
 	m_combo->insertStringList(names);
 	m_combo->setEnabled(m_fileList.count());
 	drawPreview();
