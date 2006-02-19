@@ -5,6 +5,7 @@ Name[x-test]=xxKMahjonggxx
 Exec=kmahjongg -caption "%c"
 Type=Application
 GenericName=Mahjongg-like Tile Game
+GenericName[fr]=Jeu de tuiles dans le style du Mahjongg
 GenericName[x-test]=xxMahjongg-like Tile Gamexx
 Terminal=false
 Icon=kmahjongg
