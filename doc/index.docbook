@@ -72,7 +72,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2005-08-14</date>
+<date>2006-01-23</date>
 <releaseinfo>0.7.6</releaseinfo>
 
 
@@ -242,7 +242,7 @@ lets the player know when the game is ready.
 
 
 <sect1 id="configure">
-<title>Configure KMahjongg</title>
+<title>Configure &kmahjongg;</title>
 
 <!--
 <variablelist>
@@ -271,8 +271,8 @@ lets the player know when the game is ready.
 </variablelist>
 -->
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure KMahjong...</guimenuitem></menuchoice>
-opens the Configure KMahjong Dialog.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;...</guimenuitem></menuchoice>
+opens the Configure &kmahjongg; Dialog.</para>
 
 <sect2 id="general-options"><title><guilabel>General</guilabel> options</title>
 <variablelist>
@@ -402,7 +402,7 @@ The default kebindings are as follows:
 <term><keysym>D</keysym></term>
 <listitem>
 <para>
-Places the game in Demo mode.
+Playes the game in Demo mode.
 </para>
 </listitem>
 </varlistentry>
@@ -510,7 +510,7 @@ Move undo.
 <term><keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></term>
 <listitem>
 <para>
-Invokes the KDE Help system starting at the KMahjongg help pages. (this document).
+What's this? Help
 </para>
 </listitem>
 </varlistentry>
@@ -940,6 +940,29 @@ The gameboard editor lets you create your own tile layouts for gameplay.
 <term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Matching Tiles</guimenuitem></menuchoice></term>
 <listitem>
 <para>Shows matching tiles by flashing all matching free tiles when a tile is selected.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Displays a standard &kde; shortcut configuration dialog</action> to change the 
+<link linkend="default-keybindings">keyboard shortcuts</link> for &kmahjongg;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice></term>
+<listitem>
+<para>Displays a standard &kde; dialog where you can configure the toolbar icons.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;...</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Opens a dialog to configure &kmahjongg;.</action> For details,
+see <link linkend="game-configuration">here</link>.</para>
 </listitem>
 </varlistentry>
 
