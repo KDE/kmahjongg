@@ -1,5 +1,3 @@
-#include <sys/param.h>
-
 #include <kapplication.h>
 #include <kfiledialog.h>
 #include <klocale.h>
@@ -15,6 +13,7 @@
 #include <qimage.h>
 #include <qregexp.h>
 #include <qpainter.h>
+#include <qtextstream.h>
 #include <kvbox.h>
 
 
@@ -201,42 +200,50 @@ void Preview::drawPreview()
 			// specified bits in (layout, background and tileset
 			if (!m_selectedFile.isEmpty())
 			{
-				char backRaw[MAXPATHLEN];
-				char layoutRaw[MAXPATHLEN];
-				char tilesetRaw[MAXPATHLEN];
-				char magic[MAXPATHLEN];
+				QString backRaw, layoutRaw, tilesetRaw, magic;
 				
 				QFile in(m_selectedFile);
 				if (in.open(QIODevice::ReadOnly))
 				{
-					in.readLine(magic, MAXPATHLEN);
-					if (magic[strlen(magic)-1]=='\n') magic[strlen(magic)-1]='\0';
-					if (strncmp(themeMagicV1_0, magic, strlen(magic)) != 0)
+					QTextStream stream(&in);
+					magic = stream.readLine();
+					if (magic != themeMagicV1_0)
 					{
 						in.close();
 						KMessageBox::sorry(this, i18n("That is not a valid theme file."));
 						break;
 					}
-					in.readLine(tilesetRaw, MAXPATHLEN);
-					in.readLine(backRaw, MAXPATHLEN);
-					in.readLine(layoutRaw, MAXPATHLEN);
-					
-					tile = QString("pics%1").arg(tilesetRaw);
-					back = QString("pics%1").arg(backRaw);
-					layout = QString("pics%1").arg(layoutRaw);
-					
-					layout.replace(QRegExp(":"), "/");
-					layout.replace(QRegExp("\n"), QString::null);
-					tile.replace(QRegExp(":"), "/");
-					tile.replace(QRegExp("\n"), QString::null);
-					back.replace(QRegExp(":"), "/");
-					back.replace(QRegExp("\n"), QString::null);
-					
-					tile = locate("appdata", tile);
-					back = locate("appdata", back);
-					layout = locate("appdata", layout);
-					
+					tilesetRaw = stream.readLine();
+					backRaw = stream.readLine();
+					layoutRaw = stream.readLine();
 					in.close();
+					
+					tile = tilesetRaw;
+					tile.replace(":", "/kmahjongg/pics/");
+					if (!QFile::exists(tile))
+					{
+						tile = tilesetRaw;
+						tile = "pics/" + tile.right(tile.length() - tile.find(":") - 1 );
+						tile = locate("appdata", tile);
+					}
+					
+					back = backRaw;
+					back.replace(":", "/kmahjongg/pics/");
+					if (!QFile::exists(back))
+					{
+						back = backRaw;
+						back = "pics/" + back.right(back.length() - back.find(":") - 1);
+						back = locate("appdata", back);
+					}
+					
+					layout = layoutRaw;
+					layout.replace(":", "/kmahjongg/pics/");
+					if (!QFile::exists(layout))
+					{
+						layout = layoutRaw;
+						layout = "pics/" + layout.right(layout.length() - layout.find(":") - 1);
+						layout = locate("appdata", layout);
+					}
 					
 					m_themeBack=back;
 					m_themeLayout=layout;
