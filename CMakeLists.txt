@@ -21,13 +21,13 @@ set(kmahjongg_SRCS
 
 kde4_automoc(${kmahjongg_SRCS})
 
-kde4_add_ui_files(kmahjongg_SRCS settings.ui )
+kde4_add_ui3_files(kmahjongg_SRCS settings.ui )
 
 kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
 kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg  ${QT_AND_KDECORE_LIBS} )
+target_link_libraries(kmahjongg  ${LIB_KIO} kdegames )
 
 install_targets(/bin kmahjongg )
 
