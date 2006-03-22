@@ -124,7 +124,7 @@ HighScore::HighScore
 	//resetBtn->setText(i18n( "Reset" ));
 
  	KIconLoader *loader = KGlobal::iconLoader();
-        resetBtn->setPixmap(loader->loadIcon("editdelete", KIcon::Toolbar));
+        resetBtn->setPixmap(loader->loadIcon("editdelete", K3Icon::Toolbar));
        
 
 

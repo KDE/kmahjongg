@@ -111,35 +111,35 @@ void Editor::setupToolbar()
     KToolBarRadioGroup *radio = new KToolBarRadioGroup(topToolbar);
 
     // new game
-    topToolbar->insertButton(loader->loadIcon("filenew", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("filenew", K3Icon::Toolbar),
             ID_TOOL_NEW, true, i18n("New board"));
     // open game
-    topToolbar->insertButton(loader->loadIcon("fileopen", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("fileopen", K3Icon::Toolbar),
             ID_TOOL_LOAD, true, i18n("Open board"));
     // save game
-    topToolbar->insertButton(loader->loadIcon("filesave", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("filesave", K3Icon::Toolbar),
             ID_TOOL_SAVE, true, i18n("Save board"));
-    topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", KIcon::Toolbar));
+    topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", K3Icon::Toolbar));
     
 #ifdef FUTURE_OPTIONS
     // Select
     topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("rectangle_select", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("rectangle_select", K3Icon::Toolbar),
             ID_TOOL_SELECT, true, i18n("Select"));
-    topToolbar->insertButton(loader->loadIcon("editcut", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("editcut", K3Icon::Toolbar),
             ID_TOOL_CUT, true, i18n("Cut"));
-    topToolbar->insertButton(loader->loadIcon("editcopy", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("editcopy", K3Icon::Toolbar),
             ID_TOOL_COPY, true, i18n("Copy"));
-    topToolbar->insertButton(loader->loadIcon("editpaste", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("editpaste", K3Icon::Toolbar),
             ID_TOOL_PASTE, true, i18n("Paste"));
 
     topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("move", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("move", K3Icon::Toolbar),
             ID_TOOL_MOVE, true, i18n("Move tiles"));
 #endif
-    topToolbar->insertButton(loader->loadIcon("pencil", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("pencil", K3Icon::Toolbar),
             ID_TOOL_ADD, true, i18n("Add tiles"));
-    topToolbar->insertButton(loader->loadIcon("editdelete", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("editdelete", K3Icon::Toolbar),
             ID_TOOL_DEL, true, i18n("Remove tiles"));
 
     topToolbar->setToggle(ID_TOOL_ADD);
@@ -155,17 +155,17 @@ void Editor::setupToolbar()
     // board shift
 
     topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("back", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("back", K3Icon::Toolbar),
             ID_TOOL_LEFT, true, i18n("Shift left"));
-    topToolbar->insertButton(loader->loadIcon("up", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("up", K3Icon::Toolbar),
             ID_TOOL_UP, true, i18n("Shift up"));
-    topToolbar->insertButton(loader->loadIcon("down", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("down", K3Icon::Toolbar),
             ID_TOOL_DOWN, true, i18n("Shift down"));
-    topToolbar->insertButton(loader->loadIcon("forward", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("forward", K3Icon::Toolbar),
             ID_TOOL_RIGHT, true, i18n("Shift right"));
 
     topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("exit", KIcon::Toolbar),
+    topToolbar->insertButton(loader->loadIcon("exit", K3Icon::Toolbar),
             ID_META_EXIT, true, i18n("Exit"));
 
     // status in the toolbar for now (ick)
