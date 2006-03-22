@@ -28,7 +28,7 @@ kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
 kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg  ${LIB_KIO} kdegames )
+target_link_libraries(kmahjongg  ${KDE4_KIO_LIBRARIES} kdegames )
 
 install_targets(/bin kmahjongg )
 
