@@ -47,7 +47,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
     if (!loadTileset(tFile)){
         KMessageBox::error(this,
                            i18n("An error occurred when loading the tileset file %1\n"
-                                "KMahjongg will now terminate.").arg(tFile));
+                                "KMahjongg will now terminate.", tFile));
         qApp->quit();
     }
 
@@ -57,7 +57,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
     if( ! loadBackground(tFile, false ) )
     {
 	KMessageBox::error(this,
-		   i18n("An error occurred when loading the background image\n%1").arg(tFile)+
+		   i18n("An error occurred when loading the background image\n%1", tFile)+
 		   i18n("KMahjongg will now terminate."));
 	qApp->quit();
     }
@@ -67,7 +67,7 @@ BoardWidget::BoardWidget( QWidget* parent, const char *name )
     {
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the board layout %1\n"
-                "KMahjongg will now terminate.").arg(tFile));
+                "KMahjongg will now terminate.", tFile));
 	qApp->quit();
     }
     setDisplayedWidth();
@@ -113,7 +113,7 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
     if (res.isEmpty()) {
 		KMessageBox::error(this, i18n("KMahjongg could not locate the file: %1\n"
                                       "or the default file of type: %2\n"
-                                      "KMahjongg will now terminate").arg(filename).arg(type) );
+                                      "KMahjongg will now terminate", filename, type) );
 		qApp->quit();
 	}
 }
@@ -1778,7 +1778,7 @@ bool BoardWidget::loadBackground(
     if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
     {
         if( bShowError )
-            KMessageBox::sorry(this, i18n("Failed to load image:\n%1").arg(pszFileName) );
+            KMessageBox::sorry(this, i18n("Failed to load image:\n%1", pszFileName) );
         return( false );
     }
     Prefs::setBackground(pszFileName);

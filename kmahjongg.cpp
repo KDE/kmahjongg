@@ -396,7 +396,7 @@ void KMahjongg::gameOver(
 void KMahjongg::showStatusText( const QString &msg, long board )
 {
     statusLabel->setText(msg);
-    QString str = i18n("Game number: %1").arg(board);
+    QString str = i18n("Game number: %1", board);
     gameNumLabel->setText(str);
 
 }
@@ -406,7 +406,7 @@ void KMahjongg::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 {
     // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
     //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3").arg(iMaximum-iCurrent).arg(iMaximum).arg(iLeft);
+    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum-iCurrent, iMaximum, iLeft);
     tilesLeftLabel->setText(szBuffer);
 
     // Update here since undo allow is effected by demo mode

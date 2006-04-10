@@ -261,7 +261,7 @@ QString Editor::statusText() {
 	if (x >=BoardLayout::width || x <0 || y >=BoardLayout::height || y <0)
 		x = y = z = 0;
 
-	buf = i18n("Tiles: %1 Pos: %2,%3,%4").arg(numTiles).arg(x).arg(y).arg(z);
+	buf = i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
 	return buf;
 }
 
