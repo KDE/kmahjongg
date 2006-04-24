@@ -30,7 +30,7 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	}
 
 	QByteArray tmp = layoutMagic1_0.utf8();
-	if (f.writeBlock(tmp, tmp.length()) == -1) {
+	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
 
