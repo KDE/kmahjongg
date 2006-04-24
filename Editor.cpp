@@ -83,7 +83,7 @@ Editor::Editor
    tiles.loadTileset(tile);
 
    // tell the user what we do
-   setCaption(kapp->makeStdCaption(i18n("Edit Board Layout")));
+   setCaption(KInstance::makeStdCaption(i18n("Edit Board Layout")));
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),

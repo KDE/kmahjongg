@@ -156,7 +156,7 @@ HighScore::HighScore
 	loadTables();
 	currTable = tables;
 
-	setCaption(kapp->makeStdCaption(i18n("Scores")));
+	setCaption(KInstance::makeStdCaption(i18n("Scores")));
 
 	selectedLine = -1;	
 
