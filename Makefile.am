@@ -20,6 +20,4 @@ kde_kcfg_DATA = kmahjongg.kcfg
 rcdir = $(kde_datadir)/kmahjongg
 rc_DATA = kmahjonggui.rc
 
-messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kmahjongg.pot
 
