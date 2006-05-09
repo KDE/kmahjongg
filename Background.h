@@ -1,6 +1,6 @@
 #ifndef _BACKGROUND_H
 #define _BACKGROUND_H
-#include <qstring.h>
+#include <QString>
 
 class QPixmap;
 class QImage;

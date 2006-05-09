@@ -3,14 +3,14 @@
 #include "HighScore.moc"
 
 
-#include <qlabel.h>
+#include <QLabel>
 #include <qfileinfo.h>
 #include <kmessagebox.h>
 #include "klocale.h"
 #include <kstandarddirs.h>                       
 #include <kiconloader.h>
-#include <qlineedit.h>
-#include <qcombobox.h>
+#include <QLineEdit>
+#include <QComboBox>
 #include <kapplication.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>

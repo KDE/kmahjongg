@@ -7,11 +7,11 @@
 #include <kstdguiitem.h>
 #include <kimageio.h>
 
-#include <qcombobox.h>
+#include <QComboBox>
 #include <q3groupbox.h>
 #include <qevent.h>
 #include <qimage.h>
-#include <qregexp.h>
+#include <QRegExp>
 #include <qpainter.h>
 #include <qtextstream.h>
 #include <kvbox.h>

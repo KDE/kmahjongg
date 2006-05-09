@@ -7,7 +7,7 @@
 #include <qpainter.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <qfile.h>
+#include <QFile>
 #include <qapplication.h>
 #include <kconfig.h>
 #include <kglobal.h>

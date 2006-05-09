@@ -1,7 +1,7 @@
 #ifndef BOARDWIDGET_H
 #define BOARDWIDGET_H
 
-#include <qwidget.h>
+#include <QWidget>
 #include <qevent.h>
 #include <krandomsequence.h>
 

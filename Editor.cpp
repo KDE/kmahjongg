@@ -1,7 +1,7 @@
 
 #include <stdlib.h>
 #include <kapplication.h>
-#include <qlayout.h>
+#include <QLayout>
 #include <qevent.h>
 #include <qpainter.h>
 
