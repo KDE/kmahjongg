@@ -3,7 +3,7 @@
 
 #include <kmessagebox.h>
 #include <krandom.h>
-#include <qtimer.h>
+#include <QTimer>
 #include <qpainter.h>
 #include <klocale.h>
 #include <kstandarddirs.h>

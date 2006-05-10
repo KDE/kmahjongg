@@ -17,7 +17,7 @@
 #define KM_GAME_TIMER 
 
 #include <qlcdnumber.h>
-#include <qdatetime.h>
+#include <QDateTime>
 
 enum TimerMode {running = -53 , stopped= -54 , paused = -55};
 
