@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -11,7 +10,6 @@ install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.bgnd haze.bgnd p
 install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.tileset pirates.tileset runes.tileset traditional.tileset )
 install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.layout cross.layout pirates.layout  	pyramid.layout stax.layout test.layout test2.layout  	tower.layout triangle.layout )
 
-kde4_footer()
 
 
 
