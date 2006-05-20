@@ -37,6 +37,7 @@
 
 #include <kio/netaccess.h>
 #include <klocale.h>
+#include <ktoggleaction.h>
 
 #include "prefs.h"
 #include "kmahjongg.h"
