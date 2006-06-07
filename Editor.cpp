@@ -1,6 +1,4 @@
 
-#include <stdlib.h>
-#include <kapplication.h>
 #include <QLayout>
 #include <qevent.h>
 #include <qpainter.h>
@@ -8,11 +6,14 @@
 #include "Editor.h"
 #include "prefs.h"
 
+#include <kapplication.h>
 #include <kmessagebox.h>
 #include <klocale.h>     // Needed to use KLocale
-#include <kiconloader.h> //
 #include <kstandarddirs.h>
-#include <ktoolbarradiogroup.h>
+#include <kaction.h>
+#include <kactioncollection.h>
+#include <ktoggleaction.h>
+#include <kstdaction.h>
 
 #define ID_TOOL_NEW  100
 #define ID_TOOL_LOAD 101
@@ -106,93 +107,104 @@ Editor::~Editor()
 void Editor::setupToolbar()
 {
 
-    KIconLoader *loader = KGlobal::iconLoader();
     topToolbar = new KToolBar( this, "editToolBar" );
-    KToolBarRadioGroup *radio = new KToolBarRadioGroup(topToolbar);
 
+    actionCollection = new KActionCollection(this);
     // new game
-    topToolbar->insertButton(loader->loadIcon("filenew", K3Icon::Toolbar),
-            ID_TOOL_NEW, true, i18n("New board"));
+    KAction* newBoard = new KAction(KIcon("filenew"), i18n("New board"), actionCollection, "new_board");
+    connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
+    topToolbar->addAction(newBoard);
     // open game
-    topToolbar->insertButton(loader->loadIcon("fileopen", K3Icon::Toolbar),
-            ID_TOOL_LOAD, true, i18n("Open board"));
+    KAction* openBoard = new KAction(KIcon("fileopen"), i18n("Open board"), actionCollection, "open_board");
+    connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
+    topToolbar->addAction(openBoard);
     // save game
-    topToolbar->insertButton(loader->loadIcon("filesave", K3Icon::Toolbar),
-            ID_TOOL_SAVE, true, i18n("Save board"));
-    topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", K3Icon::Toolbar));
-    
+    KAction* saveBoard = new KAction(KIcon("filesave"), i18n("Save board"), actionCollection, "save_board");
+    connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
+    topToolbar->addAction(saveBoard);
+    // NOTE dimsuz: how to port this? is it even needed?
+    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", K3Icon::Toolbar));
+
 #ifdef FUTURE_OPTIONS
     // Select
-    topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("rectangle_select", K3Icon::Toolbar),
-            ID_TOOL_SELECT, true, i18n("Select"));
-    topToolbar->insertButton(loader->loadIcon("editcut", K3Icon::Toolbar),
-            ID_TOOL_CUT, true, i18n("Cut"));
-    topToolbar->insertButton(loader->loadIcon("editcopy", K3Icon::Toolbar),
-            ID_TOOL_COPY, true, i18n("Copy"));
-    topToolbar->insertButton(loader->loadIcon("editpaste", K3Icon::Toolbar),
-            ID_TOOL_PASTE, true, i18n("Paste"));
+    topToolbar->addSeparator();
+    KAction* select = new KAction(KIcon("rectangle_select"), i18n("Select"), actionCollection, "select");
+    topToolbar->addAction(select);
 
-    topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("move", K3Icon::Toolbar),
-            ID_TOOL_MOVE, true, i18n("Move tiles"));
+    // NOTE: use kstdactions?
+    KAction* cut = new KAction(KIcon("editcut"), i18n("Cut"), actionCollection, "edit_cut");
+    topToolbar->addAction(cut);
+
+    KAction* copy = new KAction(KIcon("editcopy"), i18n("Copy"), actionCollection, "edit_copy");
+    topToolbar->addAction(copy);
+
+    KAction* paste = new KAction(KIcon("editpaste"), i18n("Paste"), actionCollection, "edit_paste");
+    topToolbar->addAction(paste);
+
+    topToolbar->addSeparator();
+
+    KAction* moveTiles = new KAction(KIcon("move"), i18n("Move tiles"), actionCollection, "move_tiles");
+    topToolbar->addAction(moveTiles);
 #endif
-    topToolbar->insertButton(loader->loadIcon("pencil", K3Icon::Toolbar),
-            ID_TOOL_ADD, true, i18n("Add tiles"));
-    topToolbar->insertButton(loader->loadIcon("editdelete", K3Icon::Toolbar),
-            ID_TOOL_DEL, true, i18n("Remove tiles"));
+    KToggleAction* addTiles = new KToggleAction(KIcon("pencil"), i18n("Add tiles"), actionCollection, "add_tiles");
+    topToolbar->addAction(addTiles);
+    KToggleAction* delTiles = new KToggleAction(KIcon("editdelete"), i18n("Remove tiles"), actionCollection, "del_tiles");
+    topToolbar->addAction(delTiles);
 
-    topToolbar->setToggle(ID_TOOL_ADD);
-    topToolbar->setToggle(ID_TOOL_MOVE);
-    topToolbar->setToggle(ID_TOOL_DEL);
-    topToolbar->toggleButton(ID_TOOL_ADD);
-    radio->addButton(ID_TOOL_ADD);
+    QActionGroup* radioGrp = new QActionGroup(this);
+    radioGrp->setExclusive(true);
+    radioGrp->addAction(addTiles);
+    addTiles->setChecked(true);
 #ifdef FUTURE_OPTIONS
-    radio->addButton(ID_TOOL_MOVE);
+    radioGrp->addAction(moveTiles);
 #endif
-    radio->addButton(ID_TOOL_DEL);
+    radioGrp->addAction(delTiles);
 
     // board shift
 
-    topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("back", K3Icon::Toolbar),
-            ID_TOOL_LEFT, true, i18n("Shift left"));
-    topToolbar->insertButton(loader->loadIcon("up", K3Icon::Toolbar),
-            ID_TOOL_UP, true, i18n("Shift up"));
-    topToolbar->insertButton(loader->loadIcon("down", K3Icon::Toolbar),
-            ID_TOOL_DOWN, true, i18n("Shift down"));
-    topToolbar->insertButton(loader->loadIcon("forward", K3Icon::Toolbar),
-            ID_TOOL_RIGHT, true, i18n("Shift right"));
+    topToolbar->addSeparator();
+    KAction* shiftLeft = new KAction( KIcon("back"), i18n("Shift left"), actionCollection, "shift_left" );
+    topToolbar->addAction(shiftLeft);
 
-    topToolbar->insertSeparator();
-    topToolbar->insertButton(loader->loadIcon("exit", K3Icon::Toolbar),
-            ID_META_EXIT, true, i18n("Exit"));
+    KAction* shiftUp = new KAction( KIcon("up"), i18n("Shift up"), actionCollection, "shift_up" );
+    topToolbar->addAction(shiftUp);
+
+    KAction* shiftDown = new KAction( KIcon("down"), i18n("Shift down"), actionCollection, "shift_down" );
+    topToolbar->addAction(shiftDown);
+
+    KAction* shiftRight = new KAction( KIcon("forward"), i18n("Shift right"), actionCollection, "shift_right" );
+    topToolbar->addAction(shiftRight);
+
+    topToolbar->addSeparator();
+    KAction* quit = KStdAction::quit(this, SLOT(close()), actionCollection, "quit");
+    topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
 
     theLabel = new QLabel(statusText(), topToolbar);
-    int lWidth = theLabel->sizeHint().width();
-
-    topToolbar->insertWidget(ID_TOOL_STATUS,lWidth, theLabel );
-     topToolbar->alignItemRight( ID_TOOL_STATUS, true );
+    //int lWidth = theLabel->sizeHint().width();
+    //topToolbar->insertWidget(ID_TOOL_STATUS,lWidth, theLabel );
+    // topToolbar->alignItemRight( ID_TOOL_STATUS, true );
+    topToolbar->addWidget(theLabel);
 
     //addToolBar(topToolbar);
-   connect( topToolbar,  SIGNAL(clicked(int) ), SLOT( topToolbarOption(int) ) );
+#warning FIXME dimsuz!
+   //connect( topToolbar,  SIGNAL(clicked(int) ), SLOT( topToolbarOption(int) ) );
 
-    topToolbar->updateRects(0);
-     topToolbar->setFullSize(true);
-    topToolbar->setBarPos(KToolBar::Top);
+#warning FIXME dimsuz!
+    //topToolbar->updateRects(0);
+     //topToolbar->setFullSize(true);
+    //topToolbar->setBarPos(KToolBar::Top);
 //    topToolbar->enableMoving(false);
     topToolbar->adjustSize();
     setMinimumWidth(topToolbar->width());
-
-
 }
 
 void Editor::statusChanged() {
 	bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
 	theLabel->setText(statusText());
- 	topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave);
+#warning FIXME dimsuz!
+ 	//topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave);
 }
 
 
@@ -376,8 +388,7 @@ bool Editor::testSave()
 // the tiles as specified by the layout.
 
 void Editor::paintEvent( QPaintEvent*  ) {
-
-
+#warning recursive repaint is in place
     // first we layer on a background grid
     QPixmap buff;
     QPixmap *dest=drawFrame->getPreviewPixmap();

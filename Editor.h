@@ -13,6 +13,8 @@
 
 #include "Preview.h"
 
+class KActionCollection;
+
 class Editor: public QDialog
 {
     Q_OBJECT
@@ -34,15 +36,13 @@ protected slots:
 	void topToolbarOption(int w);
         void drawFrameMousePressEvent ( QMouseEvent* );
         void drawFrameMouseMovedEvent ( QMouseEvent *);	
-
-	
+	void loadBoard();
+	bool saveBoard();
+	void newBoard();
 protected:
 	enum {remove=98, insert=99, move=100};
 	void paintEvent( QPaintEvent* pa );
 	void setupToolbar();
-	void loadBoard();
-	bool saveBoard();
-	void newBoard();
 	void drawBackground(QPixmap *to);
 	void drawTiles(QPixmap *to);
 	bool testSave();
@@ -55,14 +55,13 @@ private:
 	int mode;
 	int numTiles;
 	KToolBar *topToolbar;
+        KActionCollection* actionCollection;
 	FrameImage * drawFrame;
 	Tileset tiles;
 	BoardLayout theBoard;
 	bool clean;
 	POSITION currPos;
 	QLabel *theLabel;
-private:
-
 };
 
 #endif 

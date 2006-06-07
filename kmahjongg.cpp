@@ -34,6 +34,7 @@
 #include <kmenubar.h>
 #include <kmessagebox.h>
 #include <kstdgameaction.h>
+#include <kstdaction.h>
 
 #include <kio/netaccess.h>
 #include <klocale.h>
@@ -72,8 +73,9 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     setupKAction();
 
     gameTimer = new GameTimer(toolBar());
-    toolBar()->insertWidget(ID_GAME_TIMER, gameTimer->width() , gameTimer);
-    toolBar()->alignItemRight( ID_GAME_TIMER, true );
+    toolBar()->addWidget(gameTimer);
+#warning FIXME find the way to port this.
+    //toolBar()->alignItemRight( ID_GAME_TIMER, true );
 
     theHighScores = new HighScore(this);
 
@@ -163,7 +165,7 @@ void KMahjongg::setupKAction()
 
     // settings
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
-    
+
     setupGUI();
 }
 
@@ -201,7 +203,8 @@ void KMahjongg::setDisplayedWidth()
     QSize( 2, (!statusBar()->isHidden() ? statusBar()->height() : 0)
          + 2 + menuBar()->height() ) );
   toolBar()->setFixedWidth(bw->width());*/
-  toolBar()->alignItemRight( ID_GAME_TIMER, true );
+#warning FIXME find the way to port this.
+  //toolBar()->alignItemRight( ID_GAME_TIMER, true );
   bw->drawBoard();
 }
 
