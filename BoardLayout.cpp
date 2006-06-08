@@ -29,7 +29,7 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	    return false;
 	}
 
-	QByteArray tmp = layoutMagic1_0.utf8();
+	QByteArray tmp = layoutMagic1_0.toUtf8();
 	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
@@ -105,7 +105,7 @@ void BoardLayout::initialiseBoard() {
     short y=0;
     maxTileNum = 0;
 
-    const char *pos = (const char *) loadedBoard.ascii();
+    const char *pos = loadedBoard.toAscii().constData();
 
     memset( &board, 0, sizeof( board) );
 
@@ -152,7 +152,7 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
 
 const char* BoardLayout::getBoardLayout()
 {
-	return loadedBoard.ascii();
+	return loadedBoard.toAscii().constData();
 }    
 
 

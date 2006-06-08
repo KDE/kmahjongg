@@ -47,10 +47,11 @@ static unsigned char mask_bits[] = {
 
 // ---------------------------------------------------------
 
-Tileset::Tileset(bool scale):
-	maskBits(mask_width, mask_height, mask_bits, true),
-	maskBitsMini(mini_width, mini_height, mini_bits, true)
+Tileset::Tileset(bool scale)
 {
+	maskBits = QBitmap::fromData(QSize(mask_width,mask_height), mask_bits);
+	maskBitsMini = QBitmap::fromData(QSize(mini_width, mini_height), mini_bits);
+
 	isScaled = scale;
 	divisor =  (isScaled) ? 2 : 1;
 
@@ -197,10 +198,10 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 
     // create the pixmap and initialise the drawing mask
     if (!scale) {
-    	dest.convertFromImage(buff);
+    	dest = QPixmap::fromImage(buff);
     	dest.setMask(maskBits);
     } else {
-    	dest.convertFromImage(buff.smoothScale(w/2, h/2));
+    	dest = QPixmap::fromImage(buff.scaled(w/2, h/2, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     	dest.setMask(maskBitsMini);
     }
 

@@ -62,7 +62,10 @@ void Background::sourceToBackground() {
 
   // Deallocate the old image and create the new one
   if (!backgroundImage->isNull())
-    backgroundImage->reset();
+  {
+      delete backgroundImage;
+      backgroundImage = new QImage;
+  }
 
   // the new version of kmahjongg uses true color images
   // to avoid the old color limitation.
@@ -87,7 +90,7 @@ void Background::sourceToBackground() {
       }
     }
   } else {
-    *backgroundImage = sourceImage->smoothScale(w, h);
+    *backgroundImage = sourceImage->scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     // Just incase the image is loaded 8 bit
     if (backgroundImage->depth() != 32)
       *backgroundImage = backgroundImage->convertDepth(32);

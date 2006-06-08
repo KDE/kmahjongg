@@ -91,7 +91,7 @@ class BoardWidget : public QWidget
     Q_OBJECT
 
     public:
-  	BoardWidget( QWidget* parent = 0, const char *name = 0 );
+  	BoardWidget( QWidget* parent = 0 );
 	~BoardWidget();
 
         void calculateNewGame(int num = -1 );
@@ -138,9 +138,9 @@ class BoardWidget : public QWidget
 		void gameOver(unsigned short removed, unsigned short cheats);
     protected:
 	void getFileOrDefault(QString filename, QString type, QString &res);
-	void shadowArea(int z, int y, int x, int sx, int sy, int rx, int ry, QPixmap *src);
-	void shadowTopLeft(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);
-	void shadowBotRight(int depth, int sx, int sy, int rx, int ry,QPixmap *src, bool flag);
+	void shadowArea(QPainter* p, int z, int y, int x, int sx, int sy, int rx, int ry, const QPixmap& src);
+	void shadowTopLeft (QPainter* p, int depth, int sx, int sy, int rx, int ry,const QPixmap& src, bool flag);
+	void shadowBotRight(QPainter* p, int depth, int sx, int sy, int rx, int ry,const QPixmap& src, bool flag);
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
@@ -161,7 +161,7 @@ class BoardWidget : public QWidget
         int  moveCount( );
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
-	void stackTiles(unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
+	void stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
 	void initialiseRemovedTiles();
 
 	int requiredWidth();

@@ -32,11 +32,7 @@ class HighScore : public QDialog
 
 public:
 
-    HighScore
-    (
-        QWidget* parent = NULL,
-        const char* name = NULL
-    );
+    HighScore ( QWidget* parent = 0);
 
     virtual ~HighScore();
 

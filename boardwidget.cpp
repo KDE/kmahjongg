@@ -16,10 +16,12 @@
  * Constructor.
  * Loads tileset and background bitmaps.
  */
-BoardWidget::BoardWidget( QWidget* parent, const char *name )
-  : QWidget( parent, name ), theTiles(false)
+BoardWidget::BoardWidget( QWidget* parent )
+  : QWidget( parent ), theTiles(false)
 {
-    setBackgroundColor( QColor( 0,0,0 ) );
+    QPalette palette;
+    palette.setColor( backgroundRole(), Qt::black );
+    setPalette(palette);
 
     timer = new QTimer(this);
     connect( timer, SIGNAL(timeout()),
@@ -158,12 +160,12 @@ void BoardWidget::calcShadow(int e, int y, int x, int &l, int &t, int &c) {
 // if a second shadow botton left to top right is rendered over it
 // then the shadow becomes a box (ie in the middle of the run)
 
-void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixmap *src, bool flag) {
+void BoardWidget::shadowTopLeft(QPainter* paint, int depth, int sx, int sy, int rx, int ry, const QPixmap& src, bool flag) {
 	if (depth) {
 		int shadowPixels= (depth+1) * theTiles.shadowSize();
 		int xOffset=theTiles.qWidth()-shadowPixels;
 	    	for (int p=0; p<shadowPixels; p++) {
-             	    bitBlt( &backBuffer,
+             	    paint->drawPixmap(
 			    sx+xOffset,	sy+p,
                     	    src,
 			    rx+xOffset,	ry+p,
@@ -173,8 +175,7 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
 		// Now aafter rendering the triangle, fill in the rest of
 		// the quater width
 		if (flag && ((theTiles.qWidth() - shadowPixels) > 0))
-             	    bitBlt( &backBuffer,
-			    sx,	sy,
+             	    paint->drawPixmap( sx, sy,
                     	    src,
 			    rx,	ry,
 			    theTiles.qWidth() - shadowPixels,
@@ -183,13 +184,12 @@ void BoardWidget::shadowTopLeft(int depth, int sx, int sy, int rx, int ry, QPixm
 }
 
 // Second triangular shadow generator see above
-void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPixmap *src, bool flag) {
+void BoardWidget::shadowBotRight(QPainter* paint, int depth, int sx, int sy, int rx, int ry, const QPixmap& src, bool flag) {
 	if (depth) {
 		int shadowPixels= (depth+1) * theTiles.shadowSize();
 		int xOffset=theTiles.qWidth();
 	    	for (int p=0; p<shadowPixels; p++) {
-             	    bitBlt( &backBuffer,
-			    sx+xOffset-p, 	/* step to shadow right start */
+             	    paint->drawPixmap( sx+xOffset-p, 	/* step to shadow right start */
 			    sy+p,		/* down for each line */
                     	    src,
 			    rx+xOffset-p,	/* step to shadow right start */
@@ -198,8 +198,7 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 			    1 );
 		}
 		if (flag && ((theTiles.qHeight() - shadowPixels) >0))
-             	    bitBlt( &backBuffer,
-			    sx+xOffset-shadowPixels,
+             	    paint->drawPixmap( sx+xOffset-shadowPixels,
 			    sy+shadowPixels,
                     	    src,
 			    rx+xOffset-shadowPixels,
@@ -213,7 +212,7 @@ void BoardWidget::shadowBotRight(int depth, int sx, int sy, int rx, int ry, QPix
 
 
 
-void BoardWidget::shadowArea(int z, int y, int x, int sx, int sy,int rx, int ry, QPixmap *src)
+void BoardWidget::shadowArea(QPainter *p, int z, int y, int x, int sx, int sy,int rx, int ry, const QPixmap& src)
 {
 	// quick check to see if we are obscured
 	if (z < BoardLayout::depth-1) 	{
@@ -238,10 +237,10 @@ void BoardWidget::shadowArea(int z, int y, int x, int sx, int sy,int rx, int ry,
 	// well and good, otherwise if its smaller, part of the
 	// triangle will show through.
 
-	shadowTopLeft(Game.shadowHeight(z+1, y-1, x), sx, sy, rx,ry,src, true);
-	shadowBotRight(Game.shadowHeight(z+1, y, x+1), sx, sy, rx, ry, src, true);
-	shadowTopLeft(Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx,ry,src, false);
-	shadowBotRight(Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx, ry, src, false);
+	shadowTopLeft(p, Game.shadowHeight(z+1, y-1, x), sx, sy, rx,ry,src, true);
+	shadowBotRight(p, Game.shadowHeight(z+1, y, x+1), sx, sy, rx, ry, src, true);
+	shadowTopLeft(p, Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx,ry,src, false);
+	shadowBotRight(p, Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx, ry, src, false);
 
 	return;
 
@@ -258,29 +257,35 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
     back = theBackground.getBackground();
 
+    QPainter p;
     if (gamePaused) {
         // If the game is paused, then blank out the board.
         // We tolerate no cheats around here folks..
-        bitBlt( this, xx, pa->rect().top(),
-                back, xx, pa->rect().top(), xwidth, xheight );
+        p.begin(this);
+        p.drawPixmap( xx, pa->rect().top(),
+                *back, xx, pa->rect().top(), xwidth, xheight );
+        p.end();
 	return;
     }
 
     // if the repaint is because of a window redraw after a move
     // or a menu roll up, then just blit in the last rendered image
     if (!updateBackBuffer) {
-    	bitBlt(this, xx,pa->rect().top(),
-		&backBuffer, xx, pa->rect().top(), xwidth, xheight );
+        p.begin(this);
+    	p.drawPixmap( xx,pa->rect().top(),
+		backBuffer, xx, pa->rect().top(), xwidth, xheight );
+        p.end();
 	return;
     }
 
     // update the complete drawArea
 
-    backBuffer.resize(back->width(), back->height());
+    backBuffer = QPixmap(back->width(), back->height());
 
     // erase out with the background
-    bitBlt( &backBuffer, xx, pa->rect().top(),
-                back, xx,pa->rect().top(), back->width(), back->height() );
+    p.begin(&backBuffer);
+    p.drawPixmap( xx, pa->rect().top(),
+                *back, xx,pa->rect().top(), back->width(), back->height() );
 
     // initial offset on the screen of tile 0,0
     int xOffset = theTiles.width()/2;
@@ -291,16 +296,13 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     if (Prefs::showShadows()) {
         for (int by=0; by <BoardLayout::height+1; by++)
 	    for (int bx=-1; bx < BoardLayout::width+1; bx++)
- 	        shadowArea(-1, by, bx,
+ 	        shadowArea(&p, -1, by, bx,
 			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
 			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
 			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
 			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
-			theBackground.getShadowBackground());
+			*theBackground.getShadowBackground());
     }
-
-
-
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -341,29 +343,26 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                 // minus border
 
                 if (x > 1 && y > 0 && Game.tilePresent(z, y-1, x-2)){
-                    bitBlt( &backBuffer,
-			    sx+theTiles.shadowSize(), sy,
-                            t, theTiles.shadowSize() ,0,
+                    p.drawPixmap( sx+theTiles.shadowSize(), sy,
+                            *t, theTiles.shadowSize() ,0,
 		            t->width()-theTiles.shadowSize(),
 		  	    t->height()/2 );
-                    bitBlt( &backBuffer, sx, sy+t->height()/2,
-                        t, 0,t->height()/2,t->width(),t->height()/2);
+                    p.drawPixmap( sx, sy+t->height()/2,
+                        *t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
-
-                bitBlt( &backBuffer, sx, sy,
-                    t, 0,0, t->width(), t->height() );
+                    p.drawPixmap(  sx, sy, *t, 0,0, t->width(), t->height() );
                 }
 
 
 		if (Prefs::showShadows() && z<BoardLayout::depth - 1) {
 		    for (int xp = 0; xp <= 1; xp++)  {
 			for (int yp=0; yp <= 1; yp++) {
-				shadowArea(z, y+yp, x+xp,
+				shadowArea(&p, z, y+yp, x+xp,
 					sx+(xp*theTiles.qWidth()),
 					sy+(yp*theTiles.qHeight()),
 					xp*theTiles.qWidth(),
 					yp*theTiles.qHeight(),
-					s);
+					*s);
 			}
 		    }
 
@@ -417,12 +416,12 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 	    }
 	}
 
-	    stackTiles(tile, last, xPos, yPos);
-	    stackTiles(TILE_ROD+pos, removedRod[pos],
+	    stackTiles(&p, tile, last, xPos, yPos);
+	    stackTiles(&p, TILE_ROD+pos, removedRod[pos],
 		xPos - (1*(theTiles.width() - theTiles.shadowSize())) , yPos);
-	    stackTiles(TILE_BAMBOO+pos, removedBamboo[pos],
+	    stackTiles(&p, TILE_BAMBOO+pos, removedBamboo[pos],
 		xPos - (2*(theTiles.width() - theTiles.shadowSize())) , yPos);
-	    stackTiles(TILE_CHARACTER+pos, removedCharacter[pos],
+	    stackTiles(&p, TILE_CHARACTER+pos, removedCharacter[pos],
 		xPos - (3*(theTiles.width() - theTiles.shadowSize())) , yPos);
 
 
@@ -431,41 +430,38 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     }
 
     updateBackBuffer=false;
-    bitBlt(this, xx,pa->rect().top(), &backBuffer, xx, pa->rect().top(), xwidth, xheight);
-
-
+    p.end(); //backbuffer
+    p.begin(this);
+    p.drawPixmap(xx,pa->rect().top(), backBuffer, xx, pa->rect().top(), xwidth, xheight);
+    p.end();
 }
 
-void BoardWidget::stackTiles(unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
+void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
 {
-
     int ss = theTiles.shadowSize();
-    QPainter p(&backBuffer);
     QPen line;
-    p.setBackgroundMode(Qt::OpaqueMode);
-    p.setBackgroundColor(Qt::black);
-
-
-
+    p->setBackgroundMode(Qt::OpaqueMode);
+    p->setBackground(Qt::black);
 
     line.setWidth(1);
     line.setColor(Qt::white);
-    p.setPen(line);
+    p->save();
+    p->setPen(line);
     int x2 = x+theTiles.width()-ss-1;
     int y2 = y+theTiles.height()-1;
-    p.drawLine(x, y+ss, x2, y+ss);
-    p.drawLine(x, y+ss, x, y2);
-    p.drawLine(x2, y+ss, x2, y2);
-    p.drawLine(x+1, y2, x2, y2);
+    p->drawLine(x, y+ss, x2, y+ss);
+    p->drawLine(x, y+ss, x, y2);
+    p->drawLine(x2, y+ss, x2, y2);
+    p->drawLine(x+1, y2, x2, y2);
 
    // p.fillRect(x+1, y+ss+1, theTiles.width()-ss-2, theTiles.height()-ss-2, QBrush(lightGray));
 
     for (unsigned short pos=0; pos < h; pos++) {
-       QPixmap *p = theTiles.unselectedPixmaps(t-TILE_OFFSET);
-       bitBlt( &backBuffer, x+(pos*ss), y-(pos*ss),
-                    p, 0,0, p->width(), p->height() );
+       QPixmap *pix = theTiles.unselectedPixmaps(t-TILE_OFFSET);
+       p->drawPixmap( x+(pos*ss), y-(pos*ss),
+                    *pix );
     }
-
+    p->restore();
 }
 
 
@@ -542,7 +538,10 @@ void BoardWidget::helpMoveTimeout()
     }
     // restart timer
     if( iTimerStep++ < 8 )
-        timer->start( ANIMSPEED , true );
+    {
+        timer->setSingleShot(true);
+        timer->start( ANIMSPEED );
+    }
     else
         showHelp = false;
 }
@@ -1984,8 +1983,7 @@ void BoardWidget::shuffle() {
 	// force a redraw
 
 	updateBackBuffer=true;
-       repaint(false);
-
+        update();
 
 	// I consider this s very bad cheat so, I punish the user
 	// 300 points per use

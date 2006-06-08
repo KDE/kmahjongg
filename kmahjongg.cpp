@@ -72,10 +72,15 @@ KMahjongg::KMahjongg( QWidget* parent, const char *name)
     setupStatusBar();
     setupKAction();
 
-    gameTimer = new GameTimer(toolBar());
-    toolBar()->addWidget(gameTimer);
-#warning FIXME find the way to port this.
-    //toolBar()->alignItemRight( ID_GAME_TIMER, true );
+    QWidget *hbox = new QWidget(toolBar());
+    QHBoxLayout *layout = new QHBoxLayout(hbox);
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addStretch();
+
+    gameTimer = new GameTimer(hbox);
+    layout->addWidget(gameTimer);
+    toolBar()->addWidget(hbox);
 
     theHighScores = new HighScore(this);
 
@@ -135,17 +140,32 @@ void KMahjongg::setupKAction()
     KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(this, SLOT(restartGame()), actionCollection());
-    new KAction(i18n("New Numbered Game..."), "newnum", 0, this, SLOT(startNewNumeric()), actionCollection(), "game_new_numeric");
-    new KAction(i18n("Open Th&eme..."), 0, this, SLOT(openTheme()), actionCollection(), "game_open_theme");
-    new KAction(i18n("Open &Tileset..."), 0, this, SLOT(openTileset()), actionCollection(), "game_open_tileset");
-    new KAction(i18n("Open &Background..."), 0, this, SLOT(openBackground()), actionCollection(), "game_open_background");
-    new KAction(i18n("Open La&yout..."), 0, this, SLOT(openLayout()), actionCollection(), "game_open_layout");
-    new KAction(i18n("Sa&ve Theme..."), 0, this, SLOT(saveTheme()), actionCollection(), "game_save_theme");
+
+    KAction* newNumGame = new KAction(KIcon("newnum"), i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
+    connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
+
+    KAction* openTheme = new KAction(i18n("Open Th&eme..."), actionCollection(), "game_open_theme");
+    connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));
+
+    KAction* openTileset = new KAction(i18n("Open &Tileset..."), actionCollection(), "game_open_tileset");
+    connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));
+
+    KAction* openBkgnd = new KAction(i18n("Open &Background..."), actionCollection(), "game_open_background");
+    connect(openBkgnd, SIGNAL(triggered(bool)), SLOT(openBackground()));
+
+    KAction* openLayout = new KAction(i18n("Open La&yout..."), actionCollection(), "game_open_layout");
+    connect(openLayout, SIGNAL(triggered(bool)), SLOT(openLayout()));
+
+    KAction* saveTheme = new KAction(i18n("Sa&ve Theme..."), actionCollection(), "game_save_theme");
+    connect(saveTheme, SIGNAL(triggered(bool)), SLOT(saveTheme()));
+
     // originally "file" ends here
     KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
-    new KAction(i18n("Shu&ffle"), "reload", 0, bw, SLOT(shuffle()), actionCollection(), "move_shuffle");
+    KAction* shuffle = new KAction(KIcon("reload"), i18n("Shu&ffle"), actionCollection(), "move_shuffle");
+    connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
-    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), 0, this, SLOT(showMatchingTiles()), actionCollection(), "options_show_matching_tiles");
+    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), actionCollection(), "options_show_matching_tiles");
+    connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
     showMatchingTilesAction->setCheckedState(i18n("Hide &Matching Tiles"));
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
@@ -161,7 +181,8 @@ void KMahjongg::setupKAction()
     redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    new KAction(i18n("&Board Editor"), 0, this, SLOT(slotBoardEditor()), actionCollection(), "edit_board_editor");
+    KAction* boardEdit = new KAction(i18n("&Board Editor"), actionCollection(), "edit_board_editor");
+    connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
@@ -181,19 +202,16 @@ void KMahjongg::setupStatusBar()
 
     tilesLeftLabel= new QLabel("Removed: 0000/0000", statusBar());
     tilesLeftLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    statusBar()->addWidget(tilesLeftLabel, tilesLeftLabel->sizeHint().width(), ID_STATUS_GAME);
-
+    statusBar()->addWidget(tilesLeftLabel);
 
     gameNumLabel = new QLabel("Game: 000000000000000000000", statusBar());
     gameNumLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    statusBar()->addWidget(gameNumLabel, gameNumLabel->sizeHint().width(), ID_STATUS_TILENUMBER);
+    statusBar()->addWidget(gameNumLabel, 1);
 
 
     statusLabel= new QLabel("Kmahjongg", statusBar());
     statusLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    statusBar()->addWidget(statusLabel, statusLabel->sizeHint().width(), ID_STATUS_MESSAGE);
-
-  //  pStatusBar->setAlignment( ID_STATUS_TILENUMBER, AlignCenter );
+    statusBar()->addWidget(statusLabel);
 }
 
 void KMahjongg::setDisplayedWidth()
@@ -203,8 +221,6 @@ void KMahjongg::setDisplayedWidth()
     QSize( 2, (!statusBar()->isHidden() ? statusBar()->height() : 0)
          + 2 + menuBar()->height() ) );
   toolBar()->setFixedWidth(bw->width());*/
-#warning FIXME find the way to port this.
-  //toolBar()->alignItemRight( ID_GAME_TIMER, true );
   bw->drawBoard();
 }
 
@@ -551,7 +567,7 @@ void KMahjongg::saveGame() {
     fprintf(outFile, "%s\n", gameMagic);
 
     // Now stick in the elapsed time for the game
-    fprintf(outFile, "%s\n", gameTimer->toString().utf8().data());
+    fprintf(outFile, "%s\n", gameTimer->toString().toUtf8().constData());
 
 
     // chuck in all the game data

@@ -41,15 +41,10 @@ int defTimes[numScores] = {ages, ages-1, ages-2, ages-3,
 				ages-4, ages-5, ages-6, ages-7, ages-8, ages-9};
 
 
-HighScore::HighScore
-(
-	QWidget* parent,
-	const char* name
-)
-	:
-	QDialog( parent, name, true, 0 )
+HighScore::HighScore ( QWidget* parent)
+	: QDialog( parent )
 {
-
+	setModal(true);
 	// form the target name
 
 
@@ -124,7 +119,7 @@ HighScore::HighScore
 	//resetBtn->setText(i18n( "Reset" ));
 
  	KIconLoader *loader = KGlobal::iconLoader();
-        resetBtn->setPixmap(loader->loadIcon("editdelete", K3Icon::Toolbar));
+        resetBtn->setIcon(loader->loadIcon("editdelete", K3Icon::Toolbar));
        
 
 
@@ -141,7 +136,7 @@ HighScore::HighScore
 
 	// the drop down for the board names
 
-        combo = new QComboBox( false, this );
+        combo = new QComboBox( this );
         combo->setGeometry( 65, 5, 220, 25 );
         combo->setMinimumSize( 0, 0 );
         combo->setMaximumSize( 32767, 32767 );
@@ -156,7 +151,7 @@ HighScore::HighScore
 	loadTables();
 	currTable = tables;
 
-	setCaption(KInstance::makeStdCaption(i18n("Scores")));
+	setWindowTitle(KInstance::makeStdCaption(i18n("Scores")));
 
 	selectedLine = -1;	
 
@@ -220,7 +215,7 @@ void HighScore::loadTables() {
 		if (buff[strlen(buff)-1] == '\n')
 			buff[strlen(buff)-1] = '\0';
 		t->name = buff;
-		combo->insertItem(t->name);
+		combo->addItem(t->name);
 		setComboTo(t->name);
 		for (int e=0; e<numScores; e++) {
 			fscanf(fp, "%ld\n", &(t->entries[e].score)); 
@@ -264,20 +259,20 @@ void HighScore::saveTables() {
 		num++;
 
 	// output the file magic
-	fprintf(fp,"%s\n", highScoreMagic1_1.utf8().data());
+	fprintf(fp,"%s\n", highScoreMagic1_1.toUtf8().constData());
 	
 	// output the count of tables to process
 	fprintf(fp, "%d\n", num);
 
 	// output each table
 	for (p=tables; p != NULL; p = p->next) {
-		fprintf(fp, "%s\n", p->name.utf8().data());
+		fprintf(fp, "%s\n", p->name.toUtf8().constData());
 		for (int e=0; e<numScores; e++) {
 			fprintf(fp,"%ld\n%ld\n%ld\n%s\n", 
 				p->entries[e].score,
 				p->entries[e].elapsed,
 				p->entries[e].board,
-				p->entries[e].name.utf8().data());
+				p->entries[e].name.toUtf8().constData());
 		}
 	}
 	fclose(fp);	
@@ -317,7 +312,7 @@ void HighScore::selectTable(const QString &board) {
         	}
 		tables = n;
 		currTable = n;
-		combo->insertItem(board);
+		combo->addItem(board);
 		setComboTo(board);
 		return;
 	}
@@ -366,8 +361,6 @@ void HighScore::addRow(int num) {
         tmp = elapsedWidgets[num]->font();
         tmp.setItalic(true);
         elapsedWidgets[num]->setFont(tmp);    
-
-	
 }
 
 void HighScore::copyTableToScreen(const QString &name) {
@@ -390,7 +383,7 @@ void HighScore::copyTableToScreen(const QString &name) {
                 elapsedWidgets[p]->setText(buff);   
 
 	}
-	repaint(false);
+	update();
 }
 
 int HighScore::exec(QString &layout) {
@@ -470,8 +463,8 @@ void HighScore::getBoardName(QString in, QString &out) {
 
 void HighScore::setComboTo(const QString &to) {
 	for (int p=0; p<combo->count(); p++) {
-		if (combo->text(p) == to)
-			combo->setCurrentItem(p);
+		if (combo->itemText(p) == to)
+			combo->setCurrentIndex(p);
 	}
 }
 

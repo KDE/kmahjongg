@@ -20,15 +20,10 @@
 // random.
 
 
-Editor::Editor
-(
-	QWidget* parent,
-	const char* name
-)
-    :
-    QDialog( parent, name, true ), tiles(false)
+Editor::Editor ( QWidget* parent)
+    : QDialog( parent ), tiles(false)
 {
-
+    setModal(true);
     clean= true;
     numTiles=0;
     mode = insert;
@@ -38,7 +33,7 @@ Editor::Editor
 
     sWidth += 4*tiles.shadowSize();
 
-    drawFrame = new FrameImage( this, "drawFrame" );
+    drawFrame = new FrameImage( this );
     drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
     drawFrame->setMinimumSize( 0, 0 );
     drawFrame->setMaximumSize( 32767, 32767 );
@@ -63,7 +58,7 @@ Editor::Editor
    tiles.loadTileset(tile);
 
    // tell the user what we do
-   setCaption(KInstance::makeStdCaption(i18n("Edit Board Layout")));
+   setWindowTitle(KInstance::makeStdCaption(i18n("Edit Board Layout")));
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
@@ -169,12 +164,15 @@ void Editor::setupToolbar()
 
     // status in the toolbar for now (ick)
 
-    theLabel = new QLabel(statusText(), topToolbar);
-    //int lWidth = theLabel->sizeHint().width();
-    //topToolbar->insertWidget(ID_TOOL_STATUS,lWidth, theLabel );
-#warning FIXME find the way to port this.
-    // topToolbar->alignItemRight( ID_TOOL_STATUS, true );
-    topToolbar->addWidget(theLabel);
+    QWidget *hbox = new QWidget(topToolbar);
+    QHBoxLayout *layout = new QHBoxLayout(hbox);
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addStretch();
+
+    theLabel = new QLabel(statusText(), hbox);
+    layout->addWidget(theLabel);
+    topToolbar->addWidget(hbox);
 
     topToolbar->adjustSize();
     setMinimumWidth(topToolbar->width());
@@ -358,7 +356,7 @@ void Editor::paintEvent( QPaintEvent*  ) {
     // first we layer on a background grid
     QPixmap buff;
     QPixmap *dest=drawFrame->getPreviewPixmap();
-    buff.resize(dest->width(), dest->height());
+    buff = QPixmap(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
     QPainter p(dest);

@@ -20,17 +20,9 @@ class Editor: public QDialog
     Q_OBJECT
 
 public:
-
-
-    Editor
-    (
-        QWidget* parent = NULL,
-        const char* name = NULL
-    );
+    Editor ( QWidget* parent = 0);
 
     virtual ~Editor();
-
-
 
 protected slots:
         void drawFrameMousePressEvent ( QMouseEvent* );

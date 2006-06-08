@@ -16,7 +16,7 @@ class FrameImage: public QFrame
 {
 	Q_OBJECT
 public:
-	FrameImage(QWidget *parent=NULL, const char *name = NULL);
+	FrameImage(QWidget *parent=NULL);
 	~FrameImage();
 	void setGeometry(int x, int y, int w, int h);
 	QPixmap *getPreviewPixmap() {return thePixmap;};

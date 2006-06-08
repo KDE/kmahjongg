@@ -8,7 +8,7 @@
 #include <kimageio.h>
 
 #include <QComboBox>
-#include <q3groupbox.h>
+#include <QGroupBox>
 #include <qevent.h>
 #include <qimage.h>
 #include <QRegExp>
@@ -30,9 +30,9 @@ Preview::Preview(QWidget* parent) : KDialogBase(parent), m_tiles(true)
 	 
 	page = new KVBox(this);
 
-	group = new Q3GroupBox(page);
+	group = new QGroupBox(page);
 	
-	m_combo = new QComboBox(false, group);
+	m_combo = new QComboBox(group);
 	connect(m_combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
 	loadButton = new KPushButton(i18n("Load..."), group);
@@ -55,7 +55,7 @@ void Preview::selectionChanged(int which)
 {
 	m_selectedFile = m_fileList[which];
 	drawPreview();
-	m_drawFrame->repaint(0,0,-1,-1,false);
+	m_drawFrame->update();
 	markChanged();
 }
 
@@ -143,7 +143,7 @@ void Preview::initialise(const PreviewType type)
 		names << fi.baseName();
 	}
 	
-	m_combo->insertStringList(names);
+	m_combo->addItems(names);
 	m_combo->setEnabled(m_fileList.count());
 	drawPreview();
 }
@@ -165,7 +165,7 @@ void Preview::load() {
     if ( !url.isEmpty() ) {
         m_selectedFile = url.path();
         drawPreview();
-        m_drawFrame->repaint(0,0,-1,-1,false);
+        m_drawFrame->update();
         markChanged();
     }
 }
@@ -223,7 +223,7 @@ void Preview::drawPreview()
 					if (!QFile::exists(tile))
 					{
 						tile = tilesetRaw;
-						tile = "pics/" + tile.right(tile.length() - tile.find(":") - 1 );
+						tile = "pics/" + tile.right(tile.length() - tile.indexOf(":") - 1 );
 						tile = locate("appdata", tile);
 					}
 					
@@ -232,7 +232,7 @@ void Preview::drawPreview()
 					if (!QFile::exists(back))
 					{
 						back = backRaw;
-						back = "pics/" + back.right(back.length() - back.find(":") - 1);
+						back = "pics/" + back.right(back.length() - back.indexOf(":") - 1);
 						back = locate("appdata", back);
 					}
 					
@@ -241,7 +241,7 @@ void Preview::drawPreview()
 					if (!QFile::exists(layout))
 					{
 						layout = layoutRaw;
-						layout = "pics/" + layout.right(layout.length() - layout.find(":") - 1);
+						layout = "pics/" + layout.right(layout.length() - layout.indexOf(":") - 1);
 						layout = locate("appdata", layout);
 					}
 					
@@ -258,7 +258,7 @@ void Preview::drawPreview()
 }
 
 void Preview::paintEvent( QPaintEvent*  ){
-  m_drawFrame->repaint(false);
+  m_drawFrame->update();
 }
 
 // the user selected ok, or apply. This method passes the changes
@@ -307,8 +307,8 @@ void Preview::renderBackground(const QString &bg) {
    p = m_drawFrame->getPreviewPixmap();
    m_back.load(bg, p->width(), p->height());
    b = m_back.getBackground();
-   bitBlt( p, 0,0,
-            b,0,0, b->width(), b->height() );
+   QPainter paint(p);
+   paint.drawPixmap(0,0, *b);
 }
 
 // This method draws a mini-tiled board with no tiles missing.
@@ -322,6 +322,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
     int yOffset = m_tiles.height()/2;
     short tile = 0;
 
+    QPainter p(dest);
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
@@ -345,14 +346,14 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 // minus border
 
                 if ((x>1) && (y>0) && m_boardLayout.getBoardData(z,y-1,x-2)=='1'){
-                    bitBlt( dest, sx+2, sy,
-                        t, 2,0, t->width(), t->height()/2 );
-                    bitBlt( dest, sx, sy+t->height()/2,
-			t, 0,t->height()/2,t->width(),t->height()/2);
+                    p.drawPixmap( sx+2, sy,
+                        *t, 2,0, t->width(), t->height()/2 );
+                    p.drawPixmap( sx, sy+t->height()/2,
+			*t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
 
-                bitBlt( dest, sx, sy,
-                    t, 0,0, t->width(), t->height() );
+                p.drawPixmap( sx, sy,
+                    *t, 0,0, t->width(), t->height() );
                 }
                 tile++;
                 if (tile == 35)
@@ -418,14 +419,14 @@ void Preview::saveTheme() {
 
     fprintf(outFile,"%s\n%s\n%s\n%s\n",
 		themeMagicV1_0,
-		tile.utf8().data(),
-		back.utf8().data(),
-		layout.utf8().data());
+		tile.toUtf8().constData(),
+		back.toUtf8().constData(),
+		layout.toUtf8().constData());
     fclose(outFile);
 }
 
-FrameImage::FrameImage (QWidget *parent, const char *name)
-  : QFrame(parent, name)
+FrameImage::FrameImage (QWidget *parent)
+  : QFrame(parent)
 {
 	rx = -1;
 	thePixmap = new QPixmap();
