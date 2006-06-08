@@ -33,12 +33,16 @@ public:
 
 
 protected slots:
-	void topToolbarOption(int w);
         void drawFrameMousePressEvent ( QMouseEvent* );
         void drawFrameMouseMovedEvent ( QMouseEvent *);	
 	void loadBoard();
 	bool saveBoard();
 	void newBoard();
+        void slotShiftLeft();
+        void slotShiftRight();
+        void slotShiftUp();
+        void slotShiftDown();
+        void slotModeChanged(QAction*);
 protected:
 	enum {remove=98, insert=99, move=100};
 	void paintEvent( QPaintEvent* pa );

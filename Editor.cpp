@@ -15,27 +15,6 @@
 #include <ktoggleaction.h>
 #include <kstdaction.h>
 
-#define ID_TOOL_NEW  100
-#define ID_TOOL_LOAD 101
-#define ID_TOOL_SAVE 102
-#define ID_TOOL_ADD 103
-#define ID_TOOL_DEL 104
-#define ID_TOOL_MOVE 105
-#define ID_TOOL_SELECT 106
-#define ID_TOOL_CUT 107
-#define ID_TOOL_COPY 108
-#define ID_TOOL_PASTE 109
-#define ID_TOOL_LEFT 110
-#define ID_TOOL_RIGHT 111
-#define ID_TOOL_UP 112
-#define ID_TOOL_DOWN 113
-
-#define ID_TOOL_STATUS 199
-
-#define ID_META_EXIT 201
-
-
-
 // When we assign a tile to draw in a slot we do it in order from te following
 // table, wrapping on the tile number. It makes the tile layout look more
 // random.
@@ -108,6 +87,7 @@ void Editor::setupToolbar()
 {
 
     topToolbar = new KToolBar( this, "editToolBar" );
+    topToolbar->setToolButtonStyle( Qt::ToolButtonIconOnly );
 
     actionCollection = new KActionCollection(this);
     // new game
@@ -125,9 +105,9 @@ void Editor::setupToolbar()
     // NOTE dimsuz: how to port this? is it even needed?
     //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", K3Icon::Toolbar));
 
+    topToolbar->addSeparator();
 #ifdef FUTURE_OPTIONS
     // Select
-    topToolbar->addSeparator();
     KAction* select = new KAction(KIcon("rectangle_select"), i18n("Select"), actionCollection, "select");
     topToolbar->addAction(select);
 
@@ -159,20 +139,28 @@ void Editor::setupToolbar()
     radioGrp->addAction(moveTiles);
 #endif
     radioGrp->addAction(delTiles);
+    connect(radioGrp, SIGNAL(triggered(QAction*)), SLOT(slotModeChanged(QAction*)));
 
     // board shift
 
     topToolbar->addSeparator();
+
+    // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
+    // Does this makes sense? dimsuz
     KAction* shiftLeft = new KAction( KIcon("back"), i18n("Shift left"), actionCollection, "shift_left" );
+    connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
     topToolbar->addAction(shiftLeft);
 
     KAction* shiftUp = new KAction( KIcon("up"), i18n("Shift up"), actionCollection, "shift_up" );
+    connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
     topToolbar->addAction(shiftUp);
 
     KAction* shiftDown = new KAction( KIcon("down"), i18n("Shift down"), actionCollection, "shift_down" );
+    connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
     topToolbar->addAction(shiftDown);
 
     KAction* shiftRight = new KAction( KIcon("forward"), i18n("Shift right"), actionCollection, "shift_right" );
+    connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
@@ -184,18 +172,10 @@ void Editor::setupToolbar()
     theLabel = new QLabel(statusText(), topToolbar);
     //int lWidth = theLabel->sizeHint().width();
     //topToolbar->insertWidget(ID_TOOL_STATUS,lWidth, theLabel );
+#warning FIXME find the way to port this.
     // topToolbar->alignItemRight( ID_TOOL_STATUS, true );
     topToolbar->addWidget(theLabel);
 
-    //addToolBar(topToolbar);
-#warning FIXME dimsuz!
-   //connect( topToolbar,  SIGNAL(clicked(int) ), SLOT( topToolbarOption(int) ) );
-
-#warning FIXME dimsuz!
-    //topToolbar->updateRects(0);
-     //topToolbar->setFullSize(true);
-    //topToolbar->setBarPos(KToolBar::Top);
-//    topToolbar->enableMoving(false);
     topToolbar->adjustSize();
     setMinimumWidth(topToolbar->width());
 }
@@ -203,59 +183,47 @@ void Editor::setupToolbar()
 void Editor::statusChanged() {
 	bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
 	theLabel->setText(statusText());
-#warning FIXME dimsuz!
- 	//topToolbar->setItemEnabled( ID_TOOL_SAVE, canSave);
+        actionCollection->action("save_board")->setEnabled(canSave);
 }
 
+void Editor::slotShiftLeft()
+{
+    theBoard.shiftLeft();
+    update();
+}
 
-void Editor::topToolbarOption(int option) {
+void Editor::slotShiftRight()
+{
+    theBoard.shiftRight();
+    update();
+}
 
-    switch(option) {
-	case ID_TOOL_NEW:
-		newBoard();
-		break;
-	case ID_TOOL_LOAD:
-		loadBoard();
-		break;
-	case ID_TOOL_SAVE:
-		saveBoard();
-		break;
-	case ID_TOOL_LEFT:
-		theBoard.shiftLeft();
-		repaint(false);
-	        break;
-	case ID_TOOL_RIGHT:
-		theBoard.shiftRight();
-		repaint(false);
-	        break;
-	case ID_TOOL_UP:
-		theBoard.shiftUp();
-		repaint(false);
-	        break;
-	case ID_TOOL_DOWN:
-		theBoard.shiftDown();
-		repaint(false);
-	        break;
-	case ID_TOOL_DEL:
-			mode=remove;
-		break;
+void Editor::slotShiftUp()
+{
+    theBoard.shiftUp();
+    update();
+}
 
-	case ID_TOOL_MOVE:
-			mode=move;
-		break;
+void Editor::slotShiftDown()
+{
+    theBoard.shiftDown();
+    update();
+}
 
-	case ID_TOOL_ADD:
-			mode = insert;
-		break;
-	case ID_META_EXIT:
-			close();
-		break;
-
-	default:
-
-	break;
+void Editor::slotModeChanged(QAction* act)
+{
+    if(act == actionCollection->action("move_tiles"))
+    {
+        mode = move;
     }
-
+    else if(act == actionCollection->action("del_tiles"))
+    {
+        mode = remove;
+    }
+    else if(act == actionCollection->action("add_tiles"))
+    {
+        mode = insert;
+    }
 }
 
 QString Editor::statusText() {
@@ -295,8 +263,7 @@ void Editor::loadBoard() {
 
 
     theBoard.loadBoardLayout( url.path() );
-
-    repaint(false);
+    update();
 }
 
 
@@ -315,7 +282,7 @@ void Editor::newBoard() {
     clean=true;
     numTiles=0;
     statusChanged();
-    repaint(false);
+    update();
 }
 
 bool Editor::saveBoard() {
@@ -388,16 +355,16 @@ bool Editor::testSave()
 // the tiles as specified by the layout.
 
 void Editor::paintEvent( QPaintEvent*  ) {
-#warning recursive repaint is in place
     // first we layer on a background grid
     QPixmap buff;
     QPixmap *dest=drawFrame->getPreviewPixmap();
     buff.resize(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
-    bitBlt(dest, 0,0,&buff, 0,0,buff.width(), buff.height());
+    QPainter p(dest);
+    p.drawPixmap(0,0, buff);
 
-    drawFrame->repaint(false);
+    drawFrame->update();
 }
 
 void Editor::drawBackground(QPixmap *pixmap) {
@@ -465,20 +432,18 @@ void Editor::drawTiles(QPixmap *dest) {
                 // we simply split the tile draw so the top half is drawn
                 // minus border
                 if ((x>1) && (y>0) && theBoard.getBoardData(z,y-1,x-2)=='1'){
-
-                    bitBlt( dest,
-                            sx+tiles.shadowSize(), sy,
-                            t, tiles.shadowSize() ,0,
+                    p.drawPixmap( sx+tiles.shadowSize(), sy,
+                            *t, tiles.shadowSize() ,0,
                             t->width()-tiles.shadowSize(),
                             t->height()/2);
 
 
-                    bitBlt( dest, sx, sy+t->height()/2,
-                        t, 0,t->height()/2,t->width(),t->height()/2);
+                    p.drawPixmap( sx, sy+t->height()/2,
+                        *t, 0,t->height()/2,t->width(),t->height()/2);
                 } else {
 
-                bitBlt( dest, sx, sy,
-                    t, 0,0, t->width(), t->height());
+                p.drawPixmap(sx, sy,
+                    *t, 0,0, t->width(), t->height());
                 }
 
 
@@ -575,7 +540,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			numTiles--;
 			statusChanged();
 			drawFrameMouseMovedEvent(e);
-			repaint(false);
+                        update();
 		    }
 		break;
 		case insert: {
@@ -588,7 +553,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			theBoard.insertTile(n);
 			numTiles++;
 			statusChanged();
-			repaint(false);
+			update();
 		    }
 		  }
 		break;
@@ -610,10 +575,7 @@ void Editor::drawCursor(POSITION &p, bool visible)
     if (p.e==100 || !visible)
 	x = -1;
     drawFrame->setRect(x,y,w,h, tiles.shadowSize(), mode-remove);
-    drawFrame->repaint(false);
-
-
-
+    drawFrame->update();
 }
 
 
