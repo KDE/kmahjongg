@@ -291,14 +291,16 @@ bool Editor::saveBoard() {
 				"*|All Files"),
 				this,
 				i18n("Save Board Layout" ));
+    
+   if ( url.isEmpty() )
+       return false;
+
    if( !url.isLocalFile() )
    {
       KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return false;
    }
 
-   if ( url.isEmpty() )
-       return false;
 
     QFileInfo f( url.path() );
     if ( f.exists() ) {
