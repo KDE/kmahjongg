@@ -69,7 +69,7 @@ Editor::Editor
    // setup the tool bar
    setupToolbar();
 
-   QVBoxLayout *layout = new QVBoxLayout(this);
+   QVBoxLayout *layout = new QVBoxLayout(this, 1);
    layout->addWidget(topToolbar,0);
    layout->addWidget(drawFrame,1);
    layout->activate();
