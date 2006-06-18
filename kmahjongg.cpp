@@ -255,7 +255,7 @@ void KMahjongg::showSettings(){
   if(KConfigDialog::showDialog("settings"))
     return;
 
-  KConfigDialog *dialog = new KConfigDialog(this, "settings", Prefs::self(), KDialogBase::Swallow);
+  KConfigDialog *dialog = new KConfigDialog(this, "settings", Prefs::self(), KPageDialog::Plain);
   dialog->addPage(new Settings(0, "General"), i18n("General"), "package_settings");
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));

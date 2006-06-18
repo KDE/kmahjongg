@@ -1,7 +1,7 @@
 #ifndef _PreviewLoadBase_H
 #define _PreviewLoadBase_H
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 #include <qframe.h>
 
@@ -40,7 +40,7 @@ private:
 
 
 
-class Preview: public KDialogBase
+class Preview: public KDialog
 {
     Q_OBJECT
 

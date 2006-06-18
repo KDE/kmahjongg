@@ -22,7 +22,7 @@
 
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
-Preview::Preview(QWidget* parent) : KDialogBase(parent), m_tiles(true)
+Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles(true)
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
