@@ -55,6 +55,7 @@ GenericName[sv]=Mahjongg-liknande brickspel
 GenericName[ta]=மாஹ்ஜோங்-போன்ற ஓடு விளையாட்டு
 GenericName[uk]=Гра з плитками подібна до Mahjongg
 GenericName[zh_CN]=对对碰
+GenericName[zh_TW]=麻將牌遊戲
 Terminal=false
 Icon=kmahjongg
 X-KDE-StartupNotify=true
