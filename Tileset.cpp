@@ -170,7 +170,7 @@ QRgb *Tileset::createTile(short x, short y,
 }
 
 // --------------------------------------------------------
-// create a pixmap for a tile. Optionally create a scalled
+// create a pixmap for a tile. Optionally create a scaled
 // version, which can be used for mini tile requirements.
 // this gives us a small tile for previews and showing
 // removed tiles.

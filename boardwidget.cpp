@@ -157,7 +157,7 @@ void BoardWidget::calcShadow(int e, int y, int x, int &l, int &t, int &c) {
 
 // draw a triangular shadow from the top right to the bottom left.
 // one such shadow is a right hand edge of a shadow line.
-// if a second shadow botton left to top right is rendered over it
+// if a second shadow bottom left to top right is rendered over it
 // then the shadow becomes a box (ie in the middle of the run)
 
 void BoardWidget::shadowTopLeft(QPainter* paint, int depth, int sx, int sy, int rx, int ry, const QPixmap& src, bool flag) {
@@ -377,7 +377,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     }
 
 
-    // Now we add the list of cancelled tiles
+    // Now we add the list of canceled tiles
 
     // we start blitting as usuall right to left, top to bottom, first
     // we calculate the start pos of the first tile, allowing space for
