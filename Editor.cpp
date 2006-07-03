@@ -250,7 +250,7 @@ void Editor::loadBoard() {
 	return;
 
     KUrl url = KFileDialog::getOpenURL(
-				NULL,
+				KUrl(),
 				i18n("*.layout|Board Layout (*.layout)\n"
 				"*|All Files"),
 				this,
@@ -286,7 +286,7 @@ void Editor::newBoard() {
 bool Editor::saveBoard() {
     // get a save file name
     KUrl url = KFileDialog::getSaveURL(
-				NULL,
+				KUrl(),
 				i18n("*.layout|Board Layout (*.layout)\n"
 				"*|All Files"),
 				this,
