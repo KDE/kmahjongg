@@ -109,7 +109,7 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 		res = filename;
 	}
     else {
-        res = locate("appdata", picsPos);
+        res = KStandardDirs::locate("appdata", picsPos);
 	}
 
     if (res.isEmpty()) {

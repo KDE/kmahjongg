@@ -224,7 +224,7 @@ void Preview::drawPreview()
 					{
 						tile = tilesetRaw;
 						tile = "pics/" + tile.right(tile.length() - tile.indexOf(":") - 1 );
-						tile = locate("appdata", tile);
+						tile = KStandardDirs::locate("appdata", tile);
 					}
 					
 					back = backRaw;
@@ -233,7 +233,7 @@ void Preview::drawPreview()
 					{
 						back = backRaw;
 						back = "pics/" + back.right(back.length() - back.indexOf(":") - 1);
-						back = locate("appdata", back);
+						back = KStandardDirs::locate("appdata", back);
 					}
 					
 					layout = layoutRaw;
@@ -242,7 +242,7 @@ void Preview::drawPreview()
 					{
 						layout = layoutRaw;
 						layout = "pics/" + layout.right(layout.length() - layout.indexOf(":") - 1);
-						layout = locate("appdata", layout);
+						layout = KStandardDirs::locate("appdata", layout);
 					}
 					
 					m_themeBack=back;
