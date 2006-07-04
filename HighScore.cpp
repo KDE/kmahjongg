@@ -48,7 +48,7 @@ HighScore::HighScore ( QWidget* parent)
 	// form the target name
 
 
-	filename = locateLocal("appdata", highScoreFilename);
+	filename = KStandardDirs::locateLocal("appdata", highScoreFilename);
 
 	QFont fnt;
 	// Number

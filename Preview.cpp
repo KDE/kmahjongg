@@ -375,7 +375,7 @@ void Preview::saveTheme() {
     QString with = ":";
     // we want to replace any path in the default store
     // with a +
-    QRegExp p(locate("data_dir", "/kmahjongg/pics/"));
+    QRegExp p(KStandardDirs::locate("data_dir", "/kmahjongg/pics/"));
 
     back.replace(p,with);
     tile.replace(p,with);
