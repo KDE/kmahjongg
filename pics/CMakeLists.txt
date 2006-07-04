@@ -4,11 +4,11 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES kmahjongg.png kmahjongg_bgnd.png splash.png newnum.xpm )
-install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.theme pirates.theme )
-install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.bgnd haze.bgnd pirates.bgnd slate.bgnd  	wood.bgnd )
-install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.tileset pirates.tileset runes.tileset traditional.tileset )
-install_files( ${DATA_INSTALL_DIR}/kmahjongg/pics FILES default.layout cross.layout pirates.layout  	pyramid.layout stax.layout test.layout test2.layout  	tower.layout triangle.layout )
+install( FILES kmahjongg.png kmahjongg_bgnd.png splash.png newnum.xpm  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
+install( FILES default.theme pirates.theme  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
+install( FILES default.bgnd haze.bgnd pirates.bgnd slate.bgnd  	wood.bgnd  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
+install( FILES default.tileset pirates.tileset runes.tileset traditional.tileset  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
+install( FILES default.layout cross.layout pirates.layout  	pyramid.layout stax.layout test.layout test2.layout  	tower.layout triangle.layout  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
 
 
 

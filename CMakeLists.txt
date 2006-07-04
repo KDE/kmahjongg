@@ -34,9 +34,9 @@ install_targets(/bin kmahjongg )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kmahjongg.desktop )
-install_files( ${KCFG_INSTALL_DIR} FILES kmahjongg.kcfg )
-install_files( ${DATA_INSTALL_DIR}/kmahjongg FILES kmahjonggui.rc )
+install( FILES kmahjongg.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kmahjongg.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
+install( FILES kmahjonggui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
