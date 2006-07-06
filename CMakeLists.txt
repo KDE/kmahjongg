@@ -29,7 +29,7 @@ kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
 target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames )
 
-install_targets(/bin kmahjongg )
+install(TARGETS kmahjongg  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
