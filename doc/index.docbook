@@ -902,44 +902,23 @@ The gameboard editor lets you create your own tile layouts for gameplay.
 <variablelist>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Hide Toolbar</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide Toolbar</guimenuitem></menuchoice></term>
 <listitem>
-<para>Hides the Toolbar.</para>
+<para>Shows or hides the Toolbar.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Toolbar</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide Statusbar</guimenuitem></menuchoice></term>
 <listitem>
-<para>Shows the Toolbar.</para>
+<para>Shows or hides the Statusbar.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Hide Statusbar</guimenuitem></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show/Hide Matching Tiles</guimenuitem></menuchoice></term>
 <listitem>
-<para>Hides the Statusbar.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Statusbar</guimenuitem></menuchoice></term>
-<listitem>
-<para>Shows the Statusbar.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Hide Matching Tiles</guimenuitem></menuchoice></term>
-<listitem>
-<para>Hides matching tiles by not flashing the matching free tiles when a tile is selected.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Show Matching Tiles</guimenuitem></menuchoice></term>
-<listitem>
-<para>Shows matching tiles by flashing all matching free tiles when a tile is selected.</para>
+<para>Shows or hides matching tiles by not flashing the matching free tiles when a tile is selected.</para>
 </listitem>
 </varlistentry>
 
