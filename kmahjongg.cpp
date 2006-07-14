@@ -60,8 +60,8 @@ int is_paused = 0;
 /**
     Constructor.
 */
-KMahjongg::KMahjongg( QWidget* parent, const char *name)
-    : KMainWindow(parent, name)
+KMahjongg::KMahjongg( QWidget* parent)
+    : KMainWindow(parent)
 {
     // init board widget
     bw = new BoardWidget( this );

@@ -440,7 +440,7 @@ FrameImage::~FrameImage()
 void FrameImage::setGeometry(int x, int y, int w, int h) {
     QFrame::setGeometry(x,y,w,h);
 
-    thePixmap->resize(size());
+    *thePixmap = QPixmap(size());
 
 }
 
@@ -457,7 +457,7 @@ void FrameImage::paintEvent( QPaintEvent* pa )
     line.setColor(Qt::yellow);
     p.setPen(line);
     p.setBackgroundMode(Qt::OpaqueMode);
-    p.setBackgroundColor(Qt::black);
+    p.setBackground(Qt::black);
 
     int x = pa->rect().left();
     int y = pa->rect().top();

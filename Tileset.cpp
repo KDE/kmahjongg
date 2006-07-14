@@ -177,10 +177,8 @@ QRgb *Tileset::createTile(short x, short y,
 void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 {
 
-    QImage buff;
+    QImage buff(w, h, QImage::Format_RGB32);
     QRgb   *line;
-
-    buff.create(w, h, 32);
 
     for (int y=0; y<h; y++) {
 	line = (QRgb *) buff.scanLine(y);
@@ -231,7 +229,7 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 
     // we deal only with 32 bit images
     if (qiTiles.depth() != 32)
-      qiTiles = qiTiles.convertDepth(32);
+      qiTiles = qiTiles.convertToFormat(QImage::Format_RGB32);
 
 
 

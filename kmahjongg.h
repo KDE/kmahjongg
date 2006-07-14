@@ -52,7 +52,7 @@ class KMahjongg : public KMainWindow
     Q_OBJECT
 
     public:
-        KMahjongg( QWidget* parent = 0, const char *name = 0);
+        KMahjongg( QWidget* parent = 0 );
         ~KMahjongg();
 
     public slots:

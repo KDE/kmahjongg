@@ -36,7 +36,7 @@ bool Background::load(const QString &file, short width, short height) {
 
   // Just in case the image is loaded 8 bit
   if (sourceImage->depth() != 32)
-    *sourceImage = sourceImage->convertDepth(32);  
+    *sourceImage = sourceImage->convertToFormat(QImage::Format_RGB32);  
 
   // call out to scale/tile the source image into the background image
   sourceToBackground();
@@ -61,15 +61,10 @@ void Background::sizeChanged(int newW, int newH) {
 void Background::sourceToBackground() {
 
   // Deallocate the old image and create the new one
-  if (!backgroundImage->isNull())
-  {
-      delete backgroundImage;
-      backgroundImage = new QImage;
-  }
-
+  delete backgroundImage;
   // the new version of kmahjongg uses true color images
   // to avoid the old color limitation.
-  backgroundImage->create(w, h, 32);
+  backgroundImage = new QImage(w, h, QImage::Format_RGB32);
 
   // Now we decide if we should scale the incoming image
   // or if we tile. First we check for an exact match which
@@ -93,15 +88,14 @@ void Background::sourceToBackground() {
     *backgroundImage = sourceImage->scaled(w, h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     // Just incase the image is loaded 8 bit
     if (backgroundImage->depth() != 32)
-      *backgroundImage = backgroundImage->convertDepth(32);
+      *backgroundImage = backgroundImage->convertToFormat(QImage::Format_RGB32);
   }
 
   // Save a copy of the background as a pixmap for easy and quick
   // blitting.
-  backgroundPixmap->convertFromImage(*backgroundImage);
+  *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
 
-  QImage tmp;
-  tmp.create(backgroundImage->width(), backgroundImage->height(), 32);
+  QImage tmp(backgroundImage->width(), backgroundImage->height(), QImage::Format_RGB32);
   for (int ys=0; ys < tmp.height(); ys++) {
 	QRgb *src = (QRgb *) backgroundImage->scanLine(ys);
 	QRgb *dst = (QRgb *) tmp.scanLine(ys);
@@ -112,7 +106,7 @@ void Background::sourceToBackground() {
 	}
   }	
 
-  backgroundShadowPixmap->convertFromImage(tmp);
+  *backgroundShadowPixmap = QPixmap::fromImage(tmp);
 
   return;
 }
