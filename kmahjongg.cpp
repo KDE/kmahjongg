@@ -42,7 +42,7 @@
 
 #include "prefs.h"
 #include "kmahjongg.h"
-#include "settings.h"
+#include "ui_settings.h"
 #include "GameTimer.h"
 #include "Editor.h"
 
@@ -54,6 +54,16 @@ static const char *gameMagic = "kmahjongg-game-v1.0";
 #define ID_STATUS_TILENUMBER 1
 #define ID_STATUS_MESSAGE    2
 #define ID_STATUS_GAME       3
+
+class Settings : public QWidget, public Ui::Settings
+{
+public:
+    Settings( QWidget* parent )
+        : QWidget( parent )
+    {
+        setupUi(this);
+    }
+};
 
 int is_paused = 0;
 
@@ -256,7 +266,7 @@ void KMahjongg::showSettings(){
     return;
 
   KConfigDialog *dialog = new KConfigDialog(this, "settings", Prefs::self(), KPageDialog::Plain);
-  dialog->addPage(new Settings(0, "General"), i18n("General"), "package_settings");
+  dialog->addPage(new Settings(0), i18n("General"), "package_settings");
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
   dialog->show();
