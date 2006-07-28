@@ -19,31 +19,33 @@
 
 #include "prefs.h"
 #include "Preview.h"
-
+#include <QVBoxLayout>
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
 Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles(true)
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
-	KVBox *page;
-	 
-	page = new KVBox(this);
 
-	group = new QGroupBox(page);
-	
-	m_combo = new QComboBox(group);
+	group = new QGroupBox( this );
+
+	m_combo = new QComboBox;
 	connect(m_combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
-	loadButton = new KPushButton(i18n("Load..."), group);
+	loadButton = new KPushButton(i18n("Load..."));
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
-	
-	m_drawFrame = new FrameImage(page);
-	m_drawFrame->setFixedSize(310, 236);
 
+	m_drawFrame = new FrameImage;
+	m_drawFrame->setFixedSize(310, 236);
 	m_changed = false;
-	
-	setMainWidget(page);
+
+        QVBoxLayout *layout = new QVBoxLayout;
+        layout->addWidget( m_combo );
+        layout->addWidget(loadButton );
+        layout->addWidget(m_drawFrame );
+
+        group->setLayout( layout );
+	setMainWidget(group);
 	setFixedSize(sizeHint());
 }
 
@@ -92,35 +94,35 @@ void Preview::initialise(const PreviewType type)
 			m_fileSelector += KImageIO::pattern()+"\n";
 			extension = "*.bgnd";
 		break;
-		
+
 		case tileset:
 			setCaption(i18n("Change Tile Set"));
 			m_fileSelector = i18n("*.tileset|Tile Set File (*.tileset)\n");
 			m_selectedFile = tile;
 			extension = "*.tileset";
 		break;
-		
+
 		case board:
 			m_fileSelector = i18n("*.layout|Board Layout File (*.layout)\n");
 			setCaption(i18n("Change Board Layout"));
 			m_selectedFile = layout;
 			extension = "*.layout";
 		break;
-		
+
 		case theme:
 			m_fileSelector = i18n("*.theme|KMahjongg Theme File (*.theme)\n");
 			setCaption(i18n("Choose Theme"));
 			m_selectedFile="";
 			extension = "*.theme";
-			
+
 			m_themeLayout="";
 			m_themeBack="";
 			m_themeTileset="";
-		
+
 		default:
 		break;
 	}
-	
+
 	m_fileSelector += i18n("*|All Files");
 	enableButtonApply(type != board);
 
@@ -142,7 +144,7 @@ void Preview::initialise(const PreviewType type)
 		QFileInfo fi(*it);
 		names << fi.baseName();
 	}
-	
+
 	m_combo->addItems(names);
 	m_combo->setEnabled(m_fileList.count());
 	drawPreview();
@@ -180,28 +182,28 @@ void Preview::drawPreview()
 	QString tile = Prefs::tileSet();
 	QString back = Prefs::background();
 	QString layout = Prefs::layout();
-	
+
 	switch (m_previewType)
 	{
 		case background:
 			back = m_selectedFile;
 		break;
-		
+
 		case tileset:
 			tile = m_selectedFile;
 		break;
-		
+
 		case board:
 			layout = m_selectedFile;
 		break;
-		
+
 		case theme:
 			// a theme is quite a bit of work. We load the
 			// specified bits in (layout, background and tileset
 			if (!m_selectedFile.isEmpty())
 			{
 				QString backRaw, layoutRaw, tilesetRaw, magic;
-				
+
 				QFile in(m_selectedFile);
 				if (in.open(QIODevice::ReadOnly))
 				{
@@ -217,7 +219,7 @@ void Preview::drawPreview()
 					backRaw = stream.readLine();
 					layoutRaw = stream.readLine();
 					in.close();
-					
+
 					tile = tilesetRaw;
 					tile.replace(":", "/kmahjongg/pics/");
 					if (!QFile::exists(tile))
@@ -226,7 +228,7 @@ void Preview::drawPreview()
 						tile = "pics/" + tile.right(tile.length() - tile.indexOf(":") - 1 );
 						tile = KStandardDirs::locate("appdata", tile);
 					}
-					
+
 					back = backRaw;
 					back.replace(":", "/kmahjongg/pics/");
 					if (!QFile::exists(back))
@@ -235,7 +237,7 @@ void Preview::drawPreview()
 						back = "pics/" + back.right(back.length() - back.indexOf(":") - 1);
 						back = KStandardDirs::locate("appdata", back);
 					}
-					
+
 					layout = layoutRaw;
 					layout.replace(":", "/kmahjongg/pics/");
 					if (!QFile::exists(layout))
@@ -244,7 +246,7 @@ void Preview::drawPreview()
 						layout = "pics/" + layout.right(layout.length() - layout.indexOf(":") - 1);
 						layout = KStandardDirs::locate("appdata", layout);
 					}
-					
+
 					m_themeBack=back;
 					m_themeLayout=layout;
 					m_themeTileset=tile;
@@ -252,7 +254,7 @@ void Preview::drawPreview()
 			}
 		break;
 	}
-	
+
 	renderBackground(back);
 	renderTiles(tile, layout);
 }
@@ -271,15 +273,15 @@ void Preview::applyChange()
 		case background:
 			loadBackground(m_selectedFile, false);
 		break;
-		
+
 		case tileset:
 			loadTileset(m_selectedFile);
 		break;
-		
+
 		case board:
 			loadBoard(m_selectedFile);
 		break;
-		
+
 		case theme:
 			if (!m_themeLayout.isEmpty() && !m_themeBack.isEmpty() && !m_themeTileset.isEmpty())
 			{
@@ -371,7 +373,7 @@ void Preview::saveTheme() {
     QString tile = Prefs::tileSet();
     QString back = Prefs::background();
     QString layout = Prefs::layout();
-    
+
     QString with = ":";
     // we want to replace any path in the default store
     // with a +
