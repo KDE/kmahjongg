@@ -14,6 +14,7 @@
 #include <kactioncollection.h>
 #include <ktoggleaction.h>
 #include <kstdaction.h>
+#include <kicon.h>
 
 // When we assign a tile to draw in a slot we do it in order from te following
 // table, wrapping on the tile number. It makes the tile layout look more

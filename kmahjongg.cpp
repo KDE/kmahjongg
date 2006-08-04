@@ -35,6 +35,7 @@
 #include <kmessagebox.h>
 #include <kstdgameaction.h>
 #include <kstdaction.h>
+#include <kicon.h>
 
 #include <kio/netaccess.h>
 #include <klocale.h>
