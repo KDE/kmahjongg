@@ -188,13 +188,13 @@ void BoardWidget::shadowBotRight(QPainter* paint, int depth, int sx, int sy, int
 	if (depth) {
 		int shadowPixels= (depth+1) * theTiles.shadowSize();
 		int xOffset=theTiles.qWidth();
-	    	for (int p=0; p<shadowPixels; p++) {
+	    	for (int p=1; p<shadowPixels; p++) {
              	    paint->drawPixmap( sx+xOffset-p, 	/* step to shadow right start */
 			    sy+p,		/* down for each line */
                     	    src,
 			    rx+xOffset-p,	/* step to shadow right start */
 			    ry+p,
-			    p, 			/* increace width each line down */
+			    p, 			/* increase width each line down */
 			    1 );
 		}
 		if (flag && ((theTiles.qHeight() - shadowPixels) >0))
@@ -205,7 +205,6 @@ void BoardWidget::shadowBotRight(QPainter* paint, int depth, int sx, int sy, int
 			    ry+shadowPixels,
 			    shadowPixels,
 			    theTiles.qHeight()-shadowPixels );
-
 	}
 }
 

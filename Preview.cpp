@@ -29,10 +29,10 @@ Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles(true)
 
 	group = new QGroupBox( this );
 
-	m_combo = new QComboBox;
+	m_combo = new QComboBox(group);
 	connect(m_combo, SIGNAL(activated(int)), SLOT(selectionChanged(int)));
 
-	loadButton = new KPushButton(i18n("Load..."));
+	loadButton = new KPushButton(i18n("Load..."), group);
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
 
 	QSize frameSize(310, 236);
