@@ -35,8 +35,9 @@ Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles(true)
 	loadButton = new KPushButton(i18n("Load..."));
 	connect( loadButton, SIGNAL(clicked()), SLOT(load()) );
 
-	m_drawFrame = new FrameImage;
-	m_drawFrame->setFixedSize(310, 236);
+	QSize frameSize(310, 236);
+	m_drawFrame = new FrameImage(group, frameSize);
+	m_drawFrame->setFixedSize(frameSize);
 	m_changed = false;
 
         QVBoxLayout *layout = new QVBoxLayout;
@@ -150,16 +151,21 @@ void Preview::initialise(const PreviewType type)
 	drawPreview();
 }
 
-void Preview::slotApply() {
+void Preview::slotButtonClicked(int button)
+{
+	if(button == KDialog::Cancel)
+	{
+		reject();
+		return;
+	}
+	//common part for Ok & Apply
 	if (isChanged()) {
 		applyChange();
 		markUnchanged();
 	}
-}
 
-void Preview::slotOk() {
-	slotApply();
-	accept();
+	if(button == KDialog::Ok)
+		accept();
 }
 
 void Preview::load() {
@@ -427,11 +433,11 @@ void Preview::saveTheme() {
     fclose(outFile);
 }
 
-FrameImage::FrameImage (QWidget *parent)
+FrameImage::FrameImage (QWidget *parent, const QSize& initialImageSize)
   : QFrame(parent)
 {
 	rx = -1;
-	thePixmap = new QPixmap();
+	thePixmap = new QPixmap(initialImageSize);
 }
 
 FrameImage::~FrameImage()
@@ -439,11 +445,9 @@ FrameImage::~FrameImage()
 	delete thePixmap;
 }
 
-void FrameImage::setGeometry(int x, int y, int w, int h) {
-    QFrame::setGeometry(x,y,w,h);
-
-    *thePixmap = QPixmap(size());
-
+void FrameImage::resizeEvent( QResizeEvent* ev )
+{
+    *thePixmap = QPixmap(ev->size());
 }
 
 void FrameImage::paintEvent( QPaintEvent* pa )
@@ -509,11 +513,11 @@ void FrameImage::setRect(int x,int y,int w,int h, int s, int t)
 // Pass on the mouse presed event to our owner
 
 void FrameImage::mousePressEvent(QMouseEvent *m) {
-	mousePressed(m);
+	emit mousePressed(m);
 }
 
 void FrameImage::mouseMoveEvent(QMouseEvent *e) {
-	mouseMoved(e);
+	emit mouseMoved(e);
 }
 
 #include "Preview.moc"

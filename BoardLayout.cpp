@@ -36,23 +36,20 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 
 	for (int z=0; z<depth; z++) {
 	    for(int y=0; y<height; y++) {
-		if(f.putch('\n')==-1)
+		if(!f.putChar('\n'))
 		    return(false);
 		for (int x=0; x<width; x++) {
 		if (board[z][y][x]) {
-		    if(f.putch(board[z][y][x])==-1)
+		    if(!f.putChar(board[z][y][x]))
 		       return false;
 		} else {
-		    if(f.putch('.')==-1)
+		    if(!f.putChar('.'))
 			return false;
 		}
 		}
 	    }
 	}
-	if(f.putch('\n')!=-1)
-	    return true;
-	else
-	    return false;
+        return f.putChar('\n');
 }
 
 

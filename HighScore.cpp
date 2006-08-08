@@ -338,13 +338,11 @@ void HighScore::addRow(int num) {
 	namesWidgets[num] = new QLabel( this);
 	namesWidgets[num]->setGeometry( 40, 75+(num*30), 150, 30 );
 	namesWidgets[num]->setFrameStyle( 50 );
-	namesWidgets[num]->setAlignment( 289 );
 	
 	// board 
 	boardWidgets[num] = new QLabel( this);
 	boardWidgets[num]->setGeometry( 190, 75+(num*30), 80, 30 );
 	boardWidgets[num]->setFrameStyle( 50 );
-	boardWidgets[num]->setAlignment( 289 );
 
 	// score
 	scoresWidgets[num] = new QLabel( this);

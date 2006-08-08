@@ -34,12 +34,11 @@ Editor::Editor ( QWidget* parent)
 
     sWidth += 4*tiles.shadowSize();
 
-    drawFrame = new FrameImage( this );
+    drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
     drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
     drawFrame->setMinimumSize( 0, 0 );
     drawFrame->setMaximumSize( 32767, 32767 );
     drawFrame->setFocusPolicy( Qt::NoFocus );
-    drawFrame->setBackgroundMode( Qt::PaletteBackground );
     drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 

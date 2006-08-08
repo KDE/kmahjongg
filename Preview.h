@@ -16,9 +16,8 @@ class FrameImage: public QFrame
 {
 	Q_OBJECT
 public:
-	FrameImage(QWidget *parent=NULL);
+	FrameImage(QWidget *parent, const QSize& initialImageSize);
 	~FrameImage();
-	void setGeometry(int x, int y, int w, int h);
 	QPixmap *getPreviewPixmap() {return thePixmap;};
 	void setRect(int x, int y, int w, int h, int ss, int type);
 signals:
@@ -27,6 +26,7 @@ signals:
 protected:
 	void mousePressEvent(QMouseEvent *e);
 	void mouseMoveEvent(QMouseEvent *e);
+	void resizeEvent(QResizeEvent *e);
 	void paintEvent( QPaintEvent* pa );
 private:
 	QPixmap *thePixmap;
@@ -51,6 +51,7 @@ public:
 	~Preview();
 
 	void initialise(const PreviewType type);
+
 	void saveTheme();
 
 protected:
@@ -75,8 +76,7 @@ public slots:
 	void selectionChanged(int which);
 
 protected slots:
-	void slotApply();
-	void slotOk();
+	virtual void slotButtonClicked(int button); // reimp
 	
 private slots:
 	void load();
