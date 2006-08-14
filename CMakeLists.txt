@@ -38,7 +38,7 @@ install( FILES kmahjongg.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kmahjongg.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kmahjonggui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg )
 
-kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
+kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
 
 
