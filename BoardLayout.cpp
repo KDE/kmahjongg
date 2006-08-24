@@ -162,8 +162,10 @@ void BoardLayout::shiftLeft() {
 	        // tile going off board, delete it
 	        board[z][y][0]=0;
 	        board[z][y][1]=0;
-	        board[z][y+1][0]=0;
-	        board[z][y+1][1]=0;
+		if (y<height-1) {
+	           board[z][y+1][0]=0;
+	           board[z][y+1][1]=0;
+		}
 	    }
 	    for (int x=0; x<width-1; x++) {
 		board[z][y][x] = board[z][y][x+1];
@@ -182,8 +184,10 @@ void BoardLayout::shiftRight() {
 	        // tile going off board, delete it
 	        board[z][y][width-2]=0;
 	        board[z][y][width-1]=0;
-	        board[z][y+1][width-2]=0;
-	        board[z][y+1][width-1]=0;
+		if (y < height-1) {
+		        board[z][y+1][width-2]=0;
+		        board[z][y+1][width-1]=0;
+		}
 	    }
 	    for (int x=width-1; x>0; x--) {
 		board[z][y][x] = board[z][y][x-1];
@@ -198,9 +202,11 @@ void BoardLayout::shiftUp() {
 	for (int x=0; x<width; x++) {
 	    if (board[z][0][x] == '1') {
 		board[z][0][x] = 0;
-		board[z][0][x+1] = 0;
+		if (x<width-1) {
+			board[z][0][x+1] = 0;
+			board[z][1][x+1] = 0;
+		}
 		board[z][1][x] = 0;
-		board[z][1][x+1] = 0;
 	    }
 	}
     }
@@ -222,9 +228,11 @@ void BoardLayout::shiftDown() {
 	for (int x=0; x<width; x++) {
 	    if (board[z][height-2][x] == '1') {
 		board[z][height-2][x] = 0;
-		board[z][height-2][x+1] = 0;
+		if (x<width-1) {
+			board[z][height-2][x+1] = 0;
+			board[z][height-1][x+1] = 0;
+		}
 		board[z][height-1][x] = 0;
-		board[z][height-1][x+1] = 0;
 	    }
 	}
     }

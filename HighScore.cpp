@@ -234,6 +234,8 @@ void HighScore::loadTables() {
 
 	
 error:
+	if (fp)
+		fclose(fp);
 	selectTable("default");
 	saveTables();
 	return;

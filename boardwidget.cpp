@@ -1372,8 +1372,8 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
                         Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
                         continue;
                 }
-                if( (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                    (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
+                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
                     continue;
 
                 Pos_Ende--;
@@ -1445,8 +1445,8 @@ int BoardWidget::moveCount( )
                         Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
                         continue;
                 }
-                if( (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                    (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
+                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
                     continue;
 
                 Pos_Ende--;
@@ -1503,8 +1503,8 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
                         Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
                         continue;
                 }
-                if( (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                    (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
+                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
                     continue;
 
                 PosTable[Pos].e = E;
@@ -1722,7 +1722,7 @@ void BoardWidget::transformPointToPosition(
         // tile must be 'free' (nothing left, right or above it)
         if( E < 4 )
         {
-            if( Game.Board[E+1][Y][X]   || Game.Board[E+1][Y+1][X] ||
+            if( Game.Board[E+1][Y][X] || (Y<BoardLayout::height-1 && Game.Board[E+1][Y+1][X]) ||
                 (X<BoardLayout::width-2 && Game.Board[E+1][Y][X+1]) ||
 	        (X<BoardLayout::width-2 && Game.Board[E+1][Y+1][X+1]) )
                 continue;
