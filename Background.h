@@ -14,12 +14,12 @@ class Background
     Background();
     ~Background();
     bool tile;
+    bool isSVG;
     
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged();
     QPixmap *getBackground() {return backgroundPixmap;};
-    QPixmap *getShadowBackground() {return backgroundShadowPixmap;};
  private:
     void sourceToBackground();
 
@@ -27,7 +27,6 @@ class Background
     QImage *backgroundImage;
     QImage *sourceImage;
     QPixmap *backgroundPixmap;
-    QPixmap *backgroundShadowPixmap;
     QString filename;
     short w;
     short h;

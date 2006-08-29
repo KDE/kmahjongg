@@ -5,9 +5,6 @@
 #include <qtextcodec.h>
 
 
-
-
-
 BoardLayout::BoardLayout()
 {
 	filename="";

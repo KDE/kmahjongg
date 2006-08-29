@@ -74,6 +74,8 @@ int is_paused = 0;
 KMahjongg::KMahjongg( QWidget* parent)
     : KMainWindow(parent)
 {
+    // minimum area required to display the field
+    setMinimumSize ( 320, 320 );
     // init board widget
     bw = new BoardWidget( this );
     setCentralWidget( bw );
@@ -182,6 +184,12 @@ void KMahjongg::setupKAction()
     bw->setShowMatch( Prefs::showMatchingTiles() );
     KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     pauseAction = KStdGameAction::pause(this, SLOT(pause()), actionCollection());
+
+    //TODO maybe add standard resizing actions for the view?
+    //we are currently using a resizable window for testing
+    //KStdAction::actualSize(this, SLOT(makeFit()), actionCollection());
+    //KStdAction::zoomIn(this, SLOT(makeLarger()), actionCollection());
+    //KStdAction::zoomOut(this, SLOT(makeSmaller()), actionCollection());
 
     // TODO: store the background ; open on startup
     // TODO: same about layout

@@ -41,30 +41,6 @@ typedef struct gamedata {
 	return (Board[z][y][x] != 0);
     }
 
-    int shadowHeight(int z, int y, int x) {
-
-
-    if ((z>=BoardLayout::depth||y>=BoardLayout::height||x>=BoardLayout::width))
-	return 0;
-
-
-	if ((y < 0) || (x < 0))
-		return 0;
-
-	int h=0;
-	for (int e=z; e<BoardLayout::depth; e++) {
-		if (Board[e][y][x] && Mask[e][y][x]) {
-
-
-			h++;
-		} else {
-			return h;
-		}
-
-	}
-	return h;
-    }
-
 
 } GAMEDATA;
 
@@ -137,10 +113,8 @@ class BoardWidget : public QWidget
 
 		void gameOver(unsigned short removed, unsigned short cheats);
     protected:
+	virtual void resizeEvent ( QResizeEvent * event );
 	void getFileOrDefault(QString filename, QString type, QString &res);
-	void shadowArea(QPainter* p, int z, int y, int x, int sx, int sy, int rx, int ry, const QPixmap& src);
-	void shadowTopLeft (QPainter* p, int depth, int sx, int sy, int rx, int ry,const QPixmap& src, bool flag);
-	void shadowBotRight(QPainter* p, int depth, int sx, int sy, int rx, int ry,const QPixmap& src, bool flag);
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
@@ -166,8 +140,8 @@ class BoardWidget : public QWidget
 
 	int requiredWidth();
 	int requiredHeight();
-
-	void calcShadow(int e, int y, int x, int &left, int &right, int &corn);
+	int requiredHorizontalCells();
+	int requiredVerticalCells();
 
 
 	// new bits for game generation

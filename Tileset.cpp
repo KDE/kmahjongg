@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "Tileset.h"
 #include <qimage.h>
+#include <kstandarddirs.h>
+#include <QSvgRenderer>
+#include <QPainter>
+#include <QtDebug>
 
 
 #define mini_width 20
@@ -55,27 +59,15 @@ Tileset::Tileset(bool scale)
 	isScaled = scale;
 	divisor =  (isScaled) ? 2 : 1;
 
-	// set up tile metrics (fixed for now)
-	ss     = 4;    // left/bottom shadow width
-	bs     = 1;    // tile boarder width
-	w      = 40;   // tile width (inc boarder & shadow)
-	h      = 56;   // tile height (inc boarder and shadow)
-	s      = w*h;  // RGBA's required per tile
-
-	// Allocate memory for the 9*5 tile arrays
-    	tiles         = new QRgb [9*5*s];
-    	selectedTiles = new QRgb [9*5*s];
-
-    	// allocate memory for single tile storage
-    	selectedFace   = new QRgb [s];
-    	unselectedFace = new QRgb [s];
-
-	// quarter widths are used as an offset when
-	// overlaying tiles in 3 dimensions.
-	qw  = ((w-ss)/2) ;
-	qh = ((h-ss)/2) ;
-
 	filename = "";
+	tiles = 0;
+    	selectedTiles = 0;
+    	selectedFace   = 0;
+    	unselectedFace = 0;
+
+	//init storage with default values for KMahjongg classic pixmap tiles
+	initStorage(40, 56, 4, 1, false);
+
 }
 
 
@@ -88,6 +80,58 @@ Tileset::~Tileset() {
     	delete [] selectedTiles;
     	delete [] selectedFace;
     	delete [] unselectedFace;
+}
+
+void Tileset::initStorage(short tilew, short tileh, short tileshadow, short tileborder,
+bool tileisSVG) 
+{
+	//TODO read real metrics from external XML file or SVG metadata
+	isSVG = tileisSVG;
+	ss     = tileshadow;    // left/bottom shadow width //actually used for 3d indent
+	bs     = tileborder;    // tile boarder width
+	w      = tilew;   // tile width (inc boarder & shadow)
+	h      = tileh;   // tile height (inc boarder and shadow)
+	s      = w*h;  // RGBA's required per tile
+	// quarter widths are used as an offset when
+	// overlaying tiles in 3 dimensions.
+	qw  = 7*w/8/2;//((w-ss)/2) ; 
+	qh = 7*h/8/2;//((h-ss)/2);
+
+	if (tiles) delete [] tiles;
+    	if (selectedTiles) delete [] selectedTiles;
+    	if (selectedFace) delete [] selectedFace;
+    	if (unselectedFace) delete [] unselectedFace;
+
+	// Allocate memory for the 9*5 tile arrays
+    	tiles         = new QRgb [9*5*s];
+    	selectedTiles = new QRgb [9*5*s];
+
+    	// allocate memory for single tile storage
+    	selectedFace   = new QRgb [s];
+    	unselectedFace = new QRgb [s];
+
+}
+
+QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
+{
+    //calculate our best tile size to fit the boardsize passed to us
+    qreal newtilew, newtileh;
+    qreal bw = boardsize.width();
+    qreal bh = boardsize.height();
+    qreal fullh = h*verticalCells;
+    qreal fullw = w*horizontalCells;
+    qreal floatw = w;
+    qreal floath = h;
+
+    if ((fullw/fullh)>(bw/bh)) {
+        //space will be left on height, use width as limit
+	newtilew = bw/(qreal) horizontalCells;
+	newtileh = (floath * newtilew) / floatw;
+    } else {
+	newtileh = bh/(qreal) verticalCells;
+	newtilew = (floatw * newtileh) / floath;
+    }
+    return QSize(newtilew, newtileh);
 }
 
 // ---------------------------------------------------------
@@ -119,9 +163,18 @@ QRgb *Tileset::copyTileImage(short tileX, short tileY, QRgb *to, QImage &from) {
 
 
 QRgb *Tileset::createTile(short x, short y,
-		QRgb *det, QImage &allTiles , QRgb *face) {
+		QRgb *det, QImage &allTiles , QRgb *face, bool SVGuseselected) {
   QRgb *image ;
   QRgb *to = det;
+
+  if (isSVG) {
+     if (SVGuseselected) {
+	//get selected version, down 5 lines in the pixmap
+	//we want to preserve our nice antialiased rendering
+	y = y+5;
+     }
+     copyTileImage(x, y , det, allTiles);
+  } else {
 
   // Alloc the space
   image = new QRgb[s];
@@ -164,7 +217,7 @@ QRgb *Tileset::createTile(short x, short y,
 
   // Free allocated space
   delete [] image;
-
+  }
   // calculate the address of the next tile
   return(det+s);
 }
@@ -177,7 +230,7 @@ QRgb *Tileset::createTile(short x, short y,
 void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 {
 
-    QImage buff(w, h, QImage::Format_RGB32);
+    QImage buff(w, h, QImage::Format_ARGB32_Premultiplied);
     QRgb   *line;
 
     for (int y=0; y<h; y++) {
@@ -193,14 +246,13 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 	src += w;
     }
 
-
     // create the pixmap and initialise the drawing mask
     if (!scale) {
     	dest = QPixmap::fromImage(buff);
-    	dest.setMask(maskBits);
+    	if (!isSVG) dest.setMask(maskBits);
     } else {
     	dest = QPixmap::fromImage(buff.scaled(w/2, h/2, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-    	dest.setMask(maskBitsMini);
+    	if (!isSVG) dest.setMask(maskBitsMini);
     }
 
 }
@@ -220,14 +272,42 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 	return true;
     }
 
+    //QString newPath = tilesetPath;
+   //TODO hardcoded file during transition to SVG rendering
+    QString picsPos = "pics/";
+    picsPos += "default.tileset";
 
-    // try to load it
-    if( ! qiTiles.load( tilesetPath) )
-        return( false );
+    QString newPath = KStandardDirs::locate("appdata", picsPos);
+
+    if (newPath.isEmpty()) {
+		qDebug() << "could not find tileset";
+		return false;
+    }
+
+    // try to load it as image
+    isSVG = false;
+    if( ! qiTiles.load( newPath) ) {
+	//SVG?
+	//TODO add support for svgz?
+	QSvgRenderer svg(newPath);
+	if (svg.isValid()) {
+	        qiTiles = QImage(svg.defaultSize(),QImage::Format_ARGB32_Premultiplied);
+	        QPainter p(&qiTiles);
+	        svg.render(&p);
+		isSVG = true;
+		initStorage(86, 106, 10, 2, true);
+	    } else {
+	        return( false );
+	    }
+    }
 
 
+    if (!isSVG) {
+	//legacy pixmap tile options
+	initStorage(40, 56, 4, 1, false);
+    }
 
-    // we deal only with 32 bit images
+    // we deal only with 32 bit images (does not apply to SVG, only legacy)
     if (qiTiles.depth() != 32)
       qiTiles = qiTiles.convertToFormat(QImage::Format_RGB32);
 
@@ -248,11 +328,11 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 	for (short atX=0; atX<9; atX++) {
 
 
-	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace);
+	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace, false);
 
 	  // for the preview dialog we do not create selected tiles
 	  if (!isPreview)
-	      nextSel = createTile(atX, atY, sel , qiTiles, selectedFace);
+	      nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
 	  int pixNo = atX+(atY*9);
 
 	  // for the preview dialog we only create the unselected mini pix
@@ -261,10 +341,6 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 	      createPixmap(unsel, unselectedPix[pixNo], false, false);
 	      createPixmap(sel, selectedMiniPix[pixNo], true, false);
 
-	      createPixmap(sel, selectedShadowPix[pixNo], false, true);
-	      createPixmap(unsel, unselectedShadowPix[pixNo], false, true);
-	      createPixmap(sel, selectedShadowMiniPix[pixNo], true, true);
-	      createPixmap(unsel, unselectedShadowMiniPix[pixNo], true, true);
 	  }
 
 	  createPixmap(unsel, unselectedMiniPix[pixNo], true, false);
@@ -273,8 +349,75 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 	}
     }
 
-    filename = tilesetPath;
+    filename = newPath;
     return( true );
 }
+
+// ---------------------------------------------------------
+bool Tileset::reloadTileset( QSize newTilesize)
+{
+
+    QImage qiTiles;
+    QRgb *unsel;
+    QRgb *sel;
+    QRgb *nextSel=0;
+    QRgb *nextUnsel=0;
+
+    QString newPath = filename;
+
+    if (QSize(w,h)==newTilesize) return false;
+
+    // try to load it as image
+    isSVG = false;
+    if( ! qiTiles.load( newPath) ) {
+	//maybe SVG??
+	//TODO add support for svgz?
+	QSvgRenderer svg(newPath);
+	if (svg.isValid()) {
+	        qiTiles = QImage(QSize(newTilesize.width()*9, newTilesize.height()*10),QImage::Format_ARGB32_Premultiplied);
+	        QPainter p(&qiTiles);
+	        svg.render(&p);
+		isSVG = true;
+		initStorage(newTilesize.width(), newTilesize.height(), 5, 2, true);
+	    } else {
+	        return( false );
+	    }
+    }
+
+
+    // Read in the unselected and selected tile backgrounds
+    copyTileImage(7, 4 , unselectedFace, qiTiles);
+    copyTileImage(8, 4, selectedFace, qiTiles);
+
+
+
+    // Read in the 9*5 tiles. Each tile is overlayed onto
+    // the selected and unselected tile backgrounds and
+    // stored.
+    sel = selectedTiles;
+    unsel = tiles;
+    for (short atY=0; atY<5; atY++) {
+	for (short atX=0; atX<9; atX++) {
+
+
+	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace, false);
+
+
+	  nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
+	  int pixNo = atX+(atY*9);
+
+	      createPixmap(sel, selectedPix[pixNo], false, false);
+	      createPixmap(unsel, unselectedPix[pixNo], false, false);
+	      createPixmap(sel, selectedMiniPix[pixNo], true, false);
+
+	  createPixmap(unsel, unselectedMiniPix[pixNo], true, false);
+	  sel = nextSel;
+	  unsel= nextUnsel;
+	}
+    }
+
+    return( true );
+}
+
 
 

@@ -3,43 +3,73 @@
 #include <qimage.h>
 #include <qpixmap.h>
 
+#include <QSvgRenderer>
+#include <QPainter>
+#include <kstandarddirs.h>
+#include <QtDebug>
+
 Background::Background(): tile(true) {
 
   sourceImage = 0;
   backgroundImage = 0;
   backgroundPixmap = 0;
-  backgroundShadowPixmap = 0;
+  isSVG = false;
 }
 
 Background::~Background() {
   delete sourceImage;
   delete backgroundImage;
   delete backgroundPixmap;
-  delete backgroundShadowPixmap;
 }
 
 bool Background::load(const QString &file, short width, short height) {
   w=width;
   h=height; 
 
-  if (file == filename) {
-	return true;
-  }
+  //TODO fix this
+  //if (file == filename) {
+  //	return true;
+  //}
   sourceImage = new QImage();
   backgroundImage = new QImage();
   backgroundPixmap = new QPixmap();
-  backgroundShadowPixmap = new QPixmap();
 
-  // try to load the image, return on failure 
-  if(!sourceImage->load(file ))
-    return false;
+  //TODO hardcoded file during transition to SVG rendering
+  QString picsPos = "pics/";
+  picsPos += "default.bgnd";
+
+  QString newPath = KStandardDirs::locate("appdata", picsPos);
+
+  if (newPath.isEmpty()) {
+		qDebug() << "could not find default background";
+		return false;
+  }
+
+    // try to load it as image
+    isSVG = false;
+    if( ! sourceImage->load( newPath) ) {
+	//maybe SVG??
+	//TODO add support for svgz?
+	QSvgRenderer svg(newPath);
+	if (svg.isValid()) {
+		delete sourceImage;
+	        sourceImage = new QImage(w, h ,QImage::Format_RGB32);
+	        QPainter p(sourceImage);
+	        svg.render(&p);
+		isSVG = true;
+	    } else {
+	        return( false );
+	    }
+    }
 
   // Just in case the image is loaded 8 bit
   if (sourceImage->depth() != 32)
     *sourceImage = sourceImage->convertToFormat(QImage::Format_RGB32);  
 
   // call out to scale/tile the source image into the background image
+  //in case of SVG we will be already at the right size
   sourceToBackground();
+
   filename = file;
 	
    return true;
@@ -55,7 +85,9 @@ void Background::sizeChanged(int newW, int newH) {
 		return;
 	w = newW;
 	h = newH;
-	sourceToBackground();
+//TODO fix this
+  load(filename, w, h);
+//was sourceToBackground();
 }
 
 void Background::sourceToBackground() {
@@ -71,6 +103,11 @@ void Background::sourceToBackground() {
   // should be true for all images created specifically for us.
   if ((sourceImage->width() == w) && (sourceImage->height() == h)) {
     *backgroundImage = *sourceImage;
+
+  // Save a copy of the background as a pixmap for easy and quick
+  // blitting.
+  *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
+
     return;
   }
     
@@ -94,19 +131,6 @@ void Background::sourceToBackground() {
   // Save a copy of the background as a pixmap for easy and quick
   // blitting.
   *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
-
-  QImage tmp(backgroundImage->width(), backgroundImage->height(), QImage::Format_RGB32);
-  for (int ys=0; ys < tmp.height(); ys++) {
-	QRgb *src = (QRgb *) backgroundImage->scanLine(ys);
-	QRgb *dst = (QRgb *) tmp.scanLine(ys);
-	for (int xs=0; xs < tmp.width(); xs++) {
-		*dst=QColor(*src).dark(133).rgb();
-		src++;
-		dst++;
-	}
-  }	
-
-  *backgroundShadowPixmap = QPixmap::fromImage(tmp);
 
   return;
 }

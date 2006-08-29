@@ -11,6 +11,7 @@
 #include <qapplication.h>
 #include <kconfig.h>
 #include <kglobal.h>
+#include <QtDebug>
 
 /**
  * Constructor.
@@ -89,6 +90,17 @@ void BoardWidget::loadSettings(){
   drawBoard(true);
 }
 
+void BoardWidget::resizeEvent ( QResizeEvent * event )
+{
+    qDebug() << "resized:" << event->oldSize() << event->size();
+    QSize newtiles = theTiles.preferredTileSize(event->size(), requiredHorizontalCells(), requiredVerticalCells());
+    qDebug() << "new tilesize:" << newtiles;
+    theTiles.reloadTileset(newtiles);
+loadSettings();
+}
+
+
+
 void BoardWidget::saveSettings(){
   // Preview can't handle this.  TODO
   //KConfig *config=KGlobal::config();
@@ -121,129 +133,15 @@ void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
 }
 
 void BoardWidget::setDisplayedWidth() {
-  if (Prefs::showRemoved())
-    setFixedSize( requiredWidth() , requiredHeight());
-  else
-    setFixedSize( requiredWidth() - ((theTiles.width())*4)
-		, requiredHeight());
+  //TODO remove method and let the layout handle it
+  //for now we just force our resizeEvent() to be called
+  resize(width() , height());
 }
 
 // for a given cell x y calc how that cell is shadowed
 // returnd left = width of left hand side shadow
 // t = height of top shadow
 // c = width and height of corner shadow
-
-void BoardWidget::calcShadow(int e, int y, int x, int &l, int &t, int &c) {
-
-	l = t = c = 0;
-	if ((Game.shadowHeight(e,y,x) != 0) ||
-	   (Game.shadowHeight(e,y-1,x) != 0) ||
-	   (Game.shadowHeight(e,y,x-1) != 0)) {
-		return;
-	}
-	int a,b;
-
-	a=Game.shadowHeight(e,y,x-2);
-	b=Game.shadowHeight(e,y-1,x-2);
-	if (a != 0 || b != 0)
-	   l = (a>b) ? a : b;
-	a=Game.shadowHeight(e,y-2,x);
-	b=Game.shadowHeight(e,y-2,x-1);
-	if (a != 0 || b != 0)
-	   t = (a>b) ? a : b;
-
-	c = Game.shadowHeight(e, y-2, x-2);
-}
-
-// draw a triangular shadow from the top right to the bottom left.
-// one such shadow is a right hand edge of a shadow line.
-// if a second shadow bottom left to top right is rendered over it
-// then the shadow becomes a box (ie in the middle of the run)
-
-void BoardWidget::shadowTopLeft(QPainter* paint, int depth, int sx, int sy, int rx, int ry, const QPixmap& src, bool flag) {
-	if (depth) {
-		int shadowPixels= (depth+1) * theTiles.shadowSize();
-		int xOffset=theTiles.qWidth()-shadowPixels;
-	    	for (int p=0; p<shadowPixels; p++) {
-             	    paint->drawPixmap(
-			    sx+xOffset,	sy+p,
-                    	    src,
-			    rx+xOffset,	ry+p,
-			    shadowPixels-p,
-			    1 );
-		}
-		// Now aafter rendering the triangle, fill in the rest of
-		// the quater width
-		if (flag && ((theTiles.qWidth() - shadowPixels) > 0))
-             	    paint->drawPixmap( sx, sy,
-                    	    src,
-			    rx,	ry,
-			    theTiles.qWidth() - shadowPixels,
-			    shadowPixels );
-	}
-}
-
-// Second triangular shadow generator see above
-void BoardWidget::shadowBotRight(QPainter* paint, int depth, int sx, int sy, int rx, int ry, const QPixmap& src, bool flag) {
-	if (depth) {
-		int shadowPixels= (depth+1) * theTiles.shadowSize();
-		int xOffset=theTiles.qWidth();
-	    	for (int p=1; p<shadowPixels; p++) {
-             	    paint->drawPixmap( sx+xOffset-p, 	/* step to shadow right start */
-			    sy+p,		/* down for each line */
-                    	    src,
-			    rx+xOffset-p,	/* step to shadow right start */
-			    ry+p,
-			    p, 			/* increase width each line down */
-			    1 );
-		}
-		if (flag && ((theTiles.qHeight() - shadowPixels) >0))
-             	    paint->drawPixmap( sx+xOffset-shadowPixels,
-			    sy+shadowPixels,
-                    	    src,
-			    rx+xOffset-shadowPixels,
-			    ry+shadowPixels,
-			    shadowPixels,
-			    theTiles.qHeight()-shadowPixels );
-	}
-}
-
-
-
-
-void BoardWidget::shadowArea(QPainter *p, int z, int y, int x, int sx, int sy,int rx, int ry, const QPixmap& src)
-{
-	// quick check to see if we are obscured
-	if (z < BoardLayout::depth-1) 	{
-	    if ((x >= 0) && (y<BoardLayout::height)) {
-		if (Game.Mask[z+1][y][x] && Game.Board[z+1][y][x]) {
-			return;
-		}
-	    }
-	}
-
-
-
-
-	// offset to pass tile depth indicator
-	sx+=theTiles.shadowSize();
-	rx+=theTiles.shadowSize();
-
-
-
-	// We shadow the top right hand edge of the tile with a
-	// triangular border. If the top shadow covers it all
-	// well and good, otherwise if its smaller, part of the
-	// triangle will show through.
-
-	shadowTopLeft(p, Game.shadowHeight(z+1, y-1, x), sx, sy, rx,ry,src, true);
-	shadowBotRight(p, Game.shadowHeight(z+1, y, x+1), sx, sy, rx, ry, src, true);
-	shadowTopLeft(p, Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx,ry,src, false);
-	shadowBotRight(p, Game.shadowHeight(z+1, y-1, x+1), sx, sy, rx, ry, src, false);
-
-	return;
-
-}
 
 // ---------------------------------------------------------
 void BoardWidget::paintEvent( QPaintEvent* pa )
@@ -291,17 +189,6 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
     int yOffset = theTiles.height()/2;
     //short tile = 0;
 
-    // shadow the background first
-    if (Prefs::showShadows()) {
-        for (int by=0; by <BoardLayout::height+1; by++)
-	    for (int bx=-1; bx < BoardLayout::width+1; bx++)
- 	        shadowArea(&p, -1, by, bx,
-			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
-			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
-			bx*theTiles.qWidth()+xOffset-theTiles.shadowSize(),
-			by*theTiles.qHeight()+yOffset+theTiles.shadowSize(),
-			*theBackground.getShadowBackground());
-    }
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -314,23 +201,16 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                 int sx = x*(theTiles.qWidth()  )+xOffset;
                 int sy = y*(theTiles.qHeight()  )+yOffset;
 
-
-
 		// skip if no tile to display
 		if (!Game.tilePresent(z,y,x))
 			continue;
 
                 QPixmap *t;
-		QPixmap *s;
 		if (Game.hilighted[z][y][x]) {
 		   t= theTiles.selectedPixmaps(
 				Game.Board[z][y][x]-TILE_OFFSET);
-		   s= theTiles.selectedShadowPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
 		} else {
 		   t= theTiles.unselectedPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
-		   s= theTiles.unselectedShadowPixmaps(
 				Game.Board[z][y][x]-TILE_OFFSET);
                 }
 
@@ -341,32 +221,8 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                 // we simply split the tile draw so the top half is drawn
                 // minus border
 
-                if (x > 1 && y > 0 && Game.tilePresent(z, y-1, x-2)){
-                    p.drawPixmap( sx+theTiles.shadowSize(), sy,
-                            *t, theTiles.shadowSize() ,0,
-		            t->width()-theTiles.shadowSize(),
-		  	    t->height()/2 );
-                    p.drawPixmap( sx, sy+t->height()/2,
-                        *t, 0,t->height()/2,t->width(),t->height()/2);
-                } else {
+                //TODO convert to QGV and let it layer everything properly
                     p.drawPixmap(  sx, sy, *t, 0,0, t->width(), t->height() );
-                }
-
-
-		if (Prefs::showShadows() && z<BoardLayout::depth - 1) {
-		    for (int xp = 0; xp <= 1; xp++)  {
-			for (int yp=0; yp <= 1; yp++) {
-				shadowArea(&p, z, y+yp, x+xp,
-					sx+(xp*theTiles.qWidth()),
-					sy+(yp*theTiles.qHeight()),
-					xp*theTiles.qWidth(),
-					yp*theTiles.qHeight(),
-					*s);
-			}
-		    }
-
-		}
-
 
 
             }
@@ -377,6 +233,8 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
 
     // Now we add the list of canceled tiles
+//TODO major overhaul of this functionality
+if (Prefs::showRemoved()) {
 
     // we start blitting as usuall right to left, top to bottom, first
     // we calculate the start pos of the first tile, allowing space for
@@ -427,6 +285,7 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
 	yPos += theTiles.height()-theTiles.shadowSize();
     }
+} //removed
 
     updateBackBuffer=false;
     p.end(); //backbuffer
@@ -1773,7 +1632,8 @@ bool BoardWidget::loadBackground(
         bool        bShowError
     )
 {
-    if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
+    //if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
+if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
     {
         if( bShowError )
             KMessageBox::sorry(this, i18n("Failed to load image:\n%1", pszFileName) );
@@ -1918,20 +1778,33 @@ void BoardWidget::updateScaleMode() {
 	theBackground.scaleModeChanged();
 }
 
+int BoardWidget::requiredHorizontalCells()
+{
+	int res = (BoardLayout::width/2);
+	if (Prefs::showRemoved()) 
+		res = res + 3; //space for removed tiles
+	return res;
+}
 
+int BoardWidget::requiredVerticalCells()
+{
+	int res = (BoardLayout::height/2);
+	return res;
+}
 
 // calculate the required window width (board + removed tiles)
 int BoardWidget::requiredWidth() {
-	int res = ((BoardLayout::width+12)* theTiles.qWidth());
-
-	return(res);
+	//int res = ((BoardLayout::width+12)* theTiles.qWidth());
+	int res = width();
+	return res;
 }
 
 // calculate the required window height (board + removed tiles)
 int BoardWidget::requiredHeight() {
 
-	int res = ((BoardLayout::height+3)* theTiles.qHeight());
-	return(res);
+	//int res = ((BoardLayout::height+3)* theTiles.qHeight());
+	int res = height();
+	return res;
 }
 
 void BoardWidget::tileSizeChanged() {

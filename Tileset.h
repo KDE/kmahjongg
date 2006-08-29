@@ -10,10 +10,13 @@ class Tileset {
      ~Tileset();	
 
      bool loadTileset(const QString &filesetPath, const bool isPreview = false);
-     QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face);
+     QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face, bool SVGuseselected);
      QRgb *copyTileImage(short tileX, short tileY, QRgb *to, QImage &from);  
 
      void setScaled(bool sc) {isScaled = sc; divisor = (sc) ? 2 : 1;};
+
+     QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
+     bool reloadTileset( QSize newTilesize);
 
 
      QRgb *tile(short tnum);
@@ -40,24 +43,12 @@ class Tileset {
 		return &(unselectedMiniPix[num]);
 	};
 
-     QPixmap *selectedShadowPixmaps(int num) {
-	if (!isScaled) 
-		return &(selectedShadowPix[num]);
-	else
-		return &(selectedShadowMiniPix[num]);
-	};
-
-     QPixmap *unselectedShadowPixmaps(int num) {
-	if (!isScaled)
-		return &(unselectedShadowPix[num]);
-	else
-		return &(unselectedShadowMiniPix[num]);
-	};
-
   protected:
 
      enum { maxTiles=45 };
   	void  createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow);
+	void initStorage(short tilew, short tileh, short tileshadow, short tileborder,
+bool tileisSVG);
   
 
   private:
@@ -75,14 +66,6 @@ class Tileset {
     QPixmap selectedMiniPix[maxTiles]; // selected tiles
     QPixmap unselectedMiniPix[maxTiles]; // unselected tiles
 
-    QPixmap selectedShadowPix[maxTiles]; // selected tiles as above in shadow
-    QPixmap unselectedShadowPix[maxTiles]; // unselected tiles
-    QPixmap selectedShadowMiniPix[maxTiles]; // selected tiles
-    QPixmap unselectedShadowMiniPix[maxTiles]; // unselected tiles
-
-
-
-
     QRgb* selectedFace;  // The tile background face for a selected tile
     QRgb* unselectedFace;// The tile background face for an unselected tile
 
@@ -99,6 +82,7 @@ class Tileset {
     QString filename;  // cache the last file loaded to save reloading it
     bool isScaled;
     int divisor;
+    bool isSVG;
 };
 
 
