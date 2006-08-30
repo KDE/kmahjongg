@@ -37,6 +37,7 @@ protected slots:
         void slotModeChanged(QAction*);
 protected:
 	enum {remove=98, insert=99, move=100};
+	void resizeEvent ( QResizeEvent * event );
 	void paintEvent( QPaintEvent* pa );
 	void setupToolbar();
 	void drawBackground(QPixmap *to);

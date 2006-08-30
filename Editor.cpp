@@ -29,6 +29,9 @@ Editor::Editor ( QWidget* parent)
     numTiles=0;
     mode = insert;
 
+   QString tile = Prefs::tileSet();
+   tiles.loadTileset(tile);
+
     int sWidth = (BoardLayout::width+2)*(tiles.qWidth());
     int sHeight =( BoardLayout::height+2)*tiles.qHeight();
 
@@ -51,11 +54,8 @@ Editor::Editor ( QWidget* parent)
    layout->activate();
 
     resize( sWidth+60, sHeight+60);
-    setMinimumSize( sWidth+60, sHeight+60);
-    setMaximumSize( sWidth+60, sHeight+60);
-
-   QString tile = Prefs::tileSet();
-   tiles.loadTileset(tile);
+    //toolbar will set our minimum height
+    setMinimumHeight(120);
 
    // tell the user what we do
    setWindowTitle(KInstance::makeStdCaption(i18n("Edit Board Layout")));
@@ -75,6 +75,12 @@ Editor::Editor ( QWidget* parent)
 
 Editor::~Editor()
 {
+}
+
+void Editor::resizeEvent ( QResizeEvent * event )
+{
+    QSize newtiles = tiles.preferredTileSize(event->size(), (BoardLayout::width+2)/2,( BoardLayout::height+2)/2);
+    tiles.reloadTileset(newtiles);
 }
 
 // ---------------------------------------------------------
@@ -394,10 +400,6 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    QString tile1 = Prefs::tileSet();
-    tiles.loadTileset(tile1);
-
-
     int xOffset = tiles.width()/2;
     int yOffset = tiles.height()/2;
     short tile = 0;
@@ -583,7 +585,6 @@ void Editor::drawCursor(POSITION &p, bool visible)
 // we swallow the draw frames mouse moves and process here
 void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 
-
     POSITION mPos;
     transformPointToPosition(e->pos(), mPos, (mode == remove));
 
@@ -614,7 +615,6 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 	break;
 
     }
-
 }
 
 // can we inser a tile here. We can iff
