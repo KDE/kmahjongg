@@ -20,7 +20,7 @@ int main( int argc, char** argv )
     aboutData.addAuthor("David Black", I18N_NOOP("KDE 3 rewrite and Extension"), "david.black@lutris.com");
     aboutData.addAuthor("Michael Haertjens", I18N_NOOP("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
     aboutData.addCredit("Raquel Ravanini", I18N_NOOP("SVG Tileset for KDE4"), "raquel@tabuleiro.com");
-    aboutData.addCredit("Richard Lohman", I18N_NOOP("Tile set contributor and current web page maintainer"));
+    aboutData.addCredit("Richard Lohman", I18N_NOOP("Tile set contributor and current web page maintainer"),"richardjlohman@yahoo.com");
     aboutData.addCredit("Osvaldo Stark", I18N_NOOP("Tile set contributor and original web page maintainer"), "starko@dnet.it");
     aboutData.addCredit("Benjamin Meyer", I18N_NOOP("Code cleanup"), "ben+kmahjongg@meyerhome.net");
 
