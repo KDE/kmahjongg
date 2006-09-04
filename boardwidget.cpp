@@ -1582,8 +1582,8 @@ void BoardWidget::transformPointToPosition(
         if( E < 4 )
         {
             if( Game.Board[E+1][Y][X] || (Y<BoardLayout::height-1 && Game.Board[E+1][Y+1][X]) ||
-                (X<BoardLayout::width-2 && Game.Board[E+1][Y][X+1]) ||
-	        (X<BoardLayout::width-2 && Game.Board[E+1][Y+1][X+1]) )
+                (X<BoardLayout::width-1 && Game.Board[E+1][Y][X+1]) ||
+	        (X<BoardLayout::width-1 && Y<BoardLayout::height-1 && Game.Board[E+1][Y+1][X+1]) )
                 continue;
         }
 
