@@ -154,7 +154,7 @@ void KMahjongg::setupKAction()
     KStdGameAction::quit(this, SLOT(close()), actionCollection());
     KStdGameAction::restart(this, SLOT(restartGame()), actionCollection());
 
-    KAction* newNumGame = new KAction(KIcon("newnum"), i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
+    KAction* newNumGame = new KAction(i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
     KAction* openTheme = new KAction(i18n("Open Th&eme..."), actionCollection(), "game_open_theme");

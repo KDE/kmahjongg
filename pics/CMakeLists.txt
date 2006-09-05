@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install( FILES kmahjongg.png kmahjongg_bgnd.png splash.png newnum.xpm  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
+install( FILES kmahjongg.png kmahjongg_bgnd.png splash.png DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
 install( FILES default.theme pirates.theme  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
 install( FILES default.bgnd haze.bgnd pirates.bgnd slate.bgnd  	wood.bgnd  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
 install( FILES default.tileset pirates.tileset runes.tileset traditional.tileset  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/pics )
