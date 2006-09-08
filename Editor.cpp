@@ -22,7 +22,7 @@
 
 
 Editor::Editor ( QWidget* parent)
-    : QDialog( parent ), tiles(false)
+    : QDialog( parent ), tiles()
 {
     setModal(true);
     clean= true;

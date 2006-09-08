@@ -3,62 +3,13 @@
 #include "Tileset.h"
 #include <qimage.h>
 #include <kstandarddirs.h>
-#include <QSvgRenderer>
 #include <QPainter>
 #include <QtDebug>
 
-
-#define mini_width 20
-#define mini_height 28
-static unsigned char mini_bits[] = {
-  0xfc, 0xff, 0x0f, 0xfe, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f,
-  0xff, 0xff, 0x0f, 0xff, 0xff, 0x0f, 0xff, 0xff, 0x07, 0xff, 0xff, 0x03,
-  };
-
-#define mask_width 40
-#define mask_height 56
-static unsigned char mask_bits[] = {
-  0xf0, 0xff, 0xff, 0xff, 0xff, 0xf8, 0xff, 0xff, 0xff, 0xff, 0xfc, 0xff,
-  0xff, 0xff, 0xff, 0xfe, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-  0x7f, 0xff, 0xff, 0xff, 0xff, 0x3f, 0xff, 0xff, 0xff, 0xff, 0x1f, 0xff,
-  0xff, 0xff, 0xff, 0x0f, };
-
-
 // ---------------------------------------------------------
 
-Tileset::Tileset(bool scale)
+Tileset::Tileset()
 {
-	maskBits = QBitmap::fromData(QSize(mask_width,mask_height), mask_bits);
-	maskBitsMini = QBitmap::fromData(QSize(mini_width, mini_height), mini_bits);
-
-	isScaled = scale;
-	divisor =  (isScaled) ? 2 : 1;
-
 	filename = "";
 	tiles = 0;
     	selectedTiles = 0;
@@ -174,50 +125,7 @@ QRgb *Tileset::createTile(short x, short y,
 	y = y+5;
      }
      copyTileImage(x, y , det, allTiles);
-  } else {
-
-  // Alloc the space
-  image = new QRgb[s];
-
-  // copy in the background
-  memcpy(to, face, s*sizeof(QRgb));
-
-  // get the tile gylph
-  copyTileImage(x, y , image, allTiles);
-
-  // copy the image over the background using the
-  // top left colour as the transparency. We step over
-  // the shadow and the boarder
-
-  QRgb* src =  image+                        // image
-    ss+             // past the left shadow
-    bs+             // then the tile border
-    (bs  * w);      // then step past the top border
-
-
-  to += (((ss+bs))+(bs*w));
-
-
-  QRgb trans = *src;
-
-  // start after the top border rows and go through all rows
-  for( short YP=0; YP < h-ss - (2*bs); YP++) {
-    // start after the shadow and border and iterate over x
-    for (short xpos=0; xpos < w-ss -(2*bs) ; xpos++) {
-      // skip transparent pixels
-      if (*src != trans)
-	*to = *src;
-      src++;
-      to++;
-    }
-    // step over the border to get to the next row
-    src  += ss + (2 * bs);
-    to += ss + (2 * bs);
-    }
-
-  // Free allocated space
-  delete [] image;
-  }
+  } 
   // calculate the address of the next tile
   return(det+s);
 }
@@ -227,7 +135,7 @@ QRgb *Tileset::createTile(short x, short y,
 // version, which can be used for mini tile requirements.
 // this gives us a small tile for previews and showing
 // removed tiles.
-void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
+void  Tileset::createPixmap(QRgb *src, QPixmap &dest)
 {
 
     QImage buff(w, h, QImage::Format_ARGB32_Premultiplied);
@@ -237,29 +145,13 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow)
 	line = (QRgb *) buff.scanLine(y);
 	memcpy( line, src, w*sizeof(QRgb));
 
-	if (shadow) {
-	  for (int spos=0; spos <w; spos++) {
-	    line[spos] = QColor(line[spos]).dark(133).rgb();
-	  }
-	}
-
 	src += w;
     }
-
-    // create the pixmap and initialise the drawing mask
-    if (!scale) {
-    	dest = QPixmap::fromImage(buff);
-    	if (!isSVG) dest.setMask(maskBits);
-    } else {
-    	dest = QPixmap::fromImage(buff.scaled(w/2, h/2, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-    	if (!isSVG) dest.setMask(maskBitsMini);
-    }
-
 }
 
 
 // ---------------------------------------------------------
-bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
+bool Tileset::loadTileset( const QString& tilesetPath)
 {
 
     QImage qiTiles;
@@ -289,7 +181,7 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
     if( ! qiTiles.load( newPath) ) {
 	//SVG?
 	//TODO add support for svgz?
-	QSvgRenderer svg(newPath);
+	svg.load(newPath);
 	if (svg.isValid()) {
 	        qiTiles = QImage(svg.defaultSize(),QImage::Format_ARGB32_Premultiplied);
 	        QPainter p(&qiTiles);
@@ -301,23 +193,9 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 	    }
     }
 
-
-    if (!isSVG) {
-	//legacy pixmap tile options
-	initStorage(40, 56, 4, 1, false);
-    }
-
-    // we deal only with 32 bit images (does not apply to SVG, only legacy)
-    if (qiTiles.depth() != 32)
-      qiTiles = qiTiles.convertToFormat(QImage::Format_RGB32);
-
-
-
     // Read in the unselected and selected tile backgrounds
     copyTileImage(7, 4 , unselectedFace, qiTiles);
     copyTileImage(8, 4, selectedFace, qiTiles);
-
-
 
     // Read in the 9*5 tiles. Each tile is overlayed onto
     // the selected and unselected tile backgrounds and
@@ -330,20 +208,11 @@ bool Tileset::loadTileset( const QString& tilesetPath, const bool isPreview)
 
 	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace, false);
 
-	  // for the preview dialog we do not create selected tiles
-	  if (!isPreview)
-	      nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
+          nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
 	  int pixNo = atX+(atY*9);
 
-	  // for the preview dialog we only create the unselected mini pix
-	  if (!isPreview) {
-	      createPixmap(sel, selectedPix[pixNo], false, false);
-	      createPixmap(unsel, unselectedPix[pixNo], false, false);
-	      createPixmap(sel, selectedMiniPix[pixNo], true, false);
+	  createPixmap(sel, selectedPix[pixNo]);
 
-	  }
-
-	  createPixmap(unsel, unselectedMiniPix[pixNo], true, false);
 	  sel = nextSel;
 	  unsel= nextUnsel;
 	}
@@ -372,7 +241,7 @@ bool Tileset::reloadTileset( QSize newTilesize)
     if( ! qiTiles.load( newPath) ) {
 	//maybe SVG??
 	//TODO add support for svgz?
-	QSvgRenderer svg(newPath);
+	//QSvgRenderer svg(newPath);
 	if (svg.isValid()) {
 	        qiTiles = QImage(QSize(newTilesize.width()*9, newTilesize.height()*10),QImage::Format_ARGB32_Premultiplied);
 	        QPainter p(&qiTiles);
@@ -406,11 +275,8 @@ bool Tileset::reloadTileset( QSize newTilesize)
 	  nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
 	  int pixNo = atX+(atY*9);
 
-	      createPixmap(sel, selectedPix[pixNo], false, false);
-	      createPixmap(unsel, unselectedPix[pixNo], false, false);
-	      createPixmap(sel, selectedMiniPix[pixNo], true, false);
+	  createPixmap(sel, selectedPix[pixNo]);
 
-	  createPixmap(unsel, unselectedMiniPix[pixNo], true, false);
 	  sel = nextSel;
 	  unsel= nextUnsel;
 	}

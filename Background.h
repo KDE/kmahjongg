@@ -1,6 +1,7 @@
 #ifndef _BACKGROUND_H
 #define _BACKGROUND_H
 #include <QString>
+#include <QSvgRenderer>
 
 class QPixmap;
 class QImage;
@@ -30,6 +31,8 @@ class Background
     QString filename;
     short w;
     short h;
+
+    QSvgRenderer svg;
 };
 
 #endif

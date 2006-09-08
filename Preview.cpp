@@ -22,7 +22,7 @@
 #include <QVBoxLayout>
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 
-Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles(true)
+Preview::Preview(QWidget* parent) : KDialog(parent), m_tiles()
 {
 	KPushButton *loadButton;
 	QGroupBox *group;
@@ -322,7 +322,7 @@ void Preview::renderBackground(const QString &bg) {
 // This method draws a mini-tiled board with no tiles missing.
 
 void Preview::renderTiles(const QString &file, const QString &layout) {
-    m_tiles.loadTileset(file, true);
+    m_tiles.loadTileset(file);
     m_boardLayout.loadBoardLayout(layout);
 
     QPixmap *dest = m_drawFrame->getPreviewPixmap();

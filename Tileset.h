@@ -3,17 +3,16 @@
 
 
 #include <qbitmap.h>
+#include <QSvgRenderer>
 
 class Tileset {
    public:
-     Tileset(bool scaled=false);	     
+     Tileset();	     
      ~Tileset();	
 
-     bool loadTileset(const QString &filesetPath, const bool isPreview = false);
+     bool loadTileset(const QString &filesetPath);
      QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face, bool SVGuseselected);
      QRgb *copyTileImage(short tileX, short tileY, QRgb *to, QImage &from);  
-
-     void setScaled(bool sc) {isScaled = sc; divisor = (sc) ? 2 : 1;};
 
      QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
      bool reloadTileset( QSize newTilesize);
@@ -21,39 +20,31 @@ class Tileset {
 
      QRgb *tile(short tnum);
      QRgb *selectedTile(short tnum);
-     short width() {return w/divisor;};
-     short height() {return h/divisor;};
-     short shadowSize() {return ss/divisor;};
+     short width() {return w;};
+     short height() {return h;};
+     short shadowSize() {return ss;};
      short size() {return s;};
-     short qWidth() {return qw/divisor;};
-     short qHeight() {return qh/divisor;};
+     short qWidth() {return qw;};
+     short qHeight() {return qh;};
 
 
      QPixmap *selectedPixmaps(int num) {
-	if (!isScaled) 
 		return &(selectedPix[num]);
-	else
-		return &(selectedMiniPix[num]);
 	};
 
      QPixmap *unselectedPixmaps(int num) {
-	if (!isScaled)
 		return &(unselectedPix[num]);
-	else
-		return &(unselectedMiniPix[num]);
 	};
 
   protected:
 
      enum { maxTiles=45 };
-  	void  createPixmap(QRgb *src, QPixmap &dest, bool scale, bool shadow);
+  	void  createPixmap(QRgb *src, QPixmap &dest);
 	void initStorage(short tilew, short tileh, short tileshadow, short tileborder,
 bool tileisSVG);
   
 
   private:
-    QBitmap maskBits;    // xbm mask for the tile
-    QBitmap maskBitsMini;    // xbm mask for the tile
     QRgb* tiles;         // Buffer containing all tiles (unselected glyphs)
     QRgb* selectedTiles; // Buffer containing all tiles (selected glyphs)
 
@@ -62,14 +53,10 @@ bool tileisSVG);
     // masks etc, to using pixmaps and letting the blt do the hard work,
     // in hardware. 
     QPixmap selectedPix[maxTiles]; // selected tiles
-    QPixmap unselectedPix[maxTiles]; // unselected tiles
-    QPixmap selectedMiniPix[maxTiles]; // selected tiles
-    QPixmap unselectedMiniPix[maxTiles]; // unselected tiles
+    QPixmap unselectedPix[maxTiles]; // selected tiles
 
     QRgb* selectedFace;  // The tile background face for a selected tile
     QRgb* unselectedFace;// The tile background face for an unselected tile
-
-    QRgb  tr;    // transparenct color for tile bg
 
     short ss;   // left/bottom shadow width
     short bs;   // width of the border around a tile
@@ -80,8 +67,8 @@ bool tileisSVG);
     short s;	// buffer size for tile (width*height)
 
     QString filename;  // cache the last file loaded to save reloading it
-    bool isScaled;
-    int divisor;
+
+    QSvgRenderer svg;
     bool isSVG;
 };
 

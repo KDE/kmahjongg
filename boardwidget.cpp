@@ -18,7 +18,7 @@
  * Loads tileset and background bitmaps.
  */
 BoardWidget::BoardWidget( QWidget* parent )
-  : QWidget( parent ), theTiles(false)
+  : QWidget( parent ), theTiles()
 {
     QPalette palette;
     palette.setColor( backgroundRole(), Qt::black );
@@ -1808,7 +1808,7 @@ int BoardWidget::requiredHeight() {
 }
 
 void BoardWidget::tileSizeChanged() {
-	theTiles.setScaled(Prefs::miniTiles());
+	//theTiles.setScaled(Prefs::miniTiles());
 	theBackground.sizeChanged(requiredWidth(), requiredHeight());
 
 }

@@ -1,9 +1,7 @@
 
 #include "Background.h"
-#include <qimage.h>
-#include <qpixmap.h>
-
-#include <QSvgRenderer>
+#include <QImage>
+#include <QPixmap>
 #include <QPainter>
 #include <kstandarddirs.h>
 #include <QtDebug>
@@ -50,7 +48,7 @@ bool Background::load(const QString &file, short width, short height) {
     if( ! sourceImage->load( newPath) ) {
 	//maybe SVG??
 	//TODO add support for svgz?
-	QSvgRenderer svg(newPath);
+	svg.load(newPath);
 	if (svg.isValid()) {
 		delete sourceImage;
 	        sourceImage = new QImage(w, h ,QImage::Format_RGB32);
