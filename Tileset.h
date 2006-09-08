@@ -1,7 +1,6 @@
 #ifndef _TILE_SET_H_
 #define _TILE_SET_H_
 
-
 #include <qbitmap.h>
 #include <QSvgRenderer>
 
@@ -11,7 +10,7 @@ class Tileset {
      ~Tileset();	
 
      bool loadTileset(const QString &filesetPath);
-     QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face, bool SVGuseselected);
+     QRgb *createTile(short x, short y, QRgb *dst, QImage &src , bool selected);
      QRgb *copyTileImage(short tileX, short tileY, QRgb *to, QImage &from);  
 
      QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);

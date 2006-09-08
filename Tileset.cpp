@@ -69,6 +69,7 @@ QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verti
     qreal newtilew, newtileh;
     qreal bw = boardsize.width();
     qreal bh = boardsize.height();
+//TODO use tileset original aspect ration for this calculation, origH and origW
     qreal fullh = h*verticalCells;
     qreal fullw = w*horizontalCells;
     qreal floatw = w;
@@ -114,12 +115,10 @@ QRgb *Tileset::copyTileImage(short tileX, short tileY, QRgb *to, QImage &from) {
 
 
 QRgb *Tileset::createTile(short x, short y,
-		QRgb *det, QImage &allTiles , QRgb *face, bool SVGuseselected) {
-  QRgb *image ;
-  QRgb *to = det;
+		QRgb *det, QImage &allTiles , bool selected) {
 
   if (isSVG) {
-     if (SVGuseselected) {
+     if (selected) {
 	//get selected version, down 5 lines in the pixmap
 	//we want to preserve our nice antialiased rendering
 	y = y+5;
@@ -147,6 +146,8 @@ void  Tileset::createPixmap(QRgb *src, QPixmap &dest)
 
 	src += w;
     }
+
+    dest = QPixmap::fromImage(buff);
 }
 
 
@@ -155,10 +156,6 @@ bool Tileset::loadTileset( const QString& tilesetPath)
 {
 
     QImage qiTiles;
-    QRgb *unsel;
-    QRgb *sel;
-    QRgb *nextSel=0;
-    QRgb *nextUnsel=0;
 
     if (filename == tilesetPath) {
 	return true;
@@ -183,42 +180,16 @@ bool Tileset::loadTileset( const QString& tilesetPath)
 	//TODO add support for svgz?
 	svg.load(newPath);
 	if (svg.isValid()) {
-	        qiTiles = QImage(svg.defaultSize(),QImage::Format_ARGB32_Premultiplied);
-	        QPainter p(&qiTiles);
-	        svg.render(&p);
+		filename = newPath;
 		isSVG = true;
-		initStorage(86, 106, 10, 2, true);
+		//initially setup a medium tilesize, will be resized later
+		//TODO get initial aspect ration from tileset specification
+		reloadTileset(QSize(42,54));
 	    } else {
 	        return( false );
 	    }
     }
-
-    // Read in the unselected and selected tile backgrounds
-    copyTileImage(7, 4 , unselectedFace, qiTiles);
-    copyTileImage(8, 4, selectedFace, qiTiles);
-
-    // Read in the 9*5 tiles. Each tile is overlayed onto
-    // the selected and unselected tile backgrounds and
-    // stored.
-    sel = selectedTiles;
-    unsel = tiles;
-    for (short atY=0; atY<5; atY++) {
-	for (short atX=0; atX<9; atX++) {
-
-
-	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace, false);
-
-          nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
-	  int pixNo = atX+(atY*9);
-
-	  createPixmap(sel, selectedPix[pixNo]);
-
-	  sel = nextSel;
-	  unsel= nextUnsel;
-	}
-    }
-
-    filename = newPath;
+    //TODO add support for png
     return( true );
 }
 
@@ -241,41 +212,29 @@ bool Tileset::reloadTileset( QSize newTilesize)
     if( ! qiTiles.load( newPath) ) {
 	//maybe SVG??
 	//TODO add support for svgz?
-	//QSvgRenderer svg(newPath);
 	if (svg.isValid()) {
+		isSVG = true;
 	        qiTiles = QImage(QSize(newTilesize.width()*9, newTilesize.height()*10),QImage::Format_ARGB32_Premultiplied);
 	        QPainter p(&qiTiles);
 	        svg.render(&p);
-		isSVG = true;
 		initStorage(newTilesize.width(), newTilesize.height(), 5, 2, true);
 	    } else {
 	        return( false );
-	    }
+	}
     }
+    //TODO add support for png
 
-
-    // Read in the unselected and selected tile backgrounds
-    copyTileImage(7, 4 , unselectedFace, qiTiles);
-    copyTileImage(8, 4, selectedFace, qiTiles);
-
-
-
-    // Read in the 9*5 tiles. Each tile is overlayed onto
-    // the selected and unselected tile backgrounds and
-    // stored.
+    // Read in the 9*5 tiles
     sel = selectedTiles;
     unsel = tiles;
     for (short atY=0; atY<5; atY++) {
 	for (short atX=0; atX<9; atX++) {
-
-
-	  nextUnsel = createTile(atX, atY, unsel , qiTiles, unselectedFace, false);
-
-
-	  nextSel = createTile(atX, atY, sel , qiTiles, selectedFace, true);
+	  nextUnsel = createTile(atX, atY, unsel , qiTiles, false);
+	  nextSel = createTile(atX, atY, sel , qiTiles, true);
 	  int pixNo = atX+(atY*9);
 
 	  createPixmap(sel, selectedPix[pixNo]);
+          createPixmap(unsel, unselectedPix[pixNo]);
 
 	  sel = nextSel;
 	  unsel= nextUnsel;
