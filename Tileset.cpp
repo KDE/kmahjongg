@@ -11,26 +11,12 @@
 Tileset::Tileset()
 {
 	filename = "";
-	tiles = 0;
-    	selectedTiles = 0;
-    	selectedFace   = 0;
-    	unselectedFace = 0;
-
-	//init storage with default values for KMahjongg classic pixmap tiles
-	initStorage(40, 56, 4, 1, false);
-
 }
 
 
 // ---------------------------------------------------------
 
 Tileset::~Tileset() {
-
-	// deallocate all memory
-    	delete [] tiles;
-    	delete [] selectedTiles;
-    	delete [] selectedFace;
-    	delete [] unselectedFace;
 }
 
 void Tileset::initStorage(short tilew, short tileh, short tileshadow, short tileborder,
@@ -47,19 +33,6 @@ bool tileisSVG)
 	// overlaying tiles in 3 dimensions.
 	qw  = 7*w/8/2;//((w-ss)/2) ; 
 	qh = 7*h/8/2;//((h-ss)/2);
-
-	if (tiles) delete [] tiles;
-    	if (selectedTiles) delete [] selectedTiles;
-    	if (selectedFace) delete [] selectedFace;
-    	if (unselectedFace) delete [] unselectedFace;
-
-	// Allocate memory for the 9*5 tile arrays
-    	tiles         = new QRgb [9*5*s];
-    	selectedTiles = new QRgb [9*5*s];
-
-    	// allocate memory for single tile storage
-    	selectedFace   = new QRgb [s];
-    	unselectedFace = new QRgb [s];
 
 }
 
@@ -83,72 +56,20 @@ QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verti
 	newtileh = bh/(qreal) verticalCells;
 	newtilew = (floatw * newtileh) / floath;
     }
-    return QSize(newtilew, newtileh);
-}
-
-// ---------------------------------------------------------
-// copy a tile from a qimage into a linear array of bytes. This
-// method returns the address of the byte after the copied image
-// and can be used to fill a larger array of tiles.
-
-QRgb *Tileset::copyTileImage(short tileX, short tileY, QRgb *to, QImage &from) {
-    QRgb *dest = to;
-    QRgb *src;
-
-    src = (QRgb *) from.scanLine(tileY * h)
-             +(tileX * w);
-    for (short pos=0; pos < h; pos++) {
-	memcpy(dest, src, w*sizeof(QRgb));
-	dest+=w;
-	src += from.width();
-    }
-    return(dest);
-}
-
-// ----------------------------------------------------------
-// Create a tile. Take a specified tile background a tile face
-// (specified as an x,y coord) and a destination buffer (location
-// in which is calculated from the x,y) and copy in the
-// tile background, overlaying the foreground with transparency
-// (the foregrounds top/left pixel is taken as the transparent
-// color).
-
-
-QRgb *Tileset::createTile(short x, short y,
-		QRgb *det, QImage &allTiles , bool selected) {
-
-  if (isSVG) {
-     if (selected) {
-	//get selected version, down 5 lines in the pixmap
-	//we want to preserve our nice antialiased rendering
-	y = y+5;
-     }
-     copyTileImage(x, y , det, allTiles);
-  } 
-  // calculate the address of the next tile
-  return(det+s);
+    return QSize((short)newtilew, (short)newtileh);
 }
 
 // --------------------------------------------------------
-// create a pixmap for a tile. Optionally create a scaled
-// version, which can be used for mini tile requirements.
-// this gives us a small tile for previews and showing
-// removed tiles.
-void  Tileset::createPixmap(QRgb *src, QPixmap &dest)
+// create a pixmap for a tile. 
+
+void Tileset::createTilePixmap(short x, short y, QPixmap& alltiles, QPixmap &dest, bool selected)
 {
-
-    QImage buff(w, h, QImage::Format_ARGB32_Premultiplied);
-    QRgb   *line;
-
-    for (int y=0; y<h; y++) {
-	line = (QRgb *) buff.scanLine(y);
-	memcpy( line, src, w*sizeof(QRgb));
-
-	src += w;
-    }
-
-    dest = QPixmap::fromImage(buff);
-}
+     if (selected) {
+	//get selected version, down 5 rows in the tilemap
+	y = y+5;
+     }
+    dest = alltiles.copy ( QRect(x*w,y*h,w,h) );
+} 
 
 
 // ---------------------------------------------------------
@@ -198,11 +119,7 @@ bool Tileset::reloadTileset( QSize newTilesize)
 {
 
     QImage qiTiles;
-    QRgb *unsel;
-    QRgb *sel;
-    QRgb *nextSel=0;
-    QRgb *nextUnsel=0;
-
+    QPixmap qiTilespix;
     QString newPath = filename;
 
     if (QSize(w,h)==newTilesize) return false;
@@ -225,19 +142,12 @@ bool Tileset::reloadTileset( QSize newTilesize)
     //TODO add support for png
 
     // Read in the 9*5 tiles
-    sel = selectedTiles;
-    unsel = tiles;
+    qiTilespix = QPixmap::fromImage(qiTiles);
     for (short atY=0; atY<5; atY++) {
 	for (short atX=0; atX<9; atX++) {
-	  nextUnsel = createTile(atX, atY, unsel , qiTiles, false);
-	  nextSel = createTile(atX, atY, sel , qiTiles, true);
-	  int pixNo = atX+(atY*9);
-
-	  createPixmap(sel, selectedPix[pixNo]);
-          createPixmap(unsel, unselectedPix[pixNo]);
-
-	  sel = nextSel;
-	  unsel= nextUnsel;
+	    int pixNo = atX+(atY*9);
+	    createTilePixmap(atX, atY, qiTilespix, unselectedPix[pixNo], false);
+	    createTilePixmap(atX, atY, qiTilespix, selectedPix[pixNo], true);
 	}
     }
 
