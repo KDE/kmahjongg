@@ -179,7 +179,7 @@ void KMahjongg::setupKAction()
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), actionCollection(), "options_show_matching_tiles");
     connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
-    showMatchingTilesAction->setCheckedState(i18n("Hide &Matching Tiles"));
+    showMatchingTilesAction->setCheckedState(KGuiItem(i18n("Hide &Matching Tiles")));
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
     KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());

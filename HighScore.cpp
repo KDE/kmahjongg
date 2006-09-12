@@ -486,7 +486,7 @@ void HighScore::reset() {
                                            "remove all high score entries "
                                            "both in memory and on disk. Do "
 					   "you wish to proceed?"),
-                        		   i18n("Reset High Scores"),i18n("Reset"));
+                        		   i18n("Reset High Scores"),KGuiItem(i18n("Reset")));
         if (res != KMessageBox::Continue)
                 return ;   
 
