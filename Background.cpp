@@ -52,6 +52,8 @@ bool Background::load(const QString &file, short width, short height) {
 	if (svg.isValid()) {
 		delete sourceImage;
 	        sourceImage = new QImage(w, h ,QImage::Format_RGB32);
+		//Is it really necessary to fill the buffer?
+		sourceImage->fill(0);
 	        QPainter p(sourceImage);
 	        svg.render(&p);
 		isSVG = true;
