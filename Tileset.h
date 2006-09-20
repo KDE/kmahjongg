@@ -2,7 +2,7 @@
 #define _TILE_SET_H_
 
 #include <qbitmap.h>
-#include <QSvgRenderer>
+#include "ksvgrenderer.h"
 
 class Tileset {
    public:
@@ -50,7 +50,7 @@ bool tileisSVG);
 
     QString filename;  // cache the last file loaded to save reloading it
 
-    QSvgRenderer svg;
+    KSvgRenderer svg;
     bool isSVG;
 };
 
