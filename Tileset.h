@@ -4,21 +4,29 @@
 #include <qbitmap.h>
 #include "ksvgrenderer.h"
 
+typedef struct tilesetmetricsdata {
+    short ind;   // 3D indentation
+    short w;    // tile width ( +border +shadow)
+    short h;    // tile height ( +border +shadow)
+    short qw;   // quarter tile width used in 3d rendering
+    short qh; 
+} TILESETMETRICSDATA;
+
 class Tileset {
    public:
      Tileset();	     
      ~Tileset();	
 
+     bool loadDefault();
      bool loadTileset(const QString &filesetPath);
      bool reloadTileset( QSize newTilesize);
      QSize preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells);
 
-     short width() {return w;};
-     short height() {return h;};
-     short shadowSize() {return ss;};
-     short size() {return s;};
-     short qWidth() {return qw;};
-     short qHeight() {return qh;};
+     short width() {return scaleddata.w;};
+     short height() {return scaleddata.h;};
+     short shadowSize() {return scaleddata.ind;};
+     short qWidth() {return scaleddata.qw;};
+     short qHeight() {return scaleddata.qh;};
 
      QPixmap *selectedPixmaps(int num) {
 		return &(selectedPix[num]);
@@ -32,22 +40,15 @@ class Tileset {
 
      enum { maxTiles=45 };
 	void createTilePixmap(short x, short y, QPixmap& alltiles, QPixmap &dest, bool selected);
-	void initStorage(short tilew, short tileh, short tileshadow, short tileborder,
-bool tileisSVG);
+	void updateScaleInfo(short tilew, short tileh);
   
 
   private:
     QPixmap selectedPix[maxTiles]; // selected tiles
     QPixmap unselectedPix[maxTiles]; // selected tiles
 
-    short ss;   // left/bottom shadow width
-    short bs;   // width of the border around a tile
-    short w;    // tile width ( +border +shadow)
-    short h;    // tile height ( +border +shadow)
-    short qw;   // quarter tile width used in 3d rendering
-    short qh;   // quarter tile height used in 3d rendering
-    short s;	// buffer size for tile (width*height)
-
+    TILESETMETRICSDATA originaldata;
+    TILESETMETRICSDATA scaleddata;
     QString filename;  // cache the last file loaded to save reloading it
 
     KSvgRenderer svg;

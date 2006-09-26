@@ -30,7 +30,7 @@ Editor::Editor ( QWidget* parent)
     mode = insert;
 
    QString tile = Prefs::tileSet();
-   tiles.loadTileset(tile);
+   if (!tiles.loadTileset(tile)) tiles.loadDefault();
 
     int sWidth = (BoardLayout::width+2)*(tiles.qWidth());
     int sHeight =( BoardLayout::height+2)*tiles.qHeight();

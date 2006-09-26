@@ -50,8 +50,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     if (!loadTileset(tFile)){
         KMessageBox::error(this,
                            i18n("An error occurred when loading the tileset file %1\n"
-                                "KMahjongg will now terminate.", tFile));
-        qApp->quit();
+                                "KMahjongg will continue with the default tileset.", tFile));
     }
 
     getFileOrDefault(Prefs::background(), "bgnd", tFile);
@@ -61,8 +60,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     {
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the background image\n%1", tFile)+
-		   i18n("KMahjongg will now terminate."));
-	qApp->quit();
+		   i18n("KMahjongg will continue with the default background."));
     }
 
     getFileOrDefault(Prefs::layout(), "layout", tFile);
@@ -70,8 +68,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     {
 	KMessageBox::error(this,
 		   i18n("An error occurred when loading the board layout %1\n"
-                "KMahjongg will now terminate.", tFile));
-	qApp->quit();
+                "KMahjongg will continue with the default layout.", tFile));
     }
     setDisplayedWidth();
     loadSettings();
@@ -1758,7 +1755,13 @@ bool BoardWidget::loadTileset(const QString &path) {
     Prefs::writeConfig();
     return true;
   } else {
-    return false;
+    if (theTiles.loadDefault()) {
+      Prefs::setTileSet(path);
+      Prefs::writeConfig();
+      return false;
+    } else {
+      return false;
+    }
   }
 
 }
