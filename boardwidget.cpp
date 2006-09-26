@@ -224,8 +224,8 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
 
             }
         }
-        xOffset +=theTiles.shadowSize();
-        yOffset -=theTiles.shadowSize();
+        xOffset +=theTiles.levelOffset();
+        yOffset -=theTiles.levelOffset();
     }
 
 
@@ -236,8 +236,8 @@ if (Prefs::showRemoved()) {
     // we start blitting as usuall right to left, top to bottom, first
     // we calculate the start pos of the first tile, allowing space for
     // the upwards at rightwards creep when stacking in 3d
-    unsigned short xPos = backBuffer.width()-(3*theTiles.shadowSize())-theTiles.width();
-    unsigned short yPos = (3*theTiles.shadowSize());
+    unsigned short xPos = backBuffer.width()-(3*theTiles.levelOffset())-theTiles.width();
+    unsigned short yPos = (3*theTiles.levelOffset());
 
     for (int pos=0; pos < 9; pos++) {
 	int last = 0;
@@ -272,15 +272,15 @@ if (Prefs::showRemoved()) {
 
 	    stackTiles(&p, tile, last, xPos, yPos);
 	    stackTiles(&p, TILE_ROD+pos, removedRod[pos],
-		xPos - (1*(theTiles.width() - theTiles.shadowSize())) , yPos);
+		xPos - (1*(theTiles.width() - theTiles.levelOffset())) , yPos);
 	    stackTiles(&p, TILE_BAMBOO+pos, removedBamboo[pos],
-		xPos - (2*(theTiles.width() - theTiles.shadowSize())) , yPos);
+		xPos - (2*(theTiles.width() - theTiles.levelOffset())) , yPos);
 	    stackTiles(&p, TILE_CHARACTER+pos, removedCharacter[pos],
-		xPos - (3*(theTiles.width() - theTiles.shadowSize())) , yPos);
+		xPos - (3*(theTiles.width() - theTiles.levelOffset())) , yPos);
 
 
 
-	yPos += theTiles.height()-theTiles.shadowSize();
+	yPos += theTiles.height()-theTiles.levelOffset();
     }
 } //removed
 
@@ -293,7 +293,7 @@ if (Prefs::showRemoved()) {
 
 void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
 {
-    int ss = theTiles.shadowSize();
+    int ss = theTiles.levelOffset();
     QPen line;
     p->setBackgroundMode(Qt::OpaqueMode);
     p->setBackground(Qt::black);
@@ -1548,8 +1548,8 @@ void BoardWidget::transformPointToPosition(
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print Event (FIX ME)
-        X = ((point.x()-theTiles.width()/2)- (E+1)*theTiles.shadowSize()) / theTiles.qWidth();
-        Y = ((point.y()-theTiles.height()/2) + E*theTiles.shadowSize()) / theTiles.qHeight();
+        X = ((point.x()-theTiles.width()/2)- (E+1)*theTiles.levelOffset()) / theTiles.qWidth();
+        Y = ((point.y()-theTiles.height()/2) + E*theTiles.levelOffset()) / theTiles.qHeight();
 
 
 	// changed to allow x == 0

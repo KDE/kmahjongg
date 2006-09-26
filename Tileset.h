@@ -24,7 +24,7 @@ class Tileset {
 
      short width() {return scaleddata.w;};
      short height() {return scaleddata.h;};
-     short shadowSize() {return scaleddata.ind;};
+     short levelOffset() {return scaleddata.ind;};
      short qWidth() {return scaleddata.qw;};
      short qHeight() {return scaleddata.qh;};
 

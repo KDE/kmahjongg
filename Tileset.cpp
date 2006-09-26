@@ -29,7 +29,6 @@ void Tileset::updateScaleInfo(short tilew, short tileh)
 	scaleddata.ind     = originaldata.ind * ratio;
 	scaleddata.qw     = originaldata.qw * ratio;
 	scaleddata.qh     = originaldata.qh * ratio;
-qDebug() << scaleddata.qw << scaleddata.qh;
 }
 
 QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
@@ -96,11 +95,9 @@ bool Tileset::loadTileset( const QString& tilesetPath)
     QDomDocument doc("tileset");
     QFile tilesetfile(tilesetPath);
     if (!tilesetfile.open(QIODevice::ReadOnly)) {
-qDebug() << "could not open file";
       return (false);
     }
     if (!doc.setContent(&tilesetfile)) {
-qDebug() << "could not set content";
       tilesetfile.close();
       return (false);
     }
@@ -109,11 +106,9 @@ qDebug() << "could not set content";
     //now see if it is a kdegames mahjongg tileset
     QDomElement root = doc.documentElement();
     if (root.tagName() != "kdegames-tileset") {
-qDebug() << "could not find root tagname";
         return (false);
     } else if (root.hasAttribute("version")
                 && root.attribute("version") != "1.0") {
-qDebug() << "could not find version";
         return (false);
     }
 
@@ -123,10 +118,6 @@ qDebug() << "could not find version";
     	QString graphPos = "pics/"+graphName;
 
     	graphicsPath = KStandardDirs::locate("appdata", graphPos);
-qDebug() << isSVG;
-qDebug() << graphName;
-qDebug() << graphPos;
-qDebug() << graphicsPath;
 	filename = graphicsPath;
 	isSVG = (graphics.attribute("type") == "svg");
 	originaldata.w      = graphics.firstChildElement("tilewidth").text().toInt();
@@ -134,16 +125,13 @@ qDebug() << graphicsPath;
 	originaldata.qw  =  graphics.firstChildElement("tilefacewidth").text().toDouble() / 2.0;
 	originaldata.qh = graphics.firstChildElement("tilefaceheight").text().toDouble() / 2.0;
 	originaldata.ind     =  graphics.firstChildElement("threedindentation").text().toInt();
-     	// if (path.isEmpty()) goto exit_gracefully;
+     	if (graphicsPath.isEmpty()) return (false);
      } else {
-qDebug() << "null graphics";
 	return (false);
      }
 
-    // try to load it as image
-    isSVG = false;
-    if( ! qiTiles.load( graphicsPath ) ) {
-	//SVG?
+    if( isSVG ) {
+	//really?
 	svg.load(graphicsPath);
 	if (svg.isValid()) {
 		filename = tilesetPath;
@@ -155,10 +143,10 @@ qDebug() << "null graphics";
 	        return( false );
 	    }
     } else {
-	qDebug() << "loaded as png";
+    //TODO add support for png
+	return false;
     }
 
-    //TODO add support for png
     return( true );
 }
 

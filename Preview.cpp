@@ -369,8 +369,8 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 tile = tile % 43;
             }
         }
-        xOffset +=m_tiles.shadowSize();
-        yOffset -=m_tiles.shadowSize();
+        xOffset +=m_tiles.levelOffset();
+        yOffset -=m_tiles.levelOffset();
     }
 }
 
