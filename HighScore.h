@@ -11,15 +11,15 @@ class QLabel;
 
 const int numScores = 10;
 
-typedef struct {
+struct HiScoreEntry{
 	QString name;
 	long	board;
 	long 	score;
 	long elapsed;
 	
-} HiScoreEntry;
+};
 
-typedef struct TableInstance  {
+struct TableInstance  {
 	QString name;
 	HiScoreEntry entries[numScores];
 	TableInstance *next;	
