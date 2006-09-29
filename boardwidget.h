@@ -114,7 +114,7 @@ class BoardWidget : public QWidget
 		void gameOver(unsigned short removed, unsigned short cheats);
     protected:
 	virtual void resizeEvent ( QResizeEvent * event );
-	void getFileOrDefault(QString filename, QString type, QString &res);
+	void getFileOrDefault(const QString &filename, const QString &type, QString &res);
         void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 

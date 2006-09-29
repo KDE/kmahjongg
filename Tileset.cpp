@@ -163,7 +163,7 @@ bool Tileset::reloadTileset( QSize newTilesize)
     if( isSVG ) {
 	if (svg.isValid()) {
 	        qiTiles = QImage(QSize(newTilesize.width()*9, newTilesize.height()*10),QImage::Format_ARGB32_Premultiplied);
-		//Fill the buffer, it is unitialized by default
+		//Fill the buffer, it is uninitialized by default
 		qiTiles.fill(0);
 	        QPainter p(&qiTiles);
 	        svg.render(&p);

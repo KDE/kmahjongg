@@ -455,7 +455,7 @@ void HighScore::nameChanged(const QString &s) {
 }
 
 
-void HighScore::getBoardName(QString in, QString &out) {
+void HighScore::getBoardName(const QString &in, QString &out) {
 
             QFileInfo fi( in );
             out = fi.baseName();

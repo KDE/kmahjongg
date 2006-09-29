@@ -52,7 +52,7 @@ bool Background::load(const QString &file, short width, short height) {
 	if (svg.isValid()) {
 		delete sourceImage;
 	        sourceImage = new QImage(w, h ,QImage::Format_RGB32);
-		//Fill the buffer, it is unitialized by default
+		//Fill the buffer, it is uninitialized by default
 		sourceImage->fill(0);
 	        QPainter p(sourceImage);
 	        svg.render(&p);

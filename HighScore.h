@@ -50,7 +50,7 @@ private:
 	void 		addRow(int num);	// generate one table row 
 	void		loadTables();	// initialise from saved
 	void		saveTables();	// save to disc.
-	void		getBoardName(QString in, QString &out);
+	void		getBoardName(const QString &in, QString &out);
 	void 		selectTable(const QString &name);
 	void		setComboTo(const QString &to);
 	void		copyTableToScreen(const QString &name);

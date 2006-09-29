@@ -92,7 +92,7 @@ void Preview::initialise(const PreviewType type)
 			setCaption(i18n("Change Background Image"));
 			m_selectedFile = back;
 			m_fileSelector = i18n("*.bgnd|Background Image (*.bgnd)\n");
-			m_fileSelector += KImageIO::pattern()+"\n";
+			m_fileSelector += KImageIO::pattern()+'\n';
 			extension = "*.bgnd";
 		break;
 

@@ -108,7 +108,7 @@ void BoardWidget::saveSettings(){
   //config->writePathEntry("Layout_file", layout);
 }
 
-void BoardWidget::getFileOrDefault(QString filename, QString type, QString &res)
+void BoardWidget::getFileOrDefault(const QString &filename, const QString &type, QString &res)
 {
 	QString picsPos = "pics/";
 	picsPos += "default.";
@@ -430,7 +430,7 @@ void BoardWidget::stopDemoMode()
 {
     TimerState = Stop;    // stop demo
     calculateNewGame();
-    setStatusText( i18n("Now it's you again.") );
+    setStatusText( i18n("Now it is you again.") );
     emit demoModeChanged( false );
     emit gameCalculated();
 }
