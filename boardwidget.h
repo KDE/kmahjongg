@@ -1,10 +1,9 @@
 #ifndef BOARDWIDGET_H
 #define BOARDWIDGET_H
 
-#include <QWidget>
 #include <qevent.h>
 #include <krandomsequence.h>
-
+#include <kgamecanvas.h>
 
 #include "KmTypes.h"
 #include "Tileset.h"
@@ -62,7 +61,7 @@ typedef struct gamedata {
 /**
  *  @author Mathias Mueller
  */
-class BoardWidget : public QWidget
+class BoardWidget : public KGameCanvasWidget
 {
     Q_OBJECT
 
@@ -103,6 +102,7 @@ class BoardWidget : public QWidget
         bool loadBoard      ( );
         void updateScaleMode ();
         void drawBoard(bool deferUpdate = true);
+	void updateSpriteMap(); 
         bool loadBackground ( const QString&, bool bShowError = true );
     signals:
         void statusTextChanged ( const QString&, long );
@@ -115,7 +115,7 @@ class BoardWidget : public QWidget
     protected:
 	virtual void resizeEvent ( QResizeEvent * event );
 	void getFileOrDefault(const QString &filename, const QString &type, QString &res);
-        void paintEvent      ( QPaintEvent* );
+        //void paintEvent      ( QPaintEvent* );
         void mousePressEvent ( QMouseEvent* );
 
         void setStatusText ( const QString& );

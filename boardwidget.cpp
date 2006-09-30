@@ -18,7 +18,7 @@
  * Loads tileset and background bitmaps.
  */
 BoardWidget::BoardWidget( QWidget* parent )
-  : QWidget( parent ), theTiles()
+  : KGameCanvasWidget( parent ), theTiles()
 {
     QPalette palette;
     palette.setColor( backgroundRole(), Qt::black );
@@ -135,10 +135,80 @@ void BoardWidget::setDisplayedWidth() {
   resize(width() , height());
 }
 
+
+void BoardWidget::updateSpriteMap() {
+    QPixmap  *back;
+
+    int xx = rect().left();
+    int xheight = rect().height();
+    int xwidth  = rect().width();
+
+    back = theBackground.getBackground();
+
+    clearAll();
+
+    KGameCanvasPixmap * backsprite = new KGameCanvasPixmap(*back, this);
+    backsprite->show();
+
+    // initial offset on the screen of tile 0,0
+    int xOffset = theTiles.width()/2;
+    int yOffset = theTiles.height()/2;
+    //short tile = 0;
+
+
+    // we iterate over the depth stacking order. Each successive level is
+    // drawn one indent up and to the right. The indent is the width
+    // of the 3d relief on the tile left (tile shadow width)
+    for (int z=0; z<BoardLayout::depth; z++) {
+        // we draw down the board so the tile below over rights our border
+        for (int y = 0; y < BoardLayout::height; y++) {
+            // drawing right to left to prevent border overwrite
+            for (int x=BoardLayout::width-1; x>=0; x--) {
+                int sx = x*(theTiles.qWidth()  )+xOffset;
+                int sy = y*(theTiles.qHeight()  )+yOffset;
+
+		// skip if no tile to display
+		if (!Game.tilePresent(z,y,x))
+			continue;
+
+                QPixmap *t;
+		if (Game.hilighted[z][y][x]) {
+		   t= theTiles.selectedPixmaps(
+				Game.Board[z][y][x]-TILE_OFFSET);
+		} else {
+		   t= theTiles.unselectedPixmaps(
+				Game.Board[z][y][x]-TILE_OFFSET);
+                }
+
+                // Only one compilcation. Since we render top to bottom , left
+                // to right situations arise where...:
+                // there exists a tile one q height above and to the left
+                // in this situation we would draw our top left border over it
+                // we simply split the tile draw so the top half is drawn
+                // minus border
+
+                //TODO convert to QGV and let it layer everything properly
+                //p.drawPixmap(  sx, sy, *t, 0,0, t->width(), t->height() );
+		KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
+		thissprite->moveTo(sx, sy);
+		thissprite->show();
+
+            }
+        }
+        xOffset +=theTiles.levelOffset();
+        yOffset -=theTiles.levelOffset();
+    }
+    qDebug() << items()->size();
+    update();
+
+}
+
 // for a given cell x y calc how that cell is shadowed
 // returnd left = width of left hand side shadow
 // t = height of top shadow
 // c = width and height of corner shadow
+
+/*
 
 // ---------------------------------------------------------
 void BoardWidget::paintEvent( QPaintEvent* pa )
@@ -289,7 +359,7 @@ if (Prefs::showRemoved()) {
     p.begin(this);
     p.drawPixmap(xx,pa->rect().top(), backBuffer, xx, pa->rect().top(), xwidth, xheight);
     p.end();
-}
+}*/
 
 void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
 {
@@ -1394,6 +1464,7 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	if (doRepaint) {
 		updateBackBuffer=true;
 		update(); 
+		updateSpriteMap(); 
 	}
 }
 
@@ -1403,7 +1474,9 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 void BoardWidget::drawBoard(bool )
 {
    updateBackBuffer=true;
+   updateSpriteMap();
    update(); 
+   updateSpriteMap();
    drawTileNumber();
 }
 
@@ -1420,6 +1493,7 @@ void BoardWidget::putTile( POSITION& Pos, bool doRepaint )
     if (doRepaint) {
 	updateBackBuffer=true;
 	update(); 
+	updateSpriteMap();
     }
 }
 
@@ -1442,6 +1516,7 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     if (doRepaint) {
         updateBackBuffer=true;
 	update(); 
+	updateSpriteMap();
     }
 }
 
@@ -1859,6 +1934,7 @@ void BoardWidget::shuffle() {
 
 	updateBackBuffer=true;
         update();
+	updateSpriteMap();
 
 	// I consider this s very bad cheat so, I punish the user
 	// 300 points per use

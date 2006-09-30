@@ -4,6 +4,7 @@
 #include <kdialog.h>
 
 #include <qframe.h>
+#include "kgamecanvas.h"
 
 #include "Tileset.h"
 #include "BoardLayout.h"
@@ -12,7 +13,7 @@
 class QComboBox;
 class QPixmap;
 
-class FrameImage: public QFrame
+class FrameImage: public KGameCanvasWidget
 {
 	Q_OBJECT
 public:

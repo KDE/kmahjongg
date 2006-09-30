@@ -42,7 +42,7 @@ Editor::Editor ( QWidget* parent)
     drawFrame->setMinimumSize( 0, 0 );
     drawFrame->setMaximumSize( 32767, 32767 );
     drawFrame->setFocusPolicy( Qt::NoFocus );
-    drawFrame->setFrameStyle( 49 );
+    //drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 
    // setup the tool bar
@@ -277,11 +277,7 @@ void Editor::newBoard() {
     if (!testSave())
 	return;
 
-
-
     theBoard.clearBoardLayout();
-
-
 
     clean=true;
     numTiles=0;
@@ -328,7 +324,6 @@ bool Editor::saveBoard() {
 	return false;
     }
 }
-
 
 // test if a save is required and return true if the app is to continue
 // false if cancel is selected. (if ok then call out to save the board

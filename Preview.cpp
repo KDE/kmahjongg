@@ -434,7 +434,7 @@ void Preview::saveTheme() {
 }
 
 FrameImage::FrameImage (QWidget *parent, const QSize& initialImageSize)
-  : QFrame(parent)
+  : KGameCanvasWidget(parent)
 {
 	rx = -1;
 	thePixmap = new QPixmap(initialImageSize);
@@ -452,7 +452,7 @@ void FrameImage::resizeEvent( QResizeEvent* ev )
 
 void FrameImage::paintEvent( QPaintEvent* pa )
 {
-    QFrame::paintEvent(pa);
+    //QFrame::paintEvent(pa);
 
     QPainter p(this);
 
@@ -470,7 +470,8 @@ void FrameImage::paintEvent( QPaintEvent* pa )
     int h = pa->rect().height();
     int w  = pa->rect().width();
 
-    p.drawPixmap(x+frameWidth(),y+frameWidth(),*thePixmap,x+frameWidth(),y+frameWidth(),w-(2*frameWidth()),h-(2*frameWidth()));
+    //p.drawPixmap(x+frameWidth(),y+frameWidth(),*thePixmap,x+frameWidth(),y+frameWidth(),w-(2*frameWidth()),h-(2*frameWidth()));
+p.drawPixmap(x,y,*thePixmap,x,y,w-(2),h-(2));
     if (rx >=0) {
 
 	p.drawRect(rx, ry, rw, rh);

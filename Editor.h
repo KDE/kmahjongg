@@ -13,6 +13,7 @@
 
 #include "Preview.h"
 
+
 class KActionCollection;
 
 class Editor: public QDialog
