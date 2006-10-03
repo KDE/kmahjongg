@@ -145,7 +145,9 @@ void BoardWidget::updateSpriteMap() {
 
     back = theBackground.getBackground();
 
-    clearAll();
+    //Delete previous sprites for now (full update)
+    while (!items()->isEmpty())
+	delete items()->first();
 
     KGameCanvasPixmap * backsprite = new KGameCanvasPixmap(*back, this);
     backsprite->show();
