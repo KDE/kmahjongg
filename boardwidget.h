@@ -23,6 +23,12 @@
 #include <qevent.h>
 #include <krandomsequence.h>
 #include <kgamecanvas.h>
+#include <QMap>
+#include <QPoint>
+
+#include <ktoolbar.h>
+#include <kstatusbar.h>
+#include <kfiledialog.h>
 
 #include "KmTypes.h"
 #include "Tileset.h"
@@ -52,6 +58,7 @@ typedef struct gamedata {
 
 
     bool tilePresent(int z, int y, int x) {
+	if ((y<0)||(x<0)||(z<0)||(y>BoardLayout::height-1)||(x>BoardLayout::width-1)||(z>BoardLayout::depth-1)) return false;
 	return(Board[z][y][x]!=0 && Mask[z][y][x] == '1');
     }
 
@@ -104,6 +111,8 @@ class BoardWidget : public KGameCanvasWidget
 	QString &getBoardName(){return theBoardLayout.getFilename();};
 	QString &getLayoutName() {return theBoardLayout.getFilename();};
 
+	KGameCanvasPixmap * backsprite;
+        QMap<QString, KGameCanvasPixmap *> spriteMap;
 
     public slots:
 	void loadSettings();

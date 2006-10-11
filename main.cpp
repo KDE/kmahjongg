@@ -24,6 +24,7 @@
 #include <kaboutdata.h>
 #include <kimageio.h>
 #include <klocale.h>
+#include <kglobal.h>
 
 static const char description[] = I18N_NOOP("Mahjongg for KDE");
 

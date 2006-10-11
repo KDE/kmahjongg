@@ -58,6 +58,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     memset( &Game.Mask, 0, sizeof( Game.Mask ) );
     Game.MaxTileNum = 0;
     gameGenerationNum = 0;
+    backsprite = 0;
 
     // initially we force a redraw
     updateBackBuffer=true;
@@ -162,20 +163,20 @@ void BoardWidget::updateSpriteMap() {
     int xheight = rect().height();
     int xwidth  = rect().width();
 
-    back = theBackground.getBackground();
-
     //Delete previous sprites for now (full update)
     while (!items()->isEmpty())
 	delete items()->first();
 
-    KGameCanvasPixmap * backsprite = new KGameCanvasPixmap(*back, this);
-    backsprite->show();
+    //if (!backsprite) {
+      back = theBackground.getBackground();
+      backsprite = new KGameCanvasPixmap(*back, this);
+      backsprite->show();
+    //}
 
     // initial offset on the screen of tile 0,0
     int xOffset = theTiles.width()/2;
     int yOffset = theTiles.height()/2;
     //short tile = 0;
-
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -201,25 +202,42 @@ void BoardWidget::updateSpriteMap() {
 				Game.Board[z][y][x]-TILE_OFFSET);
                 }
 
-                // Only one compilcation. Since we render top to bottom , left
-                // to right situations arise where...:
-                // there exists a tile one q height above and to the left
-                // in this situation we would draw our top left border over it
-                // we simply split the tile draw so the top half is drawn
-                // minus border
+		//if (!spriteMap.contains(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z)))
+		//{
+		  KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
 
-                //TODO convert to QGV and let it layer everything properly
-                //p.drawPixmap(  sx, sy, *t, 0,0, t->width(), t->height() );
-		KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
-		thissprite->moveTo(sx, sy);
-		thissprite->show();
-
+		  //if (Game.tilePresent(z, y-1, x-2)) {
+		    //qDebug() << "overlap at " << y << x;
+		  //}
+		  thissprite->moveTo(sx, sy);
+		  thissprite->show();
+		  spriteMap.insert(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z), thissprite);
+		//}
             }
         }
         xOffset +=theTiles.levelOffset();
         yOffset -=theTiles.levelOffset();
     }
-    qDebug() << items()->size();
+
+    for (int z=0; z<BoardLayout::depth; z++) {
+        // start drawing in diagonal for correct layering. For this we double the board, 
+	//actually starting outside of it, in the bottom right corner, so our first diagonal ends
+	// at the actual top right corner of the board
+        for (int x=BoardLayout::width*2; x>=0; x--) {
+            // reset the offset
+	    int offset = 0;
+            for (int y=BoardLayout::height-1; y>=0; y--) {
+		if (Game.tilePresent(z,y,x-offset))
+		{
+			KGameCanvasPixmap * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
+			if (thissprite) thissprite->raise();
+		}
+		//at each pass, move one place to the left
+		offset++;
+            }
+        }
+    }
+    //qDebug() << items()->size();
     update();
 
 }
@@ -1477,16 +1495,28 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
 void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 {
 
+	KGameCanvasPixmap * atile = 0;
+
+	if (spriteMap.contains(QString("X%1Y%2Z%3").arg(Pos.x).arg(Pos.y).arg(Pos.e))) {
+	  atile = spriteMap.value(QString("X%1Y%2Z%3").arg(Pos.x).arg(Pos.y).arg(Pos.e));
+	}
+
 	if (on) {
 		Game.hilighted[Pos.e][Pos.y][Pos.x]=1;
+		if (atile)
+		atile->setPixmap(*(theTiles.selectedPixmaps(
+				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
 	} else {
 		Game.hilighted[Pos.e][Pos.y][Pos.x]=0;
+		if (atile)
+		atile->setPixmap(*(theTiles.unselectedPixmaps(
+				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
 	}
-	if (doRepaint) {
+	/*if (doRepaint) {
 		updateBackBuffer=true;
 		update(); 
 		updateSpriteMap(); 
-	}
+	}*/
 }
 
 
@@ -1495,8 +1525,8 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 void BoardWidget::drawBoard(bool )
 {
    updateBackBuffer=true;
-   updateSpriteMap();
-   update(); 
+  // updateSpriteMap();
+  // update(); 
    updateSpriteMap();
    drawTileNumber();
 }
