@@ -26,13 +26,13 @@
 #include <klocale.h>
 #include <kglobal.h>
 
-static const char description[] = I18N_NOOP("Mahjongg for KDE");
+static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 
 int main( int argc, char** argv )
 {
     KAboutData aboutData( "kmahjongg", I18N_NOOP("KMahjongg"),
       KMAHJONGG_VERSION, description, KAboutData::License_GPL,
-      "(c) 1997, Mathias Mueller");
+      "(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini");
     aboutData.addAuthor("Mathias Mueller", I18N_NOOP("Original Author"), "in5y158@public.uni-hamburg.de");
     aboutData.addAuthor("Mauricio Piacentini", I18N_NOOP("Current maintainer"), "mauricio@tabuleiro.com");
     aboutData.addAuthor("Albert Astals Cid", I18N_NOOP("Bug fixes"), "astals11@terra.es");
