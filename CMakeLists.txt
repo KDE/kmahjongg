@@ -19,7 +19,7 @@ set(kmahjongg_SRCS
    #Editor.cpp 
    HighScore.cpp )
 
-kde4_automoc(${kmahjongg_SRCS})
+kde4_automoc(kmahjongg ${kmahjongg_SRCS})
 
 kde4_add_ui_files(kmahjongg_SRCS settings.ui )
 
