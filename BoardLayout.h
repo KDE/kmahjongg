@@ -20,6 +20,7 @@
 #define BOARD_LAYOUT_H
 
 #include <QString>
+#include <QByteArray>
 #include "KmTypes.h"
 
 const QString layoutMagic1_0 = "kmahjongg-layout-v1.0";
@@ -77,7 +78,7 @@ protected:
 private:
     QString filename;
     QString loadedBoard;
-    UCHAR * board;
+    QByteArray board;
     unsigned short maxTileNum;
 };
 

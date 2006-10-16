@@ -20,7 +20,6 @@
 #include <QFile>
 #include <qtextstream.h>
 #include <qtextcodec.h>
-#include <malloc.h>
 #include <QtDebug>
 
 
@@ -31,13 +30,12 @@ BoardLayout::BoardLayout()
 	m_height = 16;
 	m_depth = 5;
 	m_maxTiles = (m_width*m_height*m_depth)/4;
-	board = 0;
+	board = QByteArray(m_width*m_height*m_depth, 0);
 	clearBoardLayout();
 }
 
 BoardLayout::~BoardLayout()
 {
-	if (board!=0) free(board);
 }
 
 void BoardLayout::clearBoardLayout() {
@@ -126,10 +124,8 @@ void BoardLayout::initialiseBoard() {
     if (loadedBoard.isEmpty())
 	return;
 
-    if (board!=0) free(board);
-
-    //Allocate board storage dynamically
-    board = (UCHAR *) malloc(m_width*m_height*m_depth);
+    board.resize(m_width*m_height*m_depth);
+    board.fill(0);
 
     // loop will be left by break or return
     while( true )
@@ -164,7 +160,7 @@ void BoardLayout::initialiseBoard() {
 }
 
 void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
-    memcpy(to, board, m_width*m_height*m_depth);
+    memcpy(to, board.data(), m_width*m_height*m_depth);
     n = maxTileNum;
 }
 
@@ -313,11 +309,10 @@ void BoardLayout::insertTile(POSITION &p) {
 }
 
 UCHAR BoardLayout::getBoardData(short z, short y, short x) {
-    return board[(z*m_width*m_height)+(y*m_width)+x];
+    return board.at((z*m_width*m_height)+(y*m_width)+x);
 }
 
 void BoardLayout::setBoardData(short z, short y, short x, UCHAR value) {
-    qDebug() << "setBoardData" << z << y << x << value;
     board[(z*m_width*m_height)+(y*m_width)+x] = value;
 }
 
