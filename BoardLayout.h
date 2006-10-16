@@ -32,7 +32,8 @@ public:
 
     bool loadBoardLayout(const QString from);
     bool saveBoardLayout(const QString where);
-    UCHAR getBoardData(short z, short y, short x) {return board[z][y][x];};
+    UCHAR getBoardData(short z, short y, short x);
+    void setBoardData(short z, short y, short x, UCHAR value);
 
     // is there a tile anywhere above here (top left to bot right quarter)
     bool tileAbove(short z, short y, short x); 
@@ -46,9 +47,7 @@ public:
     bool anyFilled(POSITION &p);
     bool allFilled(POSITION &p);
     void insertTile(POSITION &p); 
-    bool isTileAt(POSITION &p) { return board[p.e][p.y][p.x] == '1'; }
-  
-
+    bool isTileAt(POSITION &p) { return getBoardData(p.e, p.y, p.x) == '1'; }
 
     const char *getBoardLayout();
     void copyBoardLayout(UCHAR *to , unsigned short &numTiles); 
@@ -64,6 +63,11 @@ public:
             depth = 5 };
      enum { maxTiles = (depth*width*height)/4 };
 
+     int m_width;
+     int m_height;
+     int m_depth;
+     int m_maxTiles;
+
      QString &getFilename() {return filename;};
      
 protected:
@@ -73,7 +77,7 @@ protected:
 private:
     QString filename;
     QString loadedBoard;
-    UCHAR board[depth][height][width];
+    UCHAR * board;
     unsigned short maxTileNum;
 };
 

@@ -20,16 +20,24 @@
 #include <QFile>
 #include <qtextstream.h>
 #include <qtextcodec.h>
+#include <malloc.h>
+#include <QtDebug>
 
 
 BoardLayout::BoardLayout()
 {
 	filename="";
+	m_width = 32;
+	m_height = 16;
+	m_depth = 5;
+	m_maxTiles = (m_width*m_height*m_depth)/4;
+	board = 0;
 	clearBoardLayout();
 }
 
 BoardLayout::~BoardLayout()
 {
+	if (board!=0) free(board);
 }
 
 void BoardLayout::clearBoardLayout() {
@@ -48,13 +56,13 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	    return(false);	
 	}
 
-	for (int z=0; z<depth; z++) {
-	    for(int y=0; y<height; y++) {
+	for (int z=0; z<m_depth; z++) {
+	    for(int y=0; y<m_height; y++) {
 		if(!f.putChar('\n'))
 		    return(false);
-		for (int x=0; x<width; x++) {
-		if (board[z][y][x]) {
-		    if(!f.putChar(board[z][y][x]))
+		for (int x=0; x<m_width; x++) {
+		if (getBoardData(z,y,x)) {
+		    if(!f.putChar(getBoardData(z,y,x)))
 		       return false;
 		} else {
 		    if(!f.putChar('.'))
@@ -66,10 +74,8 @@ bool BoardLayout::saveBoardLayout(const QString where) {
         return f.putChar('\n');
 }
 
-
 bool BoardLayout::loadBoardLayout(const QString from)
 {
-    
     if (from == filename) {
 	return true;	
     } 
@@ -95,7 +101,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
 	    lines++;
 	}
 	f.close();
-	if (lines == height*depth) {
+	if (lines == m_height*m_depth) {
 	    loadedBoard = all;
 	    initialiseBoard();
 	    filename = from;
@@ -110,7 +116,6 @@ bool BoardLayout::loadBoardLayout(const QString from)
 }
 
 void BoardLayout::initialiseBoard() {
-
     short z=0;
     short x=0;          // Rand lassen.
     short y=0;
@@ -118,33 +123,36 @@ void BoardLayout::initialiseBoard() {
 
     const char *pos = loadedBoard.toAscii().constData();
 
-    memset( &board, 0, sizeof( board) );
-
     if (loadedBoard.isEmpty())
 	return;
+
+    if (board!=0) free(board);
+
+    //Allocate board storage dynamically
+    board = (UCHAR *) malloc(m_width*m_height*m_depth);
 
     // loop will be left by break or return
     while( true )
     {
         BYTE c = *pos++;
-
         switch( c )
         {
             case (UCHAR)'1': maxTileNum++;
             case (UCHAR)'3':
             case (UCHAR)'2':
-            case (UCHAR)'4': board[z][y][x] = c;
+            case (UCHAR)'4': setBoardData(z,y,x,c);
                              break;
 
-            default:         break;
+            default: setBoardData(z,y,x,0); 
+		break;
         }
-        if( ++x == width)
+        if( ++x == m_width)
         {
             x=0;
-            if( ++y == height)
+            if( ++y == m_height)
             {
                 y=0;
-                if( ++z == depth)
+                if( ++z == m_depth)
                 {
                     // number of tiles have to be even
                     if( maxTileNum & 1 ) break;
@@ -156,80 +164,77 @@ void BoardLayout::initialiseBoard() {
 }
 
 void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
-
-    memcpy(to, board, sizeof(board));
+    memcpy(to, board, m_width*m_height*m_depth);
     n = maxTileNum;
 }
 
 const char* BoardLayout::getBoardLayout()
 {
 	return loadedBoard.toAscii().constData();
-}    
-
-
+}
 
 void BoardLayout::shiftLeft() {
-    for (int z=0; z<depth; z++) {
-	for (int y=0; y<height; y++) {
-	    UCHAR keep=board[z][y][0];
+    for (int z=0; z<m_depth; z++) {
+	for (int y=0; y<m_height; y++) {
+	    UCHAR keep=getBoardData(z,y,0);
 	    if (keep == '1') {
 	        // tile going off board, delete it
-	        board[z][y][0]=0;
-	        board[z][y][1]=0;
-		if (y<height-1) {
-	           board[z][y+1][0]=0;
-	           board[z][y+1][1]=0;
+	        setBoardData(z,y,0,0);
+	        setBoardData(z,y,1,0);
+		if (y<m_height-1) {
+	           setBoardData(z,y+1,0,0);
+	           setBoardData(z,y+1,1,0);
 		}
 	    }
-	    for (int x=0; x<width-1; x++) {
-		board[z][y][x] = board[z][y][x+1];
+	    for (int x=0; x<m_width-1; x++) {
+		setBoardData(z,y,x,getBoardData(z,y,x+1));
 	    }
-	    board[z][y][width-1] = 0;
+	    setBoardData(z,y,m_width-1,0);
 	}
     }
 }
 
 
 void BoardLayout::shiftRight() {
-    for (int z=0; z<depth; z++) {
-	for (int y=0; y<height; y++) {
-	    UCHAR keep=board[z][y][width-2];
+    for (int z=0; z<m_depth; z++) {
+	for (int y=0; y<m_height; y++) {
+	    UCHAR keep=getBoardData(z,y,m_width-2);
 	    if (keep == '1') {
 	        // tile going off board, delete it
-	        board[z][y][width-2]=0;
-	        board[z][y][width-1]=0;
-		if (y < height-1) {
-		        board[z][y+1][width-2]=0;
-		        board[z][y+1][width-1]=0;
+	        setBoardData(z,y,width-2,0);
+	        setBoardData(z,y,width-1,0);
+		if (y < m_height-1) {
+		        setBoardData(z,y+1,width-2,0);
+		        setBoardData(z,y+1,width-1,0);
 		}
 	    }
-	    for (int x=width-1; x>0; x--) {
-		board[z][y][x] = board[z][y][x-1];
+	    for (int x=m_width-1; x>0; x--) {
+		setBoardData(z,y,x,getBoardData(z,y,x-1));
 	    }
-	    board[z][y][0] = 0;
+	    setBoardData(z,y,0,0);
 	}
     }
 }
 void BoardLayout::shiftUp() {
-    for (int z=0; z<depth; z++) {
+    for (int z=0; z<m_depth; z++) {
 	// remove tiles going off the top
-	for (int x=0; x<width; x++) {
-	    if (board[z][0][x] == '1') {
-		board[z][0][x] = 0;
-		if (x<width-1) {
-			board[z][0][x+1] = 0;
-			board[z][1][x+1] = 0;
+	for (int x=0; x<m_width; x++) {
+	    if (getBoardData(z,0,x) == '1') {
+		setBoardData(z,0,x,0);
+		if (x<m_width-1) {
+			setBoardData(z,0,x+1,0);
+			setBoardData(z,1,x+1,0);
 		}
-		board[z][1][x] = 0;
+		setBoardData(z,1,x,0);
 	    }
 	}
     }
-    for (int z=0; z<depth;z++) {
-	for (int y=0; y<height-1; y++) {
-	    for (int x=0; x<width; x++) {
-		board[z][y][x]=board[z][y+1][x];
-		if (y == height-2)
-			board[z][y+1][x]=0;
+    for (int z=0; z<m_depth;z++) {
+	for (int y=0; y<m_height-1; y++) {
+	    for (int x=0; x<m_width; x++) {
+		setBoardData(z,y,x,getBoardData(z,y+1,x));
+		if (y == m_height-2)
+			setBoardData(z,y+1,x,0);
 	    }
         }
     }
@@ -237,39 +242,36 @@ void BoardLayout::shiftUp() {
 
 
 void BoardLayout::shiftDown() {
-    for (int z=0; z<depth; z++) {
+    for (int z=0; z<m_depth; z++) {
 	// remove tiles going off the top
-	for (int x=0; x<width; x++) {
-	    if (board[z][height-2][x] == '1') {
-		board[z][height-2][x] = 0;
-		if (x<width-1) {
-			board[z][height-2][x+1] = 0;
-			board[z][height-1][x+1] = 0;
+	for (int x=0; x<m_width; x++) {
+	    if (getBoardData(z,height-2,x) == '1') {
+		setBoardData(z,height-2,x,0);
+		if (x<m_width-1) {
+			setBoardData(z,m_height-2,x+1,0);
+			setBoardData(z,m_height-1,x+1,0);
 		}
-		board[z][height-1][x] = 0;
+		setBoardData(z,height-1,x,0);
 	    }
 	}
     }
-    for (int z=0; z<depth;z++) {
-	for (int y=height-1; y>0; y--) {
-	    for (int x=0; x<width; x++) {
-		board[z][y][x]=board[z][y-1][x];
+    for (int z=0; z<m_depth;z++) {
+	for (int y=m_height-1; y>0; y--) {
+	    for (int x=0; x<m_width; x++) {
+		setBoardData(z,y,x,getBoardData(z,y-1,x));
 		if (y == 1)
-			board[z][y-1][x]=0;
+			setBoardData(z,y-1,x,0);
 	    }
         }
     }
 }
 
 
-
-
-
 // is there a tile anywhere above here (top left to bot right quarter)
 bool BoardLayout::tileAbove(short z, short y, short x) {
     if (z >= depth -1)
         return false;
-    if( board[z+1][y][x]   || board[z+1][y+1][x] || board[z+1][y][x+1] || board[z+1][y+1][x+1] ) {
+    if( getBoardData(z+1,y,x)   || getBoardData(z+1,y+1,x) || getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1) ) {
         return true;
     }
     return false;
@@ -277,37 +279,46 @@ bool BoardLayout::tileAbove(short z, short y, short x) {
 
 
 bool BoardLayout::blockedLeftOrRight(short z, short y, short x) {
-     return( (board[z][y][x-1] || board[z][y+1][x-1]) &&
-             (board[z][y][x+2] || board[z][y+1][x+2]) );
+     return( (getBoardData(z,y,x-1) || getBoardData(z,y+1,x-1)) &&
+             (getBoardData(z,y,x+2) || getBoardData(z,y+1,x+2)) );
 }
 
 void BoardLayout::deleteTile(POSITION &p) {
-    if ( p.e <depth && board[p.e][p.y][p.x] == '1') {
-        board[p.e][p.y][p.x]=0;
-        board[p.e][p.y][p.x+1]=0;
-        board[p.e][p.y+1][p.x]=0;
-        board[p.e][p.y+1][p.x+1]=0;
+    if ( p.e <m_depth && getBoardData(p.e,p.y,p.x) == '1') {
+        setBoardData(p.e,p.y,p.x,0);
+	setBoardData(p.e,p.y,p.x+1,0);
+	setBoardData(p.e,p.y+1,p.x,0);
+        setBoardData(p.e,p.y+1,p.x+1,0);
         maxTileNum--;
     }
 } 
 
 bool BoardLayout::anyFilled(POSITION &p) {
-    return(board[p.e][ p.y][ p.x] != 0 ||
-           board[p.e][ p.y][ p.x+1] != 0 ||
-           board[p.e][ p.y+1][ p.x] != 0 ||
-           board[p.e][ p.y+1][ p.x+1] != 0);
+    return(getBoardData(p.e, p.y, p.x) != 0 ||
+           getBoardData(p.e, p.y, p.x+1) != 0 ||
+           getBoardData(p.e, p.y+1, p.x) != 0 ||
+           getBoardData(p.e, p.y+1, p.x+1) != 0);
 }
 bool BoardLayout::allFilled(POSITION &p) {
-    return(board[p.e][ p.y][ p.x] != 0 &&
-           board[p.e][p.y][ p.x+1] != 0 &&
-           board[p.e][p.y+1][ p.x] != 0 &&
-           board[p.e][p.y+1][ p.x+1] != 0);
+    return(getBoardData(p.e, p.y, p.x) != 0 &&
+           getBoardData(p.e, p.y, p.x+1) != 0 &&
+           getBoardData(p.e, p.y+1, p.x) != 0 &&
+           getBoardData(p.e, p.y+1, p.x+1) != 0);
 }
 void BoardLayout::insertTile(POSITION &p) {
-    board[p.e][p.y][p.x] = '1';
-    board[p.e][p.y][p.x+1] = '2';
-    board[p.e][p.y+1][p.x+1] = '3';
-    board[p.e][p.y+1][p.x] = '4';
+    setBoardData(p.e,p.y,p.x,'1');
+    setBoardData(p.e,p.y,p.x+1,'2');
+    setBoardData(p.e,p.y+1,p.x+1,'3');
+    setBoardData(p.e,p.y+1,p.x,'4');
+}
+
+UCHAR BoardLayout::getBoardData(short z, short y, short x) {
+    return board[(z*m_width*m_height)+(y*m_width)+x];
+}
+
+void BoardLayout::setBoardData(short z, short y, short x, UCHAR value) {
+    qDebug() << "setBoardData" << z << y << x << value;
+    board[(z*m_width*m_height)+(y*m_width)+x] = value;
 }
 
 
