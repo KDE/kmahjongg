@@ -1,5 +1,6 @@
 /*
     Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
+    Copyright (C) 2006 Mauricio Piacentini   <mauricio@tabuleiro.com>
 
     Kmahjongg is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,8 +21,6 @@
 #include <QFile>
 #include <qtextstream.h>
 #include <qtextcodec.h>
-#include <QtDebug>
-
 
 BoardLayout::BoardLayout()
 {
