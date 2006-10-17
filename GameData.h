@@ -45,8 +45,8 @@ public:
     UCHAR MaskData(short z, short y, short x);
     UCHAR HighlightData(short z, short y, short x);
     void setHighlightData(short z, short y, short x, UCHAR value);
-    POSITION MoveListData(short i);
-    void setMoveListData(short i, POSITION value);
+    POSITION& MoveListData(short i);
+    void setMoveListData(short i, POSITION& value);
     char * getMaskBytes(){ return Mask.data(); }
 
     short m_width;
@@ -54,13 +54,11 @@ public:
     short m_depth;
     short m_maxTiles;
 
-//TODO make MoveList private?? Need to implement get/set and change parameters of several methods in boardwidget
-    QVector<POSITION> MoveList;
-
 private:
     QByteArray Board;
     QByteArray Mask;
     QByteArray Highlight;
+    QVector<POSITION> MoveList;
     
 };
 

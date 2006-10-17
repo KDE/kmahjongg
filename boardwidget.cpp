@@ -442,7 +442,7 @@ void BoardWidget::gameLoaded()
 	// use the history of moves to put in the removed tiles area the correct tiles
 	while (i < Game.MaxTileNum )
 	{
-		setRemovedTilePair(Game.MoveList[i], Game.MoveList[i+1]);
+		setRemovedTilePair(Game.MoveListData(i), Game.MoveListData(i+1));
 		i +=2;
 	}
 	drawBoard();
@@ -456,10 +456,10 @@ int BoardWidget::undoMove()
     if( Game.TileNum < Game.MaxTileNum )
     {
 
-        clearRemovedTilePair(Game.MoveList[Game.TileNum], Game.MoveList[Game.TileNum+1]);
-        putTile( Game.MoveList[Game.TileNum], false );
+        clearRemovedTilePair(Game.MoveListData(Game.TileNum), Game.MoveListData(Game.TileNum+1));
+        putTile( Game.MoveListData(Game.TileNum), false );
         Game.TileNum++;
-        putTile( Game.MoveList[Game.TileNum] );
+        putTile( Game.MoveListData(Game.TileNum) );
         Game.TileNum++;
         drawTileNumber();
         setStatusText( i18n("Undo operation done successfully.") );
@@ -565,9 +565,9 @@ void BoardWidget::demoMoveTimeout()
                         setStatusText( i18n("Your computer has lost the game.") );
                         while( Game.TileNum < Game.MaxTileNum )
                         {
-                            putTile( Game.MoveList[Game.TileNum], false );
+                            putTile( Game.MoveListData(Game.TileNum), false );
                             Game.TileNum++;
-                            putTile( Game.MoveList[Game.TileNum] );
+                            putTile( Game.MoveListData(Game.TileNum) );
                             Game.TileNum++;
                             drawTileNumber();
                         }
@@ -648,9 +648,9 @@ void BoardWidget::stopMatchAnimation()
 void BoardWidget::redoMove()
 {
 
-	setRemovedTilePair(Game.MoveList[Game.TileNum-1],Game.MoveList[Game.TileNum-2]);
-        removeTile(Game.MoveList[Game.TileNum-1], false);
-        removeTile(Game.MoveList[Game.TileNum-1]);
+	setRemovedTilePair(Game.MoveListData(Game.TileNum-1),Game.MoveListData(Game.TileNum-2));
+        removeTile(Game.MoveListData(Game.TileNum-1), false);
+        removeTile(Game.MoveListData(Game.TileNum-1));
         drawTileNumber();
 }
 
@@ -664,17 +664,17 @@ void BoardWidget::animateMoveList()
         while( Game.TileNum < Game.MaxTileNum )
         {
             // put back all tiles
-            putTile(Game.MoveList[Game.TileNum]);
+            putTile(Game.MoveListData(Game.TileNum));
             Game.TileNum++;
-            putTile(Game.MoveList[Game.TileNum], false);
+            putTile(Game.MoveListData(Game.TileNum), false);
             Game.TileNum++;
             drawTileNumber();
         }
         while( Game.TileNum > 0 )
         {
             // remove all tiles
-            removeTile(Game.MoveList[Game.TileNum-1], false);
-            removeTile(Game.MoveList[Game.TileNum-1]);
+            removeTile(Game.MoveListData(Game.TileNum-1), false);
+            removeTile(Game.MoveListData(Game.TileNum-1));
             drawTileNumber();
         }
     }
@@ -1558,9 +1558,7 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     short X = Pos.x;
 
     Game.TileNum--;                    // Eine Figur weniger
-    Game.MoveList[Game.TileNum] = Pos; // Position ins Protokoll eintragen
-
-
+    Game.setMoveListData(Game.TileNum,Pos); // Position ins Protokoll eintragen
 
     // remove tile from game board
     Game.putTile( E, Y, X, 0 );

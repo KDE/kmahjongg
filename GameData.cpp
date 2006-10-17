@@ -79,13 +79,15 @@ void GameData::setBoardData(short z, short y, short x, UCHAR value) {
     Board[(z*m_width*m_height)+(y*m_width)+x] = value;
 }
 
-POSITION GameData::MoveListData(short i) {
-    POSITION pos;
-    if ((i>=MoveList.size())|| (i<0)) return pos ;
-    return MoveList.at(i);
+POSITION& GameData::MoveListData(short i) {
+    if ((i>=MoveList.size())|| (i<0)) {
+      qDebug() << "Attempt to access GameData::MoveListData with invalid index";
+      i=0 ;
+    }
+    return MoveList[i];
 }
 
-void GameData::setMoveListData(short i, POSITION value){
+void GameData::setMoveListData(short i, POSITION& value){
     if ((i>=MoveList.size()) || (i<0)) return ;
     MoveList[i] = value;
 }
