@@ -71,8 +71,8 @@ public:
 
     // new bits for new game generation, with solvability
     int numTilesToGenerate;
-    POSITION tilePositions[BoardLayout::maxTiles];
-    DEPENDENCY positionDepends[BoardLayout::maxTiles];
+    QVector<POSITION> tilePositions;
+    QVector<DEPENDENCY> positionDepends;
     void generateTilePositions();
     void generatePositionDepends();
     int tileAt(int x, int y, int z);
@@ -92,6 +92,9 @@ public:
     int tilesUsed;
     void getFaces(POSITION &a, POSITION &b);
     UCHAR tilePair[144];
+
+    //postable
+    QVector<POSITION> PosTable;   // Table of all possible positions
 
 private:
     QByteArray Board;

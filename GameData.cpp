@@ -32,6 +32,9 @@ GameData::GameData () {
     Board = QByteArray(m_width*m_height*m_depth, 0);
     POSITION e; //constructor initializes it to 0
     MoveList = QVector<POSITION>(m_maxTiles, e);
+    tilePositions = QVector<POSITION>(m_maxTiles, e);
+    PosTable = QVector<POSITION>(m_maxTiles, e);
+    positionDepends = QVector<DEPENDENCY>(m_maxTiles);
 }
 
 GameData::~GameData () {
@@ -100,9 +103,9 @@ void GameData::generateTilePositions() {
 
     numTilesToGenerate = 0;
 
-    for (int z=0; z< BoardLayout::depth; z++) {
-        for (int y=0; y<BoardLayout::height; y++) {
-            for (int x=0; x<BoardLayout::width; x++) {
+    for (int z=0; z< m_depth; z++) {
+        for (int y=0; y< m_height; y++) {
+            for (int x=0; x< m_width; x++) {
                 setBoardData(z,y,x,0);
                 if (MaskData(z,y,x) == '1') {
                     tilePositions[numTilesToGenerate].x = x;
@@ -301,8 +304,10 @@ bool GameData::onlyFreeInLine(int position) {
 
     int i, i0, w;
     int lin, rin, out;
-    static int nextLeft[BoardLayout::maxTiles];
-    static int nextRight[BoardLayout::maxTiles];
+    //static int nextLeft[m_maxTiles];
+    //static int nextRight[m_maxTiles];
+    QVector<int> nextLeft = QVector<int>(m_maxTiles, 0);
+    QVector<int> nextRight = QVector<int>(m_maxTiles, 0);
 
     /* Check left, starting at position */
     lin = 0;

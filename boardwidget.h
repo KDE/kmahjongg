@@ -93,7 +93,6 @@ class BoardWidget : public KGameCanvasWidget
         void demoModeChanged   ( bool bActive );
 
 	void gameCalculated();
-
 	void gameOver(unsigned short removed, unsigned short cheats);
     protected:
 	virtual void resizeEvent ( QResizeEvent * event );
@@ -130,7 +129,6 @@ class BoardWidget : public KGameCanvasWidget
 	BoardLayout theBoardLayout;
 
         int iPosCount;             // count of valid positions in PosTable
-        POSITION PosTable[BoardLayout::maxTiles];   // Table of all possible positions
         POSITION MouseClickPos1, MouseClickPos2;
         POSITION TimerPos1, TimerPos2;
 

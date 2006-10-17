@@ -196,11 +196,11 @@ void BoardLayout::shiftRight() {
 	    UCHAR keep=getBoardData(z,y,m_width-2);
 	    if (keep == '1') {
 	        // tile going off board, delete it
-	        setBoardData(z,y,width-2,0);
-	        setBoardData(z,y,width-1,0);
+	        setBoardData(z,y,m_width-2,0);
+	        setBoardData(z,y,m_width-1,0);
 		if (y < m_height-1) {
-		        setBoardData(z,y+1,width-2,0);
-		        setBoardData(z,y+1,width-1,0);
+		        setBoardData(z,y+1,m_width-2,0);
+		        setBoardData(z,y+1,m_width-1,0);
 		}
 	    }
 	    for (int x=m_width-1; x>0; x--) {
@@ -240,13 +240,13 @@ void BoardLayout::shiftDown() {
     for (int z=0; z<m_depth; z++) {
 	// remove tiles going off the top
 	for (int x=0; x<m_width; x++) {
-	    if (getBoardData(z,height-2,x) == '1') {
-		setBoardData(z,height-2,x,0);
+	    if (getBoardData(z,m_height-2,x) == '1') {
+		setBoardData(z,m_height-2,x,0);
 		if (x<m_width-1) {
 			setBoardData(z,m_height-2,x+1,0);
 			setBoardData(z,m_height-1,x+1,0);
 		}
-		setBoardData(z,height-1,x,0);
+		setBoardData(z,m_height-1,x,0);
 	    }
 	}
     }
@@ -264,7 +264,7 @@ void BoardLayout::shiftDown() {
 
 // is there a tile anywhere above here (top left to bot right quarter)
 bool BoardLayout::tileAbove(short z, short y, short x) {
-    if (z >= depth -1)
+    if (z >= m_depth -1)
         return false;
     if( getBoardData(z+1,y,x)   || getBoardData(z+1,y+1,x) || getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1) ) {
         return true;

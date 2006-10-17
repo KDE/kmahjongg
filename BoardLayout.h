@@ -58,12 +58,6 @@ public:
     void shiftUp();
     void shiftDown();
 
- 
-     enum { width = 32,
-            height = 16,
-            depth = 5 };
-     enum { maxTiles = (depth*width*height)/4 };
-
      int m_width;
      int m_height;
      int m_depth;
