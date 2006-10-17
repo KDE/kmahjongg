@@ -34,8 +34,6 @@ public:
     USHORT   TileNum;
     USHORT   MaxTileNum;
 
-    QByteArray Mask;
-    QByteArray Highlight;
     POSITION MoveList[BoardLayout::maxTiles];
     void putTile( short e, short y, short x, UCHAR f )
     {
@@ -65,6 +63,11 @@ public:
     short m_height;
     short m_depth;
     short m_maxTiles;
+
+//Candidates for privatization when code shuffle is over
+//private:
+    QByteArray Mask;
+    QByteArray Highlight;
 
 };
 
