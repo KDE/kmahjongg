@@ -21,7 +21,7 @@
 
 
 GameData::GameData () {
-    //Fixed for now, TODO new constructor with dynamic board sizes
+    //Fixed for now, TODO add new constructor with dynamic board sizes
     m_width = 32;
     m_height = 16;
     m_depth = 5;
@@ -30,6 +30,8 @@ GameData::GameData () {
     Highlight = QByteArray(m_width*m_height*m_depth, 0);
     Mask = QByteArray(m_width*m_height*m_depth, 0);
     Board = QByteArray(m_width*m_height*m_depth, 0);
+    POSITION e; //constructor initializes it to 0
+    MoveList = QVector<POSITION>(m_maxTiles, e);
 }
 
 GameData::~GameData () {
@@ -75,4 +77,15 @@ UCHAR GameData::BoardData(short z, short y, short x){
 void GameData::setBoardData(short z, short y, short x, UCHAR value) {
     if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return ;
     Board[(z*m_width*m_height)+(y*m_width)+x] = value;
+}
+
+POSITION GameData::MoveListData(short i) {
+    POSITION pos;
+    if ((i>=MoveList.size())|| (i<0)) return pos ;
+    return MoveList.at(i);
+}
+
+void GameData::setMoveListData(short i, POSITION value){
+    if ((i>=MoveList.size()) || (i<0)) return ;
+    MoveList[i] = value;
 }
