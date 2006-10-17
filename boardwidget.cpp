@@ -194,7 +194,7 @@ void BoardWidget::updateSpriteMap() {
 			continue;
 
                 QPixmap *t;
-		if (Game.hilighted[z][y][x]) {
+		if (Game.HighlightData(z,y,x)) {
 		   t= theTiles.selectedPixmaps(
 				Game.Board[z][y][x]-TILE_OFFSET);
 		} else {
@@ -1502,12 +1502,12 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	}
 
 	if (on) {
-		Game.hilighted[Pos.e][Pos.y][Pos.x]=1;
+		Game.setHighlightData(Pos.e,Pos.y,Pos.x,1);
 		if (atile)
 		atile->setPixmap(*(theTiles.selectedPixmaps(
 				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
 	} else {
-		Game.hilighted[Pos.e][Pos.y][Pos.x]=0;
+		Game.setHighlightData(Pos.e,Pos.y,Pos.x,0);
 		if (atile)
 		atile->setPixmap(*(theTiles.unselectedPixmaps(
 				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
@@ -1540,7 +1540,7 @@ void BoardWidget::putTile( POSITION& Pos, bool doRepaint )
 
 	// we ensure that any tile we put on has highlighting off
     Game.putTile( E, Y, X, Pos.f );
-	Game.hilighted[E][Y][X] = 0;
+	Game.setHighlightData(E,Y,X,0);
     if (doRepaint) {
 	updateBackBuffer=true;
 	update(); 

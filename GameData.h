@@ -33,9 +33,9 @@ public:
     UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
     USHORT   TileNum;
     USHORT   MaxTileNum;
-    //UCHAR    Mask[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+
     QByteArray Mask;
-    UCHAR    hilighted[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+    QByteArray Highlight;
     POSITION MoveList[BoardLayout::maxTiles];
     void putTile( short e, short y, short x, UCHAR f )
     {
@@ -58,6 +58,8 @@ public:
     }
 
     UCHAR MaskData(short z, short y, short x);
+    UCHAR HighlightData(short z, short y, short x);
+    void setHighlightData(short z, short y, short x, UCHAR value);
 
     short m_width;
     short m_height;
