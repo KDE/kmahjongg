@@ -1,4 +1,5 @@
 /*
+    Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
     Copyright (C) 2006 Mauricio Piacentini  <mauricio@tabuleiro.com>
 
     Kmahjongg is free software; you can redistribute it and/or modify
@@ -20,8 +21,21 @@
 #define GAMEDATA_H
 
 #include "KmTypes.h"
+#include <krandomsequence.h>
 #include <QByteArray>
 #include <QVector>
+#include "BoardLayout.h"
+
+// tiles symbol names:
+#define TILE_OFFSET      2
+
+#define TILE_CHARACTER  ( 0 + TILE_OFFSET)
+#define TILE_BAMBOO     ( 9 + TILE_OFFSET)
+#define TILE_ROD        (18 + TILE_OFFSET)
+#define TILE_SEASON     (27 + TILE_OFFSET)
+#define TILE_WIND       (31 + TILE_OFFSET)
+#define TILE_DRAGON     (36 + TILE_OFFSET)
+#define TILE_FLOWER     (39 + TILE_OFFSET)
 
 class GameData {
 
@@ -49,17 +63,42 @@ public:
     void setMoveListData(short i, POSITION& value);
     char * getMaskBytes(){ return Mask.data(); }
 
+//Board Layout dimensions
     short m_width;
     short m_height;
     short m_depth;
     short m_maxTiles;
+
+    // new bits for new game generation, with solvability
+    int numTilesToGenerate;
+    POSITION tilePositions[BoardLayout::maxTiles];
+    DEPENDENCY positionDepends[BoardLayout::maxTiles];
+    void generateTilePositions();
+    void generatePositionDepends();
+    int tileAt(int x, int y, int z);
+    bool generateSolvableGame();
+    bool onlyFreeInLine(int position);
+    int selectPosition(int lastPosition);
+    void placeTile(int position, int tile);
+    void updateDepend(int position);
+
+    //other generation bits
+    bool generateStartPosition2();
+    KRandomSequence random;
+
+    // and more bits for game generation
+    void randomiseFaces();
+    int tilesAllocated;
+    int tilesUsed;
+    void getFaces(POSITION &a, POSITION &b);
+    UCHAR tilePair[144];
 
 private:
     QByteArray Board;
     QByteArray Mask;
     QByteArray Highlight;
     QVector<POSITION> MoveList;
-    
+
 };
 
 #endif // GAMEDATA_H

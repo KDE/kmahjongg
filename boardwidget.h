@@ -21,7 +21,6 @@
 #define BOARDWIDGET_H
 
 #include <qevent.h>
-#include <krandomsequence.h>
 #include <kgamecanvas.h>
 #include <QMap>
 #include <QPoint>
@@ -37,17 +36,6 @@
 #include "GameData.h"
 
 #define ANIMSPEED    200
-
-// tiles symbol names:
-#define TILE_OFFSET      2
-
-#define TILE_CHARACTER  ( 0 + TILE_OFFSET)
-#define TILE_BAMBOO     ( 9 + TILE_OFFSET)
-#define TILE_ROD        (18 + TILE_OFFSET)
-#define TILE_SEASON     (27 + TILE_OFFSET)
-#define TILE_WIND       (31 + TILE_OFFSET)
-#define TILE_DRAGON     (36 + TILE_OFFSET)
-#define TILE_FLOWER     (39 + TILE_OFFSET)
 
 #define ID_GAME_TIMER 		999
 
@@ -106,7 +94,7 @@ class BoardWidget : public KGameCanvasWidget
 
 	void gameCalculated();
 
-		void gameOver(unsigned short removed, unsigned short cheats);
+	void gameOver(unsigned short removed, unsigned short cheats);
     protected:
 	virtual void resizeEvent ( QResizeEvent * event );
 	void getFileOrDefault(const QString &filename, const QString &type, QString &res);
@@ -118,14 +106,13 @@ class BoardWidget : public KGameCanvasWidget
         void drawTileNumber();
 
         void hilightTile ( POSITION&, bool on=true, bool refresh=true );
-        void putTile     ( POSITION& , bool refresh = true);
+        void putTileInBoard     ( POSITION& , bool refresh = true);
         void removeTile  ( POSITION& , bool refresh = true);
 	void setRemovedTilePair(POSITION &a, POSITION &b);
 	void clearRemovedTilePair(POSITION &a, POSITION &b);
         void transformPointToPosition( const QPoint&, POSITION& );
 
         bool isMatchingTile( POSITION&, POSITION& );
-        bool generateStartPosition2();
         bool findMove( POSITION&, POSITION& );
         int  moveCount( );
         short findAllMatchingTiles( POSITION& );
@@ -138,21 +125,9 @@ class BoardWidget : public KGameCanvasWidget
 	int requiredHorizontalCells();
 	int requiredVerticalCells();
 
-
-	// new bits for game generation
-	void randomiseFaces();
-	int tilesAllocated;
-	int tilesUsed;
-	void getFaces(POSITION &a, POSITION &b);
-	UCHAR tilePair[144];
-
-	KRandomSequence random;
-
 	Tileset  theTiles;
 	Background theBackground;
-
 	BoardLayout theBoardLayout;
-
 
         int iPosCount;             // count of valid positions in PosTable
         POSITION PosTable[BoardLayout::maxTiles];   // Table of all possible positions
@@ -170,9 +145,6 @@ class BoardWidget : public KGameCanvasWidget
 
 	// offscreen draw area.
 	QPixmap backBuffer;		// pixmap to render to
-
-
-
 	bool    updateBackBuffer;	// does board need redrawing. Not if it is just a repaint
 
 	bool gamePaused;
@@ -191,19 +163,6 @@ class BoardWidget : public KGameCanvasWidget
 	unsigned char removedWind[9];
 	unsigned char removedFlower[4];
 	unsigned char removedSeason[4];
-
-	// new bits for new game generation, with solvability
-	int numTiles;
-	POSITION tilePositions[BoardLayout::maxTiles];
-	DEPENDENCY positionDepends[BoardLayout::maxTiles];
-	void generateTilePositions();
-	void generatePositionDepends();
-	int tileAt(int x, int y, int z);
-	bool generateSolvableGame();
-	bool onlyFreeInLine(int position);
-	int selectPosition(int lastPosition);
-	void placeTile(int position, int tile);
-	void updateDepend(int position);
 
 public:
   GameData Game;
