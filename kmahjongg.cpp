@@ -501,6 +501,8 @@ void KMahjongg::tileSizeChanged() {
 
 
 void KMahjongg::loadGame() {
+//TODO adapt to new GameData class
+/*
 	GAMEDATA in;
 	char buffer[1024];
     QString fname;
@@ -541,7 +543,7 @@ void KMahjongg::loadGame() {
     // close the file before exit
     fclose(outFile);
 
-    KIO::NetAccess::removeTempFile( fname );
+    KIO::NetAccess::removeTempFile( fname );*/
 
     // refresh the board
     bw->gameLoaded();
@@ -569,7 +571,8 @@ void KMahjongg::restartGame() {
 }
 
 void KMahjongg::saveGame() {
-
+//TODO adapt to new GameData class
+/*
     // Get the name of the file to save
     KUrl url = KFileDialog::getSaveUrl( KUrl(), "*.kmgame", this, i18n("Save Game" ) );
 
@@ -600,7 +603,7 @@ void KMahjongg::saveGame() {
     fwrite(&bw->Game, sizeof(GAMEDATA), 1, outFile);
 
     // close the file before exit
-    fclose(outFile);
+    fclose(outFile);*/
 }
 
 

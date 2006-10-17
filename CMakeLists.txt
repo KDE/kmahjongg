@@ -15,6 +15,7 @@ set(kmahjongg_SRCS
    BoardLayout.cpp 
    GameTimer.cpp 
    Background.cpp 
+   GameData.cpp 
    #Preview.cpp 
    #Editor.cpp 
    HighScore.cpp )

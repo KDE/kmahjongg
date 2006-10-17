@@ -34,40 +34,7 @@
 #include "Tileset.h"
 #include "Background.h"
 #include "BoardLayout.h"
-
-typedef struct gamedata {
-    int      allow_undo;
-    int      allow_redo;
-    UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
-    USHORT   TileNum;
-    USHORT   MaxTileNum;
-    UCHAR    Mask[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
-    UCHAR    hilighted[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
-    POSITION MoveList[BoardLayout::maxTiles];
-    void putTile( short e, short y, short x, UCHAR f )
-    {
-
-
-        Board[e][y][x] = Board[e][y+1][x] =
-		   Board[e][y+1][x+1] = Board[e][y][x+1] = f;
-    }
-    void putTile( POSITION& pos )
-    {
-        putTile( pos.e, pos.y, pos.x, pos.f );
-    }
-
-
-    bool tilePresent(int z, int y, int x) {
-	if ((y<0)||(x<0)||(z<0)||(y>BoardLayout::height-1)||(x>BoardLayout::width-1)||(z>BoardLayout::depth-1)) return false;
-	return(Board[z][y][x]!=0 && Mask[z][y][x] == '1');
-    }
-
-    bool partTile(int z, int y, int x) {
-	return (Board[z][y][x] != 0);
-    }
-
-
-} GAMEDATA;
+#include "GameData.h"
 
 #define ANIMSPEED    200
 
@@ -239,7 +206,7 @@ class BoardWidget : public KGameCanvasWidget
 	void updateDepend(int position);
 
 public:
-  GAMEDATA Game;
+  GameData Game;
 };
 
 #endif // BOARDWIDGET_H

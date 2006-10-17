@@ -1733,9 +1733,8 @@ void BoardWidget::transformPointToPosition(
 // ---------------------------------------------------------
 bool BoardWidget::loadBoard( )
 {
-    GAMEDATA newGame;
-
-    memset( &newGame, 0, sizeof( newGame ) );
+    GameData newGame = GameData();
+    //memset( &newGame, 0, sizeof( newGame ) );
     theBoardLayout.copyBoardLayout((UCHAR *) newGame.Mask, newGame.MaxTileNum);
     Game = newGame;
     return(true);
