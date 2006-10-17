@@ -21,9 +21,21 @@
 
 
 GameData::GameData () {
+    //Fixed for now, TODO new constructor with dynamic board sizes
+    m_width = 32;
+    m_height = 16;
+    m_depth = 5;
+    m_maxTiles = (m_width*m_height*m_depth)/4;
+
     memset( &hilighted, 0, BoardLayout::depth*BoardLayout::height*BoardLayout::width );
+    Mask = QByteArray(m_width*m_height*m_depth, 0);
 }
 
 GameData::~GameData () {
 
+}
+
+UCHAR GameData::MaskData(short z, short y, short x){
+    if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return 0;
+    return Mask.at((z*m_width*m_height)+(y*m_width)+x);
 }

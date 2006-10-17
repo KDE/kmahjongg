@@ -33,7 +33,8 @@ public:
     UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
     USHORT   TileNum;
     USHORT   MaxTileNum;
-    UCHAR    Mask[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+    //UCHAR    Mask[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+    QByteArray Mask;
     UCHAR    hilighted[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
     POSITION MoveList[BoardLayout::maxTiles];
     void putTile( short e, short y, short x, UCHAR f )
@@ -49,12 +50,19 @@ public:
 
     bool tilePresent(int z, int y, int x) {
 	if ((y<0)||(x<0)||(z<0)||(y>BoardLayout::height-1)||(x>BoardLayout::width-1)||(z>BoardLayout::depth-1)) return false;
-	return(Board[z][y][x]!=0 && Mask[z][y][x] == '1');
+	return(Board[z][y][x]!=0 && MaskData(z,y,x) == '1');
     }
 
     bool partTile(int z, int y, int x) {
 	return (Board[z][y][x] != 0);
     }
+
+    UCHAR MaskData(short z, short y, short x);
+
+    short m_width;
+    short m_height;
+    short m_depth;
+    short m_maxTiles;
 
 };
 

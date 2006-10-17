@@ -55,7 +55,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     showHelp = false;
     MouseClickPos1.e = BoardLayout::depth;     // mark tile position as invalid
     MouseClickPos2.e = BoardLayout::depth;
-    memset( &Game.Mask, 0, sizeof( Game.Mask ) );
+    //memset( &Game.Mask, 0, sizeof( Game.Mask ) );
     Game.MaxTileNum = 0;
     gameGenerationNum = 0;
     backsprite = 0;
@@ -740,7 +740,7 @@ void BoardWidget::generateTilePositions() {
         for (int y=0; y<BoardLayout::height; y++) {
             for (int x=0; x<BoardLayout::width; x++) {
                 Game.Board[z][y][x] = 0;
-                if (Game.Mask[z][y][x] == '1') {
+                if (Game.MaskData(z,y,x) == '1') {
                     tilePositions[numTiles].x = x;
                     tilePositions[numTiles].y = y;
                     tilePositions[numTiles].e = z;
@@ -1327,7 +1327,7 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
         {
             for( short X=0; X<BoardLayout::width-1; X++ )
             {
-                if( Game.Mask[E][Y][X] != (UCHAR) '1' )
+                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
                 if( ! Game.Board[E][Y][X] )
                     continue;
@@ -1400,7 +1400,7 @@ int BoardWidget::moveCount( )
         {
             for( short X=0; X<BoardLayout::width-1; X++ )
             {
-                if( Game.Mask[E][Y][X] != (UCHAR) '1' )
+                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
                 if( ! Game.Board[E][Y][X] )
                     continue;
@@ -1458,7 +1458,7 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
         {
             for( short X=0; X<BoardLayout::width-1; X++ )
             {
-                if( Game.Mask[E][Y][X] != (UCHAR) '1' )
+                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
                 if( ! Game.Board[E][Y][X] )
                     continue;
@@ -1684,7 +1684,7 @@ void BoardWidget::transformPointToPosition(
 		continue;
 
         //
-        switch( Game.Mask[E][Y][X] )
+        switch( Game.MaskData(E,Y,X) )
         {
             case (UCHAR)'3':    X--;Y--;
                                 break;
@@ -1735,7 +1735,7 @@ bool BoardWidget::loadBoard( )
 {
     GameData newGame = GameData();
     //memset( &newGame, 0, sizeof( newGame ) );
-    theBoardLayout.copyBoardLayout((UCHAR *) newGame.Mask, newGame.MaxTileNum);
+    theBoardLayout.copyBoardLayout((UCHAR *) newGame.Mask.data(), newGame.MaxTileNum);
     Game = newGame;
     return(true);
 }
@@ -1950,7 +1950,7 @@ void BoardWidget::shuffle() {
 	for (int e=0; e<BoardLayout::depth; e++) {
 	    for (int y=0; y<BoardLayout::height; y++) {
 		for (int x=0; x<BoardLayout::width; x++) {
-		    if (Game.Board[e][y][x] && Game.Mask[e][y][x] == '1') {
+		    if (Game.Board[e][y][x] && Game.MaskData(e,y,x) == '1') {
 			PosTable[count].e = e;
 			PosTable[count].y = y;
 			PosTable[count].x = x;
