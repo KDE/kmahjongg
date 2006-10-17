@@ -96,6 +96,21 @@ public:
     //postable
     QVector<POSITION> PosTable;   // Table of all possible positions
 
+    void initialiseRemovedTiles();
+    void setRemovedTilePair(POSITION &a, POSITION &b);
+    void clearRemovedTilePair(POSITION &a, POSITION &b);
+
+    // storage to keep track of removed tiles
+    unsigned char removedCharacter[9];
+    unsigned char removedBamboo[9];
+    unsigned char removedRod[9];
+    unsigned char removedDragon[3];
+    unsigned char removedWind[9];
+    unsigned char removedFlower[4];
+    unsigned char removedSeason[4];
+
+    bool isMatchingTile( POSITION&, POSITION& );
+
 private:
     QByteArray Board;
     QByteArray Mask;

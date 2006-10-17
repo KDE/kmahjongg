@@ -107,17 +107,13 @@ class BoardWidget : public KGameCanvasWidget
         void hilightTile ( POSITION&, bool on=true, bool refresh=true );
         void putTileInBoard     ( POSITION& , bool refresh = true);
         void removeTile  ( POSITION& , bool refresh = true);
-	void setRemovedTilePair(POSITION &a, POSITION &b);
-	void clearRemovedTilePair(POSITION &a, POSITION &b);
         void transformPointToPosition( const QPoint&, POSITION& );
 
-        bool isMatchingTile( POSITION&, POSITION& );
         bool findMove( POSITION&, POSITION& );
         int  moveCount( );
         short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 	void stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
-	void initialiseRemovedTiles();
 
 	int requiredWidth();
 	int requiredHeight();
@@ -151,15 +147,6 @@ class BoardWidget : public KGameCanvasWidget
 
 	// seed for the random number generator used for this game
 	long  gameGenerationNum;
-
-	// storage to keep track of removed tiles
-	unsigned char removedCharacter[9];
-	unsigned char removedBamboo[9];
-	unsigned char removedRod[9];
-	unsigned char removedDragon[3];
-	unsigned char removedWind[9];
-	unsigned char removedFlower[4];
-	unsigned char removedSeason[4];
 
 public:
   GameData Game;

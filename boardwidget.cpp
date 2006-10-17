@@ -440,12 +440,12 @@ void BoardWidget::pause() {
 void BoardWidget::gameLoaded()
 {
 	int i;
-	initialiseRemovedTiles();
+	Game.initialiseRemovedTiles();
 	i = Game.TileNum;
 	// use the history of moves to put in the removed tiles area the correct tiles
 	while (i < Game.MaxTileNum )
 	{
-		setRemovedTilePair(Game.MoveListData(i), Game.MoveListData(i+1));
+		Game.setRemovedTilePair(Game.MoveListData(i), Game.MoveListData(i+1));
 		i +=2;
 	}
 	drawBoard();
@@ -459,7 +459,7 @@ int BoardWidget::undoMove()
     if( Game.TileNum < Game.MaxTileNum )
     {
 
-        clearRemovedTilePair(Game.MoveListData(Game.TileNum), Game.MoveListData(Game.TileNum+1));
+        Game.clearRemovedTilePair(Game.MoveListData(Game.TileNum), Game.MoveListData(Game.TileNum+1));
         putTileInBoard( Game.MoveListData(Game.TileNum), false );
         Game.TileNum++;
         putTileInBoard( Game.MoveListData(Game.TileNum) );
@@ -594,7 +594,7 @@ void BoardWidget::demoMoveTimeout()
                 break;
 	    // remove matching tiles from game board
             case 5:
-                setRemovedTilePair(TimerPos1, TimerPos2);
+                Game.setRemovedTilePair(TimerPos1, TimerPos2);
                 removeTile( TimerPos1, false );
                 removeTile( TimerPos2 );
                 drawTileNumber();
@@ -651,7 +651,7 @@ void BoardWidget::stopMatchAnimation()
 void BoardWidget::redoMove()
 {
 
-	setRemovedTilePair(Game.MoveListData(Game.TileNum-1),Game.MoveListData(Game.TileNum-2));
+	Game.setRemovedTilePair(Game.MoveListData(Game.TileNum-1),Game.MoveListData(Game.TileNum-2));
         removeTile(Game.MoveListData(Game.TileNum-1), false);
         removeTile(Game.MoveListData(Game.TileNum-1));
         drawTileNumber();
@@ -690,7 +690,7 @@ void BoardWidget::calculateNewGame( int gNumber)
 {
     cancelUserSelectedTiles();
     stopMatchAnimation();
-    initialiseRemovedTiles();
+    Game.initialiseRemovedTiles();
     setStatusText( i18n("Calculating new game...") );
 
 
@@ -731,49 +731,6 @@ void BoardWidget::calculateNewGame( int gNumber)
 
     drawBoard();
     setStatusText( i18n("Error generating new game!") );
-}
-
-
-// ---------------------------------------------------------
-bool isFlower( UCHAR Tile )
-{
-    return( Tile >= TILE_FLOWER  &&  Tile <=TILE_FLOWER+3 );
-}
-bool isSeason( UCHAR Tile )
-{
-    return( Tile >= TILE_SEASON  &&  Tile <=TILE_SEASON+3 );
-}
-bool isBamboo(UCHAR t) {
-    return( t >= TILE_BAMBOO && t <TILE_BAMBOO+9);
-}
-bool isCharacter(UCHAR t) {
-    return( t >= TILE_CHARACTER && t <TILE_CHARACTER + 9);
-}
-bool isRod(UCHAR t) {
-    return( t >= TILE_ROD && t <TILE_ROD + 9);
-}
-bool isDragon(UCHAR t) {
-    return( t >= TILE_DRAGON && t < TILE_DRAGON +3);
-}
-bool isWind(UCHAR t) {
-    return( t >= TILE_WIND && t < TILE_WIND +4);
-}
-
-
-bool BoardWidget::isMatchingTile( POSITION& Pos1, POSITION& Pos2 )
-{
-    // don't compare 'equal' positions
-    if( memcmp( &Pos1, &Pos2, sizeof(POSITION) ) )
-    {
-        UCHAR FA = Pos1.f;
-        UCHAR FB = Pos2.f;
-
-        if( (FA == FB)
-         || ( isFlower( FA ) && isFlower( FB ) )
-         || ( isSeason( FA ) && isSeason( FB ) ) )
-            return( true );
-    }
-    return( false );
 }
 
 // ---------------------------------------------------------
@@ -826,7 +783,7 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
     {
         for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
         {
-            if( isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
+            if( Game.isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
             {
 		if (iPosCount < Game.m_maxTiles-2) {
                 	Game.PosTable[iPosCount++] = Game.PosTable[Pos_Ende];
@@ -890,7 +847,7 @@ int BoardWidget::moveCount( )
     {
         for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
         {
-            if( isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
+            if( Game.isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
             {
 		if (iPosCount < Game.m_maxTiles-2) {
                 	Game.PosTable[iPosCount++] = Game.PosTable[Pos_Ende];
@@ -937,7 +894,7 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
                 Game.PosTable[Pos].x = X;
                 Game.PosTable[Pos].f = Game.BoardData(E,Y,X);
 
-                if( isMatchingTile(posA, Game.PosTable[Pos]) )
+                if( Game.isMatchingTile(posA, Game.PosTable[Pos]) )
                     Pos++;
             }
         }
@@ -954,7 +911,6 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
 
 void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 {
-
 	KGameCanvasPixmap * atile = 0;
 
 	if (spriteMap.contains(QString("X%1Y%2Z%3").arg(Pos.x).arg(Pos.y).arg(Pos.e))) {
@@ -972,11 +928,6 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 		atile->setPixmap(*(theTiles.unselectedPixmaps(
 				Game.BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 	}
-	/*if (doRepaint) {
-		updateBackBuffer=true;
-		update(); 
-		updateSpriteMap(); 
-	}*/
 }
 
 
@@ -1010,6 +961,7 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
 
 
 // ---------------------------------------------------------
+//TODO move this to Game after handling the repaint situation
 void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
 {
 
@@ -1071,11 +1023,11 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
             }
             else
             {
-                if( isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
+                if( Game.isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
                 {
                     // update the removed tiles (we do this before the remove below
                     // so that we only require 1 screen paint for both actions)
-                    setRemovedTilePair(MouseClickPos1, MouseClickPos2);
+                    Game.setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
                     // now we remove the tiles from the board
                     removeTile(MouseClickPos1, false);
@@ -1201,8 +1153,6 @@ void BoardWidget::setStatusText( const QString & pszText )
     emit statusTextChanged( pszText, gameGenerationNum );
 }
 
-
-
 // ---------------------------------------------------------
 bool BoardWidget::loadBackground(
         const QString& pszFileName,
@@ -1235,96 +1185,6 @@ void BoardWidget::cancelUserSelectedTiles()
         hilightTile( MouseClickPos1, false ); // redraw tile
         MouseClickPos1.e = Game.m_depth;    // mark tile invalid
     }
-}
-
-// ---------------------------------------------------------
-void BoardWidget::setRemovedTilePair(POSITION &a, POSITION &b) {
-
-	if (isFlower(a.f)) {
-		removedFlower[a.f-TILE_FLOWER]++;
-		removedFlower[b.f-TILE_FLOWER]++;
-		return;
-	}
-
-	if (isSeason(a.f)) {
-		removedSeason[a.f-TILE_SEASON]++;
-		removedSeason[b.f-TILE_SEASON]++;
-		return;
-	}
-	if (isCharacter(a.f)) {
-		removedCharacter[a.f - TILE_CHARACTER]+=2;
-		return;
-	}
-
-	if (isBamboo(a.f)) {
-		removedBamboo[a.f - TILE_BAMBOO]+=2;
-		return;
-	}
-	if (isRod(a.f)) {
-		removedRod[a.f - TILE_ROD]+=2;
-		return;
-	}
-	if (isDragon(a.f)){
-		removedDragon[a.f - TILE_DRAGON]+=2;
-		return;
-	}
-	if (isWind(a.f)){
-		removedWind[a.f - TILE_WIND]+=2;
-		return;
-	}
-}
-
-// ---------------------------------------------------------
-void BoardWidget::clearRemovedTilePair(POSITION &a, POSITION &b) {
-
-        if (isFlower(a.f)) {
-                removedFlower[a.f-TILE_FLOWER]--;
-                removedFlower[b.f-TILE_FLOWER]--;
-                return;
-        }
-
-        if (isSeason(a.f)) {
-                removedSeason[a.f-TILE_SEASON]--;
-                removedSeason[b.f-TILE_SEASON]--;
-                return;
-        }
-        if (isCharacter(a.f)) {
-                removedCharacter[a.f - TILE_CHARACTER]-=2;
-                return;
-        }
-
-        if (isBamboo(a.f)) {
-                removedBamboo[a.f - TILE_BAMBOO]-=2;
-                return;
-        }
-        if (isRod(a.f)){
-                removedRod[a.f - TILE_ROD]-=2;
-                return;
-        }
-        if (isDragon(a.f)){
-                removedDragon[a.f - TILE_DRAGON]-=2;
-                return;
-        }
-        if (isWind(a.f)){
-                removedWind[a.f - TILE_WIND]-=2;
-                return;
-        }
-}
-
-
-// ---------------------------------------------------------
-void BoardWidget::initialiseRemovedTiles() {
-	for (int pos=0; pos<9; pos++) {
-		removedCharacter[pos]=0;
-		removedBamboo[pos]=0;
-		removedRod[pos]=0;
-		removedDragon[pos %3] = 0;
-		removedFlower[pos % 4] = 0;
-		removedWind[pos % 4] = 0;
-		removedSeason[pos % 4] = 0;
-
-	}
-
 }
 
 // ---------------------------------------------------------

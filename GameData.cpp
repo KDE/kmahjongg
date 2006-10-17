@@ -648,4 +648,135 @@ void GameData::randomiseFaces() {
 }
 
 
+// ---------------------------------------------------------
+bool isFlower( UCHAR Tile )
+{
+    return( Tile >= TILE_FLOWER  &&  Tile <=TILE_FLOWER+3 );
+}
+bool isSeason( UCHAR Tile )
+{
+    return( Tile >= TILE_SEASON  &&  Tile <=TILE_SEASON+3 );
+}
+bool isBamboo(UCHAR t) {
+    return( t >= TILE_BAMBOO && t <TILE_BAMBOO+9);
+}
+bool isCharacter(UCHAR t) {
+    return( t >= TILE_CHARACTER && t <TILE_CHARACTER + 9);
+}
+bool isRod(UCHAR t) {
+    return( t >= TILE_ROD && t <TILE_ROD + 9);
+}
+bool isDragon(UCHAR t) {
+    return( t >= TILE_DRAGON && t < TILE_DRAGON +3);
+}
+bool isWind(UCHAR t) {
+    return( t >= TILE_WIND && t < TILE_WIND +4);
+}
+
+bool GameData::isMatchingTile( POSITION& Pos1, POSITION& Pos2 )
+{
+    // don't compare 'equal' positions
+    if( memcmp( &Pos1, &Pos2, sizeof(POSITION) ) )
+    {
+        UCHAR FA = Pos1.f;
+        UCHAR FB = Pos2.f;
+
+        if( (FA == FB)
+         || ( isFlower( FA ) && isFlower( FB ) )
+         || ( isSeason( FA ) && isSeason( FB ) ) )
+            return( true );
+    }
+    return( false );
+}
+
+// ---------------------------------------------------------
+void GameData::setRemovedTilePair(POSITION &a, POSITION &b) {
+
+	if (isFlower(a.f)) {
+		removedFlower[a.f-TILE_FLOWER]++;
+		removedFlower[b.f-TILE_FLOWER]++;
+		return;
+	}
+
+	if (isSeason(a.f)) {
+		removedSeason[a.f-TILE_SEASON]++;
+		removedSeason[b.f-TILE_SEASON]++;
+		return;
+	}
+	if (isCharacter(a.f)) {
+		removedCharacter[a.f - TILE_CHARACTER]+=2;
+		return;
+	}
+
+	if (isBamboo(a.f)) {
+		removedBamboo[a.f - TILE_BAMBOO]+=2;
+		return;
+	}
+	if (isRod(a.f)) {
+		removedRod[a.f - TILE_ROD]+=2;
+		return;
+	}
+	if (isDragon(a.f)){
+		removedDragon[a.f - TILE_DRAGON]+=2;
+		return;
+	}
+	if (isWind(a.f)){
+		removedWind[a.f - TILE_WIND]+=2;
+		return;
+	}
+}
+
+// ---------------------------------------------------------
+void GameData::clearRemovedTilePair(POSITION &a, POSITION &b) {
+
+        if (isFlower(a.f)) {
+                removedFlower[a.f-TILE_FLOWER]--;
+                removedFlower[b.f-TILE_FLOWER]--;
+                return;
+        }
+
+        if (isSeason(a.f)) {
+                removedSeason[a.f-TILE_SEASON]--;
+                removedSeason[b.f-TILE_SEASON]--;
+                return;
+        }
+        if (isCharacter(a.f)) {
+                removedCharacter[a.f - TILE_CHARACTER]-=2;
+                return;
+        }
+
+        if (isBamboo(a.f)) {
+                removedBamboo[a.f - TILE_BAMBOO]-=2;
+                return;
+        }
+        if (isRod(a.f)){
+                removedRod[a.f - TILE_ROD]-=2;
+                return;
+        }
+        if (isDragon(a.f)){
+                removedDragon[a.f - TILE_DRAGON]-=2;
+                return;
+        }
+        if (isWind(a.f)){
+                removedWind[a.f - TILE_WIND]-=2;
+                return;
+        }
+}
+
+
+// ---------------------------------------------------------
+void GameData::initialiseRemovedTiles() {
+	for (int pos=0; pos<9; pos++) {
+		removedCharacter[pos]=0;
+		removedBamboo[pos]=0;
+		removedRod[pos]=0;
+		removedDragon[pos %3] = 0;
+		removedFlower[pos % 4] = 0;
+		removedWind[pos % 4] = 0;
+		removedSeason[pos % 4] = 0;
+
+	}
+
+}
+
 
