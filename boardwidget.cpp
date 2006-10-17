@@ -815,7 +815,7 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
     }
 
  //   PosTable[0].e = BoardLayout::depth;  // 1. Paar noch nicht gefunden
-    iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
+    short iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
 
 
     // The new tile layout with non-contiguos horizantle spans
@@ -884,7 +884,7 @@ int BoardWidget::moveCount( )
         }
     }
 
-    iPosCount = 0;  // store number of pairs found
+    short iPosCount = 0;  // store number of pairs found
 
     while( Pos_Ende < Game.MaxTileNum-1 && iPosCount <Game.m_maxTiles-2)
     {

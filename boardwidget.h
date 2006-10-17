@@ -128,7 +128,6 @@ class BoardWidget : public KGameCanvasWidget
 	Background theBackground;
 	BoardLayout theBoardLayout;
 
-        int iPosCount;             // count of valid positions in PosTable
         POSITION MouseClickPos1, MouseClickPos2;
         POSITION TimerPos1, TimerPos2;
 
