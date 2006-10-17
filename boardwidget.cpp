@@ -196,10 +196,10 @@ void BoardWidget::updateSpriteMap() {
                 QPixmap *t;
 		if (Game.HighlightData(z,y,x)) {
 		   t= theTiles.selectedPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
+				Game.BoardData(z,y,x)-TILE_OFFSET);
 		} else {
 		   t= theTiles.unselectedPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
+				Game.BoardData(z,y,x)-TILE_OFFSET);
                 }
 
 		//if (!spriteMap.contains(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z)))
@@ -739,7 +739,7 @@ void BoardWidget::generateTilePositions() {
     for (int z=0; z< BoardLayout::depth; z++) {
         for (int y=0; y<BoardLayout::height; y++) {
             for (int x=0; x<BoardLayout::width; x++) {
-                Game.Board[z][y][x] = 0;
+                Game.setBoardData(z,y,x,0);
                 if (Game.MaskData(z,y,x) == '1') {
                     tilePositions[numTiles].x = x;
                     tilePositions[numTiles].y = y;
@@ -1132,7 +1132,7 @@ bool BoardWidget::generateStartPosition2() {
 		int z = tilePositions[i].e;
 
 		// Clear Game.Board at that position
-		Game.Board[z][y][x] = 0;
+		Game.setBoardData(z,y,x,0);
 
 		// Clear tile placed/free indicator(s).
 		positionDepends[i].filled = false;
@@ -1329,23 +1329,23 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
             {
                 if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.Board[E][Y][X] )
+                if( ! Game.BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.Board[E+1][Y][X] || Game.Board[E+1][Y+1][X] ||
-                        Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
+                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
+                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
+                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
                     continue;
 
                 Pos_Ende--;
                 PosTable[Pos_Ende].e = E;
                 PosTable[Pos_Ende].y = Y;
                 PosTable[Pos_Ende].x = X;
-                PosTable[Pos_Ende].f = Game.Board[E][Y][X];
+                PosTable[Pos_Ende].f = Game.BoardData(E,Y,X);
 
 
 
@@ -1402,23 +1402,23 @@ int BoardWidget::moveCount( )
             {
                 if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.Board[E][Y][X] )
+                if( ! Game.BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.Board[E+1][Y][X] || Game.Board[E+1][Y+1][X] ||
-                        Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
+                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
+                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
+                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
                     continue;
 
                 Pos_Ende--;
                 PosTable[Pos_Ende].e = E;
                 PosTable[Pos_Ende].y = Y;
                 PosTable[Pos_Ende].x = X;
-                PosTable[Pos_Ende].f = Game.Board[E][Y][X];
+                PosTable[Pos_Ende].f = Game.BoardData(E,Y,X);
 
             }
         }
@@ -1460,22 +1460,22 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
             {
                 if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.Board[E][Y][X] )
+                if( ! Game.BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.Board[E+1][Y][X] || Game.Board[E+1][Y+1][X] ||
-                        Game.Board[E+1][Y][X+1] || Game.Board[E+1][Y+1][X+1] )
+                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
+                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X<BoardLayout::width-2 && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1]) &&
-                                              (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2]) )
+                if( X<BoardLayout::width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
+                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
                     continue;
 
                 PosTable[Pos].e = E;
                 PosTable[Pos].y = Y;
                 PosTable[Pos].x = X;
-                PosTable[Pos].f = Game.Board[E][Y][X];
+                PosTable[Pos].f = Game.BoardData(E,Y,X);
 
                 if( isMatchingTile(posA, PosTable[Pos]) )
                     Pos++;
@@ -1505,12 +1505,12 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 		Game.setHighlightData(Pos.e,Pos.y,Pos.x,1);
 		if (atile)
 		atile->setPixmap(*(theTiles.selectedPixmaps(
-				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
+				Game.BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 	} else {
 		Game.setHighlightData(Pos.e,Pos.y,Pos.x,0);
 		if (atile)
 		atile->setPixmap(*(theTiles.unselectedPixmaps(
-				Game.Board[Pos.e][Pos.y][Pos.x]-TILE_OFFSET)));
+				Game.BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 	}
 	/*if (doRepaint) {
 		updateBackBuffer=true;
@@ -1700,21 +1700,19 @@ void BoardWidget::transformPointToPosition(
             default :           continue;
         }
         // if gameboard is empty, skip
-        if ( ! Game.Board[E][Y][X] ) continue;
+        if ( ! Game.BoardData(E,Y,X) ) continue;
         // tile must be 'free' (nothing left, right or above it)
         if( E < 4 )
         {
-            if( Game.Board[E+1][Y][X] || (Y<BoardLayout::height-1 && Game.Board[E+1][Y+1][X]) ||
-                (X<BoardLayout::width-1 && Game.Board[E+1][Y][X+1]) ||
-	        (X<BoardLayout::width-1 && Y<BoardLayout::height-1 && Game.Board[E+1][Y+1][X+1]) )
+            if( Game.BoardData(E+1,Y,X) || (Y<BoardLayout::height-1 && Game.BoardData(E+1,Y+1,X)) ||
+                (X<BoardLayout::width-1 && Game.BoardData(E+1,Y,X+1)) ||
+	        (X<BoardLayout::width-1 && Y<BoardLayout::height-1 && Game.BoardData(E+1,Y+1,X+1)) )
                 continue;
         }
 
 	// No left test on left edge
-        if (( X > 0) && (Game.Board[E][Y][X-1] || Game.Board[E][Y+1][X-1])) {
-		if ((X<BoardLayout::width-2) && (Game.Board[E][Y][X+2] || Game.Board[E][Y+1][X+2])) {
-
-
+        if (( X > 0) && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1))) {
+		if ((X<BoardLayout::width-2) && (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2))) {
             	continue;
 		}
 	}
@@ -1723,7 +1721,7 @@ void BoardWidget::transformPointToPosition(
         MouseClickPos.e = E;
         MouseClickPos.y = Y;
         MouseClickPos.x = X;
-        MouseClickPos.f = Game.Board[E][Y][X];
+        MouseClickPos.f = Game.BoardData(E,Y,X);
         // give visible feedback
         hilightTile( MouseClickPos );
         break;
@@ -1735,7 +1733,7 @@ bool BoardWidget::loadBoard( )
 {
     GameData newGame = GameData();
     //memset( &newGame, 0, sizeof( newGame ) );
-    theBoardLayout.copyBoardLayout((UCHAR *) newGame.Mask.data(), newGame.MaxTileNum);
+    theBoardLayout.copyBoardLayout((UCHAR *) newGame.getMaskBytes(), newGame.MaxTileNum);
     Game = newGame;
     return(true);
 }
@@ -1950,11 +1948,11 @@ void BoardWidget::shuffle() {
 	for (int e=0; e<BoardLayout::depth; e++) {
 	    for (int y=0; y<BoardLayout::height; y++) {
 		for (int x=0; x<BoardLayout::width; x++) {
-		    if (Game.Board[e][y][x] && Game.MaskData(e,y,x) == '1') {
+		    if (Game.BoardData(e,y,x) && Game.MaskData(e,y,x) == '1') {
 			PosTable[count].e = e;
 			PosTable[count].y = y;
 			PosTable[count].x = x;
-			PosTable[count].f = Game.Board[e][y][x];
+			PosTable[count].f = Game.BoardData(e,y,x);
 			count++;
 		    }
 		}

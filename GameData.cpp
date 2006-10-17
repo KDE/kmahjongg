@@ -29,10 +29,27 @@ GameData::GameData () {
 
     Highlight = QByteArray(m_width*m_height*m_depth, 0);
     Mask = QByteArray(m_width*m_height*m_depth, 0);
+    Board = QByteArray(m_width*m_height*m_depth, 0);
 }
 
 GameData::~GameData () {
 
+}
+
+void GameData::putTile( short e, short y, short x, UCHAR f ){
+    setBoardData(e,y,x,f);
+    setBoardData(e,y+1,x,f);
+    setBoardData(e,y+1,x+1,f);
+    setBoardData(e,y,x+1,f);
+}
+
+bool GameData::tilePresent(int z, int y, int x) {
+    if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return false;
+    return(BoardData(z,y,x)!=0 && MaskData(z,y,x) == '1');
+}
+
+bool GameData::partTile(int z, int y, int x) {
+    return (BoardData(z,y,x) != 0);
 }
 
 UCHAR GameData::MaskData(short z, short y, short x){
@@ -48,4 +65,14 @@ UCHAR GameData::HighlightData(short z, short y, short x){
 void GameData::setHighlightData(short z, short y, short x, UCHAR value) {
     if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return ;
     Highlight[(z*m_width*m_height)+(y*m_width)+x] = value;
+}
+
+UCHAR GameData::BoardData(short z, short y, short x){
+    if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return 0;
+    return Board.at((z*m_width*m_height)+(y*m_width)+x);
+}
+
+void GameData::setBoardData(short z, short y, short x, UCHAR value) {
+    if ((y<0)||(x<0)||(z<0)||(y>m_height-1)||(x>m_width-1)||(z>m_depth-1)) return ;
+    Board[(z*m_width*m_height)+(y*m_width)+x] = value;
 }

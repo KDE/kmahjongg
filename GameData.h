@@ -30,45 +30,33 @@ public:
 
     int      allow_undo;
     int      allow_redo;
-    UCHAR    Board[BoardLayout::depth][BoardLayout::height][BoardLayout::width];
+
     USHORT   TileNum;
     USHORT   MaxTileNum;
 
     POSITION MoveList[BoardLayout::maxTiles];
-    void putTile( short e, short y, short x, UCHAR f )
-    {
-        Board[e][y][x] = Board[e][y+1][x] =
-		   Board[e][y+1][x+1] = Board[e][y][x+1] = f;
-    }
-    void putTile( POSITION& pos )
-    {
-        putTile( pos.e, pos.y, pos.x, pos.f );
-    }
 
+    void putTile( short e, short y, short x, UCHAR f );
+    void putTile( POSITION& pos ) { putTile( pos.e, pos.y, pos.x, pos.f );}
+    bool tilePresent(int z, int y, int x);
+    bool partTile(int z, int y, int x);
 
-    bool tilePresent(int z, int y, int x) {
-	if ((y<0)||(x<0)||(z<0)||(y>BoardLayout::height-1)||(x>BoardLayout::width-1)||(z>BoardLayout::depth-1)) return false;
-	return(Board[z][y][x]!=0 && MaskData(z,y,x) == '1');
-    }
-
-    bool partTile(int z, int y, int x) {
-	return (Board[z][y][x] != 0);
-    }
-
+    UCHAR BoardData(short z, short y, short x);
+    void setBoardData(short z, short y, short x, UCHAR value);
     UCHAR MaskData(short z, short y, short x);
     UCHAR HighlightData(short z, short y, short x);
     void setHighlightData(short z, short y, short x, UCHAR value);
+    char * getMaskBytes(){ return Mask.data(); }
 
     short m_width;
     short m_height;
     short m_depth;
     short m_maxTiles;
 
-//Candidates for privatization when code shuffle is over
-//private:
+private:
+    QByteArray Board;
     QByteArray Mask;
     QByteArray Highlight;
-
 };
 
 #endif // GAMEDATA_H
