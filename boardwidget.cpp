@@ -483,7 +483,7 @@ void BoardWidget::helpMove()
     cancelUserSelectedTiles();
     if (showHelp) helpMoveStop();
 
-    if( findMove( TimerPos1, TimerPos2 ) )
+    if( Game->findMove( TimerPos1, TimerPos2 ) )
     {
         cheatsUsed++;
         iTimerStep = 1;
@@ -558,7 +558,7 @@ void BoardWidget::demoMoveTimeout()
         {
             // at firts, find new matching tiles
             case 0:
-                if( ! findMove( TimerPos1, TimerPos2 ) )
+                if( ! Game->findMove( TimerPos1, TimerPos2 ) )
 	        {
                     // if computer has won
 	            if( Game->TileNum == 0 )
@@ -737,175 +737,6 @@ void BoardWidget::calculateNewGame( int gNumber)
 }
 
 // ---------------------------------------------------------
-bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
-{
-    short Pos_Ende = Game->MaxTileNum;  // Ende der PosTable
-
-    for( short E=0; E<Game->m_depth; E++ )
-    {
-        for( short Y=0; Y<Game->m_height-1; Y++ )
-        {
-            for( short X=0; X<Game->m_width-1; X++ )
-            {
-                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
-                    continue;
-                if( ! Game->BoardData(E,Y,X) )
-                    continue;
-                if( E < 4 )
-                {
-                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
-                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
-                        continue;
-                }
-                if( X<Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
-                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
-                    continue;
-
-                Pos_Ende--;
-                Game->PosTable[Pos_Ende].e = E;
-                Game->PosTable[Pos_Ende].y = Y;
-                Game->PosTable[Pos_Ende].x = X;
-                Game->PosTable[Pos_Ende].f = Game->BoardData(E,Y,X);
-
-
-
-
-            }
-        }
-    }
-
- //   PosTable[0].e = BoardLayout::depth;  // 1. Paar noch nicht gefunden
-    short iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
-
-
-    // The new tile layout with non-contiguos horizantle spans
-    // can lead to huge numbers of matching pairs being exposed.
-    // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
-    // (or less);
-    while( Pos_Ende < Game->MaxTileNum-1 && iPosCount < Game->m_maxTiles-2)
-    {
-        for( short Pos = Pos_Ende+1; Pos < Game->MaxTileNum; Pos++)
-        {
-            if( Game->isMatchingTile(Game->PosTable[Pos], Game->PosTable[Pos_Ende]) )
-            {
-		if (iPosCount < Game->m_maxTiles-2) {
-                	Game->PosTable[iPosCount++] = Game->PosTable[Pos_Ende];
-                	Game->PosTable[iPosCount++] = Game->PosTable[Pos];
-		}
-            }
-        }
-        Pos_Ende++;
-    }
-
-    if( iPosCount>=2 )
-    {
-        Game->random.setSeed(0); // WABA: Why is the seed reset?
-        short Pos = Game->random.getLong(iPosCount) & -2;  // Gerader Wert
-        posA = Game->PosTable[Pos];
-        posB = Game->PosTable[Pos+1];
-
-        return( true );
-    }
-    else
-        return( false );
-}
-
-int BoardWidget::moveCount( )
-{
-    short Pos_Ende = Game->MaxTileNum;  // end of PosTable
-
-    for( short E=0; E< Game->m_depth; E++ )
-    {
-        for( short Y=0; Y< Game->m_height-1; Y++ )
-        {
-            for( short X=0; X< Game->m_width-1; X++ )
-            {
-                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
-                    continue;
-                if( ! Game->BoardData(E,Y,X) )
-                    continue;
-                if( E < 4 )
-                {
-                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
-                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
-                        continue;
-                }
-                if( X< Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
-                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
-                    continue;
-
-                Pos_Ende--;
-                Game->PosTable[Pos_Ende].e = E;
-                Game->PosTable[Pos_Ende].y = Y;
-                Game->PosTable[Pos_Ende].x = X;
-                Game->PosTable[Pos_Ende].f = Game->BoardData(E,Y,X);
-
-            }
-        }
-    }
-
-    short iPosCount = 0;  // store number of pairs found
-
-    while( Pos_Ende < Game->MaxTileNum-1 && iPosCount <Game->m_maxTiles-2)
-    {
-        for( short Pos = Pos_Ende+1; Pos < Game->MaxTileNum; Pos++)
-        {
-            if( Game->isMatchingTile(Game->PosTable[Pos], Game->PosTable[Pos_Ende]) )
-            {
-		if (iPosCount < Game->m_maxTiles-2) {
-                	Game->PosTable[iPosCount++] = Game->PosTable[Pos_Ende];
-                	Game->PosTable[iPosCount++] = Game->PosTable[Pos];
-		}
-            }
-        }
-        Pos_Ende++;
-    }
-
-    return iPosCount/2;
-}
-
-
-
-
-// ---------------------------------------------------------
-short BoardWidget::findAllMatchingTiles( POSITION& posA )
-{
-    short Pos = 0;
-
-    for( short E=0; E< Game->m_depth; E++ )
-    {
-        for( short Y=0; Y< Game->m_height-1; Y++ )
-        {
-            for( short X=0; X< Game->m_width-1; X++ )
-            {
-                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
-                    continue;
-                if( ! Game->BoardData(E,Y,X) )
-                    continue;
-                if( E < 4 )
-                {
-                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
-                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
-                        continue;
-                }
-                if( X< Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
-                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
-                    continue;
-
-                Game->PosTable[Pos].e = E;
-                Game->PosTable[Pos].y = Y;
-                Game->PosTable[Pos].x = X;
-                Game->PosTable[Pos].f = Game->BoardData(E,Y,X);
-
-                if( Game->isMatchingTile(posA, Game->PosTable[Pos]) )
-                    Pos++;
-            }
-        }
-    }
-    return Pos;
-}
-
-// ---------------------------------------------------------
 // This function replaces the old method of hilighting by
 // modifying color 21 to color 20. This was single tileset
 // specific. We now have two tile faces, one selected one not.
@@ -1007,7 +838,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
 
             if( MouseClickPos1.e != Game->m_depth && showMatch )
             {
-                matchCount = findAllMatchingTiles( MouseClickPos1 );
+                matchCount = Game->findAllMatchingTiles( MouseClickPos1 );
                 TimerState = Match;
                 iTimerStep = 1;
                 matchAnimationTimeout();
@@ -1045,7 +876,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                         gameOver(Game->MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
-                    else if( ! findMove( TimerPos1, TimerPos2 ) )
+                    else if( ! Game->findMove( TimerPos1, TimerPos2 ) )
                     {
                         KMessageBox::information(this, i18n("Game over: You have no moves left."));
                     }
@@ -1172,7 +1003,7 @@ if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
 // ---------------------------------------------------------
 void BoardWidget::drawTileNumber()
 {
-    emit tileNumberChanged( Game->MaxTileNum, Game->TileNum, moveCount( ) );
+    emit tileNumberChanged( Game->MaxTileNum, Game->TileNum, Game->moveCount( ) );
 }
 
 // ---------------------------------------------------------

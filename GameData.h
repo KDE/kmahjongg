@@ -95,6 +95,9 @@ public:
 
     //postable
     QVector<POSITION> PosTable;   // Table of all possible positions
+    bool findMove( POSITION&, POSITION& );
+    int  moveCount( );
+    short findAllMatchingTiles( POSITION& );
 
     void initialiseRemovedTiles();
     void setRemovedTilePair(POSITION &a, POSITION &b);

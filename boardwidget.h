@@ -109,9 +109,6 @@ class BoardWidget : public KGameCanvasWidget
         void removeTile  ( POSITION& , bool refresh = true);
         void transformPointToPosition( const QPoint&, POSITION& );
 
-        bool findMove( POSITION&, POSITION& );
-        int  moveCount( );
-        short findAllMatchingTiles( POSITION& );
         void stopMatchAnimation();
 	void stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
 

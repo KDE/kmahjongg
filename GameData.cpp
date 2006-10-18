@@ -783,3 +783,169 @@ void GameData::initialiseRemovedTiles() {
 }
 
 
+// ---------------------------------------------------------
+bool GameData::findMove( POSITION& posA, POSITION& posB )
+{
+    short Pos_Ende = MaxTileNum;  // Ende der PosTable
+
+    for( short E=0; E< m_depth; E++ )
+    {
+        for( short Y=0; Y< m_height-1; Y++ )
+        {
+            for( short X=0; X< m_width-1; X++ )
+            {
+                if( MaskData(E,Y,X) != (UCHAR) '1' )
+                    continue;
+                if( ! BoardData(E,Y,X) )
+                    continue;
+                if( E < 4 )
+                {
+                    if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
+                        BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
+                        continue;
+                }
+                if( X< m_width-2 && (BoardData(E,Y,X-1) || BoardData(E,Y+1,X-1)) &&
+                                              (BoardData(E,Y,X+2) || BoardData(E,Y+1,X+2)) )
+                    continue;
+
+                Pos_Ende--;
+                PosTable[Pos_Ende].e = E;
+                PosTable[Pos_Ende].y = Y;
+                PosTable[Pos_Ende].x = X;
+                PosTable[Pos_Ende].f = BoardData(E,Y,X);
+
+
+
+
+            }
+        }
+    }
+
+    short iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
+
+    // The new tile layout with non-contiguos horizantle spans
+    // can lead to huge numbers of matching pairs being exposed.
+    // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
+    // (or less);
+    while( Pos_Ende < MaxTileNum-1 && iPosCount < m_maxTiles-2)
+    {
+        for( short Pos = Pos_Ende+1; Pos < MaxTileNum; Pos++)
+        {
+            if( isMatchingTile(PosTable[Pos], PosTable[Pos_Ende]) )
+            {
+		if (iPosCount < m_maxTiles-2) {
+                	PosTable[iPosCount++] = PosTable[Pos_Ende];
+                	PosTable[iPosCount++] = PosTable[Pos];
+		}
+            }
+        }
+        Pos_Ende++;
+    }
+
+    if( iPosCount>=2 )
+    {
+        random.setSeed(0); // WABA: Why is the seed reset?
+        short Pos = random.getLong(iPosCount) & -2;  // Gerader Wert
+        posA = PosTable[Pos];
+        posB = PosTable[Pos+1];
+
+        return( true );
+    }
+    else
+        return( false );
+}
+
+int GameData::moveCount( )
+{
+    short Pos_Ende = MaxTileNum;  // end of PosTable
+
+    for( short E=0; E< m_depth; E++ )
+    {
+        for( short Y=0; Y< m_height-1; Y++ )
+        {
+            for( short X=0; X< m_width-1; X++ )
+            {
+                if( MaskData(E,Y,X) != (UCHAR) '1' )
+                    continue;
+                if( ! BoardData(E,Y,X) )
+                    continue;
+                if( E < 4 )
+                {
+                    if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
+                        BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
+                        continue;
+                }
+                if( X< m_width-2 && (BoardData(E,Y,X-1) || BoardData(E,Y+1,X-1)) &&
+                                              (BoardData(E,Y,X+2) || BoardData(E,Y+1,X+2)) )
+                    continue;
+
+                Pos_Ende--;
+                PosTable[Pos_Ende].e = E;
+                PosTable[Pos_Ende].y = Y;
+                PosTable[Pos_Ende].x = X;
+                PosTable[Pos_Ende].f = BoardData(E,Y,X);
+
+            }
+        }
+    }
+
+    short iPosCount = 0;  // store number of pairs found
+
+    while( Pos_Ende < MaxTileNum-1 && iPosCount < m_maxTiles-2)
+    {
+        for( short Pos = Pos_Ende+1; Pos < MaxTileNum; Pos++)
+        {
+            if( isMatchingTile(PosTable[Pos], PosTable[Pos_Ende]) )
+            {
+		if (iPosCount < m_maxTiles-2) {
+                	PosTable[iPosCount++] = PosTable[Pos_Ende];
+                	PosTable[iPosCount++] = PosTable[Pos];
+		}
+            }
+        }
+        Pos_Ende++;
+    }
+
+    return iPosCount/2;
+}
+
+
+
+
+// ---------------------------------------------------------
+short GameData::findAllMatchingTiles( POSITION& posA )
+{
+    short Pos = 0;
+
+    for( short E=0; E< m_depth; E++ )
+    {
+        for( short Y=0; Y< m_height-1; Y++ )
+        {
+            for( short X=0; X< m_width-1; X++ )
+            {
+                if( MaskData(E,Y,X) != (UCHAR) '1' )
+                    continue;
+                if( ! BoardData(E,Y,X) )
+                    continue;
+                if( E < 4 )
+                {
+                    if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
+                        BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
+                        continue;
+                }
+                if( X< m_width-2 && (BoardData(E,Y,X-1) || BoardData(E,Y+1,X-1)) &&
+                                              (BoardData(E,Y,X+2) || BoardData(E,Y+1,X+2)) )
+                    continue;
+
+                PosTable[Pos].e = E;
+                PosTable[Pos].y = Y;
+                PosTable[Pos].x = X;
+                PosTable[Pos].f = BoardData(E,Y,X);
+
+                if( isMatchingTile(posA, PosTable[Pos]) )
+                    Pos++;
+            }
+        }
+    }
+    return Pos;
+}
