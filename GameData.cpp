@@ -20,11 +20,11 @@
 #include <QtDebug>
 
 
-GameData::GameData () {
+GameData::GameData (BoardLayout * boardlayout) {
     //Fixed for now, TODO add new constructor with dynamic board sizes
-    m_width = 32;
-    m_height = 16;
-    m_depth = 5;
+    m_width = boardlayout->m_width;
+    m_height = boardlayout->m_height;
+    m_depth = boardlayout->m_depth;
     m_maxTiles = (m_width*m_height*m_depth)/4;
 
     Highlight = QByteArray(m_width*m_height*m_depth, 0);
@@ -35,6 +35,9 @@ GameData::GameData () {
     tilePositions = QVector<POSITION>(m_maxTiles, e);
     PosTable = QVector<POSITION>(m_maxTiles, e);
     positionDepends = QVector<DEPENDENCY>(m_maxTiles);
+
+    //Copy board layout over
+    boardlayout->copyBoardLayout((UCHAR *) getMaskBytes(), MaxTileNum);
 }
 
 GameData::~GameData () {

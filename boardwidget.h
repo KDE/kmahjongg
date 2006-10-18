@@ -149,7 +149,7 @@ class BoardWidget : public KGameCanvasWidget
 	long  gameGenerationNum;
 
 public:
-  GameData Game;
+  GameData * Game;
 };
 
 #endif // BOARDWIDGET_H

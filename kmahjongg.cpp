@@ -259,14 +259,14 @@ void KMahjongg::startNewNumeric()
 
 void KMahjongg::undo()
 {
-    bw->Game.allow_redo += bw->undoMove();
+    bw->Game->allow_redo += bw->undoMove();
     demoModeChanged(false);
 }
 
 void KMahjongg::redo()
 {
-    if (bw->Game.allow_redo >0) {
-            bw->Game.allow_redo--;
+    if (bw->Game->allow_redo >0) {
+            bw->Game->allow_redo--;
             bw->redoMove();
             demoModeChanged(false);
     }
@@ -293,7 +293,7 @@ void KMahjongg::demoMode()
     } else {
         // we assume demo mode removes tiles so we can
         // disbale redo here.
-        bw->Game.allow_redo=false;
+        bw->Game->allow_redo=false;
         bw->startDemoMode();
     }
 
@@ -378,7 +378,7 @@ void KMahjongg::startNewGame( int item )
         bw->calculateNewGame(item);
 
 	// initialise button states
-	bw->Game.allow_redo = bw->Game.allow_undo = 0;
+	bw->Game->allow_redo = bw->Game->allow_undo = 0;
 
 	timerReset();
 
@@ -458,7 +458,7 @@ void KMahjongg::showTileNumber( int iMaximum, int iCurrent, int iLeft )
     // Update here since undo allow is effected by demo mode
     // removal. However we only change the enabled state of the
     // items when not in demo mode
-    bw->Game.allow_undo = iMaximum != iCurrent;
+    bw->Game->allow_undo = iMaximum != iCurrent;
 
     // update undo menu item, if demomode is inactive
     if( ! bDemoModeActive && !is_paused)
@@ -466,7 +466,7 @@ void KMahjongg::showTileNumber( int iMaximum, int iCurrent, int iLeft )
 
 //        pMenuBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
 //        toolBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
-        undoAction->setEnabled(bw->Game.allow_undo);
+        undoAction->setEnabled(bw->Game->allow_undo);
     }
 }
 
@@ -485,8 +485,8 @@ void KMahjongg::demoModeChanged( bool bActive)
         stateChanged("active");
     else {
         stateChanged("inactive");
-        undoAction->setEnabled(bw->Game.allow_undo);
-	    redoAction->setEnabled(bw->Game.allow_redo);
+        undoAction->setEnabled(bw->Game->allow_undo);
+	    redoAction->setEnabled(bw->Game->allow_redo);
     }
 }
 
@@ -554,7 +554,7 @@ void KMahjongg::restartGame() {
         bw->calculateNewGame(bw->getGameNum());
 
         // initialise button states
-        bw->Game.allow_redo = bw->Game.allow_undo = 0;
+        bw->Game->allow_redo = bw->Game->allow_undo = 0;
 
         timerReset();
 

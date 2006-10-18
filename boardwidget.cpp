@@ -54,8 +54,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     showMatch = false;
     showHelp = false;
 
-    //memset( &Game.Mask, 0, sizeof( Game.Mask ) );
-    Game.MaxTileNum = 0;
+    //memset( &Game->Mask, 0, sizeof( Game->Mask ) );
     gameGenerationNum = 0;
     backsprite = 0;
 
@@ -90,15 +89,19 @@ BoardWidget::BoardWidget( QWidget* parent )
                 "KMahjongg will continue with the default layout.", tFile));
     }
 
-    MouseClickPos1.e = theBoardLayout.m_depth;     // mark tile position as invalid
-    MouseClickPos2.e = theBoardLayout.m_depth;
+    //Initialize our Game
+    Game = new GameData(&theBoardLayout);
 
-    setDisplayedWidth();
+    MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
+    MouseClickPos2.e = Game->m_depth;
+
+    //setDisplayedWidth();
     loadSettings();
 }
 
 BoardWidget::~BoardWidget(){
   saveSettings();
+  if (Game) delete Game;
 }
 
 void BoardWidget::loadSettings(){
@@ -184,32 +187,32 @@ void BoardWidget::updateSpriteMap() {
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z=0; z<Game.m_depth; z++) {
+    for (int z=0; z<Game->m_depth; z++) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < Game.m_height; y++) {
+        for (int y = 0; y < Game->m_height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x=Game.m_width-1; x>=0; x--) {
+            for (int x=Game->m_width-1; x>=0; x--) {
                 int sx = x*(theTiles.qWidth()  )+xOffset;
                 int sy = y*(theTiles.qHeight()  )+yOffset;
 
 		// skip if no tile to display
-		if (!Game.tilePresent(z,y,x))
+		if (!Game->tilePresent(z,y,x))
 			continue;
 
                 QPixmap *t;
-		if (Game.HighlightData(z,y,x)) {
+		if (Game->HighlightData(z,y,x)) {
 		   t= theTiles.selectedPixmaps(
-				Game.BoardData(z,y,x)-TILE_OFFSET);
+				Game->BoardData(z,y,x)-TILE_OFFSET);
 		} else {
 		   t= theTiles.unselectedPixmaps(
-				Game.BoardData(z,y,x)-TILE_OFFSET);
+				Game->BoardData(z,y,x)-TILE_OFFSET);
                 }
 
 		//if (!spriteMap.contains(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z)))
 		//{
 		  KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
 
-		  //if (Game.tilePresent(z, y-1, x-2)) {
+		  //if (Game->tilePresent(z, y-1, x-2)) {
 		    //qDebug() << "overlap at " << y << x;
 		  //}
 		  thissprite->moveTo(sx, sy);
@@ -222,15 +225,15 @@ void BoardWidget::updateSpriteMap() {
         yOffset -=theTiles.levelOffset();
     }
 
-    for (int z=0; z<Game.m_depth; z++) {
+    for (int z=0; z<Game->m_depth; z++) {
         // start drawing in diagonal for correct layering. For this we double the board, 
 	//actually starting outside of it, in the bottom right corner, so our first diagonal ends
 	// at the actual top right corner of the board
-        for (int x=Game.m_width*2; x>=0; x--) {
+        for (int x=Game->m_width*2; x>=0; x--) {
             // reset the offset
 	    int offset = 0;
-            for (int y=Game.m_height-1; y>=0; y--) {
-		if (Game.tilePresent(z,y,x-offset))
+            for (int y=Game->m_height-1; y>=0; y--) {
+		if (Game->tilePresent(z,y,x-offset))
 		{
 			KGameCanvasPixmap * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
 			if (thissprite) thissprite->raise();
@@ -311,16 +314,16 @@ void BoardWidget::paintEvent( QPaintEvent* pa )
                 int sy = y*(theTiles.qHeight()  )+yOffset;
 
 		// skip if no tile to display
-		if (!Game.tilePresent(z,y,x))
+		if (!Game->tilePresent(z,y,x))
 			continue;
 
                 QPixmap *t;
-		if (Game.hilighted[z][y][x]) {
+		if (Game->hilighted[z][y][x]) {
 		   t= theTiles.selectedPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
+				Game->Board[z][y][x]-TILE_OFFSET);
 		} else {
 		   t= theTiles.unselectedPixmaps(
-				Game.Board[z][y][x]-TILE_OFFSET);
+				Game->Board[z][y][x]-TILE_OFFSET);
                 }
 
                 // Only one compilcation. Since we render top to bottom , left
@@ -440,12 +443,12 @@ void BoardWidget::pause() {
 void BoardWidget::gameLoaded()
 {
 	int i;
-	Game.initialiseRemovedTiles();
-	i = Game.TileNum;
+	Game->initialiseRemovedTiles();
+	i = Game->TileNum;
 	// use the history of moves to put in the removed tiles area the correct tiles
-	while (i < Game.MaxTileNum )
+	while (i < Game->MaxTileNum )
 	{
-		Game.setRemovedTilePair(Game.MoveListData(i), Game.MoveListData(i+1));
+		Game->setRemovedTilePair(Game->MoveListData(i), Game->MoveListData(i+1));
 		i +=2;
 	}
 	drawBoard();
@@ -456,14 +459,14 @@ int BoardWidget::undoMove()
 {
     cancelUserSelectedTiles();
 
-    if( Game.TileNum < Game.MaxTileNum )
+    if( Game->TileNum < Game->MaxTileNum )
     {
 
-        Game.clearRemovedTilePair(Game.MoveListData(Game.TileNum), Game.MoveListData(Game.TileNum+1));
-        putTileInBoard( Game.MoveListData(Game.TileNum), false );
-        Game.TileNum++;
-        putTileInBoard( Game.MoveListData(Game.TileNum) );
-        Game.TileNum++;
+        Game->clearRemovedTilePair(Game->MoveListData(Game->TileNum), Game->MoveListData(Game->TileNum+1));
+        putTileInBoard( Game->MoveListData(Game->TileNum), false );
+        Game->TileNum++;
+        putTileInBoard( Game->MoveListData(Game->TileNum) );
+        Game->TileNum++;
         drawTileNumber();
         setStatusText( i18n("Undo operation done successfully.") );
 	return 1;
@@ -558,7 +561,7 @@ void BoardWidget::demoMoveTimeout()
                 if( ! findMove( TimerPos1, TimerPos2 ) )
 	        {
                     // if computer has won
-	            if( Game.TileNum == 0 )
+	            if( Game->TileNum == 0 )
                     {
                         animateMoveList();
                     }
@@ -566,12 +569,12 @@ void BoardWidget::demoMoveTimeout()
                     else
                     {
                         setStatusText( i18n("Your computer has lost the game.") );
-                        while( Game.TileNum < Game.MaxTileNum )
+                        while( Game->TileNum < Game->MaxTileNum )
                         {
-                            putTileInBoard( Game.MoveListData(Game.TileNum), false );
-                            Game.TileNum++;
-                            putTileInBoard( Game.MoveListData(Game.TileNum) );
-                            Game.TileNum++;
+                            putTileInBoard( Game->MoveListData(Game->TileNum), false );
+                            Game->TileNum++;
+                            putTileInBoard( Game->MoveListData(Game->TileNum) );
+                            Game->TileNum++;
                             drawTileNumber();
                         }
                     }
@@ -594,7 +597,7 @@ void BoardWidget::demoMoveTimeout()
                 break;
 	    // remove matching tiles from game board
             case 5:
-                Game.setRemovedTilePair(TimerPos1, TimerPos2);
+                Game->setRemovedTilePair(TimerPos1, TimerPos2);
                 removeTile( TimerPos1, false );
                 removeTile( TimerPos2 );
                 drawTileNumber();
@@ -624,14 +627,14 @@ void BoardWidget::matchAnimationTimeout()
         {
 
 
-            hilightTile(Game.PosTable[Pos], true);
+            hilightTile(Game->PosTable[Pos], true);
         }
     }
     else
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-            hilightTile(Game.PosTable[Pos], false);
+            hilightTile(Game->PosTable[Pos], false);
         }
     }
     if( TimerState == Match )
@@ -642,7 +645,7 @@ void BoardWidget::stopMatchAnimation()
 {
     for(short Pos = 0; Pos < matchCount; Pos++)
     {
-        hilightTile(Game.PosTable[Pos], false);
+        hilightTile(Game->PosTable[Pos], false);
     }
     TimerState = Stop;
     matchCount = 0;
@@ -651,9 +654,9 @@ void BoardWidget::stopMatchAnimation()
 void BoardWidget::redoMove()
 {
 
-	Game.setRemovedTilePair(Game.MoveListData(Game.TileNum-1),Game.MoveListData(Game.TileNum-2));
-        removeTile(Game.MoveListData(Game.TileNum-1), false);
-        removeTile(Game.MoveListData(Game.TileNum-1));
+	Game->setRemovedTilePair(Game->MoveListData(Game->TileNum-1),Game->MoveListData(Game->TileNum-2));
+        removeTile(Game->MoveListData(Game->TileNum-1), false);
+        removeTile(Game->MoveListData(Game->TileNum-1));
         drawTileNumber();
 }
 
@@ -664,20 +667,20 @@ void BoardWidget::animateMoveList()
 
     if (Prefs::playAnimation())
     {
-        while( Game.TileNum < Game.MaxTileNum )
+        while( Game->TileNum < Game->MaxTileNum )
         {
             // put back all tiles
-            putTileInBoard(Game.MoveListData(Game.TileNum));
-            Game.TileNum++;
-            putTileInBoard(Game.MoveListData(Game.TileNum), false);
-            Game.TileNum++;
+            putTileInBoard(Game->MoveListData(Game->TileNum));
+            Game->TileNum++;
+            putTileInBoard(Game->MoveListData(Game->TileNum), false);
+            Game->TileNum++;
             drawTileNumber();
         }
-        while( Game.TileNum > 0 )
+        while( Game->TileNum > 0 )
         {
             // remove all tiles
-            removeTile(Game.MoveListData(Game.TileNum-1), false);
-            removeTile(Game.MoveListData(Game.TileNum-1));
+            removeTile(Game->MoveListData(Game->TileNum-1), false);
+            removeTile(Game->MoveListData(Game->TileNum-1));
             drawTileNumber();
         }
     }
@@ -690,7 +693,7 @@ void BoardWidget::calculateNewGame( int gNumber)
 {
     cancelUserSelectedTiles();
     stopMatchAnimation();
-    Game.initialiseRemovedTiles();
+    Game->initialiseRemovedTiles();
     setStatusText( i18n("Calculating new game...") );
 
 
@@ -706,21 +709,21 @@ void BoardWidget::calculateNewGame( int gNumber)
 	gameGenerationNum = gNumber;
     }
 
-    Game.random.setSeed(gameGenerationNum);
+    Game->random.setSeed(gameGenerationNum);
 
-    // Translate Game.Map to an array of POSITION data.  We only need to
+    // Translate Game->Map to an array of POSITION data.  We only need to
     // do this once for each new game.
-    //memset(Game.tilePositions, 0, sizeof(Game.tilePositions));
-    Game.generateTilePositions();
+    //memset(Game->tilePositions, 0, sizeof(Game->tilePositions));
+    Game->generateTilePositions();
 
     // Now use the tile position data to generate tile dependency data.
     // We only need to do this once for each new game.
-    Game.generatePositionDepends();
+    Game->generatePositionDepends();
 
     // Now try to position tiles on the board, 64 tries max.
     for( short nr=0; nr<64; nr++ )
     {
-        if( Game.generateStartPosition2() )
+        if( Game->generateStartPosition2() )
         {
             drawBoard();
             setStatusText( i18n("Ready. Now it is your turn.") );
@@ -736,33 +739,33 @@ void BoardWidget::calculateNewGame( int gNumber)
 // ---------------------------------------------------------
 bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 {
-    short Pos_Ende = Game.MaxTileNum;  // Ende der PosTable
+    short Pos_Ende = Game->MaxTileNum;  // Ende der PosTable
 
-    for( short E=0; E<Game.m_depth; E++ )
+    for( short E=0; E<Game->m_depth; E++ )
     {
-        for( short Y=0; Y<Game.m_height-1; Y++ )
+        for( short Y=0; Y<Game->m_height-1; Y++ )
         {
-            for( short X=0; X<Game.m_width-1; X++ )
+            for( short X=0; X<Game->m_width-1; X++ )
             {
-                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
+                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.BoardData(E,Y,X) )
+                if( ! Game->BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
-                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
+                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
+                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X<Game.m_width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
-                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
+                if( X<Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
+                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
                     continue;
 
                 Pos_Ende--;
-                Game.PosTable[Pos_Ende].e = E;
-                Game.PosTable[Pos_Ende].y = Y;
-                Game.PosTable[Pos_Ende].x = X;
-                Game.PosTable[Pos_Ende].f = Game.BoardData(E,Y,X);
+                Game->PosTable[Pos_Ende].e = E;
+                Game->PosTable[Pos_Ende].y = Y;
+                Game->PosTable[Pos_Ende].x = X;
+                Game->PosTable[Pos_Ende].f = Game->BoardData(E,Y,X);
 
 
 
@@ -779,15 +782,15 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
     // can lead to huge numbers of matching pairs being exposed.
     // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
     // (or less);
-    while( Pos_Ende < Game.MaxTileNum-1 && iPosCount < Game.m_maxTiles-2)
+    while( Pos_Ende < Game->MaxTileNum-1 && iPosCount < Game->m_maxTiles-2)
     {
-        for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
+        for( short Pos = Pos_Ende+1; Pos < Game->MaxTileNum; Pos++)
         {
-            if( Game.isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
+            if( Game->isMatchingTile(Game->PosTable[Pos], Game->PosTable[Pos_Ende]) )
             {
-		if (iPosCount < Game.m_maxTiles-2) {
-                	Game.PosTable[iPosCount++] = Game.PosTable[Pos_Ende];
-                	Game.PosTable[iPosCount++] = Game.PosTable[Pos];
+		if (iPosCount < Game->m_maxTiles-2) {
+                	Game->PosTable[iPosCount++] = Game->PosTable[Pos_Ende];
+                	Game->PosTable[iPosCount++] = Game->PosTable[Pos];
 		}
             }
         }
@@ -796,10 +799,10 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 
     if( iPosCount>=2 )
     {
-        Game.random.setSeed(0); // WABA: Why is the seed reset?
-        short Pos = Game.random.getLong(iPosCount) & -2;  // Gerader Wert
-        posA = Game.PosTable[Pos];
-        posB = Game.PosTable[Pos+1];
+        Game->random.setSeed(0); // WABA: Why is the seed reset?
+        short Pos = Game->random.getLong(iPosCount) & -2;  // Gerader Wert
+        posA = Game->PosTable[Pos];
+        posB = Game->PosTable[Pos+1];
 
         return( true );
     }
@@ -809,33 +812,33 @@ bool BoardWidget::findMove( POSITION& posA, POSITION& posB )
 
 int BoardWidget::moveCount( )
 {
-    short Pos_Ende = Game.MaxTileNum;  // end of PosTable
+    short Pos_Ende = Game->MaxTileNum;  // end of PosTable
 
-    for( short E=0; E< Game.m_depth; E++ )
+    for( short E=0; E< Game->m_depth; E++ )
     {
-        for( short Y=0; Y< Game.m_height-1; Y++ )
+        for( short Y=0; Y< Game->m_height-1; Y++ )
         {
-            for( short X=0; X< Game.m_width-1; X++ )
+            for( short X=0; X< Game->m_width-1; X++ )
             {
-                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
+                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.BoardData(E,Y,X) )
+                if( ! Game->BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
-                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
+                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
+                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X< Game.m_width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
-                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
+                if( X< Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
+                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
                     continue;
 
                 Pos_Ende--;
-                Game.PosTable[Pos_Ende].e = E;
-                Game.PosTable[Pos_Ende].y = Y;
-                Game.PosTable[Pos_Ende].x = X;
-                Game.PosTable[Pos_Ende].f = Game.BoardData(E,Y,X);
+                Game->PosTable[Pos_Ende].e = E;
+                Game->PosTable[Pos_Ende].y = Y;
+                Game->PosTable[Pos_Ende].x = X;
+                Game->PosTable[Pos_Ende].f = Game->BoardData(E,Y,X);
 
             }
         }
@@ -843,15 +846,15 @@ int BoardWidget::moveCount( )
 
     short iPosCount = 0;  // store number of pairs found
 
-    while( Pos_Ende < Game.MaxTileNum-1 && iPosCount <Game.m_maxTiles-2)
+    while( Pos_Ende < Game->MaxTileNum-1 && iPosCount <Game->m_maxTiles-2)
     {
-        for( short Pos = Pos_Ende+1; Pos < Game.MaxTileNum; Pos++)
+        for( short Pos = Pos_Ende+1; Pos < Game->MaxTileNum; Pos++)
         {
-            if( Game.isMatchingTile(Game.PosTable[Pos], Game.PosTable[Pos_Ende]) )
+            if( Game->isMatchingTile(Game->PosTable[Pos], Game->PosTable[Pos_Ende]) )
             {
-		if (iPosCount < Game.m_maxTiles-2) {
-                	Game.PosTable[iPosCount++] = Game.PosTable[Pos_Ende];
-                	Game.PosTable[iPosCount++] = Game.PosTable[Pos];
+		if (iPosCount < Game->m_maxTiles-2) {
+                	Game->PosTable[iPosCount++] = Game->PosTable[Pos_Ende];
+                	Game->PosTable[iPosCount++] = Game->PosTable[Pos];
 		}
             }
         }
@@ -869,40 +872,38 @@ short BoardWidget::findAllMatchingTiles( POSITION& posA )
 {
     short Pos = 0;
 
-    for( short E=0; E< Game.m_depth; E++ )
+    for( short E=0; E< Game->m_depth; E++ )
     {
-        for( short Y=0; Y< Game.m_height-1; Y++ )
+        for( short Y=0; Y< Game->m_height-1; Y++ )
         {
-            for( short X=0; X< Game.m_width-1; X++ )
+            for( short X=0; X< Game->m_width-1; X++ )
             {
-                if( Game.MaskData(E,Y,X) != (UCHAR) '1' )
+                if( Game->MaskData(E,Y,X) != (UCHAR) '1' )
                     continue;
-                if( ! Game.BoardData(E,Y,X) )
+                if( ! Game->BoardData(E,Y,X) )
                     continue;
                 if( E < 4 )
                 {
-                    if( Game.BoardData(E+1,Y,X) || Game.BoardData(E+1,Y+1,X) ||
-                        Game.BoardData(E+1,Y,X+1) || Game.BoardData(E+1,Y+1,X+1) )
+                    if( Game->BoardData(E+1,Y,X) || Game->BoardData(E+1,Y+1,X) ||
+                        Game->BoardData(E+1,Y,X+1) || Game->BoardData(E+1,Y+1,X+1) )
                         continue;
                 }
-                if( X< Game.m_width-2 && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1)) &&
-                                              (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2)) )
+                if( X< Game->m_width-2 && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1)) &&
+                                              (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2)) )
                     continue;
 
-                Game.PosTable[Pos].e = E;
-                Game.PosTable[Pos].y = Y;
-                Game.PosTable[Pos].x = X;
-                Game.PosTable[Pos].f = Game.BoardData(E,Y,X);
+                Game->PosTable[Pos].e = E;
+                Game->PosTable[Pos].y = Y;
+                Game->PosTable[Pos].x = X;
+                Game->PosTable[Pos].f = Game->BoardData(E,Y,X);
 
-                if( Game.isMatchingTile(posA, Game.PosTable[Pos]) )
+                if( Game->isMatchingTile(posA, Game->PosTable[Pos]) )
                     Pos++;
             }
         }
     }
     return Pos;
 }
-
-
 
 // ---------------------------------------------------------
 // This function replaces the old method of hilighting by
@@ -918,15 +919,15 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	}
 
 	if (on) {
-		Game.setHighlightData(Pos.e,Pos.y,Pos.x,1);
+		Game->setHighlightData(Pos.e,Pos.y,Pos.x,1);
 		if (atile)
 		atile->setPixmap(*(theTiles.selectedPixmaps(
-				Game.BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+				Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 	} else {
-		Game.setHighlightData(Pos.e,Pos.y,Pos.x,0);
+		Game->setHighlightData(Pos.e,Pos.y,Pos.x,0);
 		if (atile)
 		atile->setPixmap(*(theTiles.unselectedPixmaps(
-				Game.BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+				Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 	}
 }
 
@@ -950,8 +951,8 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     short X=Pos.x;
 
 	// we ensure that any tile we put on has highlighting off
-    Game.putTile( E, Y, X, Pos.f );
-    Game.setHighlightData(E,Y,X,0);
+    Game->putTile( E, Y, X, Pos.f );
+    Game->setHighlightData(E,Y,X,0);
     if (doRepaint) {
 	updateBackBuffer=true;
 	update(); 
@@ -964,16 +965,15 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
 //TODO move this to Game after handling the repaint situation
 void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
 {
-
     short E = Pos.e;
     short Y = Pos.y;
     short X = Pos.x;
 
-    Game.TileNum--;                    // Eine Figur weniger
-    Game.setMoveListData(Game.TileNum,Pos); // Position ins Protokoll eintragen
+    Game->TileNum--;                    // Eine Figur weniger
+    Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
     // remove tile from game board
-    Game.putTile( E, Y, X, 0 );
+    Game->putTile( E, Y, X, 0 );
     if (doRepaint) {
         updateBackBuffer=true;
 	update(); 
@@ -1001,11 +1001,11 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
         if( showHelp ) // stop hilighting tiles
             helpMoveStop();
 
-        if( MouseClickPos1.e == Game.m_depth )       // first tile
+        if( MouseClickPos1.e == Game->m_depth )       // first tile
         {
             transformPointToPosition( event->pos(), MouseClickPos1 );
 
-            if( MouseClickPos1.e != Game.m_depth && showMatch )
+            if( MouseClickPos1.e != Game->m_depth && showMatch )
             {
                 matchCount = findAllMatchingTiles( MouseClickPos1 );
                 TimerState = Match;
@@ -1017,17 +1017,17 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
         else                                // second tile
         {
             transformPointToPosition( event->pos(), MouseClickPos2 );
-            if( MouseClickPos2.e == Game.m_depth )
+            if( MouseClickPos2.e == Game->m_depth )
             {
                 cancelUserSelectedTiles();
             }
             else
             {
-                if( Game.isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
+                if( Game->isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
                 {
                     // update the removed tiles (we do this before the remove below
                     // so that we only require 1 screen paint for both actions)
-                    Game.setRemovedTilePair(MouseClickPos1, MouseClickPos2);
+                    Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
                     // now we remove the tiles from the board
                     removeTile(MouseClickPos1, false);
@@ -1035,14 +1035,14 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
 
                     // removing a tile means redo is impossible without
                     // a further undo.
-                    Game.allow_redo=false;
+                    Game->allow_redo=false;
                     demoModeChanged(false);
                     drawTileNumber();
 
                     // if no tiles are left, the player has `won`, so celebrate
-                    if( Game.TileNum == 0 )
+                    if( Game->TileNum == 0 )
                     {
-                        gameOver(Game.MaxTileNum,cheatsUsed);
+                        gameOver(Game->MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
                     else if( ! findMove( TimerPos1, TimerPos2 ) )
@@ -1056,8 +1056,8 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     hilightTile( MouseClickPos1, false, false );
                     hilightTile( MouseClickPos2, false );
                 }
-                MouseClickPos1.e = Game.m_depth;     // mark tile position as invalid
-                MouseClickPos2.e = Game.m_depth;
+                MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
+                MouseClickPos2.e = Game->m_depth;
             }
         }
     }
@@ -1079,7 +1079,7 @@ void BoardWidget::transformPointToPosition(
     short E,X,Y;
 
     // iterate over E coordinate from top to bottom
-    for( E= Game.m_depth-1; E>=0; E-- )
+    for( E= Game->m_depth-1; E>=0; E-- )
     {
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
@@ -1090,10 +1090,10 @@ void BoardWidget::transformPointToPosition(
 
 	// changed to allow x == 0
         // skip when position is illegal
-        if (X<0 || X>= Game.m_width || Y<0 || Y>= Game.m_height)
+        if (X<0 || X>= Game->m_width || Y<0 || Y>= Game->m_height)
 		continue;
 
-        switch( Game.MaskData(E,Y,X) )
+        switch( Game->MaskData(E,Y,X) )
         {
             case (UCHAR)'3':    X--;Y--;
                                 break;
@@ -1109,19 +1109,19 @@ void BoardWidget::transformPointToPosition(
             default :           continue;
         }
         // if gameboard is empty, skip
-        if ( ! Game.BoardData(E,Y,X) ) continue;
+        if ( ! Game->BoardData(E,Y,X) ) continue;
         // tile must be 'free' (nothing left, right or above it)
         if( E < 4 )
         {
-            if( Game.BoardData(E+1,Y,X) || (Y< Game.m_height-1 && Game.BoardData(E+1,Y+1,X)) ||
-                (X< Game.m_width-1 && Game.BoardData(E+1,Y,X+1)) ||
-	        (X< Game.m_width-1 && Y< Game.m_height-1 && Game.BoardData(E+1,Y+1,X+1)) )
+            if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
+                (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
+	        (X< Game->m_width-1 && Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X+1)) )
                 continue;
         }
 
 	// No left test on left edge
-        if (( X > 0) && (Game.BoardData(E,Y,X-1) || Game.BoardData(E,Y+1,X-1))) {
-		if ((X< Game.m_width-2) && (Game.BoardData(E,Y,X+2) || Game.BoardData(E,Y+1,X+2))) {
+        if (( X > 0) && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1))) {
+		if ((X< Game->m_width-2) && (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2))) {
             	continue;
 		}
 	}
@@ -1130,7 +1130,7 @@ void BoardWidget::transformPointToPosition(
         MouseClickPos.e = E;
         MouseClickPos.y = Y;
         MouseClickPos.x = X;
-        MouseClickPos.f = Game.BoardData(E,Y,X);
+        MouseClickPos.f = Game->BoardData(E,Y,X);
         // give visible feedback
         hilightTile( MouseClickPos );
         break;
@@ -1140,10 +1140,8 @@ void BoardWidget::transformPointToPosition(
 // ---------------------------------------------------------
 bool BoardWidget::loadBoard( )
 {
-    GameData newGame = GameData();
-    //memset( &newGame, 0, sizeof( newGame ) );
-    theBoardLayout.copyBoardLayout((UCHAR *) newGame.getMaskBytes(), newGame.MaxTileNum);
-    Game = newGame;
+    if (Game) delete Game;
+    Game = new GameData(&theBoardLayout);
     return(true);
 }
 
@@ -1174,16 +1172,16 @@ if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
 // ---------------------------------------------------------
 void BoardWidget::drawTileNumber()
 {
-    emit tileNumberChanged( Game.MaxTileNum, Game.TileNum, moveCount( ) );
+    emit tileNumberChanged( Game->MaxTileNum, Game->TileNum, moveCount( ) );
 }
 
 // ---------------------------------------------------------
 void BoardWidget::cancelUserSelectedTiles()
 {
-    if( MouseClickPos1.e != Game.m_depth )
+    if( MouseClickPos1.e != Game->m_depth )
     {
         hilightTile( MouseClickPos1, false ); // redraw tile
-        MouseClickPos1.e = Game.m_depth;    // mark tile invalid
+        MouseClickPos1.e = Game->m_depth;    // mark tile invalid
     }
 }
 
@@ -1216,14 +1214,12 @@ bool BoardWidget::loadBoardLayout(const QString &file) {
 }
 
 void BoardWidget::updateScaleMode() {
-
-
 	theBackground.scaleModeChanged();
 }
 
 int BoardWidget::requiredHorizontalCells()
 {
-	int res = (Game.m_width/2);
+	int res = (Game->m_width/2);
 	if (Prefs::showRemoved()) 
 		res = res + 3; //space for removed tiles
 	return res;
@@ -1231,7 +1227,7 @@ int BoardWidget::requiredHorizontalCells()
 
 int BoardWidget::requiredVerticalCells()
 {
-	int res = (Game.m_height/2);
+	int res = (Game->m_height/2);
 	return res;
 }
 
@@ -1262,14 +1258,14 @@ void BoardWidget::shuffle() {
 	int count = 0;
 	// copy positions and faces of the remaining tiles into
 	// the pos table
-	for (int e=0; e<Game.m_depth; e++) {
-	    for (int y=0; y<Game.m_height; y++) {
-		for (int x=0; x<Game.m_width; x++) {
-		    if (Game.BoardData(e,y,x) && Game.MaskData(e,y,x) == '1') {
-			Game.PosTable[count].e = e;
-			Game.PosTable[count].y = y;
-			Game.PosTable[count].x = x;
-			Game.PosTable[count].f = Game.BoardData(e,y,x);
+	for (int e=0; e<Game->m_depth; e++) {
+	    for (int y=0; y<Game->m_height; y++) {
+		for (int x=0; x<Game->m_width; x++) {
+		    if (Game->BoardData(e,y,x) && Game->MaskData(e,y,x) == '1') {
+			Game->PosTable[count].e = e;
+			Game->PosTable[count].y = y;
+			Game->PosTable[count].x = x;
+			Game->PosTable[count].f = Game->BoardData(e,y,x);
 			count++;
 		    }
 		}
@@ -1281,18 +1277,18 @@ void BoardWidget::shuffle() {
 	// now lets randomise the faces, selecting 400 pairs at random and
 	// swapping the faces.
 	for (int ran=0; ran < 400; ran++) {
-		int pos1 = Game.random.getLong(count);
-		int pos2 = Game.random.getLong(count);
+		int pos1 = Game->random.getLong(count);
+		int pos2 = Game->random.getLong(count);
 		if (pos1 == pos2)
 			continue;
-		BYTE f = Game.PosTable[pos1].f;
-		Game.PosTable[pos1].f = Game.PosTable[pos2].f;
-		Game.PosTable[pos2].f = f;
+		BYTE f = Game->PosTable[pos1].f;
+		Game->PosTable[pos1].f = Game->PosTable[pos2].f;
+		Game->PosTable[pos2].f = f;
 	}
 
 	// put the rearranged tiles back.
 	for (int p=0; p<count; p++)
-		Game.putTile(Game.PosTable[p]);
+		Game->putTile(Game->PosTable[p]);
 
 
 	// force a redraw
