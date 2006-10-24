@@ -21,6 +21,7 @@
 #include <QFile>
 #include <qtextstream.h>
 #include <qtextcodec.h>
+#include <QtDebug>
 
 BoardLayout::BoardLayout()
 {
@@ -28,7 +29,6 @@ BoardLayout::BoardLayout()
 	m_width = 32;
 	m_height = 16;
 	m_depth = 5;
-	m_maxTiles = (m_width*m_height*m_depth)/4;
 	board = QByteArray(m_width*m_height*m_depth, 0);
 	clearBoardLayout();
 }
@@ -71,7 +71,7 @@ bool BoardLayout::saveBoardLayout(const QString where) {
         return f.putChar('\n');
 }
 
-bool BoardLayout::loadBoardLayout(const QString from)
+bool BoardLayout::loadBoardLayout_10(const QString from)
 {
     if (from == filename) {
 	return true;	
@@ -89,6 +89,10 @@ bool BoardLayout::loadBoardLayout(const QString from)
 	    f.close();
 	    return(false);
 	}
+	//version 1.0 layouts used hardcoded board dimensions
+	m_width = 32;
+	m_height = 16;
+	m_depth = 5;
 	int lines = 0;
 	while ( !t.atEnd() ) {        
 	    s = t.readLine();
@@ -112,19 +116,74 @@ bool BoardLayout::loadBoardLayout(const QString from)
     }
 }
 
+bool BoardLayout::loadBoardLayout(const QString from)
+{
+    if (from == filename) {
+	return true;	
+    } 
+
+    QFile f(from);
+    QString all = "";
+    if ( f.open(QIODevice::ReadOnly) ) {    
+ 	QTextStream t( &f );
+        t.setCodec(QTextCodec::codecForName("UTF-8"));
+	QString s;
+	s = t.readLine();
+	if (s != layoutMagic1_1) {
+	    f.close();
+	    //maybe a version 1_0 layout?
+	    return(loadBoardLayout_10(from));
+	}
+	int lines = 0;
+	m_width = m_height = m_depth = 0;
+	while ( !t.atEnd() ) {        
+	    s = t.readLine();
+	    if (s[0] == '#')
+		continue;
+	    if (s[0] == 'w') {
+		m_width = s.mid(1).toInt();
+		continue;
+	    }
+	    if (s[0] == 'h') {
+		m_height = s.mid(1).toInt();
+		continue;
+	    }
+	    if (s[0] == 'd') {
+		m_depth = s.mid(1).toInt();
+		continue;
+	    }
+	    all += s;
+	    lines++;
+	}
+	f.close();
+	if ((lines == m_height*m_depth)&&(m_width>0)&&(m_height>0)&&(m_depth>0)) {
+	    loadedBoard = all;
+	    initialiseBoard();
+	    filename = from;
+	    return(true);
+	} else {
+	    return(false);
+	}
+	return(true);
+    } else {
+	return(false);
+    }
+}
+
 void BoardLayout::initialiseBoard() {
     short z=0;
     short x=0;          // Rand lassen.
     short y=0;
     maxTileNum = 0;
 
-    const char *pos = loadedBoard.toAscii().constData();
-
-    if (loadedBoard.isEmpty())
-	return;
-
+    m_maxTiles = (m_width*m_height*m_depth)/4;
     board.resize(m_width*m_height*m_depth);
     board.fill(0);
+
+    //watch out for relocation? Find a better solution here!
+    const char *pos = loadedBoard.toAscii().constData();
+    if (loadedBoard.isEmpty())
+	return;
 
     // loop will be left by break or return
     while( true )

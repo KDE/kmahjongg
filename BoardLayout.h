@@ -24,6 +24,7 @@
 #include "KmTypes.h"
 
 const QString layoutMagic1_0 = "kmahjongg-layout-v1.0";
+const QString layoutMagic1_1 = "kmahjongg-layout-v1.1";
 
 class BoardLayout {
 
@@ -32,6 +33,7 @@ public:
     ~BoardLayout();
 
     bool loadBoardLayout(const QString from);
+    bool loadBoardLayout_10(const QString from);
     bool saveBoardLayout(const QString where);
     UCHAR getBoardData(short z, short y, short x);
     void setBoardData(short z, short y, short x, UCHAR value);
