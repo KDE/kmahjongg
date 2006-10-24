@@ -906,17 +906,18 @@ void BoardWidget::transformPointToPosition(
     )
 {
     short E,X,Y;
+    bool tileFoundUnderMouse = false;
 
-    //TODO FIXME old bug revealed by the new ability of supporting bigger stacks, files "behind" the clicked one are being tested, and selected if they are free
     // iterate over E coordinate from top to bottom
     for( E= Game->m_depth-1; E>=0; E-- )
     {
+	//Exit if click matched a trapped tile in a layer above us
+	if (tileFoundUnderMouse) break;
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print Event (FIX ME)
         X = ((point.x()-theTiles.width()/2)- (E+1)*theTiles.levelOffset()) / theTiles.qWidth();
         Y = ((point.y()-theTiles.height()/2) + E*theTiles.levelOffset()) / theTiles.qHeight();
-
 
 	// changed to allow x == 0
         // skip when position is illegal
@@ -940,6 +941,10 @@ void BoardWidget::transformPointToPosition(
         }
         // if gameboard is empty, skip
         if ( ! Game->BoardData(E,Y,X) ) continue;
+
+	//otherwise, we hit a tile with this click
+	tileFoundUnderMouse = true;
+
         // tile must be 'free' (nothing left, right or above it)
 	//Optimization, skip "over" test for the top layer
         if( E < Game->m_depth-1 )
