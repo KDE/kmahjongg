@@ -941,8 +941,7 @@ void BoardWidget::transformPointToPosition(
         // if gameboard is empty, skip
         if ( ! Game->BoardData(E,Y,X) ) continue;
         // tile must be 'free' (nothing left, right or above it)
-	//TODO? This was hardcoded to 4, why? Isn't the test always required?
-	//Or maybe all legacy layouts had the top level tiles free?
+	//Optimization, skip "over" test for the top layer
         if( E < Game->m_depth-1 )
         {
             if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
