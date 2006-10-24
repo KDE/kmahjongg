@@ -21,7 +21,6 @@
 
 
 GameData::GameData (BoardLayout * boardlayout) {
-    //Fixed for now, TODO add new constructor with dynamic board sizes
     m_width = boardlayout->m_width;
     m_height = boardlayout->m_height;
     m_depth = boardlayout->m_depth;

@@ -625,8 +625,6 @@ void BoardWidget::matchAnimationTimeout()
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-
-
             hilightTile(Game->PosTable[Pos], true);
         }
     }
@@ -909,6 +907,7 @@ void BoardWidget::transformPointToPosition(
 {
     short E,X,Y;
 
+    //TODO FIXME old bug revealed by the new ability of supporting bigger stacks, files "behind" the clicked one are being tested, and selected if they are free
     // iterate over E coordinate from top to bottom
     for( E= Game->m_depth-1; E>=0; E-- )
     {
@@ -942,7 +941,9 @@ void BoardWidget::transformPointToPosition(
         // if gameboard is empty, skip
         if ( ! Game->BoardData(E,Y,X) ) continue;
         // tile must be 'free' (nothing left, right or above it)
-        if( E < 4 )
+	//TODO? This was hardcoded to 4, why? Isn't the test always required?
+	//Or maybe all legacy layouts had the top level tiles free?
+        if( E < Game->m_depth-1 )
         {
             if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
                 (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
