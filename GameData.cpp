@@ -797,7 +797,7 @@ bool GameData::findMove( POSITION& posA, POSITION& posB )
                     continue;
                 if( ! BoardData(E,Y,X) )
                     continue;
-                if( E < 4 )
+                if( E < m_depth-1 )
                 {
                     if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
                         BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
@@ -868,7 +868,7 @@ int GameData::moveCount( )
                     continue;
                 if( ! BoardData(E,Y,X) )
                     continue;
-                if( E < 4 )
+                if( E < m_depth-1 )
                 {
                     if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
                         BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
@@ -926,7 +926,7 @@ short GameData::findAllMatchingTiles( POSITION& posA )
                     continue;
                 if( ! BoardData(E,Y,X) )
                     continue;
-                if( E < 4 )
+                if( E < m_depth-1 )
                 {
                     if( BoardData(E+1,Y,X) || BoardData(E+1,Y+1,X) ||
                         BoardData(E+1,Y,X+1) || BoardData(E+1,Y+1,X+1) )
