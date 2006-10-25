@@ -217,7 +217,8 @@ void BoardWidget::updateSpriteMap() {
 		  //}
 		  thissprite->moveTo(sx, sy);
 		  thissprite->show();
-		  spriteMap.insert(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z), thissprite);
+		  //spriteMap.insert(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z), thissprite);
+		  spriteMap.insert(TileCoord(x,y,z), thissprite);
 		//}
             }
         }
@@ -235,7 +236,8 @@ void BoardWidget::updateSpriteMap() {
             for (int y=Game->m_height-1; y>=0; y--) {
 		if (Game->tilePresent(z,y,x-offset))
 		{
-			KGameCanvasPixmap * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
+			KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
+			//KGameCanvasPixmap * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
 			if (thissprite) thissprite->raise();
 		}
 		//at each pass, move one place to the left
@@ -743,8 +745,10 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 {
 	KGameCanvasPixmap * atile = 0;
 
-	if (spriteMap.contains(QString("X%1Y%2Z%3").arg(Pos.x).arg(Pos.y).arg(Pos.e))) {
-	  atile = spriteMap.value(QString("X%1Y%2Z%3").arg(Pos.x).arg(Pos.y).arg(Pos.e));
+	TileCoord coord = TileCoord(Pos.x,Pos.y,Pos.e);
+
+	if (spriteMap.contains(coord)) {
+	  atile = spriteMap.value(coord);
 	}
 
 	if (on) {
@@ -905,45 +909,44 @@ void BoardWidget::transformPointToPosition(
         POSITION&     MouseClickPos
     )
 {
-    short E,X,Y;
-    bool tileFoundUnderMouse = false;
+    int E,X,Y;
 
-    // iterate over E coordinate from top to bottom
-    for( E= Game->m_depth-1; E>=0; E-- )
+    KGameCanvasPixmap * clickedItem = NULL;
+    clickedItem = (KGameCanvasPixmap *) itemAt(point);
+    if (!clickedItem) {
+	//no item under mouse
+	return;
+    }
+
+    TileCoord coord = spriteMap.key(clickedItem);
+    if (coord.isNull()) return;
+
+    E = coord.z();
+    X = coord.x();
+    Y = coord.y();
+
+    //sanity checking??
+    if (X<0 || X>= Game->m_width || Y<0 || Y>= Game->m_height) return;
+
+    switch( Game->MaskData(E,Y,X) )
     {
-	//Exit if click matched a trapped tile in a layer above us
-	if (tileFoundUnderMouse) break;
-        // calculate mouse coordiantes --> position in game board
-	// the factor -theTiles.width()/2 must keep track with the
-	// offset for blitting in the print Event (FIX ME)
-        X = ((point.x()-theTiles.width()/2)- (E+1)*theTiles.levelOffset()) / theTiles.qWidth();
-        Y = ((point.y()-theTiles.height()/2) + E*theTiles.levelOffset()) / theTiles.qHeight();
+        case (UCHAR)'3':    X--;Y--;
+                            break;
 
-	// changed to allow x == 0
-        // skip when position is illegal
-        if (X<0 || X>= Game->m_width || Y<0 || Y>= Game->m_height)
-		continue;
+        case (UCHAR)'2':    X--;
+                            break;
 
-        switch( Game->MaskData(E,Y,X) )
-        {
-            case (UCHAR)'3':    X--;Y--;
-                                break;
+        case (UCHAR)'4':    Y--;
+                            break;
 
-            case (UCHAR)'2':    X--;
-                                break;
+        case (UCHAR)'1':    break;
 
-            case (UCHAR)'4':    Y--;
-                                break;
+        default :           return;
+    }
 
-            case (UCHAR)'1':    break;
-
-            default :           continue;
-        }
-        // if gameboard is empty, skip
-        if ( ! Game->BoardData(E,Y,X) ) continue;
-
-	//otherwise, we hit a tile with this click
-	tileFoundUnderMouse = true;
+    // if gameboard is empty, skip 
+    //sanity checking??
+    if ( ! Game->BoardData(E,Y,X) ) return;
 
         // tile must be 'free' (nothing left, right or above it)
 	//Optimization, skip "over" test for the top layer
@@ -952,25 +955,23 @@ void BoardWidget::transformPointToPosition(
             if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
                 (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
 	        (X< Game->m_width-1 && Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X+1)) )
-                continue;
+                return;
         }
 
 	// No left test on left edge
         if (( X > 0) && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1))) {
 		if ((X< Game->m_width-2) && (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2))) {
-            	continue;
+            	return;
 		}
 	}
 
-        // here, position is legal
+        // if we reach here, position is legal
         MouseClickPos.e = E;
         MouseClickPos.y = Y;
         MouseClickPos.x = X;
         MouseClickPos.f = Game->BoardData(E,Y,X);
         // give visible feedback
         hilightTile( MouseClickPos );
-        break;
-    }
 }
 
 // ---------------------------------------------------------

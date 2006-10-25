@@ -22,7 +22,7 @@
 
 #include <qevent.h>
 #include <kgamecanvas.h>
-#include <QMap>
+#include <QHash>
 #include <QPoint>
 
 #include <ktoolbar.h>
@@ -34,6 +34,7 @@
 #include "Background.h"
 #include "BoardLayout.h"
 #include "GameData.h"
+#include "TileCoord.h"
 
 #define ANIMSPEED    200
 
@@ -67,7 +68,7 @@ class BoardWidget : public KGameCanvasWidget
 	QString &getLayoutName() {return theBoardLayout.getFilename();};
 
 	KGameCanvasPixmap * backsprite;
-        QMap<QString, KGameCanvasPixmap *> spriteMap;
+        QHash<TileCoord, KGameCanvasPixmap *> spriteMap;
 
     public slots:
 	void loadSettings();
