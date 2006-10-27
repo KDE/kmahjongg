@@ -206,8 +206,9 @@ void BoardWidget::populateSpriteMap() {
 
 void BoardWidget::updateSpriteMap() {
     // initial offset on the screen of tile 0,0
-    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())))/2;
-    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())))/2;
+    // think of it as what is left if you add all tilefaces (qwidth/heigh*2) plus one (wholetile-shadow(3dindent)-tileface), and divide by 2
+    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())) - (theTiles.width()-(theTiles.qWidth()*2)) + theTiles.levelOffset())/2;
+    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())) - (theTiles.height()-(theTiles.qHeight()*2)) + theTiles.levelOffset())/2;
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
