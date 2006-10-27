@@ -161,8 +161,7 @@ void BoardWidget::setDisplayedWidth() {
   resize(width() , height());
 }
 
-
-void BoardWidget::updateSpriteMap() {
+void BoardWidget::populateSpriteMap() {
     QPixmap  *back;
 
     int xx = rect().left();
@@ -175,11 +174,9 @@ void BoardWidget::updateSpriteMap() {
 
     spriteMap.clear();
 
-    //if (!backsprite) {
-      back = theBackground.getBackground();
-      backsprite = new KGameCanvasPixmap(*back, this);
-      backsprite->show();
-    //}
+    back = theBackground.getBackground();
+    backsprite = new KGameCanvasPixmap(*back, this);
+    backsprite->show();
 
     // initial offset on the screen of tile 0,0
     int xOffset = theTiles.width()/2;
@@ -210,18 +207,46 @@ void BoardWidget::updateSpriteMap() {
 				Game->BoardData(z,y,x)-TILE_OFFSET);
                 }
 
-		//if (!spriteMap.contains(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z)))
-		//{
 		  KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
 
-		  //if (Game->tilePresent(z, y-1, x-2)) {
-		    //qDebug() << "overlap at " << y << x;
-		  //}
 		  thissprite->moveTo(sx, sy);
 		  thissprite->show();
-		  //spriteMap.insert(QString("X%1Y%2Z%3").arg(x).arg(y).arg(z), thissprite);
 		  spriteMap.insert(TileCoord(x,y,z), thissprite);
-		//}
+            }
+        }
+        xOffset +=theTiles.levelOffset();
+        yOffset -=theTiles.levelOffset();
+    }
+
+    updateSpriteMap();
+}
+
+
+void BoardWidget::updateSpriteMap() {
+    // initial offset on the screen of tile 0,0
+    int xOffset = theTiles.width()/2;
+    int yOffset = theTiles.height()/2;
+    //short tile = 0;
+
+    // we iterate over the depth stacking order. Each successive level is
+    // drawn one indent up and to the right. The indent is the width
+    // of the 3d relief on the tile left (tile shadow width)
+    for (int z=0; z<Game->m_depth; z++) {
+        // we draw down the board so the tile below over rights our border
+        for (int y = 0; y < Game->m_height; y++) {
+            // drawing right to left to prevent border overwrite
+            for (int x=Game->m_width-1; x>=0; x--) {
+                int sx = x*(theTiles.qWidth()  )+xOffset;
+                int sy = y*(theTiles.qHeight()  )+yOffset;
+
+		// skip if no tile to display
+		if (!Game->tilePresent(z,y,x))
+			continue;
+
+		  KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(x,y,z));
+
+		  if (thissprite) thissprite->moveTo(sx, sy);
+		  if (thissprite) thissprite->show();
             }
         }
         xOffset +=theTiles.levelOffset();
@@ -250,7 +275,6 @@ void BoardWidget::updateSpriteMap() {
     //qDebug() << items()->size();
     //qDebug() << spriteMap.size();
     update();
-
 }
 
 // for a given cell x y calc how that cell is shadowed
@@ -773,9 +797,7 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 void BoardWidget::drawBoard(bool )
 {
    updateBackBuffer=true;
-  // updateSpriteMap();
-  // update(); 
-   updateSpriteMap();
+   populateSpriteMap();
    drawTileNumber();
 }
 
@@ -789,6 +811,14 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
 	// we ensure that any tile we put on has highlighting off
     Game->putTile( E, Y, X, Pos.f );
     Game->setHighlightData(E,Y,X,0);
+
+    QPixmap *t;
+    t= theTiles.unselectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
+    KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
+    //thissprite->moveTo(sx, sy);
+    thissprite->show();
+     spriteMap.insert(TileCoord(X,Y,E), thissprite);
+
     if (doRepaint) {
 	updateBackBuffer=true;
 	update(); 
@@ -808,12 +838,15 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->TileNum--;                    // Eine Figur weniger
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
+    KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(X,Y,E));
+    if (thissprite) delete thissprite;
+    spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
     Game->putTile( E, Y, X, 0 );
     if (doRepaint) {
         updateBackBuffer=true;
 	update(); 
-	updateSpriteMap();
+//	updateSpriteMap();
     }
 }
 

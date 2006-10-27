@@ -86,7 +86,8 @@ class BoardWidget : public KGameCanvasWidget
         bool loadBoard      ( );
         void updateScaleMode ();
         void drawBoard(bool deferUpdate = true);
-	void updateSpriteMap(); 
+	void updateSpriteMap();
+	void populateSpriteMap();
         bool loadBackground ( const QString&, bool bShowError = true );
     signals:
         void statusTextChanged ( const QString&, long );
