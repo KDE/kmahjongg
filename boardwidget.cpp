@@ -58,9 +58,6 @@ BoardWidget::BoardWidget( QWidget* parent )
     gameGenerationNum = 0;
     backsprite = 0;
 
-    // initially we force a redraw
-    updateBackBuffer=true;
-
     // Load tileset. First try to load the last use tileset
     QString tFile;
     getFileOrDefault(Prefs::tileSet(), "tileset", tFile);
@@ -164,35 +161,24 @@ void BoardWidget::setDisplayedWidth() {
 void BoardWidget::populateSpriteMap() {
     QPixmap  *back;
 
-    int xx = rect().left();
-    int xheight = rect().height();
-    int xwidth  = rect().width();
-
-    //Delete previous sprites for now (full update)
+    //Delete previous sprites (full update), synchronize state with GameData
     while (!items()->isEmpty())
 	delete items()->first();
 
+    //Clear our spritemap as well
     spriteMap.clear();
 
+    //Recreate our background
     back = theBackground.getBackground();
     backsprite = new KGameCanvasPixmap(*back, this);
     backsprite->show();
 
-    // initial offset on the screen of tile 0,0
-    int xOffset = theTiles.width()/2;
-    int yOffset = theTiles.height()/2;
-    //short tile = 0;
-
-    // we iterate over the depth stacking order. Each successive level is
-    // drawn one indent up and to the right. The indent is the width
-    // of the 3d relief on the tile left (tile shadow width)
+    //create the sprites
     for (int z=0; z<Game->m_depth; z++) {
         // we draw down the board so the tile below over rights our border
         for (int y = 0; y < Game->m_height; y++) {
             // drawing right to left to prevent border overwrite
             for (int x=Game->m_width-1; x>=0; x--) {
-                int sx = x*(theTiles.qWidth()  )+xOffset;
-                int sy = y*(theTiles.qHeight()  )+yOffset;
 
 		// skip if no tile to display
 		if (!Game->tilePresent(z,y,x))
@@ -209,13 +195,9 @@ void BoardWidget::populateSpriteMap() {
 
 		  KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
 
-		  thissprite->moveTo(sx, sy);
-		  thissprite->show();
 		  spriteMap.insert(TileCoord(x,y,z), thissprite);
             }
         }
-        xOffset +=theTiles.levelOffset();
-        yOffset -=theTiles.levelOffset();
     }
 
     updateSpriteMap();
@@ -224,9 +206,8 @@ void BoardWidget::populateSpriteMap() {
 
 void BoardWidget::updateSpriteMap() {
     // initial offset on the screen of tile 0,0
-    int xOffset = theTiles.width()/2;
-    int yOffset = theTiles.height()/2;
-    //short tile = 0;
+    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())))/2;
+    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())))/2;
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -274,7 +255,7 @@ void BoardWidget::updateSpriteMap() {
     }
     //qDebug() << items()->size();
     //qDebug() << spriteMap.size();
-    update();
+    //update();
 }
 
 // for a given cell x y calc how that cell is shadowed
@@ -796,7 +777,6 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 // ---------------------------------------------------------
 void BoardWidget::drawBoard(bool )
 {
-   updateBackBuffer=true;
    populateSpriteMap();
    drawTileNumber();
 }
@@ -820,8 +800,6 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
      spriteMap.insert(TileCoord(X,Y,E), thissprite);
 
     if (doRepaint) {
-	updateBackBuffer=true;
-	update(); 
 	updateSpriteMap();
     }
 }
@@ -843,11 +821,6 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
     Game->putTile( E, Y, X, 0 );
-    if (doRepaint) {
-        updateBackBuffer=true;
-	update(); 
-//	updateSpriteMap();
-    }
 }
 
 // ---------------------------------------------------------
@@ -1155,11 +1128,8 @@ void BoardWidget::shuffle() {
 		Game->putTile(Game->PosTable[p]);
 
 
-	// force a redraw
-
-	updateBackBuffer=true;
-        update();
-	updateSpriteMap();
+	// force a full redraw
+	populateSpriteMap();
 
 	// I consider this s very bad cheat so, I punish the user
 	// 300 points per use

@@ -135,10 +135,6 @@ class BoardWidget : public KGameCanvasWidget
 
         QTimer *timer;
 
-	// offscreen draw area.
-	QPixmap backBuffer;		// pixmap to render to
-	bool    updateBackBuffer;	// does board need redrawing. Not if it is just a repaint
-
 	bool gamePaused;
 
 	// storage for hiscore claculation
