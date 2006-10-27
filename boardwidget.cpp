@@ -173,6 +173,8 @@ void BoardWidget::updateSpriteMap() {
     while (!items()->isEmpty())
 	delete items()->first();
 
+    spriteMap.clear();
+
     //if (!backsprite) {
       back = theBackground.getBackground();
       backsprite = new KGameCanvasPixmap(*back, this);
@@ -246,6 +248,7 @@ void BoardWidget::updateSpriteMap() {
         }
     }
     //qDebug() << items()->size();
+    //qDebug() << spriteMap.size();
     update();
 
 }
@@ -915,63 +918,54 @@ void BoardWidget::transformPointToPosition(
     clickedItem = (KGameCanvasPixmap *) itemAt(point);
     if (!clickedItem) {
 	//no item under mouse
+	qDebug() << "no tile registered";
 	return;
     }
 
     TileCoord coord = spriteMap.key(clickedItem);
-    if (coord.isNull()) return;
+    if (coord.isNull()) {
+	qDebug() << "null tile coordinates, clicked on background?";
+	return;
+    }
 
     E = coord.z();
     X = coord.x();
     Y = coord.y();
 
-    //sanity checking??
+    //sanity checking
     if (X<0 || X>= Game->m_width || Y<0 || Y>= Game->m_height) return;
 
-    switch( Game->MaskData(E,Y,X) )
-    {
-        case (UCHAR)'3':    X--;Y--;
-                            break;
-
-        case (UCHAR)'2':    X--;
-                            break;
-
-        case (UCHAR)'4':    Y--;
-                            break;
-
-        case (UCHAR)'1':    break;
-
-        default :           return;
+    // if gameboard is empty, skip 
+    //sanity checking
+    if ( ! Game->BoardData(E,Y,X) ) {
+	qDebug() << "mismatch, not in BoardData";
+	return;
     }
 
-    // if gameboard is empty, skip 
-    //sanity checking??
-    if ( ! Game->BoardData(E,Y,X) ) return;
+    // tile must be 'free' (nothing left, right or above it)
+    //Optimization, skip "over" test for the top layer
+    if( E < Game->m_depth-1 )
+    {
+        if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
+            (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
+	    (X< Game->m_width-1 && Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X+1)) )
+            return;
+    }
 
-        // tile must be 'free' (nothing left, right or above it)
-	//Optimization, skip "over" test for the top layer
-        if( E < Game->m_depth-1 )
-        {
-            if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
-                (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
-	        (X< Game->m_width-1 && Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X+1)) )
-                return;
-        }
-
-	// No left test on left edge
-        if (( X > 0) && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1))) {
-		if ((X< Game->m_width-2) && (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2))) {
-            	return;
-		}
+    // No left test on left edge
+    if (( X > 0) && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1))) {
+	if ((X< Game->m_width-2) && (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2))) {
+            return;
 	}
+    }
 
-        // if we reach here, position is legal
-        MouseClickPos.e = E;
-        MouseClickPos.y = Y;
-        MouseClickPos.x = X;
-        MouseClickPos.f = Game->BoardData(E,Y,X);
-        // give visible feedback
-        hilightTile( MouseClickPos );
+    // if we reach here, position is legal
+    MouseClickPos.e = E;
+    MouseClickPos.y = Y;
+    MouseClickPos.x = X;
+    MouseClickPos.f = Game->BoardData(E,Y,X);
+    // give visible feedback
+    hilightTile( MouseClickPos );
 }
 
 // ---------------------------------------------------------
