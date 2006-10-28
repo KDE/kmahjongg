@@ -50,8 +50,9 @@ Editor::Editor ( QWidget* parent)
    QString tile = Prefs::tileSet();
    if (!tiles.loadTileset(tile)) tiles.loadDefault();
 
-    int sWidth = (BoardLayout::width+2)*(tiles.qWidth());
-    int sHeight =( BoardLayout::height+2)*tiles.qHeight();
+    //TODO delay this initialization, must define board dimensions
+    int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
+    int sHeight =( theBoard.m_height+2)*tiles.qHeight();
 
     sWidth += 4*tiles.levelOffset();
 
@@ -97,7 +98,7 @@ Editor::~Editor()
 
 void Editor::resizeEvent ( QResizeEvent * event )
 {
-    QSize newtiles = tiles.preferredTileSize(event->size(), (BoardLayout::width+2)/2,( BoardLayout::height+2)/2);
+    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width+2)/2,( theBoard.m_height+2)/2);
     tiles.reloadTileset(newtiles);
 }
 
@@ -260,7 +261,7 @@ QString Editor::statusText() {
 	else
 		z=z+1;
 
-	if (x >=BoardLayout::width || x <0 || y >=BoardLayout::height || y <0)
+	if (x >= theBoard.m_width || x <0 || y >=theBoard.m_height || y <0)
 		x = y = z = 0;
 
 	buf = i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
@@ -398,14 +399,14 @@ void Editor::drawBackground(QPixmap *pixmap) {
     int sy = (tiles.height()/2)+tiles.levelOffset();
     int sx = (tiles.width()/2);
 
-    for (int y=0; y<=BoardLayout::height; y++) {
+    for (int y=0; y<=theBoard.m_height; y++) {
 	int nextY=sy+(y*tiles.qHeight());
-	p.drawLine(sx, nextY,sx+(BoardLayout::width*tiles.qWidth()), nextY);
+	p.drawLine(sx, nextY,sx+(theBoard.m_width*tiles.qWidth()), nextY);
     }
 
-    for (int x=0; x<=BoardLayout::width; x++) {
+    for (int x=0; x<=theBoard.m_width; x++) {
 	int nextX=sx+(x*tiles.qWidth());
-	p.drawLine(nextX, sy, nextX, sy+BoardLayout::height*tiles.qHeight());
+	p.drawLine(nextX, sy, nextX, sy+theBoard.m_height*tiles.qHeight());
     }
 }
 
@@ -420,20 +421,20 @@ void Editor::drawTiles(QPixmap *dest) {
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z=0; z<BoardLayout::depth; z++) {
+    for (int z=0; z< theBoard.m_depth; z++) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < BoardLayout::height; y++) {
+        for (int y = 0; y < theBoard.m_height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x=BoardLayout::width-1; x>=0; x--) {
+            for (int x= theBoard.m_width-1; x>=0; x--) {
                 int sx = x*(tiles.qWidth()  )+xOffset;
                 int sy = y*(tiles.qHeight()  )+yOffset;
                 if (theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
 		QPixmap *t;
-		tile=(z*BoardLayout::depth)+
-			(y*BoardLayout::height)+
-				(x*BoardLayout::width);
+		tile=(z*theBoard.m_depth)+
+			(y*theBoard.m_height)+
+				(x*theBoard.m_width);
 //		if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
 //                   t = tiles.selectedPixmaps(44));
 //		} else {
@@ -488,7 +489,7 @@ void Editor::transformPointToPosition(
     MouseClickPos.e = 100;
 
     // iterate over z coordinate from top to bottom
-    for( z=BoardLayout::depth-1; z>=0; z-- )
+    for( z=theBoard.m_depth-1; z>=0; z-- )
     {
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
@@ -498,7 +499,7 @@ void Editor::transformPointToPosition(
 
 
         // skip when position is illegal
-        if (x<0 || x>=BoardLayout::width || y<0 || y>=BoardLayout::height)
+        if (x<0 || x>=theBoard.m_width || y<0 || y>=theBoard.m_height)
 		continue;
 
         //
@@ -550,7 +551,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
 	switch (mode) {
 		case remove:
-		    if (!theBoard.tileAbove(mPos) && mPos.e < BoardLayout::depth && theBoard.isTileAt(mPos) ) {
+		    if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.m_depth && theBoard.isTileAt(mPos) ) {
 			theBoard.deleteTile(mPos);
 			numTiles--;
 			statusChanged();
@@ -637,11 +638,11 @@ void Editor::drawFrameMouseMovedEvent( QMouseEvent* e ){
 bool Editor::canInsert(POSITION &p) {
 
 
-    if (p.e >= BoardLayout::depth)
+    if (p.e >= theBoard.m_depth)
 	return (false);
-    if (p.y >BoardLayout::height-2)
+    if (p.y >theBoard.m_height-2)
 	return false;
-    if (p.x >BoardLayout::width-2)
+    if (p.x >theBoard.m_width-2)
 	return false;
 
     POSITION n = p;

@@ -16,8 +16,8 @@ set(kmahjongg_SRCS
    GameTimer.cpp 
    Background.cpp 
    GameData.cpp 
-   #Preview.cpp 
-   #Editor.cpp 
+   Preview.cpp 
+   Editor.cpp 
    HighScore.cpp )
 
 kde4_automoc(${kmahjongg_SRCS})

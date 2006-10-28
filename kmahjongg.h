@@ -34,7 +34,7 @@
 #include "Tileset.h"
 #include "Background.h"
 #include "BoardLayout.h"
-//#include "Preview.h"
+#include "Preview.h"
 #include "HighScore.h"
 #include "boardwidget.h"
 
@@ -82,11 +82,12 @@ private slots:
   void demoMode();
   void showMatchingTiles();
   void showHighscores();
-//TODO reenable after redesign
-  /*void slotBoardEditor();
+  void slotBoardEditor();
+/*TODO reimplement with game type and preferences
   void openTheme();
-  void saveTheme();
+  void saveTheme();*/
   void openLayout();
+/*TODO reimplement with game type and preferences
   void openBackground();
   void openTileset();*/
 
@@ -105,7 +106,7 @@ private:
 
   GameTimer    *gameTimer;
   HighScore    *theHighScores;
-  //Preview      *previewLoad;
+  Preview      *previewLoad;
 
   bool         bDemoModeActive;
 

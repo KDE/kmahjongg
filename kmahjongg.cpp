@@ -45,7 +45,7 @@
 #include "kmahjongg.h"
 #include "ui_settings.h"
 #include "GameTimer.h"
-//#include "Editor.h"
+#include "Editor.h"
 
 static const char *gameMagic = "kmahjongg-game-v1.0";
 
@@ -80,8 +80,7 @@ KMahjongg::KMahjongg( QWidget* parent)
     bw = new BoardWidget( this );
     setCentralWidget( bw );
 
-    //TODO reenable after redesign
-    //previewLoad = new Preview(this);
+    previewLoad = new Preview(this);
 
     setupStatusBar();
     setupKAction();
@@ -118,8 +117,7 @@ KMahjongg::KMahjongg( QWidget* parent)
       this, SLOT(timerReset()));
 
     // Make connections for the preview load dialog
-    // Preview temporarily disabled during redesign
-    /*connect( previewLoad, SIGNAL( boardRedraw(bool) ),
+    connect( previewLoad, SIGNAL( boardRedraw(bool) ),
               bw,   SLOT( drawBoard(bool) ) );
 
     connect( previewLoad, SIGNAL( layoutChange() ),
@@ -132,7 +130,7 @@ KMahjongg::KMahjongg( QWidget* parent)
     connect( previewLoad, SIGNAL( loadTileset(const QString &) ),
                bw,  SLOT(loadTileset(const QString&) ) );
     connect( previewLoad, SIGNAL( loadBoard(const QString&) ),
-                 SLOT(loadBoardLayout(const QString&) ) );*/
+                 SLOT(loadBoardLayout(const QString&) ) );
 
     startNewGame(  );
 
@@ -141,8 +139,7 @@ KMahjongg::KMahjongg( QWidget* parent)
 // ---------------------------------------------------------
 KMahjongg::~KMahjongg()
 {
-    //TODO reenable after redesign
-    //delete previewLoad;
+    delete previewLoad;
     delete theHighScores;
     delete bw;
 }
@@ -160,19 +157,20 @@ void KMahjongg::setupKAction()
     KAction* newNumGame = new KAction(i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
-// Preview and Editor disabled during redesign
-/*    KAction* openTheme = new KAction(i18n("Open Th&eme..."), actionCollection(), "game_open_theme");
+    /*TODO reimplement with game type and preferences
+    KAction* openTheme = new KAction(i18n("Open Th&eme..."), actionCollection(), "game_open_theme");
     connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));
 
     KAction* openTileset = new KAction(i18n("Open &Tileset..."), actionCollection(), "game_open_tileset");
     connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));
 
     KAction* openBkgnd = new KAction(i18n("Open &Background..."), actionCollection(), "game_open_background");
-    connect(openBkgnd, SIGNAL(triggered(bool)), SLOT(openBackground()));
+    connect(openBkgnd, SIGNAL(triggered(bool)), SLOT(openBackground()));*/
 
     KAction* openLayout = new KAction(i18n("Open La&yout..."), actionCollection(), "game_open_layout");
     connect(openLayout, SIGNAL(triggered(bool)), SLOT(openLayout()));
 
+    /*TODO reimplement with game type and preferences
     KAction* saveTheme = new KAction(i18n("Sa&ve Theme..."), actionCollection(), "game_save_theme");
     connect(saveTheme, SIGNAL(triggered(bool)), SLOT(saveTheme()));*/
 
@@ -204,9 +202,8 @@ void KMahjongg::setupKAction()
     redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-// Preview and Editor disabled during redesign
-    //KAction* boardEdit = new KAction(i18n("&Board Editor"), actionCollection(), "edit_board_editor");
-    //connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
+    KAction* boardEdit = new KAction(i18n("&Board Editor"), actionCollection(), "edit_board_editor");
+    connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
     KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
@@ -320,8 +317,7 @@ void KMahjongg::showHighscores()
     theHighScores->exec(bw->getLayoutName());
 }
 
-//TODO reenable after redesign
-/*
+/*TODO reimplement with game type and preferences
 void KMahjongg::openTheme()
 {
     previewLoad->initialise(Preview::theme);
@@ -332,7 +328,7 @@ void KMahjongg::saveTheme()
 {
     previewLoad->initialise(Preview::theme);
     previewLoad->saveTheme();
-}
+}*/
 
 void KMahjongg::openLayout()
 {
@@ -340,6 +336,7 @@ void KMahjongg::openLayout()
     previewLoad->exec();
 }
 
+/*TODO reimplement with game type and preferences
 void KMahjongg::openBackground()
 {
     previewLoad->initialise(Preview::background);
@@ -350,14 +347,14 @@ void KMahjongg::openTileset()
 {
     previewLoad->initialise(Preview::tileset);
     previewLoad->exec();
-}
+}*/
 
 void KMahjongg::slotBoardEditor()
 {
     Editor *boardEditor = new Editor(this);
     boardEditor->exec();
     delete boardEditor;
-}*/
+}
 
 //----------------------------------------------------------
 // signalled from the prieview dialog to generate a new game

@@ -352,11 +352,11 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z=0; z<BoardLayout::depth; z++) {
+    for (int z=0; z< m_boardLayout.m_depth; z++) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < BoardLayout::height; y++) {
+        for (int y = 0; y < m_boardLayout.m_height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x=BoardLayout::width-1; x>=0; x--) {
+            for (int x= m_boardLayout.m_width-1; x>=0; x--) {
                 int sx = x*(m_tiles.qWidth()  )+xOffset;
                 int sy = y*(m_tiles.qHeight()  )+yOffset;
                 if (m_boardLayout.getBoardData(z, y, x) != '1') {
