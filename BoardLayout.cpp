@@ -48,7 +48,22 @@ bool BoardLayout::saveBoardLayout(const QString where) {
 	    return false;
 	}
 
-	QByteArray tmp = layoutMagic1_0.toUtf8();
+	QByteArray tmp = layoutMagic1_1.toUtf8();
+	if (f.write(tmp, tmp.length()) == -1) {
+	    return(false);	
+	}
+
+	tmp = QString("\nw%1").arg(m_width).toUtf8();
+	if (f.write(tmp, tmp.length()) == -1) {
+	    return(false);	
+	}
+
+	tmp = QString("\nh%1").arg(m_height).toUtf8();
+	if (f.write(tmp, tmp.length()) == -1) {
+	    return(false);	
+	}
+
+	tmp = QString("\nd%1").arg(m_depth).toUtf8();
 	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
