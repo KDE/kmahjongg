@@ -103,7 +103,7 @@ bool BoardLayout::loadBoardLayout_10(const QString from)
 	}
 	f.close();
 	if (lines == m_height*m_depth) {
-	    loadedBoard = QByteArray(all.toLatin1());
+	    loadedBoard = all.toLatin1();
 	    initialiseBoard();
 	    filename = from;
 	    return(true);
@@ -157,7 +157,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
 	}
 	f.close();
 	if ((lines == m_height*m_depth)&&(m_width>0)&&(m_height>0)&&(m_depth>0)) {
-	    loadedBoard = QByteArray(all.toLatin1());
+	    loadedBoard = all.toLatin1();
 	    initialiseBoard();
 	    filename = from;
 	    return(true);
