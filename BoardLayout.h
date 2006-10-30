@@ -52,7 +52,6 @@ public:
     void insertTile(POSITION &p); 
     bool isTileAt(POSITION &p) { return getBoardData(p.e, p.y, p.x) == '1'; }
 
-    const char *getBoardLayout();
     void copyBoardLayout(UCHAR *to , unsigned short &numTiles); 
     void clearBoardLayout();
     void shiftLeft();

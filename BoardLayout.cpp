@@ -221,11 +221,6 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
     n = maxTileNum;
 }
 
-const char* BoardLayout::getBoardLayout()
-{
-	return loadedBoard.constData();
-}
-
 void BoardLayout::shiftLeft() {
     for (int z=0; z<m_depth; z++) {
 	for (int y=0; y<m_height; y++) {
