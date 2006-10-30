@@ -73,7 +73,7 @@ protected:
 
 private:
     QString filename;
-    QString loadedBoard;
+    QByteArray loadedBoard;
     QByteArray board;
     unsigned short maxTileNum;
 };

@@ -103,7 +103,7 @@ bool BoardLayout::loadBoardLayout_10(const QString from)
 	}
 	f.close();
 	if (lines == m_height*m_depth) {
-	    loadedBoard = all;
+	    loadedBoard = QByteArray(all.toLatin1());
 	    initialiseBoard();
 	    filename = from;
 	    return(true);
@@ -157,7 +157,7 @@ bool BoardLayout::loadBoardLayout(const QString from)
 	}
 	f.close();
 	if ((lines == m_height*m_depth)&&(m_width>0)&&(m_height>0)&&(m_depth>0)) {
-	    loadedBoard = all;
+	    loadedBoard = QByteArray(all.toLatin1());
 	    initialiseBoard();
 	    filename = from;
 	    return(true);
@@ -172,23 +172,22 @@ bool BoardLayout::loadBoardLayout(const QString from)
 
 void BoardLayout::initialiseBoard() {
     short z=0;
-    short x=0;          // Rand lassen.
+    short x=0;
     short y=0;
     maxTileNum = 0;
+
+    if (loadedBoard.isEmpty())
+	return;
 
     m_maxTiles = (m_width*m_height*m_depth)/4;
     board.resize(m_width*m_height*m_depth);
     board.fill(0);
 
-    //watch out for relocation? Find a better solution here!
-    const char *pos = loadedBoard.toAscii().constData();
-    if (loadedBoard.isEmpty())
-	return;
-
+    int idx = 0;
     // loop will be left by break or return
     while( true )
     {
-        BYTE c = *pos++;
+        BYTE c = loadedBoard.at(idx++);
         switch( c )
         {
             case (UCHAR)'1': maxTileNum++;
@@ -224,7 +223,7 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
 
 const char* BoardLayout::getBoardLayout()
 {
-	return loadedBoard.toAscii().constData();
+	return loadedBoard.constData();
 }
 
 void BoardLayout::shiftLeft() {
