@@ -184,16 +184,22 @@ void BoardWidget::populateSpriteMap() {
 		if (!Game->tilePresent(z,y,x))
 			continue;
 
-                QPixmap *t;
-		if (Game->HighlightData(z,y,x)) {
+                QPixmap *s;
+		QPixmap *us;
+		 s= theTiles.selectedPixmaps(
+				Game->BoardData(z,y,x)-TILE_OFFSET);
+
+		  us= theTiles.unselectedPixmaps(
+				Game->BoardData(z,y,x)-TILE_OFFSET);
+		/*if (Game->HighlightData(z,y,x)) {
 		   t= theTiles.selectedPixmaps(
 				Game->BoardData(z,y,x)-TILE_OFFSET);
 		} else {
 		   t= theTiles.unselectedPixmaps(
 				Game->BoardData(z,y,x)-TILE_OFFSET);
-                }
+                }*/
 
-		  KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
+		  TileSprite * thissprite = new TileSprite(this, *us, *s, *s);
 
 		  spriteMap.insert(TileCoord(x,y,z), thissprite);
             }
@@ -225,7 +231,7 @@ void BoardWidget::updateSpriteMap() {
 		if (!Game->tilePresent(z,y,x))
 			continue;
 
-		  KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(x,y,z));
+		  TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
 
 		  if (thissprite) thissprite->moveTo(sx, sy);
 		  if (thissprite) thissprite->show();
@@ -245,8 +251,8 @@ void BoardWidget::updateSpriteMap() {
             for (int y=Game->m_height-1; y>=0; y--) {
 		if (Game->tilePresent(z,y,x-offset))
 		{
-			KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
-			//KGameCanvasPixmap * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
+			TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
+			//TileSprite * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
 			if (thissprite) thissprite->raise();
 		}
 		//at each pass, move one place to the left
@@ -752,7 +758,7 @@ void BoardWidget::calculateNewGame( int gNumber)
 
 void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 {
-	KGameCanvasPixmap * atile = 0;
+	TileSprite * atile = 0;
 
 	TileCoord coord = TileCoord(Pos.x,Pos.y,Pos.e);
 
@@ -763,13 +769,15 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	if (on) {
 		Game->setHighlightData(Pos.e,Pos.y,Pos.x,1);
 		if (atile)
-		atile->setPixmap(*(theTiles.selectedPixmaps(
-				Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+		//atile->setPixmap(*(theTiles.selectedPixmaps(
+				//Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+		atile->setSelected(true);
 	} else {
 		Game->setHighlightData(Pos.e,Pos.y,Pos.x,0);
 		if (atile)
-		atile->setPixmap(*(theTiles.unselectedPixmaps(
-				Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+		//atile->setPixmap(*(theTiles.unselectedPixmaps(
+				//Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
+		atile->setSelected(false);
 	}
 }
 
@@ -793,9 +801,11 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     Game->putTile( E, Y, X, Pos.f );
     Game->setHighlightData(E,Y,X,0);
 
-    QPixmap *t;
-    t= theTiles.unselectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
-    KGameCanvasPixmap * thissprite = new KGameCanvasPixmap(*t, this);
+    QPixmap *s;
+    QPixmap *us;
+    us= theTiles.unselectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
+    s= theTiles.selectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
+    TileSprite * thissprite = new TileSprite(this, *us, *s, *s);
     //thissprite->moveTo(sx, sy);
     thissprite->show();
      spriteMap.insert(TileCoord(X,Y,E), thissprite);
@@ -817,7 +827,7 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->TileNum--;                    // Eine Figur weniger
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
-    KGameCanvasPixmap * thissprite =spriteMap.value(TileCoord(X,Y,E));
+    TileSprite * thissprite =spriteMap.value(TileCoord(X,Y,E));
     if (thissprite) delete thissprite;
     spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
@@ -872,7 +882,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     // so that we only require 1 screen paint for both actions)
                     Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
-                    // now we remove the tiles from the board
+                    // now we remove the tiles from the board*t, 
                     removeTile(MouseClickPos1, false);
                     removeTile(MouseClickPos2);
 
@@ -921,8 +931,8 @@ void BoardWidget::transformPointToPosition(
 {
     int E,X,Y;
 
-    KGameCanvasPixmap * clickedItem = NULL;
-    clickedItem = (KGameCanvasPixmap *) itemAt(point);
+    TileSprite * clickedItem = NULL;
+    clickedItem = (TileSprite *) itemAt(point);
     if (!clickedItem) {
 	//no item under mouse
 	qDebug() << "no tile registered";

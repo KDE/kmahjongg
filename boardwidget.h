@@ -35,6 +35,7 @@
 #include "BoardLayout.h"
 #include "GameData.h"
 #include "TileCoord.h"
+#include "TileSprite.h"
 
 #define ANIMSPEED    200
 
@@ -68,7 +69,7 @@ class BoardWidget : public KGameCanvasWidget
 	QString &getLayoutName() {return theBoardLayout.getFilename();};
 
 	KGameCanvasPixmap * backsprite;
-        QHash<TileCoord, KGameCanvasPixmap *> spriteMap;
+        QHash<TileCoord, TileSprite *> spriteMap;
 
     public slots:
 	void loadSettings();

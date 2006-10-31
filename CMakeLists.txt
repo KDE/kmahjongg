@@ -18,6 +18,7 @@ set(kmahjongg_SRCS
    GameData.cpp 
    Preview.cpp 
    Editor.cpp 
+   TileSprite.cpp
    HighScore.cpp )
 
 kde4_automoc(${kmahjongg_SRCS})
