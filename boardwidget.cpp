@@ -1197,8 +1197,8 @@ void BoardWidget::updateScaleMode() {
 int BoardWidget::requiredHorizontalCells()
 {
 	int res = (Game->m_width/2);
-	if (Prefs::showRemoved()) 
-		res = res + 3; //space for removed tiles
+	/*if (Prefs::showRemoved()) 
+		res = res + 3; //space for removed tiles*/
 	return res;
 }
 
@@ -1229,7 +1229,7 @@ void BoardWidget::tileSizeChanged() {
 
 }
 
-void BoardWidget::angleSwitch() {
+void BoardWidget::angleSwitchCCW() {
 	switch (m_angle) 
 	{
 	    case NW : 
@@ -1255,6 +1255,31 @@ void BoardWidget::angleSwitch() {
 	updateSpriteMap();
 }
 
+void BoardWidget::angleSwitchCW() {
+	switch (m_angle) 
+	{
+	    case NW : 
+		m_angle = SW;
+		break;
+	    case NE : 
+		m_angle = NW;
+		break;
+	    case SE : 
+		m_angle = NE;
+		break;
+	    case SW : 
+		m_angle = SE;
+		break;
+	}
+	
+	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
+ 	while (i.hasNext()) {
+     	    i.next();
+     	    i.value()->setAngle(m_angle, *theTiles.unselectedTile(m_angle), *theTiles.selectedTile(m_angle) );
+ 	}
+	//re-position and re-layer
+	updateSpriteMap();
+}
 // shuffle the remaining tiles around, useful if a deadlock ocurrs
 // this is a big cheat so we penalise the user.
 void BoardWidget::shuffle() {

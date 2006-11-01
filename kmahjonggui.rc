@@ -17,7 +17,8 @@
     <Action name="move_shuffle" />
   </Menu>
   <Menu name="view"><text>&amp;View</text>
-    <Action name="view_angle" />
+    <Action name="view_anglecw" />
+    <Action name="view_angleccw" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
     <Action name="options_show_matching_tiles" append="show_merge"/>

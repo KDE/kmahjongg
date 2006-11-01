@@ -178,9 +178,12 @@ void KMahjongg::setupKAction()
     KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
     KAction* shuffle = new KAction(KIcon("reload"), i18n("Shu&ffle"), actionCollection(), "move_shuffle");
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
-    KAction* angle = new KAction(i18n("Switch &Angle"), actionCollection(), "view_angle");
-    angle->setShortcut( KShortcut( "a"  ) );
-    connect(angle, SIGNAL(triggered(bool)), bw, SLOT(angleSwitch()));
+    KAction* angleccw = new KAction(i18n("Switch Angle Counter Clockwise"), actionCollection(), "view_angleccw");
+    angleccw->setShortcut( KShortcut( "f"  ) );
+    KAction* anglecw = new KAction(i18n("Switch Angle Clockwise"), actionCollection(), "view_anglecw");
+    anglecw->setShortcut( KShortcut( "g"  ) );
+    connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
+    connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
     demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), actionCollection(), "options_show_matching_tiles");
     connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
