@@ -71,11 +71,14 @@ class BoardWidget : public KGameCanvasWidget
 	KGameCanvasPixmap * backsprite;
         QHash<TileCoord, TileSprite *> spriteMap;
 
+	TileViewAngle m_angle;
+
     public slots:
 	void loadSettings();
         void saveSettings();
 
 	void shuffle();
+	void angleSwitch();
         void helpMove();
         void helpMoveTimeout();
 	void helpMoveStop();

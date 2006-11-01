@@ -20,6 +20,7 @@
 #ifndef TILESPRITE_H
 #define TILESPRITE_H
 
+#include "KmTypes.h"
 #include <kgamecanvas.h>
 
 #include <QPixmap>
@@ -30,11 +31,12 @@
 class TileSprite : public KGameCanvasItem
 {
 public:
-    TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face);
+    TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected);
     ~TileSprite();
 
     virtual void paint(QPainter* p);
     virtual QRect rect() const;
+    void setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected);
 
     inline void setScale (double scale){ m_scale=scale;};
     inline double scale(){ return m_scale;};
@@ -42,11 +44,17 @@ public:
     inline double selected(){ return m_selected;};
 
 private:
+    void updateOffset();
+
     QPixmap m_backselected;
     QPixmap m_backunselected;
     QPixmap m_face;
     double    m_scale;
     bool m_selected;
+    short m_woffset;
+    short m_hoffset;
+    TileViewAngle m_angle;
+    QPoint m_faceoffset;
 };
 
 #endif // TILESPRITE_H

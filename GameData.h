@@ -27,7 +27,7 @@
 #include "BoardLayout.h"
 
 // tiles symbol names:
-#define TILE_OFFSET      2
+/*#define TILE_OFFSET      2
 
 #define TILE_CHARACTER  ( 0 + TILE_OFFSET)
 #define TILE_BAMBOO     ( 9 + TILE_OFFSET)
@@ -35,7 +35,7 @@
 #define TILE_SEASON     (27 + TILE_OFFSET)
 #define TILE_WIND       (31 + TILE_OFFSET)
 #define TILE_DRAGON     (36 + TILE_OFFSET)
-#define TILE_FLOWER     (39 + TILE_OFFSET)
+#define TILE_FLOWER     (39 + TILE_OFFSET)*/
 
 class GameData {
 

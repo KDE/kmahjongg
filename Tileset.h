@@ -22,13 +22,14 @@
 
 #include <qbitmap.h>
 #include "ksvgrenderer.h"
+#include "KmTypes.h"
 
 typedef struct tilesetmetricsdata {
-    short ind;   // 3D indentation
+    short lvloff;   // used for 3D indentation
     short w;    // tile width ( +border +shadow)
     short h;    // tile height ( +border +shadow)
-    short qw;   // quarter tile width used in 3d rendering
-    short qh; 
+    short fw;   // face width
+    short fh;   // face height
 } TILESETMETRICSDATA;
 
 class Tileset {
@@ -43,28 +44,32 @@ class Tileset {
 
      short width() {return scaleddata.w;};
      short height() {return scaleddata.h;};
-     short levelOffset() {return scaleddata.ind;};
-     short qWidth() {return scaleddata.qw;};
-     short qHeight() {return scaleddata.qh;};
+     short levelOffset() {return scaleddata.lvloff;};
+     short qWidth() {return (short) (scaleddata.fw / 2.0);};
+     short qHeight() {return (short) (scaleddata.fh / 2.0);};
 
-     QPixmap *selectedPixmaps(int num) {
-		return &(selectedPix[num]);
+     QPixmap *selectedTile(int num) {
+		return &(selectedTiles[num]);
 	};
 
-     QPixmap *unselectedPixmaps(int num) {
-		return &(unselectedPix[num]);
+     QPixmap *unselectedTile(int num) {
+		return &(unselectedTiles[num]);
+	};
+
+     QPixmap *tileface(int num) {
+		return &(tilefaces[num]);
 	};
 
   protected:
 
-     enum { maxTiles=45 };
-	void createTilePixmap(short x, short y, QPixmap& alltiles, QPixmap &dest, bool selected);
+	//void createTilePixmap(short x, short y, QPixmap& alltiles, QPixmap &dest, bool selected);
 	void updateScaleInfo(short tilew, short tileh);
   
 
   private:
-    QPixmap selectedPix[maxTiles]; // selected tiles
-    QPixmap unselectedPix[maxTiles]; // selected tiles
+    QPixmap unselectedTiles[4];
+    QPixmap selectedTiles[4];
+    QPixmap tilefaces[42];
 
     TILESETMETRICSDATA originaldata;
     TILESETMETRICSDATA scaleddata;

@@ -3,16 +3,10 @@
 <kdegames-tileset version="1.0">
     <graphics type="svg">
 	<path>default_tileset.svgz</path>
-	<rows>5</rows>
-	<columns>9</columns>
-	<selectedversionpresent>1</selectedversionpresent>
-	<tilewidth>86</tilewidth>
-	<tileheight>106</tileheight>
-	<xoffset>0</xoffset>
-	<yoffset>0</yoffset>
+	<tilewidth>96</tilewidth>
+	<tileheight>116</tileheight>
 	<tilefacewidth>69</tilefacewidth>
 	<tilefaceheight>89</tilefaceheight>
-	<threedindentation>12</threedindentation>
-	<lightorientation>topright</lightorientation>
+	<leveloffset>12</leveloffset>
     </graphics>
 </kdegames-tileset>

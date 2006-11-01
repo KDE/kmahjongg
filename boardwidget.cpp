@@ -58,6 +58,8 @@ BoardWidget::BoardWidget( QWidget* parent )
     gameGenerationNum = 0;
     backsprite = 0;
 
+    m_angle = NW;
+
     // Load tileset. First try to load the last use tileset
     QString tFile;
     getFileOrDefault(Prefs::tileSet(), "tileset", tFile);
@@ -186,20 +188,16 @@ void BoardWidget::populateSpriteMap() {
 
                 QPixmap *s;
 		QPixmap *us;
-		 s= theTiles.selectedPixmaps(
-				Game->BoardData(z,y,x)-TILE_OFFSET);
+		QPixmap *f;
+		bool selected = false;
+		s= theTiles.selectedTile(m_angle);
+		us= theTiles.unselectedTile(m_angle);
+		f= theTiles.tileface(Game->BoardData(z,y,x)-TILE_OFFSET);
+		if (Game->HighlightData(z,y,x)) {
+		    selected = true;
+		}
 
-		  us= theTiles.unselectedPixmaps(
-				Game->BoardData(z,y,x)-TILE_OFFSET);
-		/*if (Game->HighlightData(z,y,x)) {
-		   t= theTiles.selectedPixmaps(
-				Game->BoardData(z,y,x)-TILE_OFFSET);
-		} else {
-		   t= theTiles.unselectedPixmaps(
-				Game->BoardData(z,y,x)-TILE_OFFSET);
-                }*/
-
-		  TileSprite * thissprite = new TileSprite(this, *us, *s, *s);
+		  TileSprite * thissprite = new TileSprite(this, *us, *s, *f, m_angle, selected);
 
 		  spriteMap.insert(TileCoord(x,y,z), thissprite);
             }
@@ -213,56 +211,185 @@ void BoardWidget::populateSpriteMap() {
 void BoardWidget::updateSpriteMap() {
     // initial offset on the screen of tile 0,0
     // think of it as what is left if you add all tilefaces (qwidth/heigh*2) plus one (wholetile-shadow(3dindent)-tileface), and divide by 2
-    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())) - (theTiles.width()-(theTiles.qWidth()*2)) + theTiles.levelOffset())/2;
-    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())) - (theTiles.height()-(theTiles.qHeight()*2)) + theTiles.levelOffset())/2;
+    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())) - (theTiles.width()-(theTiles.qWidth()*2)))/2;;
+    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())) - (theTiles.height()-(theTiles.qHeight()*2)))/2;;
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z=0; z<Game->m_depth; z++) {
-        // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < Game->m_height; y++) {
-            // drawing right to left to prevent border overwrite
-            for (int x=Game->m_width-1; x>=0; x--) {
-                int sx = x*(theTiles.qWidth()  )+xOffset;
-                int sy = y*(theTiles.qHeight()  )+yOffset;
+    switch (m_angle)
+    {
+	case NW:
+	//remove shadow from margin calculation
+	xOffset += theTiles.levelOffset()/2;
+        yOffset += theTiles.levelOffset()/2;
 
-		// skip if no tile to display
-		if (!Game->tilePresent(z,y,x))
-			continue;
-
-		  TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
-
-		  if (thissprite) thissprite->moveTo(sx, sy);
-		  if (thissprite) thissprite->show();
-            }
-        }
-        xOffset +=theTiles.levelOffset();
-        yOffset -=theTiles.levelOffset();
-    }
-
-    for (int z=0; z<Game->m_depth; z++) {
-        // start drawing in diagonal for correct layering. For this we double the board, 
-	//actually starting outside of it, in the bottom right corner, so our first diagonal ends
-	// at the actual top right corner of the board
-        for (int x=Game->m_width*2; x>=0; x--) {
-            // reset the offset
-	    int offset = 0;
-            for (int y=Game->m_height-1; y>=0; y--) {
-		if (Game->tilePresent(z,y,x-offset))
-		{
-			TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
-			//TileSprite * thissprite =spriteMap.value(QString("X%1Y%2Z%3").arg(x-offset).arg(y).arg(z));
-			if (thissprite) thissprite->raise();
+	//Position
+	for (int z=0; z<Game->m_depth; z++) {
+		// we draw down the board so the tile below over rights our border
+		for (int y = 0; y < Game->m_height; y++) {
+		// drawing right to left to prevent border overwrite
+		for (int x=Game->m_width-1; x>=0; x--) {
+			int sx = x*(theTiles.qWidth()  )+xOffset;
+			int sy = y*(theTiles.qHeight()  )+yOffset;
+	
+			// skip if no tile to display
+			if (!Game->tilePresent(z,y,x))
+				continue;
+	
+			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
+	
+			if (thissprite) thissprite->moveTo(sx, sy);
+			if (thissprite) thissprite->show();
 		}
-		//at each pass, move one place to the left
-		offset++;
-            }
-        }
-    }
-    //qDebug() << items()->size();
-    //qDebug() << spriteMap.size();
-    //update();
+		}
+		xOffset +=theTiles.levelOffset();
+		yOffset -=theTiles.levelOffset();
+	}
+	//Layer
+	for (int z=0; z<Game->m_depth; z++) {
+		// start drawing in diagonal for correct layering. For this we double the board, 
+		//actually starting outside of it, in the bottom right corner, so our first diagonal ends
+		// at the actual top right corner of the board
+		for (int x=Game->m_width*2; x>=0; x--) {
+		// reset the offset
+		int offset = 0;
+		for (int y=Game->m_height-1; y>=0; y--) {
+			if (Game->tilePresent(z,y,x-offset))
+			{
+				TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
+				if (thissprite) thissprite->raise();
+			}
+			//at each pass, move one place to the left
+			offset++;
+		}
+		}
+	}
+	break;
+
+	case NE:
+	xOffset -= theTiles.levelOffset()/2;
+        yOffset += theTiles.levelOffset()/2;
+	//Position
+	for (int z=0; z<Game->m_depth; z++) {
+		// we draw down the board so the tile below over rights our border
+		for (int y = 0; y < Game->m_height; y++) {
+		// drawing right to left to prevent border overwrite
+		for (int x=0; x<=Game->m_width-1; x++) {
+			int sx = x*(theTiles.qWidth()  )+xOffset;
+			int sy = y*(theTiles.qHeight()  )+yOffset;
+	
+			// skip if no tile to display
+			if (!Game->tilePresent(z,y,x))
+				continue;
+	
+			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
+	
+			if (thissprite) thissprite->moveTo(sx, sy);
+			if (thissprite) thissprite->show();
+		}
+		}
+		xOffset -=theTiles.levelOffset();
+		yOffset -=theTiles.levelOffset();
+	}
+	//Layer
+	for (int z=0; z<Game->m_depth; z++) {
+		// start drawing in diagonal for correct layering. For this we double the board, 
+		//actually starting outside of it, in the bottom right corner, so our first diagonal ends
+		// at the actual top right corner of the board
+		for (int x=-(Game->m_width); x<=Game->m_width-1; x++) {
+		// reset the offset
+		int offset = 0;
+		for (int y=Game->m_height-1; y>=0; y--) {
+			if (Game->tilePresent(z,y,x+offset))
+			{
+				TileSprite * thissprite =spriteMap.value(TileCoord(x+offset,y,z));
+				if (thissprite) thissprite->raise();
+			}
+			//at each pass, move one place to the right
+			offset++;
+		}
+		}
+	}
+	break;
+
+	case SE:
+	xOffset -= theTiles.levelOffset()/2;
+        yOffset -= theTiles.levelOffset()/2;
+	//Position
+	for (int z=0; z<Game->m_depth; z++) {
+		for (int y = Game->m_height-1; y >= 0; y--) {
+		for (int x=0; x<=Game->m_width-1; x++) {
+			int sx = x*(theTiles.qWidth()  )+xOffset;
+			int sy = y*(theTiles.qHeight()  )+yOffset;
+	
+			if (!Game->tilePresent(z,y,x))
+				continue;
+	
+			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
+	
+			if (thissprite) thissprite->moveTo(sx, sy);
+			if (thissprite) thissprite->show();
+		}
+		}
+		xOffset -=theTiles.levelOffset();
+		yOffset +=theTiles.levelOffset();
+	}
+	//Layer
+	for (int z=0; z<Game->m_depth; z++) {
+		for (int x=-(Game->m_width); x<=Game->m_width-1; x++) {
+		int offset = 0;
+		for (int y=0; y<Game->m_height; y++) {
+			if (Game->tilePresent(z,y,x+offset))
+			{
+				TileSprite * thissprite =spriteMap.value(TileCoord(x+offset,y,z));
+				if (thissprite) thissprite->raise();
+			}
+			offset++;
+		}
+		}
+	}
+	break;
+
+	case SW:
+	xOffset += theTiles.levelOffset()/2;
+        yOffset -= theTiles.levelOffset()/2;
+
+	//Position
+	for (int z=0; z<Game->m_depth; z++) {
+		for (int y = Game->m_height-1; y >= 0; y--) {
+		for (int x=Game->m_width-1; x>=0; x--) {
+			int sx = x*(theTiles.qWidth()  )+xOffset;
+			int sy = y*(theTiles.qHeight()  )+yOffset;
+
+			if (!Game->tilePresent(z,y,x))
+				continue;
+	
+			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
+	
+			if (thissprite) thissprite->moveTo(sx, sy);
+			if (thissprite) thissprite->show();
+		}
+		}
+		xOffset +=theTiles.levelOffset();
+		yOffset +=theTiles.levelOffset();
+	}
+	//Layer
+	for (int z=0; z<Game->m_depth; z++) {
+		for (int x=Game->m_width*2; x>=0; x--) {
+		int offset = 0;
+		for (int y=0; y<Game->m_height; y++) {
+			if (Game->tilePresent(z,y,x-offset))
+			{
+				TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
+				if (thissprite) thissprite->raise();
+			}
+			offset++;
+		}
+		}
+	}
+	break;
+   }
 }
 
 // for a given cell x y calc how that cell is shadowed
@@ -444,7 +571,7 @@ void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, uns
    // p.fillRect(x+1, y+ss+1, theTiles.width()-ss-2, theTiles.height()-ss-2, QBrush(lightGray));
 
     for (unsigned short pos=0; pos < h; pos++) {
-       QPixmap *pix = theTiles.unselectedPixmaps(t-TILE_OFFSET);
+       QPixmap *pix = theTiles.tileface(t-TILE_OFFSET);
        p->drawPixmap( x+(pos*ss), y-(pos*ss),
                     *pix );
     }
@@ -803,9 +930,11 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
 
     QPixmap *s;
     QPixmap *us;
-    us= theTiles.unselectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
-    s= theTiles.selectedPixmaps(Game->BoardData(E,Y,X)-TILE_OFFSET);
-    TileSprite * thissprite = new TileSprite(this, *us, *s, *s);
+    QPixmap *f;
+    s= theTiles.selectedTile(m_angle);
+    us= theTiles.unselectedTile(m_angle);
+    f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
+    TileSprite * thissprite = new TileSprite(this, *us, *s, *f, m_angle, false);
     //thissprite->moveTo(sx, sy);
     thissprite->show();
      spriteMap.insert(TileCoord(X,Y,E), thissprite);
@@ -1098,6 +1227,32 @@ void BoardWidget::tileSizeChanged() {
 	//theTiles.setScaled(Prefs::miniTiles());
 	theBackground.sizeChanged(requiredWidth(), requiredHeight());
 
+}
+
+void BoardWidget::angleSwitch() {
+	switch (m_angle) 
+	{
+	    case NW : 
+		m_angle = NE;
+		break;
+	    case NE : 
+		m_angle = SE;
+		break;
+	    case SE : 
+		m_angle = SW;
+		break;
+	    case SW : 
+		m_angle = NW;
+		break;
+	}
+	
+	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
+ 	while (i.hasNext()) {
+     	    i.next();
+     	    i.value()->setAngle(m_angle, *theTiles.unselectedTile(m_angle), *theTiles.selectedTile(m_angle) );
+ 	}
+	//re-position and re-layer
+	updateSpriteMap();
 }
 
 // shuffle the remaining tiles around, useful if a deadlock ocurrs

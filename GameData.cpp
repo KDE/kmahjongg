@@ -663,7 +663,7 @@ bool isBamboo(UCHAR t) {
     return( t >= TILE_BAMBOO && t <TILE_BAMBOO+9);
 }
 bool isCharacter(UCHAR t) {
-    return( t >= TILE_CHARACTER && t <TILE_CHARACTER + 9);
+    return( t <TILE_CHARACTER + 9);
 }
 bool isRod(UCHAR t) {
     return( t >= TILE_ROD && t <TILE_ROD + 9);

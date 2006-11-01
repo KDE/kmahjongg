@@ -21,24 +21,56 @@
 #include <QImage>
 #include <QPixmap>
 
-TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face )
+TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected )
     : KGameCanvasItem(canvas)
 {
     m_backselected = backselected;
     m_backunselected = backunselected;
     m_face = face;
-    m_selected = false;
+    m_selected = selected;
+    m_angle = angle;
+    m_woffset = m_backselected.width() - m_face.width();
+    m_hoffset = m_backselected.height() - m_face.height();
+    updateOffset();
 }
 
 TileSprite::~TileSprite()
 {
 }
 
+void TileSprite::setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected) {
+    m_angle = angle;
+    m_backselected = backselected;
+    m_backunselected = backunselected;
+    updateOffset();
+    //changed(); We need to call updateSpriteMap to relayer anyway
+}
+
+void TileSprite::updateOffset() {
+    switch( m_angle )
+        {
+            case NW:
+		m_faceoffset = QPoint(m_woffset,0);
+		break;
+	    case NE:
+		m_faceoffset = QPoint(0,0);
+		break;
+	    case SE:
+		m_faceoffset = QPoint(0,m_hoffset);
+		break;
+	    case SW:
+		m_faceoffset = QPoint(m_woffset,m_hoffset);
+		break;
+	}
+}
+
 void TileSprite::paint(QPainter* p) {
   if (m_selected) {
 	  p->drawPixmap(pos(), m_backselected);
+	  p->drawPixmap(pos()+m_faceoffset, m_face);
   } else {
 	  p->drawPixmap(pos(), m_backunselected);
+	  p->drawPixmap(pos()+m_faceoffset, m_face);
   }
 }
 

@@ -362,7 +362,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 if (m_boardLayout.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-                QPixmap *t = m_tiles.unselectedPixmaps(tile);
+                QPixmap *t = m_tiles.unselectedTile(0); //was(tile)
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:

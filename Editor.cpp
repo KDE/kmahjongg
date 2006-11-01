@@ -438,7 +438,7 @@ void Editor::drawTiles(QPixmap *dest) {
 //		if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
 //                   t = tiles.selectedPixmaps(44));
 //		} else {
-                   t = tiles.unselectedPixmaps(43);
+                   t = tiles.unselectedTile(0);
 //		}
 
                 // Only one compilcation. Since we render top to bottom , left

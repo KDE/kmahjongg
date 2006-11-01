@@ -14,7 +14,10 @@
     <Action name="edit_board_editor" />
   </Menu>
   <Menu name="move"><text>&amp;Move</text>
-    <Action name="move_shuffle"/>
+    <Action name="move_shuffle" />
+  </Menu>
+  <Menu name="view"><text>&amp;View</text>
+    <Action name="view_angle" />
   </Menu>
   <Menu name="settings"><text>&amp;Settings</text>
     <Action name="options_show_matching_tiles" append="show_merge"/>
@@ -47,6 +50,7 @@
     <Action name="game_show_matching_tiles"/>
     <Action name="game_pause"/>
     <Action name="move_demo"/>
+    <Action name="view_angle"/>
   </enable>
   <disable>
   </disable>
@@ -72,6 +76,7 @@
     <Action name="game_pause"/>
     <Action name="move_undo"/>
     <Action name="move_redo"/>
+    <Action name="view_angle"/>
   </disable>
 </State>
 
@@ -95,6 +100,7 @@
     <Action name="move_undo"/>
     <Action name="move_redo"/>
     <Action name="move_demo"/>
+    <Action name="view_angle"/>
   </disable>
 </State>
 
