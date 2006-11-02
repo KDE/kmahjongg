@@ -58,7 +58,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     gameGenerationNum = 0;
     backsprite = 0;
 
-    m_angle = NW;
+    m_angle = NE;
 
     // Load tileset. First try to load the last use tileset
     QString tFile;
