@@ -76,8 +76,8 @@ int is_paused = 0;
 KMahjongg::KMahjongg( QWidget* parent)
     : KMainWindow(parent)
 {
-    //Use up to 5MB for global application pixmap cache
-    QPixmapCache::setCacheLimit(5*1024);
+    //Use up to 3MB for global application pixmap cache
+    QPixmapCache::setCacheLimit(3*1024);
     // minimum area required to display the field
     setMinimumSize ( 320, 320 );
     // init board widget
