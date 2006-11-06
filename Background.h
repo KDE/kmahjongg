@@ -20,11 +20,9 @@
 #ifndef _BACKGROUND_H
 #define _BACKGROUND_H
 #include <QString>
+#include <QImage>
+#include <QPixmap>
 #include "ksvgrenderer.h"
-
-class QPixmap;
-class QImage;
-
 
 class Background  
 {
@@ -39,14 +37,15 @@ class Background
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged();
-    QPixmap *getBackground() {return backgroundPixmap;};
+    QPixmap & getBackground() {return backgroundPixmap;};
  private:
-    void sourceToBackground();
+    //void sourceToBackground();
+    void scale();
 
     int tileMode;    // scale background = 0, tile = 1
-    QImage *backgroundImage;
-    QImage *sourceImage;
-    QPixmap *backgroundPixmap;
+    //QImage backgroundImage;
+    QImage sourceImage;
+    QPixmap backgroundPixmap;
     QString filename;
     short w;
     short h;

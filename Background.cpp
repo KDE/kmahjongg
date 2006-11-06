@@ -26,30 +26,19 @@
 #include <QtDebug>
 
 Background::Background(): tile(true) {
-
-  sourceImage = 0;
-  backgroundImage = 0;
-  backgroundPixmap = 0;
   isSVG = false;
 }
 
 Background::~Background() {
-  delete sourceImage;
-  delete backgroundImage;
-  delete backgroundPixmap;
 }
 
 bool Background::load(const QString &file, short width, short height) {
   w=width;
   h=height; 
-
-  //TODO fix this
-  //if (file == filename) {
-  //	return true;
-  //}
-  sourceImage = new QImage();
-  backgroundImage = new QImage();
-  backgroundPixmap = new QPixmap();
+qDebug() << "Background loading";
+  if (file == filename) {
+  	return true;
+  }
 
   //TODO hardcoded file during transition to SVG rendering
   QString picsPos = "pics/";
@@ -64,39 +53,29 @@ bool Background::load(const QString &file, short width, short height) {
 
     // try to load it as image
     isSVG = false;
-    if( ! sourceImage->load( newPath) ) {
+    if( ! sourceImage.load( newPath) ) {
 	//maybe SVG??
 	//TODO add support for svgz?
 	svg.load(newPath);
 	if (svg.isValid()) {
-		delete sourceImage;
-	        sourceImage = new QImage(w, h ,QImage::Format_RGB32);
-		//Fill the buffer, it is uninitialized by default
-		sourceImage->fill(0);
-	        QPainter p(sourceImage);
-	        svg.render(&p);
 		isSVG = true;
+		scale();
 	    } else {
 	        return( false );
 	    }
     }
 
-  // Just in case the image is loaded 8 bit
-  if (sourceImage->depth() != 32)
-    *sourceImage = sourceImage->convertToFormat(QImage::Format_RGB32);  
-
   // call out to scale/tile the source image into the background image
   //in case of SVG we will be already at the right size
-  sourceToBackground();
-
   filename = file;
-	
    return true;
 }
 
 // slot used when tile/scale option changes
 void Background::scaleModeChanged() {
-	sourceToBackground();
+	//TODO implement tiling
+	//sourceToBackground();
+	//scale();
 }
 
 void Background::sizeChanged(int newW, int newH) {
@@ -104,12 +83,26 @@ void Background::sizeChanged(int newW, int newH) {
 		return;
 	w = newW;
 	h = newH;
-//TODO fix this
-  load(filename, w, h);
-//was sourceToBackground();
+	scale();
 }
 
+void Background::scale() {
+qDebug() << "Background scaling";
+    if( isSVG) {
+	if (svg.isValid()) {
+	        sourceImage =  QImage(w, h ,QImage::Format_RGB32);
+		sourceImage.fill(0);
+	        QPainter p(&sourceImage);
+	        svg.render(&p);
+	    }
+    }
+    backgroundPixmap = QPixmap::fromImage(sourceImage);
+}
+
+/*
 void Background::sourceToBackground() {
+  //Sanity check, did we load anything?
+  if (!sourceImage) return;
 
   // Deallocate the old image and create the new one
   delete backgroundImage;
@@ -152,5 +145,5 @@ void Background::sourceToBackground() {
   *backgroundPixmap = QPixmap::fromImage(*backgroundImage);
 
   return;
-}
+}*/
 

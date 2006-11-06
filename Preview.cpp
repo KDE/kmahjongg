@@ -329,12 +329,12 @@ void Preview::renderBackground(const QString &bg) {
    QImage img;
    QImage tmp;
    QPixmap *p;
-   QPixmap *b;
+   QPixmap b;
    p = m_drawFrame->getPreviewPixmap();
    m_back.load(bg, p->width(), p->height());
    b = m_back.getBackground();
    QPainter paint(p);
-   paint.drawPixmap(0,0, *b);
+   paint.drawPixmap(0,0, b);
 }
 
 // This method draws a mini-tiled board with no tiles missing.

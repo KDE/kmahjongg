@@ -104,10 +104,9 @@ BoardWidget::~BoardWidget(){
 }
 
 void BoardWidget::loadSettings(){
-  theBackground.tile = Prefs::tiledBackground();
-
   setDisplayedWidth();
   tileSizeChanged();
+  theBackground.tile = Prefs::tiledBackground();
   updateScaleMode();
   drawBoard(true);
 }
@@ -118,7 +117,7 @@ void BoardWidget::resizeEvent ( QResizeEvent * event )
     QSize newtiles = theTiles.preferredTileSize(event->size(), requiredHorizontalCells(), requiredVerticalCells());
     qDebug() << "new tilesize:" << newtiles;
     theTiles.reloadTileset(newtiles);
-loadSettings();
+    loadSettings();
 }
 
 
@@ -161,7 +160,7 @@ void BoardWidget::setDisplayedWidth() {
 }
 
 void BoardWidget::populateSpriteMap() {
-    QPixmap  *back;
+    QPixmap  back;
 
     //Delete previous sprites (full update), synchronize state with GameData
     while (!items()->isEmpty())
@@ -172,7 +171,7 @@ void BoardWidget::populateSpriteMap() {
 
     //Recreate our background
     back = theBackground.getBackground();
-    backsprite = new KGameCanvasPixmap(*back, this);
+    backsprite = new KGameCanvasPixmap(back, this);
     backsprite->show();
 
     //create the sprites
