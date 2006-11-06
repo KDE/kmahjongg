@@ -240,7 +240,7 @@ QPixmap Tileset::selectedTile(int num) {
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
-};
+}
 
 QPixmap Tileset::unselectedTile(int num) {
 	QPixmap pm;
@@ -251,7 +251,7 @@ QPixmap Tileset::unselectedTile(int num) {
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
-};
+}
 
 QPixmap Tileset::tileface(int num) {
 	QPixmap pm;
@@ -262,6 +262,6 @@ QPixmap Tileset::tileface(int num) {
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
-};
+}
 
 

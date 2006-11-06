@@ -121,7 +121,7 @@ QPixmap & Background::getBackground() {
      		QPixmapCache::insert(pixmapCacheNameFromElementId(filename), backgroundPixmap);
  	}
 	return backgroundPixmap;
-};
+}
 
 /*
 void Background::sourceToBackground() {
