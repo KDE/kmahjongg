@@ -143,6 +143,9 @@ bool Tileset::loadTileset( const QString& tilesetPath)
 	svg.load(graphicsPath);
 	if (svg.isValid()) {
 		filename = tilesetPath;
+		//invalidate our global cache
+		QPixmapCache::clear();
+
 		isSVG = true;
 		reloadTileset(QSize(originaldata.w,originaldata.h));
 	    } else {
