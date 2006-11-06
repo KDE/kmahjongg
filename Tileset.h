@@ -48,9 +48,9 @@ class Tileset {
      short qWidth() {return (short) (scaleddata.fw / 2.0);};
      short qHeight() {return (short) (scaleddata.fh / 2.0);};
 
-     QPixmap &selectedTile(int num);
-     QPixmap &unselectedTile(int num);
-     QPixmap &tileface(int num);
+     QPixmap selectedTile(int num);
+     QPixmap unselectedTile(int num);
+     QPixmap tileface(int num);
 
   protected:
 
@@ -61,7 +61,6 @@ class Tileset {
   
 
   private:
-    QPixmap pm;
     QList<QString> elementIdTable;
 
     TILESETMETRICSDATA originaldata;

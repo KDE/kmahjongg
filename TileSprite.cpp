@@ -21,7 +21,7 @@
 #include <QImage>
 #include <QPixmap>
 
-TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected )
+TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap backunselected, QPixmap backselected, QPixmap face, TileViewAngle angle, bool selected )
     : KGameCanvasItem(canvas)
 {
     m_backselected = backselected;
@@ -38,7 +38,7 @@ TileSprite::~TileSprite()
 {
 }
 
-void TileSprite::setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected) {
+void TileSprite::setAngle(TileViewAngle angle, QPixmap backunselected, QPixmap backselected) {
     m_angle = angle;
     m_backselected = backselected;
     m_backunselected = backunselected;

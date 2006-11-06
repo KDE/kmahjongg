@@ -46,9 +46,9 @@ void Tileset::updateScaleInfo(short tilew, short tileh)
 	scaleddata.w = tilew;
 	scaleddata.h = tileh;
 	double ratio = ((qreal) scaleddata.w) / ((qreal) originaldata.w);
-	scaleddata.lvloff     = originaldata.lvloff * ratio;
-	scaleddata.fw     = originaldata.fw * ratio;
-	scaleddata.fh     = originaldata.fh * ratio;
+	scaleddata.lvloff     = (short) (originaldata.lvloff * ratio);
+	scaleddata.fw     = (short) (originaldata.fw * ratio);
+	scaleddata.fh     = (short) (originaldata.fh * ratio);
 }
 
 QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
@@ -228,27 +228,33 @@ QPixmap Tileset::renderElement(short width, short height, QString & elementid) {
     return QPixmap::fromImage(qiRend);
 }
 
-QPixmap& Tileset::selectedTile(int num) {
+QPixmap Tileset::selectedTile(int num) {
+	QPixmap pm;
 	QString elemId = elementIdTable.at(num+4);//selected offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+		//use tile size
      		pm = renderElement(scaleddata.w, scaleddata.h, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
 };
 
-QPixmap& Tileset::unselectedTile(int num) {
+QPixmap Tileset::unselectedTile(int num) {
+	QPixmap pm;
 	QString elemId = elementIdTable.at(num);
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+		//use tile size
      		pm = renderElement(scaleddata.w, scaleddata.h, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}
 	return pm;
 };
 
-QPixmap& Tileset::tileface(int num) {
+QPixmap Tileset::tileface(int num) {
+	QPixmap pm;
 	QString elemId = elementIdTable.at(num+8);//tileface offset in our idtable;
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(elemId), pm)) {
+		//use face size
      		pm = renderElement(scaleddata.fw, scaleddata.fh, elemId);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(elemId), pm);
  	}

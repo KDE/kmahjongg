@@ -113,10 +113,11 @@ void BoardWidget::loadSettings(){
 
 void BoardWidget::resizeEvent ( QResizeEvent * event )
 {
-    qDebug() << "resized:" << event->oldSize() << event->size();
+    //qDebug() << "resized:" << event->oldSize() << event->size();
     QSize newtiles = theTiles.preferredTileSize(event->size(), requiredHorizontalCells(), requiredVerticalCells());
-    qDebug() << "new tilesize:" << newtiles;
+    //qDebug() << "new tilesize:" << newtiles;
     theTiles.reloadTileset(newtiles);
+    stopMatchAnimation();
     loadSettings();
 }
 

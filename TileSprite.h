@@ -31,12 +31,12 @@
 class TileSprite : public KGameCanvasItem
 {
 public:
-    TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected);
+    TileSprite ( KGameCanvasAbstract* canvas, QPixmap backunselected, QPixmap backselected, QPixmap face, TileViewAngle angle, bool selected);
     ~TileSprite();
 
     virtual void paint(QPainter* p);
     virtual QRect rect() const;
-    void setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected);
+    void setAngle(TileViewAngle angle, QPixmap backunselected, QPixmap backselected);
 
     inline void setScale (double scale){ m_scale=scale;};
     inline double scale(){ return m_scale;};
