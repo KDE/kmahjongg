@@ -37,10 +37,12 @@ class Background
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged();
-    QPixmap & getBackground() {return backgroundPixmap;};
+    QPixmap & getBackground();
  private:
     //void sourceToBackground();
     void scale();
+    QString pixmapCacheNameFromElementId(QString & elementid);
+    QPixmap renderBG(short width, short height);
 
     int tileMode;    // scale background = 0, tile = 1
     //QImage backgroundImage;

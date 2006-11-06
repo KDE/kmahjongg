@@ -21,6 +21,7 @@
 #include "Background.h"
 #include <QImage>
 #include <QPixmap>
+#include <QPixmapCache>
 #include <QPainter>
 #include <kstandarddirs.h>
 #include <QtDebug>
@@ -59,7 +60,7 @@ qDebug() << "Background loading";
 	svg.load(newPath);
 	if (svg.isValid()) {
 		isSVG = true;
-		scale();
+		//scale();
 	    } else {
 	        return( false );
 	    }
@@ -83,7 +84,7 @@ void Background::sizeChanged(int newW, int newH) {
 		return;
 	w = newW;
 	h = newH;
-	scale();
+	//scale();
 }
 
 void Background::scale() {
@@ -98,6 +99,29 @@ qDebug() << "Background scaling";
     }
     backgroundPixmap = QPixmap::fromImage(sourceImage);
 }
+
+QString Background::pixmapCacheNameFromElementId(QString & elementid) {
+	return elementid+QString("W%1H%2").arg(w).arg(h);
+}
+
+QPixmap Background::renderBG(short width, short height) {
+    QImage qiRend(QSize(width, height),QImage::Format_ARGB32_Premultiplied);
+    qiRend.fill(0);
+
+    if (svg.isValid()) {
+            QPainter p(&qiRend);
+	    svg.render(&p);
+    }
+    return QPixmap::fromImage(qiRend);
+}
+
+QPixmap & Background::getBackground() {
+ 	if (!QPixmapCache::find(pixmapCacheNameFromElementId(filename), backgroundPixmap)) {
+     		backgroundPixmap = renderBG(w, h);
+     		QPixmapCache::insert(pixmapCacheNameFromElementId(filename), backgroundPixmap);
+ 	}
+	return backgroundPixmap;
+};
 
 /*
 void Background::sourceToBackground() {
