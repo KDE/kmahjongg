@@ -344,8 +344,11 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
     m_boardLayout.loadBoardLayout(layout);
 
     QPixmap *dest = m_drawFrame->getPreviewPixmap();
-    int xOffset = m_tiles.width()/2;
-    int yOffset = m_tiles.height()/2;
+    QSize newtilesize = m_tiles.preferredTileSize(dest->size(), m_boardLayout.m_width/2, m_boardLayout.m_height/2);
+    m_tiles.reloadTileset(newtilesize);
+
+    int xOffset = (dest->width() - (m_boardLayout.m_width*(m_tiles.qWidth())) - (m_tiles.width()-(m_tiles.qWidth()*2)))/2;
+    int yOffset = (dest->height() - (m_boardLayout.m_height*(m_tiles.qHeight())) - (m_tiles.height()-(m_tiles.qHeight()*2)))/2;
     short tile = 0;
 
     QPainter p(dest);
