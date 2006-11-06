@@ -185,9 +185,9 @@ void BoardWidget::populateSpriteMap() {
 		if (!Game->tilePresent(z,y,x))
 			continue;
 
-                QPixmap *s;
-		QPixmap *us;
-		QPixmap *f;
+                QPixmap s;
+		QPixmap us;
+		QPixmap f;
 		bool selected = false;
 		s= theTiles.selectedTile(m_angle);
 		us= theTiles.unselectedTile(m_angle);
@@ -196,7 +196,7 @@ void BoardWidget::populateSpriteMap() {
 		    selected = true;
 		}
 
-		  TileSprite * thissprite = new TileSprite(this, *us, *s, *f, m_angle, selected);
+		  TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, selected);
 
 		  spriteMap.insert(TileCoord(x,y,z), thissprite);
             }
@@ -570,9 +570,9 @@ void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, uns
    // p.fillRect(x+1, y+ss+1, theTiles.width()-ss-2, theTiles.height()-ss-2, QBrush(lightGray));
 
     for (unsigned short pos=0; pos < h; pos++) {
-       QPixmap *pix = theTiles.tileface(t-TILE_OFFSET);
+       QPixmap pix = theTiles.tileface(t-TILE_OFFSET);
        p->drawPixmap( x+(pos*ss), y-(pos*ss),
-                    *pix );
+                    pix );
     }
     p->restore();
 }
@@ -927,13 +927,13 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     Game->putTile( E, Y, X, Pos.f );
     Game->setHighlightData(E,Y,X,0);
 
-    QPixmap *s;
-    QPixmap *us;
-    QPixmap *f;
+    QPixmap s;
+    QPixmap us;
+    QPixmap f;
     s= theTiles.selectedTile(m_angle);
     us= theTiles.unselectedTile(m_angle);
     f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
-    TileSprite * thissprite = new TileSprite(this, *us, *s, *f, m_angle, false);
+    TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, false);
     //thissprite->moveTo(sx, sy);
     thissprite->show();
      spriteMap.insert(TileCoord(X,Y,E), thissprite);
@@ -1248,7 +1248,7 @@ void BoardWidget::angleSwitchCCW() {
 	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
  	while (i.hasNext()) {
      	    i.next();
-     	    i.value()->setAngle(m_angle, *theTiles.unselectedTile(m_angle), *theTiles.selectedTile(m_angle) );
+     	    i.value()->setAngle(m_angle, theTiles.unselectedTile(m_angle), theTiles.selectedTile(m_angle) );
  	}
 	//re-position and re-layer
 	updateSpriteMap();
@@ -1274,7 +1274,7 @@ void BoardWidget::angleSwitchCW() {
 	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
  	while (i.hasNext()) {
      	    i.next();
-     	    i.value()->setAngle(m_angle, *theTiles.unselectedTile(m_angle), *theTiles.selectedTile(m_angle) );
+     	    i.value()->setAngle(m_angle, theTiles.unselectedTile(m_angle), theTiles.selectedTile(m_angle) );
  	}
 	//re-position and re-layer
 	updateSpriteMap();

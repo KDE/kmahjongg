@@ -431,7 +431,7 @@ void Editor::drawTiles(QPixmap *dest) {
                 if (theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-		QPixmap *t;
+		QPixmap t;
 		tile=(z*theBoard.m_depth)+
 			(y*theBoard.m_height)+
 				(x*theBoard.m_width);
@@ -449,17 +449,17 @@ void Editor::drawTiles(QPixmap *dest) {
                 // minus border
                 if ((x>1) && (y>0) && theBoard.getBoardData(z,y-1,x-2)=='1'){
                     p.drawPixmap( sx+tiles.levelOffset(), sy,
-                            *t, tiles.levelOffset() ,0,
-                            t->width()-tiles.levelOffset(),
-                            t->height()/2);
+                            t, tiles.levelOffset() ,0,
+                            t.width()-tiles.levelOffset(),
+                            t.height()/2);
 
 
-                    p.drawPixmap( sx, sy+t->height()/2,
-                        *t, 0,t->height()/2,t->width(),t->height()/2);
+                    p.drawPixmap( sx, sy+t.height()/2,
+                        t, 0,t.height()/2,t.width(),t.height()/2);
                 } else {
 
                 p.drawPixmap(sx, sy,
-                    *t, 0,0, t->width(), t->height());
+                    t, 0,0, t.width(), t.height());
                 }
 
 

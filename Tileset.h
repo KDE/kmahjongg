@@ -48,28 +48,21 @@ class Tileset {
      short qWidth() {return (short) (scaleddata.fw / 2.0);};
      short qHeight() {return (short) (scaleddata.fh / 2.0);};
 
-     QPixmap *selectedTile(int num) {
-		return &(selectedTiles[num]);
-	};
-
-     QPixmap *unselectedTile(int num) {
-		return &(unselectedTiles[num]);
-	};
-
-     QPixmap *tileface(int num) {
-		return &(tilefaces[num]);
-	};
+     QPixmap &selectedTile(int num);
+     QPixmap &unselectedTile(int num);
+     QPixmap &tileface(int num);
 
   protected:
 
-	//void createTilePixmap(short x, short y, QPixmap& alltiles, QPixmap &dest, bool selected);
 	void updateScaleInfo(short tilew, short tileh);
+	void buildElementIdTable(void);
+	QString pixmapCacheNameFromElementId(QString & elementid);
+	QPixmap renderElement(short width, short height, QString & elementid);
   
 
   private:
-    QPixmap unselectedTiles[4];
-    QPixmap selectedTiles[4];
-    QPixmap tilefaces[42];
+    QPixmap pm;
+    QList<QString> elementIdTable;
 
     TILESETMETRICSDATA originaldata;
     TILESETMETRICSDATA scaleddata;

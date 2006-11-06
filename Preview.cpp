@@ -362,7 +362,7 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 if (m_boardLayout.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-                QPixmap *t = m_tiles.unselectedTile(0); //was(tile)
+                QPixmap t = m_tiles.unselectedTile(0); //was(tile)
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:
@@ -373,13 +373,13 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
 
                 if ((x>1) && (y>0) && m_boardLayout.getBoardData(z,y-1,x-2)=='1'){
                     p.drawPixmap( sx+2, sy,
-                        *t, 2,0, t->width(), t->height()/2 );
-                    p.drawPixmap( sx, sy+t->height()/2,
-			*t, 0,t->height()/2,t->width(),t->height()/2);
+                        t, 2,0, t.width(), t.height()/2 );
+                    p.drawPixmap( sx, sy+t.height()/2,
+			t, 0,t.height()/2,t.width(),t.height()/2);
                 } else {
 
                 p.drawPixmap( sx, sy,
-                    *t, 0,0, t->width(), t->height() );
+                    t, 0,0, t.width(), t.height() );
                 }
                 tile++;
                 if (tile == 35)
