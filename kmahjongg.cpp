@@ -182,9 +182,9 @@ void KMahjongg::setupKAction()
     KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
     KAction* shuffle = new KAction(KIcon("reload"), i18n("Shu&ffle"), actionCollection(), "move_shuffle");
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
-    KAction* angleccw = new KAction(i18n("Switch Angle Counter Clockwise"), actionCollection(), "view_angleccw");
+    KAction* angleccw = new KAction(KIcon("rotate_ccw"),i18n("Rotate View Counter Clockwise"), actionCollection(), "view_angleccw");
     angleccw->setShortcut( KShortcut( "f"  ) );
-    KAction* anglecw = new KAction(i18n("Switch Angle Clockwise"), actionCollection(), "view_anglecw");
+    KAction* anglecw = new KAction(KIcon("rotate_cw"),i18n("Rotate View Clockwise"), actionCollection(), "view_anglecw");
     anglecw->setShortcut( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
