@@ -54,23 +54,24 @@ void Tileset::updateScaleInfo(short tilew, short tileh)
 QSize Tileset::preferredTileSize(QSize boardsize, int horizontalCells, int verticalCells)
 {
     //calculate our best tile size to fit the boardsize passed to us
-    qreal newtilew, newtileh;
+    qreal newtilew, newtileh, aspectratio;
     qreal bw = boardsize.width();
     qreal bh = boardsize.height();
 
-    qreal fullh = originaldata.h*verticalCells;
-    qreal fullw = originaldata.w*horizontalCells;
+    //use tileface for calculation, with one complete tile in the sum for extra margin
+    qreal fullh = (originaldata.fh*verticalCells)+originaldata.h;
+    qreal fullw = (originaldata.fw*horizontalCells)+originaldata.w;
     qreal floatw = originaldata.w;
     qreal floath = originaldata.h;
 
     if ((fullw/fullh)>(bw/bh)) {
         //space will be left on height, use width as limit
-	newtilew = bw/(qreal) horizontalCells;
-	newtileh = (floath * newtilew) / floatw;
+	aspectratio = bw/fullw;
     } else {
-	newtileh = bh/(qreal) verticalCells;
-	newtilew = (floatw * newtileh) / floath;
+	aspectratio = bh/fullh;
     }
+    newtilew = aspectratio * floatw;
+    newtileh = aspectratio * floath;
     return QSize((short)newtilew, (short)newtileh);
 }
 
