@@ -1249,7 +1249,9 @@ void BoardWidget::angleSwitchCCW() {
 	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
  	while (i.hasNext()) {
      	    i.next();
-     	    i.value()->setAngle(m_angle, theTiles.unselectedTile(m_angle), theTiles.selectedTile(m_angle) );
+	    QPixmap u = theTiles.unselectedTile(m_angle);
+	    QPixmap s = theTiles.selectedTile(m_angle);
+     	    i.value()->setAngle(m_angle, u, s  );
  	}
 	//re-position and re-layer
 	updateSpriteMap();
@@ -1275,7 +1277,9 @@ void BoardWidget::angleSwitchCW() {
 	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
  	while (i.hasNext()) {
      	    i.next();
-     	    i.value()->setAngle(m_angle, theTiles.unselectedTile(m_angle), theTiles.selectedTile(m_angle) );
+     	    QPixmap u = theTiles.unselectedTile(m_angle);
+	    QPixmap s = theTiles.selectedTile(m_angle);
+     	    i.value()->setAngle(m_angle, u, s  );
  	}
 	//re-position and re-layer
 	updateSpriteMap();
