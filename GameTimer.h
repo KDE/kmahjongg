@@ -38,7 +38,7 @@ class GameTimer: public QObject
 {
     Q_OBJECT
 public:
-    GameTimer();
+    explicit GameTimer();
 
     int toInt(); 
     QString toString() {return theTimer.toString();};	
