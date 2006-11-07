@@ -80,6 +80,7 @@ private slots:
   void redo();
   void pause();
   void demoMode();
+  void displayTime(QString& timestring);
   void showMatchingTiles();
   void showHighscores();
   void slotBoardEditor();
@@ -103,6 +104,7 @@ private:
   QLabel *gameNumLabel;
   QLabel *tilesLeftLabel;
   QLabel *statusLabel;
+  QLabel *gameTimerLabel;
 
   GameTimer    *gameTimer;
   HighScore    *theHighScores;

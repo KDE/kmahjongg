@@ -95,9 +95,10 @@ KMahjongg::KMahjongg( QWidget* parent)
     layout->setSpacing(0);
     layout->addStretch();
 
-    gameTimer = new GameTimer(hbox);
-    layout->addWidget(gameTimer);
-    toolBar()->addWidget(hbox);
+    gameTimer = new GameTimer();
+
+    connect( gameTimer, SIGNAL( displayTime(QString&)), this,
+                SLOT( displayTime(QString&)));
 
     theHighScores = new HighScore(this);
 
@@ -224,25 +225,26 @@ void KMahjongg::setupKAction()
 // ---------------------------------------------------------
 void KMahjongg::setupStatusBar()
 {
-    // The following isn't possible with the new KStatusBar anymore.
-    // The correct fix is probably to reverse the order of adding the
-    // widgets. :/
-    // Just commenting it out for now (order is not as important
-    // as compilation), in case someone comes up with a better fix.
-    // pStatusBar->setInsertOrder( KStatusBar::RightToLeft );
-
-    tilesLeftLabel= new QLabel("Removed: 0000/0000", statusBar());
+    tilesLeftLabel= new QLabel(i18n("Removed: 0000/0000"), statusBar());
     tilesLeftLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    statusBar()->addWidget(tilesLeftLabel);
+    statusBar()->addWidget(tilesLeftLabel, 1);
 
-    gameNumLabel = new QLabel("Game: 000000000000000000000", statusBar());
+    gameNumLabel = new QLabel(i18n("Game: 000000000000000000000"), statusBar());
     gameNumLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-    statusBar()->addWidget(gameNumLabel, 1);
-
+    statusBar()->addWidget(gameNumLabel);
 
     statusLabel= new QLabel("Kmahjongg", statusBar());
     statusLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
     statusBar()->addWidget(statusLabel);
+
+    gameTimerLabel = new QLabel(i18n("Time: 0:00:00"), statusBar());
+    gameTimerLabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
+    statusBar()->addWidget(gameTimerLabel);
+}
+
+void KMahjongg::displayTime(QString& timestring)
+{
+    gameTimerLabel->setText(i18n("Time: ")+timestring);
 }
 
 void KMahjongg::setDisplayedWidth()
