@@ -40,7 +40,7 @@
 class GameData {
 
 public:
-    GameData (BoardLayout * boardlayout);
+    explicit GameData (BoardLayout * boardlayout);
     ~GameData ();
 
     int      allow_undo;
