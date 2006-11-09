@@ -58,6 +58,7 @@ private:
     QPixmap m_face;
     double    m_scale;
     bool m_selected;
+    bool m_dying;
     short m_woffset;
     short m_hoffset;
     TileViewAngle m_angle;

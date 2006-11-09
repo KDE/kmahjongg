@@ -77,6 +77,8 @@ class BoardWidget : public KGameCanvasWidget
 	void loadSettings();
         void saveSettings();
 
+	void animatingMoveListForward();
+	void animatingMoveListBackwards();
 	void shuffle();
 	void angleSwitchCW();
 	void angleSwitchCCW();

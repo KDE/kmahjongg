@@ -25,6 +25,7 @@
 TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap & backunselected, QPixmap & backselected, QPixmap & face, TileViewAngle angle, bool selected )
     : QObject(), KGameCanvasItem(canvas)
 {
+    m_dying = false;
     setOpacity(255);
     m_backselected = backselected;
     m_backunselected = backunselected;
@@ -91,6 +92,7 @@ void TileSprite::paint(QPainter* p) {
 }
 
 void TileSprite::fadeOut() {
+    m_dying = true;
     setOpacity(opacity()-25);
     if (opacity() <= 0) {
 	//cancel fade and schedule our destruction!
@@ -102,8 +104,9 @@ void TileSprite::fadeOut() {
 }
 
 void TileSprite::fadeIn() {
+    if (m_dying) return;
     setOpacity(opacity()+25);
-    if (opacity() >= 255) {
+    if (opacity() <= 0) {
 	//cancel fade in
 	return;
     }

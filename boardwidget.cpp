@@ -723,7 +723,9 @@ void BoardWidget::demoMoveTimeout()
                         }
                     }
                     TimerState = Stop;
-                    startDemoMode();
+                    //startDemoMode();
+		    //dont loop demo
+		    stopDemoMode();
                     return;
                 }
                 break;
@@ -806,8 +808,9 @@ void BoardWidget::redoMove()
 void BoardWidget::animateMoveList()
 {
     setStatusText( i18n("Congratulations. You have won!") );
+    animatingMoveListForward();
 
-    if (Prefs::playAnimation())
+    /*if (Prefs::playAnimation())
     {
         while( Game->TileNum < Game->MaxTileNum )
         {
@@ -827,7 +830,37 @@ void BoardWidget::animateMoveList()
         }
     }
 
-    calculateNewGame();
+    calculateNewGame();*/
+}
+
+void BoardWidget::animatingMoveListForward()
+{
+    if (Game->TileNum < Game->MaxTileNum) {
+        // put back all tiles
+        putTileInBoard(Game->MoveListData(Game->TileNum));
+        Game->TileNum++;
+        putTileInBoard(Game->MoveListData(Game->TileNum), false);
+        Game->TileNum++;
+        drawTileNumber();
+        QTimer::singleShot(200, this, SLOT(animatingMoveListForward()));
+    } else {
+        //start removal
+        QTimer::singleShot(200, this, SLOT(animatingMoveListBackwards()));
+    }
+}
+
+void BoardWidget::animatingMoveListBackwards()
+{
+    if (Game->TileNum > 0 ) {
+        // remove all tiles
+        removeTile(Game->MoveListData(Game->TileNum-1), false);
+        removeTile(Game->MoveListData(Game->TileNum-1));
+        drawTileNumber();
+        QTimer::singleShot(200, this, SLOT(animatingMoveListBackwards()));
+    } else {
+        //end of animation
+        //calculateNewGame();
+    }
 }
 
 // ---------------------------------------------------------
@@ -923,6 +956,7 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     short E=Pos.e;
     short Y=Pos.y;
     short X=Pos.x;
+qDebug() << E << Y << X;
 
 	// we ensure that any tile we put on has highlighting off
     Game->putTile( E, Y, X, Pos.f );
@@ -939,11 +973,9 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     thissprite->setOpacity(0);
     thissprite->show();
     thissprite->fadeIn();
-     spriteMap.insert(TileCoord(X,Y,E), thissprite);
+    spriteMap.insert(TileCoord(X,Y,E), thissprite);
 
-    if (doRepaint) {
-	updateSpriteMap();
-    }
+    updateSpriteMap();
 }
 
 

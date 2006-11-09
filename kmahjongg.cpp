@@ -421,7 +421,7 @@ void KMahjongg::gameOver(
 	gameTimer->pause();
         long gameNum = bw->getGameNum();
 	KMessageBox::information(this, i18n("You have won!"));
-	bw->animateMoveList();
+
 	int elapsed = gameTimer->toInt();
 
 	time = score = 0;
@@ -443,6 +443,8 @@ void KMahjongg::gameOver(
 		score = 0;
 
 	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+
+	bw->animateMoveList();
 
 	timerReset();
 }
