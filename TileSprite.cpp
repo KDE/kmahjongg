@@ -20,10 +20,12 @@
 #include "TileSprite.h"
 #include <QImage>
 #include <QPixmap>
+#include <QTimer>
 
 TileSprite::TileSprite( KGameCanvasAbstract* canvas, QPixmap & backunselected, QPixmap & backselected, QPixmap & face, TileViewAngle angle, bool selected )
-    : KGameCanvasItem(canvas)
+    : QObject(), KGameCanvasItem(canvas)
 {
+    setOpacity(255);
     m_backselected = backselected;
     m_backunselected = backunselected;
     m_face = face;
@@ -64,6 +66,20 @@ void TileSprite::updateOffset() {
 	}
 }
 
+void TileSprite::paintInternal(QPainter* p, const QRect& /*prect*/,
+                  const QRegion& /*preg*/, QPoint /*delta*/, double cumulative_opacity) {
+  int op = int(cumulative_opacity*opacity() + 0.5);
+
+  if(op <= 0)
+    return;
+
+  if(op < 255)
+    p->setOpacity( op/255.0 );
+    paint(p);
+  if(op < 255)
+    p->setOpacity(1.0);
+}
+
 void TileSprite::paint(QPainter* p) {
   if (m_selected) {
 	  p->drawPixmap(pos(), m_backselected);
@@ -74,7 +90,29 @@ void TileSprite::paint(QPainter* p) {
   }
 }
 
+void TileSprite::fadeOut() {
+    setOpacity(opacity()-25);
+    if (opacity() <= 0) {
+	//cancel fade and schedule our destruction!
+	deleteLater();
+	return;
+    }
+    //keep fading
+    QTimer::singleShot(40, this, SLOT(fadeOut()));
+}
+
+void TileSprite::fadeIn() {
+    setOpacity(opacity()+25);
+    if (opacity() >= 255) {
+	//cancel fade in
+	return;
+    }
+    //keep fading
+    QTimer::singleShot(40, this, SLOT(fadeIn()));
+}
+
 QRect TileSprite::rect() const {
     return QRect(pos(), m_backselected.size());
 }
 
+#include "TileSprite.moc"

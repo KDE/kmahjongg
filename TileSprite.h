@@ -24,16 +24,20 @@
 #include <kgamecanvas.h>
 
 #include <QPixmap>
+#include <QObject>
 
 //This class wraps tile drawing, so it can blit the selected or unselected background, plus
 //the tileface, positioned in the correct orientation. 
 
-class TileSprite : public KGameCanvasItem
+class TileSprite : public QObject, public KGameCanvasItem
 {
+    Q_OBJECT
 public:
     TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected);
     ~TileSprite();
 
+    virtual void paintInternal(QPainter* p, const QRect& prect, const QRegion& preg,
+                                          QPoint delta, double cumulative_opacity);
     virtual void paint(QPainter* p);
     virtual QRect rect() const;
     void setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected);
@@ -42,6 +46,9 @@ public:
     inline double scale(){ return m_scale;};
     inline void setSelected (bool enabled){ m_selected = enabled; changed();};
     inline double selected(){ return m_selected;};
+public slots:
+     void fadeOut();
+     void fadeIn();
 
 private:
     void updateOffset();

@@ -936,7 +936,9 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
     TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, false);
     //thissprite->moveTo(sx, sy);
+    thissprite->setOpacity(0);
     thissprite->show();
+    thissprite->fadeIn();
      spriteMap.insert(TileCoord(X,Y,E), thissprite);
 
     if (doRepaint) {
@@ -957,7 +959,10 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
     TileSprite * thissprite =spriteMap.value(TileCoord(X,Y,E));
-    if (thissprite) delete thissprite;
+    //if (thissprite) delete thissprite;
+    //fade out, TileSprite will delete itself
+    if (thissprite) thissprite->fadeOut();
+
     spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
     Game->putTile( E, Y, X, 0 );
@@ -1084,7 +1089,7 @@ void BoardWidget::transformPointToPosition(
     // if gameboard is empty, skip 
     //sanity checking
     if ( ! Game->BoardData(E,Y,X) ) {
-	qDebug() << "mismatch, not in BoardData";
+	qDebug() << "Tile not in BoardData. Fading out?";
 	return;
     }
 
