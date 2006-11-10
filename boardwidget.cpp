@@ -724,7 +724,7 @@ void BoardWidget::demoMoveTimeout()
                     }
                     TimerState = Stop;
                     //startDemoMode();
-		    //dont loop demo
+		    //do not loop demo
 		    stopDemoMode();
                     return;
                 }
