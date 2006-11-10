@@ -106,7 +106,7 @@ void TileSprite::fadeOut() {
 void TileSprite::fadeIn() {
     if (m_dying) return;
     setOpacity(opacity()+25);
-    if (opacity() <= 0) {
+    if ((opacity() == 255)||(m_dying)) {
 	//cancel fade in
 	return;
     }

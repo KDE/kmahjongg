@@ -970,9 +970,9 @@ qDebug() << E << Y << X;
     f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
     TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, false);
     //thissprite->moveTo(sx, sy);
-    thissprite->setOpacity(0);
+    //thissprite->setOpacity(0);
     thissprite->show();
-    thissprite->fadeIn();
+    //thissprite->fadeIn();
     spriteMap.insert(TileCoord(X,Y,E), thissprite);
 
     updateSpriteMap();
@@ -991,9 +991,9 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
     TileSprite * thissprite =spriteMap.value(TileCoord(X,Y,E));
-    //if (thissprite) delete thissprite;
+    if (thissprite) delete thissprite;
     //fade out, TileSprite will delete itself
-    if (thissprite) thissprite->fadeOut();
+    //if (thissprite) thissprite->fadeOut();
 
     spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
