@@ -956,9 +956,8 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     short E=Pos.e;
     short Y=Pos.y;
     short X=Pos.x;
-qDebug() << E << Y << X;
 
-	// we ensure that any tile we put on has highlighting off
+    // we ensure that any tile we put on has highlighting off
     Game->putTile( E, Y, X, Pos.f );
     Game->setHighlightData(E,Y,X,0);
 
