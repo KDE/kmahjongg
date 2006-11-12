@@ -8,5 +8,5 @@ GenericName=Mahjongg Solitaire
 Terminal=false
 Icon=kmahjongg
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;BoardGame;
