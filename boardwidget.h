@@ -76,6 +76,7 @@ class BoardWidget : public KGameCanvasWidget
     public slots:
 	void loadSettings();
         void saveSettings();
+        void resizeTileset ( const QSize & wsize );
 
 	void animatingMoveListForward();
 	void animatingMoveListBackwards();

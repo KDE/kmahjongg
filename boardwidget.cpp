@@ -60,8 +60,25 @@ BoardWidget::BoardWidget( QWidget* parent )
 
     m_angle = NE;
 
-    // Load tileset. First try to load the last use tileset
+    // Load layout first
     QString tFile;
+
+    getFileOrDefault(Prefs::layout(), "layout", tFile);
+    if( ! loadBoardLayout(tFile) )
+    {
+	KMessageBox::information(this,
+		   i18n("An error occurred when loading the board layout %1\n"
+                "KMahjongg will continue with the default layout.", tFile));
+    }
+
+    //Initialize our Game structure
+    Game = new GameData(&theBoardLayout);
+
+    MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
+    MouseClickPos2.e = Game->m_depth;
+
+    //Now apply our visual settings
+    // Load tileset. First try to load the last use tileset
     getFileOrDefault(Prefs::tileSet(), "tileset", tFile);
 
     if (!loadTileset(tFile)){
@@ -79,20 +96,6 @@ BoardWidget::BoardWidget( QWidget* parent )
 		   i18n("An error occurred when loading the background image\n%1", tFile)+
 		   i18n("KMahjongg will continue with the default background."));
     }
-
-    getFileOrDefault(Prefs::layout(), "layout", tFile);
-    if( ! loadBoardLayout(tFile) )
-    {
-	KMessageBox::information(this,
-		   i18n("An error occurred when loading the board layout %1\n"
-                "KMahjongg will continue with the default layout.", tFile));
-    }
-
-    //Initialize our Game
-    Game = new GameData(&theBoardLayout);
-
-    MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
-    MouseClickPos2.e = Game->m_depth;
 
     //setDisplayedWidth();
     loadSettings();
@@ -113,8 +116,14 @@ void BoardWidget::loadSettings(){
 
 void BoardWidget::resizeEvent ( QResizeEvent * event )
 {
+    resizeTileset(event->size());
+}
+
+void BoardWidget::resizeTileset ( const QSize & wsize )
+{
+qDebug() << "inside resize";
     //qDebug() << "resized:" << event->oldSize() << event->size();
-    QSize newtiles = theTiles.preferredTileSize(event->size(), requiredHorizontalCells(), requiredVerticalCells());
+    QSize newtiles = theTiles.preferredTileSize(wsize, requiredHorizontalCells(), requiredVerticalCells());
     //qDebug() << "new tilesize:" << newtiles;
     theTiles.reloadTileset(newtiles);
     stopMatchAnimation();
@@ -1204,11 +1213,13 @@ bool BoardWidget::loadTileset(const QString &path) {
   if (theTiles.loadTileset(path)) {
     Prefs::setTileSet(path);
     Prefs::writeConfig();
+    resizeTileset(size());
     return true;
   } else {
     if (theTiles.loadDefault()) {
       Prefs::setTileSet(path);
       Prefs::writeConfig();
+      resizeTileset(size());
       return false;
     } else {
       return false;
