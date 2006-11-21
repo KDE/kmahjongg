@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kdegames-tileset>
+<kdegames-tileset version="1.0">
+    <graphics type="svg">
+	<path>classic.svg</path>
+	<tilewidth>90</tilewidth>
+	<tileheight>114</tileheight>
+	<tilefacewidth>69</tilefacewidth>
+	<tilefaceheight>95</tilefaceheight>
+	<leveloffset>10</leveloffset>
+    </graphics>
+</kdegames-tileset>
