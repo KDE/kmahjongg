@@ -121,7 +121,6 @@ void BoardWidget::resizeEvent ( QResizeEvent * event )
 
 void BoardWidget::resizeTileset ( const QSize & wsize )
 {
-qDebug() << "inside resize";
     //qDebug() << "resized:" << event->oldSize() << event->size();
     QSize newtiles = theTiles.preferredTileSize(wsize, requiredHorizontalCells(), requiredVerticalCells());
     //qDebug() << "new tilesize:" << newtiles;
