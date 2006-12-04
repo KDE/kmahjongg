@@ -25,11 +25,11 @@
 #include <qfileinfo.h>
 #include <kmessagebox.h>
 #include "klocale.h"
-#include <kstandarddirs.h>                       
+#include <kstandarddirs.h>
 #include <kiconloader.h>
+#include <kinstance.h>
 #include <QLineEdit>
 #include <QComboBox>
-#include <kapplication.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
 
@@ -169,7 +169,7 @@ HighScore::HighScore ( QWidget* parent)
 	loadTables();
 	currTable = tables;
 
-	setWindowTitle(KInstance::makeStdCaption(i18n("Scores")));
+	setWindowTitle(KInstance::makeStandardCaption(i18n("Scores"), this));
 
 	selectedLine = -1;	
 

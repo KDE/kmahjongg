@@ -24,8 +24,8 @@
 #include "Editor.h"
 #include "prefs.h"
 
-#include <kapplication.h>
 #include <kmessagebox.h>
+#include <kinstance.h>
 #include <klocale.h>     // Needed to use KLocale
 #include <kstandarddirs.h>
 #include <kaction.h>
@@ -77,7 +77,7 @@ Editor::Editor ( QWidget* parent)
     setMinimumHeight(120);
 
    // tell the user what we do
-   setWindowTitle(KInstance::makeStdCaption(i18n("Edit Board Layout")));
+   setWindowTitle(KInstance::makeStandardCaption(i18n("Edit Board Layout"), this));
 
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
