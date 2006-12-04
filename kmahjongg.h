@@ -40,6 +40,7 @@
 
 class GameTimer;
 
+class KAction;
 class KToggleAction;
 class QLabel;
 
