@@ -1216,7 +1216,7 @@ bool BoardWidget::loadTileset(const QString &path) {
     return true;
   } else {
     if (theTiles.loadDefault()) {
-      Prefs::setTileSet(path);
+      Prefs::setTileSet(theTiles.path());
       Prefs::writeConfig();
       resizeTileset(size());
       return false;
