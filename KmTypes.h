@@ -42,16 +42,4 @@ typedef struct dep {
     bool free;         // True if this tile can be removed?
 } DEPENDENCY;
 
-//Tile angles for face composition
-enum TileViewAngle { NW, NE, SE, SW };
-
-#define TILE_OFFSET      2
-#define TILE_CHARACTER   (0+TILE_OFFSET)
-#define TILE_BAMBOO      (9+TILE_OFFSET)
-#define TILE_ROD         (18+TILE_OFFSET)
-#define TILE_SEASON      (27+TILE_OFFSET)
-#define TILE_WIND        (31+TILE_OFFSET)
-#define TILE_DRAGON      (35+TILE_OFFSET)
-#define TILE_FLOWER      (38+TILE_OFFSET)
-
 #endif

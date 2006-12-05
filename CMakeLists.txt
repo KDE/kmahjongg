@@ -2,7 +2,7 @@ project(kmahjongg)
 
 add_subdirectory( pics ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 
 
 ########### next target ###############
@@ -11,7 +11,7 @@ set(kmahjongg_SRCS
    main.cpp 
    kmahjongg.cpp 
    boardwidget.cpp 
-   Tileset.cpp 
+#   Tileset.cpp 
    BoardLayout.cpp 
    GameTimer.cpp 
    Background.cpp 
@@ -29,7 +29,7 @@ kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
 kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames )
+target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames kmahjongglib )
 
 install(TARGETS kmahjongg  DESTINATION ${BIN_INSTALL_DIR} )
 

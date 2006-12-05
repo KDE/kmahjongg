@@ -21,6 +21,7 @@
 #define GAMEDATA_H
 
 #include "KmTypes.h"
+#include "kmahjonggtileset.h"
 #include <krandomsequence.h>
 #include <QByteArray>
 #include <QVector>

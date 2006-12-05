@@ -21,6 +21,7 @@
 #define TILESPRITE_H
 
 #include "KmTypes.h"
+#include "kmahjonggtileset.h"
 #include <kgamecanvas.h>
 
 #include <QPixmap>

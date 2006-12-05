@@ -24,7 +24,7 @@
 #include <qframe.h>
 #include "kgamecanvas.h"
 
-#include "Tileset.h"
+#include "kmahjonggtileset.h"
 #include "BoardLayout.h"
 #include "Background.h"
 

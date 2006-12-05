@@ -26,7 +26,7 @@
 #include <kstatusbar.h>
 #include <kfiledialog.h>
 
-#include "Tileset.h"
+#include "kmahjonggtileset.h"
 #include "BoardLayout.h"
 #include "Background.h"
 

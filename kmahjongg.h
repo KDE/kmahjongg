@@ -31,7 +31,7 @@
 #include <kmainwindow.h>
 
 #include "KmTypes.h"
-#include "Tileset.h"
+#include "kmahjonggtileset.h"
 #include "Background.h"
 #include "BoardLayout.h"
 #include "Preview.h"
