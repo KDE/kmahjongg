@@ -105,7 +105,7 @@ protected:
 	QComboBox *m_combo;
 
 	QString m_selectedFile;
-	Tileset m_tiles;
+	KMahjonggTileset m_tiles;
 	BoardLayout m_boardLayout;
 	Background m_back;
 

@@ -74,7 +74,7 @@ private:
 	KToolBar *topToolbar;
         KActionCollection* actionCollection;
 	FrameImage * drawFrame;
-	Tileset tiles;
+	KMahjonggTileset tiles;
 	BoardLayout theBoard;
 	bool clean;
 	POSITION currPos;

@@ -127,7 +127,7 @@ class BoardWidget : public KGameCanvasWidget
 	int requiredHorizontalCells();
 	int requiredVerticalCells();
 
-	Tileset  theTiles;
+	KMahjonggTileset  theTiles;
 	Background theBackground;
 	BoardLayout theBoardLayout;
 
