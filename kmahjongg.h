@@ -67,9 +67,6 @@ class KMahjongg : public KMainWindow
 	void newGame();
 	void timerReset();
 
-	void tileSizeChanged();
-
-
 private slots:
   void showSettings();
 

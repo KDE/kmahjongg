@@ -505,10 +505,6 @@ void KMahjongg::loadBoardLayout(const QString &file) {
 	bw->loadBoardLayout(file);
 }
 
-void KMahjongg::tileSizeChanged() {
-	bw->tileSizeChanged();
-	setDisplayedWidth();
-}
 
 
 void KMahjongg::loadGame() {

@@ -63,7 +63,6 @@ class BoardWidget : public KGameCanvasWidget
 
         void animateMoveList();
         void setShowMatch( bool );
-	void tileSizeChanged();
 	long getGameNum() {return gameGenerationNum;};
 	QString &getBoardName(){return theBoardLayout.getFilename();};
 	QString &getLayoutName() {return theBoardLayout.getFilename();};

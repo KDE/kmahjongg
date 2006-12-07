@@ -108,7 +108,6 @@ BoardWidget::~BoardWidget(){
 
 void BoardWidget::loadSettings(){
   setDisplayedWidth();
-  tileSizeChanged();
   theBackground.tile = Prefs::tiledBackground();
   updateScaleMode();
   drawBoard(true);
@@ -117,6 +116,8 @@ void BoardWidget::loadSettings(){
 void BoardWidget::resizeEvent ( QResizeEvent * event )
 {
     resizeTileset(event->size());
+    theBackground.sizeChanged(requiredWidth(), requiredHeight());
+    drawBoard(true);
 }
 
 void BoardWidget::resizeTileset ( const QSize & wsize )
@@ -126,7 +127,6 @@ void BoardWidget::resizeTileset ( const QSize & wsize )
     //qDebug() << "new tilesize:" << newtiles;
     theTiles.reloadTileset(newtiles);
     stopMatchAnimation();
-    loadSettings();
 }
 
 
@@ -1267,12 +1267,6 @@ int BoardWidget::requiredHeight() {
 	//int res = ((BoardLayout::height+3)* theTiles.qHeight());
 	int res = height();
 	return res;
-}
-
-void BoardWidget::tileSizeChanged() {
-	//theTiles.setScaled(Prefs::miniTiles());
-	theBackground.sizeChanged(requiredWidth(), requiredHeight());
-
 }
 
 void BoardWidget::angleSwitchCCW() {
