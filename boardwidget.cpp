@@ -56,8 +56,6 @@ BoardWidget::BoardWidget( QWidget* parent )
 
     //memset( &Game->Mask, 0, sizeof( Game->Mask ) );
     gameGenerationNum = 0;
-    backsprite = 0;
-
     m_angle = NE;
 
     // Load layout first
@@ -180,8 +178,10 @@ void BoardWidget::populateSpriteMap() {
 
     //Recreate our background
     back = theBackground.getBackground();
-    backsprite = new KGameCanvasPixmap(back, this);
-    backsprite->show();
+    QPalette palette;
+    palette.setBrush( backgroundRole(), QBrush( back ) );
+    setPalette( palette );
+    setAutoFillBackground (true);
 
     //create the sprites
     for (int z=0; z<Game->m_depth; z++) {
