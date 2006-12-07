@@ -115,12 +115,13 @@ QPixmap Background::renderBG(short width, short height) {
     return QPixmap::fromImage(qiRend);
 }
 
-QPixmap & Background::getBackground() {
+QBrush & Background::getBackground() {
  	if (!QPixmapCache::find(pixmapCacheNameFromElementId(filename), backgroundPixmap)) {
      		backgroundPixmap = renderBG(w, h);
      		QPixmapCache::insert(pixmapCacheNameFromElementId(filename), backgroundPixmap);
  	}
-	return backgroundPixmap;
+	backgroundBrush = QBrush(backgroundPixmap);
+        return backgroundBrush;
 }
 
 /*

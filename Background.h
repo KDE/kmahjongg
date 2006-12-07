@@ -21,6 +21,7 @@
 #define _BACKGROUND_H
 #include <QString>
 #include <QImage>
+#include <QBrush>
 #include <QPixmap>
 #include "ksvgrenderer.h"
 
@@ -37,7 +38,7 @@ class Background
     bool load(const QString &file, short width, short height);
     void sizeChanged(int newW, int newH);
     void scaleModeChanged();
-    QPixmap & getBackground();
+    QBrush & getBackground();
  private:
     //void sourceToBackground();
     void scale();
@@ -48,6 +49,7 @@ class Background
     //QImage backgroundImage;
     QImage sourceImage;
     QPixmap backgroundPixmap;
+    QBrush backgroundBrush;
     QString filename;
     short w;
     short h;

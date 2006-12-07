@@ -332,7 +332,8 @@ void Preview::renderBackground(const QString &bg) {
    QPixmap b;
    p = m_drawFrame->getPreviewPixmap();
    m_back.load(bg, p->width(), p->height());
-   b = m_back.getBackground();
+   //TODO: this class needs to be revamped, use Brush texture for now
+   b = m_back.getBackground().texture();
    QPainter paint(p);
    paint.drawPixmap(0,0, b);
 }

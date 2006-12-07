@@ -167,8 +167,6 @@ void BoardWidget::setDisplayedWidth() {
 }
 
 void BoardWidget::populateSpriteMap() {
-    QPixmap  back;
-
     //Delete previous sprites (full update), synchronize state with GameData
     while (!items()->isEmpty())
 	delete items()->first();
@@ -177,9 +175,8 @@ void BoardWidget::populateSpriteMap() {
     spriteMap.clear();
 
     //Recreate our background
-    back = theBackground.getBackground();
     QPalette palette;
-    palette.setBrush( backgroundRole(), QBrush( back ) );
+    palette.setBrush( backgroundRole(), theBackground.getBackground() );
     setPalette( palette );
     setAutoFillBackground (true);
 
