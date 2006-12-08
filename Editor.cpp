@@ -40,7 +40,7 @@
 
 
 Editor::Editor ( QWidget* parent)
-    : QDialog( parent ), tiles()
+    : KDialog( parent ), tiles()
 {
     setModal(true);
     clean= true;
@@ -77,8 +77,7 @@ Editor::Editor ( QWidget* parent)
     setMinimumHeight(120);
 
    // tell the user what we do
-   setWindowTitle(KInstance::makeStandardCaption(i18n("Edit Board Layout"), this));
-
+   setCaption(i18n("Edit Board Layout"));
 
    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
 		SLOT(drawFrameMousePressEvent(QMouseEvent *)));

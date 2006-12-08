@@ -20,7 +20,7 @@
 #ifndef _EditorLoadBase_H 
 #define _EditorLoadBase_H 
 
-#include <qdialog.h>
+#include <kdialog.h>
 #include <qframe.h>   
 #include <ktoolbar.h>
 #include <kstatusbar.h>
@@ -35,7 +35,7 @@
 
 class KActionCollection;
 
-class Editor: public QDialog
+class Editor: public KDialog
 {
     Q_OBJECT
 
