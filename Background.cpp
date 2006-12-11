@@ -60,6 +60,12 @@ qDebug() << "Background loading";
 	svg.load(newPath);
 	if (svg.isValid()) {
 		isSVG = true;
+                //tile?
+                if (tile) {
+                    //use default tile dimensions
+                    w = svg.defaultSize().width(); 
+                    h = svg.defaultSize().height(); 
+                }
 		//scale();
 	    } else {
 	        return( false );
@@ -80,6 +86,9 @@ void Background::scaleModeChanged() {
 }
 
 void Background::sizeChanged(int newW, int newH) {
+        //in tiled mode we do not care about the whole field size
+        if (tile) return;
+
 	if (newW == w && newH == h)
 		return;
 	w = newW;
