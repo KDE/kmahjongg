@@ -60,7 +60,7 @@ int defTimes[numScores] = {ages, ages-1, ages-2, ages-3,
 
 
 HighScore::HighScore ( QWidget* parent)
-	: QDialog( parent )
+	: KDialog( parent )
 {
 	setModal(true);
 	// form the target name
@@ -169,7 +169,7 @@ HighScore::HighScore ( QWidget* parent)
 	loadTables();
 	currTable = tables;
 
-	setWindowTitle(KInstance::makeStandardCaption(i18n("Scores"), this));
+	setCaption(i18n("Scores"));
 
 	selectedLine = -1;	
 

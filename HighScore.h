@@ -19,7 +19,7 @@
 #ifndef HighScore_included
 #define HighScore_included
 
-#include <qdialog.h>
+#include <KDialog>
 
 
 class QLineEdit;
@@ -43,7 +43,7 @@ struct TableInstance  {
 };
 
 
-class HighScore : public QDialog
+class HighScore : public KDialog
 {
     Q_OBJECT
 
