@@ -11,10 +11,8 @@ set(kmahjongg_SRCS
    main.cpp 
    kmahjongg.cpp 
    boardwidget.cpp 
-#   Tileset.cpp 
    BoardLayout.cpp 
    GameTimer.cpp 
-   Background.cpp 
    GameData.cpp 
    Preview.cpp 
    Editor.cpp 

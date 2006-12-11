@@ -25,8 +25,8 @@
 #include "kgamecanvas.h"
 
 #include "kmahjonggtileset.h"
+#include "kmahjonggbackground.h"
 #include "BoardLayout.h"
-#include "Background.h"
 
 class QComboBox;
 class QPixmap;
@@ -107,7 +107,7 @@ protected:
 	QString m_selectedFile;
 	KMahjonggTileset m_tiles;
 	BoardLayout m_boardLayout;
-	Background m_back;
+	KMahjonggBackground m_back;
 
 private:
 	QString m_fileSelector;

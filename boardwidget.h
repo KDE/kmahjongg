@@ -31,7 +31,7 @@
 
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
-#include "Background.h"
+#include "kmahjonggbackground.h"
 #include "BoardLayout.h"
 #include "GameData.h"
 #include "TileCoord.h"
@@ -126,7 +126,7 @@ class BoardWidget : public KGameCanvasWidget
 	int requiredVerticalCells();
 
 	KMahjonggTileset  theTiles;
-	Background theBackground;
+	KMahjonggBackground theBackground;
 	BoardLayout theBoardLayout;
 
         POSITION MouseClickPos1, MouseClickPos2;

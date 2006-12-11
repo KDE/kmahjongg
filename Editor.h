@@ -27,8 +27,8 @@
 #include <kfiledialog.h>
 
 #include "kmahjonggtileset.h"
+#include "kmahjonggbackground.h"
 #include "BoardLayout.h"
-#include "Background.h"
 
 #include "Preview.h"
 

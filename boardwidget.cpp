@@ -1175,16 +1175,19 @@ bool BoardWidget::loadBackground(
         bool        bShowError
     )
 {
-    //if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
-if( ! theBackground.load( pszFileName, requiredWidth(), requiredHeight()) )
-    {
-        if( bShowError )
-            KMessageBox::sorry(this, i18n("Failed to load image:\n%1", pszFileName) );
-        return( false );
-    }
+  if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {
     Prefs::setBackground(pszFileName);
     Prefs::writeConfig();
     return true;
+  } else {
+    if (theBackground.loadDefault()) {
+      Prefs::setBackground(theBackground.path());
+      Prefs::writeConfig();
+      return false;
+    } else {
+      return false;
+    }
+  }
 }
 
 // ---------------------------------------------------------

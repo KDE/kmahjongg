@@ -32,7 +32,7 @@
 
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
-#include "Background.h"
+#include "kmahjonggbackground.h"
 #include "BoardLayout.h"
 #include "Preview.h"
 #include "HighScore.h"
