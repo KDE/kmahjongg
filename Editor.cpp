@@ -31,7 +31,7 @@
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <ktoggleaction.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kicon.h>
 
 // When we assign a tile to draw in a slot we do it in order from te following
@@ -183,7 +183,7 @@ void Editor::setupToolbar()
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    KAction* quit = KStdAction::quit(this, SLOT(close()), actionCollection, "quit");
+    KAction* quit = KStandardAction::quit(this, SLOT(close()), actionCollection, "quit");
     topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)

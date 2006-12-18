@@ -34,7 +34,7 @@
 #include <kmenubar.h>
 #include <kmessagebox.h>
 #include <kstdgameaction.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kicon.h>
 
 #include <QPixmapCache>
@@ -200,9 +200,9 @@ void KMahjongg::setupKAction()
 
     //TODO maybe add standard resizing actions for the view?
     //we are currently using a resizable window for testing
-    //KStdAction::actualSize(this, SLOT(makeFit()), actionCollection());
-    //KStdAction::zoomIn(this, SLOT(makeLarger()), actionCollection());
-    //KStdAction::zoomOut(this, SLOT(makeSmaller()), actionCollection());
+    //KStandardAction::actualSize(this, SLOT(makeFit()), actionCollection());
+    //KStandardAction::zoomIn(this, SLOT(makeLarger()), actionCollection());
+    //KStandardAction::zoomOut(this, SLOT(makeSmaller()), actionCollection());
 
     // TODO: store the background ; open on startup
     // TODO: same about layout
@@ -217,7 +217,7 @@ void KMahjongg::setupKAction()
     connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
-    KStdAction::preferences(this, SLOT(showSettings()), actionCollection());
+    KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
 
     setupGUI();
 }
