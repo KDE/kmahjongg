@@ -130,7 +130,7 @@ void Editor::setupToolbar()
     KAction* select = new KAction(KIcon("rectangle_select"), i18n("Select"), actionCollection, "select");
     topToolbar->addAction(select);
 
-    // NOTE: use kstdactions?
+    // NOTE: use kstandarddactions?
     KAction* cut = new KAction(KIcon("editcut"), i18n("Cut"), actionCollection, "edit_cut");
     topToolbar->addAction(cut);
 

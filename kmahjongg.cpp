@@ -33,7 +33,7 @@
 #include <kinputdialog.h>
 #include <kmenubar.h>
 #include <kmessagebox.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <kstandardaction.h>
 #include <kicon.h>
 
@@ -153,11 +153,11 @@ KMahjongg::~KMahjongg()
 void KMahjongg::setupKAction()
 {
     // game
-    KStdGameAction::gameNew(this, SLOT(newGame()), actionCollection());
-    KStdGameAction::load(this, SLOT(loadGame()), actionCollection());
-    KStdGameAction::save(this, SLOT(saveGame()), actionCollection());
-    KStdGameAction::quit(this, SLOT(close()), actionCollection());
-    KStdGameAction::restart(this, SLOT(restartGame()), actionCollection());
+    KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
+    KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
+    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
 
     KAction* newNumGame = new KAction(i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
@@ -180,7 +180,7 @@ void KMahjongg::setupKAction()
     connect(saveTheme, SIGNAL(triggered(bool)), SLOT(saveTheme()));*/
 
     // originally "file" ends here
-    KStdGameAction::hint(bw, SLOT(helpMove()), actionCollection());
+    KStandardGameAction::hint(bw, SLOT(helpMove()), actionCollection());
     KAction* shuffle = new KAction(KIcon("reload"), i18n("Shu&ffle"), actionCollection(), "move_shuffle");
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
     KAction* angleccw = new KAction(KIcon("rotate_ccw"),i18n("Rotate View Counter Clockwise"), actionCollection(), "view_angleccw");
@@ -189,14 +189,14 @@ void KMahjongg::setupKAction()
     anglecw->setShortcut( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
-    demoAction = KStdGameAction::demo(this, SLOT(demoMode()), actionCollection());
+    demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), actionCollection(), "options_show_matching_tiles");
     connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
     showMatchingTilesAction->setCheckedState(KGuiItem(i18n("Hide &Matching Tiles")));
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
-    KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-    pauseAction = KStdGameAction::pause(this, SLOT(pause()), actionCollection());
+    KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+    pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
 
     //TODO maybe add standard resizing actions for the view?
     //we are currently using a resizable window for testing
@@ -209,8 +209,8 @@ void KMahjongg::setupKAction()
     // TODO: same about theme
 
     // move
-    undoAction = KStdGameAction::undo(this, SLOT(undo()), actionCollection());
-    redoAction = KStdGameAction::redo(this, SLOT(redo()), actionCollection());
+    undoAction = KStandardGameAction::undo(this, SLOT(undo()), actionCollection());
+    redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
     KAction* boardEdit = new KAction(i18n("&Board Editor"), actionCollection(), "edit_board_editor");
