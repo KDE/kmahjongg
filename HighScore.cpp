@@ -31,7 +31,7 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <kpushbutton.h>
-#include <kstdguiitem.h>
+#include <KStandardGuiItem>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
 static const QString highScoreMagic1_1 = "kmahjongg-scores-v1.1";  
@@ -121,7 +121,7 @@ HighScore::HighScore ( QWidget* parent)
 		addRow(row);
 
 	QPushButton* qtarch_PushButton_1;
-	qtarch_PushButton_1 = new KPushButton( KStdGuiItem::ok(), this );
+	qtarch_PushButton_1 = new KPushButton( KStandardGuiItem::ok(), this );
 	qtarch_PushButton_1->setGeometry( 110+35, 340+50, 100, 30 );
 	qtarch_PushButton_1->setMinimumSize( 0, 0 );
 	qtarch_PushButton_1->setMaximumSize( 32767, 32767 );

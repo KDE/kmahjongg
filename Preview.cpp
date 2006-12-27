@@ -22,7 +22,7 @@
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>
-#include <kstdguiitem.h>
+#include <KStandardGuiItem>
 #include <kimageio.h>
 
 #include <QComboBox>

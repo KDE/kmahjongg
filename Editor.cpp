@@ -329,7 +329,7 @@ bool Editor::saveBoard() {
 			i18n("A file with that name "
 					   "already exists. Do you "
 					   "wish to overwrite it?"),
-					i18n("Save Board Layout" ), KStdGuiItem::save());
+					i18n("Save Board Layout" ), KStandardGuiItem::save());
 	if (res != KMessageBox::Continue)
 		return false;
     }
@@ -354,7 +354,7 @@ bool Editor::testSave()
     int res;
     res=KMessageBox::warningYesNoCancel(this,
 	i18n("The board has been modified. Would you "
-		"like to save the changes?"),QString::null,KStdGuiItem::save(),KStdGuiItem::dontSave());
+		"like to save the changes?"),QString::null,KStandardGuiItem::save(),KStandardGuiItem::dontSave());
 
     if (res == KMessageBox::Yes) {
 	// yes to save
