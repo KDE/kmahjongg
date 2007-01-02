@@ -40,7 +40,7 @@
 
 class GameTimer;
 
-class KAction;
+class QAction;
 class KToggleAction;
 class QLabel;
 
@@ -111,7 +111,7 @@ private:
   bool         bDemoModeActive;
 
   KToggleAction *showMatchingTilesAction, *pauseAction, *demoAction;
-  KAction *undoAction, *redoAction;
+  QAction *undoAction, *redoAction;
 
 };
 

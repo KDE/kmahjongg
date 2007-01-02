@@ -42,6 +42,7 @@
 #include <kio/netaccess.h>
 #include <klocale.h>
 #include <ktoggleaction.h>
+#include <kactioncollection.h>
 
 #include "prefs.h"
 #include "kmahjongg.h"
@@ -152,51 +153,75 @@ KMahjongg::~KMahjongg()
 // ---------------------------------------------------------
 void KMahjongg::setupKAction()
 {
-    // game
-    KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
-    KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
-    KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
-    KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
+    QAction *action;
 
-    KAction* newNumGame = new KAction(i18n("New Numbered Game..."), actionCollection(), "game_new_numeric");
+    // game
+    action = KStandardGameAction::gameNew(this, SLOT(newGame()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::load(this, SLOT(loadGame()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::save(this, SLOT(saveGame()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::quit(this, SLOT(close()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::restart(this, SLOT(restartGame()), this);
+    actionCollection()->addAction(action->objectName(), action);
+
+    QAction* newNumGame = actionCollection()->addAction("game_new_numeric");
+    newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
     /*TODO reimplement with game type and preferences
-    KAction* openTheme = new KAction(i18n("Open Th&eme..."), actionCollection(), "game_open_theme");
+    QAction* openTheme = actionCollection()->addAction"game_open_theme");
+    openTheme->setTexti18n("Open Th&eme...");
     connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));*/
 
-    KAction* openTileset = new KAction(i18n("Open &Tileset..."), actionCollection(), "game_open_tileset");
+    QAction* openTileset = actionCollection()->addAction("game_open_tileset");
+    openTileset->setText(i18n("Open &Tileset..."));
     connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));
 
-   /* KAction* openBkgnd = new KAction(i18n("Open &Background..."), actionCollection(), "game_open_background");
+   /* QAction* openBkgnd = actionCollection()->addAction"game_open_background");
+    openBkgnd->setTexti18n("Open &Background...");
     connect(openBkgnd, SIGNAL(triggered(bool)), SLOT(openBackground()));*/
 
-    KAction* openLayout = new KAction(i18n("Open La&yout..."), actionCollection(), "game_open_layout");
+    QAction* openLayout = actionCollection()->addAction("game_open_layout");
+    openLayout->setText(i18n("Open La&yout..."));
     connect(openLayout, SIGNAL(triggered(bool)), SLOT(openLayout()));
 
     /*TODO reimplement with game type and preferences
-    KAction* saveTheme = new KAction(i18n("Sa&ve Theme..."), actionCollection(), "game_save_theme");
+    QAction* saveTheme = actionCollection()->addAction"game_save_theme");
+    saveTheme->setTexti18n("Sa&ve Theme...");
     connect(saveTheme, SIGNAL(triggered(bool)), SLOT(saveTheme()));*/
 
     // originally "file" ends here
-    KStandardGameAction::hint(bw, SLOT(helpMove()), actionCollection());
-    KAction* shuffle = new KAction(KIcon("reload"), i18n("Shu&ffle"), actionCollection(), "move_shuffle");
+    action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    QAction* shuffle = actionCollection()->addAction("move_shuffle");
+    shuffle->setText(i18n("Shu&ffle"));
+    shuffle->setIcon(KIcon("reload"));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
-    KAction* angleccw = new KAction(KIcon("rotate_ccw"),i18n("Rotate View Counter Clockwise"), actionCollection(), "view_angleccw");
-    angleccw->setShortcut( KShortcut( "f"  ) );
-    KAction* anglecw = new KAction(KIcon("rotate_cw"),i18n("Rotate View Clockwise"), actionCollection(), "view_anglecw");
-    anglecw->setShortcut( KShortcut( "g"  ) );
+    QAction* angleccw = actionCollection()->addAction("view_angleccw");
+    angleccw->setText(i18n("Rotate View Counter Clockwise"));
+    angleccw->setIcon(KIcon("rotate_ccw"));
+    angleccw->setShortcuts( KShortcut( "f"  ) );
+    QAction* anglecw = actionCollection()->addAction("view_anglecw");
+    anglecw->setText(i18n("Rotate View Clockwise"));
+    anglecw->setIcon(KIcon("rotate_cw"));
+    anglecw->setShortcuts( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
-    demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
-    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), actionCollection(), "options_show_matching_tiles");
+    demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), this);
+    actionCollection()->addAction(demoAction->objectName(), demoAction);
+    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), this);
+    actionCollection()->addAction("options_show_matching_tiles", showMatchingTilesAction);
     connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
     showMatchingTilesAction->setCheckedState(KGuiItem(i18n("Hide &Matching Tiles")));
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
-    KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-    pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
+    action = KStandardGameAction::highscores(this, SLOT(showHighscores()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    pauseAction = KStandardGameAction::pause(this, SLOT(pause()), this);
+    actionCollection()->addAction(pauseAction->objectName(), pauseAction);
 
     //TODO maybe add standard resizing actions for the view?
     //we are currently using a resizable window for testing
@@ -209,15 +234,19 @@ void KMahjongg::setupKAction()
     // TODO: same about theme
 
     // move
-    undoAction = KStandardGameAction::undo(this, SLOT(undo()), actionCollection());
-    redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
+    undoAction = KStandardGameAction::undo(this, SLOT(undo()), this);
+    actionCollection()->addAction(undoAction->objectName(), undoAction);
+    redoAction = KStandardGameAction::redo(this, SLOT(redo()), this);
+    actionCollection()->addAction(redoAction->objectName(), redoAction);
 
     // edit
-    KAction* boardEdit = new KAction(i18n("&Board Editor"), actionCollection(), "edit_board_editor");
+    QAction* boardEdit = actionCollection()->addAction("edit_board_editor");
+    boardEdit->setText(i18n("&Board Editor"));
     connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
-    KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
+    action = KStandardAction::preferences(this, SLOT(showSettings()), this);
+    actionCollection()->addAction(action->objectName(), action);
 
     setupGUI();
 }

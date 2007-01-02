@@ -110,15 +110,21 @@ void Editor::setupToolbar()
 
     actionCollection = new KActionCollection(this);
     // new game
-    KAction* newBoard = new KAction(KIcon("filenew"), i18n("New board"), actionCollection, "new_board");
+    QAction* newBoard = actionCollection->addAction("new_board");
+    newBoard->setIcon(KIcon("filenew"));
+    newBoard->setText(i18n("New board"));
     connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
     topToolbar->addAction(newBoard);
     // open game
-    KAction* openBoard = new KAction(KIcon("fileopen"), i18n("Open board"), actionCollection, "open_board");
+    QAction* openBoard = actionCollection->addAction("open_board");
+    openBoard->setIcon(KIcon("fileopen"));
+    openBoard->setText(i18n("Open board"));
     connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
     topToolbar->addAction(openBoard);
     // save game
-    KAction* saveBoard = new KAction(KIcon("filesave"), i18n("Save board"), actionCollection, "save_board");
+    QAction* saveBoard = actionCollection->addAction("save_board");
+    saveBoard->setIcon(KIcon("filesave"));
+    saveBoard->setText(i18n("Save board"));
     connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
     topToolbar->addAction(saveBoard);
     // NOTE dimsuz: how to port this? is it even needed?
@@ -127,27 +133,39 @@ void Editor::setupToolbar()
     topToolbar->addSeparator();
 #ifdef FUTURE_OPTIONS
     // Select
-    KAction* select = new KAction(KIcon("rectangle_select"), i18n("Select"), actionCollection, "select");
+    QAction* select = actionCollection->addAction("select");
+    select->setIcon(KIcon("rectangle_select"));
+    select->setText(i18n("Select"));
     topToolbar->addAction(select);
 
     // NOTE: use kstandarddactions?
-    KAction* cut = new KAction(KIcon("editcut"), i18n("Cut"), actionCollection, "edit_cut");
+    QAction* cut = actionCollection->addAction("edit_cut");
+    cut->setIcon(KIcon("editcut"));
+    cut->setText(i18n("Cut"));
     topToolbar->addAction(cut);
 
-    KAction* copy = new KAction(KIcon("editcopy"), i18n("Copy"), actionCollection, "edit_copy");
+    QAction* copy = actionCollection->addAction("edit_copy");
+    copy->setIcon(KIcon("editcopy"));
+    copy->setText(i18n("Copy"));
     topToolbar->addAction(copy);
 
-    KAction* paste = new KAction(KIcon("editpaste"), i18n("Paste"), actionCollection, "edit_paste");
+    QAction* paste = actionCollection->addAction("edit_paste");
+    paste->setIcon(KIcon("editpaste"));
+    paste->setText(i18n("Paste"));
     topToolbar->addAction(paste);
 
     topToolbar->addSeparator();
 
-    KAction* moveTiles = new KAction(KIcon("move"), i18n("Move tiles"), actionCollection, "move_tiles");
+    QAction* moveTiles = actionCollection->addAction("move_tiles");
+    moveTiles->setIcon(KIcon("move"));
+    moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
-    KToggleAction* addTiles = new KToggleAction(KIcon("pencil"), i18n("Add tiles"), actionCollection, "add_tiles");
+    KToggleAction* addTiles = new KToggleAction(KIcon("pencil"), i18n("Add tiles"), this);
+    actionCollection->addAction("add_tiles", addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction* delTiles = new KToggleAction(KIcon("editdelete"), i18n("Remove tiles"), actionCollection, "del_tiles");
+    KToggleAction* delTiles = new KToggleAction(KIcon("editdelete"), i18n("Remove tiles"), this);
+    actionCollection->addAction("del_tiles", delTiles);
     topToolbar->addAction(delTiles);
 
     QActionGroup* radioGrp = new QActionGroup(this);
@@ -166,24 +184,33 @@ void Editor::setupToolbar()
 
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
-    KAction* shiftLeft = new KAction( KIcon("back"), i18n("Shift left"), actionCollection, "shift_left" );
+    QAction* shiftLeft = actionCollection->addAction("shift_left");
+    shiftLeft->setIcon(KIcon("back"));
+    shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
     topToolbar->addAction(shiftLeft);
 
-    KAction* shiftUp = new KAction( KIcon("up"), i18n("Shift up"), actionCollection, "shift_up" );
+    QAction* shiftUp = actionCollection->addAction("shift_up");
+    shiftUp->setIcon(KIcon("up"));
+    shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
     topToolbar->addAction(shiftUp);
 
-    KAction* shiftDown = new KAction( KIcon("down"), i18n("Shift down"), actionCollection, "shift_down" );
+    QAction* shiftDown = actionCollection->addAction("shift_down");
+    shiftDown->setIcon(KIcon("down"));
+    shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
     topToolbar->addAction(shiftDown);
 
-    KAction* shiftRight = new KAction( KIcon("forward"), i18n("Shift right"), actionCollection, "shift_right" );
+    QAction* shiftRight = actionCollection->addAction("shift_right");
+    shiftRight->setIcon(KIcon("forward"));
+    shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    KAction* quit = KStandardAction::quit(this, SLOT(close()), actionCollection, "quit");
+    QAction* quit = actionCollection->addAction(KStandardAction::Quit, "quit",
+                                                this, SLOT(close()));
     topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
@@ -311,7 +338,7 @@ bool Editor::saveBoard() {
 				"*|All Files"),
 				this,
 				i18n("Save Board Layout" ));
-    
+
    if ( url.isEmpty() )
        return false;
 
