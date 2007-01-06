@@ -31,6 +31,7 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <kpushbutton.h>
+#include <KApplication>
 #include <KStandardGuiItem>
 
 static const QString highScoreMagic1_0 = "kmahjongg-scores-v1.0";
@@ -136,7 +137,7 @@ HighScore::HighScore ( QWidget* parent)
 	resetBtn->setFocusPolicy( Qt::TabFocus );
 	//resetBtn->setText(i18n( "Reset" ));
 
- 	KIconLoader *loader = KGlobal::iconLoader();
+ 	KIconLoader *loader = kapp->iconLoader();
         resetBtn->setIcon(loader->loadIcon("editdelete", K3Icon::Toolbar));
        
 
