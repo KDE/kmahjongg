@@ -76,6 +76,19 @@ BoardWidget::BoardWidget( QWidget* parent )
     MouseClickPos2.e = Game->m_depth;
 
     //Now apply our visual settings
+
+
+    //setDisplayedWidth();
+    loadSettings();
+}
+
+BoardWidget::~BoardWidget(){
+  saveSettings();
+  if (Game) delete Game;
+}
+
+void BoardWidget::loadSettings(){
+    QString tFile;
     // Load tileset. First try to load the last use tileset
     getFileOrDefault(Prefs::tileSet(), "tileset", tFile);
 
@@ -94,19 +107,8 @@ BoardWidget::BoardWidget( QWidget* parent )
 		   i18n("An error occurred when loading the background image\n%1", tFile)+
 		   i18n("KMahjongg will continue with the default background."));
     }
-
-    //setDisplayedWidth();
-    loadSettings();
-}
-
-BoardWidget::~BoardWidget(){
-  saveSettings();
-  if (Game) delete Game;
-}
-
-void BoardWidget::loadSettings(){
-  setDisplayedWidth();
-  theBackground.tile = Prefs::tiledBackground();
+    setDisplayedWidth();
+  //theBackground.tile = Prefs::tiledBackground();
   updateScaleMode();
   drawBoard(true);
 }

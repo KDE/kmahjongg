@@ -50,6 +50,8 @@
 #include "GameTimer.h"
 #include "Editor.h"
 
+#include <kmahjonggconfigdialog.h>
+
 static const char *gameMagic = "kmahjongg-game-v1.0";
 
 //----------------------------------------------------------
@@ -317,8 +319,13 @@ void KMahjongg::showSettings(){
   if(KConfigDialog::showDialog("settings"))
     return;
 
-  KConfigDialog *dialog = new KConfigDialog(this, "settings", Prefs::self(), KPageDialog::Plain);
+  //Use the classes exposed by LibKmahjongg for our configuration dialog
+  KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, "settings", Prefs::self(), KPageDialog::Auto);
+
+  //The Settings class is ours
   dialog->addPage(new Settings(0), i18n("General"), "package_settings");
+  dialog->addTilesetPage();
+  
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
   dialog->show();

@@ -18,24 +18,8 @@
       <label>Whether to show removed tiles.</label>
       <default>false</default>
     </entry>
-    <entry name="MiniTiles" type="Bool" key="Use_mini_tiles">
-      <label>Whether to use miniature tiles.</label>
-      <default>false</default>
-    </entry>
-    <entry name="ShowShadows" type="Bool" key="Shadows_on">
-      <label>Whether the tiles have shadows.</label>
-      <default>false</default>
-    </entry>
     <entry name="SolvableGames" type="Bool" key="Solvable_game">
       <label>Whether all games should be solvable.</label>
-      <default>true</default>
-    </entry>
-    <entry name="TiledBackground" type="Bool" key="Background_tiled">
-      <label>Whether the background should be tiled instead of scaled.</label>
-      <default>true</default>
-    </entry>
-    <entry name="PlayAnimation" type="Bool" key="Play_animation">
-      <label>Whether an animation should be played on victory.</label>
       <default>true</default>
     </entry>
     <entry name="ShowMatchingTiles" type="Bool">
