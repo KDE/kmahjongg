@@ -27,7 +27,7 @@
 #include "klocale.h"
 #include <kstandarddirs.h>
 #include <kiconloader.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <QLineEdit>
 #include <QComboBox>
 #include <kpushbutton.h>
