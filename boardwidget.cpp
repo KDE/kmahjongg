@@ -133,7 +133,7 @@ void BoardWidget::resizeTileset ( const QSize & wsize )
 
 void BoardWidget::saveSettings(){
   // Preview can't handle this.  TODO
-  //KConfig *config=KGlobal::config();
+  //KSharedConfig::Ptr config = KGlobal::config();
   //config->setGroup("General");
 
   //config->writePathEntry("Tileset_file", tileFile);

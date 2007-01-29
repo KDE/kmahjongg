@@ -25,7 +25,7 @@
 #include "prefs.h"
 
 #include <kmessagebox.h>
-#include <kinstance.h>
+#include <kcomponentdata.h>
 #include <klocale.h>     // Needed to use KLocale
 #include <kstandarddirs.h>
 #include <kaction.h>
