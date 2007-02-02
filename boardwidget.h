@@ -49,7 +49,7 @@ class BoardWidget : public KGameCanvasWidget
     Q_OBJECT
 
     public:
-  	BoardWidget( QWidget* parent = 0 );
+  	explicit BoardWidget( QWidget* parent = 0 );
 	~BoardWidget();
 
         void calculateNewGame(int num = -1 );

@@ -49,7 +49,7 @@ class HighScore : public KDialog
 
 public:
 
-    HighScore ( QWidget* parent = 0);
+    explicit HighScore ( QWidget* parent = 0);
 
     virtual ~HighScore();
 

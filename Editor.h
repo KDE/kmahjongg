@@ -40,7 +40,7 @@ class Editor: public KDialog
     Q_OBJECT
 
 public:
-    Editor ( QWidget* parent = 0);
+    explicit Editor ( QWidget* parent = 0);
 
     virtual ~Editor();
 
