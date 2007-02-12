@@ -149,8 +149,8 @@ void Preview::initialise(const PreviewType type)
 	// we start with no change indicated
 	markUnchanged();
 
-	m_fileList = KGlobal::mainComponent().dirs()->findAllResources("appdata",  "pics/*"+extension, false, true);
-
+	m_fileList = KGlobal::mainComponent().dirs()->findAllResources("appdata", "pics/*"+extension,
+									KStandardDirs::NoDuplicates);
 	// get rid of files from the last invocation
 	m_combo->clear();
 
