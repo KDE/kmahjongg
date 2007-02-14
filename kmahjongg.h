@@ -87,8 +87,8 @@ private slots:
   void saveTheme();*/
   void openLayout();
 /*TODO reimplement with game type and preferences
-  void openBackground();*/
-  void openTileset();
+  void openBackground();
+  void openTileset();*/
 
 protected:
   void setupKAction();

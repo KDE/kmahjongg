@@ -176,11 +176,11 @@ void KMahjongg::setupKAction()
     /*TODO reimplement with game type and preferences
     QAction* openTheme = actionCollection()->addAction"game_open_theme");
     openTheme->setTexti18n("Open Th&eme...");
-    connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));*/
+    connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));
 
     QAction* openTileset = actionCollection()->addAction("game_open_tileset");
     openTileset->setText(i18n("Open &Tileset..."));
-    connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));
+    connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));*/
 
    /* QAction* openBkgnd = actionCollection()->addAction"game_open_background");
     openBkgnd->setTexti18n("Open &Background...");
@@ -389,13 +389,13 @@ void KMahjongg::openBackground()
 {
     previewLoad->initialise(Preview::background);
     previewLoad->exec();
-}*/
+}
 
 void KMahjongg::openTileset()
 {
     previewLoad->initialise(Preview::tileset);
     previewLoad->exec();
-}
+}*/
 
 void KMahjongg::slotBoardEditor()
 {
