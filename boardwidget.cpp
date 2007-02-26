@@ -101,9 +101,7 @@ void BoardWidget::loadSettings(){
 	qDebug() << "An error occurred when loading the background " << tFile <<"KMahjongg will continue with the default background.";
     }
     setDisplayedWidth();
-  //theBackground.tile = Prefs::tiledBackground();
-  updateScaleMode();
-  drawBoard(true);
+    drawBoard(true);
 }
 
 void BoardWidget::resizeEvent ( QResizeEvent * event )
@@ -1229,10 +1227,6 @@ bool BoardWidget::loadBoardLayout(const QString &file) {
     return true;
   }
   return false;
-}
-
-void BoardWidget::updateScaleMode() {
-	theBackground.scaleModeChanged();
 }
 
 int BoardWidget::requiredHorizontalCells()

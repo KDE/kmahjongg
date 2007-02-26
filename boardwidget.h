@@ -90,7 +90,6 @@ class BoardWidget : public KGameCanvasWidget
         bool loadTileset    ( const QString & );
         bool loadBoardLayout( const QString& );
         bool loadBoard      ( );
-        void updateScaleMode ();
         void drawBoard(bool deferUpdate = true);
 	void updateSpriteMap();
 	void populateSpriteMap();
