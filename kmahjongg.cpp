@@ -320,7 +320,7 @@ void KMahjongg::showSettings(){
     return;
 
   //Use the classes exposed by LibKmahjongg for our configuration dialog
-  KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, "settings", Prefs::self(), KPageDialog::Auto);
+  KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, "settings", Prefs::self());
 
   //The Settings class is ours
   dialog->addPage(new Settings(0), i18n("General"), "package_settings");
