@@ -1,10 +1,22 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KMahjongg
+Name[af]=Kmahjong
+Name[ar]=لعبة KMahjongg
+Name[be]=Маджонг
+Name[eo]=Mahjongo
+Name[ne]=केडीई माहजोङ
+Name[pa]=ਕੇ-ਮਹਿਜੋਂਗ
+Name[pl]=Mahjongg
+Name[ru]=Маджонг
+Name[sv]=Kmahjongg
+Name[tg]=KМаҷонг
 Name[x-test]=xxKMahjonggxx
+Name[zh_TW]=KMahjongg 麻將
 Exec=kmahjongg -caption "%c"
 Type=Application
 GenericName=Mahjongg Solitaire
+GenericName[x-test]=xxMahjongg Solitairexx
 Terminal=false
 Icon=kmahjongg
 X-KDE-StartupNotify=true
