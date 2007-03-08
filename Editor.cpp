@@ -111,24 +111,24 @@ void Editor::setupToolbar()
     actionCollection = new KActionCollection(this);
     // new game
     QAction* newBoard = actionCollection->addAction("new_board");
-    newBoard->setIcon(KIcon("filenew"));
+    newBoard->setIcon(KIcon("document-new"));
     newBoard->setText(i18n("New board"));
     connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
     topToolbar->addAction(newBoard);
     // open game
     QAction* openBoard = actionCollection->addAction("open_board");
-    openBoard->setIcon(KIcon("fileopen"));
+    openBoard->setIcon(KIcon("document-open"));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
     topToolbar->addAction(openBoard);
     // save game
     QAction* saveBoard = actionCollection->addAction("save_board");
-    saveBoard->setIcon(KIcon("filesave"));
+    saveBoard->setIcon(KIcon("document-save"));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
     topToolbar->addAction(saveBoard);
     // NOTE dimsuz: how to port this? is it even needed?
-    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("filesave", K3Icon::Toolbar));
+    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("document-save", K3Icon::Toolbar));
 
     topToolbar->addSeparator();
 #ifdef FUTURE_OPTIONS
@@ -140,17 +140,17 @@ void Editor::setupToolbar()
 
     // NOTE: use kstandarddactions?
     QAction* cut = actionCollection->addAction("edit_cut");
-    cut->setIcon(KIcon("editcut"));
+    cut->setIcon(KIcon("edit-cut"));
     cut->setText(i18n("Cut"));
     topToolbar->addAction(cut);
 
     QAction* copy = actionCollection->addAction("edit_copy");
-    copy->setIcon(KIcon("editcopy"));
+    copy->setIcon(KIcon("edit-copy"));
     copy->setText(i18n("Copy"));
     topToolbar->addAction(copy);
 
     QAction* paste = actionCollection->addAction("edit_paste");
-    paste->setIcon(KIcon("editpaste"));
+    paste->setIcon(KIcon("edit-paste"));
     paste->setText(i18n("Paste"));
     topToolbar->addAction(paste);
 
@@ -164,7 +164,7 @@ void Editor::setupToolbar()
     KToggleAction* addTiles = new KToggleAction(KIcon("pencil"), i18n("Add tiles"), this);
     actionCollection->addAction("add_tiles", addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction* delTiles = new KToggleAction(KIcon("editdelete"), i18n("Remove tiles"), this);
+    KToggleAction* delTiles = new KToggleAction(KIcon("edit-delete"), i18n("Remove tiles"), this);
     actionCollection->addAction("del_tiles", delTiles);
     topToolbar->addAction(delTiles);
 
@@ -185,25 +185,25 @@ void Editor::setupToolbar()
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
     QAction* shiftLeft = actionCollection->addAction("shift_left");
-    shiftLeft->setIcon(KIcon("back"));
+    shiftLeft->setIcon(KIcon("go-previous"));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
     topToolbar->addAction(shiftLeft);
 
     QAction* shiftUp = actionCollection->addAction("shift_up");
-    shiftUp->setIcon(KIcon("up"));
+    shiftUp->setIcon(KIcon("go-up"));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
     topToolbar->addAction(shiftUp);
 
     QAction* shiftDown = actionCollection->addAction("shift_down");
-    shiftDown->setIcon(KIcon("down"));
+    shiftDown->setIcon(KIcon("go-down"));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
     topToolbar->addAction(shiftDown);
 
     QAction* shiftRight = actionCollection->addAction("shift_right");
-    shiftRight->setIcon(KIcon("forward"));
+    shiftRight->setIcon(KIcon("go-next"));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
     topToolbar->addAction(shiftRight);

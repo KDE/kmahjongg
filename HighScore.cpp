@@ -137,7 +137,7 @@ HighScore::HighScore ( QWidget* parent)
 	//resetBtn->setText(i18n( "Reset" ));
 
  	KIconLoader *loader = KIconLoader::global();
-        resetBtn->setIcon(loader->loadIcon("editdelete", K3Icon::Toolbar));
+        resetBtn->setIcon(loader->loadIcon("edit-delete", K3Icon::Toolbar));
        
 
 
