@@ -38,6 +38,7 @@
 #include <kicon.h>
 
 #include <QPixmapCache>
+#include <QLabel>
 
 #include <kio/netaccess.h>
 #include <klocale.h>

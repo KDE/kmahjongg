@@ -18,6 +18,7 @@
 */
 
 #include <QLayout>
+#include <QLabel>
 #include <qevent.h>
 #include <qpainter.h>
 
