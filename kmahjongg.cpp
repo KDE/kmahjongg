@@ -326,6 +326,7 @@ void KMahjongg::showSettings(){
   //The Settings class is ours
   dialog->addPage(new Settings(0), i18n("General"), "package_settings");
   dialog->addTilesetPage();
+  dialog->addBackgroundPage();
   
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
