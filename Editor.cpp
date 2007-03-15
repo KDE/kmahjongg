@@ -382,7 +382,7 @@ bool Editor::testSave()
     int res;
     res=KMessageBox::warningYesNoCancel(this,
 	i18n("The board has been modified. Would you "
-		"like to save the changes?"),QString::null,KStandardGuiItem::save(),KStandardGuiItem::dontSave());
+		"like to save the changes?"), QString(), KStandardGuiItem::save(),KStandardGuiItem::dontSave());
 
     if (res == KMessageBox::Yes) {
 	// yes to save

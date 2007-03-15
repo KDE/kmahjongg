@@ -436,7 +436,7 @@ void Preview::saveTheme() {
         int res=KMessageBox::warningContinueCancel(this,
                         i18n("A file with that name "
                                            "already exists. Do you "
-                                           "wish to overwrite it?"),QString::null,KGuiItem(i18n("Overwrite")));
+                                           "wish to overwrite it?"), QString(),KGuiItem(i18n("Overwrite")));
         if (res != KMessageBox::Continue)
                 return ;
     }
