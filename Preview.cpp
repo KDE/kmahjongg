@@ -16,7 +16,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <kapplication.h>
+#include <kcomponentdata.h>
 #include <kfiledialog.h>
 #include <klocale.h>
 #include <kmessagebox.h>
