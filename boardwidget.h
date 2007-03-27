@@ -63,9 +63,9 @@ class BoardWidget : public KGameCanvasWidget
 
         void animateMoveList();
         void setShowMatch( bool );
-	long getGameNum() {return gameGenerationNum;};
-	QString &getBoardName(){return theBoardLayout.getFilename();};
-	QString &getLayoutName() {return theBoardLayout.getFilename();};
+	long getGameNum() {return gameGenerationNum;}
+	QString &getBoardName(){return theBoardLayout.getFilename();}
+	QString &getLayoutName() {return theBoardLayout.getFilename();}
 
         QHash<TileCoord, TileSprite *> spriteMap;
 

@@ -37,7 +37,7 @@ class FrameImage: public KGameCanvasWidget
 public:
 	FrameImage(QWidget *parent, const QSize& initialImageSize);
 	~FrameImage();
-	QPixmap *getPreviewPixmap() {return thePixmap;};
+	QPixmap *getPreviewPixmap() {return thePixmap;}
 	void setRect(int x, int y, int w, int h, int ss, int type);
 signals:
 	void mousePressed(QMouseEvent *e);
@@ -77,7 +77,7 @@ protected:
 	void markUnchanged();
 	void markChanged();
 	bool isChanged();
-	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); };
+	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); }
 	virtual void drawPreview();
 	void applyChange() ;
 	void renderBackground(const QString &bg);

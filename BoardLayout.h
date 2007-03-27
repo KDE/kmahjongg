@@ -64,7 +64,7 @@ public:
      int m_depth;
      int m_maxTiles;
 
-     QString &getFilename() {return filename;};
+     QString &getFilename() {return filename;}
      
 protected:
 

@@ -42,10 +42,10 @@ public:
     virtual QRect rect() const;
     void setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected);
 
-    inline void setScale (double scale){ m_scale=scale;};
-    inline double scale(){ return m_scale;};
-    inline void setSelected (bool enabled){ m_selected = enabled; changed();};
-    inline double selected(){ return m_selected;};
+    inline void setScale (double scale){ m_scale=scale;}
+    inline double scale(){ return m_scale;}
+    inline void setSelected (bool enabled){ m_selected = enabled; changed();}
+    inline double selected(){ return m_selected;}
 public slots:
      void fadeOut();
      void fadeIn();

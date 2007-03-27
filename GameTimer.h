@@ -41,7 +41,7 @@ public:
     GameTimer();
 
     int toInt(); 
-    QString toString() {return theTimer.toString();};	
+    QString toString() {return theTimer.toString();}	
     void fromString(const char *);
 
 protected:					// event handlers
