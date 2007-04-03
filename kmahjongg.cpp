@@ -62,9 +62,18 @@ static const char *gameMagic = "kmahjongg-game-v1.0";
 #define ID_STATUS_MESSAGE    2
 #define ID_STATUS_GAME       3
 
+/**
+* This class implements
+* 
+* longer description
+*
+* @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+*/
 class Settings : public QWidget, public Ui::Settings
 {
 public:
+    /**
+     * Constructor */
     Settings( QWidget* parent )
         : QWidget( parent )
     {

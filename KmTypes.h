@@ -28,22 +28,38 @@ typedef unsigned short USHORT;
 typedef unsigned long  ULONG;
 
 
+/**
+ * @short struct pos  POSITION
+ */
 typedef struct pos {
     pos() : e(0), y(0), x(0), f(0) { }
-    USHORT e,y,x,f;
+    USHORT e; /**< Member Description */
+    USHORT y; /**< Member Description */
+    USHORT x; /**< Member Description */
+    USHORT f; /**< Member Description */
 } POSITION;
 
+/**
+ * @short struct dep DEPENDENCY
+ */
 typedef struct dep {
-    int turn_dep[4];   // Turn dependencies
-    int place_dep[4];  // Placing dependencies
-    int lhs_dep[2];    // Left side dependencies, same level
-    int rhs_dep[2];    // Right side dependencies, same level
-    bool filled;       // True if this tile has been placed.
-    bool free;         // True if this tile can be removed?
+    int turn_dep[4];   /**< Turn dependencies */
+    int place_dep[4];  /**< Placing dependencies */
+    int lhs_dep[2];    /**< Left side dependencies, same level */
+    int rhs_dep[2];    /**< Right side dependencies, same level */
+    bool filled;       /**< True if this tile has been placed. */
+    bool free;         /**< True if this tile can be removed? */
 } DEPENDENCY;
 
-//Tile angles for face composition
-enum TileViewAngle { NW, NE, SE, SW };
+/**
+ * @short Tile angles for face composition
+ */
+enum TileViewAngle { 
+        NW, /**< North West */
+        NE, /**< North East */
+        SE, /**< South East */
+        SW  /**< South West */
+};
 
 #define TILE_OFFSET      2
 #define TILE_CHARACTER   (0+TILE_OFFSET)

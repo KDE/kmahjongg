@@ -29,25 +29,76 @@
 //This class wraps tile drawing, so it can blit the selected or unselected background, plus
 //the tileface, positioned in the correct orientation. 
 
+/**
+* This class wraps tile drawing, so it can blit the selected or 
+* unselected background, plus the tileface, positioned in the correct 
+* orientation.
+* 
+* @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+*/
 class TileSprite : public QObject, public KGameCanvasItem
 {
     Q_OBJECT
 public:
-    TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected);
-    ~TileSprite();
 
+    /**
+     * Constructor
+     *
+     * @param canvas
+     * @param backunselected
+     * @param backselected
+     * @param face
+     * @param angle
+     * @param selected
+     */
+    TileSprite ( KGameCanvasAbstract* canvas, QPixmap& backunselected, QPixmap& backselected, QPixmap& face, TileViewAngle angle, bool selected);
+
+    /**
+     * Deafault destructor */
+    ~TileSprite();
+    /**
+     * Method Description 
+     * 
+     * @param p
+     * @param prect   
+     * @param preg
+     * @param delta
+     * @param cumulative_opacity
+     */
     virtual void paintInternal(QPainter* p, const QRect& prect, const QRegion& preg,
                                           QPoint delta, double cumulative_opacity);
+    /**
+     * Method Description @param p */
     virtual void paint(QPainter* p);
+    /**
+     * Method Description */
     virtual QRect rect() const;
+    /**
+     * Method Description
+     * @param angle
+     * @param backunselected
+     * @param backselected
+     */
     void setAngle(TileViewAngle angle, QPixmap& backunselected, QPixmap& backselected);
 
+    /**
+     * Method Description @param scale */
     inline void setScale (double scale){ m_scale=scale;}
+    /**
+     * Method Description @return double m_scale */
     inline double scale(){ return m_scale;}
+    /**
+     * Method Description  @param enabled  */
     inline void setSelected (bool enabled){ m_selected = enabled; changed();}
+    /**
+     * Method Description @return double m_selected */
     inline double selected(){ return m_selected;}
 public slots:
+    /**
+     * Slot Description */
      void fadeOut();
+    /**
+     * Slot Description */
      void fadeIn();
 
 private:

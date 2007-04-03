@@ -1081,7 +1081,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
 
 
 // ----------------------------------------------------------
-/**
+/*
     Transform window point to board position.
 
     @param  point          Input: Point in window coordinates

@@ -42,114 +42,293 @@
 #define ID_GAME_TIMER 		999
 
 /**
- *  @author Mathias Mueller
+ * @short Where all the funn happens
+ *
+ * @see BoardLayout 
+ * @author Mathias Mueller
  */
 class BoardWidget : public KGameCanvasWidget
 {
     Q_OBJECT
 
     public:
+    /**
+     * Class Constructor
+     * 
+     * @param *parent blah blah
+     */
   	explicit BoardWidget( QWidget* parent = 0 );
-	~BoardWidget();
-
-        void calculateNewGame(int num = -1 );
-        int  undoMove();
+	/**
+     * Class Destructor
+     */
+    ~BoardWidget();
+    /**
+     * Method Description    */
+    void calculateNewGame(int num = -1 );
+    /**
+     * Method Description
+     * 
+     * @return int blah blah
+     * @ref redoMove()
+     */
+    int  undoMove();
+    /**
+     * Method Description    */
 	void redoMove();
-        void startDemoMode();
-        void stopDemoMode();
-
+    /**
+     * Method Description    */
+    void startDemoMode();
+    /**
+     * Method Description    */
+    void stopDemoMode();
+    /**
+     * Method Description    */
 	void pause();
+    /**
+     * Method Description    */
 	void gameLoaded();
-
-        void animateMoveList();
-        void setShowMatch( bool );
+    /**
+     * Method Description    */
+    void animateMoveList();
+    /**
+     * Method Description 
+     *
+     * @param show
+     */
+    void setShowMatch( bool show );
+    /**
+     * Method Description
+     * 
+     * @return long gameGenerationNum
+     * @see gameGenerationNum
+     */
 	long getGameNum() {return gameGenerationNum;}
+    /**
+     * Method Description
+     * 
+     * @return QString filename
+     */
 	QString &getBoardName(){return theBoardLayout.getFilename();}
+    /**
+     * Method Description
+     * 
+     * @return QString filename
+     */
 	QString &getLayoutName() {return theBoardLayout.getFilename();}
 
-        QHash<TileCoord, TileSprite *> spriteMap;
-
-	TileViewAngle m_angle;
+    QHash<TileCoord, TileSprite *> spriteMap; /**< Member Description */
+	TileViewAngle m_angle; /**< Member Description */
 
     public slots:
+    /**
+     * Slot Description */
 	void loadSettings();
-        void saveSettings();
-        void resizeTileset ( const QSize & wsize );
-
+    /**
+     * Slot Description */
+    void saveSettings();
+    /**
+     * Slot Description */
+    void resizeTileset ( const QSize & wsize );
+    /**
+     * Slot Description */
 	void animatingMoveListForward();
+    /**
+     * Slot Description */
 	void animatingMoveListBackwards();
+    /**
+     * Slot Description */
 	void shuffle();
+    /**
+     * Slot Description */
 	void angleSwitchCW();
+    /**
+     * Slot Description */
 	void angleSwitchCCW();
-        void helpMove();
-        void helpMoveTimeout();
+    /**
+     * Slot Description */
+    void helpMove();
+    /**
+     * Slot Description */
+    void helpMoveTimeout();
+    /**
+     * Slot Description */
 	void helpMoveStop();
-        void demoMoveTimeout();
-        void matchAnimationTimeout();
+    /**
+     * Slot Description */
+    void demoMoveTimeout();
+    /**
+     * Slot Description */
+    void matchAnimationTimeout();
+    /**
+     * Slot Description */
 	void setDisplayedWidth();
-        bool loadTileset    ( const QString & );
-        bool loadBoardLayout( const QString& );
-        bool loadBoard      ( );
-        void drawBoard(bool deferUpdate = true);
+    /**
+     * Slot Description 
+     *
+     * @return @c true if ...
+     * @return @c false if ...
+     */
+    bool loadTileset    ( const QString & );
+    /**
+     * Slot Description 
+     *
+     * @return @c true if ...
+     * @return @c false if ...
+     */
+    bool loadBoardLayout( const QString& );
+    /**
+     * Slot Description 
+     *
+     * @return @c true if ...
+     * @return @c false if ...
+     */
+    bool loadBoard( );
+    /**
+     * Slot Description */
+    void drawBoard(bool deferUpdate = true);
+    /**
+     * Slot Description */
 	void updateSpriteMap();
+    /**
+     * Slot Description */
 	void populateSpriteMap();
-        bool loadBackground ( const QString&, bool bShowError = true );
+    /**
+     * Slot Description 
+     *
+     * @return @c true if ...
+     * @return @c false if ...
+     */
+    bool loadBackground ( const QString&, bool bShowError = true );
     signals:
-        void statusTextChanged ( const QString&, long );
-        void tileNumberChanged ( int iMaximum, int iCurrent, int iLeft );
-        void demoModeChanged   ( bool bActive );
-
+    /**
+     * Signal Description */
+    void statusTextChanged ( const QString&, long );
+    /**
+     * Signal Description */
+    void tileNumberChanged ( int iMaximum, int iCurrent, int iLeft );
+    /**
+     * Signal Description 
+     * 
+     * @param bActive 
+     */
+    void demoModeChanged   ( bool bActive );
+    /**
+     * Signal Description */
 	void gameCalculated();
+    /**
+     * Signal Description */
 	void gameOver(unsigned short removed, unsigned short cheats);
     protected:
+    /**
+     * Virtual Method Description */
 	virtual void resizeEvent ( QResizeEvent * event );
-	void getFileOrDefault(const QString &filename, const QString &type, QString &res);
+
+    /**
+     * Method Description */
+    void getFileOrDefault(const QString &filename, const QString &type, QString &res);
         //void paintEvent      ( QPaintEvent* );
-        void mousePressEvent ( QMouseEvent* );
+    /**
+     * Method Description */
+    void mousePressEvent ( QMouseEvent* );
 
-        void setStatusText ( const QString& );
-        void cancelUserSelectedTiles();
-        void drawTileNumber();
+    /**
+     * Method Description */
+    void setStatusText ( const QString& );
+    /**
+     * Method Description */
+    void cancelUserSelectedTiles();
+    /**
+     * Method Description */
+    void drawTileNumber();
 
-        void hilightTile ( POSITION&, bool on=true, bool refresh=true );
-        void putTileInBoard     ( POSITION& , bool refresh = true);
-        void removeTile  ( POSITION& , bool refresh = true);
-        void transformPointToPosition( const QPoint&, POSITION& );
-
-        void stopMatchAnimation();
+    /**
+     * Method Description */
+    void hilightTile ( POSITION&, bool on=true, bool refresh=true );
+    /**
+     * Method Description */
+    void putTileInBoard     ( POSITION& , bool refresh = true);
+    /**
+     * Method Description */
+    void removeTile  ( POSITION& , bool refresh = true);
+    /**
+     * Transform window point to board position.
+     *
+     * @param  point          Input: Point in window coordinates
+     * @param  MouseClickPos  Output: Position in game board
+     */
+    void transformPointToPosition( const QPoint& point, POSITION& MouseClickPos);
+    /**
+     * Method Description */
+    void stopMatchAnimation();
+    /**
+     * Method Description 
+     * 
+     * @param p
+     * @param t
+     * @param h
+     * @param x
+     * @param y
+     */
 	void stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
-
+    /**
+     * Method Description
+     * 
+     * @return int blah blah
+     */
 	int requiredWidth();
+    /**
+     * Method Description
+     * 
+     * @return int blah blah
+     */
 	int requiredHeight();
+    /**
+     * Method Description
+     * 
+     * @return int blah blah
+     */
 	int requiredHorizontalCells();
+    /**
+     * Method Description
+     * 
+     * @return int blah blah
+     */
 	int requiredVerticalCells();
 
-	KMahjonggTileset  theTiles;
-	KMahjonggBackground theBackground;
-	BoardLayout theBoardLayout;
+	KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */
+	KMahjonggBackground theBackground;  /**< Member Description @see KMahjonggBackground */
+	BoardLayout theBoardLayout;  /**< Member Description @see BoardLayout */
 
-        POSITION MouseClickPos1, MouseClickPos2;
-        POSITION TimerPos1, TimerPos2;
+    POSITION MouseClickPos1; /**< Member Description @ref pos */
+    POSITION MouseClickPos2; /**< Member Description @ref pos */
+    POSITION TimerPos1; /**< Member Description @ref pos */
+    POSITION TimerPos2; /**< Member Description @ref pos */
+        /**
+         * @short Describe the enum
+         */
+        enum STATES { 
+            Stop,      /**< Description*/ 
+            Demo,      /**< Description*/ 
+            Help,      /**< Description*/ 
+            Animation, /**< Description*/ 
+            Match      /**< Description*/ 
+        } TimerState;
+        
+    int iTimerStep; /**< Member Description */
 
-        enum STATES { Stop, Demo, Help, Animation, Match } TimerState;
-        int iTimerStep;
+    short matchCount; /**< Member Description */
+    bool  showMatch;  /**< Member Description */
+    bool  showHelp;  /**< Member Description */
 
-        short matchCount;
-        bool  showMatch;
-        bool  showHelp;
+    QTimer *timer;  /**< Member Description */
 
-        QTimer *timer;
+	bool gamePaused; /**< Member Description */
 
-	bool gamePaused;
-
-	// storage for hiscore claculation
-	unsigned short cheatsUsed;
-
-	// seed for the random number generator used for this game
-	long  gameGenerationNum;
+	unsigned short cheatsUsed; /**< storage for hiscore claculation  */
+	long  gameGenerationNum; /**< seed for the random number generator used for this game */
 
 public:
-  GameData * Game;
+  GameData * Game; /**< Member Description */
 };
 
 #endif // BOARDWIDGET_H

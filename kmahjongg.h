@@ -45,26 +45,59 @@ class KToggleAction;
 class QLabel;
 
 /**
-    ...
-    @author Mathias
+   @short  Class Description
+
+   @author Mathias
 */
 class KMahjongg : public KMainWindow
 {
     Q_OBJECT
 
     public:
+    /**
+     * Constructor @param parent */
         explicit KMahjongg( QWidget* parent = 0 );
+    /**
+     * Default Destructor */
         ~KMahjongg();
 
     public slots:
-        void startNewGame( int num = -1 );
-        void showStatusText ( const QString& , long);
-        void showTileNumber( int iMaximum, int iCurrent, int iLeft );
-        void demoModeChanged( bool bActive );
-        void gameOver( unsigned short removed, unsigned short cheats);
-	void loadBoardLayout(const QString&);
+    /**
+     * Slot Description @param num */
+    void startNewGame( int num = -1 );
+    /**
+     * Slot Description 
+     * @param msg
+     * @param board
+     */
+    void showStatusText ( const QString &msg, long board);
+    /**
+     * Slot Description
+     * @param iMaximum
+     * @param iCurrent
+     * @param iLeft
+     */
+    void showTileNumber( int iMaximum, int iCurrent, int iLeft );
+    /**
+     * Slot Description @param bActive */
+    void demoModeChanged( bool bActive );
+    /**
+     * Slot Description  
+     * @param removed
+     * @param cheats
+     */
+    void gameOver( unsigned short removed, unsigned short cheats);
+    /**
+     * Load BoardLayout from file @param file*/
+	void loadBoardLayout(const QString &file);
+    /**
+     * Slot Description */
 	void setDisplayedWidth();
+    /**
+     * Slot Description */
 	void newGame();
+    /**
+     * Slot Description */
 	void timerReset();
 
 private slots:
@@ -91,8 +124,12 @@ private slots:
   void openTileset();*/
 
 protected:
-  void setupKAction();
-  void setupStatusBar();
+    /**
+     * Method Description */
+    void setupKAction();
+    /**
+     * Method Description */
+    void setupStatusBar();
 
 private:
   // number of seconds since the start of the game

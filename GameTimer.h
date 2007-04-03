@@ -32,30 +32,65 @@
 
 #include <QDateTime>
 
-enum TimerMode {running = -53 , stopped= -54 , paused = -55};
+/** 
+* Describe
+*/
+enum TimerMode {
+    running = -53, /**< Describe */
+    stopped= -54, /**< Describe */
+    paused = -55 /**< Describe */
+};
 
+/**
+ * @short This class implements
+ *  
+ * longer description
+ *
+ * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+ */
 class GameTimer: public QObject 
 {
     Q_OBJECT
 public:
+    /**
+     * Default Constructor */
     GameTimer();
 
+    /**
+     * Method Description @return int */
     int toInt(); 
-    QString toString() {return theTimer.toString();}	
+    /**
+     * Method Description @return QString timer ? */
+    QString toString() {return theTimer.toString();}
+    /**
+     * Method Description */
     void fromString(const char *);
 
 protected:					// event handlers
+    /**
+     * Event Description */
     void	timerEvent( QTimerEvent * );
  
 public slots:
+    /**
+     * Slot Description */
     void start();
+    /**
+     * Slot Description */
     void stop();
+    /**
+     * Slot Description */
     void pause();
+    
     signals:
-        void displayTime (QString& );
+    /**
+     * Signal Description */
+    void displayTime (QString& );
 
 
 private slots:					// internal slots
+    /**
+     * Slot Description */
     void	showTime();
 
 private:					// internal data

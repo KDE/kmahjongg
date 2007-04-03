@@ -28,63 +28,126 @@ class QLabel;
 
 const int numScores = 10;
 
+/**
+ * @short This struct implements
+ */
 struct HiScoreEntry{
-	QString name;
-	long	board;
-	long 	score;
-	long elapsed;
+	QString name; /**< Member Description */
+	long	board;/**< Member Description */
+	long 	score;/**< Member Description */
+	long elapsed; /**< Member Description */
 	
 };
 
+/**
+ * @short This struct implements
+ */
 struct TableInstance  {
-	QString name;
-	HiScoreEntry entries[numScores];
-	TableInstance *next;	
+	QString name; /**< Member Description */
+	HiScoreEntry entries[numScores]; /**< Member Description @see HiScoreEntry */
+	TableInstance *next; /**< Member Description @see TableInstance */
 };
 
-
+/**
+ * @short This class implements
+ * 
+ * longer description
+ *
+ * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+ */
 class HighScore : public KDialog
 {
     Q_OBJECT
 
 public:
-
+    /**
+     * Default Constructor Description */
     explicit HighScore ( QWidget* parent = 0);
-
+    /**
+     * Virtual Destructor Description */
     virtual ~HighScore();
-
+    /**
+     * Method Description
+     *
+     * @param layout
+     * @return int blah blah
+     */
 	int exec(QString &layout);
-
-
+    /**
+     * Method Description
+     * 
+     * @param score blah blah
+     * @param elapsed
+     * @param game
+     * @param board
+     */
     void checkHighScore(int score, int elapsed, long game, QString &board);
 public slots:
+    /**
+     * Slot Description 
+     */
 	void selectionChanged(int);
 
 protected slots:
+    /**
+     * Slot Description 
+     * @param s
+     */
 	void nameChanged(const QString &s);
+    /**
+     * Slot Description 
+     */
 	void reset();
 private:
-	void 		addRow(int num);	// generate one table row 
-	void		loadTables();	// initialise from saved
-	void		saveTables();	// save to disc.
+    /**
+     * generate one table row  */
+	void 		addRow(int num);
+    /**
+     * initialise from saved */
+	void		loadTables();
+    /**
+     * save to disc */	
+	void		saveTables();
+    /**
+     * Method Description 
+     * @param in
+     * @param out
+     */
 	void		getBoardName(const QString &in, QString &out);
+    /**
+     * Method Description 
+     * @param name
+     */
 	void 		selectTable(const QString &name);
+    /**
+     * Method Description 
+     * @param to
+     */
 	void		setComboTo(const QString &to);
+    /**
+     * Method Description
+     * @param name
+     */
 	void		copyTableToScreen(const QString &name);
+    /**
+     * Method Description 
+     * @return QString filename?
+     */
 	QString		&highScoreFile();
 	
-	int 		selectedLine;
-	QLineEdit   	*lineEdit;
-        QLabel*		numbersWidgets[numScores];
-	QLabel* 	boardWidgets[numScores];
-        QLabel*     	namesWidgets[numScores];
-        QLabel* 	scoresWidgets[numScores]; 
-	QLabel*       elapsedWidgets[numScores]; 
-	QComboBox*	combo;
-	QString 	filename;
+	int 		selectedLine; /**< Member Description */
+	QLineEdit   	*lineEdit;/**< Member Description */
+    
+    QLabel*		numbersWidgets[numScores];  /**< Member Description */
+	QLabel* 	boardWidgets[numScores];    /**< Member Description */
+    QLabel*    	namesWidgets[numScores];    /**< Member Description */
+    QLabel* 	scoresWidgets[numScores];   /**< Member Description */
+	QLabel*     elapsedWidgets[numScores];  /**< Member Description */
+	QComboBox*	combo;      /**< Member Description */
+	QString 	filename;   /**< Member Description */
 
-	TableInstance *tables;		
-	TableInstance *currTable;		
+	TableInstance *tables;  /**< Member Description */
+	TableInstance *currTable;/**< Member Description */
 };
 
 #endif // HighScore_included

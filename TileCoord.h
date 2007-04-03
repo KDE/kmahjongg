@@ -24,37 +24,115 @@
 #include <QString>
 #include <QHash>
 
+/**
+* This class implements
+* 
+* longer description
+*
+* @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+*/
 class TileCoord
 {
 public:
+    /**
+    * Method description
+    */
     TileCoord();
+    /**
+    * Method description
+    * 
+    * @param xpos blah blah
+    * @param ypos blah blah
+    * @param zpos blah blah
+    */
     TileCoord(int xpos, int ypos, int zpos);
-
+    /**
+    * Method description
+    *
+    * @return @c true if reason?
+    * @return @c false if reson
+    */
     bool isNull() const;
-
+    /**
+    * Method description @return int */
     int x() const;
+    /**
+    * Method description @return int */
     int y() const;
+    /**
+    * Method description @return int */
     int z() const;
+    /**
+    * Method description @param x */
     void setX(int x);
+    /**
+    * Method description @param y */
     void setY(int y);
+    /**
+    * Method description @param y */
     void setZ(int y);
 
+    /**
+    * Method description
+    */
     int &rx();
+    /**
+    * Method description @return int */
     int &ry();
+    /**
+    * Method description @return int */
     int &rz();
-
+    /**
+    * Method description
+    *
+    * @param t blah
+    * @return TileCoord blah
+    */
     TileCoord &operator+=(const TileCoord &t);
+    /**
+    * Method description
+    *
+    * @param t blah
+    * @return TileCoord blah
+    */ 
     TileCoord &operator-=(const TileCoord &t);
+    /**
+    * Method description
+    *
+    * @param c blah
+    * @return TileCoord blah
+    */
     TileCoord &operator*=(qreal c);
+    /**
+    * Method description
+    *
+    * @param c blah
+    * @return TileCoord blah
+    */
     TileCoord &operator/=(qreal c);
-
+    /**
+     * Method equals */
     friend inline bool operator==(const TileCoord &, const TileCoord &);
+    /**
+     * Method not equal */
     friend inline bool operator!=(const TileCoord &, const TileCoord &);
+    /**
+     * Method addition */
     friend inline const TileCoord operator+(const TileCoord &, const TileCoord &);
+    /**
+     * Method subtraction */
     friend inline const TileCoord operator-(const TileCoord &, const TileCoord &);
+    /**
+     * Method multiplication  */
     friend inline const TileCoord operator*(const TileCoord &, qreal);
+    /**
+     * Method multiplication */
     friend inline const TileCoord operator*(qreal, const TileCoord &);
+    /**
+     * Method subtraction */
     friend inline const TileCoord operator-(const TileCoord &);
+    /**
+     * Method division */
     friend inline const TileCoord operator/(const TileCoord &, qreal);
 
 private:

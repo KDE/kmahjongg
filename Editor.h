@@ -35,38 +35,113 @@
 
 class KActionCollection;
 
+/**
+ * @short This class implements
+ * 
+ * longer description
+ *
+ * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+ */
 class Editor: public KDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * Constructor Description @param parent */
     explicit Editor ( QWidget* parent = 0);
-
+    /**
+     * Default Destructor */
     virtual ~Editor();
 
 protected slots:
-        void drawFrameMousePressEvent ( QMouseEvent* );
-        void drawFrameMouseMovedEvent ( QMouseEvent *);	
+    /**
+     * Slot Description */
+    void drawFrameMousePressEvent ( QMouseEvent* );
+    /**
+     * Slot Description */
+    void drawFrameMouseMovedEvent ( QMouseEvent *);
+    /**
+     * Slot Description */
 	void loadBoard();
+    /**
+     * Slot Description 
+     * @return @c true if ...
+     * @return @c false if ...
+     */
 	bool saveBoard();
+    /**
+     * Slot Description */
 	void newBoard();
-        void slotShiftLeft();
-        void slotShiftRight();
-        void slotShiftUp();
-        void slotShiftDown();
-        void slotModeChanged(QAction*);
+    /**
+     * Slot Description */
+    void slotShiftLeft();
+    /**
+     * Slot Description */
+    void slotShiftRight();
+    /**
+     * Slot Description */
+    void slotShiftUp();
+    /**
+    * Slot Description */
+    void slotShiftDown();
+    /**
+     * Slot Description */
+    void slotModeChanged(QAction*);
+    /**
+     * Slot Description */
 protected:
-	enum {remove=98, insert=99, move=100};
+	/** @short Describe enum
+     */
+    enum {
+        remove=98, /**< describe*/
+        insert=99, /**< describe*/
+        move=100   /**< describe*/
+    };
+    /**
+     * Method Description */
 	void resizeEvent ( QResizeEvent * event );
+    /**
+     * Method Description */
 	void paintEvent( QPaintEvent* pa );
+    /**
+     * Method Description */
 	void setupToolbar();
+    /**
+     * Method Description */
 	void drawBackground(QPixmap *to);
+    /**
+     * Method Description @param to destination QPixmap to draw to */
 	void drawTiles(QPixmap *to);
+    /**
+     * Method Description
+     * 
+     * @return @c true if
+     * @return @c false if
+     */
 	bool testSave();
+    /**
+     * Method Description */
 	void transformPointToPosition(const QPoint &, POSITION &, bool align);
+    /**
+     * Method Description 
+       @param p @ref pos
+       @param visible 
+     */
 	void drawCursor(POSITION &p, bool visible);
+    /**
+     * Method Description
+     * 
+     * @param p @ref pos
+     * @return @c true if
+     * @return @c false if
+     */
 	bool canInsert(POSITION &p);
+    /**
+     * Method Description */
 	void statusChanged();
+    /**
+     * Method Description @return status description */
 	QString statusText();
 private:
 	int mode;

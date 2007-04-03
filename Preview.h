@@ -31,21 +31,63 @@
 class QComboBox;
 class QPixmap;
 
+/**
+ * @short This class implements
+ * 
+ * longer description
+ *
+ * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+ */
 class FrameImage: public KGameCanvasWidget
 {
 	Q_OBJECT
 public:
+    /**
+     * Constructor
+       
+       @param parent 
+       @param initialImageSize
+    */
 	FrameImage(QWidget *parent, const QSize& initialImageSize);
+    /**
+     * Default Destructor */
 	~FrameImage();
+    /**
+     * Method Description
+     * 
+     * @return QPixmap
+     */
 	QPixmap *getPreviewPixmap() {return thePixmap;}
+    /**
+     * Method Description 
+
+       @param x
+       @param y
+       @param w
+       @param h
+       @param ss
+       @param type
+     */
 	void setRect(int x, int y, int w, int h, int ss, int type);
 signals:
+    /**
+     * Signal Description */
 	void mousePressed(QMouseEvent *e);
+    /**
+     * Signal Description */
 	void mouseMoved(QMouseEvent *e);
 protected:
+    /**
+     * Event Description */
 	void mousePressEvent(QMouseEvent *e);
+    /**
+     * Event Description */
 	void mouseMoveEvent(QMouseEvent *e);
+    /**
+     * Event Description */
 	void resizeEvent(QResizeEvent *e);
+    /**
+     * Event Description */
 	void paintEvent( QPaintEvent* pa );
 private:
 	QPixmap *thePixmap;
@@ -58,56 +100,114 @@ private:
 };
 
 
-
+/**
+* This class implements
+* 
+* longer description
+*
+* @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+*/
 class Preview: public KDialog
 {
     Q_OBJECT
 
 public:
-	enum PreviewType {background, tileset, board, theme};
+    /**
+     * @short Enum Description */
+	enum PreviewType {
+        background, /**< Member Description */
+        tileset,    /**< Member Description */
+        board,      /**< Member Description */
+        theme       /**< Member Description */
+    };
 
+    /**
+     * Constructor */
 	Preview(QWidget* parent);
+    /**
+     * Default Destructor */
 	~Preview();
 
+    /**
+     * Method Description @param type  */
 	void initialise(const PreviewType type);
-
+    /**
+     * Method Description */
 	void saveTheme();
 
 protected:
+    /**
+     * Method Description */
 	void markUnchanged();
+    /**
+     * Method Description */
 	void markChanged();
+    /**
+     * Method Description 
+       @return @c true  if
+       @return @c false if
+     */
 	bool isChanged();
+    /**
+     * Method Description @return preview QPixmap */
 	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); }
+    /**
+     * Method Description */
 	virtual void drawPreview();
+    /**
+     * Method Description */
 	void applyChange() ;
+    /**
+     * Method Description @param bg */
 	void renderBackground(const QString &bg);
+    /**
+     * Method Description 
+       @param file
+       @param layout
+     */
 	void renderTiles(const QString &file, const QString &layout);
+    /**
+     * Event Description */
 	void paintEvent( QPaintEvent* pa );
 
 signals:
+    /**
+     * Signal Description */
 	void boardRedraw(bool);
+    /**
+     * Signal Description */
 	void loadTileset(const QString &);
+    /**
+     * Signal Description */
 	void loadBackground(const QString &, bool);
+    /**
+     * Signal Description */
 	void loadBoard(const QString &);
+    /**
+     * Signal Description */
 	void layoutChange();
 
 public slots:
+    /**
+     * Slot Description @param which */
 	void selectionChanged(int which);
 
 protected slots:
+    /**
+     * Slot Description @param button */
 	virtual void slotButtonClicked(int button); // reimp
 	
 private slots:
 	void load();
 
 protected:
-	FrameImage *m_drawFrame;
-	QComboBox *m_combo;
+	FrameImage *m_drawFrame;  /**< Member Description */
+	QComboBox *m_combo; /**< Member Description */
 
-	QString m_selectedFile;
-	KMahjonggTileset m_tiles;
-	BoardLayout m_boardLayout;
-	KMahjonggBackground m_back;
+	QString m_selectedFile;     /**< Member Description */
+	KMahjonggTileset m_tiles;   /**< Member Description */
+	BoardLayout m_boardLayout;  /**< Member Description */
+	KMahjonggBackground m_back;  /**< Member Description */
 
 private:
 	QString m_fileSelector;
