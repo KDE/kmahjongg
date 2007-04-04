@@ -19,7 +19,7 @@ public:
 	FrameImage(QWidget *parent=NULL, const char *name = NULL);
 	~FrameImage();
 	void setGeometry(int x, int y, int w, int h);
-	QPixmap *getPreviewPixmap() {return thePixmap;};
+	QPixmap *getPreviewPixmap() {return thePixmap;}
 	void setRect(int x, int y, int w, int h, int ss, int type);
 signals:
 	void mousePressed(QMouseEvent *e);
@@ -57,7 +57,7 @@ protected:
 	void markUnchanged();
 	void markChanged();
 	bool isChanged();
-	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); };
+	QPixmap *getPreviewPixmap() {return m_drawFrame->getPreviewPixmap(); }
 	virtual void drawPreview();
 	void applyChange() ;
 	void renderBackground(const QString &bg);

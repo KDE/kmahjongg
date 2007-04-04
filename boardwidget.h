@@ -106,9 +106,9 @@ class BoardWidget : public QWidget
         void animateMoveList();
         void setShowMatch( bool );
 	void tileSizeChanged();
-	long getGameNum() {return gameGenerationNum;};
-	QString &getBoardName(){return theBoardLayout.getFilename();};
-	QString &getLayoutName() {return theBoardLayout.getFilename();};
+	long getGameNum() {return gameGenerationNum;}
+	QString &getBoardName(){return theBoardLayout.getFilename();}
+	QString &getLayoutName() {return theBoardLayout.getFilename();}
 
 
     public slots:

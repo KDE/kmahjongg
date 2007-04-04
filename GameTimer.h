@@ -28,7 +28,7 @@ public:
     GameTimer( QWidget *parent=0, const char *name=0 );
 
     int toInt(); 
-    QString toString() {return theTimer.toString();};	
+    QString toString() {return theTimer.toString();}	
     void fromString(const char *);
 
 protected:					// event handlers

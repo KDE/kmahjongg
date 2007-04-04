@@ -13,17 +13,17 @@ class Tileset {
      QRgb *createTile(short x, short y, QRgb *dst, QImage &src , QRgb *face);
      QRgb *copyTileImage(short tileX, short tileY, QRgb *to, QImage &from);  
 
-     void setScaled(bool sc) {isScaled = sc; divisor = (sc) ? 2 : 1;};
+     void setScaled(bool sc) {isScaled = sc; divisor = (sc) ? 2 : 1;}
 
 
      QRgb *tile(short tnum);
      QRgb *selectedTile(short tnum);
-     short width() {return w/divisor;};
-     short height() {return h/divisor;};
-     short shadowSize() {return ss/divisor;};
-     short size() {return s;};
-     short qWidth() {return qw/divisor;};
-     short qHeight() {return qh/divisor;};
+     short width() {return w/divisor;}
+     short height() {return h/divisor;}
+     short shadowSize() {return ss/divisor;}
+     short size() {return s;}
+     short qWidth() {return qw/divisor;}
+     short qHeight() {return qh/divisor;}
 
 
      QPixmap *selectedPixmaps(int num) {
@@ -31,28 +31,28 @@ class Tileset {
 		return &(selectedPix[num]);
 	else
 		return &(selectedMiniPix[num]);
-	};
+	}
 
      QPixmap *unselectedPixmaps(int num) {
 	if (!isScaled)
 		return &(unselectedPix[num]);
 	else
 		return &(unselectedMiniPix[num]);
-	};
+	}
 
      QPixmap *selectedShadowPixmaps(int num) {
 	if (!isScaled) 
 		return &(selectedShadowPix[num]);
 	else
 		return &(selectedShadowMiniPix[num]);
-	};
+	}
 
      QPixmap *unselectedShadowPixmaps(int num) {
 	if (!isScaled)
 		return &(unselectedShadowPix[num]);
 	else
 		return &(unselectedShadowMiniPix[num]);
-	};
+	}
 
   protected:
 

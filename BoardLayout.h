@@ -14,7 +14,7 @@ public:
 
     bool loadBoardLayout(const QString from);
     bool saveBoardLayout(const QString where);
-    UCHAR getBoardData(short z, short y, short x) {return board[z][y][x];};
+    UCHAR getBoardData(short z, short y, short x) {return board[z][y][x];}
 
     // is there a tile anywhere above here (top left to bot right quarter)
     bool tileAbove(short z, short y, short x); 
@@ -46,7 +46,7 @@ public:
             depth = 5 };
      enum { maxTiles = (depth*width*height)/4 };
 
-     QString &getFilename() {return filename;};
+     QString &getFilename() {return filename;}
      
 protected:
 
