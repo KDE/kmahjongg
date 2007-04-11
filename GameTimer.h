@@ -30,6 +30,7 @@
 #ifndef KM_GAME_TIMER 
 #define KM_GAME_TIMER 
 
+#include <QObject>
 #include <QDateTime>
 
 /** 
@@ -48,7 +49,7 @@ enum TimerMode {
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
-class GameTimer: public QObject 
+class GameTimer: public QObject
 {
     Q_OBJECT
 public:

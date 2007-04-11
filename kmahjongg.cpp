@@ -25,6 +25,8 @@
 
 */
 
+#include "kmahjongg.h"
+
 #include <limits.h>
 
 #include <kaboutdata.h>
@@ -46,7 +48,6 @@
 #include <kactioncollection.h>
 
 #include "prefs.h"
-#include "kmahjongg.h"
 #include "ui_settings.h"
 #include "GameTimer.h"
 #include "Editor.h"

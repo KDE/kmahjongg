@@ -16,6 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "Preview.h"
+
 #include <kcomponentdata.h>
 #include <kfiledialog.h>
 #include <klocale.h>
@@ -36,7 +38,6 @@
 
 
 #include "prefs.h"
-#include "Preview.h"
 #include <QVBoxLayout>
 static const char * themeMagicV1_0= "kmahjongg-theme-v1.0";
 

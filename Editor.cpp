@@ -17,12 +17,13 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "Editor.h"
+
 #include <QLayout>
 #include <QLabel>
 #include <qevent.h>
 #include <qpainter.h>
 
-#include "Editor.h"
 #include "prefs.h"
 
 #include <kmessagebox.h>

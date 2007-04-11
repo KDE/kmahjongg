@@ -27,9 +27,9 @@
 
 */
 
+#include "GameTimer.h"
 #include <stdio.h>
 #include <QtDebug>
-#include "GameTimer.h"
 #include "GameTimer.moc"
 
 
