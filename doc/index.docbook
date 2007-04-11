@@ -60,14 +60,12 @@
 <othercredit role="developer">
 &Benjamin.Meyer; &Benjamin.Meyer.mail;
 </othercredit>
-
-</authorgroup>
-
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
 
 <copyright>
 <year>2005</year>
-<holder>John Hayes</holder>
+<holder>&John.Hayes;</holder>
 </copyright>
 
 <legalnotice>&FDLNotice;</legalnotice>
@@ -221,7 +219,7 @@ elapsed time from the start of the game until the game is finished.
 <term>Statusbar</term>
 <listitem>
 <para>
-The Statusbar is located at the bottom of the screen, and contains three panes. The first
+The Status bar is located at the bottom of the screen, and contains three panes. The first
 pane lists the removed/total tiles and the number of matching tiles that have free sides. 
 The second pane gives the sequence number of the game you are playing. In the last pane
 lets the player know when the game is ready.
@@ -763,17 +761,17 @@ The available options:
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Show Highscores</guimenuitem>
+<guimenuitem>Show High scores</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Shows the highscore list.</action>
+<listitem><para><action>Shows the high score list.</action>
 <screenshot>
-<screeninfo>Show Highscores</screeninfo>
+<screeninfo>Show High scores</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="highscore.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
-	    <phrase>Show Highscores</phrase>
+	    <phrase>Show High scores</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
@@ -978,7 +976,7 @@ distribution. -->
 <title>Credits and License</title>
 
 <para>
-&kmahjongg; for KDE
+&kmahjongg; for &kde;
 </para>
 
 <para>
