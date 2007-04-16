@@ -106,6 +106,7 @@ void BoardWidget::loadSettings(){
 
 void BoardWidget::resizeEvent ( QResizeEvent * event )
 {
+    if (event->spontaneous()) return;
     resizeTileset(event->size());
     theBackground.sizeChanged(requiredWidth(), requiredHeight());
     drawBoard(true);
