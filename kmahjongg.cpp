@@ -65,7 +65,7 @@ static const char *gameMagic = "kmahjongg-game-v1.0";
 
 /**
 * This class implements
-* 
+*
 * longer description
 *
 * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
@@ -88,7 +88,7 @@ int is_paused = 0;
     Constructor.
 */
 KMahjongg::KMahjongg( QWidget* parent)
-    : KMainWindow(parent)
+    : KXmlGuiWindow(parent)
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3*1024);
@@ -337,7 +337,7 @@ void KMahjongg::showSettings(){
   dialog->addPage(new Settings(0), i18n("General"), "package_settings");
   dialog->addTilesetPage();
   dialog->addBackgroundPage();
-  
+
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
   dialog->show();

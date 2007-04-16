@@ -28,7 +28,7 @@
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
@@ -49,7 +49,7 @@ class QLabel;
 
    @author Mathias
 */
-class KMahjongg : public KMainWindow
+class KMahjongg : public KXmlGuiWindow
 {
     Q_OBJECT
 
@@ -66,7 +66,7 @@ class KMahjongg : public KMainWindow
      * Slot Description @param num */
     void startNewGame( int num = -1 );
     /**
-     * Slot Description 
+     * Slot Description
      * @param msg
      * @param board
      */
@@ -82,7 +82,7 @@ class KMahjongg : public KMainWindow
      * Slot Description @param bActive */
     void demoModeChanged( bool bActive );
     /**
-     * Slot Description  
+     * Slot Description
      * @param removed
      * @param cheats
      */
