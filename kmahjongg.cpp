@@ -49,7 +49,6 @@
 
 #include "prefs.h"
 #include "ui_settings.h"
-#include "GameTimer.h"
 #include "Editor.h"
 
 #include <kmahjonggconfigdialog.h>
@@ -109,10 +108,10 @@ KMahjongg::KMahjongg( QWidget* parent)
     layout->setSpacing(0);
     layout->addStretch();
 
-    gameTimer = new GameTimer();
+    gameTimer = new KGameClock(this);
 
-    connect( gameTimer, SIGNAL( displayTime(QString&)), this,
-                SLOT( displayTime(QString&)));
+    connect( gameTimer, SIGNAL( timeChanged(const QString&)), this,
+                SLOT( displayTime(const QString&)));
 
     theHighScores = new HighScore(this);
 
@@ -284,7 +283,7 @@ void KMahjongg::setupStatusBar()
     statusBar()->addWidget(gameTimerLabel);
 }
 
-void KMahjongg::displayTime(QString& timestring)
+void KMahjongg::displayTime(const QString& timestring)
 {
     gameTimerLabel->setText(i18n("Time: ")+timestring);
 }
@@ -358,9 +357,9 @@ void KMahjongg::demoMode()
 
 void KMahjongg::pause()
 {
+    if (is_paused) gameTimer->resume(); else gameTimer->pause();
     is_paused = !is_paused;
     demoModeChanged(false);
-    gameTimer->pause();
     bw->pause();
 }
 
@@ -452,7 +451,7 @@ void KMahjongg::timerReset() {
 	gameElapsedTime = 0;
 
 	// start the game timer
-	gameTimer->start();
+	gameTimer->restart();
 
 }
 
@@ -470,13 +469,13 @@ void KMahjongg::gameOver(
         long gameNum = bw->getGameNum();
 	KMessageBox::information(this, i18n("You have won!"));
 
-	int elapsed = gameTimer->toInt();
+	int elapsed = gameTimer->seconds();
 
 	time = score = 0;
 
 	// get the time in milli secs
 	// subtract from 20 minutes to get bonus. if longer than 20 then ignore
-	time = (60*20) - gameTimer->toInt();
+	time = (60*20) - gameTimer->seconds();
 	if (time <0)
 		time =0;
 	// conv back to  secs (max bonus = 60*20 = 1200

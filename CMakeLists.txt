@@ -12,7 +12,6 @@ set(kmahjongg_SRCS
    kmahjongg.cpp 
    boardwidget.cpp 
    BoardLayout.cpp 
-   GameTimer.cpp 
    GameData.cpp 
    Preview.cpp 
    Editor.cpp 

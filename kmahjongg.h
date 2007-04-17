@@ -33,12 +33,11 @@
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
+#include <kgameclock.h>
 #include "BoardLayout.h"
 #include "Preview.h"
 #include "HighScore.h"
 #include "boardwidget.h"
-
-class GameTimer;
 
 class QAction;
 class KToggleAction;
@@ -111,7 +110,7 @@ private slots:
   void redo();
   void pause();
   void demoMode();
-  void displayTime(QString& timestring);
+  void displayTime(const QString& timestring);
   void showMatchingTiles();
   void showHighscores();
   void slotBoardEditor();
@@ -141,7 +140,7 @@ private:
   QLabel *statusLabel;
   QLabel *gameTimerLabel;
 
-  GameTimer    *gameTimer;
+  KGameClock    *gameTimer;
   HighScore    *theHighScores;
   Preview      *previewLoad;
 
