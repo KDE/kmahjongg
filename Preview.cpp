@@ -392,8 +392,8 @@ void Preview::renderTiles(const QString &file, const QString &layout) {
                 tile = tile % 43;
             }
         }
-        xOffset +=m_tiles.levelOffset();
-        yOffset -=m_tiles.levelOffset();
+        xOffset +=m_tiles.levelOffsetX();
+        yOffset -=m_tiles.levelOffsetY();
     }
 }
 

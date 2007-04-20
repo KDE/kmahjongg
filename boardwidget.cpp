@@ -220,8 +220,8 @@ void BoardWidget::updateSpriteMap() {
     {
 	case NW:
 	//remove shadow from margin calculation
-	xOffset += theTiles.levelOffset()/2;
-        yOffset += theTiles.levelOffset()/2;
+	xOffset += theTiles.levelOffsetX()/2;
+        yOffset += theTiles.levelOffsetY()/2;
 
 	//Position
 	for (int z=0; z<Game->m_depth; z++) {
@@ -242,8 +242,8 @@ void BoardWidget::updateSpriteMap() {
 			if (thissprite) thissprite->show();
 		}
 		}
-		xOffset +=theTiles.levelOffset();
-		yOffset -=theTiles.levelOffset();
+		xOffset +=theTiles.levelOffsetX();
+		yOffset -=theTiles.levelOffsetY();
 	}
 	//Layer
 	for (int z=0; z<Game->m_depth; z++) {
@@ -267,8 +267,8 @@ void BoardWidget::updateSpriteMap() {
 	break;
 
 	case NE:
-	xOffset -= theTiles.levelOffset()/2;
-        yOffset += theTiles.levelOffset()/2;
+	xOffset -= theTiles.levelOffsetX()/2;
+        yOffset += theTiles.levelOffsetY()/2;
 	//Position
 	for (int z=0; z<Game->m_depth; z++) {
 		// we draw down the board so the tile below over rights our border
@@ -288,8 +288,8 @@ void BoardWidget::updateSpriteMap() {
 			if (thissprite) thissprite->show();
 		}
 		}
-		xOffset -=theTiles.levelOffset();
-		yOffset -=theTiles.levelOffset();
+		xOffset -=theTiles.levelOffsetX();
+		yOffset -=theTiles.levelOffsetY();
 	}
 	//Layer
 	for (int z=0; z<Game->m_depth; z++) {
@@ -313,8 +313,8 @@ void BoardWidget::updateSpriteMap() {
 	break;
 
 	case SE:
-	xOffset -= theTiles.levelOffset()/2;
-        yOffset -= theTiles.levelOffset()/2;
+	xOffset -= theTiles.levelOffsetX()/2;
+        yOffset -= theTiles.levelOffsetY()/2;
 	//Position
 	for (int z=0; z<Game->m_depth; z++) {
 		for (int y = Game->m_height-1; y >= 0; y--) {
@@ -331,8 +331,8 @@ void BoardWidget::updateSpriteMap() {
 			if (thissprite) thissprite->show();
 		}
 		}
-		xOffset -=theTiles.levelOffset();
-		yOffset +=theTiles.levelOffset();
+		xOffset -=theTiles.levelOffsetX();
+		yOffset +=theTiles.levelOffsetY();
 	}
 	//Layer
 	for (int z=0; z<Game->m_depth; z++) {
@@ -351,8 +351,8 @@ void BoardWidget::updateSpriteMap() {
 	break;
 
 	case SW:
-	xOffset += theTiles.levelOffset()/2;
-        yOffset -= theTiles.levelOffset()/2;
+	xOffset += theTiles.levelOffsetX()/2;
+        yOffset -= theTiles.levelOffsetY()/2;
 
 	//Position
 	for (int z=0; z<Game->m_depth; z++) {
@@ -370,8 +370,8 @@ void BoardWidget::updateSpriteMap() {
 			if (thissprite) thissprite->show();
 		}
 		}
-		xOffset +=theTiles.levelOffset();
-		yOffset +=theTiles.levelOffset();
+		xOffset +=theTiles.levelOffsetX();
+		yOffset +=theTiles.levelOffsetY();
 	}
 	//Layer
 	for (int z=0; z<Game->m_depth; z++) {
@@ -551,7 +551,7 @@ if (Prefs::showRemoved()) {
 
 void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
 {
-    int ss = theTiles.levelOffset();
+    int ss = theTiles.levelOffsetX();
     QPen line;
     p->setBackgroundMode(Qt::OpaqueMode);
     p->setBackground(Qt::black);

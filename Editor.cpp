@@ -56,7 +56,7 @@ Editor::Editor ( QWidget* parent)
     int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
     int sHeight =( theBoard.m_height+2)*tiles.qHeight();
 
-    sWidth += 4*tiles.levelOffset();
+    sWidth += 4*tiles.levelOffsetX();
 
     drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
     drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
@@ -424,7 +424,7 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
 
     // now put in a grid of tile quater width squares
-    int sy = (tiles.height()/2)+tiles.levelOffset();
+    int sy = (tiles.height()/2)+tiles.levelOffsetX();
     int sx = (tiles.width()/2);
 
     for (int y=0; y<=theBoard.m_height; y++) {
@@ -476,9 +476,9 @@ void Editor::drawTiles(QPixmap *dest) {
                 // we simply split the tile draw so the top half is drawn
                 // minus border
                 if ((x>1) && (y>0) && theBoard.getBoardData(z,y-1,x-2)=='1'){
-                    p.drawPixmap( sx+tiles.levelOffset(), sy,
-                            t, tiles.levelOffset() ,0,
-                            t.width()-tiles.levelOffset(),
+                    p.drawPixmap( sx+tiles.levelOffsetX(), sy,
+                            t, tiles.levelOffsetX() ,0,
+                            t.width()-tiles.levelOffsetX(),
                             t.height()/2);
 
 
@@ -495,8 +495,8 @@ void Editor::drawTiles(QPixmap *dest) {
                 tile = tile % 143;
             }
         }
-        xOffset +=tiles.levelOffset();
-        yOffset -=tiles.levelOffset();
+        xOffset +=tiles.levelOffsetX();
+        yOffset -=tiles.levelOffsetY();
     }
 }
 
@@ -522,8 +522,8 @@ void Editor::transformPointToPosition(
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print zvent (FIX ME)
-        x = ((point.x()-tiles.width()/2)-(z+1)*tiles.levelOffset())/ tiles.qWidth();
-        y = ((point.y()-tiles.height()/2)+ z*tiles.levelOffset()) / tiles.qHeight();
+        x = ((point.x()-tiles.width()/2)-(z+1)*tiles.levelOffsetX())/ tiles.qWidth();
+        y = ((point.y()-tiles.height()/2)+ z*tiles.levelOffsetX()) / tiles.qHeight();
 
 
         // skip when position is illegal
@@ -610,15 +610,15 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
-    int x = (tiles.width()/2)+(p.e*tiles.levelOffset())+(p.x * tiles.qWidth());
-    int y = (tiles.height()/2)-(p.e*tiles.levelOffset())+(p.y * tiles.qHeight());
+    int x = (tiles.width()/2)+(p.e*tiles.levelOffsetX())+(p.x * tiles.qWidth());
+    int y = (tiles.height()/2)-(p.e*tiles.levelOffsetX())+(p.y * tiles.qHeight());
     int w = tiles.width();
     int h = tiles.height();
 
 
     if (p.e==100 || !visible)
 	x = -1;
-    drawFrame->setRect(x,y,w,h, tiles.levelOffset(), mode-remove);
+    drawFrame->setRect(x,y,w,h, tiles.levelOffsetX(), mode-remove);
     drawFrame->update();
 }
 
