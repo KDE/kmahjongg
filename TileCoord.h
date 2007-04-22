@@ -21,7 +21,7 @@
 #ifndef TILECOORD_H
 #define TILECOORD_H
 
-#include <QString>
+
 #include <QHash>
 
 /**
