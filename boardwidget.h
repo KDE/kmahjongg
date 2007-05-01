@@ -114,7 +114,7 @@ class BoardWidget : public KGameCanvasWidget
      * 
      * @return QString filename
      */
-	QString &getLayoutName() {return theBoardLayout.getFilename();}
+	QString getLayoutName();
 
     QHash<TileCoord, TileSprite *> spriteMap; /**< Member Description */
 	TileViewAngle m_angle; /**< Member Description */

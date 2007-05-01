@@ -36,7 +36,6 @@
 #include <kgameclock.h>
 #include "BoardLayout.h"
 #include "Preview.h"
-#include "HighScore.h"
 #include "boardwidget.h"
 
 class QAction;
@@ -141,7 +140,6 @@ private:
   QLabel *gameTimerLabel;
 
   KGameClock    *gameTimer;
-  HighScore    *theHighScores;
   Preview      *previewLoad;
 
   bool         bDemoModeActive;

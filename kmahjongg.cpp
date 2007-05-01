@@ -38,6 +38,7 @@
 #include <kstandardgameaction.h>
 #include <kstandardaction.h>
 #include <kicon.h>
+#include <KScoreDialog>
 
 #include <QPixmapCache>
 #include <QLabel>
@@ -113,9 +114,6 @@ KMahjongg::KMahjongg( QWidget* parent)
     connect( gameTimer, SIGNAL( timeChanged(const QString&)), this,
                 SLOT( displayTime(const QString&)));
 
-    theHighScores = new HighScore(this);
-
-
     bDemoModeActive = false;
 
     connect( bw, SIGNAL( statusTextChanged(const QString&, long) ),
@@ -158,7 +156,6 @@ KMahjongg::KMahjongg( QWidget* parent)
 KMahjongg::~KMahjongg()
 {
     delete previewLoad;
-    delete theHighScores;
     delete bw;
 }
 
@@ -373,7 +370,10 @@ void KMahjongg::showMatchingTiles()
 
 void KMahjongg::showHighscores()
 {
-    theHighScores->exec(bw->getLayoutName());
+    //theHighScores->exec(bw->getLayoutName());
+    KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    ksdialog.setConfigGroup(bw->getLayoutName());
+    ksdialog.exec();
 }
 
 /*TODO reimplement with game type and preferences
@@ -489,7 +489,15 @@ void KMahjongg::gameOver(
 	if (score < 0)
 		score = 0;
 
-	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+        //TODO: add gameNum as a Custom KScoreDialog field?
+//	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+        KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
+        ksdialog.setConfigGroup(bw->getLayoutName());
+        KScoreDialog::FieldInfo scoreInfo;
+        scoreInfo[KScoreDialog::Score].setNum(score);
+        scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
+        if(ksdialog.addScore( scoreInfo, KScoreDialog::AskName ))
+          ksdialog.exec();
 
 	bw->animateMoveList();
 

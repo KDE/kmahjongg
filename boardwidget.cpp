@@ -1362,5 +1362,11 @@ void BoardWidget::shuffle() {
 	drawTileNumber();
 }
 
+QString  BoardWidget::getLayoutName() {
+    //TODO: switch layout format to .desktop files, get localized name of board
+    QFileInfo layoutinfo(theBoardLayout.getFilename());
+    return layoutinfo.baseName();
+}
+
 
 #include "boardwidget.moc"
