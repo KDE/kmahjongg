@@ -406,7 +406,7 @@ void HighScore::copyTableToScreen(const QString &name) {
 
 int HighScore::exec(QString &layout) {
 	copyTableToScreen(layout);	
-	return(QDialog::exec());
+	return(KDialog::exec());
 }
 
 void HighScore::checkHighScore(int s, int e, long gameNum, QString &name) {
