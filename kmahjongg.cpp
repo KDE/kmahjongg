@@ -160,16 +160,11 @@ void KMahjongg::setupKAction()
     QAction *action;
 
     // game
-    action = KStandardGameAction::gameNew(this, SLOT(newGame()), this);
-    actionCollection()->addAction(action->objectName(), action);
-    action = KStandardGameAction::load(this, SLOT(loadGame()), this);
-    actionCollection()->addAction(action->objectName(), action);
-    action = KStandardGameAction::save(this, SLOT(saveGame()), this);
-    actionCollection()->addAction(action->objectName(), action);
-    action = KStandardGameAction::quit(this, SLOT(close()), this);
-    actionCollection()->addAction(action->objectName(), action);
-    action = KStandardGameAction::restart(this, SLOT(restartGame()), this);
-    actionCollection()->addAction(action->objectName(), action);
+    KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
+    KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
+    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
 
     QAction* newNumGame = actionCollection()->addAction("game_new_numeric");
     newNumGame->setText(i18n("New Numbered Game..."));
@@ -214,18 +209,16 @@ void KMahjongg::setupKAction()
     anglecw->setShortcuts( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
-    demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), this);
-    actionCollection()->addAction(demoAction->objectName(), demoAction);
+    demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
     showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), this);
     actionCollection()->addAction("options_show_matching_tiles", showMatchingTilesAction);
     connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
     showMatchingTilesAction->setCheckedState(KGuiItem(i18n("Hide &Matching Tiles")));
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
-    action = KStandardGameAction::highscores(this, SLOT(showHighscores()), this);
-    actionCollection()->addAction(action->objectName(), action);
-    pauseAction = KStandardGameAction::pause(this, SLOT(pause()), this);
-    actionCollection()->addAction(pauseAction->objectName(), pauseAction);
+    
+    KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+    pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
 
     //TODO maybe add standard resizing actions for the view?
     //we are currently using a resizable window for testing
@@ -238,10 +231,8 @@ void KMahjongg::setupKAction()
     // TODO: same about theme
 
     // move
-    undoAction = KStandardGameAction::undo(this, SLOT(undo()), this);
-    actionCollection()->addAction(undoAction->objectName(), undoAction);
-    redoAction = KStandardGameAction::redo(this, SLOT(redo()), this);
-    actionCollection()->addAction(redoAction->objectName(), redoAction);
+    undoAction = KStandardGameAction::undo(this, SLOT(undo()), actionCollection());
+    redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
     QAction* boardEdit = actionCollection()->addAction("edit_board_editor");
@@ -249,8 +240,7 @@ void KMahjongg::setupKAction()
     connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
-    action = KStandardAction::preferences(this, SLOT(showSettings()), this);
-    actionCollection()->addAction(action->objectName(), action);
+    KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
 
     setupGUI();
 }
