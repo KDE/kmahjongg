@@ -42,7 +42,7 @@ void BoardLayout::clearBoardLayout() {
 	initialiseBoard();	
 }
 
-bool BoardLayout::saveBoardLayout(const QString where) {
+bool BoardLayout::saveBoardLayout(const QString &where) {
 	QFile f(where);
 	if (!f.open(QIODevice::ReadWrite)) {
 	    return false;
@@ -86,7 +86,7 @@ bool BoardLayout::saveBoardLayout(const QString where) {
         return f.putChar('\n');
 }
 
-bool BoardLayout::loadBoardLayout_10(const QString from)
+bool BoardLayout::loadBoardLayout_10(const QString &from)
 {
     if (from == filename) {
 	return true;	
@@ -131,7 +131,7 @@ bool BoardLayout::loadBoardLayout_10(const QString from)
     }
 }
 
-bool BoardLayout::loadBoardLayout(const QString from)
+bool BoardLayout::loadBoardLayout(const QString &from)
 {
     if (from == filename) {
 	return true;	

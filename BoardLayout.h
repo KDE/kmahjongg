@@ -51,7 +51,7 @@ public:
      * @return @c true if ...
      * @return @c false if ...
      */
-    bool loadBoardLayout(const QString from);
+    bool loadBoardLayout(const QString &from);
     /**
      * Method description
      * 
@@ -60,7 +60,7 @@ public:
      * @return @c false if ...
      * @see loadBoardLayout
      */
-    bool loadBoardLayout_10(const QString from);
+    bool loadBoardLayout_10(const QString &from);
     /**
      * Method description
      * 
@@ -69,7 +69,7 @@ public:
      * @return @c false if ...
      * @see loadBoardLayout
      */
-    bool saveBoardLayout(const QString where);
+    bool saveBoardLayout(const QString &where);
     /**
      * Method description
      * 

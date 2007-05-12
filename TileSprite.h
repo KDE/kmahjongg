@@ -66,7 +66,7 @@ public:
      * @param cumulative_opacity
      */
     virtual void paintInternal(QPainter* p, const QRect& prect, const QRegion& preg,
-                                          QPoint delta, double cumulative_opacity);
+                                          const QPoint& delta, double cumulative_opacity);
     /**
      * Method Description @param p */
     virtual void paint(QPainter* p);

@@ -68,7 +68,7 @@ void TileSprite::updateOffset() {
 }
 
 void TileSprite::paintInternal(QPainter* p, const QRect& /*prect*/,
-                  const QRegion& /*preg*/, QPoint /*delta*/, double cumulative_opacity) {
+                  const QRegion& /*preg*/, const QPoint& /*delta*/, double cumulative_opacity) {
   int op = int(cumulative_opacity*opacity() + 0.5);
 
   if(op <= 0)
