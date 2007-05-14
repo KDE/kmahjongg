@@ -49,8 +49,8 @@ Editor::Editor ( QWidget* parent)
     numTiles=0;
     mode = insert;
 
-   QString tile = Prefs::tileSet();
-   if (!tiles.loadTileset(tile)) tiles.loadDefault();
+    QString tile = Prefs::tileSet();
+    if (!tiles.loadTileset(tile)) tiles.loadDefault();
 
     //TODO delay this initialization, must define board dimensions
     int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
@@ -66,29 +66,29 @@ Editor::Editor ( QWidget* parent)
     //drawFrame->setFrameStyle( 49 );
     drawFrame->setMouseTracking(true);
 
-   // setup the tool bar
-   setupToolbar();
+    // setup the tool bar
+    setupToolbar();
 
-   QVBoxLayout *layout = new QVBoxLayout(this);
-   layout->addWidget(topToolbar,0);
-   layout->addWidget(drawFrame,1);
-   layout->activate();
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->addWidget(topToolbar,0);
+    layout->addWidget(drawFrame,1);
+    layout->activate();
 
     resize( sWidth+60, sHeight+60);
     //toolbar will set our minimum height
     setMinimumHeight(120);
 
-   // tell the user what we do
-   setCaption(i18n("Edit Board Layout"));
+    // tell the user what we do
+    setCaption(i18n("Edit Board Layout"));
 
-   connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
-		SLOT(drawFrameMousePressEvent(QMouseEvent *)));
-   connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent *) ),
-		SLOT(drawFrameMouseMovedEvent(QMouseEvent *)));
+    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
+             SLOT(drawFrameMousePressEvent(QMouseEvent *)));
+    connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent *) ),
+             SLOT(drawFrameMouseMovedEvent(QMouseEvent *)));
 
-   statusChanged();
+    statusChanged();
 
-   update();
+    update();
 }
 
 
@@ -232,9 +232,9 @@ void Editor::setupToolbar()
 }
 
 void Editor::statusChanged() {
-	bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
-	theLabel->setText(statusText());
-        actionCollection->action("save_board")->setEnabled(canSave);
+    bool canSave = ((numTiles !=0) && ((numTiles & 1) == 0));
+    theLabel->setText(statusText());
+    actionCollection->action("save_board")->setEnabled(canSave);
 }
 
 void Editor::slotShiftLeft()
