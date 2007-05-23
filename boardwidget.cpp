@@ -1171,12 +1171,12 @@ bool BoardWidget::loadBackground(
 {
   if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {
     Prefs::setBackground(pszFileName);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     return true;
   } else {
     if (theBackground.loadDefault()) {
       Prefs::setBackground(theBackground.path());
-      Prefs::writeConfig();
+      Prefs::self()->writeConfig();
       return false;
     } else {
       return false;
@@ -1205,13 +1205,13 @@ bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
     Prefs::setTileSet(path);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     resizeTileset(size());
     return true;
   } else {
     if (theTiles.loadDefault()) {
       Prefs::setTileSet(theTiles.path());
-      Prefs::writeConfig();
+      Prefs::self()->writeConfig();
       resizeTileset(size());
       return false;
     } else {
@@ -1224,7 +1224,7 @@ bool BoardWidget::loadTileset(const QString &path) {
 bool BoardWidget::loadBoardLayout(const QString &file) {
   if (theBoardLayout.loadBoardLayout(file)) {
     Prefs::setLayout(file);
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
     return true;
   }
   return false;

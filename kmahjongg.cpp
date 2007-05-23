@@ -358,7 +358,7 @@ void KMahjongg::showMatchingTiles()
     Prefs::setShowMatchingTiles(!Prefs::showMatchingTiles());
     bw->setShowMatch( Prefs::showMatchingTiles() );
     showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
 }
 
 void KMahjongg::showHighscores()
