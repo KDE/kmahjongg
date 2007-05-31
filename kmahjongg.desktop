@@ -16,6 +16,7 @@ Name[zh_TW]=KMahjongg 麻將
 Exec=kmahjongg -caption "%c"
 Type=Application
 GenericName=Mahjongg Solitaire
+GenericName[ja]=上海マージャン牌ゲーム
 GenericName[sv]=Mahjongg-patiens
 GenericName[x-test]=xxMahjongg Solitairexx
 Terminal=false
