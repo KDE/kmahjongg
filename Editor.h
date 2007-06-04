@@ -33,7 +33,9 @@
 #include "Preview.h"
 
 
+class QLabel;
 class KActionCollection;
+
 
 /**
  * @short This class implements
