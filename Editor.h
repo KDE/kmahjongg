@@ -35,7 +35,7 @@
 
 class QLabel;
 class KActionCollection;
-
+class QLabel;
 
 /**
  * @short This class implements
