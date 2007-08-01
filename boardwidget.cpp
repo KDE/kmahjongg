@@ -30,7 +30,7 @@
 #include <qapplication.h>
 #include <kconfig.h>
 #include <kglobal.h>
-#include <QtDebug>
+#include <KDebug>
 
 /**
  * Constructor.
@@ -92,13 +92,13 @@ void BoardWidget::loadSettings(){
     // Load tileset. First try to load the last use tileset
 
     if (!loadTileset(Prefs::tileSet())){
-        qDebug() << "An error occurred when loading the tileset " << tFile <<"KMahjongg will continue with the default tileset.";
+        kDebug() << "An error occurred when loading the tileset" << tFile <<"KMahjongg will continue with the default tileset.";
     }
 
     // Load background
     if( ! loadBackground(Prefs::background(), false ) )
     {
-	qDebug() << "An error occurred when loading the background " << tFile <<"KMahjongg will continue with the default background.";
+	kDebug() << "An error occurred when loading the background" << tFile <<"KMahjongg will continue with the default background.";
     }
     setDisplayedWidth();
     drawBoard(true);
