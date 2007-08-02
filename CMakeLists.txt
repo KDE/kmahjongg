@@ -2,7 +2,7 @@ project(kmahjongg)
 
 add_subdirectory( pics ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkmahjongg  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 
 
 ########### next target ###############
