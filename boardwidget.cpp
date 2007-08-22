@@ -80,6 +80,19 @@ BoardWidget::BoardWidget( QWidget* parent )
 
     //setDisplayedWidth();
     loadSettings();
+    
+    //Animation timers
+    animateForwardTimer = new QTimer(this);
+    animateForwardTimer->setSingleShot(true);
+    animateForwardTimer->setInterval(100);
+    connect(animateForwardTimer, SIGNAL(timeout()), SLOT(animatingMoveListForward()));
+    animateForwardTimer->stop();
+    
+    animateBackwardsTimer = new QTimer(this);
+    animateBackwardsTimer->setSingleShot(true);
+    animateBackwardsTimer->setInterval(100);
+    connect(animateBackwardsTimer, SIGNAL(timeout()), SLOT(animatingMoveListBackwards()));
+    animateBackwardsTimer->stop();
 }
 
 BoardWidget::~BoardWidget(){
@@ -841,10 +854,10 @@ void BoardWidget::animatingMoveListForward()
         putTileInBoard(Game->MoveListData(Game->TileNum), false);
         Game->TileNum++;
         drawTileNumber();
-        QTimer::singleShot(200, this, SLOT(animatingMoveListForward()));
+        animateForwardTimer->start(); //it is a single shot timer
     } else {
         //start removal
-        QTimer::singleShot(200, this, SLOT(animatingMoveListBackwards()));
+      animateBackwardsTimer->start(); //it is a single shot timer
     }
 }
 
@@ -855,11 +868,17 @@ void BoardWidget::animatingMoveListBackwards()
         removeTile(Game->MoveListData(Game->TileNum-1), false);
         removeTile(Game->MoveListData(Game->TileNum-1));
         drawTileNumber();
-        QTimer::singleShot(200, this, SLOT(animatingMoveListBackwards()));
+        animateBackwardsTimer->start(); //it is a single shot timer
     } else {
         //end of animation
-        //calculateNewGame();
+        stopEndAnimation();
     }
+}
+
+void BoardWidget::stopEndAnimation()
+{
+  animateForwardTimer->stop();
+  animateBackwardsTimer->stop();
 }
 
 // ---------------------------------------------------------
@@ -867,6 +886,7 @@ void BoardWidget::calculateNewGame( int gNumber)
 {
     cancelUserSelectedTiles();
     stopMatchAnimation();
+    stopEndAnimation();
     Game->initialiseRemovedTiles();
     setStatusText( i18n("Calculating new game...") );
 

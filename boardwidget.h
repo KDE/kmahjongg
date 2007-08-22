@@ -259,6 +259,9 @@ class BoardWidget : public KGameCanvasWidget
     void transformPointToPosition( const QPoint& point, POSITION& MouseClickPos);
     /**
      * Method Description */
+    void stopEndAnimation();
+    /**
+     * Method Description */
     void stopMatchAnimation();
     /**
      * Method Description 
@@ -321,6 +324,8 @@ class BoardWidget : public KGameCanvasWidget
     bool  showHelp;  /**< Member Description */
 
     QTimer *timer;  /**< Member Description */
+    QTimer *animateForwardTimer;  /**< Member Description */
+    QTimer *animateBackwardsTimer;  /**< Member Description */
 
 	bool gamePaused; /**< Member Description */
 
