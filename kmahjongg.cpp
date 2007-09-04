@@ -49,7 +49,8 @@
 
 #include <kmahjonggconfigdialog.h>
 
-static const char *gameMagic = "kmahjongg-game-v1.1";
+static const char *gameMagic = "kmahjongg-gamedata";
+static int gameDataVersion = 1;
 
 //----------------------------------------------------------
 // Defines
@@ -496,57 +497,6 @@ void KMahjongg::loadBoardLayout(const QString &file) {
 	bw->loadBoardLayout(file);
 }
 
-
-
-void KMahjongg::loadGame() {
-//TODO adapt to new GameData class
-/*
-	GAMEDATA in;
-	char buffer[1024];
-    QString fname;
-
-    // Get the name of the file to load
-    KUrl url = KFileDialog::getOpenUrl( KUrl(), "*.kmgame", this, i18n("Load Game" ) );
-
-    if ( url.isEmpty() )
-	return;
-
-    KIO::NetAccess::download( url, fname, this );
-
-    // open the file for reading
-    FILE *outFile = fopen( QFile::encodeName(fname), "r");
-    if (outFile == NULL) {
-	KMessageBox::sorry(this,
-		i18n("Could not read from file. Aborting."));
-	return;
-    }
-
-    // verify the magic
-    fscanf(outFile, "%1023s\n", buffer);
-    if (strcmp(buffer, gameMagic) != 0) {
-	KMessageBox::sorry(this,
-		i18n("File format not recognized."));
-	fclose(outFile);
-	return;
-    }
-
-    //ed the elapsed time
-    fscanf(outFile, "%1023s\n", buffer);
-    gameTimer->fromString(buffer);
-
-    // suck out all the game data
-    fread(&in, sizeof(GAMEDATA), 1, outFile);
-    memcpy(&bw->Game, &in, sizeof(GAMEDATA));
-
-    // close the file before exit
-    fclose(outFile);
-
-    KIO::NetAccess::removeTempFile( fname );*/
-
-    // refresh the board
-    bw->gameLoaded();
-}
-
 void KMahjongg::restartGame() {
     if( ! bDemoModeActive ) {
         bw->calculateNewGame(bw->getGameNum());
@@ -568,10 +518,82 @@ void KMahjongg::restartGame() {
     }
 }
 
-void KMahjongg::saveGame() {
+
+
+void KMahjongg::loadGame() {
 //TODO adapt to new GameData class
 /*
-    // Get the name of the file to save
+  GameData in;
+  char buffer[1024];*/
+  QString fname;
+
+    // Get the name of the file to load
+  KUrl url = KFileDialog::getOpenUrl( KUrl(), "*.kmgame", this, i18n("Load Game" ) );
+
+  if ( url.isEmpty() )
+  return;
+
+  KIO::NetAccess::download( url, fname, this );
+
+    // open the file for reading
+  QFile infile(QFile::encodeName(fname));
+  if (!infile.open(QIODevice::ReadOnly)) {
+    KMessageBox::sorry(this,
+    i18n("Could not read from file. Aborting."));
+    return;
+  }
+  QDataStream in(&infile);
+    // verify the magic
+  QString magic;
+  in >> magic;
+  kDebug(11000) << magic;
+  if (QString::compare(magic, gameMagic, Qt::CaseSensitive)!=0) {
+    KMessageBox::sorry(this,
+                       i18n("File is not a KMahjongg game."));
+    infile.close();
+    return;
+  }
+  
+  // Read the version
+  qint32 version;
+  in >> version;
+  kDebug(11000) << version;
+
+  if (version == gameDataVersion) {
+    in.setVersion(QDataStream::Qt_4_0);
+  } else {
+    KMessageBox::sorry(this,
+                       i18n("File format not recognized."));
+    infile.close();
+    return;
+  }
+  
+  qint32 width;
+  in >> width;
+  kDebug(11000) << width;
+
+    //ed the elapsed time
+  /*fscanf(outFile, "%1023s\n", buffer);
+  gameTimer->fromString(buffer);
+
+    // suck out all the game data
+  fread(&in, sizeof(GameData), 1, outFile);
+  memcpy(&bw->Game, &in, sizeof(GameData));
+
+    // close the file before exit
+  fclose(outFile);*/
+  infile.close();
+
+  KIO::NetAccess::removeTempFile( fname );
+
+    // refresh the board
+  bw->gameLoaded();
+}
+
+void KMahjongg::saveGame() {
+//TODO adapt to new GameData class
+
+   // Get the name of the file to save
     KUrl url = KFileDialog::getSaveUrl( KUrl(), "*.kmgame", this, i18n("Save Game" ) );
 
     if ( url.isEmpty() )
@@ -582,16 +604,26 @@ void KMahjongg::saveGame() {
       KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
       return;
    }
+   
+   QFile outfile(QFile::encodeName(url.path()));
+   if (!outfile.open(QIODevice::WriteOnly)) {
+     KMessageBox::sorry(this,
+                        i18n("Could not write saved game."));
+     return;
+   }
+   QDataStream out(&outfile);
 
-    FILE *outFile = fopen( QFile::encodeName(url.path()), "w");
-    if (outFile == NULL) {
-	KMessageBox::sorry(this,
-		i18n("Could not write to file. Aborting."));
-	return;
-    }
+ // Write a header with a "magic number" and a version
+   out << QString(gameMagic);
+   out << (qint32) gameDataVersion;
+   out.setVersion(QDataStream::Qt_4_0);
 
-    // stick in the magic id string
-    fprintf(outFile, "%s\n", gameMagic);
+ // Write the data
+   out << (qint32) bw->Game->m_width;
+   
+   outfile.close();
+
+    /*
 
     // Now stick in the elapsed time for the game
     fprintf(outFile, "%s\n", gameTimer->toString().toUtf8().constData());

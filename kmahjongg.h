@@ -107,7 +107,7 @@ private slots:
   void displayTime(const QString& timestring);
   void showMatchingTiles();
   void showHighscores();
-  void slotBoardEditor(
+  void slotBoardEditor();
   void openLayout();
 
 protected:
