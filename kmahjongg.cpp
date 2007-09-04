@@ -49,7 +49,7 @@
 
 #include <kmahjonggconfigdialog.h>
 
-static const char *gameMagic = "kmahjongg-game-v1.0";
+static const char *gameMagic = "kmahjongg-game-v1.1";
 
 //----------------------------------------------------------
 // Defines
@@ -170,27 +170,9 @@ void KMahjongg::setupKAction()
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
-    /*TODO reimplement with game type and preferences
-    QAction* openTheme = actionCollection()->addAction"game_open_theme");
-    openTheme->setTexti18n("Open Th&eme...");
-    connect(openTheme, SIGNAL(triggered(bool)), SLOT(openTheme()));
-
-    QAction* openTileset = actionCollection()->addAction("game_open_tileset");
-    openTileset->setText(i18n("Open &Tileset..."));
-    connect(openTileset, SIGNAL(triggered(bool)), SLOT(openTileset()));*/
-
-   /* QAction* openBkgnd = actionCollection()->addAction"game_open_background");
-    openBkgnd->setTexti18n("Open &Background...");
-    connect(openBkgnd, SIGNAL(triggered(bool)), SLOT(openBackground()));*/
-
     QAction* openLayout = actionCollection()->addAction("game_open_layout");
     openLayout->setText(i18n("Open La&yout..."));
     connect(openLayout, SIGNAL(triggered(bool)), SLOT(openLayout()));
-
-    /*TODO reimplement with game type and preferences
-    QAction* saveTheme = actionCollection()->addAction"game_save_theme");
-    saveTheme->setTexti18n("Sa&ve Theme...");
-    connect(saveTheme, SIGNAL(triggered(bool)), SLOT(saveTheme()));*/
 
     // originally "file" ends here
     action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
@@ -219,16 +201,6 @@ void KMahjongg::setupKAction()
     
     KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
-
-    //TODO maybe add standard resizing actions for the view?
-    //we are currently using a resizable window for testing
-    //KStandardAction::actualSize(this, SLOT(makeFit()), actionCollection());
-    //KStandardAction::zoomIn(this, SLOT(makeLarger()), actionCollection());
-    //KStandardAction::zoomOut(this, SLOT(makeSmaller()), actionCollection());
-
-    // TODO: store the background ; open on startup
-    // TODO: same about layout
-    // TODO: same about theme
 
     // move
     undoAction = KStandardGameAction::undo(this, SLOT(undo()), actionCollection());
@@ -369,37 +341,11 @@ void KMahjongg::showHighscores()
     ksdialog.exec();
 }
 
-/*TODO reimplement with game type and preferences
-void KMahjongg::openTheme()
-{
-    previewLoad->initialise(Preview::theme);
-    previewLoad->exec();
-}
-
-void KMahjongg::saveTheme()
-{
-    previewLoad->initialise(Preview::theme);
-    previewLoad->saveTheme();
-}*/
-
 void KMahjongg::openLayout()
 {
     previewLoad->initialise(Preview::board);
     previewLoad->exec();
 }
-
-/*TODO reimplement with game type and preferences
-void KMahjongg::openBackground()
-{
-    previewLoad->initialise(Preview::background);
-    previewLoad->exec();
-}
-
-void KMahjongg::openTileset()
-{
-    previewLoad->initialise(Preview::tileset);
-    previewLoad->exec();
-}*/
 
 void KMahjongg::slotBoardEditor()
 {
@@ -522,9 +468,6 @@ void KMahjongg::showTileNumber( int iMaximum, int iCurrent, int iLeft )
     // update undo menu item, if demomode is inactive
     if( ! bDemoModeActive && !is_paused)
     {
-
-//        pMenuBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
-//        toolBar->setItemEnabled( ID_EDIT_UNDO, bw->Game.allow_undo);
         undoAction->setEnabled(bw->Game->allow_undo);
     }
 }

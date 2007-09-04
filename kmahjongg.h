@@ -107,14 +107,8 @@ private slots:
   void displayTime(const QString& timestring);
   void showMatchingTiles();
   void showHighscores();
-  void slotBoardEditor();
-/*TODO reimplement with game type and preferences
-  void openTheme();
-  void saveTheme();*/
+  void slotBoardEditor(
   void openLayout();
-/*TODO reimplement with game type and preferences
-  void openBackground();
-  void openTileset();*/
 
 protected:
     /**
