@@ -159,134 +159,21 @@ public:
     short m_depth; /**< Board depth */
     short m_maxTiles;/**< maxTiles on Board */
 
-    // new bits for new game generation, with solvability
-    int numTilesToGenerate; /**< Member Description */
-    QVector<POSITION> tilePositions; /**< Member Description */
-    QVector<DEPENDENCY> positionDepends; /**< Member Description */
 
-    /**
-     * Method Description */
-    void generateTilePositions();
-    /**
-     * Method Description */
     void generatePositionDepends();
-    /**
-     * Method Description 
-       @param x
-       @param y
-       @param z
-       @return int
-     */
-    int tileAt(int x, int y, int z);
-    /**
-     * Method Description
-     *
-     * @return @c true if ...
-     * @return @c false if ...
-     */
-    bool generateSolvableGame();
-    /**
-     * Method Description
-     * @param position
-     * @return @c true if ...
-     * @return @c false if ...
-     */
-    bool onlyFreeInLine(int position);
-    /**
-     * Method Description
-     * @param lastPosition
-     * @return int blah blah
-     */
-    int selectPosition(int lastPosition);
-    /**
-     * Method Description
-     * @param position
-     * @param tile
-     */
-    void placeTile(int position, int tile);
-    /**
-     * Method Description
-     * @param position
-     */
-    void updateDepend(int position);
-
-    //other generation bits
-    /**
-     * Method Description
-     *
-     * @return @c true if ...
-     * @return @c false if ...
-     */
+    void generateTilePositions();
+ 
+    KRandomSequence random;
     bool generateStartPosition2();
-    KRandomSequence random; /**< Member Description */
-
-    // and more bits for game generation
-    /**
-     * Method Description */
-    void randomiseFaces();
-    int tilesAllocated; /**< Member Description */
-    int tilesUsed;      /**< Member Description */
-    
-    /**
-     * Method Description
-     * @param a @ref pos
-     * @param b @ref pos
-     */
-    void getFaces(POSITION &a, POSITION &b);
-    UCHAR tilePair[144];/**< Member Description */
 
     //postable
     QVector<POSITION> PosTable;  /**< Table of all possible positions */
-    /**
-     * Method Description
-     * @param posA
-     * @param posB
-     * @return @c true if ...
-     * @return @c false if ...
-     */
     bool findMove( POSITION& posA, POSITION& posB );
-    /**
-     * Method Description @return int */
     int  moveCount( );
-    /**
-     * Method Description
-     @param posA @ref pos
-     @return short
-     */
     short findAllMatchingTiles( POSITION& posA);
-
-    /**
-     * Method Description */
     void initialiseRemovedTiles();
-    /**
-     * Method Description 
-       @param a
-       @param b
-     */
     void setRemovedTilePair(POSITION &a, POSITION &b);
-    /**
-     * Method Description 
-       @param a
-       @param b
-     */
     void clearRemovedTilePair(POSITION &a, POSITION &b);
-
-    // storage to keep track of removed tiles
-    unsigned char removedCharacter[9];  /**< Member Description */
-    unsigned char removedBamboo[9];     /**< Member Description */
-    unsigned char removedRod[9];        /**< Member Description */
-    unsigned char removedDragon[3];     /**< Member Description */
-    unsigned char removedWind[9];       /**< Member Description */
-    unsigned char removedFlower[4];     /**< Member Description */
-    unsigned char removedSeason[4];     /**< Member Description */
-
-    /**
-     * Method Description
-     * @param Pos1
-     * @param Pos2
-     * @return @c true if ...
-     * @return @c false if ...
-     */
     bool isMatchingTile( POSITION& Pos1, POSITION& Pos2 );
 
 private:
@@ -294,6 +181,33 @@ private:
     QByteArray Mask;
     QByteArray Highlight;
     QVector<POSITION> MoveList;
+    
+    // new bits for new game generation, with solvability
+    int numTilesToGenerate; 
+    QVector<POSITION> tilePositions;
+    QVector<DEPENDENCY> positionDepends;
+
+    int tileAt(int x, int y, int z);
+    bool generateSolvableGame();
+    bool onlyFreeInLine(int position);
+    int selectPosition(int lastPosition);
+    void placeTile(int position, int tile);
+    void updateDepend(int position);
+  //other generation bits
+    void randomiseFaces();
+    void getFaces(POSITION &a, POSITION &b);
+    int tilesAllocated;
+    int tilesUsed;
+
+    UCHAR tilePair[144];
+    // storage to keep track of removed tiles
+    unsigned char removedCharacter[9];
+    unsigned char removedBamboo[9];
+    unsigned char removedRod[9];
+    unsigned char removedDragon[3];
+    unsigned char removedWind[9];
+    unsigned char removedFlower[4];
+    unsigned char removedSeason[4];
 
 };
 
