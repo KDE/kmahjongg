@@ -101,17 +101,16 @@ BoardWidget::~BoardWidget(){
 }
 
 void BoardWidget::loadSettings(){
-    QString tFile;
     // Load tileset. First try to load the last use tileset
 
     if (!loadTileset(Prefs::tileSet())){
-        kDebug() << "An error occurred when loading the tileset" << tFile <<"KMahjongg will continue with the default tileset.";
+      kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() <<"KMahjongg will continue with the default tileset.";
     }
 
     // Load background
     if( ! loadBackground(Prefs::background(), false ) )
     {
-	kDebug() << "An error occurred when loading the background" << tFile <<"KMahjongg will continue with the default background.";
+      kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
     }
     setDisplayedWidth();
     drawBoard(true);
