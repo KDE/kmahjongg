@@ -298,9 +298,6 @@ class BoardWidget : public KGameCanvasWidget
      */
 	int requiredVerticalCells();
 
-	KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */
-	KMahjonggBackground theBackground;  /**< Member Description @see KMahjonggBackground */
-	BoardLayout theBoardLayout;  /**< Member Description @see BoardLayout */
 
     POSITION MouseClickPos1; /**< Member Description @ref pos */
     POSITION MouseClickPos2; /**< Member Description @ref pos */
@@ -334,6 +331,9 @@ class BoardWidget : public KGameCanvasWidget
 
 public:
   GameData * Game; /**< Member Description */
+  KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */
+  KMahjonggBackground theBackground;  /**< Member Description @see KMahjonggBackground */
+  BoardLayout theBoardLayout;  /**< Member Description @see BoardLayout */
 };
 
 #endif // BOARDWIDGET_H

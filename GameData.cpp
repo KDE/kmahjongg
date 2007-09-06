@@ -948,3 +948,56 @@ short GameData::findAllMatchingTiles( POSITION& posA )
     }
     return Pos;
 }
+
+bool GameData::loadFromStream(QDataStream & in)
+{
+  in >> Board;
+  in >> Mask;
+  in >> Highlight;
+
+  for (int i = 0; i < m_maxTiles; ++i) {
+    POSITION thispos;
+    in >> thispos.e;
+    in >> thispos.y;
+    in >> thispos.x;
+    in >> thispos.f;
+    setMoveListData( i, thispos);
+  }
+  return true;
+}
+
+bool GameData::saveToStream(QDataStream & out)
+{
+  out << Board;
+  out << Mask;
+  out << Highlight;
+  //write the size of our lists
+  out << m_maxTiles;
+  //and then write all position components
+  for (int i = 0; i < m_maxTiles; ++i) {
+    POSITION thispos = MoveList.at(i);
+    out << (quint16) thispos.e;
+    out << (quint16) thispos.y;
+    out << (quint16) thispos.x;
+    out << (quint16) thispos.f;
+  }
+  /*for (int i = 0; i < m_maxTiles; ++i) {
+    POSITION thispos = tilePositions.at(i);
+    out << (qint32) thispos.e;
+    out << (qint32) thispos.y;
+    out << (qint32) thispos.x;
+    out << (qint32) thispos.f;
+  }
+  for (int i = 0; i < m_maxTiles; ++i) {
+    POSITION thispos = PosTable.at(i);
+    out << (qint32) thispos.e;
+    out << (qint32) thispos.y;
+    out << (qint32) thispos.x;
+    out << (qint32) thispos.f;
+  }
+  for (int i = 0; i < m_maxTiles; ++i) {
+    DEPENDENCY thispos = positionDepends.at(i);
+    //out << thispos;
+  }*/
+  return true;
+}

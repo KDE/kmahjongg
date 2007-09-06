@@ -152,6 +152,9 @@ public:
      * @return *char blah blah
      */
     char * getMaskBytes(){ return Mask.data(); }
+    
+    bool saveToStream(QDataStream & out);
+    bool loadFromStream(QDataStream & in);
 
 //Board Layout dimensions
     short m_width; /**< Board width */

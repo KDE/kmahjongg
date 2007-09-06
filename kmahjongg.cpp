@@ -568,9 +568,20 @@ void KMahjongg::loadGame() {
     return;
   }
   
-  qint32 width;
-  in >> width;
-  kDebug(11000) << width;
+  QString theTilesName;
+  QString theBackgroundName;
+  QString theBoardLayoutName;
+  in >> theTilesName;
+  in >> theBackgroundName;
+  in >> theBoardLayoutName;
+  kDebug(11000) << theTilesName;
+  kDebug(11000) << theBackgroundName;
+  kDebug(11000) << theBoardLayoutName;
+
+  delete bw->Game;
+  bw->loadBoardLayout(theBoardLayoutName);
+  bw->Game = new GameData(&bw->theBoardLayout);
+  bw->Game->loadFromStream(in);
 
     //ed the elapsed time
   /*fscanf(outFile, "%1023s\n", buffer);
@@ -618,8 +629,14 @@ void KMahjongg::saveGame() {
    out << (qint32) gameDataVersion;
    out.setVersion(QDataStream::Qt_4_0);
 
- // Write the data
-   out << (qint32) bw->Game->m_width;
+   //KMahjonggTileset  theTiles;
+   //KMahjonggBackground theBackground;  
+   //BoardLayout theBoardLayout;
+   out << bw->theTiles.path();
+   out << bw->theBackground.path();
+   out << bw->theBoardLayout.getFilename();
+ // Write the Game data
+   bw->Game->saveToStream(out);
    
    outfile.close();
 
