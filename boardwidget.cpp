@@ -606,6 +606,7 @@ void BoardWidget::gameLoaded()
 		Game->setRemovedTilePair(Game->MoveListData(i), Game->MoveListData(i+1));
 		i +=2;
 	}
+        populateSpriteMap();
 	drawBoard();
 }
 
@@ -782,14 +783,14 @@ void BoardWidget::matchAnimationTimeout()
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-            hilightTile(Game->PosTable[Pos], true);
+          hilightTile(Game->getFromPosTable(Pos), true);
         }
     }
     else
     {
         for(short Pos = 0; Pos < matchCount; Pos++)
         {
-            hilightTile(Game->PosTable[Pos], false);
+          hilightTile(Game->getFromPosTable(Pos), false);
         }
     }
     if( TimerState == Match )
@@ -800,7 +801,7 @@ void BoardWidget::stopMatchAnimation()
 {
     for(short Pos = 0; Pos < matchCount; Pos++)
     {
-        hilightTile(Game->PosTable[Pos], false);
+      hilightTile(Game->getFromPosTable(Pos), false);
     }
     TimerState = Stop;
     matchCount = 0;
@@ -1336,49 +1337,14 @@ void BoardWidget::angleSwitchCW() {
 // shuffle the remaining tiles around, useful if a deadlock ocurrs
 // this is a big cheat so we penalise the user.
 void BoardWidget::shuffle() {
-	int count = 0;
-	// copy positions and faces of the remaining tiles into
-	// the pos table
-	for (int e=0; e<Game->m_depth; e++) {
-	    for (int y=0; y<Game->m_height; y++) {
-		for (int x=0; x<Game->m_width; x++) {
-		    if (Game->BoardData(e,y,x) && Game->MaskData(e,y,x) == '1') {
-			Game->PosTable[count].e = e;
-			Game->PosTable[count].y = y;
-			Game->PosTable[count].x = x;
-			Game->PosTable[count].f = Game->BoardData(e,y,x);
-			count++;
-		    }
-		}
-	    }
+  Game->shuffle();
+  // force a full redraw
+  populateSpriteMap();
 
-	}
-
-
-	// now lets randomise the faces, selecting 400 pairs at random and
-	// swapping the faces.
-	for (int ran=0; ran < 400; ran++) {
-		int pos1 = Game->random.getLong(count);
-		int pos2 = Game->random.getLong(count);
-		if (pos1 == pos2)
-			continue;
-		BYTE f = Game->PosTable[pos1].f;
-		Game->PosTable[pos1].f = Game->PosTable[pos2].f;
-		Game->PosTable[pos2].f = f;
-	}
-
-	// put the rearranged tiles back.
-	for (int p=0; p<count; p++)
-		Game->putTile(Game->PosTable[p]);
-
-
-	// force a full redraw
-	populateSpriteMap();
-
-	// I consider this s very bad cheat so, I punish the user
-	// 300 points per use
-	cheatsUsed += 15;
-	drawTileNumber();
+  // I consider this s very bad cheat so, I punish the user
+  // 300 points per use
+  cheatsUsed += 15;
+  drawTileNumber();
 }
 
 QString  BoardWidget::getLayoutName() {

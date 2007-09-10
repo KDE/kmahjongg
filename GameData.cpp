@@ -954,7 +954,15 @@ bool GameData::loadFromStream(QDataStream & in)
   in >> Board;
   in >> Mask;
   in >> Highlight;
+  in >> allow_undo;
+  in >> allow_redo;
+  in >> TileNum;
+  in >> MaxTileNum;
+  
+  //Read list count
+  in >> m_maxTiles;
 
+  //Reconstruct the MoveList
   for (int i = 0; i < m_maxTiles; ++i) {
     POSITION thispos;
     in >> thispos.e;
@@ -971,9 +979,13 @@ bool GameData::saveToStream(QDataStream & out)
   out << Board;
   out << Mask;
   out << Highlight;
+  out << allow_undo;
+  out << allow_redo;
+  out << TileNum;
+  out << MaxTileNum;
   //write the size of our lists
   out << m_maxTiles;
-  //and then write all position components
+  //and then write all position components for the MoveList
   for (int i = 0; i < m_maxTiles; ++i) {
     POSITION thispos = MoveList.at(i);
     out << (quint16) thispos.e;
@@ -981,23 +993,43 @@ bool GameData::saveToStream(QDataStream & out)
     out << (quint16) thispos.x;
     out << (quint16) thispos.f;
   }
-  /*for (int i = 0; i < m_maxTiles; ++i) {
-    POSITION thispos = tilePositions.at(i);
-    out << (qint32) thispos.e;
-    out << (qint32) thispos.y;
-    out << (qint32) thispos.x;
-    out << (qint32) thispos.f;
-  }
-  for (int i = 0; i < m_maxTiles; ++i) {
-    POSITION thispos = PosTable.at(i);
-    out << (qint32) thispos.e;
-    out << (qint32) thispos.y;
-    out << (qint32) thispos.x;
-    out << (qint32) thispos.f;
-  }
-  for (int i = 0; i < m_maxTiles; ++i) {
-    DEPENDENCY thispos = positionDepends.at(i);
-    //out << thispos;
-  }*/
+
   return true;
+}
+
+void GameData::shuffle() {
+  int count = 0;
+	// copy positions and faces of the remaining tiles into
+	// the pos table
+  for (int e=0; e<m_depth; e++) {
+    for (int y=0; y<m_height; y++) {
+      for (int x=0; x<m_width; x++) {
+        if (BoardData(e,y,x) && MaskData(e,y,x) == '1') {
+          PosTable[count].e = e;
+          PosTable[count].y = y;
+          PosTable[count].x = x;
+          PosTable[count].f = BoardData(e,y,x);
+          count++;
+        }
+      }
+    }
+
+  }
+
+
+	// now lets randomise the faces, selecting 400 pairs at random and
+	// swapping the faces.
+  for (int ran=0; ran < 400; ran++) {
+    int pos1 = random.getLong(count);
+    int pos2 = random.getLong(count);
+    if (pos1 == pos2)
+      continue;
+    BYTE f = PosTable[pos1].f;
+    PosTable[pos1].f = PosTable[pos2].f;
+    PosTable[pos2].f = f;
+  }
+
+	// put the rearranged tiles back.
+  for (int p=0; p<count; p++)
+    putTile(PosTable[p]);
 }

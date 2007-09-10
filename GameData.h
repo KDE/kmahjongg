@@ -169,8 +169,6 @@ public:
     KRandomSequence random;
     bool generateStartPosition2();
 
-    //postable
-    QVector<POSITION> PosTable;  /**< Table of all possible positions */
     bool findMove( POSITION& posA, POSITION& posB );
     int  moveCount( );
     short findAllMatchingTiles( POSITION& posA);
@@ -178,6 +176,8 @@ public:
     void setRemovedTilePair(POSITION &a, POSITION &b);
     void clearRemovedTilePair(POSITION &a, POSITION &b);
     bool isMatchingTile( POSITION& Pos1, POSITION& Pos2 );
+    void shuffle();
+    POSITION& getFromPosTable(int index) { return PosTable[index];}
 
 private:
     QByteArray Board;
@@ -185,10 +185,12 @@ private:
     QByteArray Highlight;
     QVector<POSITION> MoveList;
     
-    // new bits for new game generation, with solvability
+    // new bits for new game generation, with solvability. Scratch storage
     int numTilesToGenerate; 
     QVector<POSITION> tilePositions;
     QVector<DEPENDENCY> positionDepends;
+    //PosTable, scratch storage used for highlighting matching tiles
+    QVector<POSITION> PosTable;
 
     int tileAt(int x, int y, int z);
     bool generateSolvableGame();

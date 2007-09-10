@@ -521,18 +521,15 @@ void KMahjongg::restartGame() {
 
 
 void KMahjongg::loadGame() {
-//TODO adapt to new GameData class
-/*
-  GameData in;
-  char buffer[1024];*/
   QString fname;
 
     // Get the name of the file to load
   KUrl url = KFileDialog::getOpenUrl( KUrl(), "*.kmgame", this, i18n("Load Game" ) );
 
-  if ( url.isEmpty() )
-  return;
-
+  if ( url.isEmpty() ) {
+    return;
+  }
+  
   KIO::NetAccess::download( url, fname, this );
 
     // open the file for reading
@@ -546,7 +543,7 @@ void KMahjongg::loadGame() {
     // verify the magic
   QString magic;
   in >> magic;
-  kDebug(11000) << magic;
+
   if (QString::compare(magic, gameMagic, Qt::CaseSensitive)!=0) {
     KMessageBox::sorry(this,
                        i18n("File is not a KMahjongg game."));
@@ -557,7 +554,6 @@ void KMahjongg::loadGame() {
   // Read the version
   qint32 version;
   in >> version;
-  kDebug(11000) << version;
 
   if (version == gameDataVersion) {
     in.setVersion(QDataStream::Qt_4_0);
@@ -572,27 +568,21 @@ void KMahjongg::loadGame() {
   QString theBackgroundName;
   QString theBoardLayoutName;
   in >> theTilesName;
+  bw->loadTileset(theTilesName);
   in >> theBackgroundName;
+  bw->loadBackground(theBackgroundName, false);
   in >> theBoardLayoutName;
-  kDebug(11000) << theTilesName;
-  kDebug(11000) << theBackgroundName;
-  kDebug(11000) << theBoardLayoutName;
+  
+  //GameTime
+  uint seconds;
+  in >> seconds;
+  gameTimer->setTime(seconds);
 
   delete bw->Game;
   bw->loadBoardLayout(theBoardLayoutName);
   bw->Game = new GameData(&bw->theBoardLayout);
   bw->Game->loadFromStream(in);
 
-    //ed the elapsed time
-  /*fscanf(outFile, "%1023s\n", buffer);
-  gameTimer->fromString(buffer);
-
-    // suck out all the game data
-  fread(&in, sizeof(GameData), 1, outFile);
-  memcpy(&bw->Game, &in, sizeof(GameData));
-
-    // close the file before exit
-  fclose(outFile);*/
   infile.close();
 
   KIO::NetAccess::removeTempFile( fname );
@@ -602,17 +592,21 @@ void KMahjongg::loadGame() {
 }
 
 void KMahjongg::saveGame() {
-//TODO adapt to new GameData class
+  //Pause timer
+  gameTimer->pause();
 
    // Get the name of the file to save
     KUrl url = KFileDialog::getSaveUrl( KUrl(), "*.kmgame", this, i18n("Save Game" ) );
 
-    if ( url.isEmpty() )
-	return;
+    if ( url.isEmpty() ) {
+      gameTimer->resume();
+      return;
+    }
 
    if( !url.isLocalFile() )
    {
       KMessageBox::sorry( this, i18n( "Only saving to local files currently supported." ) );
+      gameTimer->resume();
       return;
    }
    
@@ -620,6 +614,7 @@ void KMahjongg::saveGame() {
    if (!outfile.open(QIODevice::WriteOnly)) {
      KMessageBox::sorry(this,
                         i18n("Could not write saved game."));
+     gameTimer->resume();
      return;
    }
    QDataStream out(&outfile);
@@ -629,29 +624,17 @@ void KMahjongg::saveGame() {
    out << (qint32) gameDataVersion;
    out.setVersion(QDataStream::Qt_4_0);
 
-   //KMahjonggTileset  theTiles;
-   //KMahjonggBackground theBackground;  
-   //BoardLayout theBoardLayout;
    out << bw->theTiles.path();
    out << bw->theBackground.path();
    out << bw->theBoardLayout.getFilename();
+
+   //GameTime
+   out << gameTimer->seconds();
  // Write the Game data
    bw->Game->saveToStream(out);
    
    outfile.close();
-
-    /*
-
-    // Now stick in the elapsed time for the game
-    fprintf(outFile, "%s\n", gameTimer->toString().toUtf8().constData());
-
-
-    // chuck in all the game data
-    fwrite(&bw->Game, sizeof(GAMEDATA), 1, outFile);
-
-    // close the file before exit
-    fclose(outFile);*/
+   gameTimer->resume();
 }
-
 
 #include "kmahjongg.moc"
