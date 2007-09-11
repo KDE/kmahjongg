@@ -193,12 +193,6 @@ void KMahjongg::setupKAction()
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
-    showMatchingTilesAction = new KToggleAction(i18n("Show &Matching Tiles"), this);
-    actionCollection()->addAction("options_show_matching_tiles", showMatchingTilesAction);
-    connect(showMatchingTilesAction, SIGNAL(triggered(bool)), SLOT(showMatchingTiles()));
-    showMatchingTilesAction->setCheckedState(KGuiItem(i18n("Hide &Matching Tiles")));
-    showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
-    bw->setShowMatch( Prefs::showMatchingTiles() );
     
     KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
@@ -324,14 +318,6 @@ void KMahjongg::pause()
     is_paused = !is_paused;
     demoModeChanged(false);
     bw->pause();
-}
-
-void KMahjongg::showMatchingTiles()
-{
-    Prefs::setShowMatchingTiles(!Prefs::showMatchingTiles());
-    bw->setShowMatch( Prefs::showMatchingTiles() );
-    showMatchingTilesAction->setChecked(Prefs::showMatchingTiles());
-    Prefs::self()->writeConfig();
 }
 
 void KMahjongg::showHighscores()

@@ -105,7 +105,6 @@ private slots:
   void pause();
   void demoMode();
   void displayTime(const QString& timestring);
-  void showMatchingTiles();
   void showHighscores();
   void slotBoardEditor();
   void openLayout();
@@ -133,7 +132,7 @@ private:
 
   bool         bDemoModeActive;
 
-  KToggleAction *showMatchingTilesAction, *pauseAction, *demoAction;
+  KToggleAction *pauseAction, *demoAction;
   QAction *undoAction, *redoAction;
 
 };

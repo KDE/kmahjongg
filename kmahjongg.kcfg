@@ -14,10 +14,6 @@
     <entry name="Layout" type="String" key="Layout_file">
       <label>The layout of the tiles.</label>
     </entry>
-    <entry name="ShowRemoved" type="Bool" key="showRemoved">
-      <label>Whether to show removed tiles.</label>
-      <default>false</default>
-    </entry>
     <entry name="SolvableGames" type="Bool" key="Solvable_game">
       <label>Whether all games should be solvable.</label>
       <default>true</default>

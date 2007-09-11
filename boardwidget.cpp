@@ -112,6 +112,7 @@ void BoardWidget::loadSettings(){
     {
       kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
     }
+    setShowMatch( Prefs::showMatchingTiles() );
     setDisplayedWidth();
     drawBoard(true);
 }
