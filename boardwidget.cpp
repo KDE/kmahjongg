@@ -113,6 +113,17 @@ void BoardWidget::loadSettings(){
       kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
     }
     setShowMatch( Prefs::showMatchingTiles() );
+    
+    if (QString::compare(Prefs::layout(), theBoardLayout.getFilename(), Qt::CaseSensitive)!=0) {
+      //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
+      if( ! loadBoardLayout(Prefs::layout()) )
+      {
+        KMessageBox::information(this,
+                                i18n("An error occurred when loading the board layout %1\n"
+                                    "KMahjongg will continue with the default layout.", Prefs::layout()));
+      }
+      calculateNewGame();
+    }
     setDisplayedWidth();
     drawBoard(true);
 }

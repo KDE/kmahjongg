@@ -1,0 +1,114 @@
+/*
+    kmahjongg, the classic mahjongg game for KDE
+    Copyright (C) 2007 Mauricio Piacentini   <mauricio@tabuleiro.com>
+
+    Kmahjongg is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#include "kmahjongglayout.h"
+
+#include <kstandarddirs.h>
+#include <klocale.h>
+#include <kconfig.h>
+#include <QFile>
+#include <QMap>
+#include <KDebug>
+
+class KMahjonggLayoutPrivate
+{
+public:
+    KMahjonggLayoutPrivate()
+    {
+    }
+
+    QMap<QString, QString> authorproperties;
+    QString filename;
+};
+
+KMahjonggLayout::KMahjonggLayout()
+    : d(new KMahjonggLayoutPrivate)
+{
+    static bool _inited = false;
+    if (_inited)
+        return;
+    KGlobal::dirs()->addResourceType("kmahjongglayout", "data", QString::fromLatin1("kmahjongg/layouts/"));
+
+    _inited = true;
+}
+
+KMahjonggLayout::~KMahjonggLayout() {
+    delete d;
+}
+
+bool KMahjonggLayout::loadDefault()
+{
+    QString idx = "default.desktop";
+
+    QString layoutPath = KStandardDirs::locate("kmahjongglayout", idx);
+    kDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
+    if (layoutPath.isEmpty()) {
+		return false;
+    }
+    return load(layoutPath);
+}
+
+#define kLayoutVersionFormat 1
+
+bool KMahjonggLayout::load(const QString &file) {
+    kDebug() << "Layout loading";
+
+    QString layoutPath;
+    kDebug() << "Attempting to load .desktop at" << file;
+
+    // verify if it is a valid file first and if we can open it
+    QFile bgfile(file);
+    if (!bgfile.open(QIODevice::ReadOnly)) {
+      return (false);
+    }
+    bgfile.close();
+
+    KConfig bgconfig(file, KConfig::OnlyLocal);
+    KConfigGroup group = bgconfig.group("KMahjonggLayout");
+
+    d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert("Author", group.readEntry("Author"));
+    d->authorproperties.insert("Description", group.readEntry("Description"));
+    d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+
+    //Version control
+    int bgversion = group.readEntry("VersionFormat",0);
+    //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
+    if (bgversion > kLayoutVersionFormat) {
+        return false;
+    }
+
+    QString layoutName = group.readEntry("FileName");
+
+    layoutPath = KStandardDirs::locate("kmahjongglayout", layoutName);
+    kDebug() << "Using layout at" << layoutPath;
+    d->filename = layoutPath;
+
+    if (layoutPath.isEmpty()) return (false);
+
+   return true;
+}
+
+QString KMahjonggLayout::path() const {
+    return d->filename;
+}
+
+QString KMahjonggLayout::authorProperty(const QString &key) const {
+    return d->authorproperties[key];
+}

@@ -44,6 +44,7 @@
 #include <kactioncollection.h>
 
 #include "prefs.h"
+#include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
 #include "Editor.h"
 
@@ -291,6 +292,7 @@ void KMahjongg::showSettings(){
 
   //The Settings class is ours
   dialog->addPage(new Settings(0), i18n("General"), "package_settings");
+  dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board layout"), "board_layout");
   dialog->addTilesetPage();
   dialog->addBackgroundPage();
 

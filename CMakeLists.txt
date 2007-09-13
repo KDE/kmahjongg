@@ -1,6 +1,8 @@
 project(kmahjongg)
 
-add_subdirectory( pics ) 
+add_subdirectory( pics )
+
+add_subdirectory( layouts )
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 
@@ -14,10 +16,12 @@ set(kmahjongg_SRCS
    BoardLayout.cpp 
    GameData.cpp 
    Preview.cpp 
+   kmahjongglayoutselector.cpp 
+   kmahjongglayout.cpp 
    Editor.cpp 
    TileSprite.cpp )
 
-kde4_add_ui_files(kmahjongg_SRCS settings.ui )
+kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
 
 kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
