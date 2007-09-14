@@ -1,5 +1,18 @@
 [KMahjonggLayout]
 Name=Default
+Name[be]=Прадвызначаны
+Name[el]=Προκαθορισμένο
+Name[es]=Predeterminado
+Name[fa]=پیش‌فرض
+Name[ga]=Réamhshocrú
+Name[ja]=デフォルト
+Name[ne]=पूर्वनिर्धारित
+Name[pt]=Predefinição
+Name[pt_BR]=Predefinição
+Name[sv]=Förval
+Name[uk]=Типові
+Name[x-test]=xxDefaultxx
+Name[zh_TW]=預設
 Description=Default KMahjongg game layout
 VersionFormat=1
 Author=KDE Games team
