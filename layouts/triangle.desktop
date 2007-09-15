@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Triangle
+Name[el]=Τρίγωνο
+Name[sv]=Triangel
 Description=Triangular piramid
+Description[el]=Τριγωνική πυραμίδα
+Description[sv]=Triangulär pyramid
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
