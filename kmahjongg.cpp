@@ -37,6 +37,7 @@
 
 #include <QPixmapCache>
 #include <QLabel>
+#include <QDesktopWidget>
 
 #include <kio/netaccess.h>
 #include <klocale.h>
@@ -210,7 +211,7 @@ void KMahjongg::setupKAction()
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
 
-    setupGUI();
+    setupGUI(qApp->desktop()->availableGeometry().size()*0.7);
 }
 
 // ---------------------------------------------------------
