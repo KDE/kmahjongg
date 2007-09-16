@@ -1,6 +1,8 @@
 [KMahjonggLayout]
 Name=Triangle
 Name[el]=Τρίγωνο
+Name[pt]=Triângulo
+Name[pt_BR]=Triângulo
 Name[sv]=Triangel
 Description=Triangular piramid
 Description[el]=Τριγωνική πυραμίδα
