@@ -33,7 +33,6 @@
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
 #include "kmahjongglayout.h"
-#include "BoardLayout.h"
 #include "GameData.h"
 #include "TileCoord.h"
 #include "TileSprite.h"
@@ -264,16 +263,7 @@ class BoardWidget : public KGameCanvasWidget
     /**
      * Method Description */
     void stopMatchAnimation();
-    /**
-     * Method Description 
-     * 
-     * @param p
-     * @param t
-     * @param h
-     * @param x
-     * @param y
-     */
-	void stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y);
+
     /**
      * Method Description
      * 
@@ -335,7 +325,6 @@ public:
   KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */
   KMahjonggBackground theBackground;  /**< Member Description @see KMahjonggBackground */
   KMahjonggLayout theBoardLayout;  /**< Member Description @see BoardLayout */
-  //BoardLayout
 };
 
 #endif // BOARDWIDGET_H

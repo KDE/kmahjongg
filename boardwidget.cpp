@@ -121,9 +121,8 @@ void BoardWidget::resizeEvent ( QResizeEvent * event )
 
 void BoardWidget::resizeTileset ( const QSize & wsize )
 {
-    //qDebug() << "resized:" << event->oldSize() << event->size();
     QSize newtiles = theTiles.preferredTileSize(wsize, requiredHorizontalCells(), requiredVerticalCells());
-    //qDebug() << "new tilesize:" << newtiles;
+
     theTiles.reloadTileset(newtiles);
     stopMatchAnimation();
 }
@@ -377,193 +376,6 @@ void BoardWidget::updateSpriteMap() {
    }
 }
 
-// for a given cell x y calc how that cell is shadowed
-// returnd left = width of left hand side shadow
-// t = height of top shadow
-// c = width and height of corner shadow
-
-/*
-
-// ---------------------------------------------------------
-void BoardWidget::paintEvent( QPaintEvent* pa )
-{
-    QPixmap  *back;
-
-    int xx = pa->rect().left();
-    int xheight = pa->rect().height();
-    int xwidth  = pa->rect().width();
-
-    back = theBackground.getBackground();
-
-    QPainter p;
-    if (gamePaused) {
-        // If the game is paused, then blank out the board.
-        // We tolerate no cheats around here folks..
-        p.begin(this);
-        p.drawPixmap( xx, pa->rect().top(),
-                *back, xx, pa->rect().top(), xwidth, xheight );
-        p.end();
-	return;
-    }
-
-    // if the repaint is because of a window redraw after a move
-    // or a menu roll up, then just blit in the last rendered image
-    if (!updateBackBuffer) {
-        p.begin(this);
-    	p.drawPixmap( xx,pa->rect().top(),
-		backBuffer, xx, pa->rect().top(), xwidth, xheight );
-        p.end();
-	return;
-    }
-
-    // update the complete drawArea
-
-    backBuffer = QPixmap(back->width(), back->height());
-
-    // erase out with the background
-    p.begin(&backBuffer);
-    p.drawPixmap( xx, pa->rect().top(),
-                *back, xx,pa->rect().top(), back->width(), back->height() );
-
-    // initial offset on the screen of tile 0,0
-    int xOffset = theTiles.width()/2;
-    int yOffset = theTiles.height()/2;
-    //short tile = 0;
-
-
-    // we iterate over the depth stacking order. Each successive level is
-    // drawn one indent up and to the right. The indent is the width
-    // of the 3d relief on the tile left (tile shadow width)
-    for (int z=0; z<BoardLayout::depth; z++) {
-        // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < BoardLayout::height; y++) {
-            // drawing right to left to prevent border overwrite
-            for (int x=BoardLayout::width-1; x>=0; x--) {
-                int sx = x*(theTiles.qWidth()  )+xOffset;
-                int sy = y*(theTiles.qHeight()  )+yOffset;
-
-		// skip if no tile to display
-		if (!Game->tilePresent(z,y,x))
-			continue;
-
-                QPixmap *t;
-		if (Game->hilighted[z][y][x]) {
-		   t= theTiles.selectedPixmaps(
-				Game->Board[z][y][x]-TILE_OFFSET);
-		} else {
-		   t= theTiles.unselectedPixmaps(
-				Game->Board[z][y][x]-TILE_OFFSET);
-                }
-
-                // Only one compilcation. Since we render top to bottom , left
-                // to right situations arise where...:
-                // there exists a tile one q height above and to the left
-                // in this situation we would draw our top left border over it
-                // we simply split the tile draw so the top half is drawn
-                // minus border
-
-                //TODO convert to QGV and let it layer everything properly
-                    p.drawPixmap(  sx, sy, *t, 0,0, t->width(), t->height() );
-
-
-            }
-        }
-        xOffset +=theTiles.levelOffset();
-        yOffset -=theTiles.levelOffset();
-    }
-
-
-    // Now we add the list of canceled tiles
-//TODO major overhaul of this functionality
-if (Prefs::showRemoved()) {
-
-    // we start blitting as usuall right to left, top to bottom, first
-    // we calculate the start pos of the first tile, allowing space for
-    // the upwards at rightwards creep when stacking in 3d
-    unsigned short xPos = backBuffer.width()-(3*theTiles.levelOffset())-theTiles.width();
-    unsigned short yPos = (3*theTiles.levelOffset());
-
-    for (int pos=0; pos < 9; pos++) {
-	int last = 0;
-	int tile=0;
-	// dragon?
-	if (pos >= 0 && pos < 3) {
-		last = removedDragon[pos];
-		tile = TILE_DRAGON+pos;
-	} else {
-	    //Wind?
-	    if (pos >= 3 && pos < 7) {
-	        last = removedWind[pos-3];
-		tile = TILE_WIND+pos-3;
-	    } else {
-		if (pos == 7) {
-		    for (int t=0; t<4;t++) {
-		        if (removedFlower[t]) {
-			    last++;
-			    tile=TILE_FLOWER+t;
-			}
-		    }
-		} else {
-		    for (int t=0; t<4;t++) {
-		        if (removedSeason[t]) {
-			    last++;
-			    tile=TILE_SEASON+t;
-			}
-		    }
-		}
-	    }
-	}
-
-	    stackTiles(&p, tile, last, xPos, yPos);
-	    stackTiles(&p, TILE_ROD+pos, removedRod[pos],
-		xPos - (1*(theTiles.width() - theTiles.levelOffset())) , yPos);
-	    stackTiles(&p, TILE_BAMBOO+pos, removedBamboo[pos],
-		xPos - (2*(theTiles.width() - theTiles.levelOffset())) , yPos);
-	    stackTiles(&p, TILE_CHARACTER+pos, removedCharacter[pos],
-		xPos - (3*(theTiles.width() - theTiles.levelOffset())) , yPos);
-
-
-
-	yPos += theTiles.height()-theTiles.levelOffset();
-    }
-} //removed
-
-    updateBackBuffer=false;
-    p.end(); //backbuffer
-    p.begin(this);
-    p.drawPixmap(xx,pa->rect().top(), backBuffer, xx, pa->rect().top(), xwidth, xheight);
-    p.end();
-}*/
-
-void BoardWidget::stackTiles(QPainter* p, unsigned char t, unsigned short h, unsigned short x,unsigned  short y)
-{
-    int ss = theTiles.levelOffsetX();
-    QPen line;
-    p->setBackgroundMode(Qt::OpaqueMode);
-    p->setBackground(Qt::black);
-
-    line.setWidth(1);
-    line.setColor(Qt::white);
-    p->save();
-    p->setPen(line);
-    int x2 = x+theTiles.width()-ss-1;
-    int y2 = y+theTiles.height()-1;
-    p->drawLine(x, y+ss, x2, y+ss);
-    p->drawLine(x, y+ss, x, y2);
-    p->drawLine(x2, y+ss, x2, y2);
-    p->drawLine(x+1, y2, x2, y2);
-
-   // p.fillRect(x+1, y+ss+1, theTiles.width()-ss-2, theTiles.height()-ss-2, QBrush(lightGray));
-
-    for (unsigned short pos=0; pos < h; pos++) {
-       QPixmap pix = theTiles.tileface(t-TILE_OFFSET);
-       p->drawPixmap( x+(pos*ss), y-(pos*ss),
-                    pix );
-    }
-    p->restore();
-}
-
-
 void BoardWidget::pause() {
 	gamePaused = !gamePaused;
 	drawBoard(true);
@@ -795,28 +607,6 @@ void BoardWidget::animateMoveList()
 {
     setStatusText( i18n("Congratulations. You have won!") );
     animatingMoveListForward();
-
-    /*if (Prefs::playAnimation())
-    {
-        while( Game->TileNum < Game->MaxTileNum )
-        {
-            // put back all tiles
-            putTileInBoard(Game->MoveListData(Game->TileNum));
-            Game->TileNum++;
-            putTileInBoard(Game->MoveListData(Game->TileNum), false);
-            Game->TileNum++;
-            drawTileNumber();
-        }
-        while( Game->TileNum > 0 )
-        {
-            // remove all tiles
-            removeTile(Game->MoveListData(Game->TileNum-1), false);
-            removeTile(Game->MoveListData(Game->TileNum-1));
-            drawTileNumber();
-        }
-    }
-
-    calculateNewGame();*/
 }
 
 void BoardWidget::animatingMoveListForward()
@@ -881,7 +671,6 @@ void BoardWidget::calculateNewGame( int gNumber)
 
     // Translate Game->Map to an array of POSITION data.  We only need to
     // do this once for each new game.
-    //memset(Game->tilePositions, 0, sizeof(Game->tilePositions));
     Game->generateTilePositions();
 
     // Now use the tile position data to generate tile dependency data.
@@ -922,14 +711,10 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 	if (on) {
 		Game->setHighlightData(Pos.e,Pos.y,Pos.x,1);
 		if (atile)
-		//atile->setPixmap(*(theTiles.selectedPixmaps(
-				//Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 		atile->setSelected(true);
 	} else {
 		Game->setHighlightData(Pos.e,Pos.y,Pos.x,0);
 		if (atile)
-		//atile->setPixmap(*(theTiles.unselectedPixmaps(
-				//Game->BoardData(Pos.e,Pos.y,Pos.x)-TILE_OFFSET)));
 		atile->setSelected(false);
 	}
 }
@@ -961,10 +746,7 @@ void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
     us= theTiles.unselectedTile(m_angle);
     f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
     TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, false);
-    //thissprite->moveTo(sx, sy);
-    //thissprite->setOpacity(0);
     thissprite->show();
-    //thissprite->fadeIn();
     spriteMap.insert(TileCoord(X,Y,E), thissprite);
 
     updateSpriteMap();
@@ -984,8 +766,6 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
 
     TileSprite * thissprite =spriteMap.value(TileCoord(X,Y,E));
     if (thissprite) delete thissprite;
-    //fade out, TileSprite will delete itself
-    //if (thissprite) thissprite->fadeOut();
 
     spriteMap.remove(TileCoord(X,Y,E));
     // remove tile from game board
