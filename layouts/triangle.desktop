@@ -1,12 +1,17 @@
 [KMahjonggLayout]
 Name=Triangle
 Name[el]=Τρίγωνο
+Name[es]=Triángulo
+Name[nl]=Driehoek
 Name[pt]=Triângulo
 Name[pt_BR]=Triângulo
 Name[sv]=Triangel
+Name[wa]=Triyangue
 Name[zh_TW]=三角形
 Description=Triangular piramid
 Description[el]=Τριγωνική πυραμίδα
+Description[es]=Pirámide triangular
+Description[nl]=Driehoekige piramide
 Description[pt]=Pirâmide triangular
 Description[pt_BR]=Pirâmide triangular
 Description[sv]=Triangulär pyramid
