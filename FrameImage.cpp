@@ -16,7 +16,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include "Preview.h"
+#include "FrameImage.h"
 
 #include <kcomponentdata.h>
 #include <kfiledialog.h>
@@ -128,4 +128,4 @@ void FrameImage::mouseMoveEvent(QMouseEvent *e) {
 	emit mouseMoved(e);
 }
 
-#include "Preview.moc"
+#include "FrameImage.moc"

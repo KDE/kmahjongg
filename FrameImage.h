@@ -16,8 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _PreviewLoadBase_H
-#define _PreviewLoadBase_H
+#ifndef _FrameImage_H
+#define _FrameImage_H
 
 #include <kdialog.h>
 

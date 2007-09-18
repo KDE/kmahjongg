@@ -30,7 +30,7 @@
 #include "kmahjonggbackground.h"
 #include "BoardLayout.h"
 
-#include "Preview.h"
+#include "FrameImage.h"
 
 
 class QLabel;

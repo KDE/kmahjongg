@@ -15,7 +15,7 @@ set(kmahjongg_SRCS
    boardwidget.cpp 
    BoardLayout.cpp 
    GameData.cpp 
-   Preview.cpp 
+   FrameImage.cpp 
    kmahjongglayoutselector.cpp 
    kmahjongglayout.cpp 
    Editor.cpp 
