@@ -569,7 +569,7 @@ void KMahjongg::loadGame() {
 
   delete bw->Game;
   bw->loadBoardLayout(theBoardLayoutName);
-  bw->Game = new GameData(&bw->theBoardLayout);
+  bw->Game = new GameData(bw->theBoardLayout.board());
   bw->Game->loadFromStream(in);
 
   infile.close();
@@ -615,7 +615,7 @@ void KMahjongg::saveGame() {
 
    out << bw->theTiles.path();
    out << bw->theBackground.path();
-   out << bw->theBoardLayout.getFilename();
+   out << bw->theBoardLayout.board()->getFilename();
 
    //GameTime
    out << gameTimer->seconds();

@@ -59,28 +59,19 @@ BoardWidget::BoardWidget( QWidget* parent )
     m_angle = NE;
 
     // Load layout first
-    QString tFile;
-
-    getFileOrDefault(Prefs::layout(), "layout", tFile);
-    if( ! loadBoardLayout(tFile) )
+    if( ! loadBoardLayout(Prefs::layout()) )
     {
 	KMessageBox::information(this,
 		   i18n("An error occurred when loading the board layout %1\n"
-                "KMahjongg will continue with the default layout.", tFile));
+                       "KMahjongg will continue with the default layout.", Prefs::layout()));
     }
 
     //Initialize our Game structure
-    Game = new GameData(&theBoardLayout);
+    Game = new GameData(theBoardLayout.board());
 
     MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
     MouseClickPos2.e = Game->m_depth;
 
-    //Now apply our visual settings
-
-
-    //setDisplayedWidth();
-    loadSettings();
-    
     //Animation timers
     animateForwardTimer = new QTimer(this);
     animateForwardTimer->setSingleShot(true);
@@ -93,6 +84,8 @@ BoardWidget::BoardWidget( QWidget* parent )
     animateBackwardsTimer->setInterval(100);
     connect(animateBackwardsTimer, SIGNAL(timeout()), SLOT(animatingMoveListBackwards()));
     animateBackwardsTimer->stop();
+    
+    loadSettings();
 }
 
 BoardWidget::~BoardWidget(){
@@ -114,7 +107,7 @@ void BoardWidget::loadSettings(){
     }
     setShowMatch( Prefs::showMatchingTiles() );
     
-    if (QString::compare(Prefs::layout(), theBoardLayout.getFilename(), Qt::CaseSensitive)!=0) {
+    if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive)!=0) {
       //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
       if( ! loadBoardLayout(Prefs::layout()) )
       {
@@ -155,27 +148,6 @@ void BoardWidget::saveSettings(){
   //config->writePathEntry("Tileset_file", tileFile);
   //config->writePathEntry("Background_file", backgroundFile);
   //config->writePathEntry("Layout_file", layout);
-}
-
-void BoardWidget::getFileOrDefault(const QString &filename, const QString &type, QString &res)
-{
-	QString picsPos = "pics/";
-	picsPos += "default.";
-	picsPos += type;
-
-	if (QFile::exists(filename)) {
-		res = filename;
-	}
-    else {
-        res = KStandardDirs::locate("appdata", picsPos);
-	}
-
-    if (res.isEmpty()) {
-		KMessageBox::error(this, i18n("KMahjongg could not locate the file: %1\n"
-                                      "or the default file of type: %2\n"
-                                      "KMahjongg will now terminate", filename, type) );
-		qApp->quit();
-	}
 }
 
 void BoardWidget::setDisplayedWidth() {
@@ -1185,7 +1157,7 @@ void BoardWidget::transformPointToPosition(
 bool BoardWidget::loadBoard( )
 {
     if (Game) delete Game;
-    Game = new GameData(&theBoardLayout);
+    Game = new GameData(theBoardLayout.board());
     return(true);
 }
 
@@ -1254,12 +1226,19 @@ bool BoardWidget::loadTileset(const QString &path) {
 }
 
 bool BoardWidget::loadBoardLayout(const QString &file) {
-  if (theBoardLayout.loadBoardLayout(file)) {
+  if (theBoardLayout.load(file)) {
     Prefs::setLayout(file);
     Prefs::self()->writeConfig();
     return true;
+  } else {
+    if (theBoardLayout.loadDefault()) {
+      Prefs::setLayout(theBoardLayout.path());
+      Prefs::self()->writeConfig();
+      return false;
+    } else {
+      return false;
+    }
   }
-  return false;
 }
 
 int BoardWidget::requiredHorizontalCells()
@@ -1361,7 +1340,7 @@ void BoardWidget::shuffle() {
 
 QString  BoardWidget::getLayoutName() {
     //TODO: switch layout format to .desktop files, get localized name of board
-    QFileInfo layoutinfo(theBoardLayout.getFilename());
+    QFileInfo layoutinfo(theBoardLayout.board()->getFilename());
     return layoutinfo.baseName();
 }
 

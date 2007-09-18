@@ -22,6 +22,7 @@
 
 #include <QtGui/QBrush>
 
+class BoardLayout;
 class KMahjonggLayoutPrivate;
 
 class KMahjonggLayout
@@ -34,10 +35,12 @@ class KMahjonggLayout
     bool loadDefault();
     QString path() const;
     QString authorProperty(const QString &key) const;
+    BoardLayout * board() ;
 
  private:
    friend class KMahjonggLayoutPrivate;
    KMahjonggLayoutPrivate *const d;
+   QString filename;
 
    Q_DISABLE_COPY(KMahjonggLayout)
 };

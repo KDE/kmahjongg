@@ -32,6 +32,7 @@
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
+#include "kmahjongglayout.h"
 #include "BoardLayout.h"
 #include "GameData.h"
 #include "TileCoord.h"
@@ -108,7 +109,7 @@ class BoardWidget : public KGameCanvasWidget
      * 
      * @return QString filename
      */
-	QString &getBoardName(){return theBoardLayout.getFilename();}
+	QString &getBoardName(){return theBoardLayout.board()->getFilename();}
     /**
      * Method Description
      * 
@@ -333,7 +334,8 @@ public:
   GameData * Game; /**< Member Description */
   KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */
   KMahjonggBackground theBackground;  /**< Member Description @see KMahjonggBackground */
-  BoardLayout theBoardLayout;  /**< Member Description @see BoardLayout */
+  KMahjonggLayout theBoardLayout;  /**< Member Description @see BoardLayout */
+  //BoardLayout
 };
 
 #endif // BOARDWIDGET_H

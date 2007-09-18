@@ -18,7 +18,7 @@
 */
 
 #include "kmahjongglayout.h"
-
+#include "BoardLayout.h"
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kconfig.h>
@@ -31,8 +31,14 @@ class KMahjonggLayoutPrivate
 public:
     KMahjonggLayoutPrivate()
     {
+      board = new BoardLayout();
+    }
+    ~KMahjonggLayoutPrivate()
+    {
+      delete board;
     }
 
+    BoardLayout * board;
     QMap<QString, QString> authorproperties;
     QString filename;
 };
@@ -101,12 +107,20 @@ bool KMahjonggLayout::load(const QString &file) {
     d->filename = layoutPath;
 
     if (layoutPath.isEmpty()) return (false);
+    
+    if (!d->board->loadBoardLayout(d->filename)) return (false);
+    
+    filename = file;
 
    return true;
 }
 
+BoardLayout * KMahjonggLayout::board() { 
+  return d->board; 
+}
+
 QString KMahjonggLayout::path() const {
-    return d->filename;
+    return filename;
 }
 
 QString KMahjonggLayout::authorProperty(const QString &key) const {
