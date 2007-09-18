@@ -944,18 +944,20 @@ bool BoardWidget::loadBackground(
     )
 {
   if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {
-    Prefs::setBackground(pszFileName);
-    Prefs::self()->writeConfig();
-    return true;
-  } else {
+    if (theBackground.loadGraphics()) {
+      Prefs::setBackground(pszFileName);
+      Prefs::self()->writeConfig();
+      return true;
+    }
+  } 
+  //Try default
     if (theBackground.loadDefault()) {
+      if (theBackground.loadGraphics()) {
       Prefs::setBackground(theBackground.path());
       Prefs::self()->writeConfig();
-      return false;
-    } else {
-      return false;
-    }
-  }
+      }
+    } 
+    return false;
 }
 
 // ---------------------------------------------------------
@@ -978,21 +980,22 @@ void BoardWidget::cancelUserSelectedTiles()
 bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
-    Prefs::setTileSet(path);
-    Prefs::self()->writeConfig();
-    resizeTileset(size());
-    return true;
-  } else {
-    if (theTiles.loadDefault()) {
-      Prefs::setTileSet(theTiles.path());
+    if (theTiles.loadGraphics()) {
+      Prefs::setTileSet(path);
       Prefs::self()->writeConfig();
       resizeTileset(size());
-      return false;
-    } else {
-      return false;
+      return true;
     }
-  }
-
+  } 
+  //Tileset or graphics could not be loaded, try default
+  if (theTiles.loadDefault()) {
+    if (theTiles.loadGraphics()) {
+    Prefs::setTileSet(theTiles.path());
+    Prefs::self()->writeConfig();
+    resizeTileset(size());
+    }
+  } 
+  return false;
 }
 
 bool BoardWidget::loadBoardLayout(const QString &file) {
