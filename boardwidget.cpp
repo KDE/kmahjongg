@@ -59,12 +59,7 @@ BoardWidget::BoardWidget( QWidget* parent )
     m_angle = NE;
 
     // Load layout first
-    if( ! loadBoardLayout(Prefs::layout()) )
-    {
-	KMessageBox::information(this,
-		   i18n("An error occurred when loading the board layout %1\n"
-                       "KMahjongg will continue with the default layout.", Prefs::layout()));
-    }
+    loadBoardLayout(Prefs::layout());
 
     //Initialize our Game structure
     Game = new GameData(theBoardLayout.board());
@@ -109,12 +104,7 @@ void BoardWidget::loadSettings(){
     
     if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive)!=0) {
       //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
-      if( ! loadBoardLayout(Prefs::layout()) )
-      {
-        KMessageBox::information(this,
-                                i18n("An error occurred when loading the board layout %1\n"
-                                    "KMahjongg will continue with the default layout.", Prefs::layout()));
-      }
+      loadBoardLayout(Prefs::layout());
       calculateNewGame();
     }
     setDisplayedWidth();
