@@ -1329,9 +1329,8 @@ void BoardWidget::shuffle() {
 }
 
 QString  BoardWidget::getLayoutName() {
-    //TODO: switch layout format to .desktop files, get localized name of board
-    QFileInfo layoutinfo(theBoardLayout.board()->getFilename());
-    return layoutinfo.baseName();
+    QString key("Name");
+    return theBoardLayout.authorProperty(key);
 }
 
 
