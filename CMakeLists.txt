@@ -1,7 +1,5 @@
 project(kmahjongg)
 
-add_subdirectory( pics )
-
 add_subdirectory( layouts )
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
