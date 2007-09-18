@@ -30,7 +30,6 @@
 #include "kmahjonggbackground.h"
 #include <kgameclock.h>
 #include "BoardLayout.h"
-#include "Preview.h"
 #include "boardwidget.h"
 
 class QAction;
@@ -82,7 +81,7 @@ class KMahjongg : public KXmlGuiWindow
     void gameOver( unsigned short removed, unsigned short cheats);
     /**
      * Load BoardLayout from file @param file*/
-	void loadBoardLayout(const QString &file);
+//	void loadBoardLayout(const QString &file);
     /**
      * Slot Description */
 	void setDisplayedWidth();
@@ -107,7 +106,6 @@ private slots:
   void displayTime(const QString& timestring);
   void showHighscores();
   void slotBoardEditor();
-  void openLayout();
 
 protected:
     /**
@@ -128,7 +126,6 @@ private:
   QLabel *gameTimerLabel;
 
   KGameClock    *gameTimer;
-  Preview      *previewLoad;
 
   bool         bDemoModeActive;
 

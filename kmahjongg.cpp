@@ -96,8 +96,6 @@ KMahjongg::KMahjongg( QWidget* parent)
     bw = new BoardWidget( this );
     setCentralWidget( bw );
 
-    previewLoad = new Preview(this);
-
     setupStatusBar();
     setupKAction();
 
@@ -130,22 +128,6 @@ KMahjongg::KMahjongg( QWidget* parent)
     connect(bw, SIGNAL(gameCalculated()),
       this, SLOT(timerReset()));
 
-    // Make connections for the preview load dialog
-    connect( previewLoad, SIGNAL( boardRedraw(bool) ),
-              bw,   SLOT( drawBoard(bool) ) );
-
-    connect( previewLoad, SIGNAL( layoutChange() ),
-              this,   SLOT( newGame() ) );
-
-
-    connect( previewLoad, SIGNAL( loadBackground(const QString&, bool) ),
-              bw,   SLOT(loadBackground(const QString&, bool) ) );
-
-    connect( previewLoad, SIGNAL( loadTileset(const QString &) ),
-               bw,  SLOT(loadTileset(const QString&) ) );
-    connect( previewLoad, SIGNAL( loadBoard(const QString&) ),
-                 SLOT(loadBoardLayout(const QString&) ) );
-
     startNewGame(  );
 
 }
@@ -153,7 +135,6 @@ KMahjongg::KMahjongg( QWidget* parent)
 // ---------------------------------------------------------
 KMahjongg::~KMahjongg()
 {
-    delete previewLoad;
     delete bw;
 }
 
@@ -172,10 +153,6 @@ void KMahjongg::setupKAction()
     QAction* newNumGame = actionCollection()->addAction("game_new_numeric");
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
-
-    QAction* openLayout = actionCollection()->addAction("game_open_layout");
-    openLayout->setText(i18n("Open La&yout..."));
-    connect(openLayout, SIGNAL(triggered(bool)), SLOT(openLayout()));
 
     // originally "file" ends here
     action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
@@ -331,12 +308,6 @@ void KMahjongg::showHighscores()
     ksdialog.exec();
 }
 
-void KMahjongg::openLayout()
-{
-    previewLoad->initialise(Preview::board);
-    previewLoad->exec();
-}
-
 void KMahjongg::slotBoardEditor()
 {
     Editor *boardEditor = new Editor(this);
@@ -481,10 +452,10 @@ void KMahjongg::demoModeChanged( bool bActive)
 	    redoAction->setEnabled(bw->Game->allow_redo);
     }
 }
-
+/*
 void KMahjongg::loadBoardLayout(const QString &file) {
 	bw->loadBoardLayout(file);
-}
+}*/
 
 void KMahjongg::restartGame() {
     if( ! bDemoModeActive ) {
