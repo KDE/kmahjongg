@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Stacks
+Description=Difficult layout with stacks of tiles
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=stax.layout

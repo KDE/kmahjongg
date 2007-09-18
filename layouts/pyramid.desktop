@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Pyramid
+Description=Can you tear the pyramid apart?
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=pyramid.layout
