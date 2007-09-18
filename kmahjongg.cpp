@@ -586,7 +586,7 @@ void KMahjongg::saveGame() {
 
    out << bw->theTiles.path();
    out << bw->theBackground.path();
-   out << bw->theBoardLayout.board()->getFilename();
+   out << bw->theBoardLayout.path();
 
    //GameTime
    out << gameTimer->seconds();
