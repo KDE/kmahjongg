@@ -1,6 +1,12 @@
 [KMahjonggLayout]
 Name=Stacks
+Name[nl]=Stapels
+Name[sv]=Högar
+Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
+Description[nl]=Moeilijke indeling met stapels stenen
+Description[sv]=Svår layout med högar av brickor
+Description[zh_TW]=牌張疊成這樣，不是很好解喔
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

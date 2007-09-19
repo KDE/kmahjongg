@@ -1,6 +1,11 @@
 [KMahjonggLayout]
 Name=Pyramid
+Name[nl]=Piramide
+Name[zh_TW]=金字塔
 Description=Can you tear the pyramid apart?
+Description[nl]=Kunt u de piramide ontleden?
+Description[sv]=Kan du riva sönder pyramiden?
+Description[zh_TW]=您可以拆掉這個金字塔嗎？
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

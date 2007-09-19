@@ -1,6 +1,13 @@
 [KMahjonggLayout]
 Name=Tower
+Name[ga]=Túr
+Name[nl]=Toren
+Name[sv]=Torn
+Name[zh_TW]=塔
 Description=Remove the towers
+Description[nl]=Verwijder de torens
+Description[sv]=Ta bort tornen
+Description[zh_TW]=把塔移除掉
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
