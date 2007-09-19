@@ -11,9 +11,6 @@
     <Action name="game_open_layout" append="new_merge" />
     <Action name="game_save_theme" append="save_merge" />
   </Menu>
-  <Menu name="edit"><text>&amp;Edit</text>
-    <Action name="edit_board_editor" />
-  </Menu>
   <Menu name="move"><text>&amp;Move</text>
     <Action name="move_shuffle" />
   </Menu>
@@ -47,7 +44,6 @@
     <Action name="game_open_tileset"/>
     <Action name="game_open_background"/>
     <Action name="game_open_layout"/>
-    <Action name="edit_board_editor"/>
     <Action name="move_hint"/>
     <Action name="game_show_matching_tiles"/>
     <Action name="game_pause"/>
@@ -72,7 +68,6 @@
     <Action name="game_open_tileset"/>
     <Action name="game_open_background"/>
     <Action name="game_open_layout"/>
-    <Action name="edit_board_editor"/>
     <Action name="move_hint"/>
     <Action name="game_show_matching_tiles"/>
     <Action name="game_pause"/>
@@ -96,7 +91,6 @@
     <Action name="game_open_tileset"/>
     <Action name="game_open_background"/>
     <Action name="game_open_layout"/>
-    <Action name="edit_board_editor"/>
     <Action name="move_hint"/>
     <Action name="game_show_matching_tiles"/>
     <Action name="move_undo"/>

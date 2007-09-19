@@ -105,7 +105,7 @@ private slots:
   void demoMode();
   void displayTime(const QString& timestring);
   void showHighscores();
-  void slotBoardEditor();
+  //void slotBoardEditor();
 
 protected:
     /**

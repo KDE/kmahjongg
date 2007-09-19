@@ -13,10 +13,8 @@ set(kmahjongg_SRCS
    boardwidget.cpp 
    BoardLayout.cpp 
    GameData.cpp 
-   FrameImage.cpp 
    kmahjongglayoutselector.cpp 
    kmahjongglayout.cpp 
-   Editor.cpp 
    TileSprite.cpp )
 
 kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
