@@ -378,7 +378,7 @@ void BoardWidget::updateSpriteMap() {
 
 void BoardWidget::pause() {
 	gamePaused = !gamePaused;
-	drawBoard(true);
+	drawBoard(!gamePaused);
 }
 
 void BoardWidget::gameLoaded()
@@ -393,7 +393,7 @@ void BoardWidget::gameLoaded()
 		i +=2;
 	}
         populateSpriteMap();
-	drawBoard();
+	drawBoard(true);
 }
 
 // ---------------------------------------------------------
@@ -682,14 +682,14 @@ void BoardWidget::calculateNewGame( int gNumber)
     {
         if( Game->generateStartPosition2() )
         {
-            drawBoard();
+            drawBoard(true);
             setStatusText( i18n("Ready. Now it is your turn.") );
 			cheatsUsed=0;
 	    return;
         }
     }
 
-    drawBoard();
+    drawBoard(true);
     setStatusText( i18n("Error generating new game!") );
 }
 
@@ -722,10 +722,25 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 
 
 // ---------------------------------------------------------
-void BoardWidget::drawBoard(bool )
+void BoardWidget::drawBoard(bool showTiles)
 {
-   populateSpriteMap();
-   drawTileNumber();
+   if (showTiles) {
+    populateSpriteMap();
+    drawTileNumber();
+   } else {
+     //Delete previous sprites
+     while (!items()->isEmpty())
+       delete items()->first();
+
+    //Clear our spritemap as well
+     spriteMap.clear();
+
+    //Recreate our background
+     QPalette palette;
+     palette.setBrush( backgroundRole(), theBackground.getBackground() );
+     setPalette( palette );
+     setAutoFillBackground (true);
+   }
 }
 
 // ---------------------------------------------------------

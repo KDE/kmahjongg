@@ -185,7 +185,7 @@ class BoardWidget : public KGameCanvasWidget
     bool loadBoard( );
     /**
      * Slot Description */
-    void drawBoard(bool deferUpdate = true);
+    void drawBoard(bool showTiles = true);
     /**
      * Slot Description */
 	void updateSpriteMap();
