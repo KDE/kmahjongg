@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<gui name="kmahjongg" version="2">
+<gui name="kmahjongg" version="3">
 
 <MenuBar>
   <Menu name="game"><text>&amp;Game</text>
     <Action name="game_new_numeric" append="new_merge" />
-    <Action name="game_open_theme" append="new_merge" />
-    <Action name="game_open_tileset" append="new_merge" />
-    <Action name="game_open_background" append="new_merge" />
-    <Action name="game_open_layout" append="new_merge" />
-    <Action name="game_save_theme" append="save_merge" />
   </Menu>
   <Menu name="move"><text>&amp;Move</text>
     <Action name="move_shuffle" />
@@ -17,9 +12,6 @@
   <Menu name="view"><text>&amp;View</text>
     <Action name="view_anglecw" />
     <Action name="view_angleccw" />
-  </Menu>
-  <Menu name="settings"><text>&amp;Settings</text>
-    <Action name="options_show_matching_tiles" append="show_merge"/>
   </Menu>
 </MenuBar>
 
@@ -40,12 +32,7 @@
     <Action name="game_load"/>
     <Action name="game_save"/>
     <Action name="game_highscores"/>
-    <Action name="game_open_theme"/>
-    <Action name="game_open_tileset"/>
-    <Action name="game_open_background"/>
-    <Action name="game_open_layout"/>
     <Action name="move_hint"/>
-    <Action name="game_show_matching_tiles"/>
     <Action name="game_pause"/>
     <Action name="move_demo"/>
     <Action name="view_angle"/>
@@ -64,12 +51,7 @@
     <Action name="game_load"/>
     <Action name="game_save"/>
     <Action name="game_highscores"/>
-    <Action name="game_open_theme"/>
-    <Action name="game_open_tileset"/>
-    <Action name="game_open_background"/>
-    <Action name="game_open_layout"/>
     <Action name="move_hint"/>
-    <Action name="game_show_matching_tiles"/>
     <Action name="game_pause"/>
     <Action name="move_undo"/>
     <Action name="move_redo"/>
@@ -87,12 +69,7 @@
     <Action name="game_load"/>
     <Action name="game_save"/>
     <Action name="game_highscores"/>
-    <Action name="game_open_theme"/>
-    <Action name="game_open_tileset"/>
-    <Action name="game_open_background"/>
-    <Action name="game_open_layout"/>
     <Action name="move_hint"/>
-    <Action name="game_show_matching_tiles"/>
     <Action name="move_undo"/>
     <Action name="move_redo"/>
     <Action name="move_demo"/>
