@@ -2,10 +2,14 @@
 Name=Tower
 Name[ga]=Túr
 Name[nl]=Toren
+Name[pt]=Torre
+Name[pt_BR]=Torre
 Name[sv]=Torn
 Name[zh_TW]=塔
 Description=Remove the towers
 Description[nl]=Verwijder de torens
+Description[pt]=Remova as torres
+Description[pt_BR]=Remova as torres
 Description[sv]=Ta bort tornen
 Description[zh_TW]=把塔移除掉
 VersionFormat=1

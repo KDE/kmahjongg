@@ -1,10 +1,14 @@
 [KMahjonggLayout]
 Name=Stacks
 Name[nl]=Stapels
+Name[pt]=Pilhas
+Name[pt_BR]=Pilhas
 Name[sv]=Högar
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
 Description[nl]=Moeilijke indeling met stapels stenen
+Description[pt]=Disposição complicada com pilhas de peças
+Description[pt_BR]=Disposição complicada com pilhas de peças
 Description[sv]=Svår layout med högar av brickor
 Description[zh_TW]=牌張疊成這樣，不是很好解喔
 VersionFormat=1
