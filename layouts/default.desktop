@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Default
 Name[be]=Прадвызначаны
+Name[de]=Standard
 Name[el]=Προκαθορισμένο
 Name[es]=Predeterminado
 Name[fa]=پیش‌فرض
@@ -17,6 +18,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=Default KMahjongg game layout
+Description[de]=Standard Spiellayout für KMahjongg
 Description[el]=Προκαθορισμένη διάταξη του KMahjongg
 Description[es]=Distribución de juego predeterminada de KMahjongg
 Description[nl]=Standaard bordopstelling voor KMahjongg

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Triangle
+Name[de]=Dreieck
 Name[el]=Τρίγωνο
 Name[es]=Triángulo
 Name[ga]=Triantán
@@ -11,6 +12,7 @@ Name[wa]=Triyangue
 Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular piramid
+Description[de]=Dreieckige Pyramide
 Description[el]=Τριγωνική πυραμίδα
 Description[es]=Pirámide triangular
 Description[nl]=Driehoekige piramide

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Tower
+Name[de]=Turm
 Name[ga]=Túr
 Name[nl]=Toren
 Name[pt]=Torre
@@ -7,6 +8,7 @@ Name[pt_BR]=Torre
 Name[sv]=Torn
 Name[zh_TW]=塔
 Description=Remove the towers
+Description[de]=Entfernen Sie die Türme
 Description[nl]=Verwijder de torens
 Description[pt]=Remova as torres
 Description[pt_BR]=Remova as torres

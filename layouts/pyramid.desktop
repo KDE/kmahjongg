@@ -1,10 +1,12 @@
 [KMahjonggLayout]
 Name=Pyramid
+Name[de]=Pyramide
 Name[nl]=Piramide
 Name[pt]=Pirâmide
 Name[pt_BR]=Pirâmide
 Name[zh_TW]=金字塔
 Description=Can you tear the pyramid apart?
+Description[de]=Können Sie die Pyramide zerstören?
 Description[nl]=Kunt u de piramide ontleden?
 Description[pt]=Consegue separar a pirâmide?
 Description[pt_BR]=Consegue separar a pirâmide?
