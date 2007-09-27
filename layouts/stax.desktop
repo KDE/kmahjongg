@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Stacks
 Name[de]=Stapel
+Name[es]=Pilas
 Name[nl]=Stapels
 Name[pt]=Pilhas
 Name[pt_BR]=Pilhas
@@ -8,6 +9,7 @@ Name[sv]=Högar
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
 Description[de]=Schwieriges Layout mit Stapeln aus Spielsteinen
+Description[es]=Diseño difícil con pilas de baldosas
 Description[nl]=Moeilijke indeling met stapels stenen
 Description[pt]=Disposição complicada com pilhas de peças
 Description[pt_BR]=Disposição complicada com pilhas de peças
