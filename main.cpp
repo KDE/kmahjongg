@@ -47,6 +47,7 @@ int main( int argc, char** argv )
 
     KApplication application;
     KGlobal::locale()->insertCatalog("libkdegames");
+    KGlobal::locale()->insertCatalog("libkmahjongg");
     
 
     if (application.isSessionRestored())
