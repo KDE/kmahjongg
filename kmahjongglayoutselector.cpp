@@ -36,6 +36,7 @@ KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkelet
 {
     setupUi(this);
     bw = new BoardWidget( layoutPreview );
+    bw->resize(layoutPreview->size());
     setupData(aconfig);
 }
 
@@ -95,10 +96,14 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutContact->setText(selLayout->authorProperty(contactstr));
     layoutDescription->setText(selLayout->authorProperty(descstr));
     
-    bw->loadTileset(Prefs::tileSet());
-    bw->loadBackground(Prefs::background());
+    //If settings for tiles/background have been applied, update our preview
+    if (bw->theTiles.path()!=Prefs::tileSet()) 
+      bw->loadTileset(Prefs::tileSet());
+    if (bw->theBackground.path()!=Prefs::background())
+      bw->loadBackground(Prefs::background());
+          
+    //Now load the boardLayout temporarily
     bw->loadBoardLayout(selLayout->path());
-    bw->resize(layoutPreview->size());
     bw->calculateNewGame();
 
    /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
