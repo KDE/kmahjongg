@@ -130,7 +130,7 @@ void Editor::setupToolbar()
     connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
     topToolbar->addAction(saveBoard);
     // NOTE dimsuz: how to port this? is it even needed?
-    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("document-save", K3Icon::Toolbar));
+    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("document-save", KIconLoader::Toolbar));
 
     topToolbar->addSeparator();
 #ifdef FUTURE_OPTIONS
