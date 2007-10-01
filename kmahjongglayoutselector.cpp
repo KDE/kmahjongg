@@ -22,6 +22,7 @@
 
 #include "kmahjongglayoutselector.h"
 
+#include "boardwidget.h"
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <QPainter>
@@ -32,6 +33,7 @@ KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkelet
         : QWidget( parent )
 {
     setupUi(this);
+    bw = new BoardWidget( layoutPreview );
     setupData(aconfig);
 }
 
@@ -90,6 +92,9 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutAuthor->setText(selLayout->authorProperty(authstr));
     layoutContact->setText(selLayout->authorProperty(contactstr));
     layoutDescription->setText(selLayout->authorProperty(descstr));
+    
+    bw->resize(layoutPreview->size());
+    bw->calculateNewGame();
 
    /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);

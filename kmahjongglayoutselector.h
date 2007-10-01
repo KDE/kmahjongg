@@ -28,6 +28,7 @@
 #include "ui_gametype.h"
 
 class KMahjonggLayout;
+class BoardWidget;
 
 class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelector
 {
@@ -40,6 +41,8 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
     QMap<QString, KMahjonggLayout *> layoutMap;
   public slots:
     void layoutChanged();
+  private:
+    BoardWidget * bw;
 };
 
 #endif
