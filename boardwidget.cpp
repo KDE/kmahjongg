@@ -84,7 +84,6 @@ BoardWidget::BoardWidget( QWidget* parent )
 }
 
 BoardWidget::~BoardWidget(){
-  saveSettings();
   if (Game) delete Game;
 }
 
@@ -109,6 +108,8 @@ void BoardWidget::loadSettings(){
     }
     setDisplayedWidth();
     drawBoard(true);
+    //Store our updated settings, some values might have been changed to defaults
+    saveSettings();
 }
 
 void BoardWidget::resizeEvent ( QResizeEvent * event )
@@ -130,13 +131,10 @@ void BoardWidget::resizeTileset ( const QSize & wsize )
 
 
 void BoardWidget::saveSettings(){
-  // Preview can't handle this.  TODO
-  //KSharedConfig::Ptr config = KGlobal::config();
-  //config->setGroup("General");
-
-  //config->writePathEntry("Tileset_file", tileFile);
-  //config->writePathEntry("Background_file", backgroundFile);
-  //config->writePathEntry("Layout_file", layout);
+  Prefs::setTileSet(theTiles.path());
+  Prefs::setLayout(theBoardLayout.path());
+  Prefs::setBackground(theBackground.path());
+  Prefs::self()->writeConfig();
 }
 
 void BoardWidget::setDisplayedWidth() {
@@ -960,16 +958,12 @@ bool BoardWidget::loadBackground(
 {
   if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {
     if (theBackground.loadGraphics()) {
-      Prefs::setBackground(pszFileName);
-      Prefs::self()->writeConfig();
       return true;
     }
   } 
   //Try default
     if (theBackground.loadDefault()) {
       if (theBackground.loadGraphics()) {
-      Prefs::setBackground(theBackground.path());
-      Prefs::self()->writeConfig();
       }
     } 
     return false;
@@ -996,8 +990,6 @@ bool BoardWidget::loadTileset(const QString &path) {
 
   if (theTiles.loadTileset(path)) {
     if (theTiles.loadGraphics()) {
-      Prefs::setTileSet(path);
-      Prefs::self()->writeConfig();
       resizeTileset(size());
       return true;
     }
@@ -1005,8 +997,6 @@ bool BoardWidget::loadTileset(const QString &path) {
   //Tileset or graphics could not be loaded, try default
   if (theTiles.loadDefault()) {
     if (theTiles.loadGraphics()) {
-    Prefs::setTileSet(theTiles.path());
-    Prefs::self()->writeConfig();
     resizeTileset(size());
     }
   } 
@@ -1015,13 +1005,9 @@ bool BoardWidget::loadTileset(const QString &path) {
 
 bool BoardWidget::loadBoardLayout(const QString &file) {
   if (theBoardLayout.load(file)) {
-    Prefs::setLayout(file);
-    Prefs::self()->writeConfig();
     return true;
   } else {
     if (theBoardLayout.loadDefault()) {
-      Prefs::setLayout(theBoardLayout.path());
-      Prefs::self()->writeConfig();
       return false;
     } else {
       return false;

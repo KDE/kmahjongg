@@ -23,6 +23,8 @@
 #include "kmahjongglayoutselector.h"
 
 #include "boardwidget.h"
+#include "prefs.h"
+
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <QPainter>
@@ -93,6 +95,9 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutContact->setText(selLayout->authorProperty(contactstr));
     layoutDescription->setText(selLayout->authorProperty(descstr));
     
+    bw->loadTileset(Prefs::tileSet());
+    bw->loadBackground(Prefs::background());
+    bw->loadBoardLayout(selLayout->path());
     bw->resize(layoutPreview->size());
     bw->calculateNewGame();
 
