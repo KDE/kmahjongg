@@ -22,6 +22,7 @@
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <QFile>
 #include <QMap>
 #include <KDebug>
