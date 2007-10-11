@@ -22,6 +22,10 @@
 	<!ENTITY Osvaldo.Stark.mail '<email>starko@dnet.it</email>'>
   <!ENTITY Benjamin.Meyer '<personname><firstname>Benjamin</firstname><surname>Meyer</surname></personname>'>
 	<!ENTITY Benjamin.Meyer.mail '<email>ben+kmahjongg@meyerhome.net</email>'>
+  <!ENTITY Mauricio.Piacentini '<personname><firstname>Mauricio</firstname><surname>Piacentini</surname></personname>'>
+	<!ENTITY Mauricio.Piacentini.mail '<email>piacentini@kde.org</email>'>
+<!ENTITY Raquel.Ravanini '<personname><firstname>Raquel</firstname><surname>Ravanini</surname></personname>'>
+	<!ENTITY Raquel.Ravanini.mail '<email>raquel@tabuleiro.com</email>'>
 
 ]>
 
@@ -60,6 +64,11 @@
 <othercredit role="developer">
 &Benjamin.Meyer; &Benjamin.Meyer.mail;
 </othercredit>
+
+<othercredit role="developer">
+&Mauricio.Piacentini; &Mauricio.Piacentini.mail;
+</othercredit>
+
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
@@ -70,13 +79,13 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2006-01-23</date>
-<releaseinfo>0.7.6</releaseinfo>
+<date>2007-10-11</date>
+<releaseinfo>0.8.0</releaseinfo>
 
 
 <abstract>
 <para>
-&kmahjongg; is a game similar to famous oriental game <trademark>Mahjongg</trademark>.
+&kmahjongg; is a game similar to famous oriental game <trademark>Mahjongg</trademark> Solitaire.
 </para>
 </abstract>
 
@@ -94,10 +103,9 @@
 <title>Introduction</title>
 
 <para>
-&kmahjongg; is a game similar to the famous oriental game <trademark>Mahjongg</trademark>. The purpose of the game
+&kmahjongg; is a game similar to the famous oriental game <trademark>Mahjongg</trademark> Solitaire. The purpose of the game
 is to remove all of the tiles from the gameboard. Tiles are removed by matching tiles in
-pairs. The matched tiles must have a free side on the left or on the right. Please report
-any problems or feature requests to the &kde; mailing lists.
+pairs. The matched tiles must have a free side on the left or on the right.
 </para>
 </chapter>
 
@@ -164,10 +172,9 @@ One option is to get a hint by selecting
 which will flash a pair of matching tiles.
 The second option is to activate
 <menuchoice>
-<guimenu>Settings</guimenu><guimenuitem>Show Matching Tiles</guimenuitem>
+<guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;</guimenuitem>
 </menuchoice>,
-which will highlight the selected tile and flash any matching tiles that have a free side
-with each move. No additional tiles will be highlighted if there are no matching tiles with a free side.
+And enabling the "Blink matching tiles when first one is selected" option. This will highlight the selected tile and flash any matching tiles that have a free side with each move. No additional tiles will be highlighted if there are no matching tiles with a free side.
 </para>
 
 </sect1>
@@ -205,24 +212,12 @@ The background is populated with the game tiles.
 </varlistentry>
 
 <varlistentry>
-<term>Game Timer</term>
-<listitem>
-<para>
-The Game Timer is located on the top right of the screen. The timer keeps track of the
-elapsed time from the start of the game until the game is finished.
-</para>
-</listitem>
-
-</varlistentry>
-
-<varlistentry>
 <term>Statusbar</term>
 <listitem>
 <para>
-The Status bar is located at the bottom of the screen, and contains three panes. The first
+The Status bar is located at the bottom of the screen, and contains four panes. The first
 pane lists the removed/total tiles and the number of matching tiles that have free sides. 
-The second pane gives the sequence number of the game you are playing. In the last pane
-lets the player know when the game is ready.
+The second pane gives the sequence number of the game you are playing. The third pane lets the player knows when the game is ready, and the last pane displayes the game timer, which keeps track of theelapsed time from the start of the game until the game is finished.
 </para>
 </listitem>
 </varlistentry>
@@ -276,21 +271,10 @@ opens the Configure &kmahjongg; Dialog.</para>
 <variablelist>
 
 <varlistentry>
-<term><guilabel>Show removed tiles</guilabel></term>
+<term><guilabel>Blink matching tiles when first one is selected</guilabel></term>
 <listitem>
 <para>
-Places a grid to the right of the gameboard where matching tiles are stacked after being removed from the gameboard.
-<screenshot>
-<screeninfo>Here's a screenshot of &kmahjongg; showing removed tiles.</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="showremoved.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Removed tiles.</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
+This setting will make the game highlight the selected tile on mouse click, and flash any matching tiles that have a free side at each move. No additional tiles will be highlighted if there are no matching tiles with a free side.
 </para>
 </listitem>
 </varlistentry>
@@ -304,67 +288,79 @@ Selects only games that can be solved when you start a new game.
 </listitem>
 </varlistentry>
 
-<varlistentry>
-<term><guilabel>Play winning animation</guilabel></term>
-<listitem>
-<para>
-Shows a replay of all moves when you win a game.
-</para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
-<sect2 id="tiles-options"><title><guilabel>Tiles</guilabel> options</title>
-
+<sect2 id="layout-options"><title><guilabel>Board Layout</guilabel> options</title>
 <variablelist>
-
 <varlistentry>
-<term><guilabel>Draw shadows</guilabel></term>
+<term><guilabel>Board Layout selector</guilabel></term>
 <listitem>
 <para>
-Draws shadows on the tiles to give a 3D appearance.
+Use the Board Layout selector to pick a gameboard to play. Different boards provide variable difficulty, depending on the number of tiles and their position.
 </para>
+<screenshot>
+<screeninfo>Board Layout selector</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config_layout.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Board Layout selector</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
 </listitem>
 </varlistentry>
+</variablelist>
+</sect2>
 
+<sect2 id="tiles-options"><title><guilabel>Tile</guilabel> options</title>
+<variablelist>
 <varlistentry>
-<term><guilabel>Use mini-tiles</guilabel></term>
+<term><guilabel>Tile selector</guilabel></term>
 <listitem>
 <para>
-Sets the tile size to small.
+Use the Tileset selector to choose graphics for the tiles.
 </para>
+<screenshot>
+<screeninfo>Tile selector</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config_tiles.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Tiles selector</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
 </listitem>
 </varlistentry>
-
 </variablelist>
 </sect2>
 
 <sect2 id="background-options"><title><guilabel>Background</guilabel> options</title>
-
 <variablelist>
-
 <varlistentry>
-<term><guilabel>Scaled</guilabel></term>
+<term><guilabel>Background selector</guilabel></term>
 <listitem>
 <para>
-Scales the background image.
+Use the Background selector to choose a background graphic for the game.
 </para>
+<screenshot>
+<screeninfo>Background selector</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config_background.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Background selector</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
 </listitem>
 </varlistentry>
-
-<varlistentry>
-<term><guilabel>Tiled</guilabel></term>
-<listitem>
-<para>
-Tiles the background image.
-</para>
-</listitem>
-</varlistentry>
-
 </variablelist>
-
 </sect2>
 
 </sect1>
@@ -505,6 +501,33 @@ Move undo.
 </varlistentry>
 
 <varlistentry>
+<term><keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo></term>
+<listitem>
+<para>
+Move undo.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><keysym>F</keysym></term>
+<listitem>
+<para>
+Rotate the view angle clockwise.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><keysym>G</keysym></term>
+<listitem>
+<para>
+Rotate the view angle counter-clockwise.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></term>
 <listitem>
 <para>
@@ -606,127 +629,6 @@ or menu bars. -->
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Open Theme...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Allows you to load a theme with different backgrounds and tile styles.</action>
-<screenshot>
-<screeninfo>Load Theme Dialog</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="theme.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Load Theme Dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-</para>
-<para>
-The available options:
-<itemizedlist>
-<listitem><para>default (shown)</para></listitem>
-<listitem><para>pirates</para></listitem>
-</itemizedlist>
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Open Tileset...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Allows you to load a different tileset.</action>
-<screenshot>
-<screeninfo>Open Tileset Dialog</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="tileset.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Open Tileset Dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-</para>
-<para>
-The available options:
-<itemizedlist>
-<listitem><para>default (shown)</para></listitem>
-<listitem><para>pirates</para></listitem>
-<listitem><para>traditional</para></listitem>
-</itemizedlist>
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Open Background...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Allows you to load a different background image.</action>
-<screenshot>
-<screeninfo>Load Background Dialog</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="background.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Load Background Dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-</para>
-<para>
-The available options:
-<itemizedlist>
-<listitem><para>default (shown)</para></listitem>
-<listitem><para>haze</para></listitem>
-<listitem><para>pirates</para></listitem>
-<listitem><para>slate</para></listitem>
-<listitem><para>wood</para></listitem>
-</itemizedlist>
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Open Layout...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Allows you to load a different tile layout.</action>
-<screenshot>
-<screeninfo>Load Layout Dialog</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="layout.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Load Layout Dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-</para>
-<para>
-The available options:
-<itemizedlist>
-<listitem><para>default (shown)</para></listitem>
-<listitem><para>cross</para></listitem>
-<listitem><para>pirates</para></listitem>
-<listitem><para>pyramid</para></listitem>
-<listitem><para>stax</para></listitem>
-<listitem><para>tower</para></listitem>
-<listitem><para>triangle</para></listitem>
-</itemizedlist>
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
 <shortcut>
 <keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>
 </shortcut>
@@ -734,14 +636,6 @@ The available options:
 <guimenuitem>Save</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>Saves</action> the current game.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Save Theme...</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Saves the current theme.</action></para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -797,38 +691,6 @@ When your game scores exceed the top ten scores listed, you are prompted to ente
 
 </variablelist>
 </para>
-
-</sect2>
-
-<sect2 id="edit-menu">
-<title><guimenu>Edit</guimenu> Menu</title>
-
-<variablelist>
-<varlistentry>
-<term><menuchoice>
-<guimenu>Edit</guimenu>
-<guimenuitem>Board Editor</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>Opens the gameboard editor.</action>
-<screenshot>
-<screeninfo>Gameboard Editor</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="boardeditor.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Gameboard Editor</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-</para>
-<para>
-The gameboard editor lets you create your own tile layouts for gameplay.
-</para>
-</listitem>
-</varlistentry>
-
-</variablelist>
 
 </sect2>
 
@@ -893,6 +755,38 @@ The gameboard editor lets you create your own tile layouts for gameplay.
 </variablelist>
 
 </sect2>
+
+<sect2 id="view-menu">
+<title><guimenu>View</guimenu> Menu</title>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keysym>G</keysym>
+</shortcut>
+<guimenu>View</guimenu>
+<guimenuitem>Rotate View Clockwise</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Rotates</action> the tile viewing angle clockwise.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keysym>F</keysym>
+</shortcut>
+<guimenu>View</guimenu>
+<guimenuitem>Rotate View Counter Clockwise</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Rotates</action> the tile viewing angle counter clockwise.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
 
 <sect2 id="settings-menu">
 <title><guimenu>Settings</guimenu> Menu</title>
@@ -982,6 +876,10 @@ distribution. -->
 <para>
 Program Copyright &copy; 1997 &Mathias.Mueller; &Mathias.Mueller.mail;
 </para>
+<para>
+Program Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail;
+</para>
+
 
 <para>
 Contributors:
@@ -991,6 +889,7 @@ Contributors:
 <listitem><para>&Osvaldo.Stark; &Osvaldo.Stark.mail;</para></listitem>
 <listitem><para>&Benjamin.Meyer; &Benjamin.Meyer.mail;</para></listitem>
 <listitem><para>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para></listitem>
+<listitem><para>&Raquel.Ravanini; &Raquel.Ravanini.mail;</para></listitem>
 </itemizedlist>
 </para>
 
