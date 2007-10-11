@@ -49,6 +49,9 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
 
     //The lineEdit widget holds our tileset path, but the user does not manipulate it directly
     kcfg_Layout->hide();
+    
+    //No new stuff yet
+    getNewButton->hide();
 
     //This will also load our resourcedir if it is not done already
     KMahjonggLayout tile;
