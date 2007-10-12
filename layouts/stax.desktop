@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Stacks
 Name[de]=Stapel
+Name[el]=Στοίβες
 Name[es]=Pilas
 Name[ja]=積み重ね
 Name[nl]=Stapels
@@ -11,6 +12,7 @@ Name[x-test]=xxStacksxx
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
 Description[de]=Schwieriges Layout mit Stapeln aus Spielsteinen
+Description[el]=Δύσκολη διάταξη με στοίβες από πούλια
 Description[es]=Diseño difícil con pilas de baldosas
 Description[ja]=牌を積み重ねた難しいレイアウト
 Description[nl]=Moeilijke indeling met stapels stenen
