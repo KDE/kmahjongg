@@ -163,11 +163,11 @@ void KMahjongg::setupKAction()
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
     QAction* angleccw = actionCollection()->addAction("view_angleccw");
     angleccw->setText(i18n("Rotate View Counter Clockwise"));
-    angleccw->setIcon(KIcon("object-rotate-right"));
+    angleccw->setIcon(KIcon("object-rotate-left"));
     angleccw->setShortcuts( KShortcut( "f"  ) );
     QAction* anglecw = actionCollection()->addAction("view_anglecw");
     anglecw->setText(i18n("Rotate View Clockwise"));
-    anglecw->setIcon(KIcon("object-rotate-left"));
+    anglecw->setIcon(KIcon("object-rotate-right"));
     anglecw->setShortcuts( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
