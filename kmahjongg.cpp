@@ -269,8 +269,8 @@ void KMahjongg::showSettings(){
   KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, "settings", Prefs::self());
 
   //The Settings class is ours
-  dialog->addPage(new Settings(0), i18n("General"), "package_settings");
-  dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board layout"), "board_layout");
+  dialog->addPage(new Settings(0), i18n("General"), "games-config-options");
+  dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board layout"), "games-config-board");
   dialog->addTilesetPage();
   dialog->addBackgroundPage();
 
