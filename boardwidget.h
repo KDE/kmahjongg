@@ -21,13 +21,13 @@
 #define BOARDWIDGET_H
 
 #include <qevent.h>
-#include <kgamecanvas.h>
+#include <KGameCanvas>
 #include <QHash>
 #include <QPoint>
 
-#include <ktoolbar.h>
-#include <kstatusbar.h>
-#include <kfiledialog.h>
+#include <KToolBar>
+#include <KStatusBar>
+#include <KFileDialog>
 
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
@@ -198,7 +198,7 @@ class BoardWidget : public KGameCanvasWidget
      * @return @c true if ...
      * @return @c false if ...
      */
-    bool loadBackground ( const QString&, bool bShowError = true );
+    bool loadBackground ( const QString& );
     signals:
     /**
      * Signal Description */
@@ -243,13 +243,13 @@ class BoardWidget : public KGameCanvasWidget
 
     /**
      * Method Description */
-    void hilightTile ( POSITION&, bool on=true, bool refresh=true );
+    void hilightTile ( POSITION&, bool on=true );
     /**
      * Method Description */
-    void putTileInBoard     ( POSITION& , bool refresh = true);
+    void putTileInBoard     ( POSITION& );
     /**
      * Method Description */
-    void removeTile  ( POSITION& , bool refresh = true);
+    void removeTile  ( POSITION& );
     /**
      * Transform window point to board position.
      *
