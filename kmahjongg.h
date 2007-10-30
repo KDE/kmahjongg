@@ -28,13 +28,13 @@
 #include "KmTypes.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
-#include <kgameclock.h>
 #include "BoardLayout.h"
 #include "boardwidget.h"
 
 class QAction;
 class KToggleAction;
 class QLabel;
+class KGameClock;
 
 /**
    @short  Class Description

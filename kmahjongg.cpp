@@ -34,6 +34,7 @@
 #include <kstandardaction.h>
 #include <kicon.h>
 #include <KScoreDialog>
+#include <KGameClock>
 
 #include <QPixmapCache>
 #include <QLabel>
