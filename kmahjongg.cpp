@@ -24,15 +24,15 @@
 
 #include <limits.h>
 
-#include <kaboutdata.h>
-#include <kaction.h>
-#include <kconfigdialog.h>
-#include <kinputdialog.h>
-#include <kmenubar.h>
-#include <kmessagebox.h>
-#include <kstandardgameaction.h>
-#include <kstandardaction.h>
-#include <kicon.h>
+#include <KAboutData>
+#include <KAction>
+#include <KConfigDialog>
+#include <KInputDialog>
+#include <KMenuBar>
+#include <KMessageBox>
+#include <KStandardGameAction>
+#include <KStandardAction>
+#include <KIcon>
 #include <KScoreDialog>
 #include <KGameClock>
 
