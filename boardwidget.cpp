@@ -95,7 +95,7 @@ void BoardWidget::loadSettings(){
     }
 
     // Load background
-    if( ! loadBackground(Prefs::background() ) )
+    if( ! loadBackground(Prefs::background(), false ) )
     {
       kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
     }
@@ -403,7 +403,7 @@ int BoardWidget::undoMove()
     {
 
         Game->clearRemovedTilePair(Game->MoveListData(Game->TileNum), Game->MoveListData(Game->TileNum+1));
-        putTileInBoard( Game->MoveListData(Game->TileNum) );
+        putTileInBoard( Game->MoveListData(Game->TileNum), false );
         Game->TileNum++;
         putTileInBoard( Game->MoveListData(Game->TileNum) );
         Game->TileNum++;
@@ -438,12 +438,12 @@ void BoardWidget::helpMoveTimeout()
 {
     if( iTimerStep & 1 )
     {
-        hilightTile( TimerPos1, true );
+        hilightTile( TimerPos1, true, false );
         hilightTile( TimerPos2, true );
     }
     else
     {
-        hilightTile( TimerPos1, false );
+        hilightTile( TimerPos1, false, false );
         hilightTile( TimerPos2, false );
     }
     // restart timer
@@ -461,7 +461,7 @@ void BoardWidget::helpMoveStop()
 {
     timer->stop();
     iTimerStep = 8;
-    hilightTile( TimerPos1, false );
+    hilightTile( TimerPos1, false, false );
     hilightTile( TimerPos2, false );
     showHelp = false;
 }
@@ -511,7 +511,7 @@ void BoardWidget::demoMoveTimeout()
                         setStatusText( i18n("Your computer has lost the game.") );
                         while( Game->TileNum < Game->MaxTileNum )
                         {
-                            putTileInBoard( Game->MoveListData(Game->TileNum) );
+                            putTileInBoard( Game->MoveListData(Game->TileNum), false );
                             Game->TileNum++;
                             putTileInBoard( Game->MoveListData(Game->TileNum) );
                             Game->TileNum++;
@@ -528,19 +528,19 @@ void BoardWidget::demoMoveTimeout()
 	    // hilight matching tiles two times
             case 1:
             case 3:
-                hilightTile( TimerPos1, true );
+                hilightTile( TimerPos1, true, false );
                 hilightTile( TimerPos2, true );
             break;
 
             case 2:
             case 4:
-                hilightTile( TimerPos1, false );
+                hilightTile( TimerPos1, false, false );
                 hilightTile( TimerPos2, false );
                 break;
 	    // remove matching tiles from game board
             case 5:
                 Game->setRemovedTilePair(TimerPos1, TimerPos2);
-                removeTile( TimerPos1 );
+                removeTile( TimerPos1, false );
                 removeTile( TimerPos2 );
                 drawTileNumber();
                 break;
@@ -595,7 +595,7 @@ void BoardWidget::redoMove()
 {
 
 	Game->setRemovedTilePair(Game->MoveListData(Game->TileNum-1),Game->MoveListData(Game->TileNum-2));
-        removeTile(Game->MoveListData(Game->TileNum-1));
+        removeTile(Game->MoveListData(Game->TileNum-1), false);
         removeTile(Game->MoveListData(Game->TileNum-1));
         drawTileNumber();
 }
@@ -613,7 +613,7 @@ void BoardWidget::animatingMoveListForward()
         // put back all tiles
         putTileInBoard(Game->MoveListData(Game->TileNum));
         Game->TileNum++;
-        putTileInBoard(Game->MoveListData(Game->TileNum));
+        putTileInBoard(Game->MoveListData(Game->TileNum), false);
         Game->TileNum++;
         drawTileNumber();
         animateForwardTimer->start(); //it is a single shot timer
@@ -627,7 +627,7 @@ void BoardWidget::animatingMoveListBackwards()
 {
     if (Game->TileNum > 0 ) {
         // remove all tiles
-        removeTile(Game->MoveListData(Game->TileNum-1));
+        removeTile(Game->MoveListData(Game->TileNum-1), false);
         removeTile(Game->MoveListData(Game->TileNum-1));
         drawTileNumber();
         animateBackwardsTimer->start(); //it is a single shot timer
@@ -696,7 +696,7 @@ void BoardWidget::calculateNewGame( int gNumber)
 // modifying color 21 to color 20. This was single tileset
 // specific. We now have two tile faces, one selected one not.
 
-void BoardWidget::hilightTile( POSITION& Pos, bool on)
+void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 {
 	TileSprite * atile = 0;
 
@@ -742,7 +742,7 @@ void BoardWidget::drawBoard(bool showTiles)
 }
 
 // ---------------------------------------------------------
-void BoardWidget::putTileInBoard( POSITION& Pos )
+void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
 {
     short E=Pos.e;
     short Y=Pos.y;
@@ -768,7 +768,7 @@ void BoardWidget::putTileInBoard( POSITION& Pos )
 
 // ---------------------------------------------------------
 //TODO move this to Game after handling the repaint situation
-void BoardWidget::removeTile( POSITION& Pos )
+void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
 {
     short E = Pos.e;
     short Y = Pos.y;
@@ -834,7 +834,7 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                     Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
                     // now we remove the tiles from the board*t, 
-                    removeTile(MouseClickPos1);
+                    removeTile(MouseClickPos1, false);
                     removeTile(MouseClickPos2);
 
                     // removing a tile means redo is impossible without
@@ -857,8 +857,8 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                 else
                 {
                     // redraw tiles in normal state
-                    hilightTile( MouseClickPos1 );
-                    hilightTile( MouseClickPos2 );
+                    hilightTile( MouseClickPos1, false, false );
+                    hilightTile( MouseClickPos2, false );
                 }
                 MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
                 MouseClickPos2.e = Game->m_depth;
@@ -952,7 +952,8 @@ void BoardWidget::setStatusText( const QString & pszText )
 
 // ---------------------------------------------------------
 bool BoardWidget::loadBackground(
-        const QString& pszFileName
+        const QString& pszFileName,
+        bool        bShowError
     )
 {
   if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {

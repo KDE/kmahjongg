@@ -367,7 +367,10 @@ void KMahjongg::gameOver(
 	int score;
 
 	gameTimer->pause();
+        long gameNum = bw->getGameNum();
 	KMessageBox::information(this, i18n("You have won!"));
+
+	int elapsed = gameTimer->seconds();
 
 	time = score = 0;
 
@@ -528,7 +531,7 @@ void KMahjongg::loadGame() {
   in >> theTilesName;
   bw->loadTileset(theTilesName);
   in >> theBackgroundName;
-  bw->loadBackground(theBackgroundName);
+  bw->loadBackground(theBackgroundName, false);
   in >> theBoardLayoutName;
   
   //GameTime
