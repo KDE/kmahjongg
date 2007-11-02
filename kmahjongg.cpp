@@ -100,12 +100,6 @@ KMahjongg::KMahjongg( QWidget* parent)
     setupStatusBar();
     setupKAction();
 
-    QWidget *hbox = new QWidget(toolBar());
-    QHBoxLayout *layout = new QHBoxLayout(hbox);
-    layout->setMargin(0);
-    layout->setSpacing(0);
-    layout->addStretch();
-
     gameTimer = new KGameClock(this);
 
     connect( gameTimer, SIGNAL( timeChanged(const QString&)), this,
