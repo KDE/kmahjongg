@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&kmahjongg;">
+  <!-- <!ENTITY kappname "&kmahjongg;"> -->
   <!ENTITY kappversion "0.8.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY docupdate "2007-10-11"><!--Document version. Use this variable everywhere it's needed.-->
@@ -12,7 +12,7 @@
 
 <book lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-	<title>The &kappname; Handbook</title> <!-- This is the title of this docbook. -->
+	<title>The &kmahjongg; Handbook</title> <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
@@ -36,7 +36,7 @@
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para>This documentation describes the game of &kappname; version &kappversion;</para>
+	<para>This documentation describes the game of &kmahjongg; version &kappversion;</para>
 </abstract>
  
 <!--List of relevan keywords-->
@@ -60,10 +60,10 @@
 	<note><title>Gametype:</title><para>Board, Arcade</para></note><!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 	<para>
-		&kappname; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kappname; is a tile matching game for one or two players, a variation usually known as Mahjong Solitaire.
+		&kmahjongg; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kmahjongg; is a tile matching game for one or two players, a variation usually known as Mahjong Solitaire.
 	</para>
 	<para>
-		In &kappname; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile’s matching pair.
+		In &kmahjongg; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile’s matching pair.
 	</para>
 </chapter>
  
@@ -72,7 +72,7 @@
 	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile’s matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		&kappname; will load a default layout automatically one once you start the game and you can start playing right away.		
+		&kmahjongg; will load a default layout automatically one once you start the game and you can start playing right away.		
 	</para>
 	<note><title>Note:</title><para>The game timer will not start until you make the first move.</para></note>
 	<para>
@@ -189,7 +189,7 @@
 		<itemizedlist>
 			<listitem><para>The ‘Flowers’ tiles have no doubles in the set and can be matched directly to each-other.</para></listitem>
 			<listitem><para>The ‘Seasons’ tiles have no doubles in the set and can be matched directly to each-other.  </para></listitem>
-			<listitem><para>Not every instance of the KMahjongg game can be finished. Sometimes the tiles are mixed in such a way that it may not be possible to find all the matches. This problem can be avoided. Please refer to this section of the …</para></listitem>
+			<listitem><para>Not every &kmahjongg; game can be finished. Sometimes the tiles are mixed in such a way that it may not be possible to find all the matches. This problem can be avoided. Please refer to this section of the …</para></listitem>
 			<listitem><para>To be eligible for a place amongst the high scores the player has to complete a game in the shortest period of time possible.</para></listitem>
 		</itemizedlist>
 		<note><title>Note:</title><para>If the player uses the ‘Hint’ feature the record will not be considered as a high score.</para></note>
@@ -417,11 +417,11 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Where can I get cheatcodes? </para></question>
-		 <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+		 <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>How do I start a new game? </para></question>
-		 <answer><para>&kappname; will load a default layout automatically once you start the application and you can start playing right away.</para></answer>
+		 <answer><para>&kmahjongg; will load a default layout automatically once you start the application and you can start playing right away.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Can I start a totaly new game? </para></question>
@@ -437,7 +437,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I want to change the way this game looks. Can I? </para></question>
-		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
+		 <answer><para>Yes. To change the way &kmahjongg; looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I have made a mistake. Can I undo? </para></question>
@@ -452,11 +452,11 @@
 		 <answer><para>No. This game does not feature a keyboard play mode yet.</para></answer>
 	</qandaentry>
 	<qandaentry>
-		 <question><para>I can't figure out what to do here! Are there hints? </para></question>
-		 <answer><para>Yes. To use &kappname; hint feature can either use a <link linkend="move-menu-hint">shortcut key</link>, or a <link linkend="move-menu-hint">menubar</link> option.</para></answer>
+		 <question><para>I cannot figure out what to do here! Are there hints? </para></question>
+		 <answer><para>Yes. To use &kmahjongg; hint feature can either use a <link linkend="move-menu-hint">shortcut key</link>, or a <link linkend="move-menu-hint">menubar</link> option.</para></answer>
 	</qandaentry>
 	<qandaentry>
-		 <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
+		 <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
 		  <answer><para>Yes. To save your game progress either use a <link linkend="game-menu-save">shortcut key</link>, or a <link linkend="game-menu-save">menubar</link> option.</para></answer>
 	</qandaentry>
 	<qandaentry>
@@ -477,7 +477,7 @@
 </chapter>
  
 <chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
-<!--This section describes configuration GUI. If your game is configured using menubar exclusively, please remove this section.-->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
 <screenshot>
 <screeninfo>Configure Dialog</screeninfo>
 	<mediaobject>
@@ -490,7 +490,7 @@
 	</mediaobject>
 </screenshot>
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> opens the Configure &kappname; Dialog.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;...</guimenuitem></menuchoice> opens the Configure &kmahjongg; Dialog.</para>
 
 <sect1 id="general-options"><title><guilabel>General</guilabel> options</title>
 	<variablelist>
@@ -773,9 +773,9 @@ What's this? Help
 	<para>
 		Documentation Copyright &copy; 2005 <personname><firstname>John</firstname><surname>Hayes</surname></personname> <email>justlinux@bellsouth.net</email>
 	</para>
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
  
 <!-- !!!do not change ANYTHING after this line!!!! -->
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
 &underGPL;
  
