@@ -60,27 +60,27 @@
 	<note><title>Gametype:</title><para>Board, Arcade</para></note><!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 	<para>
-		&kappname; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kappname; is a tile matching game for one or two players.
+		&kappname; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kappname; is a tile matching game for one or two players, a variation usually known as Mahjong Solitaire.
 	</para>
 	<para>
-		In &kappname; the tiles are scrambled and staked on top of each other to resemble a certain shape. The player then is expected to remove all the tiles off the game board by locating each tile’s matching pair.
+		In &kappname; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile’s matching pair.
 	</para>
 </chapter>
  
 <chapter id="howto"><title>How to play</title> <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
-	<note><title>Objective:</title><para>Remove all the tiles off the game board by locating each tile’s matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
+	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile’s matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		&kappname; will load a default layout automaticly one once you start the game and you can start playing right away.		
+		&kappname; will load a default layout automatically one once you start the game and you can start playing right away.		
 	</para>
 	<note><title>Note:</title><para>The game timer will not start until you make the first move.</para></note>
 	<para>
-		You should carefully study the stack of tiles lied out on the game board and find two tiles matching exactly. When you have found such a pair use your mouse to select these.
+		You should carefully study the stack of tiles layed out on the game board and find two matching tiles. When you have found such a pair use your mouse to select these.
 	</para>
-	<note><title>Note:</title><para> Bear in mind that you can only select the tiles which have either of their vertical sides open.</para></note>
+	<note><title>Note:</title><para> Bear in mind that you can only select the tiles which are 'Open'. Tiles are considered 'Blocked' when they are positioned behind other tiles, and when both the right and left sides of the tile are filled by others. If at least one of the lateral sides is empty then the tile is considered 'Open', and can be removed.</para></note>
 	<para>
-		Once you have selected the right pair of tiles they will vanish off the game board, thus opening the tiles previously located underneath.
+		Once you have selected the right pair of tiles they will vanish off the game board, thus revealing the tiles previously located underneath, and opening the tiles adjacent to them.
 	</para>
 	<para>
 		Find as many matches as possible to remove all the tiles from the game board.
@@ -113,7 +113,7 @@
 		<varlistentry>
 			<term>Statusbar</term>
 			<listitem><para>
-				The Status bar is located at the bottom of the screen, and contains four panes. The first pane lists the removed/total tiles and the number of matching tiles that have free sides. The second pane gives the sequence number of the game you are playing. The third pane lets the player knows when the game is ready, and the last pane displayes the game timer, which keeps track of theelapsed time from the start of the game until the game is finished.
+				The Status bar is located at the bottom of the screen, and contains four panes. The first pane lists the removed/total tiles and the number of matching tiles that have free sides. The second pane gives the sequence number of the game you are playing. The third pane lets the player knows when the game is ready, and the last pane displays the game timer, which keeps track of the elapsed time from the start of the game until the game is finished.
 			</para></listitem>
 		</varlistentry>
 	</variablelist>
@@ -127,44 +127,44 @@
 				<tbody>
 					<row><entry>Group name</entry><entry>Tile name</entry><entry>Quantity in a set</entry></row>
 					<row><entry>Dots</entry><entry></entry><entry></entry></row>
-					<row><entry></entry><entry>1 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>2 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>3 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>4 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>5 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>6 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>7 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>8 of Dots</entry><entry>2</entry></row>
-					<row><entry></entry><entry>9 of Dots</entry><entry>2</entry></row>
+					<row><entry></entry><entry>1 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>2 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>3 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>4 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>5 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>6 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>7 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>8 of Dots</entry><entry>4</entry></row>
+					<row><entry></entry><entry>9 of Dots</entry><entry>4</entry></row>
 					<row><entry>Bamboos</entry><entry></entry><entry></entry></row>
-					<row><entry></entry><entry>1 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>2 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>3 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>4 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>5 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>6 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>7 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>8 of Bamboos</entry><entry>2</entry></row>
-					<row><entry></entry><entry>9 of Bamboos</entry><entry>2</entry></row>
+					<row><entry></entry><entry>1 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>2 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>3 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>4 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>5 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>6 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>7 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>8 of Bamboos</entry><entry>4</entry></row>
+					<row><entry></entry><entry>9 of Bamboos</entry><entry>4</entry></row>
 					<row><entry>Characters</entry><entry></entry><entry></entry></row>
-					<row><entry></entry><entry>1 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>2 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>3 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>4 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>5 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>6 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>7 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>8 of Characters</entry><entry>2</entry></row>
-					<row><entry></entry><entry>9 of Characters</entry><entry>2</entry></row>
+					<row><entry></entry><entry>1 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>2 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>3 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>4 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>5 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>6 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>7 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>8 of Characters</entry><entry>4</entry></row>
+					<row><entry></entry><entry>9 of Characters</entry><entry>4</entry></row>
 					<row><entry>Winds</entry><entry></entry><entry></entry></row>
-					<row><entry></entry><entry>East Wind</entry><entry>2</entry></row>
-					<row><entry></entry><entry>South Wind</entry><entry>2</entry></row>
-					<row><entry></entry><entry>West Wind</entry><entry>2</entry></row>
-					<row><entry></entry><entry>North Wind</entry><entry>2</entry></row>
+					<row><entry></entry><entry>East Wind</entry><entry>4</entry></row>
+					<row><entry></entry><entry>South Wind</entry><entry>4</entry></row>
+					<row><entry></entry><entry>West Wind</entry><entry>4</entry></row>
+					<row><entry></entry><entry>North Wind</entry><entry>4</entry></row>
 					<row><entry>Dragons</entry><entry></entry><entry></entry></row>
-					<row><entry></entry><entry>Red Dragon</entry><entry>2</entry></row>
-					<row><entry></entry><entry>Green Dragon</entry><entry>2</entry></row>
-					<row><entry></entry><entry>White Dragon</entry><entry>2</entry></row>
+					<row><entry></entry><entry>Red Dragon</entry><entry>4</entry></row>
+					<row><entry></entry><entry>Green Dragon</entry><entry>4</entry></row>
+					<row><entry></entry><entry>White Dragon</entry><entry>4</entry></row>
 					<row><entry>Flowers</entry><entry></entry><entry></entry></row>
 					<row><entry></entry><entry>Plum (1)</entry><entry>1</entry></row>
 					<row><entry></entry><entry>Lily (2)</entry><entry>1</entry></row>
@@ -181,18 +181,18 @@
 		</para>
 		<itemizedlist>
 			<listitem><para>Only the ‘open’ tiles can be selected.</para></listitem>
-			<listitem><para>‘Open’ tile is the tile which has one of the tile’s vertical sides open, meaning that on other tiles are located immediately next to it.</para></listitem>
+			<listitem><para>‘Open’ tile is the tile which has one of the tile’s lateral sides open, meaning that on other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only then matching, open tiles can be removed from the game board.</para></listitem>
-			<listitem><para>Matching tiles are such tiles where the face pictograms match exactly.</para></listitem>
+			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
 		</itemizedlist>			
 		<note><title>Note:</title><para>There are exceptions to this rule! In the traditional game of Mahjong each tile has a matching one except for the ‘Flowers’ and ‘Seasons’ tiles. </para></note>
 		<itemizedlist>
 			<listitem><para>The ‘Flowers’ tiles have no doubles in the set and can be matched directly to each-other.</para></listitem>
 			<listitem><para>The ‘Seasons’ tiles have no doubles in the set and can be matched directly to each-other.  </para></listitem>
 			<listitem><para>Not every instance of the KMahjongg game can be finished. Sometimes the tiles are mixed in such a way that it may not be possible to find all the matches. This problem can be avoided. Please refer to this section of the …</para></listitem>
-			<listitem><para>To be eligible for a place amongst the high scores player has to complete a game instance within the shortest period of time possible.</para></listitem>
+			<listitem><para>To be eligible for a place amongst the high scores the player has to complete a game in the shortest period of time possible.</para></listitem>
 		</itemizedlist>
-		<note><title>Note:</title><para>If the player uses ‘cheat’ feature his/here record will not be considered as a high Score.</para></note>
+		<note><title>Note:</title><para>If the player uses the ‘Hint’ feature the record will not be considered as a high score.</para></note>
 
 	</sect1>
 </chapter>
@@ -226,7 +226,7 @@
 					<guimenu>Game</guimenu>
 					<guimenuitem>Restart Game</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Restarts the currently played game.</action></para></listitem>
+				<listitem><para><action>Restarts the current game.</action></para></listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><menuchoice>
@@ -421,7 +421,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>How do I start a new game? </para></question>
-		 <answer><para>&kappname; will load a default layout automaticly one once you start the application and you can start playing right away.</para></answer>
+		 <answer><para>&kappname; will load a default layout automatically once you start the application and you can start playing right away.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Can I start a totaly new game? </para></question>
@@ -449,7 +449,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Can I use keyboard? </para></question>
-		 <answer><para>No. This game does not feature a keyboard play mode.</para></answer>
+		 <answer><para>No. This game does not feature a keyboard play mode yet.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I can't figure out what to do here! Are there hints? </para></question>
@@ -460,8 +460,8 @@
 		  <answer><para>Yes. To save your game progress either use a <link linkend="game-menu-save">shortcut key</link>, or a <link linkend="game-menu-save">menubar</link> option.</para></answer>
 	</qandaentry>
 	<qandaentry>
-		 <question><para>Where are the highscores?</para></question>
-		 <answer><para>To open the highscores dialog you can either use a <link linkend="game-menu-highscores">shortcut key</link>, or a <link linkend="game-menu-highscores">menubar</link> option.</para></answer>
+		 <question><para>Where are the high scores?</para></question>
+		 <answer><para>To open the high scores dialog you can either use a <link linkend="game-menu-highscores">shortcut key</link>, or a <link linkend="game-menu-highscores">menubar</link> option.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I want to change the game configuration. Where do I go? </para></question>
