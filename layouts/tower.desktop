@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Tower
+Name[ca]=Torre
 Name[de]=Turm
 Name[el]=Πύργος
 Name[es]=Torre
@@ -15,6 +16,7 @@ Name[x-test]=xxTowerxx
 Name[zh_CN]=堡垒
 Name[zh_TW]=塔
 Description=Remove the towers
+Description[ca]=Elimina les torres
 Description[de]=Entfernen Sie die Türme
 Description[el]=Αφαιρέστε τους πύργους
 Description[es]=Eliminar las torres
