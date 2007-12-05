@@ -2,6 +2,7 @@
 Name=Triangle
 Name[de]=Dreieck
 Name[el]=Τρίγωνο
+Name[eo]=Triangulo
 Name[es]=Triángulo
 Name[ga]=Triantán
 Name[ja]=トライアングル
@@ -19,6 +20,7 @@ Description=Triangular piramid
 Description[ca]=Piràmide triangular
 Description[de]=Dreieckige Pyramide
 Description[el]=Τριγωνική πυραμίδα
+Description[eo]=Triangula piramido
 Description[es]=Pirámide triangular
 Description[ja]=三角形のピラミッド
 Description[ko]=삼각형 피라미드
