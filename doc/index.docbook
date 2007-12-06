@@ -222,7 +222,7 @@
 			</varlistentry>
 			<varlistentry id="game-menu-restart">
 				<term><menuchoice>
-					<shortcut><keysym>F5</keysym></shortcut>
+					<shortcut><keycap>F5</keycap></shortcut>
 					<guimenu>Game</guimenu>
 					<guimenuitem>Restart Game</guimenuitem>
 				</menuchoice></term>
@@ -359,14 +359,14 @@
 			<varlistentry>
 				<term><menuchoice>
 					<guimenu>Settings</guimenu>
-					<guimenuitem>Show/Hide Toolbar</guimenuitem>
+					<guimenuitem>Show Toolbar</guimenuitem>
 				</menuchoice></term>
 				<listitem><para>Shows or hides the Toolbar.</para></listitem>
 			</varlistentry>
 			<varlistentry id="settings-menu-statusbar">
 				<term><menuchoice>
 					<guimenu>Settings</guimenu>
-					<guimenuitem>Show/Hide Statusbar</guimenuitem>
+					<guimenuitem>Show Statusbar</guimenuitem>
 				</menuchoice></term>
 				<listitem><para>Shows or hides the Statusbar.</para></listitem>
 			</varlistentry>
@@ -401,7 +401,7 @@
 		</variablelist>
 </sect1>
  <sect1 id="help"><!--This is a standard Help menubar entry. Only change if needed.-->
-<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+<title>The <guimenu>Help</guimenu> Menu</title>
 &help.menu.documentation;
 </sect1>
 </chapter>
@@ -598,7 +598,7 @@ The default kebindings are as follows:
 <variablelist>
 
 <varlistentry>
-<term><keysym>D</keysym></term>
+<term><keycap>D</keycap></term>
 <listitem>
 <para>
 Playes the game in Demo mode.
@@ -607,7 +607,7 @@ Playes the game in Demo mode.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>H</keysym></term>
+<term><keycap>H</keycap></term>
 <listitem>
 <para>
 Gives you a hint by flashing two matching tiles.
@@ -616,7 +616,7 @@ Gives you a hint by flashing two matching tiles.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>F1</keysym></term>
+<term><keycap>F1</keycap></term>
 <listitem>
 <para>
 Displays this handbook.
@@ -643,7 +643,7 @@ Starts a new game.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>P</keysym></term>
+<term><keycap>P</keycap></term>
 <listitem>
 <para>
 Pauses or resumes a game.
@@ -670,7 +670,7 @@ Move redo.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>F5</keysym></term>
+<term><keycap>F5</keycap></term>
 <listitem>
 <para>
 Restart the game.
@@ -715,7 +715,7 @@ Move undo.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>F</keysym></term>
+<term><keycap>F</keycap></term>
 <listitem>
 <para>
 Rotate the view angle clockwise.
@@ -724,7 +724,7 @@ Rotate the view angle clockwise.
 </varlistentry>
 
 <varlistentry>
-<term><keysym>G</keysym></term>
+<term><keycap>G</keycap></term>
 <listitem>
 <para>
 Rotate the view angle counter-clockwise.
