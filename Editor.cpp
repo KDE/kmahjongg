@@ -163,7 +163,7 @@ void Editor::setupToolbar()
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
-    KToggleAction* addTiles = new KToggleAction(KIcon("pencil"), i18n("Add tiles"), this);
+    KToggleAction* addTiles = new KToggleAction(KIcon("draw-freehand"), i18n("Add tiles"), this);
     actionCollection->addAction("add_tiles", addTiles);
     topToolbar->addAction(addTiles);
     KToggleAction* delTiles = new KToggleAction(KIcon("edit-delete"), i18n("Remove tiles"), this);
