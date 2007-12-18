@@ -21,6 +21,14 @@ kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
 
 kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
+set(kmahjongg_icons
+	hi16-app-kmahjongg.png
+	hi32-app-kmahjongg.png
+	hi48-app-kmahjongg.png
+	hi64-app-kmahjongg.png
+	hi128-app-kmahjongg.png
+)
+kde4_add_win32_app_icon(kmahjongg_SRCS ${kmahjongg_icons})
 kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
 target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames kmahjongglib )
