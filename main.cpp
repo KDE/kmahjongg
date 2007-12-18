@@ -35,7 +35,7 @@ int main( int argc, char** argv )
       ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini"));
     aboutData.addAuthor(ki18n("Mathias Mueller"), ki18n("Original Author"), "in5y158@public.uni-hamburg.de");
     aboutData.addAuthor(ki18n("Mauricio Piacentini"), ki18n("Current maintainer"), "mauricio@tabuleiro.com");
-    aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "astals11@terra.es");
+    aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "aacid@kde.org");
     aboutData.addAuthor(ki18n("David Black"), ki18n("KDE 3 rewrite and Extension"), "david.black@lutris.com");
     aboutData.addAuthor(ki18n("Michael Haertjens"), ki18n("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
     aboutData.addCredit(ki18n("Raquel Ravanini"), ki18n("SVG Tileset for KDE4"), "raquel@tabuleiro.com");
