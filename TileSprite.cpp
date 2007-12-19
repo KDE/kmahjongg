@@ -18,7 +18,6 @@
 */
 
 #include "TileSprite.h"
-#include <QImage>
 #include <QPixmap>
 #include <QTimer>
 

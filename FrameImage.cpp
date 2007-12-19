@@ -27,18 +27,14 @@
 #include <KStandardGuiItem>
 #include <kimageio.h>
 
-#include <QComboBox>
-#include <QGroupBox>
 #include <qevent.h>
 #include <qimage.h>
-#include <QRegExp>
 #include <qpainter.h>
 #include <qtextstream.h>
 #include <kvbox.h>
 
 
 #include "prefs.h"
-#include <QVBoxLayout>
 
 FrameImage::FrameImage (QWidget *parent, const QSize& initialImageSize)
   : KGameCanvasWidget(parent)

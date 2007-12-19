@@ -19,7 +19,6 @@
 
 #include "Editor.h"
 
-#include <QLayout>
 #include <QLabel>
 #include <qevent.h>
 #include <qpainter.h>

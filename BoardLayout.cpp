@@ -21,7 +21,6 @@
 #include <QFile>
 #include <qtextstream.h>
 #include <qtextcodec.h>
-#include <QtDebug>
 
 BoardLayout::BoardLayout()
 {
