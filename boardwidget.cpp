@@ -681,8 +681,9 @@ void BoardWidget::calculateNewGame( int gNumber)
         {
             drawBoard(true);
             setStatusText( i18n("Ready. Now it is your turn.") );
-			cheatsUsed=0;
-	    return;
+            cheatsUsed=0;
+            emit gameCalculated();
+            return;
         }
     }
 
