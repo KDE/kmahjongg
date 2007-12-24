@@ -410,6 +410,7 @@ void Editor::paintEvent( QPaintEvent*  ) {
     drawTiles(&buff);
     QPainter p(dest);
     p.drawPixmap(0,0, buff);
+    p.end();
 
     drawFrame->update();
 }
