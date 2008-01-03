@@ -722,6 +722,7 @@ void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
 // ---------------------------------------------------------
 void BoardWidget::drawBoard(bool showTiles)
 {
+   if (gamePaused) showTiles = false;
    if (showTiles) {
     populateSpriteMap();
     drawTileNumber();
