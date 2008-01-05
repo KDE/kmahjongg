@@ -63,13 +63,13 @@
 		&kmahjongg; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kmahjongg; is a tile matching game for one or two players, a variation usually known as Mahjong Solitaire.
 	</para>
 	<para>
-		In &kmahjongg; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile</quote>s matching pair.
+		In &kmahjongg; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile's matching pair.
 	</para>
 </chapter>
  
 <chapter id="howto"><title>How to play</title> <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
-	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile</quote>s matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
+	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile's matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
 		&kappname; will load a default layout automatically one once
@@ -80,7 +80,7 @@
 		You should carefully study the stack of tiles laid out on the game board and find two tiles matching exactly. When you have found such a pair use your mouse to select these.
 	</para>
 	<note><title>Note:</title>
-		<para>Bear in mind that you can only select the tiles which are <quote>Open<quote>. 
+		<para>Bear in mind that you can only select the tiles which are <quote>Open</quote>. 
 			Tiles are considered <quote>Blocked</quote> when they
 			are positioned behind other tiles, and when both the
 			right and left sides of the tile are filled by others.
@@ -190,7 +190,7 @@
 		</para>
 		<itemizedlist>
 			<listitem><para>Only the <quote>open</quote> tiles can be selected.</para></listitem>
-			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile</quote>s lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
+			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile's lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only then matching, open tiles can be removed from the game board.</para></listitem>
 			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
 		</itemizedlist>			
