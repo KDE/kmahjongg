@@ -181,7 +181,7 @@
 		</para>
 		<itemizedlist>
 			<listitem><para>Only the ‘open’ tiles can be selected.</para></listitem>
-			<listitem><para>‘Open’ tile is the tile which has one of the tile’s lateral sides open, meaning that on other tiles are located immediately next to it.</para></listitem>
+			<listitem><para>‘Open’ tile is the tile which has one of the tile’s lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only then matching, open tiles can be removed from the game board.</para></listitem>
 			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
 		</itemizedlist>			
