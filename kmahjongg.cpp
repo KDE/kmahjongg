@@ -268,7 +268,7 @@ void KMahjongg::showSettings(){
   dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board layout"), "games-config-board");
   dialog->addTilesetPage();
   dialog->addBackgroundPage();
-
+  dialog->setHelp(QString(),"kmahjongg");
   connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
   connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
   dialog->show();
