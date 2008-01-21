@@ -314,7 +314,7 @@
 					<guimenu>Move</guimenu>
 					<guimenuitem>Redo</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Redo</action> a move the was undone.</para></listitem>
+				<listitem><para><action>Redo</action> a move that was undone.</para></listitem>
 			</varlistentry>
 			<varlistentry id="move-menu-hint">
 				<term><menuchoice>
