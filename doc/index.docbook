@@ -72,7 +72,7 @@
 	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile's matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		&kappname; will load a default layout automatically one once
+		&kappname; will load a default layout automatically once
 		you start the game and you can start playing right away.		
 	</para>
 	<note><title>Note:</title><para>The game timer will not start until you make the first move.</para></note>
