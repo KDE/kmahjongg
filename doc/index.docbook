@@ -430,11 +430,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>How do I start a new game?</para></question>
-		 <answer><para>&kappname; will load a default layout automatically once you start the application and you can start playing right away.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>Can I start a totaly new game?</para></question>
-		 <answer><para>Yes. To start a new game you can either use a <link linkend="game-menu-new">shortcut key</link>, or a <link linkend="game-menu-new">menubar</link> option. </para></answer>
+		   <answer><para>You can start a new game using the <guibutton>New</guibutton> button on the toolbar, the <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> menu entry on the menubar or using the default shortcut <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I did something very wrong! Can I restart the game? </para></question>
