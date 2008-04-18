@@ -32,7 +32,7 @@ int main( int argc, char** argv )
 {
     KAboutData aboutData( "kmahjongg", 0, ki18n("KMahjongg"),
       KMAHJONGG_VERSION, ki18n(description), KAboutData::License_GPL,
-      ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini"));
+      ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini"), KLocalizedString(), "http://games.kde.org/kmahjongg" );
     aboutData.addAuthor(ki18n("Mathias Mueller"), ki18n("Original Author"), "in5y158@public.uni-hamburg.de");
     aboutData.addAuthor(ki18n("Mauricio Piacentini"), ki18n("Current maintainer"), "mauricio@tabuleiro.com");
     aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "aacid@kde.org");
