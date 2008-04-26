@@ -34,6 +34,7 @@
 #include <KStandardAction>
 #include <KIcon>
 #include <KScoreDialog>
+#include <KUser>
 #include <KGameClock>
 
 #include <QPixmapCache>
@@ -386,10 +387,17 @@ void KMahjongg::gameOver(
 
         //TODO: add gameNum as a Custom KScoreDialog field?
 //	theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+
+        KUser user;
+        // Fill in default user
+        QString userName = user.property(KUser::FullName).toString();
+        if (userName.isEmpty())
+          userName = user.loginName();
         KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
         ksdialog.setConfigGroup(bw->getLayoutName());
         KScoreDialog::FieldInfo scoreInfo;
         scoreInfo[KScoreDialog::Score].setNum(score);
+        scoreInfo[KScoreDialog::Name] = userName;
         scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
         if(ksdialog.addScore( scoreInfo, KScoreDialog::AskName ))
           ksdialog.exec();
