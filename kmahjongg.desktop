@@ -16,6 +16,7 @@ Exec=kmahjongg -caption "%c"
 Type=Application
 GenericName=Mahjongg Solitaire
 GenericName[ca]=Solitari Mahjongg
+GenericName[cs]=Mahjongg solitér
 GenericName[es]=Solitario Mahjongg
 GenericName[et]=Mahjongg
 GenericName[fa]=فال Mahjongg

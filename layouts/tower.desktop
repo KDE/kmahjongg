@@ -2,6 +2,7 @@
 Name=Tower
 Name[be]=Башня
 Name[ca]=Torre
+Name[cs]=Věž
 Name[da]=Tårn
 Name[de]=Turm
 Name[el]=Πύργος
@@ -35,6 +36,7 @@ Name[zh_CN]=堡垒
 Name[zh_TW]=塔
 Description=Remove the towers
 Description[ca]=Elimina les torres
+Description[cs]=Odstraňte věže
 Description[da]=Fjern tårnene
 Description[de]=Entfernen Sie die Türme
 Description[el]=Αφαιρέστε τους πύργους

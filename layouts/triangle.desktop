@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Triangle
 Name[be]=Трохкутнік
+Name[cs]=Trojúhelník
 Name[da]=Trekant
 Name[de]=Dreieck
 Name[el]=Τρίγωνο
@@ -34,6 +35,7 @@ Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular piramid
 Description[ca]=Piràmide triangular
+Description[cs]=Trojúhelníková pyramida
 Description[da]=Trekantet pyramide
 Description[de]=Dreieckige Pyramide
 Description[el]=Τριγωνική πυραμίδα
