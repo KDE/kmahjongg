@@ -12,7 +12,7 @@
 
 <book lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-	<title>The ""&kappname;"" Handbook</title> <!-- This is the title of this docbook. -->
+	<title>The &kappname; Handbook</title> <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
@@ -36,7 +36,7 @@
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para>This documentation describes the game of ""&kappname;"" version &kappversion;</para>
+	<para>This documentation describes the game of &kappname; version &kappversion;</para>
 </abstract>
  
 <!--List of relevan keywords-->
@@ -72,7 +72,7 @@
 	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile's matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		""&kappname;"" will load a default layout automatically once
+		&kappname; will load a default layout automatically once
 		you start the game and you can start playing right away.		
 	</para>
 	<note><title>Note:</title><para>The game timer will not start until you make the first move.</para></note>
@@ -293,7 +293,7 @@
 					<guimenu>Game</guimenu>
 					<guimenuitem>Quit</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Quits</action> ""&kappname;"".</para></listitem>
+				<listitem><para><action>Quits</action> &kappname;.</para></listitem>
 			</varlistentry>
 		</variablelist>
 </sect1>
@@ -391,7 +391,7 @@
 					<guimenu>Settings</guimenu>
 					<guimenuitem>Configure Shortcuts...</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Displays a standard &kde; shortcut configuration dialog</action> to change the <link linkend="default-keybindings">keyboard shortcuts</link> for ""&kappname;"".</para></listitem>
+				<listitem><para><action>Displays a standard &kde; shortcut configuration dialog</action> to change the <link linkend="default-keybindings">keyboard shortcuts</link> for &kappname;.</para></listitem>
 			</varlistentry>
 			<varlistentry id="settings-menu-toolbar">
 				<term><menuchoice>
@@ -403,9 +403,9 @@
 			<varlistentry id="settings-menu-settings">
 				<term><menuchoice>
 					<guimenu>Settings</guimenu>
-					<guimenuitem>Configure "&kappname;"...</guimenuitem>
+					<guimenuitem>Configure &kappname;...</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Opens a dialog to configure "&kappname;".</action> For details, see <link linkend="configuration">here</link>.</para></listitem>
+				<listitem><para><action>Opens a dialog to configure &kappname;.</action> For details, see <link linkend="configuration">here</link>.</para></listitem>
 			</varlistentry>
 		</variablelist>
 </sect1>
@@ -442,7 +442,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I want to change the way this game looks. Can I? </para></question>
-		 <answer><para>Yes. To change the way "&kappname;" looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
+		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I have made a mistake. Can I undo?</para></question>
@@ -458,7 +458,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I cannot figure out what to do here! Are there hints? </para></question>
-		 <answer><para>Yes. To use "&kappname;" hint feature can either use a <link linkend="move-menu-hint">shortcut key</link>, or a <link linkend="move-menu-hint">menubar</link> option.</para></answer>
+		 <answer><para>Yes. To use &kappname; hint feature can either use a <link linkend="move-menu-hint">shortcut key</link>, or a <link linkend="move-menu-hint">menubar</link> option.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
@@ -495,7 +495,7 @@
 	</mediaobject>
 </screenshot>
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure "&kappname;"...</guimenuitem></menuchoice> opens the <guilabel>Configure - "&kappname;"</guilabel> dialog.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> opens the <guilabel>Configure - &kappname;</guilabel> dialog.</para>
 
 <sect1 id="general-options"><title><guilabel>General</guilabel> options</title>
 	<variablelist>
@@ -755,7 +755,7 @@ What's this? Help
 <chapter id="credits"><title>Credits and License</title> <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
 	<para>
-		"&kappname;" for &kde;
+		&kappname; for &kde;
 	</para>
 
 	<para>
