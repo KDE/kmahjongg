@@ -272,7 +272,7 @@
 				<term><menuchoice>
 					<shortcut><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></shortcut>
 					<guimenu>Game</guimenu>
-					<guimenuitem>Show High Scores...</guimenuitem>
+					<guimenuitem>Show High Scores</guimenuitem>
 				</menuchoice></term>
 				<listitem><para><action>Shows the high score list.</action>
 				<screenshot>
