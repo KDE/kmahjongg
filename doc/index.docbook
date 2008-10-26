@@ -75,7 +75,7 @@
 		&kappname; will load a default layout automatically once
 		you start the game and you can start playing right away.		
 	</para>
-	<note><title>Note:</title><para>The game timer will not start until you make the first move.</para></note>
+	<note><title>Note:</title><para>The game timer will start immediately if the game is started.</para></note>
 	<para>
 		You should carefully study the stack of tiles laid out on the game board and find two tiles matching exactly. When you have found such a pair use your mouse to select these.
 	</para>
@@ -122,7 +122,7 @@
 		<varlistentry>
 			<term>Statusbar</term>
 			<listitem><para>
-				The Status bar is located at the bottom of the screen, and contains four panes. The first pane lists the removed/total tiles and the number of matching tiles that have free sides. The second pane gives the sequence number of the game you are playing. The third pane lets the player knows when the game is ready, and the last pane displays the game timer, which keeps track of the elapsed time from the start of the game until the game is finished.
+				The Status bar is located at the bottom of the screen, and contains four panes. The first pane lists the removed/total tiles and the number of matching tiles that have free sides. The second pane gives the sequence number of the game you are playing. The third pane lets the player know when the game is ready, and the last pane displays the game timer, which keeps track of the elapsed time from the start of the game until the game is finished.
 			</para></listitem>
 		</varlistentry>
 	</variablelist>
@@ -191,7 +191,7 @@
 		<itemizedlist>
 			<listitem><para>Only the <quote>open</quote> tiles can be selected.</para></listitem>
 			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile's lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
-			<listitem><para>Only then matching, open tiles can be removed from the game board.</para></listitem>
+			<listitem><para>Only when matching, open tiles can be removed from the game board.</para></listitem>
 			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
 		</itemizedlist>			
 		<note><title>Note:</title><para>There are exceptions to this rule! In the traditional game of Mahjong each tile has a matching one except for the <quote>Flowers</quote> and <quote>Seasons</quote> tiles. </para></note>
@@ -199,7 +199,7 @@
 			<listitem><para>The <quote>Flowers</quote> tiles have no doubles in the set and can be matched directly to each-other.</para></listitem>
 			<listitem><para>The <quote>Seasons</quote> tiles have no doubles in the set and can be matched directly to each-other.  </para></listitem>
 			<listitem><para>Not every &kmahjongg; game can be finished. Sometimes the tiles are mixed in such a way that it may not be possible to find all the matches. This problem can be avoided. Please refer to <link linkend="general-options">this section</link> of the configuration dialog.</para></listitem>
-			<listitem><para>To be eligible for a place amongst the high scores player has to complete a game instance within the shortest period of time possible.</para></listitem>
+			<listitem><para>To be eligible for a place amongst the high scores the player has to complete a game instance within the shortest period of time possible.</para></listitem>
 		</itemizedlist>
 		<note><title>Note:</title><para>If the player uses the <quote>Hint</quote> feature the record will not be considered as a high score.</para></note>
 
@@ -470,7 +470,7 @@
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I want to change the game configuration. Where do I go?</para></question>
-		 <answer><para>To open the <link linkend="configuration">configuration utility</link> use the <link linkend="settings-menu-settings">menubar->Settings</link> menu.</para></answer><!--IMPORTANT!: this link has to send user to 'Interface Overview' section. So please setup the link structure accordingly.-->
+		 <answer><para>To open the <link linkend="configuration">configuration utility</link> use the <link linkend="settings-menu-settings">Settings</link> menu.</para></answer><!--IMPORTANT!: this link has to send user to 'Interface Overview' section. So please setup the link structure accordingly.-->
 	</qandaentry>
 	<qandaentry>
 		 <question><para>I want to change the toolbar layout. What do I do?</para></question>
