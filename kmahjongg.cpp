@@ -136,7 +136,6 @@ KMahjongg::~KMahjongg()
 // ---------------------------------------------------------
 void KMahjongg::setupKAction()
 {
-    QAction *action;
 
     // game
     KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
@@ -150,17 +149,17 @@ void KMahjongg::setupKAction()
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
     // originally "file" ends here
-    action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
+    QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
     actionCollection()->addAction(action->objectName(), action);
     QAction* shuffle = actionCollection()->addAction("move_shuffle");
     shuffle->setText(i18n("Shu&ffle"));
     shuffle->setIcon(KIcon("view-refresh"));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
-    QAction* angleccw = actionCollection()->addAction("view_angleccw");
+    KAction* angleccw = actionCollection()->addAction("view_angleccw");
     angleccw->setText(i18n("Rotate View Counter Clockwise"));
     angleccw->setIcon(KIcon("object-rotate-left"));
     angleccw->setShortcuts( KShortcut( "f"  ) );
-    QAction* anglecw = actionCollection()->addAction("view_anglecw");
+    KAction* anglecw = actionCollection()->addAction("view_anglecw");
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(KIcon("object-rotate-right"));
     anglecw->setShortcuts( KShortcut( "g"  ) );
