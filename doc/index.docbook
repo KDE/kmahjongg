@@ -711,15 +711,6 @@ Move undo.
 </varlistentry>
 
 <varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo></term>
-<listitem>
-<para>
-Move undo.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><keycap>F</keycap></term>
 <listitem>
 <para>
