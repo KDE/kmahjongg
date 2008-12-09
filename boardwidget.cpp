@@ -55,7 +55,7 @@ BoardWidget::BoardWidget( QWidget* parent )
 
     //memset( &Game->Mask, 0, sizeof( Game->Mask ) );
     gameGenerationNum = 0;
-    m_angle = NE;
+    m_angle = (TileViewAngle) Prefs::angle();
 
     // Load layout first
     loadBoardLayout(Prefs::layout());
@@ -133,6 +133,7 @@ void BoardWidget::saveSettings(){
   Prefs::setTileSet(theTiles.path());
   Prefs::setLayout(theBoardLayout.path());
   Prefs::setBackground(theBackground.path());
+  Prefs::setAngle(m_angle);
   Prefs::self()->writeConfig();
 }
 
@@ -1071,6 +1072,8 @@ void BoardWidget::angleSwitchCCW() {
  	}
 	//re-position and re-layer
 	updateSpriteMap();
+	//save angle
+	saveSettings();
 }
 
 void BoardWidget::angleSwitchCW() {
@@ -1099,6 +1102,8 @@ void BoardWidget::angleSwitchCW() {
  	}
 	//re-position and re-layer
 	updateSpriteMap();
+	//save settings
+	saveSettings();
 }
 // shuffle the remaining tiles around, useful if a deadlock ocurrs
 // this is a big cheat so we penalise the user.

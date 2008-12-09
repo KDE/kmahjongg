@@ -14,6 +14,9 @@
     <entry name="Layout" type="String" key="Layout_file">
       <label>The layout of the tiles.</label>
     </entry>
+    <entry name="Angle" type="Int">
+      <default>0</default>
+    </entry>
     <entry name="SolvableGames" type="Bool" key="Solvable_game">
       <label>Whether all games should be solvable.</label>
       <default>true</default>
