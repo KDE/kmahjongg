@@ -2,7 +2,6 @@
 Name=Triangle
 Name[be]=Трохкутнік
 Name[cs]=Trojúhelník
-Name[da]=Trekant
 Name[de]=Dreieck
 Name[el]=Τρίγωνο
 Name[eo]=Triangulo
@@ -37,6 +36,9 @@ Name[x-test]=xxTrianglexx
 Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular pyramid
+Description[gl]=Pirámide triangular
+Description[lv]=Trīsstūrveida piramīda
+Description[uk]=Трикутна піраміда
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
