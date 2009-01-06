@@ -487,7 +487,7 @@ void KMahjongg::loadGame() {
   KIO::NetAccess::download( url, fname, this );
 
     // open the file for reading
-  QFile infile(QFile::encodeName(fname));
+  QFile infile(fname);
   if (!infile.open(QIODevice::ReadOnly)) {
     KMessageBox::sorry(this,
     i18n("Could not read from file. Aborting."));
@@ -564,7 +564,7 @@ void KMahjongg::saveGame() {
       return;
    }
    
-   QFile outfile(QFile::encodeName(url.path()));
+   QFile outfile(url.path());
    if (!outfile.open(QIODevice::WriteOnly)) {
      KMessageBox::sorry(this,
                         i18n("Could not write saved game."));
