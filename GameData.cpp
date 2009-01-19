@@ -600,20 +600,20 @@ void GameData::randomiseFaces() {
 	int numAlloced=0;
 	// stick in 144 tiles in pairsa.
 
-        for( nr=0; nr<9*4; nr++)
-		tilePair[numAlloced++] = TILE_CHARACTER+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<9*4; nr++)
-		tilePair[numAlloced++] = TILE_BAMBOO+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<9*4; nr++)
-		tilePair[numAlloced++] = TILE_ROD+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<4;   nr++)
-		tilePair[numAlloced++] = TILE_FLOWER+nr;         // 4 Tiles
-        for( nr=0; nr<4;   nr++)
-		tilePair[numAlloced++] = TILE_SEASON+nr;         // 4 Tiles
-        for( nr=0; nr<4*4; nr++)
-		tilePair[numAlloced++] = TILE_WIND+(nr/4);  // 4*4 Tiles
-        for( nr=0; nr<3*4; nr++)
-		tilePair[numAlloced++] = TILE_DRAGON+(nr/4);     // 3*4 Tiles
+        for( nr=0; nr<9*4; ++nr)
+		tilePair[++numAlloced] = TILE_CHARACTER+(nr/4); // 4*9 Tiles
+        for( nr=0; nr<9*4; ++nr)
+		tilePair[++numAlloced] = TILE_BAMBOO+(nr/4); // 4*9 Tiles
+        for( nr=0; nr<9*4; ++nr)
+		tilePair[++numAlloced] = TILE_ROD+(nr/4); // 4*9 Tiles
+        for( nr=0; nr<4;   ++nr)
+		tilePair[++numAlloced] = TILE_FLOWER+nr;         // 4 Tiles
+        for( nr=0; nr<4;   ++nr)
+		tilePair[++numAlloced] = TILE_SEASON+nr;         // 4 Tiles
+        for( nr=0; nr<4*4; ++nr)
+		tilePair[++numAlloced] = TILE_WIND+(nr/4);  // 4*4 Tiles
+        for( nr=0; nr<3*4; ++nr)
+		tilePair[++numAlloced] = TILE_DRAGON+(nr/4);     // 3*4 Tiles
 
 
 	//randomise. Keep pairs together. Ie take two random

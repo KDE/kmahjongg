@@ -517,7 +517,7 @@ void Editor::transformPointToPosition(
     MouseClickPos.e = 100;
 
     // iterate over z coordinate from top to bottom
-    for( z=theBoard.m_depth-1; z>=0; z-- )
+    for( z=theBoard.m_depth-1; z>=0; --z )
     {
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
