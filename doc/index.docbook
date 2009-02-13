@@ -421,60 +421,12 @@
 <qandaset>
 <!--Following is a standard list of FAQ questions.-->
 	<qandaentry>
-		<question><para>Who made this game?</para></question>
-		 <answer><para>The kdegames team. You can find their website <ulink url="http://games.kde.org">here</ulink>.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>Where can I get cheatcodes?</para></question>
-		 <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>How do I start a new game?</para></question>
-		   <answer><para>You can start a new game using the <guibutton>New</guibutton> button on the toolbar, the <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> menu entry on the menubar or using the default shortcut <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I did something very wrong! Can I restart the game? </para></question>
-		 <answer><para>Yes. To restart the current game you can either use a <link linkend="game-menu-restart">shortcut key</link>, or a <link linkend="game-menu-restart">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>How do I pause the game?</para></question>
-		 <answer><para>To pause the current game you may either use the <link linkend="game-menu-pause">toolbar</link>, a <link linkend="game-menu-pause">shortcut key</link>, or a <link linkend="game-menu-pause">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
 		 <question><para>I want to change the way this game looks. Can I? </para></question>
 		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
 	</qandaentry>
 	<qandaentry>
-		 <question><para>I have made a mistake. Can I undo?</para></question>
-		 <answer><para>Yes. To undo your move you can either use a <link linkend="move-menu-undo">shortcut key</link>, or a <link linkend="move-menu-undo">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I have mistakenly undone a good move, can I redo it?</para></question>
-		 <answer><para>Yes. To Redo your move you can either use a <link linkend="move-menu-redo">shortcut key</link>, or a <link linkend="move-menu-redo">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>Can I use keyboard?</para></question>
+		 <question><para>Can I use the keyboard to play the game?</para></question>
 		 <answer><para>No. This game does not feature a keyboard play mode yet.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I cannot figure out what to do here! Are there hints? </para></question>
-		 <answer><para>Yes. To use &kappname; hint feature can either use a <link linkend="move-menu-hint">shortcut key</link>, or a <link linkend="move-menu-hint">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
-		  <answer><para>Yes. To save your game progress either use a <link linkend="game-menu-save">shortcut key</link>, or a <link linkend="game-menu-save">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>Where are the high scores?</para></question>
-		 <answer><para>To open the high scores dialog you can either use a <link linkend="game-menu-highscores">shortcut key</link>, or a <link linkend="game-menu-highscores">menubar</link> option.</para></answer>
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I want to change the game configuration. Where do I go?</para></question>
-		 <answer><para>To open the <link linkend="configuration">configuration utility</link> use the <link linkend="settings-menu-settings">Settings</link> menu.</para></answer><!--IMPORTANT!: this link has to send user to 'Interface Overview' section. So please setup the link structure accordingly.-->
-	</qandaentry>
-	<qandaentry>
-		 <question><para>I want to change the toolbar layout. What do I do?</para></question>
-		 <answer><para>To change the default toolbar layout use the <link linkend="settings-menu-toolbar"> <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Toolbars...</guimenuitem></menuchoice></link> menu.</para></answer><!--IMPORTANT!: this link has to send user to 'Interface Overview' section. So please setup the link structure accordingly.-->
 	</qandaentry>
 <!--Please add more Q&As if needed-->
  
