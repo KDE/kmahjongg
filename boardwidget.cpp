@@ -688,7 +688,7 @@ void BoardWidget::calculateNewGame( int gNumber)
         }
     }
 
-    drawBoard(true);
+    drawBoard(false);
     setStatusText( i18n("Error generating new game!") );
 }
 
