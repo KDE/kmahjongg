@@ -156,7 +156,7 @@ void KMahjongg::setupKAction()
     shuffle->setIcon(KIcon("view-refresh"));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
     KAction* angleccw = actionCollection()->addAction("view_angleccw");
-    angleccw->setText(i18n("Rotate View Counter Clockwise"));
+    angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(KIcon("object-rotate-left"));
     angleccw->setShortcuts( KShortcut( "f"  ) );
     KAction* anglecw = actionCollection()->addAction("view_anglecw");
