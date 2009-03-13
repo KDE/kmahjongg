@@ -58,7 +58,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
 
     //Now get our tilesets into a list
     QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
-
+    tilesAvailable.sort();
     QString namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
