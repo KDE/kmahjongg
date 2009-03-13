@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Grid
+Description=A rectangular grid of varying height
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=grid.layout

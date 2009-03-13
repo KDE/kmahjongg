@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Maze
+Description=An extremely twisted maze. Beware of minotaurs!
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=maze.layout

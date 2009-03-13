@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Mesh
+Description=An interweaved structure made up of Mahjongg tiles
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=mesh.layout

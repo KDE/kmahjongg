@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Well
+Description=A rectangular well with stairs at all sides
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=well.layout

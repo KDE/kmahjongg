@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Chip
+Description=An electronic component with many connectors
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=chip.layout

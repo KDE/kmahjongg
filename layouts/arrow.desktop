@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Arrow
+Description=A big arrow pointing in the right direction
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=arrow.layout

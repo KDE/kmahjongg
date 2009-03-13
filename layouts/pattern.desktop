@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Pattern
+Description=A mysterious pattern atop rectangular blocks
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=pattern.layout

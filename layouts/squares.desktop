@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Squares
+Description=Concentric squares of alterating height
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=squares.layout

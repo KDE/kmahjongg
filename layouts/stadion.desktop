@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Stadion
+Description=A layout representing a football field
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=stadion.layout

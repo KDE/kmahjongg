@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Chains
+Description=Four chains making up a single structure
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=chains.layout

@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Moth
+Description=A layout representing a small flying insect
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=moth.layout

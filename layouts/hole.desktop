@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Hole
+Description=A pyramid with a hole in the middle
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=hole.layout

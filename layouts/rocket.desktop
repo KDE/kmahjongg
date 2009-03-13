@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Rocket
+Description=A rocket for you to launch off the board
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=rocket.layout

@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Bat
+Description=A bat-shaped layout
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=bat.layout

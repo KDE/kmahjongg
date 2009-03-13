@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Labyrinth
+Description=A complex yet symmetric labyrinth
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=labyrinth.layout

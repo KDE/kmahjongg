@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Stairs
+Description=A staircase for those who dislike taking the same path twice
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=stairs.layout

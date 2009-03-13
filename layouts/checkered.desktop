@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Checkered
+Description=What if the chess board was not square?
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=checkered.layout

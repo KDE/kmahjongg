@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Inner Circle
+Description=Concentric boxes with openings pointing in opposite directions
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=inner_circle.layout

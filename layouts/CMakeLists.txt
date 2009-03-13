@@ -1,6 +1,8 @@
 
 ########### install files ###############
 
-
-install( FILES default.layout default.desktop triangle.layout triangle.desktop stax.layout stax.desktop tower.layout tower.desktop pyramid.layout pyramid.desktop DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/layouts )
+FILE(GLOB layoutfiles "${CMAKE_CURRENT_SOURCE_DIR}/*.layout" )
+FILE(GLOB desktopfiles "${CMAKE_CURRENT_SOURCE_DIR}/*.desktop" )
+INSTALL(FILES ${layoutfiles} DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg/layouts )
+INSTALL(FILES ${desktopfiles} DESTINATION ${DATA_INSTALL_DIR}/kmahjongg/layouts )
 

@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Flowers
+Description=A layout consisting of six flowers
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=flowers.layout

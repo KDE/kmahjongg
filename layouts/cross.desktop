@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Cross
+Description=A six-ended cross resembling the Cyrillic letter Zh
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=cross.layout

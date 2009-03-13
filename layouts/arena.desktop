@@ -1,0 +1,7 @@
+[KMahjonggLayout]
+Name=Arena
+Description=Circular-aligned seats around a performance area
+VersionFormat=1
+Author=KDE Games team
+AuthorEmail=kde-games-devel@kde.org
+FileName=arena.layout
