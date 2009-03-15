@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Castle View
+Name[sv]=Slottsvy
+Name[uk]=Вид на замок
 Description=A castle as viewed from one side
+Description[sv]=Ett slott sett från en sida
+Description[uk]=Форма замка, вид збоку
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

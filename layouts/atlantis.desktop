@@ -1,6 +1,9 @@
 [KMahjonggLayout]
 Name=Atlantis
+Name[uk]=Атлантида
 Description=The starship-city from Stargate Atlantis
+Description[sv]=Stjärnskeppsstaden från Stargate Atlantis
+Description[uk]=Місто-зоряний корабель з «Зоряних воріт: Атлантиди»
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

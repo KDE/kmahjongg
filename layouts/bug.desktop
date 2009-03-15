@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Bug
+Name[sv]=Insekt
+Name[uk]=Жучок
 Description=The bug. Let us take it apart!
+Description[sv]=Insekten. Låt oss plocka isär den!
+Description[uk]=Жучок. Спробуйте розібрати!
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

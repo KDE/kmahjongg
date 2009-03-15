@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Grid
+Name[sv]=Rutor
+Name[uk]=Ґратка
 Description=A rectangular grid of varying height
+Description[sv]=Ett rektangulärt rutnät med varierande höjd
+Description[uk]=Прямокутна ґратка змінної висоти
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Glade
+Name[sv]=Glänta
+Name[uk]=Прогалина
 Description=A small piece of empty space surrounded by a forest
+Description[sv]=Ett litet tomt område omgivet av en skog
+Description[uk]=Невеличка порожнє місце, оточене лісом
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Future
+Name[sv]=Framtid
+Name[uk]=Майбутнє
 Description=An abstract image resembling an asterisk
+Description[sv]=En abstrakt form som liknar en asterisk
+Description[uk]=Абстрактне зображення, що нагадує зірку
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Columns
+Name[sv]=Kolumner
+Name[uk]=Колонки
 Description=A circular arena covered with columns of varying height
+Description[sv]=Ett cirkulärt område täckt med kolumner av olika höjd
+Description[uk]=Кругова арена, вкрита колонами різної висоти
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

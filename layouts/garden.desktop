@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Garden
+Name[sv]=Trädgård
+Name[uk]=Садок
 Description=Regular patterns resembling a classical garden
+Description[sv]=Regelbundna mönster som påminner om en klassisk trädgård
+Description[uk]=Регулярні візерунки, що нагадують класичний сад
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

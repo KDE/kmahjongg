@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Mesh
+Name[sv]=Nät
+Name[uk]=Сітка
 Description=An interweaved structure made up of Mahjongg tiles
+Description[sv]=En sammanvävd struktur skapad av Mahjongg-brickor
+Description[uk]=Переплетена конструкція з плиток Маджонг
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

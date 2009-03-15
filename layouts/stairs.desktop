@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Stairs
+Name[sv]=Trappor
+Name[uk]=Сходи
 Description=A staircase for those who dislike taking the same path twice
+Description[sv]=En trappuppgång för de som ogillar att ta samma väg två gånger i rad
+Description[uk]=Сходи для тих, хто не любить ходити одним шляхом двічі
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

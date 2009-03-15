@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Alien
+Name[sv]=Utomjording
+Name[uk]=Чужинець
 Description=A humanoid made up of Mahjongg tiles
+Description[sv]=En humanoid skapad av Mahjongg-brickor
+Description[uk]=Форма тіла людини, викладена з плиток Маджонг
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

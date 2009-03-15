@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Bat
+Name[sv]=Fladdermus
+Name[uk]=Летюча миша
 Description=A bat-shaped layout
+Description[sv]=Ett fladdermusformat utlägg
+Description[uk]=Розкладка у формі летючої миші
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

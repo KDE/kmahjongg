@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Clubs
+Name[sv]=Klöver
+Name[uk]=Трефи
 Description=A layout resembling a multitude of card clubs
+Description[sv]=Ett utlägg som liknar klöver på ett stort antal spelkort
+Description[uk]=Розкладка, що нагадує позначку масті у картах
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

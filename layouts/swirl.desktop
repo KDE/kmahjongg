@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Swirl
+Name[sv]=Virvel
+Name[uk]=Вихор
 Description=A spiral with thick ends
+Description[sv]=En spiral med tjocka ändar
+Description[uk]=Спіраль з товстими кінцями
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Pattern
+Name[sv]=Mönster
+Name[uk]=Візерунок
 Description=A mysterious pattern atop rectangular blocks
+Description[sv]=Ett mystiskt mönster ovanpå rektangulära block
+Description[uk]=Таємничий візерунок над прямокутними блоками
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Labyrinth
+Name[sv]=Labyrint
+Name[uk]=Лабіринт
 Description=A complex yet symmetric labyrinth
+Description[sv]=En komplex men ändå symmetrisk labyrint
+Description[uk]=Складний, але симетричний лабіринт
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

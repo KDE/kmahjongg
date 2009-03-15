@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Eagle
+Name[sv]=Örn
+Name[uk]=Орел
 Description=A large carnivore bird in Mahjongg tiles
+Description[sv]=En stor rovfågel av Mahjongg-brickor
+Description[uk]=Великий хижий птах, викладений з плиток Маджонг
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

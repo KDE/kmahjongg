@@ -1,6 +1,8 @@
 [KMahjonggLayout]
 Name=Vi
 Description=A V-shaped layout with thick lower corners
+Description[sv]=Ett v-format utlägg med tjocka nedre hörn
+Description[uk]=Розкладка у формі літери V з широкими нижніми краями
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

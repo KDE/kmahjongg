@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Shield
+Name[sv]=Sköld
+Name[uk]=Щит
 Description=A shield and a sword made up of Mahjongg tiles
+Description[sv]=En sköld och ett svärd skapade av Mahjongg-brickor
+Description[uk]=Щит і меч, викладені з плиток Маджонг
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

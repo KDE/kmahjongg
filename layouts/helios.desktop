@@ -1,6 +1,9 @@
 [KMahjonggLayout]
 Name=Helios
+Name[uk]=Геліос
 Description=The greek Sun god's sign
+Description[sv]=Den grekiska solgudens tecken
+Description[uk]=Знак грецького бога Сонця
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

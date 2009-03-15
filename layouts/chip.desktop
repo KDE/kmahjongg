@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Chip
+Name[sv]=Krets
+Name[uk]=Чип
 Description=An electronic component with many connectors
+Description[sv]=En elektronikkomponent med många anslutningar
+Description[uk]=Компонент електроніик з багатьма ніжками
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

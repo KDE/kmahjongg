@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Star
+Name[sv]=Stjärna
+Name[uk]=Зірка
 Description=An asterisk-shaped embossed layout
+Description[sv]=Ett asteriskformat utlägg med reliefer
+Description[uk]=Рельєфне компонування у формі зірки
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

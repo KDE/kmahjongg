@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Cat
+Name[sv]=Katt
+Name[uk]=Кіт
 Description=Vista-styled cat layout
+Description[sv]=Kattutlägg med Vista-stil
+Description[uk]=Розкладка,у формі кота у стилі Vista
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

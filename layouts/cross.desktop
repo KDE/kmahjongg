@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Cross
+Name[sv]=Kors
+Name[uk]=Хрестик
 Description=A six-ended cross resembling the Cyrillic letter Zh
+Description[sv]=Ett kors med sex spetsar som påminner om den kyrilliska bokstaven Zh
+Description[uk]=Шестикутний хрест у формі літери «Ж»
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Spider
+Name[sv]=Spindel
+Name[uk]=Павук
 Description=Vista-styled spider layout
+Description[sv]=Spindelutlägg med Vista-stil
+Description[uk]=Розкладка павука у стилі Vista
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Rocket
+Name[sv]=Raket
+Name[uk]=Ракета
 Description=A rocket for you to launch off the board
+Description[sv]=En raket att skjuta upp från brädet
+Description[uk]=Ракета для вас, щоб стартувати з дошки
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

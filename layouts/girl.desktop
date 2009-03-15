@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Girl
+Name[sv]=Flicka
+Name[uk]=Дівчина
 Description=A layout resembling a girl's face
+Description[sv]=Ett utlägg som påminner om en flickas ansikte
+Description[uk]=Розкладка у формі обличчя дівчини
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

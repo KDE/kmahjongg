@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Chains
+Name[sv]=Kedjor
+Name[uk]=Ланцюжки
 Description=Four chains making up a single structure
+Description[sv]=Fyra kedjor som skapar en enda struktur
+Description[uk]=Чотири ланцюжки, що створюють одну конструкцію
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

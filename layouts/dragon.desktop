@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Dragon
+Name[sv]=Drake
+Name[uk]=Дракон
 Description=Vista-styled dragon layout
+Description[sv]=Drakutlägg med Vista-stil
+Description[uk]=Розкладка у формі дракона з Vista
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

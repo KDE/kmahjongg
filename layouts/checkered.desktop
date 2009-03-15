@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Checkered
+Name[sv]=Rutigt
+Name[uk]=Картата
 Description=What if the chess board was not square?
+Description[sv]=Vad skulle hända om schackbrädet inte var fyrkantigt?
+Description[uk]=Що було б, якби шахова дошка не була квадратною?
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

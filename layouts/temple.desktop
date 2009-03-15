@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Temple
+Name[sv]=Tempel
+Name[uk]=Храм
 Description=A temple-shaped layout
+Description[sv]=Ett tempelformat utlägg
+Description[uk]=Розкладка у формі храма
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

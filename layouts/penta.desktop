@@ -1,6 +1,9 @@
 [KMahjonggLayout]
 Name=Penta
+Name[uk]=Пента
 Description=A fortress with five towers
+Description[sv]=En fästning med fem torn
+Description[uk]=Фортеця з п’ятьма баштами
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

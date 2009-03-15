@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Time Tunnel
+Name[sv]=Tidstunnel
+Name[uk]=Тунель часу
 Description=A pyramid with a hole in the middle
+Description[sv]=En pyramid med ett hål i mitten
+Description[uk]=Піраміда з діркою у центрі
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

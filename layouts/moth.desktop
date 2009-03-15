@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Moth
+Name[sv]=Mygga
+Name[uk]=Метелик
 Description=A layout representing a small flying insect
+Description[sv]=Ett utlägg som liknar en liten flygande insekt
+Description[uk]=Розкладка у формі невеличкої літаючої комахи
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

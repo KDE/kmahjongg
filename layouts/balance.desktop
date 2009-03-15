@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Balance
+Name[sv]=Balans
+Name[uk]=Баланс
 Description=Time to weight every decision carefully!
+Description[sv]=Dags att avväga varje beslut noggrant!
+Description[uk]=Час ретельно зважити кожне ваше рішення!
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

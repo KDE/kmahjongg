@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Order
+Name[sv]=Orden
+Name[uk]=Порядок
 Description=A cross with thick ends
+Description[sv]=Ett kors med tjocka spetsar
+Description[uk]=Хрест з потовщеними вершинами
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

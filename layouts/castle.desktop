@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Castle
+Name[sv]=Slott
+Name[uk]=Замок
 Description=Vista-styled castle layout
+Description[sv]=Slottsutlägg med Vista-stil
+Description[uk]=Розкладка у формі замка у стилі Vista
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

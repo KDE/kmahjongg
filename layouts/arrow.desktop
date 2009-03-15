@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Arrow
+Name[sv]=Pil
+Name[uk]=Стрілка
 Description=A big arrow pointing in the right direction
+Description[sv]=En stor pil som pekar åt höger
+Description[uk]=Велика стрілка, що вказує праворуч
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
