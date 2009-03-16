@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Cat
+Name[pt]=Gato
+Name[pt_BR]=Gato
 Name[sv]=Katt
 Name[uk]=Кіт
+Name[zh_TW]=貓
 Description=Vista-styled cat layout
+Description[pt]=Um formato que parece um gato
+Description[pt_BR]=Um formato que parece um gato
 Description[sv]=Kattutlägg med Vista-stil
 Description[uk]=Розкладка,у формі кота у стилі Vista
+Description[zh_TW]=貓形佈局
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

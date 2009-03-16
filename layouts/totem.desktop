@@ -1,9 +1,13 @@
 [KMahjonggLayout]
 Name=Totem
 Name[uk]=Тотем
+Name[zh_TW]=圖騰
 Description=A T-shaped embossed object with a hole
+Description[pt]=Um objecto em forma de T com um buraco
+Description[pt_BR]=Um objecto em forma de T com um buraco
 Description[sv]=Ett T-format objekt med reliefer och ett hål
 Description[uk]=Рельєфний об’єкт у формі літери Т з діркою
+Description[zh_TW]=T 形雕花物體，中間有個洞
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

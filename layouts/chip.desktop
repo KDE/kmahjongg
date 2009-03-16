@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Chip
+Name[pt]=Circuito Integrado
+Name[pt_BR]=Circuito Integrado
 Name[sv]=Krets
 Name[uk]=Чип
+Name[zh_TW]=晶片
 Description=An electronic component with many connectors
+Description[pt]=Um componente electrónico com muitas ligações
+Description[pt_BR]=Um componente electrónico com muitas ligações
 Description[sv]=En elektronikkomponent med många anslutningar
 Description[uk]=Компонент електроніик з багатьма ніжками
+Description[zh_TW]=電子組件，有很多連結器
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

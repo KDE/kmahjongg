@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Pillars
+Name[pt]=Pilares
+Name[pt_BR]=Pilares
 Name[sv]=Pelare
 Name[uk]=Колони
+Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
+Description[pt]=Um conjunto de pilares verticais que suportam uma superfície plana
+Description[pt_BR]=Um conjunto de pilares verticais que suportam uma superfície plana
 Description[sv]=Ett antal vertikala pelare som stöder en plan yta
 Description[uk]=Пара вертикальних колон, які підтримують плоску поверхню
+Description[zh_TW]=一些垂直柱狀，支撐著一塊平面
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

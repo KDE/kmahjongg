@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Glade
+Name[pt]=Pântano
+Name[pt_BR]=Pântano
 Name[sv]=Glänta
 Name[uk]=Прогалина
+Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
+Description[pt]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta
+Description[pt_BR]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta
 Description[sv]=Ett litet tomt område omgivet av en skog
 Description[uk]=Невеличка порожнє місце, оточене лісом
+Description[zh_TW]=森林圍繞著一小塊空地
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

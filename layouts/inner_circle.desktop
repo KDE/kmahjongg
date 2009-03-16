@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Inner Circle
+Name[pt]=Círculo Interior
+Name[pt_BR]=Círculo Interior
 Name[sv]=Inre cirkel
 Name[uk]=Внутрішнє коло
+Name[zh_TW]=內圓
 Description=Concentric boxes with openings pointing in opposite directions
+Description[pt]=Caixas concêntricas com aberturas que apontam em direcções opostas
+Description[pt_BR]=Caixas concêntricas com aberturas que apontam em direcções opostas
 Description[sv]=Koncentriska lådor med öppningar som pekar åt motsatta håll
 Description[uk]=Концентричні прямокутники з початковими точками у різних напрямках
+Description[zh_TW]=同心圓，開口指向反方向
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Squares
+Name[pt]=Quadrados
+Name[pt_BR]=Quadrados
 Name[sv]=Fyrkanter
 Name[uk]=Квадрати
+Name[zh_TW]=方塊
 Description=Concentric squares of alterating height
+Description[pt]=Quadrados concêntricos de alturas variadas
+Description[pt_BR]=Quadrados concêntricos de alturas variadas
 Description[sv]=Koncentriska fyrkanter av varierande höjd
 Description[uk]=Концентричні квадрати різної висоти
+Description[zh_TW]=不同高度的同心方塊
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

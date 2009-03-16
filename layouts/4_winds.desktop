@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=4 Winds
+Name[pt]=4 Ventos
+Name[pt_BR]=4 Ventos
 Name[sv]=Fyra vindar
 Name[uk]=4 Вітри
+Name[zh_TW]=風牌
 Description=A layout resembling a fortress
+Description[pt]=Um formato que lembra uma fortaleza
+Description[pt_BR]=Um formato que lembra uma fortaleza
 Description[sv]=Ett utlägg som liknar en fästning
 Description[uk]=Розкладка, яка нагадує фортецю
+Description[zh_TW]=森林式佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

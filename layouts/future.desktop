@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Future
+Name[pt]=Futuro
+Name[pt_BR]=Futuro
 Name[sv]=Framtid
 Name[uk]=Майбутнє
+Name[zh_TW]=未來
 Description=An abstract image resembling an asterisk
+Description[pt]=Uma imagem abstracta que lembra um asterisco
+Description[pt_BR]=Uma imagem abstracta que lembra um asterisco
 Description[sv]=En abstrakt form som liknar en asterisk
 Description[uk]=Абстрактне зображення, що нагадує зірку
+Description[zh_TW]=抽象的圖像組成一個星號
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

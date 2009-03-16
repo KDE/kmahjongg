@@ -1,9 +1,15 @@
 [KMahjonggLayout]
 Name=Stadion
+Name[pt]=Estádio
+Name[pt_BR]=Estádio
 Name[uk]=Стадіон
+Name[zh_TW]=運動場
 Description=A layout representing a football field
+Description[pt]=Um formato que lembra um campo de futebol
+Description[pt_BR]=Um formato que lembra um campo de futebol
 Description[sv]=Ett utlägg som representerar en fotbollsplan
 Description[uk]=Розкладка, схожа на футбольне поле
+Description[zh_TW]=足球場形的佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

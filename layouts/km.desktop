@@ -1,8 +1,11 @@
 [KMahjonggLayout]
 Name=KM
 Description=Letters K and M. Do you have your favourite extension for that?
+Description[pt]=As letras K e M. Tem a sua extensão favorita para isso?
+Description[pt_BR]=As letras K e M. Tem a sua extensão favorita para isso?
 Description[sv]=Bokstäverna K och M. Har du en favorituttydning av det?
 Description[uk]=Літери K і M. Маєте улюблений суфікс назв файлів для цього?
+Description[zh_TW]=字母 K 與 M。
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

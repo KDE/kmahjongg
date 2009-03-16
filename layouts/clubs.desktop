@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Clubs
+Name[pt]=Paus
+Name[pt_BR]=Paus
 Name[sv]=Klöver
 Name[uk]=Трефи
+Name[zh_TW]=梅花
 Description=A layout resembling a multitude of card clubs
+Description[pt]=Um formato que lembra os paus de muitas cartas de jogo
+Description[pt_BR]=Um formato que lembra os paus de muitas cartas de jogo
 Description[sv]=Ett utlägg som liknar klöver på ett stort antal spelkort
 Description[uk]=Розкладка, що нагадує позначку масті у картах
+Description[zh_TW]=撲克牌的梅花式佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

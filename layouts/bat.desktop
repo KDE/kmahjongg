@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Bat
+Name[pt]=Morcego
+Name[pt_BR]=Morcego
 Name[sv]=Fladdermus
 Name[uk]=Летюча миша
+Name[zh_TW]=蝙蝠
 Description=A bat-shaped layout
+Description[pt]=Um formato com o aspecto de um morcego
+Description[pt_BR]=Um formato com o aspecto de um morcego
 Description[sv]=Ett fladdermusformat utlägg
 Description[uk]=Розкладка у формі летючої миші
+Description[zh_TW]=蝙蝠形佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

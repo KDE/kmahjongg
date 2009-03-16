@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Crab
+Name[pt]=Lagosta
+Name[pt_BR]=Lagosta
 Name[sv]=Krabba
 Name[uk]=Краб
+Name[zh_TW]=螃蟹
 Description=Vista-styled crab layout
+Description[pt]=Um formato que lembra uma lagosta
+Description[pt_BR]=Um formato que lembra uma lagosta
 Description[sv]=Krabbutlägg med Vista-stil
 Description[uk]=Розкладка у стилі краба з Vista
+Description[zh_TW]=螃蟹形佈局
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

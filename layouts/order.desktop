@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Order
+Name[pt]=Ordem
+Name[pt_BR]=Ordem
 Name[sv]=Orden
 Name[uk]=Порядок
+Name[zh_TW]=排序
 Description=A cross with thick ends
+Description[pt]=Um cruz com pontas grossas
+Description[pt_BR]=Um cruz com pontas grossas
 Description[sv]=Ett kors med tjocka spetsar
 Description[uk]=Хрест з потовщеними вершинами
+Description[zh_TW]=交錯形，尾端較厚
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Maze
+Name[pt]=Labirinto
+Name[pt_BR]=Labirinto
 Name[sv]=Labyrinten på Kreta
 Name[uk]=Лабіринт
+Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
+Description[pt]=Um labirinto bastante retorcido. Cuidado com os minotauros!
+Description[pt_BR]=Um labirinto bastante retorcido. Cuidado com os minotauros!
 Description[sv]=En ytterst krånglig labyrint. Se upp för Minotauros!
 Description[uk]=Дуже заплутаний лабіринт. Стережіться мінотаврів!
+Description[zh_TW]=一個極端扭曲的迷宮。小心那些牛頭人身怪！
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

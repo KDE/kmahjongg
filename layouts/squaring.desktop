@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Squaring
+Name[pt]=Quadrados
+Name[pt_BR]=Quadrados
 Name[sv]=Fyrkantsskapande
 Name[uk]=Квадратура
+Name[zh_TW]=方形
 Description=Who said squares are flat?
+Description[pt]=Quem disse que os quadrados são planos?
+Description[pt_BR]=Quem disse que os quadrados são planos?
 Description[sv]=Vem sa att fyrkanter är plana?
 Description[uk]=Хто сказав, що квадрати мають бути плоскими?
+Description[zh_TW]=誰說方形永遠是平面的？
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

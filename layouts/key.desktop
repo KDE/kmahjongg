@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Key
+Name[pt]=Chave
+Name[pt_BR]=Chave
 Name[sv]=Nyckel
 Name[uk]=Ключ
+Name[zh_TW]=鑰匙
 Description=A large key made of Mahjongg tiles
+Description[pt]=Uma grande chave feita com peças do Mahjongg
+Description[pt_BR]=Uma grande chave feita com peças do Mahjongg
 Description[sv]=En stor nyckel skapad av Mahjongg-brickor
 Description[uk]=Великий ключ, викладений з плиток Маджонг
+Description[zh_TW]=大型的鑰匙
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

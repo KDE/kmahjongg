@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Checkered
+Name[pt]=Axadrezado
+Name[pt_BR]=Axadrezado
 Name[sv]=Rutigt
 Name[uk]=Картата
+Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
+Description[pt]=E se o tabuleiro de xadrez não fosse quadrado?
+Description[pt_BR]=E se o tabuleiro de xadrez não fosse quadrado?
 Description[sv]=Vad skulle hända om schackbrädet inte var fyrkantigt?
 Description[uk]=Що було б, якби шахова дошка не була квадратною?
+Description[zh_TW]=若棋盤不是方形的呢？
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

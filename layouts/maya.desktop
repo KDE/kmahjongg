@@ -1,9 +1,15 @@
 [KMahjonggLayout]
 Name=Maya
+Name[pt]=Maia
+Name[pt_BR]=Maia
 Name[uk]=Майя
+Name[zh_TW]=馬雅
 Description=A layout resembling Maya pyramids
+Description[pt]=Um formato que lembra as pirâmides Maias
+Description[pt_BR]=Um formato que lembra as pirâmides Maias
 Description[sv]=Ett utlägg som påminner om Maya-pyramider
 Description[uk]=Розкладка, що нагадує піраміди майя
+Description[zh_TW]=馬雅金字塔形佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

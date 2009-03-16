@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Galaxy
+Name[pt]=Galáxia
+Name[pt_BR]=Galáxia
 Name[sv]=Galax
 Name[uk]=Галактика
+Name[zh_TW]=銀河
 Description=Diversely sized piles of matter
+Description[pt]=Pilhas de matéria de diferentes tamanhos
+Description[pt_BR]=Pilhas de matéria de diferentes tamanhos
 Description[sv]=Materiehögar av olika storlekar
 Description[uk]=Закручені у протилежних напрямках рукави матерії
+Description[zh_TW]=各式各樣的花樣
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

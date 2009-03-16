@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Spider
+Name[pt]=Aranha
+Name[pt_BR]=Aranha
 Name[sv]=Spindel
 Name[uk]=Павук
+Name[zh_TW]=蜘蛛
 Description=Vista-styled spider layout
+Description[pt]=Um formato que lembra uma aranha
+Description[pt_BR]=Um formato que lembra uma aranha
 Description[sv]=Spindelutlägg med Vista-stil
 Description[uk]=Розкладка павука у стилі Vista
+Description[zh_TW]=蜘蛛形佈局
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

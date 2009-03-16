@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Star Ship
+Name[pt]=Nave Espacial
+Name[pt_BR]=Nave Espacial
 Name[sv]=Stjärnskepp
 Name[uk]=Космічний корабель
+Name[zh_TW]=太空船
 Description=A sci-fi space transport
+Description[pt]=Um transporte espacial de ficção científica
+Description[pt_BR]=Um transporte espacial de ficção científica
 Description[sv]=En sci-fi rymdtransport
 Description[uk]=Космічний корабель з наукової фантастики
+Description[zh_TW]=太空船形
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

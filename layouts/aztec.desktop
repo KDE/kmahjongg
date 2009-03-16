@@ -1,9 +1,15 @@
 [KMahjonggLayout]
 Name=Aztec
+Name[pt]=Azteca
+Name[pt_BR]=Azteca
 Name[uk]=Ацтецька
+Name[zh_TW]=阿茲特克
 Description=A layout resembling Aztec buildings
+Description[pt]=Um formato que lembra os edifícios aztecas
+Description[pt_BR]=Um formato que lembra os edifícios aztecas
 Description[sv]=Ett utlägg som liknar Aztec-byggnader
 Description[uk]=Розкладка у формі будівель ацтеків
+Description[zh_TW]=模仿阿茲特克的建築
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

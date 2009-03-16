@@ -1,9 +1,13 @@
 [KMahjonggLayout]
 Name=Arena
 Name[uk]=Арена
+Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area
+Description[pt]=Lugares alinhados de forma circular em torno de uma área de espectáculo
+Description[pt_BR]=Lugares alinhados de forma circular em torno de uma área de espectáculo
 Description[sv]=Cirkulärt utplacerade sittplatser omkring ett skådespelsområde
 Description[uk]=Викладені колом місця навколо поля для гри
+Description[zh_TW]=競技場，兩邊有座位
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

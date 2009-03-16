@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Theatre
+Name[pt]=Teatro
+Name[pt_BR]=Teatro
 Name[sv]=Teater
 Name[uk]=Театр
+Name[zh_TW]=戲院
 Description=A rectangular building with empty space in the middle
+Description[pt]=Um edifício rectangular com um espaço vazio no meio
+Description[pt_BR]=Um edifício rectangular com um espaço vazio no meio
 Description[sv]=En rektangulär byggnad med tomt utrymme i mitten
 Description[uk]=Прямокутна будівля з майданчиком посередині
+Description[zh_TW]=矩形建築物，中間是空的
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

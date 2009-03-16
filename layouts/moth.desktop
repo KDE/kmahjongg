@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Moth
+Name[pt]=Traça
+Name[pt_BR]=Traça
 Name[sv]=Mygga
 Name[uk]=Метелик
+Name[zh_TW]=蛾
 Description=A layout representing a small flying insect
+Description[pt]=Um formato que lembra um pequeno insecto voador
+Description[pt_BR]=Um formato que lembra um pequeno insecto voador
 Description[sv]=Ett utlägg som liknar en liten flygande insekt
 Description[uk]=Розкладка у формі невеличкої літаючої комахи
+Description[zh_TW]=小飛蛾形的佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

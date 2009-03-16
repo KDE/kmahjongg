@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Tomb
+Name[pt]=Túmulo
+Name[pt_BR]=Túmulo
 Name[sv]=Grav
 Name[uk]=Могила
+Name[zh_TW]=墳墓
 Description=Fans of Lara Croft may start digging
+Description[pt]=Os fãs da Lara Croft podem começar a escavar
+Description[pt_BR]=Os fãs da Lara Croft podem começar a escavar
 Description[sv]=Anhängare av Lara Croft kan börja gräva
 Description[uk]=Фани Лари Крофт можуть починати копання
+Description[zh_TW]=古墓奇兵愛好者可以開始挖了
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

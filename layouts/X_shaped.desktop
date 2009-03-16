@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=X-shaped
+Name[pt]=Formato em X
+Name[pt_BR]=Formato em X
 Name[sv]=X-form
 Name[uk]=X-форма
+Name[zh_TW]=X 型佈局
 Description=A large letter X made of mahjongg tiles
+Description[pt]=Uma grande letra X, feita com peças de Mahjongg
+Description[pt_BR]=Uma grande letra X, feita com peças de Mahjongg
 Description[sv]=Den stora bokstaven X skapad av Mahjongg-brickor
 Description[uk]=Велика літера X викладена з плиток маджонг
+Description[zh_TW]=一個大大的 X 型佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

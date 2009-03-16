@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Garden
+Name[pt]=Jardim
+Name[pt_BR]=Jardim
 Name[sv]=Trädgård
 Name[uk]=Садок
+Name[zh_TW]=花園
 Description=Regular patterns resembling a classical garden
+Description[pt]=Padrões regulares que lembram um jardim clássico
+Description[pt_BR]=Padrões regulares que lembram um jardim clássico
 Description[sv]=Regelbundna mönster som påminner om en klassisk trädgård
 Description[uk]=Регулярні візерунки, що нагадують класичний сад
+Description[zh_TW]=一些常規的樣式，組成一個花園
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

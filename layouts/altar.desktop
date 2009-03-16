@@ -2,9 +2,13 @@
 Name=Altar
 Name[sv]=Altare
 Name[uk]=Вівтар
+Name[zh_TW]=聖壇
 Description=An elevated surface with stairs and columns aside
+Description[pt]=Uma superfície elevada, com cadeiras e colunas nos lados
+Description[pt_BR]=Uma superfície elevada, com cadeiras e colunas nos lados
 Description[sv]=En upphöjd yta med trappor och kolumner vid sidan
 Description[uk]=Піднята поверхня зі сходами і боковими стовпчиками
+Description[zh_TW]=有高高階梯與圓柱
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

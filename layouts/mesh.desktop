@@ -1,10 +1,16 @@
 [KMahjonggLayout]
 Name=Mesh
+Name[pt]=Malha
+Name[pt_BR]=Malha
 Name[sv]=Nät
 Name[uk]=Сітка
+Name[zh_TW]=網子
 Description=An interweaved structure made up of Mahjongg tiles
+Description[pt]=Uma estrutura intercruzada, feita com peças de Mahjongg
+Description[pt_BR]=Uma estrutura intercruzada, feita com peças de Mahjongg
 Description[sv]=En sammanvävd struktur skapad av Mahjongg-brickor
 Description[uk]=Переплетена конструкція з плиток Маджонг
+Description[zh_TW]=網狀交錯結構的佈局
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
