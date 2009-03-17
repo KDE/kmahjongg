@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Bug
+Name[nds]=Käver
 Name[pt]=Insecto
 Name[pt_BR]=Insecto
 Name[sv]=Insekt
 Name[uk]=Жучок
 Name[zh_TW]=蟲
 Description=The bug. Let us take it apart!
+Description[nds]=De Käver. Nehmt wi em utenanner.
 Description[pt]=O insecto. Vamos desfazê-lo!
 Description[pt_BR]=O insecto. Vamos desfazê-lo!
 Description[sv]=Insekten. Låt oss plocka isär den!

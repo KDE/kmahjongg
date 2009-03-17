@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Key
+Name[nds]=Slötel
 Name[pt]=Chave
 Name[pt_BR]=Chave
 Name[sv]=Nyckel
 Name[uk]=Ключ
 Name[zh_TW]=鑰匙
 Description=A large key made of Mahjongg tiles
+Description[nds]=En groot Slötel ut Mahjongg-Steen
 Description[pt]=Uma grande chave feita com peças do Mahjongg
 Description[pt_BR]=Uma grande chave feita com peças do Mahjongg
 Description[sv]=En stor nyckel skapad av Mahjongg-brickor

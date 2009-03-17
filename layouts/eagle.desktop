@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Eagle
+Name[nds]=Aadler
 Name[pt]=Águia
 Name[pt_BR]=Águia
 Name[sv]=Örn
 Name[uk]=Орел
 Name[zh_TW]=老鷹
 Description=A large carnivore bird in Mahjongg tiles
+Description[nds]=En groot Roofvagel ut Mahjongg-Steen
 Description[pt]=Um grande pássaro carnívoro feito com peças do Mahjongg
 Description[pt_BR]=Um grande pássaro carnívoro feito com peças do Mahjongg
 Description[sv]=En stor rovfågel av Mahjongg-brickor

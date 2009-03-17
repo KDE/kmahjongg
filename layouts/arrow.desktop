@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Arrow
+Name[nds]=Piel
 Name[pt]=Seta
 Name[pt_BR]=Seta
 Name[sv]=Pil
 Name[uk]=Стрілка
 Name[zh_TW]=箭頭
 Description=A big arrow pointing in the right direction
+Description[nds]=En groot, na rechts wiesen Piel
 Description[pt]=Uma grande seta a apontar para a direita
 Description[pt_BR]=Uma grande seta a apontar para a direita
 Description[sv]=En stor pil som pekar åt höger

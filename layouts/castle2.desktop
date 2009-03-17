@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Castle View
+Name[nds]=Slottansicht
 Name[pt]=Vista do Castelo
 Name[pt_BR]=Vista do Castelo
 Name[sv]=Slottsvy
 Name[uk]=Вид на замок
 Name[zh_TW]=城堡景觀
 Description=A castle as viewed from one side
+Description[nds]=En Slott vun de Siet ankeken
 Description[pt]=Um castelo visto de um dos lados
 Description[pt_BR]=Um castelo visto de um dos lados
 Description[sv]=Ett slott sett från en sida

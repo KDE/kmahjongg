@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Star
+Name[nds]=Steern
 Name[pt]=Estrela
 Name[pt_BR]=Estrela
 Name[sv]=Stjärna
 Name[uk]=Зірка
 Name[zh_TW]=星星
 Description=An asterisk-shaped embossed layout
+Description[nds]=En steernliek ingraven Muster
 Description[pt]=Um formato com um aspecto de asterisco
 Description[pt_BR]=Um formato com um aspecto de asterisco
 Description[sv]=Ett asteriskformat utlägg med reliefer

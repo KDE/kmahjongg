@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Hole
+Name[nds]=Lock
 Name[pt]=Buraco
 Name[pt_BR]=Buraco
 Name[sv]=Hål
 Name[uk]=Дірка
 Name[zh_TW]=洞穴
 Description=A pyramid with a hole in the middle
+Description[nds]=En Pyramied mit en Lock in de Merrn
 Description[pt]=Uma pirâmide com um buraco no meio
 Description[pt_BR]=Uma pirâmide com um buraco no meio
 Description[sv]=En pyramid med ett hål i mitten

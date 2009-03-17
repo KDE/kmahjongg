@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Arena
+Name[nds]=Kampfsteed
 Name[uk]=Арена
 Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area

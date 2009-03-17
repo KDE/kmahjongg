@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Well
+Name[nds]=Born
 Name[pt]=Poço
 Name[pt_BR]=Poço
 Name[sv]=Brunn
 Name[uk]=Колодязь
 Name[zh_TW]=井
 Description=A rectangular well with stairs at all sides
+Description[nds]=En rechteckig Born mit Treppstopen an elk Siet
 Description[pt]=Um poço rectangular com escadas de ambos os lados
 Description[pt_BR]=Um poço rectangular com escadas de ambos os lados
 Description[sv]=En rektangulär brunn med trappor på alla sidor

@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Temple
+Name[nds]=Tempel
 Name[pt]=Templo
 Name[pt_BR]=Templo
 Name[sv]=Tempel
 Name[uk]=Храм
 Name[zh_TW]=廟宇
 Description=A temple-shaped layout
+Description[nds]=Lett liek en Tempel
 Description[pt]=Um formato com um aspecto de templo
 Description[pt_BR]=Um formato com um aspecto de templo
 Description[sv]=Ett tempelformat utlägg

@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Girl
+Name[nds]=Deern
 Name[pt]=Menina
 Name[pt_BR]=Menina
 Name[sv]=Flicka
 Name[uk]=Дівчина
 Name[zh_TW]=女孩
 Description=A layout resembling a girl's face
+Description[nds]=En Deern ehr Antlaat
 Description[pt]=Um formato que lembra a cara de uma menina
 Description[pt_BR]=Um formato que lembra a cara de uma menina
 Description[sv]=Ett utlägg som påminner om en flickas ansikte

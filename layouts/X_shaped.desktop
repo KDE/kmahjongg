@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=X-shaped
+Name[nds]=X-liek
 Name[pt]=Formato em X
 Name[pt_BR]=Formato em X
 Name[sv]=X-form
 Name[uk]=X-форма
 Name[zh_TW]=X 型佈局
 Description=A large letter X made of mahjongg tiles
+Description[nds]=En groot "X" ut Mahjongg-Steen
 Description[pt]=Uma grande letra X, feita com peças de Mahjongg
 Description[pt_BR]=Uma grande letra X, feita com peças de Mahjongg
 Description[sv]=Den stora bokstaven X skapad av Mahjongg-brickor

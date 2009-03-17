@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Future
+Name[nds]=Tokunft
 Name[pt]=Futuro
 Name[pt_BR]=Futuro
 Name[sv]=Framtid
 Name[uk]=Майбутнє
 Name[zh_TW]=未來
 Description=An abstract image resembling an asterisk
+Description[nds]=En afstrakt Bild, liek en Steern
 Description[pt]=Uma imagem abstracta que lembra um asterisco
 Description[pt_BR]=Uma imagem abstracta que lembra um asterisco
 Description[sv]=En abstrakt form som liknar en asterisk
