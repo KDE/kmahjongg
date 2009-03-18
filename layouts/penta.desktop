@@ -2,12 +2,14 @@
 Name=Penta
 Name[nds]=Fief
 Name[uk]=Пента
+Name[x-test]=xxPentaxx
 Name[zh_TW]=五座塔
 Description=A fortress with five towers
 Description[pt]=Uma fortaleza com cinco torres
 Description[pt_BR]=Uma fortaleza com cinco torres
 Description[sv]=En fästning med fem torn
 Description[uk]=Фортеця з п’ятьма баштами
+Description[x-test]=xxA fortress with five towersxx
 Description[zh_TW]=森林中的五座塔
 VersionFormat=1
 Author=KDE Games team

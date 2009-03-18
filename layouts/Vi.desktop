@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Vi
+Name[x-test]=xxVixx
 Name[zh_TW]=V 型佈局
 Description=A V-shaped layout with thick lower corners
 Description[nds]=En Utsehn liek en "V" mit dick Ecken nerrn
@@ -7,6 +8,7 @@ Description[pt]=Um formato em V com cantos inferiores grossos
 Description[pt_BR]=Um formato em V com cantos inferiores grossos
 Description[sv]=Ett v-format utlägg med tjocka nedre hörn
 Description[uk]=Розкладка у формі літери V з широкими нижніми краями
+Description[x-test]=xxA V-shaped layout with thick lower cornersxx
 Description[zh_TW]=V 型佈局
 VersionFormat=1
 Author=KDE Games team

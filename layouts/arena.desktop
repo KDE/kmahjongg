@@ -2,12 +2,14 @@
 Name=Arena
 Name[nds]=Kampfsteed
 Name[uk]=Арена
+Name[x-test]=xxArenaxx
 Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area
 Description[pt]=Lugares alinhados de forma circular em torno de uma área de espectáculo
 Description[pt_BR]=Lugares alinhados de forma circular em torno de uma área de espectáculo
 Description[sv]=Cirkulärt utplacerade sittplatser omkring ett skådespelsområde
 Description[uk]=Викладені колом місця навколо поля для гри
+Description[x-test]=xxCircular-aligned seats around a performance areaxx
 Description[zh_TW]=競技場，兩邊有座位
 VersionFormat=1
 Author=KDE Games team

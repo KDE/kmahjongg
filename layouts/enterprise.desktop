@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Enterprise
 Name[uk]=Ентерпрайз
+Name[x-test]=xxEnterprisexx
 Name[zh_TW]=企業號
 Description=A layout for Star Trek fans
 Description[nds]=En Muster för "Treckies"
@@ -8,6 +9,7 @@ Description[pt]=Um formato para os fãs do Caminho das Estrelas
 Description[pt_BR]=Um formato para os fãs do Caminho das Estrelas
 Description[sv]=Ett utlägg för de som gillar Star Trek
 Description[uk]=Розкладка для фанів «Стар-Трек»
+Description[x-test]=xxA layout for Star Trek fansxx
 Description[zh_TW]=星際大戰迷的最愛
 VersionFormat=1
 Author=KDE Games team
