@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Chains
+Name[ga]=Slabhraí
 Name[nds]=Keden
 Name[pt]=Correntes
 Name[pt_BR]=Correntes
@@ -8,6 +9,7 @@ Name[uk]=Ланцюжки
 Name[x-test]=xxChainsxx
 Name[zh_TW]=鍊條
 Description=Four chains making up a single structure
+Description[nds]=Veer Keden maakt en Enkelstruktuur
 Description[pt]=Quatro correntes que formam uma única estrutura
 Description[pt_BR]=Quatro correntes que formam uma única estrutura
 Description[sv]=Fyra kedjor som skapar en enda struktur

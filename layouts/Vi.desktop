@@ -3,6 +3,7 @@ Name=Vi
 Name[x-test]=xxVixx
 Name[zh_TW]=V 型佈局
 Description=A V-shaped layout with thick lower corners
+Description[ga]=Leagan amach i gcruth V, le cúinní tiubha íochtaracha
 Description[nds]=En Utsehn liek en "V" mit dick Ecken nerrn
 Description[pt]=Um formato em V com cantos inferiores grossos
 Description[pt_BR]=Um formato em V com cantos inferiores grossos

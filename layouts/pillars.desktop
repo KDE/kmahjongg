@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pillars
+Name[ga]=Piléir
 Name[nds]=Sülen
 Name[pt]=Pilares
 Name[pt_BR]=Pilares
@@ -8,6 +9,7 @@ Name[uk]=Колони
 Name[x-test]=xxPillarsxx
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
+Description[nds]=En Reeg vun pielrecht Sülen, de en Flaag stütten doot
 Description[pt]=Um conjunto de pilares verticais que suportam uma superfície plana
 Description[pt_BR]=Um conjunto de pilares verticais que suportam uma superfície plana
 Description[sv]=Ett antal vertikala pelare som stöder en plan yta

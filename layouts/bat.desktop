@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Bat
+Name[ga]=Ialtóg
 Name[nds]=Fleddermuus
 Name[pt]=Morcego
 Name[pt_BR]=Morcego
@@ -8,6 +9,8 @@ Name[uk]=Летюча миша
 Name[x-test]=xxBatxx
 Name[zh_TW]=蝙蝠
 Description=A bat-shaped layout
+Description[ga]=Leagan amach cosúil le hialtóg
+Description[nds]=En Fladdermuus
 Description[pt]=Um formato com o aspecto de um morcego
 Description[pt_BR]=Um formato com o aspecto de um morcego
 Description[sv]=Ett fladdermusformat utlägg

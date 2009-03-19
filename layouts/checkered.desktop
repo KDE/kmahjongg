@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Checkered
-Name[nds]=Mustert
+Name[ga]=Breac-chearnógach
+Name[nds]=Kariert
 Name[pt]=Axadrezado
 Name[pt_BR]=Axadrezado
 Name[sv]=Rutigt
@@ -8,6 +9,7 @@ Name[uk]=Картата
 Name[x-test]=xxCheckeredxx
 Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
+Description[nds]=Wat, wenn dat Schachbrett nich quadraatsch weer?
 Description[pt]=E se o tabuleiro de xadrez não fosse quadrado?
 Description[pt_BR]=E se o tabuleiro de xadrez não fosse quadrado?
 Description[sv]=Vad skulle hända om schackbrädet inte var fyrkantigt?

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Balance
+Name[ga]=Cóimheá
 Name[nds]=Balangs
 Name[pt]=Balança
 Name[pt_BR]=Balança
@@ -8,6 +9,7 @@ Name[uk]=Баланс
 Name[x-test]=xxBalancexx
 Name[zh_TW]=平衡
 Description=Time to weight every decision carefully!
+Description[nds]=Du muttst nau afwegen, wat Du doon wullt!
 Description[pt]=Tempo de pesar cada decisão com cuidado
 Description[pt_BR]=Tempo de pesar cada decisão com cuidado
 Description[sv]=Dags att avväga varje beslut noggrant!

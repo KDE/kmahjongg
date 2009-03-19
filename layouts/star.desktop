@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Star
+Name[ga]=Réalta
 Name[nds]=Steern
 Name[pt]=Estrela
 Name[pt_BR]=Estrela
@@ -8,6 +9,7 @@ Name[uk]=Зірка
 Name[x-test]=xxStarxx
 Name[zh_TW]=星星
 Description=An asterisk-shaped embossed layout
+Description[ga]=Leagan amach bocóideach cosúil le réiltín
 Description[nds]=En steernliek ingraven Muster
 Description[pt]=Um formato com um aspecto de asterisco
 Description[pt_BR]=Um formato com um aspecto de asterisco

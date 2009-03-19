@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Cross
+Name[ga]=Cros
 Name[nds]=Krüüz
 Name[pt]=Cruz
 Name[pt_BR]=Cruz
@@ -8,6 +9,7 @@ Name[uk]=Хрестик
 Name[x-test]=xxCrossxx
 Name[zh_TW]=十字型
 Description=A six-ended cross resembling the Cyrillic letter Zh
+Description[nds]=En Krüüz mit söss Ennen, liek to den kyrillschen Bookstaav "Sch"
 Description[pt]=Uma cruz de seis pontas que lembra a letra cirílica Zh
 Description[pt_BR]=Uma cruz de seis pontas que lembra a letra cirílica Zh
 Description[sv]=Ett kors med sex spetsar som påminner om den kyrilliska bokstaven Zh

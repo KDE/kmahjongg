@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Moth
+Name[ga]=Leamhan
 Name[nds]=Mott
 Name[pt]=Traça
 Name[pt_BR]=Traça
@@ -8,6 +9,8 @@ Name[uk]=Метелик
 Name[x-test]=xxMothxx
 Name[zh_TW]=蛾
 Description=A layout representing a small flying insect
+Description[ga]=Leagan amach cosúil le feithid bheag eitilte
+Description[nds]=An Anornen, de en lütt flegen Beest vörstellen schall
 Description[pt]=Um formato que lembra um pequeno insecto voador
 Description[pt_BR]=Um formato que lembra um pequeno insecto voador
 Description[sv]=Ett utlägg som liknar en liten flygande insekt

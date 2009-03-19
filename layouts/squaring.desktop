@@ -1,5 +1,7 @@
 [KMahjonggLayout]
 Name=Squaring
+Name[ga]=Cearnú
+Name[nds]=Wörpelee
 Name[pt]=Quadrados
 Name[pt_BR]=Quadrados
 Name[sv]=Fyrkantsskapande
@@ -7,6 +9,7 @@ Name[uk]=Квадратура
 Name[x-test]=xxSquaringxx
 Name[zh_TW]=方形
 Description=Who said squares are flat?
+Description[nds]=Rechtecken sünd jümmers even?
 Description[pt]=Quem disse que os quadrados são planos?
 Description[pt_BR]=Quem disse que os quadrados são planos?
 Description[sv]=Vem sa att fyrkanter är plana?

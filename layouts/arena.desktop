@@ -1,10 +1,12 @@
 [KMahjonggLayout]
 Name=Arena
-Name[nds]=Kampfsteed
+Name[ga]=Airéine
+Name[nds]=Strietsteed
 Name[uk]=Арена
 Name[x-test]=xxArenaxx
 Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area
+Description[nds]=Sittplätz rund en Arena
 Description[pt]=Lugares alinhados de forma circular em torno de uma área de espectáculo
 Description[pt_BR]=Lugares alinhados de forma circular em torno de uma área de espectáculo
 Description[sv]=Cirkulärt utplacerade sittplatser omkring ett skådespelsområde

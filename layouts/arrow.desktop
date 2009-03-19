@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Arrow
+Name[ga]=Saighead
 Name[nds]=Piel
 Name[pt]=Seta
 Name[pt_BR]=Seta
@@ -8,6 +9,7 @@ Name[uk]=Стрілка
 Name[x-test]=xxArrowxx
 Name[zh_TW]=箭頭
 Description=A big arrow pointing in the right direction
+Description[ga]=Saighdead mhór dírithe ar dheis
 Description[nds]=En groot, na rechts wiesen Piel
 Description[pt]=Uma grande seta a apontar para a direita
 Description[pt_BR]=Uma grande seta a apontar para a direita

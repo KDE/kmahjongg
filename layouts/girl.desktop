@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Girl
+Name[ga]=Cailín
 Name[nds]=Deern
 Name[pt]=Menina
 Name[pt_BR]=Menina
@@ -8,6 +9,7 @@ Name[uk]=Дівчина
 Name[x-test]=xxGirlxx
 Name[zh_TW]=女孩
 Description=A layout resembling a girl's face
+Description[ga]=Leagan amach cosúil le cailín
 Description[nds]=En Deern ehr Antlaat
 Description[pt]=Um formato que lembra a cara de uma menina
 Description[pt_BR]=Um formato que lembra a cara de uma menina

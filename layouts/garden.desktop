@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Garden
+Name[ga]=Gairdín
 Name[nds]=Goorn
 Name[pt]=Jardim
 Name[pt_BR]=Jardim
@@ -8,6 +9,7 @@ Name[uk]=Садок
 Name[x-test]=xxGardenxx
 Name[zh_TW]=花園
 Description=Regular patterns resembling a classical garden
+Description[ga]=Patrúin rialta cosúil le gairdín clasaiceach
 Description[nds]=En klass'sch Goorn ut egaal Mustern
 Description[pt]=Padrões regulares que lembram um jardim clássico
 Description[pt_BR]=Padrões regulares que lembram um jardim clássico

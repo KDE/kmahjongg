@@ -1,10 +1,13 @@
 [KMahjonggLayout]
 Name=Penta
+Name[ga]=Peintea
 Name[nds]=Fief
 Name[uk]=Пента
 Name[x-test]=xxPentaxx
 Name[zh_TW]=五座塔
 Description=A fortress with five towers
+Description[ga]=Dún le cúig thúr
+Description[nds]=En Borg mit fief Toorns
 Description[pt]=Uma fortaleza com cinco torres
 Description[pt_BR]=Uma fortaleza com cinco torres
 Description[sv]=En fästning med fem torn

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Chip
+Name[ga]=Slis
 Name[pt]=Circuito Integrado
 Name[pt_BR]=Circuito Integrado
 Name[sv]=Krets
@@ -7,6 +8,8 @@ Name[uk]=Чип
 Name[x-test]=xxChipxx
 Name[zh_TW]=晶片
 Description=An electronic component with many connectors
+Description[ga]=Comhpháirt leictreonach le neart nascóirí
+Description[nds]=En elektroonsch Buusteen mit vele Verbinnen
 Description[pt]=Um componente electrónico com muitas ligações
 Description[pt_BR]=Um componente electrónico com muitas ligações
 Description[sv]=En elektronikkomponent med många anslutningar

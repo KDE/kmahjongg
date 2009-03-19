@@ -1,5 +1,7 @@
 [KMahjonggLayout]
 Name=Glade
+Name[ga]=Plásóg Choille
+Name[nds]=Lichten
 Name[pt]=Pântano
 Name[pt_BR]=Pântano
 Name[sv]=Glänta
@@ -7,7 +9,7 @@ Name[uk]=Прогалина
 Name[x-test]=xxGladexx
 Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
-Description[nds]=En Wald üm en lütt beten Freeruum to
+Description[nds]=En Woold rund en lütt Lichten
 Description[pt]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta
 Description[pt_BR]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta
 Description[sv]=Ett litet tomt område omgivet av en skog

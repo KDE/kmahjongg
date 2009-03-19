@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Squares
+Name[ga]=Cearnóga
 Name[nds]=Quadraten
 Name[pt]=Quadrados
 Name[pt_BR]=Quadrados
@@ -8,6 +9,7 @@ Name[uk]=Квадрати
 Name[x-test]=xxSquaresxx
 Name[zh_TW]=方塊
 Description=Concentric squares of alterating height
+Description[nds]=Konzentersch Rechtecken vun verscheden Hööchde
 Description[pt]=Quadrados concêntricos de alturas variadas
 Description[pt_BR]=Quadrados concêntricos de alturas variadas
 Description[sv]=Koncentriska fyrkanter av varierande höjd

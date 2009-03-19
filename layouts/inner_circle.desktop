@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Inner Circle
+Name[ga]=Ciorcal Istigh
 Name[nds]=Binnenkrink
 Name[pt]=Círculo Interior
 Name[pt_BR]=Círculo Interior
@@ -8,6 +9,7 @@ Name[uk]=Внутрішнє коло
 Name[x-test]=xxInner Circlexx
 Name[zh_TW]=內圓
 Description=Concentric boxes with openings pointing in opposite directions
+Description[nds]=Konzentersche Kisten mit Löcker jümmers güntsiets
 Description[pt]=Caixas concêntricas com aberturas que apontam em direcções opostas
 Description[pt_BR]=Caixas concêntricas com aberturas que apontam em direcções opostas
 Description[sv]=Koncentriska lådor med öppningar som pekar åt motsatta håll

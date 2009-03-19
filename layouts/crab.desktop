@@ -1,5 +1,7 @@
 [KMahjonggLayout]
 Name=Crab
+Name[ga]=Portán
+Name[nds]=Dwarslöper
 Name[pt]=Lagosta
 Name[pt_BR]=Lagosta
 Name[sv]=Krabba
@@ -7,6 +9,7 @@ Name[uk]=Краб
 Name[x-test]=xxCrabxx
 Name[zh_TW]=螃蟹
 Description=Vista-styled crab layout
+Description[nds]=Dwarslöper in Vista-Stil
 Description[pt]=Um formato que lembra uma lagosta
 Description[pt_BR]=Um formato que lembra uma lagosta
 Description[sv]=Krabbutlägg med Vista-stil

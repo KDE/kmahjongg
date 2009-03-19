@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Star Ship
+Name[ga]=Réaltlong
 Name[nds]=Ruumschipp
 Name[pt]=Nave Espacial
 Name[pt_BR]=Nave Espacial
@@ -8,6 +9,7 @@ Name[uk]=Космічний корабель
 Name[x-test]=xxStar Shipxx
 Name[zh_TW]=太空船
 Description=A sci-fi space transport
+Description[nds]=En Science-Fiction-Ruumkoor
 Description[pt]=Um transporte espacial de ficção científica
 Description[pt_BR]=Um transporte espacial de ficção científica
 Description[sv]=En sci-fi rymdtransport

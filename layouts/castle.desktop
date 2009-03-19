@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Castle
+Name[ga]=Caisleán
 Name[nds]=Slott
 Name[pt]=Castelo
 Name[pt_BR]=Castelo
@@ -8,6 +9,7 @@ Name[uk]=Замок
 Name[x-test]=xxCastlexx
 Name[zh_TW]=城堡
 Description=Vista-styled castle layout
+Description[nds]=En Slott in Vista-Stil
 Description[pt]=Um formato em castelo
 Description[pt_BR]=Um formato em castelo
 Description[sv]=Slottsutlägg med Vista-stil
