@@ -17,8 +17,7 @@
 */
 
 #include "GameData.h"
-#include <QtDebug>
-
+#include <KDebug>
 
 GameData::GameData (BoardLayout * boardlayout) {
     m_width = boardlayout->m_width;
@@ -396,7 +395,6 @@ int GameData::selectPosition(int lastPosition) {
 
 // ---------------------------------------------------------
 void GameData::placeTile(int position, int tile) {
-
     // Install the tile in the specified position
     tilePositions[position].f = tile;
     putTile(tilePositions[position]);
@@ -600,19 +598,19 @@ void GameData::randomiseFaces() {
 	int numAlloced=0;
 	// stick in 144 tiles in pairsa.
 
-        for( nr=0; nr<9*4; nr++)
+        for( nr=0; nr<9*4; ++nr)
 		tilePair[numAlloced++] = TILE_CHARACTER+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<9*4; nr++)
+        for( nr=0; nr<9*4; ++nr)
 		tilePair[numAlloced++] = TILE_BAMBOO+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<9*4; nr++)
+        for( nr=0; nr<9*4; ++nr)
 		tilePair[numAlloced++] = TILE_ROD+(nr/4); // 4*9 Tiles
-        for( nr=0; nr<4;   nr++)
+        for( nr=0; nr<4;   ++nr)
 		tilePair[numAlloced++] = TILE_FLOWER+nr;         // 4 Tiles
-        for( nr=0; nr<4;   nr++)
+        for( nr=0; nr<4;   ++nr)
 		tilePair[numAlloced++] = TILE_SEASON+nr;         // 4 Tiles
-        for( nr=0; nr<4*4; nr++)
+        for( nr=0; nr<4*4; ++nr)
 		tilePair[numAlloced++] = TILE_WIND+(nr/4);  // 4*4 Tiles
-        for( nr=0; nr<3*4; nr++)
+        for( nr=0; nr<3*4; ++nr)
 		tilePair[numAlloced++] = TILE_DRAGON+(nr/4);     // 3*4 Tiles
 
 
