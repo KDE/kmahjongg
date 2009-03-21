@@ -893,11 +893,6 @@ void BoardWidget::transformPointToPosition(
     }
 
     TileCoord coord = spriteMap.key(clickedItem);
-    if (coord.isNull()) {
-	qDebug() << "null tile coordinates, clicked on background?";
-	return;
-    }
-
     E = coord.z();
     X = coord.x();
     Y = coord.y();

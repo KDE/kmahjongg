@@ -52,7 +52,6 @@ public:
     * @return @c true if reason?
     * @return @c false if reson
     */
-    bool isNull() const;
     /**
     * Method description @return int */
     int x() const;
@@ -148,9 +147,6 @@ inline TileCoord::TileCoord()
 
 inline TileCoord::TileCoord(int xpos, int ypos, int zpos)
 { xp = xpos; yp = ypos; zp = zpos; }
-
-inline bool TileCoord::isNull() const
-{ return xp == 0 && yp == 0 && yp == 0; }
 
 inline int TileCoord::x() const
 { return xp; }
