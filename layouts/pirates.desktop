@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[de]=Piraten
 Name[ga]=Foghlaithe Mara
 Name[nds]=Seerövers
 Name[pt]=Piratas
@@ -9,6 +10,7 @@ Name[uk]=Пірати
 Name[x-test]=xxPiratesxx
 Name[zh_TW]=海盜
 Description=A sailing boat under the sun
+Description[de]=Ein segelndes Boot unter der Sonne.
 Description[ga]=Bád seoil faoin ghrian
 Description[nds]=En Seilboot ünner de Sünn
 Description[pt]=Um barco a navegar sob o Sol

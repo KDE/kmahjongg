@@ -1,10 +1,12 @@
 [KMahjonggLayout]
 Name=Totem
+Name[de]=Talisman
 Name[ga]=Tótam
 Name[uk]=Тотем
 Name[x-test]=xxTotemxx
 Name[zh_TW]=圖騰
 Description=A T-shaped embossed object with a hole
+Description[de]=Ein T-förmiges Objekt mit einem Loch.
 Description[nds]=En ingraven Objekt liek en "T" mit en Lock
 Description[pt]=Um objecto em forma de T com um buraco
 Description[pt_BR]=Um objecto em forma de T com um buraco

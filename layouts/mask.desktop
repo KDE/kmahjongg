@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Mask
+Name[de]=Maske
 Name[ga]=Masc
 Name[pt]=Máscara
 Name[pt_BR]=Máscara
@@ -7,6 +8,7 @@ Name[uk]=Маска
 Name[x-test]=xxMaskxx
 Name[zh_TW]=面具
 Description=A scary embossed pagan mask
+Description[de]=Eine unheimlich heidnische Maske.
 Description[nds]=En gresig Heiden-Mask
 Description[pt]=Uma máscara pagã assustadora
 Description[pt_BR]=Uma máscara pagã assustadora

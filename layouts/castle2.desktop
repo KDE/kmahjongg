@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Castle View
+Name[de]=Burgansicht
 Name[ga]=Amharc Caisleáin
 Name[nds]=Slottansicht
 Name[pt]=Vista do Castelo
@@ -9,6 +10,7 @@ Name[uk]=Вид на замок
 Name[x-test]=xxCastle Viewxx
 Name[zh_TW]=城堡景觀
 Description=A castle as viewed from one side
+Description[de]=Eine Burg von der Seite betrachtet.
 Description[nds]=En Slott vun de Siet ankeken
 Description[pt]=Um castelo visto de um dos lados
 Description[pt_BR]=Um castelo visto de um dos lados

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Tomb
+Name[de]=Grabstätte
 Name[ga]=Tuama
 Name[nds]=Graff
 Name[pt]=Túmulo
@@ -9,6 +10,7 @@ Name[uk]=Могила
 Name[x-test]=xxTombxx
 Name[zh_TW]=墳墓
 Description=Fans of Lara Croft may start digging
+Description[de]=Verehrer von Lara Croft könnten jetzt mit dem Graben beginnen.
 Description[nds]=Lara Croft ehr Verehrers dörvt dat Graven anfangen
 Description[pt]=Os fãs da Lara Croft podem começar a escavar
 Description[pt_BR]=Os fãs da Lara Croft podem começar a escavar

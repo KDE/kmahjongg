@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Dragon
+Name[de]=Drache
 Name[ga]=Dragan
 Name[nds]=Draken
 Name[pt]=Dragão
@@ -9,6 +10,7 @@ Name[uk]=Дракон
 Name[x-test]=xxDragonxx
 Name[zh_TW]=龍
 Description=Vista-styled dragon layout
+Description[de]=Ein Drache im Vista-Stil.
 Description[nds]=Draken in Vista-Stil
 Description[pt]=Um formato que lembra um dragão
 Description[pt_BR]=Um formato que lembra um dragão

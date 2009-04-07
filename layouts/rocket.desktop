@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Rocket
+Name[de]=Rakete
 Name[ga]=Roicéad
 Name[nds]=Rakeet
 Name[pt]=Foguete
@@ -9,6 +10,7 @@ Name[uk]=Ракета
 Name[x-test]=xxRocketxx
 Name[zh_TW]=火箭
 Description=A rocket for you to launch off the board
+Description[de]=Eine Rakete, die das Spielfeld verlassen möchte.
 Description[nds]=En Rakeet, mit de Du vun't Brett afflegen kannst
 Description[pt]=Um foguete para você lançar para fora do tabuleiro
 Description[pt_BR]=Um foguete para você lançar para fora do tabuleiro

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Aztec
+Name[de]=Azteke
 Name[ga]=Aisticeach
 Name[nds]=Azteeksch
 Name[pt]=Azteca
@@ -8,6 +9,7 @@ Name[uk]=Ацтецька
 Name[x-test]=xxAztecxx
 Name[zh_TW]=阿茲特克
 Description=A layout resembling Aztec buildings
+Description[de]=Ein Design, das einem aztekischen Bauwerk ähnelt.
 Description[ga]=Leagan amach cosúil le foirgnimh Aisticeacha
 Description[nds]=En Anornen liek to azteeksch Buuwarken
 Description[pt]=Um formato que lembra os edifícios aztecas

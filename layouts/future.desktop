@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Future
+Name[de]=Zukunft
 Name[ga]=Todhchaí
 Name[nds]=Tokunft
 Name[pt]=Futuro
@@ -9,6 +10,7 @@ Name[uk]=Майбутнє
 Name[x-test]=xxFuturexx
 Name[zh_TW]=未來
 Description=An abstract image resembling an asterisk
+Description[de]=Ein abstraktes Bild, das einen Stern darstellen soll.
 Description[ga]=Íomhá theibí cosúil le réiltín
 Description[nds]=En afstrakt Bild, liek en Steern
 Description[pt]=Uma imagem abstracta que lembra um asterisco

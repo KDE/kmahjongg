@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Eagle
+Name[de]=Adler
 Name[ga]=Iolar
 Name[nds]=Aadler
 Name[pt]=Águia
@@ -9,6 +10,7 @@ Name[uk]=Орел
 Name[x-test]=xxEaglexx
 Name[zh_TW]=老鷹
 Description=A large carnivore bird in Mahjongg tiles
+Description[de]=Ein großer fleischfressender Vogel aus Mahjongg-Spielsteinen.
 Description[nds]=En groot Roofvagel ut Mahjongg-Steen
 Description[pt]=Um grande pássaro carnívoro feito com peças do Mahjongg
 Description[pt_BR]=Um grande pássaro carnívoro feito com peças do Mahjongg

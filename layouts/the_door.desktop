@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=The Door
+Name[de]=Die Tür
 Name[ga]=An Doras
 Name[nds]=De Döör
 Name[pt]=A Porta
@@ -9,6 +10,7 @@ Name[uk]=Двері
 Name[x-test]=xxThe Doorxx
 Name[zh_TW]=門
 Description=A doorway through a pyramid-shaped wall
+Description[de]=Ein Durchgang durch eine pyramidenförmige Mauer.
 Description[nds]=En Weg dör en Pyramidenmuur
 Description[pt]=Uma porta através de uma parede de pirâmide
 Description[pt_BR]=Uma porta através de uma parede de pirâmide

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Order
+Name[de]=Orden
 Name[ga]=Ord
 Name[nds]=Reeg
 Name[pt]=Ordem
@@ -9,6 +10,7 @@ Name[uk]=Порядок
 Name[x-test]=xxOrderxx
 Name[zh_TW]=排序
 Description=A cross with thick ends
+Description[de]=Ein Kreuz mit dicken Enden.
 Description[nds]=En Krüüz mit dick Ennen
 Description[pt]=Um cruz com pontas grossas
 Description[pt_BR]=Um cruz com pontas grossas
