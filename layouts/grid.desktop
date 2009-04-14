@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Grid
 Name[de]=Gitter
+Name[et]=Võrgustik
 Name[ga]=Greille
 Name[nds]=Gadder
 Name[pt]=Grelha
@@ -11,6 +12,7 @@ Name[x-test]=xxGridxx
 Name[zh_TW]=格子
 Description=A rectangular grid of varying height
 Description[de]=Ein rechteckiges Gitter unterschiedlicher Höhe.
+Description[et]=Mitmes kõrguses nelinurkne võrgustik
 Description[nds]=En rechteckig Gadder mit verscheden Hööchden
 Description[pt]=Uma grelha rectangular de altura variada
 Description[pt_BR]=Uma grelha rectangular de altura variada

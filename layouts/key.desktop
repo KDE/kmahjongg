@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Key
 Name[de]=Schlüssel
+Name[et]=Võti
 Name[ga]=Eochair
 Name[nds]=Slötel
 Name[pt]=Chave
@@ -11,6 +12,7 @@ Name[x-test]=xxKeyxx
 Name[zh_TW]=鑰匙
 Description=A large key made of Mahjongg tiles
 Description[de]=Ein großer Schlüssel aus Mahjongg-Spielsteinen.
+Description[et]=Suur võti Mahjonggi klotsidest
 Description[ga]=Eochair mhór déanta as tíleanna Mahjongg
 Description[nds]=En groot Slötel ut Mahjongg-Steen
 Description[pt]=Uma grande chave feita com peças do Mahjongg

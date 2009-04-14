@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Stairs
 Name[de]=Treppen
+Name[et]=Trepp
 Name[ga]=Staighre
 Name[nds]=Treppstopen
 Name[pt]=Escadas
@@ -11,6 +12,7 @@ Name[x-test]=xxStairsxx
 Name[zh_TW]=階梯
 Description=A staircase for those who dislike taking the same path twice
 Description[de]=Ein Treppenhaus für alle, die den selben Weg nicht doppelt gehen möchten.
+Description[et]=Trepp neile, kellele ei meeldi kaks korda sama teed käia
 Description[nds]=Treppstopen för Lüüd, de lever keen Padd tweemaal loopt
 Description[pt]=Uma escada para os que detestam fazer duas vezes o mesmo caminho
 Description[pt_BR]=Uma escada para os que detestam fazer duas vezes o mesmo caminho

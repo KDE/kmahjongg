@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Bug
 Name[de]=Wanze
+Name[et]=Putukas
 Name[ga]=Feithid
 Name[nds]=Sever
 Name[pt]=Insecto
@@ -11,6 +12,7 @@ Name[x-test]=xxBugxx
 Name[zh_TW]=蟲
 Description=The bug. Let us take it apart!
 Description[de]=Entfernen Sie die Wanze.
+Description[et]=Putukas. Rebime ta tükkideks!
 Description[nds]=De Sever. Nehmt wi em utenanner.
 Description[pt]=O insecto. Vamos desfazê-lo!
 Description[pt_BR]=O insecto. Vamos desfazê-lo!

@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Star
 Name[de]=Stern
+Name[et]=Täht
 Name[ga]=Réalta
 Name[nds]=Steern
 Name[pt]=Estrela
@@ -11,6 +12,7 @@ Name[x-test]=xxStarxx
 Name[zh_TW]=星星
 Description=An asterisk-shaped embossed layout
 Description[de]=Ein sternförmiges Design.
+Description[et]=Tärnikujuline paigutus
 Description[ga]=Leagan amach bocóideach cosúil le réiltín
 Description[nds]=En steernliek ingraven Muster
 Description[pt]=Um formato com um aspecto de asterisco

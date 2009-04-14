@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Alien
 Name[de]=Außerirdischer
+Name[et]=Tulnukas
 Name[ga]=Eachtrán
 Name[pt]=Extraterrestre
 Name[pt_BR]=Extraterrestre
@@ -10,6 +11,7 @@ Name[x-test]=xxAlienxx
 Name[zh_TW]=異形
 Description=A humanoid made up of Mahjongg tiles
 Description[de]=Ein menschenähnliches Wesen aus Mahjongg-Spielsteinen.
+Description[et]=Humanoid Mahjonggi klotsidest
 Description[ga]=Daonóid déanta as tíleanna Mahjongg
 Description[nds]=En Buteneerdschen ut Mahjongg-Steen
 Description[pt]=Um humanóide feito com peças do Mahjongg

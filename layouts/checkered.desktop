@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Checkered
 Name[de]=Schachbrett
+Name[et]=Ruuduline
 Name[ga]=Breac-chearnógach
 Name[nds]=Kariert
 Name[pt]=Axadrezado
@@ -11,6 +12,7 @@ Name[x-test]=xxCheckeredxx
 Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
 Description[de]=Ein nicht ganz quadratisches Schachbrett.
+Description[et]=Aga kui malelaud ei oleks kandiline?
 Description[nds]=Wat, wenn dat Schachbrett nich quadraatsch weer?
 Description[pt]=E se o tabuleiro de xadrez não fosse quadrado?
 Description[pt_BR]=E se o tabuleiro de xadrez não fosse quadrado?

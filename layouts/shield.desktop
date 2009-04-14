@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Shield
 Name[de]=Kampfausstattung
+Name[et]=Kilp
 Name[ga]=Sciath
 Name[nds]=Schild
 Name[pt]=Escudo
@@ -11,6 +12,7 @@ Name[x-test]=xxShieldxx
 Name[zh_TW]=盾牌
 Description=A shield and a sword made up of Mahjongg tiles
 Description[de]=Ein Schild und Schwert aus Mahjongg-Spielsteinen.
+Description[et]=Kilp ja mõõk Mahjonggi klotsidest
 Description[nds]=En Schild un en Sweert ut Mahjongg-Steen
 Description[pt]=Um escudo e uma espada feitos com peças do Mahjongg
 Description[pt_BR]=Um escudo e uma espada feitos com peças do Mahjongg

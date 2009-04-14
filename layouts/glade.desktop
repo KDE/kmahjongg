@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Glade
 Name[de]=Lichtung
+Name[et]=Metsavälu
 Name[ga]=Plásóg Choille
 Name[nds]=Lichten
 Name[pt]=Pântano
@@ -11,6 +12,7 @@ Name[x-test]=xxGladexx
 Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
 Description[de]=Ein kleines Stück freier Fläche, das von einem Wald umgeben ist.
+Description[et]=Väike lagendik keset suuri puid
 Description[nds]=En Woold rund en lütt Lichten
 Description[pt]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta
 Description[pt_BR]=Um pedaço pequeno de espaço vazio, rodeado por uma floresta

@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Garden
 Name[de]=Garten
+Name[et]=Aed
 Name[ga]=Gairdín
 Name[nds]=Goorn
 Name[pt]=Jardim
@@ -11,6 +12,7 @@ Name[x-test]=xxGardenxx
 Name[zh_TW]=花園
 Description=Regular patterns resembling a classical garden
 Description[de]=Wiederkehrende Muster stellen einen klassischen Garten dar.
+Description[et]=Klassikalist aeda meenutavad korrapärased mustrid
 Description[ga]=Patrúin rialta cosúil le gairdín clasaiceach
 Description[nds]=En klass'sch Goorn ut egaal Mustern
 Description[pt]=Padrões regulares que lembram um jardim clássico

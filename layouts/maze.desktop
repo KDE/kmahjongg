@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Maze
 Name[de]=Irrgarten
+Name[et]=Keerdkäigud
 Name[ga]=Cathair Ghríobháin
 Name[nds]=Biestergoorn 2
 Name[pt]=Labirinto
@@ -11,6 +12,7 @@ Name[x-test]=xxMazexx
 Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
 Description[de]=Ein extrem verdrehtes Labyrinth. Nehmen Sie sich vor Minotauros in Acht!
+Description[et]=Erakordselt keerulised käigud. Hoidu minotauroste eest!
 Description[nds]=En bannig vigeliensch Biestergoorn. Pass op Minotaurus op!
 Description[pt]=Um labirinto bastante retorcido. Cuidado com os minotauros!
 Description[pt_BR]=Um labirinto bastante retorcido. Cuidado com os minotauros!

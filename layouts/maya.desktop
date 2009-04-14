@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Maya
+Name[et]=Maia
 Name[ga]=Máigeach
 Name[pt]=Maia
 Name[pt_BR]=Maia
@@ -8,6 +9,7 @@ Name[x-test]=xxMayaxx
 Name[zh_TW]=馬雅
 Description=A layout resembling Maya pyramids
 Description[de]=Dieses Design zeigt Maya-Pyramiden (Stufenpyramiden).
+Description[et]=Maia püramiide meenutav paigutus
 Description[ga]=Leagan amach cosúil le pirimidí Máigeacha
 Description[nds]=Maya-Pyramiden
 Description[pt]=Um formato que lembra as pirâmides Maias

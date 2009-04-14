@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Pillars
 Name[de]=Säulen
+Name[et]=Tugipostid
 Name[ga]=Piléir
 Name[nds]=Sülen
 Name[pt]=Pilares
@@ -11,6 +12,7 @@ Name[x-test]=xxPillarsxx
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
 Description[de]=Zwei vertikale Säulen als Stütze einer ebenen Fläche.
+Description[et]=Paar tugiposti, mis toetavad siledat tasapinda
 Description[nds]=En Reeg vun pielrecht Sülen, de en Flaag stütten doot
 Description[pt]=Um conjunto de pilares verticais que suportam uma superfície plana
 Description[pt_BR]=Um conjunto de pilares verticais que suportam uma superfície plana

@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Girl
 Name[de]=Mädchen
+Name[et]=Tüdruk
 Name[ga]=Cailín
 Name[nds]=Deern
 Name[pt]=Menina
@@ -11,6 +12,7 @@ Name[x-test]=xxGirlxx
 Name[zh_TW]=女孩
 Description=A layout resembling a girl's face
 Description[de]=Dieses Design stellt das Gesicht eines Mädchens dar.
+Description[et]=Tüdruku nägu meenutav paigutus
 Description[ga]=Leagan amach cosúil le cailín
 Description[nds]=En Deern ehr Antlaat
 Description[pt]=Um formato que lembra a cara de uma menina

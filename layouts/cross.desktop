@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Cross
 Name[de]=Schneeball
+Name[et]=Rist
 Name[ga]=Cros
 Name[nds]=Krüüz
 Name[pt]=Cruz
@@ -11,6 +12,7 @@ Name[x-test]=xxCrossxx
 Name[zh_TW]=十字型
 Description=A six-ended cross resembling the Cyrillic letter Zh
 Description[de]=Ein Schneeball mit sechs Enden (ähnlich dem kyrillischen Zh). 
+Description[et]=Kuueharuline rist, mis meenutab vene tähestiku ž-tähte
 Description[nds]=En Krüüz mit söss Ennen, liek to den kyrillschen Bookstaav "Sch"
 Description[pt]=Uma cruz de seis pontas que lembra a letra cirílica Zh
 Description[pt_BR]=Uma cruz de seis pontas que lembra a letra cirílica Zh

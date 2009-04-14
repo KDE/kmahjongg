@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Chains
 Name[de]=Ketten
+Name[et]=Ahelad
 Name[ga]=Slabhraí
 Name[nds]=Keden
 Name[pt]=Correntes
@@ -11,6 +12,7 @@ Name[x-test]=xxChainsxx
 Name[zh_TW]=鍊條
 Description=Four chains making up a single structure
 Description[de]=Ein Gebilde aus vier Ketten.
+Description[et]=Neli ühendatud ahelat
 Description[nds]=Veer Keden maakt en Enkelstruktuur
 Description[pt]=Quatro correntes que formam uma única estrutura
 Description[pt_BR]=Quatro correntes que formam uma única estrutura

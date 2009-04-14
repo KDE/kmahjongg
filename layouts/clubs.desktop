@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Clubs
 Name[de]=Kreuz
+Name[et]=Risti
 Name[nds]=Krüüz
 Name[pt]=Paus
 Name[pt_BR]=Paus
@@ -10,6 +11,7 @@ Name[x-test]=xxClubsxx
 Name[zh_TW]=梅花
 Description=A layout resembling a multitude of card clubs
 Description[de]=Dieses Design zeigt mehrere Kreuzkarten.
+Description[et]=Ristimastist kaarte meenutav paigutus
 Description[nds]=En Anornen liek to vele Krüzen op Koorten
 Description[pt]=Um formato que lembra os paus de muitas cartas de jogo
 Description[pt_BR]=Um formato que lembra os paus de muitas cartas de jogo

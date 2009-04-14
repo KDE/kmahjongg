@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Mesh
 Name[de]=Masche
+Name[et]=Võrk
 Name[ga]=Mogall
 Name[nds]=Nett
 Name[pt]=Malha
@@ -11,6 +12,7 @@ Name[x-test]=xxMeshxx
 Name[zh_TW]=網子
 Description=An interweaved structure made up of Mahjongg tiles
 Description[de]=Eine verflochtene Struktur aus Mahjongg-Spielsteinen.
+Description[et]=Läbipõimunud võrk Mahjonggi klotsidest
 Description[ga]=Struchtúr fite, déanta as tíleanna Mahjongg
 Description[nds]=En verweevt Struktuur ut Mahjhongg-Steen
 Description[pt]=Uma estrutura intercruzada, feita com peças de Mahjongg
