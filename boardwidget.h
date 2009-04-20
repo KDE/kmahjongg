@@ -317,7 +317,7 @@ class BoardWidget : public KGameCanvasWidget
 
 	bool gamePaused; /**< Member Description */
 
-	unsigned short cheatsUsed; /**< storage for hiscore claculation  */
+	unsigned short cheatsUsed; /**< storage for highscore calculation  */
 	long  gameGenerationNum; /**< seed for the random number generator used for this game */
 
 public:
