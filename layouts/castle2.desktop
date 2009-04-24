@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Castle View
 Name[de]=Burgansicht
+Name[el]=Όψη κάστρου
 Name[et]=Linnusevaade
 Name[ga]=Amharc Caisleáin
 Name[nds]=Slottansicht
@@ -12,6 +13,7 @@ Name[x-test]=xxCastle Viewxx
 Name[zh_TW]=城堡景觀
 Description=A castle as viewed from one side
 Description[de]=Eine Burg von der Seite betrachtet.
+Description[el]=Μια όψη ενός κάστρου
 Description[et]=Linnus vaadatuna ühest küljest
 Description[nds]=En Slott vun de Siet ankeken
 Description[pt]=Um castelo visto de um dos lados

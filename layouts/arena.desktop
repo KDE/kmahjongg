@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Arena
+Name[el]=Αρένα
 Name[et]=Areen
 Name[ga]=Airéine
 Name[nds]=Strietsteed
@@ -8,6 +9,7 @@ Name[x-test]=xxArenaxx
 Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area
 Description[de]=Kreisförmig-angeordnete Sitze um eine Vorführ-Fläche.
+Description[el]=Μια αρένα περιστοιχισμένη κυκλικά από θέσεις
 Description[et]=Ringis istmed näitelava ümber
 Description[nds]=Sittplätz rund en Arena
 Description[pt]=Lugares alinhados de forma circular em torno de uma área de espectáculo

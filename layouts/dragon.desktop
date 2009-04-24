@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Dragon
 Name[de]=Drache
+Name[el]=Δράκος
 Name[et]=Lohemadu
 Name[ga]=Dragan
 Name[nds]=Draken
@@ -12,6 +13,7 @@ Name[x-test]=xxDragonxx
 Name[zh_TW]=龍
 Description=Vista-styled dragon layout
 Description[de]=Ein Drache im Vista-Stil.
+Description[el]=Διάταξη δράκου
 Description[et]=Vista stiilis draakoni paigutus
 Description[nds]=Draken in Vista-Stil
 Description[pt]=Um formato que lembra um dragão

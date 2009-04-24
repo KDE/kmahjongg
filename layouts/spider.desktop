@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Spider
 Name[de]=Spinne
+Name[el]=Αράχνη
 Name[et]=Ämblik
 Name[ga]=Damhán Alla
 Name[nds]=Spinn
@@ -12,6 +13,7 @@ Name[x-test]=xxSpiderxx
 Name[zh_TW]=蜘蛛
 Description=Vista-styled spider layout
 Description[de]=Eine Spinne im Vista-Stil.
+Description[el]=Διάταξη αράχνης Vista
 Description[et]=Vista stiilis ämbliku paigutus
 Description[nds]=En Spinn in Vista-Stil
 Description[pt]=Um formato que lembra uma aranha

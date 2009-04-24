@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Arrow
 Name[de]=Pfeil
+Name[el]=Βέλος
 Name[et]=Nool
 Name[ga]=Saighead
 Name[nds]=Piel
@@ -12,6 +13,7 @@ Name[x-test]=xxArrowxx
 Name[zh_TW]=箭頭
 Description=A big arrow pointing in the right direction
 Description[de]=Ein großer, nach rechts zeigender Pfeil.
+Description[el]=Ένα μεγάλο βέλος που σκοπεύει στη σωστή κατεύθυνση
 Description[et]=Suur paremale osutav nool
 Description[ga]=Saighdead mhór dírithe ar dheis
 Description[nds]=En groot, na rechts wiesen Piel

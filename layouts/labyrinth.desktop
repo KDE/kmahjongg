@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Labyrinth
+Name[el]=Λαβύρινθος
 Name[et]=Labürint
 Name[ga]=Lúbra
 Name[nds]=Biestergoorn
@@ -11,6 +12,7 @@ Name[x-test]=xxLabyrinthxx
 Name[zh_TW]=迷宮
 Description=A complex yet symmetric labyrinth
 Description[de]=Ein kompliziertes und symmetrisches Labyrinth.
+Description[el]=Ένας σύνθετος συμμετρικός λαβύρινθος
 Description[et]=Sümmeetriline, aga keeruline labürint
 Description[ga]=Lúbra atá casta ach siméadrach freisin
 Description[nds]=En vigeliensch, man symmetersch Biestergoorn

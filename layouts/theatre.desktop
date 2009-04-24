@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Theatre
 Name[de]=Theater
+Name[el]=Θέατρο
 Name[et]=Teater
 Name[ga]=Amharclann
 Name[nds]=Theater
@@ -12,6 +13,7 @@ Name[x-test]=xxTheatrexx
 Name[zh_TW]=戲院
 Description=A rectangular building with empty space in the middle
 Description[de]=Ein rechteckiges Gebilde mit einen leeren Raum in der Mitte.
+Description[el]=Ένα ορθογώνιο κτήριο με κενό χώρο στο μέσο του
 Description[et]=Kandiline ehitis, keskel tühi ruum
 Description[nds]=En rechteckig Huus mit en leddig Steed in de Merrn
 Description[pt]=Um edifício rectangular com um espaço vazio no meio

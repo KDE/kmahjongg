@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Swirl
 Name[de]=Wirbel
+Name[el]=Στρόβιλος
 Name[et]=Keeris
 Name[ga]=Guairneán
 Name[nds]=Küsel
@@ -12,6 +13,7 @@ Name[x-test]=xxSwirlxx
 Name[zh_TW]=漩渦
 Description=A spiral with thick ends
 Description[de]=Eine Spirale mit dicken Enden.
+Description[el]=Μια σπείρα με χοντρά άκρα
 Description[et]=Ahenevate otstega spiraal
 Description[nds]=En Spiraal mit dick Ennen
 Description[pt]=Uma espiral com pontas grossas

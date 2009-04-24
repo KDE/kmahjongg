@@ -1,10 +1,12 @@
 [KMahjonggLayout]
 Name=Enterprise
+Name[el]=Εντερπράιζ
 Name[uk]=Ентерпрайз
 Name[x-test]=xxEnterprisexx
 Name[zh_TW]=企業號
 Description=A layout for Star Trek fans
 Description[de]=Ein Design für Fans von Star Trek.
+Description[el]=Μια διάταξη για τους φίλους του Σταρ Τρεκ
 Description[et]=Paigutus Star Treki fännidele
 Description[ga]=Leagan amach le haghaidh leantóirí Star Trek
 Description[nds]=En Muster för "Treckies"

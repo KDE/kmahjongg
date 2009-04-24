@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Chip
 Name[de]=Baustein
+Name[el]=Τσιπ
 Name[et]=Kiip
 Name[ga]=Slis
 Name[pt]=Circuito Integrado
@@ -11,6 +12,7 @@ Name[x-test]=xxChipxx
 Name[zh_TW]=晶片
 Description=An electronic component with many connectors
 Description[de]=Ein elektronischer Baustein mit vielen Anschlüssen.
+Description[el]=Ένα ηλεκτρονικό στοιχείο με πολλές συνδέσεις
 Description[et]=Eletrooniline komponent paljude ühendustega
 Description[ga]=Comhpháirt leictreonach le neart nascóirí
 Description[nds]=En elektroonsch Buusteen mit vele Verbinnen

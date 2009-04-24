@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Galaxy
 Name[de]=Sternsystem
+Name[el]=Γαλαξίας
 Name[et]=Galaktika
 Name[ga]=Réaltra
 Name[nds]=Galaxie
@@ -12,6 +13,7 @@ Name[x-test]=xxGalaxyxx
 Name[zh_TW]=銀河
 Description=Diversely sized piles of matter
 Description[de]=Unterschiedlich große Haufen von Materie.
+Description[el]=Ποικίλου μεγέθους κομμάτια ύλης
 Description[et]=Mitmesuguses suuruses ainetombud
 Description[nds]=Verscheden grott Materiebülten
 Description[pt]=Pilhas de matéria de diferentes tamanhos

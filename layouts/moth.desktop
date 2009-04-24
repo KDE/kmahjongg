@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Moth
 Name[de]=Mücke
+Name[el]=Σκόρος
 Name[et]=Koiliblikas
 Name[ga]=Leamhan
 Name[nds]=Mott
@@ -12,6 +13,7 @@ Name[x-test]=xxMothxx
 Name[zh_TW]=蛾
 Description=A layout representing a small flying insect
 Description[de]=Dieses Design stellt ein kleines fliegendes Insekt dar.
+Description[el]=Μια διάταξη που μοιάζει με έναν μικρό ιπτάμενο έντομο
 Description[et]=Väikest lendavat putukat meenutav paigutus
 Description[ga]=Leagan amach cosúil le feithid bheag eitilte
 Description[nds]=An Anornen, de en lütt flegen Beest vörstellen schall

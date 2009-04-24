@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Up&Down
 Name[de]=Auf & Ab
+Name[el]=Πάνω&κάτω
 Name[et]=Üles ja alla
 Name[nds]=Rop un daal
 Name[pt]=Cima&Baixo
@@ -11,6 +12,7 @@ Name[x-test]=xxUp&Downxx
 Name[zh_TW]=上與下
 Description=Have you ever tried to represent waves in rectangular blocks?
 Description[de]=Haben Sie jemals versucht Wellen in einem Rechteck darzustellen?
+Description[el]=Έχετε προσπαθήσει να αναπαραστήσετε κύμματα με ορθογώνια κομμάτια;
 Description[et]=Kas oled kunagi püüdnud laineid joonistada nelinurksete kastidena?
 Description[nds]=Hest Du almaal versöcht, Bülgen ut eckig Blöck to formen?
 Description[pt]=Já alguma vez tentou representar ondas com blocos rectangulares?

@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Atlantis
+Name[el]=Ατλαντίδα
 Name[ga]=Atlantas
 Name[uk]=Атлантида
 Name[x-test]=xxAtlantisxx
 Name[zh_TW]=亞特蘭提斯
 Description=The starship-city from Stargate Atlantis
 Description[de]=Ein Sternenschiff aus Stargate Atlantis.
+Description[el]=Η πόλη αστρόπλοιο από το Stargate Atlantis
 Description[et]=Linn-tähelaev Stargate Atlantisest
 Description[nds]=De Antikers ehr Weltruumstadt ut "Stargate Atlantis"
 Description[pt]=A cidade-nave do Stargate Atlantis

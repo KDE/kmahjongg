@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Temple
 Name[de]=Tempelanlage
+Name[el]=Ναός
 Name[et]=Tempel
 Name[ga]=Teampall
 Name[nds]=Tempel
@@ -12,6 +13,7 @@ Name[x-test]=xxTemplexx
 Name[zh_TW]=廟宇
 Description=A temple-shaped layout
 Description[de]=Ein tempelförmiges Design.
+Description[el]=Μια διάταξη σε σχήμα ναού
 Description[et]=Templikujuline paigutus
 Description[ga]=Leagan amach cosúil le teampall
 Description[nds]=Lett liek en Tempel

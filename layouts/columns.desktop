@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Columns
 Name[de]=Säulen
+Name[el]=Στήλες
 Name[et]=Sambad
 Name[ga]=Colúin
 Name[nds]=Striepen
@@ -12,6 +13,7 @@ Name[x-test]=xxColumnsxx
 Name[zh_TW]=圓柱
 Description=A circular arena covered with columns of varying height
 Description[de]=Eine kreisförmige Fläche mit unterschiedlich hohen Säulen.
+Description[el]=Μια κυκλική αρένα καλυμμένη με στήλες διαφόρων υψών
 Description[et]=Ringareen, mida katavad mitmes pikkuses sambad
 Description[nds]=En Krinkrebeet mit Sülen vun verscheden Hööchde
 Description[pt]=Uma arena circular com colunas de altura variável

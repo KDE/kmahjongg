@@ -1,10 +1,12 @@
 [KMahjonggLayout]
 Name=Helios
+Name[el]=Ήλιος
 Name[uk]=Геліос
 Name[x-test]=xxHeliosxx
 Name[zh_TW]=太陽
 Description=The greek Sun god's sign
 Description[de]=Das Zeichen des griechischen Sonnengotts.
+Description[el]=Το σύμβολου του αρχαίου έλληνα θεού Ηλίου
 Description[et]=Kreeka päikesejumala märk
 Description[nds]=Den greeksch Sünngott sien Teken
 Description[pt]=O sinal do grande deus grego do Sol

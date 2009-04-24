@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Order
 Name[de]=Orden
+Name[el]=Τάξη
 Name[et]=Kord ja kohus
 Name[ga]=Ord
 Name[nds]=Reeg
@@ -12,6 +13,7 @@ Name[x-test]=xxOrderxx
 Name[zh_TW]=排序
 Description=A cross with thick ends
 Description[de]=Ein Kreuz mit dicken Enden.
+Description[el]=Ένας σταυρός με χοντρά άκρα
 Description[et]=Jämedate otstega rist
 Description[nds]=En Krüüz mit dick Ennen
 Description[pt]=Um cruz com pontas grossas
