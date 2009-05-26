@@ -1,6 +1,8 @@
 [KMahjonggLayout]
 Name=KM
+Name[sr]=КМ
 Name[x-test]=xxKMxx
+Name[zh_CN]=K M
 Description=Letters K and M. Do you have your favourite extension for that?
 Description[de]=Die Buchstaben „K“ und „M“. Denken Sie dabei an etwas bestimmtes?
 Description[el]=Τα γράμματα Κ και Μ.
@@ -8,9 +10,12 @@ Description[et]=Tähed K ja M. Kas pole armsad?
 Description[nds]=De Bookstaven K un M. Hest Du dor en vörtrocken Verwiedern för?
 Description[pt]=As letras K e M. Tem a sua extensão favorita para isso?
 Description[pt_BR]=As letras K e M. Tem a sua extensão favorita para isso?
+Description[sr]=Слова К и М. Замислите неко драго значење тих иницијала.
+Description[sr@latin]=Slova K i M. Zamislite neko drago značenje tih inicijala.
 Description[sv]=Bokstäverna K och M. Har du en favorituttydning av det?
 Description[uk]=Літери K і M. Маєте улюблений суфікс назв файлів для цього?
 Description[x-test]=xxLetters K and M. Do you have your favourite extension for that?xx
+Description[zh_CN]=字母 K 和字母 M，您喜欢怎么理解就怎么理解。
 Description[zh_TW]=字母 K 與 M。
 VersionFormat=1
 Author=KDE Games team
