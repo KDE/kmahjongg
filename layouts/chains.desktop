@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Chains
+Name[da]=Kæder
 Name[de]=Ketten
 Name[el]=Αλυσίδες
 Name[et]=Ahelad
@@ -15,6 +16,7 @@ Name[x-test]=xxChainsxx
 Name[zh_CN]=锁链
 Name[zh_TW]=鍊條
 Description=Four chains making up a single structure
+Description[da]=Fire kæder der udgør en enkelt struktur
 Description[de]=Ein Gebilde aus vier Ketten.
 Description[el]=Τέσσερις αλυσίδες που δημιουργούν μια κατασκευή
 Description[et]=Neli ühendatud ahelat

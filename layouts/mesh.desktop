@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Mesh
+Name[da]=Masket
 Name[de]=Masche
 Name[el]=Πλέγμα
 Name[et]=Võrk
@@ -15,6 +16,7 @@ Name[x-test]=xxMeshxx
 Name[zh_CN]=织网
 Name[zh_TW]=網子
 Description=An interweaved structure made up of Mahjongg tiles
+Description[da]=En indvævet struktur lavet af Mahjongg-fliser
 Description[de]=Eine verflochtene Struktur aus Mahjongg-Spielsteinen.
 Description[el]=Μια πλεγμένη κατασκευή από κομμάτια Mahjongg
 Description[et]=Läbipõimunud võrk Mahjonggi klotsidest

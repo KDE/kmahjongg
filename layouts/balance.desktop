@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Balance
+Name[da]=Vægt
 Name[de]=Waage
 Name[el]=Ισορροπία
 Name[et]=Tasakaal
@@ -15,6 +16,7 @@ Name[x-test]=xxBalancexx
 Name[zh_CN]=平衡
 Name[zh_TW]=平衡
 Description=Time to weight every decision carefully!
+Description[da]=Tid til omhyggeligt at afveje enhver beslutning.
 Description[de]=Zeit für das sichere Abwägen der Entscheidungen.
 Description[el]=Ώρα να ζυγίσετε κάθε απόφαση προσεκτικά!
 Description[et]=Aeg iga otsust hoolikalt kaaluda!

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Cat
+Name[da]=Kat
 Name[de]=Katze
 Name[el]=Γάτα
 Name[et]=Kass
@@ -14,6 +15,7 @@ Name[x-test]=xxCatxx
 Name[zh_CN]=猫
 Name[zh_TW]=貓
 Description=Vista-styled cat layout
+Description[da]=Kattelayout i Vista-stil
 Description[de]=Eine Katze im Vista-Stil.
 Description[el]=Διάταξη γάτας
 Description[et]=Vista stiilis kassi paigutus

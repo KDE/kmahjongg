@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Grid
+Name[da]=Gitter
 Name[de]=Gitter
 Name[el]=Κάνναβος
 Name[et]=Võrgustik
@@ -15,6 +16,7 @@ Name[x-test]=xxGridxx
 Name[zh_CN]=网格
 Name[zh_TW]=格子
 Description=A rectangular grid of varying height
+Description[da]=Et rektangulært gitter af varierende højde
 Description[de]=Ein rechteckiges Gitter unterschiedlicher Höhe.
 Description[el]=Ένας ορθογώνιος κάνναβος μεταβαλλόμενου ύψους
 Description[et]=Mitmes kõrguses nelinurkne võrgustik

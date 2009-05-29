@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Crab
+Name[da]=Krabbe
 Name[de]=Krabbe
 Name[el]=Καβούρι
 Name[et]=Vähk
@@ -15,6 +16,7 @@ Name[x-test]=xxCrabxx
 Name[zh_CN]=螃蟹
 Name[zh_TW]=螃蟹
 Description=Vista-styled crab layout
+Description[da]=Krabbelayout i Vista-stil
 Description[de]=Eine Krabbe im Vista-Stil.
 Description[el]=Διάταξη καβουριού
 Description[et]=Vista stiilis vähi paigutus

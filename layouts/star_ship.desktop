@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Star Ship
+Name[da]=Rumskib
 Name[de]=Raumschiff
 Name[el]=Αστρόπλοιο
 Name[et]=Tähelaev
@@ -15,6 +16,7 @@ Name[x-test]=xxStar Shipxx
 Name[zh_CN]=太空船
 Name[zh_TW]=太空船
 Description=A sci-fi space transport
+Description[da]=En fremtids rumtransport
 Description[de]=Ein zukunftsmäßiger Raumtransporter.
 Description[el]=Ένα διαστημικό μέσο μεταφοράς
 Description[et]=Ulmeline kosmoselaev

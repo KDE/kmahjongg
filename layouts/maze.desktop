@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Maze
+Name[da]=Labyrint
 Name[de]=Irrgarten
 Name[el]=Λαβύρινθος
 Name[et]=Keerdkäigud
@@ -15,6 +16,7 @@ Name[x-test]=xxMazexx
 Name[zh_CN]=迷路
 Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
+Description[da]=En ekstremt kroget labyrint. Pas på minotaurerne!
 Description[de]=Ein extrem verdrehtes Labyrinth. Nehmen Sie sich vor Minotauros in Acht!
 Description[el]=Ένα στρεβλωμένος λαβύρινθος. Προσοχή στους μινώταυρους!
 Description[et]=Erakordselt keerulised käigud. Hoidu minotauroste eest!

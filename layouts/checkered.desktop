@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Checkered
+Name[da]=Skakternet
 Name[de]=Schachbrett
 Name[el]=Σκακιέρα
 Name[et]=Ruuduline
@@ -15,6 +16,7 @@ Name[x-test]=xxCheckeredxx
 Name[zh_CN]=棋局
 Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
+Description[da]=Hvad nu hvis skakbrættet ikke var firkantet?
 Description[de]=Ein nicht ganz quadratisches Schachbrett.
 Description[el]=Τι θα συνέβαινε αν η σκακιέρα δεν ήταν τετράγωνη;
 Description[et]=Aga kui malelaud ei oleks kandiline?

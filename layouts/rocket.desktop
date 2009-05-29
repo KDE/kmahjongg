@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Rocket
+Name[da]=Raket
 Name[de]=Rakete
 Name[el]=Πύραυλος
 Name[et]=Rakett
@@ -15,6 +16,7 @@ Name[x-test]=xxRocketxx
 Name[zh_CN]=火箭
 Name[zh_TW]=火箭
 Description=A rocket for you to launch off the board
+Description[da]=En raket til at du kan sætte af fra brættet
 Description[de]=Eine Rakete, die das Spielfeld verlassen möchte.
 Description[el]=Ένας πύραυλος προς εκτόξευση εκτός του πίνακα
 Description[et]=Rakett, millega võid mängulaualt välja lennata

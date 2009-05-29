@@ -13,6 +13,7 @@ Name[x-test]=xxChipxx
 Name[zh_CN]=晶片
 Name[zh_TW]=晶片
 Description=An electronic component with many connectors
+Description[da]=En elektronisk komponent med mange tilslutninger
 Description[de]=Ein elektronischer Baustein mit vielen Anschlüssen.
 Description[el]=Ένα ηλεκτρονικό στοιχείο με πολλές συνδέσεις
 Description[et]=Eletrooniline komponent paljude ühendustega

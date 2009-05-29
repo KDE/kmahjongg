@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=The Door
+Name[da]=Døren
 Name[de]=Die Tür
 Name[el]=Η πόρτα
 Name[et]=Uks
@@ -15,6 +16,7 @@ Name[x-test]=xxThe Doorxx
 Name[zh_CN]=门扉
 Name[zh_TW]=門
 Description=A doorway through a pyramid-shaped wall
+Description[da]=En døråbning gennem en pyramideformet væg
 Description[de]=Ein Durchgang durch eine pyramidenförmige Mauer.
 Description[el]=Μια πόρτα σε έναν τοίχο με σχήμα πυραμίδας
 Description[et]=Ukseava läbi püramiidikujulise seina

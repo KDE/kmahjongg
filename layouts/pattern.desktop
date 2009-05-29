@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pattern
+Name[da]=Mønster
 Name[de]=Muster
 Name[el]=Μοτίβο
 Name[et]=Muster
@@ -15,6 +16,7 @@ Name[x-test]=xxPatternxx
 Name[zh_CN]=花式
 Name[zh_TW]=樣式
 Description=A mysterious pattern atop rectangular blocks
+Description[da]=Et mystisk mønster ovenpå rektangulære blokke
 Description[de]=Ein geheimnisvolles Muster auf Rechtecken.
 Description[el]=Ένα μυστηριώδες μοτίβο πάνω σε ορθογώνια κομμάτια
 Description[et]=Müstiline muster nelinurksetel plokkidel

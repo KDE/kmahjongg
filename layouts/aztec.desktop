@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Aztec
+Name[da]=Aztek
 Name[de]=Azteke
 Name[el]=Αζτέκοι
 Name[et]=Asteek
@@ -14,6 +15,7 @@ Name[x-test]=xxAztecxx
 Name[zh_CN]=阿兹特克
 Name[zh_TW]=阿茲特克
 Description=A layout resembling Aztec buildings
+Description[da]=Et layout der ligner aztekiske bygninger
 Description[de]=Ein Design, das einem aztekischen Bauwerk ähnelt.
 Description[el]=Μια διάταξη που μοιάζει με τα κτίρια των Αζτέκων
 Description[et]=Asteegi ehitisi meenutav paigutus

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Glade
+Name[da]=Lysning
 Name[de]=Lichtung
 Name[el]=Ξέφωτο
 Name[et]=Metsavälu
@@ -15,6 +16,7 @@ Name[x-test]=xxGladexx
 Name[zh_CN]=林中空地
 Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
+Description[da]=Et mindre tomt område omgivet af en skov
 Description[de]=Ein kleines Stück freier Fläche, das von einem Wald umgeben ist.
 Description[el]=Ένας μικρός κενός χώρος περιτριγυρισμένος από δάσος
 Description[et]=Väike lagendik keset suuri puid

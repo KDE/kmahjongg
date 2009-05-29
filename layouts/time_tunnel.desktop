@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Time Tunnel
+Name[da]=Tidstunnel
 Name[de]=Zeittunnel
 Name[el]=Χρονική σήραγγα
 Name[et]=Ajatunnel
@@ -15,6 +16,7 @@ Name[x-test]=xxTime Tunnelxx
 Name[zh_CN]=时光隧道
 Name[zh_TW]=時光隧道
 Description=A pyramid with a hole in the middle
+Description[da]=En pyramide med et hul i midten
 Description[de]=Eine Pyramide mit einem Loch in der Mitte.
 Description[el]=Μια πυραμίδα με μια τρύπα στο μέσο
 Description[et]=Püramiid, mille keskel on avaus

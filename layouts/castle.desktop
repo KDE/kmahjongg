@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Castle
+Name[da]=Slot
 Name[de]=Burg
 Name[el]=Κάστρο
 Name[et]=Linnus
@@ -15,6 +16,7 @@ Name[x-test]=xxCastlexx
 Name[zh_CN]=城堡
 Name[zh_TW]=城堡
 Description=Vista-styled castle layout
+Description[da]=Slotslayout i Vista-stil
 Description[de]=Eine Burg im Vista-Stil.
 Description[el]=Διάταξη με θέμα ένα κάστρο
 Description[et]=Vista stiilis linnuse paigutus

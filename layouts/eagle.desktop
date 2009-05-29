@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Eagle
+Name[da]=Ørn
 Name[de]=Adler
 Name[el]=Αετός
 Name[et]=Kotkas
@@ -15,6 +16,7 @@ Name[x-test]=xxEaglexx
 Name[zh_CN]=鹰
 Name[zh_TW]=老鷹
 Description=A large carnivore bird in Mahjongg tiles
+Description[da]=En stor kødædende fugl i Mahjongg-fliser
 Description[de]=Ein großer fleischfressender Vogel aus Mahjongg-Spielsteinen.
 Description[el]=Ένα μεγάλο σαρκοφάγο πτηνό με κομμάτια mahjongg
 Description[et]=Suur lihasööja lind Mahjonggi klotsidest

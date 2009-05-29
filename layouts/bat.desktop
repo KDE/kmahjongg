@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Bat
+Name[da]=Flagermus
 Name[de]=Fledermaus
 Name[el]=Νυχτερίδα
 Name[et]=Nahkhiir
@@ -15,6 +16,7 @@ Name[x-test]=xxBatxx
 Name[zh_CN]=蝙蝠
 Name[zh_TW]=蝙蝠
 Description=A bat-shaped layout
+Description[da]=Et flagermus-lignende layout
 Description[de]=Ein fledermaus-ähnliches Design.
 Description[el]=Μια διάταξη σε σχήμα νυχτερίδας
 Description[et]=Nahkhiire kujuline paigutus

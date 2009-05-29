@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Temple
+Name[da]=Tempel
 Name[de]=Tempelanlage
 Name[el]=Ναός
 Name[et]=Tempel
@@ -15,6 +16,7 @@ Name[x-test]=xxTemplexx
 Name[zh_CN]=神庙
 Name[zh_TW]=廟宇
 Description=A temple-shaped layout
+Description[da]=Et tempelformet layout
 Description[de]=Ein tempelförmiges Design.
 Description[el]=Μια διάταξη σε σχήμα ναού
 Description[et]=Templikujuline paigutus

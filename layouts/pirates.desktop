@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[da]=Pirater
 Name[de]=Piraten
 Name[el]=Πειρατές
 Name[et]=Piraadid
@@ -15,6 +16,7 @@ Name[x-test]=xxPiratesxx
 Name[zh_CN]=海盗
 Name[zh_TW]=海盜
 Description=A sailing boat under the sun
+Description[da]=En sejlende båd under solen
 Description[de]=Ein segelndes Boot unter der Sonne.
 Description[el]=Ένα πλεούμενο κάτω από τον ήλιο
 Description[et]=Purjekas päikesesäras

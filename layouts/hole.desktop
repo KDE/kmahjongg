@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Hole
+Name[da]=Hul
 Name[de]=Loch
 Name[el]=Τρύπα
 Name[et]=Auk
@@ -15,6 +16,7 @@ Name[x-test]=xxHolexx
 Name[zh_CN]=洞穴
 Name[zh_TW]=洞穴
 Description=A pyramid with a hole in the middle
+Description[da]=En pyramide med et hul i midten
 Description[de]=Eine Pyramide mit einem Loch in der Mitte.
 Description[el]=Μια πυραμίδα με μια τρύπα στο μέσο
 Description[et]=Püramiid, mille keskel on avaus

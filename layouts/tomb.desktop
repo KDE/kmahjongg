@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Tomb
+Name[da]=Grav
 Name[de]=Grabstätte
 Name[el]=Τύμβος
 Name[et]=Haud
@@ -15,6 +16,7 @@ Name[x-test]=xxTombxx
 Name[zh_CN]=古墓
 Name[zh_TW]=墳墓
 Description=Fans of Lara Croft may start digging
+Description[da]=Fans af Lara Croft kan begynde at grave
 Description[de]=Verehrer von Lara Croft könnten jetzt mit dem Graben beginnen.
 Description[el]=Οι φίλοι της Λάρα Κροφτ μπορούν να αρχίσουν τις ανασκαφές
 Description[et]=Lara Crofti fännid võivad kohe asuda kaevama

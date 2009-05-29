@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pillars
+Name[da]=Piller
 Name[de]=Säulen
 Name[el]=Κολώνες
 Name[et]=Tugipostid
@@ -16,6 +17,7 @@ Name[x-test]=xxPillarsxx
 Name[zh_CN]=台柱
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
+Description[da]=Et par lodrette piller der understøtter en flad overflade
 Description[de]=Zwei vertikale Säulen als Stütze einer ebenen Fläche.
 Description[el]=Ένα ζεύγος κατακόρυφες κολώνες που υποστηρίζουν μια επίπεδη επιφάνεια
 Description[et]=Paar tugiposti, mis toetavad siledat tasapinda

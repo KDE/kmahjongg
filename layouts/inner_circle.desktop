@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Inner Circle
+Name[da]=Inderkreds
 Name[de]=Innenkreis
 Name[el]=Εσώτερος κύκλος
 Name[et]=Sisering
@@ -15,6 +16,7 @@ Name[x-test]=xxInner Circlexx
 Name[zh_CN]=同心圆
 Name[zh_TW]=內圓
 Description=Concentric boxes with openings pointing in opposite directions
+Description[da]=Koncentriske kasser med åbningerne pegende i modsat retning
 Description[de]=Konzentrische Kästen mit Öffnungen in entgegengesetzter Richtung.
 Description[el]=Ομόκεντρα τετράγωνα με ανοίγματα με όψη σε αντίθετες κατευθύνσεις
 Description[et]=Kontsentrilised kastid, mis avanevad vastassuunda
