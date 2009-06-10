@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Columns
+Name[ca]=Columnes
 Name[da]=Søjler
 Name[de]=Säulen
 Name[el]=Στήλες
@@ -17,6 +18,7 @@ Name[x-test]=xxColumnsxx
 Name[zh_CN]=圆柱
 Name[zh_TW]=圓柱
 Description=A circular arena covered with columns of varying height
+Description[ca]=Un escenari circular cobert amb columnes d'alçada variable
 Description[da]=En rund arena fyldt med søjler af forskellig højde
 Description[de]=Eine kreisförmige Fläche mit unterschiedlich hohen Säulen.
 Description[el]=Μια κυκλική αρένα καλυμμένη με στήλες διαφόρων υψών

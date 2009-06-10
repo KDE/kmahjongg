@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Squaring
+Name[ca]=Quadratura
 Name[da]=Fire kanter
 Name[de]=Quadratur
 Name[el]=Τετραγωνισμός
@@ -16,6 +17,7 @@ Name[x-test]=xxSquaringxx
 Name[zh_CN]=方形
 Name[zh_TW]=方形
 Description=Who said squares are flat?
+Description[ca]=Qui ha dit que els quadrats són plans?
 Description[da]=Hvem siger at firkanter er flade?
 Description[de]=Wer behauptet, dass Quadrate flach sind?
 Description[el]=Ποιός είπε ότι τα τετράγωνα είναι επίπεδα;

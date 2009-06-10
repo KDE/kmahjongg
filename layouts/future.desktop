@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Future
+Name[ca]=Futur
 Name[da]=Fremtid
 Name[de]=Zukunft
 Name[el]=Μέλλον
@@ -17,6 +18,7 @@ Name[x-test]=xxFuturexx
 Name[zh_CN]=未来
 Name[zh_TW]=未來
 Description=An abstract image resembling an asterisk
+Description[ca]=Una imatge abstracta que sembla un asterisc
 Description[da]=Et abstrakt billede der ligner en stjerne
 Description[de]=Ein abstraktes Bild, das einen Stern darstellen soll.
 Description[el]=Μια αφηρημένη εικόνα που μοιάζει με αστερίσκο

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Grid
+Name[ca]=Graella
 Name[da]=Gitter
 Name[de]=Gitter
 Name[el]=Κάνναβος
@@ -16,6 +17,7 @@ Name[x-test]=xxGridxx
 Name[zh_CN]=网格
 Name[zh_TW]=格子
 Description=A rectangular grid of varying height
+Description[ca]=Una graella rectangular d'alçada variable
 Description[da]=Et rektangulært gitter af varierende højde
 Description[de]=Ein rechteckiges Gitter unterschiedlicher Höhe.
 Description[el]=Ένας ορθογώνιος κάνναβος μεταβαλλόμενου ύψους

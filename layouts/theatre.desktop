@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Theatre
+Name[ca]=Teatre
 Name[da]=Teater
 Name[de]=Theater
 Name[el]=Θέατρο
@@ -16,6 +17,7 @@ Name[x-test]=xxTheatrexx
 Name[zh_CN]=剧院
 Name[zh_TW]=戲院
 Description=A rectangular building with empty space in the middle
+Description[ca]=Una construcció rectangular amb un espai buit al mig
 Description[da]=En rektangulær bygning med tomt rum i midten
 Description[de]=Ein rechteckiges Gebilde mit einen leeren Raum in der Mitte.
 Description[el]=Ένα ορθογώνιο κτήριο με κενό χώρο στο μέσο του

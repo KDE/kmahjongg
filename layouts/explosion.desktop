@@ -51,6 +51,7 @@ Name[x-test]=xxExplosionxx
 Name[zh_CN]=雷炸了
 Name[zh_TW]=爆炸
 Description=Something has exploded. Collect the pieces.
+Description[ca]=Alguna cosa ha explotat. Recull les peces.
 Description[da]=Noget er eksploderet. Saml stykkerne.
 Description[de]=Irgendetwas ist explodiert - sammeln Sie die Teile ein.
 Description[el]=Κάτι ανατινάχτηκε. Συλλέξτε τα κομμάτια.

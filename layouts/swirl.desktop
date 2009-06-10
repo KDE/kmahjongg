@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Swirl
+Name[ca]=Remolí
 Name[da]=Hvirvel
 Name[de]=Wirbel
 Name[el]=Στρόβιλος
@@ -16,6 +17,7 @@ Name[x-test]=xxSwirlxx
 Name[zh_CN]=漩涡
 Name[zh_TW]=漩渦
 Description=A spiral with thick ends
+Description[ca]=Una espiral amb extrems gruixuts
 Description[da]=En spiral med tykke ender
 Description[de]=Eine Spirale mit dicken Enden.
 Description[el]=Μια σπείρα με χοντρά άκρα

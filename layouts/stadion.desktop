@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Stadion
+Name[ca]=Estadi
 Name[el]=Στάδιο
 Name[et]=Staadion
 Name[pt]=Estádio
@@ -10,6 +11,7 @@ Name[x-test]=xxStadionxx
 Name[zh_CN]=体育场
 Name[zh_TW]=運動場
 Description=A layout representing a football field
+Description[ca]=Una disposició que representa un petit estadi de futbol
 Description[da]=Et layout der forestillerer en fodboldbane
 Description[de]=Dieses Design zeigt einen Fussballplatz.
 Description[el]=Μια διάταξη που μοιάζει με γήπεδο ποδοσφαίρου

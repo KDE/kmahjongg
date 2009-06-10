@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Spider
+Name[ca]=Aranya
 Name[da]=Edderkop
 Name[de]=Spinne
 Name[el]=Αράχνη
@@ -17,6 +18,7 @@ Name[x-test]=xxSpiderxx
 Name[zh_CN]=蜘蛛
 Name[zh_TW]=蜘蛛
 Description=Vista-styled spider layout
+Description[ca]=Disposició amb la forma d'una aranya
 Description[da]=Eddderkoppelayout i Vista-stil
 Description[de]=Eine Spinne im Vista-Stil.
 Description[el]=Διάταξη αράχνης Vista

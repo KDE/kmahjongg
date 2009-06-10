@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Castle
+Name[ca]=Castell
 Name[da]=Slot
 Name[de]=Burg
 Name[el]=Κάστρο
@@ -16,6 +17,7 @@ Name[x-test]=xxCastlexx
 Name[zh_CN]=城堡
 Name[zh_TW]=城堡
 Description=Vista-styled castle layout
+Description[ca]=Disposició amb la forma d'un castell
 Description[da]=Slotslayout i Vista-stil
 Description[de]=Eine Burg im Vista-Stil.
 Description[el]=Διάταξη με θέμα ένα κάστρο

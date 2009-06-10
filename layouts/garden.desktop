@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Garden
+Name[ca]=Jardí
 Name[da]=Have
 Name[de]=Garten
 Name[el]=Κήπος
@@ -17,6 +18,7 @@ Name[x-test]=xxGardenxx
 Name[zh_CN]=花园
 Name[zh_TW]=花園
 Description=Regular patterns resembling a classical garden
+Description[ca]=Formes regulars que semblen un jardí clàssic
 Description[da]=Regelmæssige mønstre der ligner en klassisk have
 Description[de]=Wiederkehrende Muster stellen einen klassischen Garten dar.
 Description[el]=Τυπικά μοτίβα που μοιάζουν με έναν κλασικό κήπο

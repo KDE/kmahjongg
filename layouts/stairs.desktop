@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Stairs
+Name[ca]=Escales
 Name[da]=Trapper
 Name[de]=Treppen
 Name[el]=Κλίμακες
@@ -17,6 +18,7 @@ Name[x-test]=xxStairsxx
 Name[zh_CN]=阶梯
 Name[zh_TW]=階梯
 Description=A staircase for those who dislike taking the same path twice
+Description[ca]=Una escala per als que no els agrada prendre el mateix camí dues vegades
 Description[da]=En trappe for dem der ikke bryder sig om at følge samme sti to gange
 Description[de]=Ein Treppenhaus für alle, die den selben Weg nicht doppelt gehen möchten.
 Description[el]=Ένα κλιμακοστάσιο γι αυτούς που δεν επιθυμούν την ίδια διαδρομή δεύτερη φορά

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Squares
+Name[ca]=Quadrats
 Name[da]=Felter
 Name[de]=Quadrate
 Name[el]=Τετράγωνα
@@ -16,6 +17,7 @@ Name[x-test]=xxSquaresxx
 Name[zh_CN]=方块
 Name[zh_TW]=方塊
 Description=Concentric squares of alterating height
+Description[ca]=Quadrats concèntrics d'alçada alterada
 Description[da]=Koncentriske felter af varierende højde
 Description[de]=Konzentrische Quadrate mit verschiedenen Höhen.
 Description[el]=Ομόκεντρα τετράγωνα με μεταβαλλόμενο ύψος

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Star
+Name[ca]=Estrella
 Name[da]=Stjerne
 Name[de]=Stern
 Name[el]=Αστέρι
@@ -17,6 +18,7 @@ Name[x-test]=xxStarxx
 Name[zh_CN]=群星
 Name[zh_TW]=星星
 Description=An asterisk-shaped embossed layout
+Description[ca]=Una disposició amb forma d'asterisc amb relleu
 Description[da]=Et stjerneformet præget layout
 Description[de]=Ein sternförmiges Design.
 Description[el]=Μια διάταξη σε σχήμα αστερίσκου

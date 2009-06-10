@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Labyrinth
+Name[ca]=Laberint
 Name[da]=Labyrint
 Name[el]=Λαβύρινθος
 Name[et]=Labürint
@@ -15,6 +16,7 @@ Name[x-test]=xxLabyrinthxx
 Name[zh_CN]=迷宫
 Name[zh_TW]=迷宮
 Description=A complex yet symmetric labyrinth
+Description[ca]=Un complex laberint encara que simètric
 Description[da]=En kompleks men symmetrisk labyrint
 Description[de]=Ein kompliziertes und symmetrisches Labyrinth.
 Description[el]=Ένας σύνθετος συμμετρικός λαβύρινθος

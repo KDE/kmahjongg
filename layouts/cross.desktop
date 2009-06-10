@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Cross
+Name[ca]=Creu
 Name[da]=Kors
 Name[de]=Schneeball
 Name[el]=Σταυρός
@@ -16,6 +17,7 @@ Name[x-test]=xxCrossxx
 Name[zh_CN]=十字
 Name[zh_TW]=十字型
 Description=A six-ended cross resembling the Cyrillic letter Zh
+Description[ca]=Una creu de sis puntes semblant a la lletra ciríl·lica Zh
 Description[da]=Et sekstakket kors der ligner det kyrilliske bogstav Zh
 Description[de]=Ein Schneeball mit sechs Enden (ähnlich dem kyrillischen Zh). 
 Description[el]=Ένας σταυρός έξι άκρων που μοιάζει με το κυριλλικό γράμμα Zh
