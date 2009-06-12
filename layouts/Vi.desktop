@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Vi
 Name[da]=Ve
+Name[es]=Uve
 Name[et]=<entry>VI</entry>
 Name[sr]=Ви
 Name[x-test]=xxVixx
@@ -11,6 +12,7 @@ Description[ca]=Una disposició amb forma de V amb cantonades primes
 Description[da]=Et V-formet layout med tykke nedre hjørner
 Description[de]=Ein V-förmiges Design mit dicken unteren Ecken.
 Description[el]=Μια διάταξη σε σχήμα V με χοντρές κάτω γωνίες
+Description[es]=Un diseño en forma de V con gruesos ángulos inferiores
 Description[et]=V-kujuline paigutus alanevate nurkadega
 Description[ga]=Leagan amach i gcruth V, le cúinní tiubha íochtaracha
 Description[nds]=En Utsehn liek en "V" mit dick Ecken nerrn
