@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Helios
 Name[el]=Ήλιος
+Name[it]=Elio
 Name[sr]=Хелиос
 Name[uk]=Геліос
 Name[x-test]=xxHeliosxx
@@ -13,6 +14,7 @@ Description[de]=Das Zeichen des griechischen Sonnengotts.
 Description[el]=Το σύμβολου του αρχαίου έλληνα θεού Ηλίου
 Description[es]=El símbolo del dios del Sol griego
 Description[et]=Kreeka päikesejumala märk
+Description[it]=Il simbolo del dio greco del sole
 Description[nds]=Den greeksch Sünngott sien Teken
 Description[pt]=O sinal do grande deus grego do Sol
 Description[pt_BR]=O sinal do grande deus grego do Sol
