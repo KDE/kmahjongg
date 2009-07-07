@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Enterprise
 Name[el]=Εντερπράιζ
+Name[lv]=Uzņēmums
 Name[ru]=Энтерпрайз
 Name[sr]=Ентерпрајз
 Name[sr@latin]=Enterprajz
@@ -19,6 +20,7 @@ Description[et]=Paigutus Star Treki fännidele
 Description[eu]=Star Trek-eko jarraitzaileentzako diseinu bat
 Description[ga]=Leagan amach le haghaidh leantóirí Star Trek
 Description[it]=Una disposizione per i fan di Star Trek
+Description[lv]=Izvietojums Star Trek cienītājiem
 Description[nds]=En Muster för "Treckies"
 Description[pt]=Um formato para os fãs do Caminho das Estrelas
 Description[pt_BR]=Um formato para os fãs do Jornada nas Estrelas
