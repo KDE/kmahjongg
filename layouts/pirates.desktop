@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[cs]=Piráti
 Name[da]=Pirater
 Name[de]=Piraten
 Name[el]=Πειρατές
@@ -30,6 +31,7 @@ Description[el]=Ένα πλεούμενο κάτω από τον ήλιο
 Description[es]=Un barco velero bajo el sol
 Description[et]=Purjekas päikesesäras
 Description[eu]=Nabigatzeko untzia eguzkipean
+Description[fr]=Un bateau à voile sous le soleil
 Description[ga]=Bád seoil faoin ghrian
 Description[it]=Un veliero sotto il sole
 Description[lv]=Burājošs kuģis zem saules

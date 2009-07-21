@@ -1,12 +1,14 @@
 [KMahjonggLayout]
 Name=Shield
 Name[ca]=Escut
+Name[cs]=Štít
 Name[da]=Skjold
 Name[de]=Kampfausstattung
 Name[el]=Ασπίδα
 Name[es]=Escudo
 Name[et]=Kilp
 Name[eu]=Ezkutua
+Name[fr]=Bouclier
 Name[ga]=Sciath
 Name[it]=Scudo
 Name[lv]=Vairogs
@@ -31,6 +33,7 @@ Description[el]=Μια ασπίδα και ένα σπαθί από κομμάτ
 Description[es]=Un escudo y una espada hechas de fichas de Mahjongg
 Description[et]=Kilp ja mõõk Mahjonggi klotsidest
 Description[eu]=Mahjongg lauzakin sortutako ezkutua eta ezpata
+Description[fr]=Un bouclier et une épée réalisés en tuiles Mahjongg
 Description[it]=Uno scudo e una spada fatti con le tessere del Mahjongg
 Description[lv]=Vairogs un zobens, kas salikts no Mahjongg kauliņiem
 Description[nds]=En Schild un en Sweert ut Mahjongg-Steen

@@ -1,12 +1,14 @@
 [KMahjonggLayout]
 Name=Castle
 Name[ca]=Castell
+Name[cs]=Hrad
 Name[da]=Slot
 Name[de]=Burg
 Name[el]=Κάστρο
 Name[es]=Castillo
 Name[et]=Linnus
 Name[eu]=Gaztelua
+Name[fr]=Chateau
 Name[ga]=Caisleán
 Name[it]=Castello
 Name[lv]=Pils
@@ -32,6 +34,7 @@ Description[el]=Διάταξη με θέμα ένα κάστρο
 Description[es]=Un diseño en forma de castillo
 Description[et]=Vista stiilis linnuse paigutus
 Description[eu]=Vista itxurako gaztelu diseinua
+Description[fr]=Forme d'un chateau dans le style Vista
 Description[it]=Una disposizione a castello in stile Vista
 Description[lv]=Perspektīvas stila pils izvietojums
 Description[nds]=En Slott in Vista-Stil

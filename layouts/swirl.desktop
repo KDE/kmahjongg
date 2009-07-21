@@ -1,12 +1,14 @@
 [KMahjonggLayout]
 Name=Swirl
 Name[ca]=Remolí
+Name[cs]=Vír
 Name[da]=Hvirvel
 Name[de]=Wirbel
 Name[el]=Στρόβιλος
 Name[es]=Remolino
 Name[et]=Keeris
 Name[eu]=Zurrunbiloa
+Name[fr]=Tourbillon
 Name[ga]=Guairneán
 Name[it]=Vortice
 Name[lv]=Virpulis
@@ -33,6 +35,7 @@ Description[el]=Μια σπείρα με χοντρά άκρα
 Description[es]=Una espiral con puntas gruesas
 Description[et]=Ahenevate otstega spiraal
 Description[eu]=Espiral bat amaiera lodiekin
+Description[fr]=Une spirale avec des extrémités élargies
 Description[it]=Una spirale con estremità spesse
 Description[lv]=Spirāle ar sabiezinātiem galiem
 Description[nds]=En Spiraal mit dick Ennen

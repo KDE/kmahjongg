@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Labyrinth
 Name[ca]=Laberint
+Name[cs]=Labyrint
 Name[da]=Labyrint
 Name[el]=Λαβύρινθος
 Name[es]=Laberinto
 Name[et]=Labürint
 Name[eu]=Labirintoa
+Name[fr]=Labyrinthe
 Name[ga]=Lúbra
 Name[it]=Labirinto
 Name[lv]=Labirints
@@ -31,6 +33,7 @@ Description[el]=Ένας σύνθετος συμμετρικός λαβύριν�
 Description[es]=Un laberinto complejo, aunque simétrico
 Description[et]=Sümmeetriline, aga keeruline labürint
 Description[eu]=Labirinto simetriko konplexua
+Description[fr]=Un labyrinthe complexe et symétrique
 Description[ga]=Lúbra atá casta ach siméadrach freisin
 Description[it]=Un labirinto complicato ma simmetrico
 Description[lv]=Sarežģīts, tomēr simetrisks labirints

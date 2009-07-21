@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Temple
+Name[cs]=Chrám
 Name[da]=Tempel
 Name[de]=Tempelanlage
 Name[el]=Ναός
@@ -13,6 +14,7 @@ Name[mai]=टेंपल
 Name[nds]=Tempel
 Name[nl]=Tempel
 Name[nn]=Tempel
+Name[pa]=ਮੰਦਰ
 Name[pt]=Templo
 Name[pt_BR]=Templo
 Name[ru]=Храм
@@ -31,6 +33,7 @@ Description[el]=Μια διάταξη σε σχήμα ναού
 Description[es]=Un diseño en forma de templo
 Description[et]=Templikujuline paigutus
 Description[eu]=Tenplua formako diseinu bat
+Description[fr]=Une forme de temple
 Description[ga]=Leagan amach cosúil le teampall
 Description[it]=Una disposizione a forma di tempio
 Description[lv]=Izkārtojums tempļa formā

@@ -1,8 +1,10 @@
 [KMahjonggLayout]
 Name=Arena
+Name[cs]=Aréna
 Name[el]=Αρένα
 Name[et]=Areen
 Name[eu]=Borroka-lekua
+Name[fr]=Arène
 Name[ga]=Airéine
 Name[lv]=Arēna
 Name[mai]=अरीना
@@ -22,6 +24,7 @@ Description[el]=Μια αρένα περιστοιχισμένη κυκλικά 
 Description[es]=Asientos distribuidos en círculo alrededor de un área de representación
 Description[et]=Ringis istmed näitelava ümber
 Description[eu]=Zirkulu batean lerrokatutako eserlekuak ikuskizunaren inguruan
+Description[fr]=Des places alignées de façon circulaire autour d'une zone
 Description[it]=Sedili disposti in circolo attorno ad un'area di spettacolo
 Description[lv]=Aplī izvietoti sēdekļi ap izpildījuma laukumu
 Description[nds]=Sittplätz rund en Arena

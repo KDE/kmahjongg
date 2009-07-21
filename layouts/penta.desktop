@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Penta
 Name[el]=Πέντε
+Name[fr]=Pentagone
 Name[ga]=Peintea
 Name[it]=Pentagono
 Name[nds]=Fief
@@ -19,6 +20,7 @@ Description[el]=Ένα οχυρό με πέντε πύργους
 Description[es]=Una fortaleza con cinco torres
 Description[et]=Viie torniga linnus
 Description[eu]=Bost dorreko gotorlekua
+Description[fr]=Une forteresse à cinq tours
 Description[ga]=Dún le cúig thúr
 Description[it]=Una fortezza con cinque torri
 Description[lv]=Cietoksnis ar pieciem torņiem

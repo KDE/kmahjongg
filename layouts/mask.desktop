@@ -1,11 +1,13 @@
 [KMahjonggLayout]
 Name=Mask
 Name[ca]=Màscara
+Name[cs]=Maska
 Name[da]=Maske
 Name[de]=Maske
 Name[el]=Μάσκα
 Name[es]=Máscara
 Name[eu]=Maskara
+Name[fr]=Masque
 Name[ga]=Masc
 Name[it]=Maschera
 Name[lv]=Maska
@@ -30,6 +32,7 @@ Description[el]=Μια τρομακτική παγανιστική μάσκα
 Description[es]=Una terrorífica máscara pagana en relieve
 Description[et]=Kohutav paganlik mask
 Description[eu]=Bozeldutako beldurrezko maskara paganoa
+Description[fr]=Un effrayant masque païen en relief
 Description[it]=Una terrificante maschera pagana a rilievo
 Description[lv]=Biedējoša, gofrēta pagānu maska
 Description[nds]=En gresig Heiden-Mask

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Altar
+Name[cs]=Oltář
 Name[da]=Alter
 Name[el]=Βωμός
 Name[eu]=Aldarea
@@ -24,6 +25,7 @@ Description[el]=Μια υψωμένη επιφάνεια με κλίμακες �
 Description[es]=Una superficie elevada con escaleras y columnas a los lados
 Description[et]=Kõrgem pind külgedel astmetega
 Description[eu]=Altxatutako gainazal bat alboetan eskailera eta zutabeak dituelarik
+Description[fr]=Une surface élevée avec des étages et des colonnes à part
 Description[it]=Un ripiano elevato, circondato da scale e colonne
 Description[lv]=Pacelta virsma ar kāpnēm un kolonnām sānos
 Description[nds]=En anböört Steed mit Treppstopen un Sülen an de Siet

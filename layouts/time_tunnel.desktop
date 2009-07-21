@@ -1,12 +1,14 @@
 [KMahjonggLayout]
 Name=Time Tunnel
 Name[ca]=El túnel del temps
+Name[cs]=Časový tunel
 Name[da]=Tidstunnel
 Name[de]=Zeittunnel
 Name[el]=Χρονική σήραγγα
 Name[es]=Túnel del tiempo
 Name[et]=Ajatunnel
 Name[eu]=Denboraren tunela
+Name[fr]=Tunnel temporel
 Name[ga]=Tollán Ama
 Name[it]=Tunnel del tempo
 Name[lv]=Laika tunelis
@@ -32,6 +34,7 @@ Description[el]=Μια πυραμίδα με μια τρύπα στο μέσο
 Description[es]=Una pirámide con un agujero en medio
 Description[et]=Püramiid, mille keskel on avaus
 Description[eu]=Piramide bat erdian zuloa duela
+Description[fr]=Une pyramide comportant un trou en son centre
 Description[ga]=Pirimid le poll sa lár
 Description[it]=Una piramide con un buco nel mezzo
 Description[km]=ពីរ៉ាមីត​ដែល​មាន​ប្រហោង​នៅ​កណ្ដាល

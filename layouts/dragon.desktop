@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Dragon
 Name[ca]=Drac
+Name[cs]=Drak
 Name[da]=Drage
 Name[de]=Drache
 Name[el]=Δράκος
@@ -15,6 +16,7 @@ Name[mai]=ड्रैगन
 Name[nds]=Draken
 Name[nl]=Draak
 Name[nn]=Drage
+Name[pa]=ਰਾਖਸ਼
 Name[pt]=Dragão
 Name[pt_BR]=Dragão
 Name[ru]=Дракон
@@ -33,6 +35,7 @@ Description[el]=Διάταξη δράκου
 Description[es]=Un diseño en forma de dragón
 Description[et]=Vista stiilis draakoni paigutus
 Description[eu]=Vista itxurako erensugeraren diseinua
+Description[fr]=Forme d'un dragon dans le style Vista
 Description[it]=Una disposizione a forma di dragone in stile Vista
 Description[km]=ប្លង់​នាគ​ដែល​មាន​រចនាប័ទ្ម​វីស្តា
 Description[lv]=Perspektīvas stila pūķa izvietojums
