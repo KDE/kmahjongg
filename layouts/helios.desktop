@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Helios
 Name[el]=Ήλιος
+Name[hu]=Héliosz
 Name[it]=Elio
 Name[ru]=Гелиос
 Name[sl]=Helij
@@ -19,6 +20,7 @@ Description[es]=El símbolo del dios del Sol griego
 Description[et]=Kreeka päikesejumala märk
 Description[eu]=Grekoen Eguzkian jainkoaren ikurra
 Description[fr]=Le signe du dieu grec du soleil
+Description[hu]=Az ógörög napisten jele
 Description[it]=Il simbolo del dio greco del sole
 Description[lv]=Grieķu saules dieva zīme
 Description[nds]=Den greeksch Sünngott sien Teken
