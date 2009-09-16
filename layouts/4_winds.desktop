@@ -1,8 +1,10 @@
 [KMahjonggLayout]
 Name=4 Winds
 Name[ca]=4 vents
+Name[da]=4 Winds
 Name[de]=Vier Winde
 Name[el]=4 άνεμοι
+Name[en_GB]=4 Winds
 Name[es]=4 vientos
 Name[et]=4 tiiba
 Name[eu]=4 haizeak
@@ -34,6 +36,7 @@ Description[ca]=Una disposició semblant a una fortalesa
 Description[da]=Et layout der ligner en fæstning
 Description[de]=Ein Design, das einer Festung ähnelt.
 Description[el]=Μια διάταξη που μοιάζει με οχυρό
+Description[en_GB]=A layout resembling a fortress
 Description[es]=Un diseño que se parece a una fortaleza
 Description[et]=Kindlust meenutav paigutus
 Description[eu]=Gotorlerkua dirudien diseinua
