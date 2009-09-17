@@ -1,13 +1,19 @@
 [KMahjonggLayout]
 Name=Chip
 Name[ca]=Xip
+Name[da]=Chip
 Name[de]=Baustein
 Name[el]=Τσιπ
+Name[en_GB]=Chip
+Name[es]=Chip
 Name[et]=Kiip
 Name[eu]=Txipa
 Name[ga]=Slis
+Name[it]=Chip
+Name[nds]=Chip
 Name[nn]=Brikke
 Name[pt]=Circuito Integrado
+Name[pt_BR]=Chip
 Name[ro]=Cip
 Name[ru]=Матрица
 Name[sl]=Čip
@@ -25,6 +31,7 @@ Description[ca]=Un component electrònic amb molts connectors
 Description[da]=En elektronisk komponent med mange tilslutninger
 Description[de]=Ein elektronischer Baustein mit vielen Anschlüssen.
 Description[el]=Ένα ηλεκτρονικό στοιχείο με πολλές συνδέσεις
+Description[en_GB]=An electronic component with many connectors
 Description[es]=Un componente electrónico con muchos conectores
 Description[et]=Eletrooniline komponent paljude ühendustega
 Description[eu]=Konektore asko dituen osagai elektronikoa

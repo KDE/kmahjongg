@@ -1,8 +1,10 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[ca]=Pirates
 Name[da]=Pirater
 Name[de]=Piraten
 Name[el]=Πειρατές
+Name[en_GB]=Pirates
 Name[es]=Piratas
 Name[et]=Piraadid
 Name[eu]=Piratak
@@ -19,6 +21,7 @@ Name[sr@latin]=Gusari
 Name[sv]=Pirater
 Name[tr]=Korsanlar
 Name[uk]=Пірати
+Name[wa]=Pirates
 Name[x-test]=xxPiratesxx
 Name[zh_CN]=海盗
 Name[zh_TW]=海盜
@@ -27,6 +30,7 @@ Description[ca]=Un vaixell de vela sota el sol
 Description[da]=En sejlende båd under solen
 Description[de]=Ein segelndes Boot unter der Sonne.
 Description[el]=Ένα πλεούμενο κάτω από τον ήλιο
+Description[en_GB]=A sailing boat under the sun
 Description[es]=Un barco velero bajo el sol
 Description[et]=Purjekas päikesesäras
 Description[eu]=Nabigatzeko untzia eguzkipean
