@@ -188,12 +188,19 @@ void KMahjongg::setupKAction()
 // ---------------------------------------------------------
 void KMahjongg::setupStatusBar()
 {
+    gameTimerLabel = new QLabel(i18n("Time: 0:00:00"), statusBar());
+    statusBar()->addWidget(gameTimerLabel);
+
+    QFrame* timerDivider = new QFrame(statusBar());
+    timerDivider->setFrameStyle(QFrame::VLine);
+    statusBar()->addWidget(timerDivider);
+
     tilesLeftLabel= new QLabel(i18n("Removed: 0000/0000"), statusBar());
     statusBar()->addWidget(tilesLeftLabel, 1);
 
-    QFrame* titleDivider = new QFrame(statusBar());
-    titleDivider->setFrameStyle(QFrame::VLine);
-    statusBar()->addWidget(titleDivider);
+    QFrame* tileDivider = new QFrame(statusBar());
+    tileDivider->setFrameStyle(QFrame::VLine);
+    statusBar()->addWidget(tileDivider);
 
     gameNumLabel = new QLabel(i18n("Game: 000000000000000000000"), statusBar());
     statusBar()->addWidget(gameNumLabel);
@@ -204,13 +211,6 @@ void KMahjongg::setupStatusBar()
 
     statusLabel= new QLabel("Kmahjongg", statusBar());
     statusBar()->addWidget(statusLabel);
-
-    QFrame* statusDivider = new QFrame(statusBar());
-    statusDivider->setFrameStyle(QFrame::VLine);
-    statusBar()->addWidget(statusDivider);
-
-    gameTimerLabel = new QLabel(i18n("Time: 0:00:00"), statusBar());
-    statusBar()->addWidget(gameTimerLabel);
 }
 
 void KMahjongg::displayTime(const QString& timestring)
