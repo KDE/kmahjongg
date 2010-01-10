@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Bug
 Name[ca]=Cuca
+Name[ca@valencia]=Cuca
 Name[cs]=Brouk
 Name[da]=Bug
 Name[de]=Wanze
@@ -37,6 +38,7 @@ Name[zh_CN]=臭虫
 Name[zh_TW]=蟲
 Description=The bug. Let us take it apart!
 Description[ca]=La cuca. Deixa-la a banda!
+Description[ca@valencia]=La cuca. Deixa-la a banda!
 Description[da]=Bug'en. Lad os skille den ad!
 Description[de]=Entfernen Sie die Wanze.
 Description[el]=Το ζουζούνι. Ας το διαλύσουμε!

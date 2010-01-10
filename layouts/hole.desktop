@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Hole
 Name[ca]=Forat
+Name[ca@valencia]=Forat
 Name[da]=Hul
 Name[de]=Loch
 Name[el]=Τρύπα
@@ -35,6 +36,7 @@ Name[zh_CN]=洞穴
 Name[zh_TW]=洞穴
 Description=A pyramid with a hole in the middle
 Description[ca]=Una piràmide amb un forat al mig
+Description[ca@valencia]=Una piràmide amb un forat al mig
 Description[da]=En pyramide med et hul i midten
 Description[de]=Eine Pyramide mit einem Loch in der Mitte.
 Description[el]=Μια πυραμίδα με μια τρύπα στο μέσο

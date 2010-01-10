@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=X-shaped
 Name[ca]=Forma d'X
+Name[ca@valencia]=Forma d'X
 Name[da]=X-formet
 Name[de]=X-förmig
 Name[el]=Σχήμα X
@@ -33,6 +34,7 @@ Name[zh_CN]=X 造型
 Name[zh_TW]=X 型佈局
 Description=A large letter X made of mahjongg tiles
 Description[ca]=Fitxes del Mahjongg fetes de grans lletres X
+Description[ca@valencia]=Fitxes del Mahjongg fetes de grans lletres X
 Description[da]=Et stort X lavet af Mahjongg-fliser
 Description[de]=Das große X aus Mahjongg-Spielsteinen.
 Description[el]=Ένα μεγάλο γράμμα Χ από κομμάτια mahjongg

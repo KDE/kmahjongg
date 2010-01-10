@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Moth
 Name[ca]=Arna
+Name[ca@valencia]=Arna
 Name[da]=Møl
 Name[de]=Mücke
 Name[el]=Σκόρος
@@ -33,6 +34,7 @@ Name[zh_CN]=蛾
 Name[zh_TW]=蛾
 Description=A layout representing a small flying insect
 Description[ca]=Una disposició que representa un petit insecte volador
+Description[ca@valencia]=Una disposició que representa un petit insecte volador
 Description[da]=Et layout der forestiller et lille flyvende insekt
 Description[de]=Dieses Design stellt ein kleines fliegendes Insekt dar.
 Description[el]=Μια διάταξη που μοιάζει με έναν μικρό ιπτάμενο έντομο

@@ -2,6 +2,7 @@
 Name=Triangle
 Name[be]=Трохкутнік
 Name[ca]=Triangle
+Name[ca@valencia]=Triangle
 Name[cs]=Trojúhelník
 Name[da]=Trekant
 Name[de]=Dreieck
@@ -48,6 +49,7 @@ Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular pyramid
 Description[ca]=Piràmide triangular
+Description[ca@valencia]=Piràmide triangular
 Description[cs]=Trojúhelníková pyramida
 Description[da]=Trekantet pyramide
 Description[de]=Eine dreieckige Pyramide.

@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Dragon
 Name[ca]=Drac
+Name[ca@valencia]=Drac
 Name[cs]=Drak
 Name[da]=Drage
 Name[de]=Drache
@@ -38,6 +39,7 @@ Name[zh_CN]=龙
 Name[zh_TW]=龍
 Description=Vista-styled dragon layout
 Description[ca]=Disposició amb la forma d'un drac
+Description[ca@valencia]=Disposició amb la forma d'un drac
 Description[da]=Dragelayout i Vista-stil
 Description[de]=Ein Drache im Vista-Stil.
 Description[el]=Διάταξη δράκου

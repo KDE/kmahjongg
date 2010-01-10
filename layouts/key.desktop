@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Key
 Name[ca]=Clau
+Name[ca@valencia]=Clau
 Name[cs]=Klíč
 Name[da]=Nøgle
 Name[de]=Schlüssel
@@ -36,6 +37,7 @@ Name[zh_CN]=钥匙
 Name[zh_TW]=鑰匙
 Description=A large key made of Mahjongg tiles
 Description[ca]=Fitxes del Mahjongg fetes de grans claus
+Description[ca@valencia]=Fitxes del Mahjongg fetes de grans claus
 Description[da]=En stor nøgle lavet af Mahjongg-fliser
 Description[de]=Ein großer Schlüssel aus Mahjongg-Spielsteinen.
 Description[el]=Ένα μεγάλο κλειδί από κομμάτια Mahjongg

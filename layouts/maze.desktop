@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Maze
 Name[ca]=Gran laberint
+Name[ca@valencia]=Gran laberint
 Name[cs]=Bludiště
 Name[da]=Labyrint
 Name[de]=Irrgarten
@@ -36,6 +37,7 @@ Name[zh_CN]=迷路
 Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
 Description[ca]=Un recargolat laberint. Compte amb els minotaures!
+Description[ca@valencia]=Un recargolat laberint. Compte amb els minotaures!
 Description[da]=En ekstremt kroget labyrint. Pas på minotaurerne!
 Description[de]=Ein extrem verdrehtes Labyrinth. Nehmen Sie sich vor Minotauros in Acht!
 Description[el]=Ένα στρεβλωμένος λαβύρινθος. Προσοχή στους μινώταυρους!

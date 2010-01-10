@@ -2,6 +2,7 @@
 Name=Pyramid
 Name[be]=Піраміда
 Name[ca]=Piràmide
+Name[ca@valencia]=Piràmide
 Name[cs]=Pyramida
 Name[da]=Pyramide
 Name[de]=Pyramide
@@ -47,6 +48,7 @@ Name[zh_CN]=金字塔
 Name[zh_TW]=金字塔
 Description=Can you tear the pyramid apart?
 Description[ca]=Podeu arrencar la piràmide?
+Description[ca@valencia]=Podeu arrencar la piràmide?
 Description[cs]=Dokážete roztrhnout pyramidu?
 Description[da]=Kan du skille pyramiden ad?
 Description[de]=Können Sie die Pyramide zerstören?

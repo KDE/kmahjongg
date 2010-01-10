@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Pillars
 Name[ca]=Pilars
+Name[ca@valencia]=Pilars
 Name[cs]=Pilíře
 Name[da]=Piller
 Name[de]=Säulen
@@ -35,6 +36,7 @@ Name[zh_CN]=台柱
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
 Description[ca]=Un grup de pilars verticals que suporten una superfície plana
+Description[ca@valencia]=Un grup de pilars verticals que suporten una superfície plana
 Description[da]=Et par lodrette piller der understøtter en flad overflade
 Description[de]=Zwei vertikale Säulen als Stütze einer ebenen Fläche.
 Description[el]=Ένα ζεύγος κατακόρυφες κολώνες που υποστηρίζουν μια επίπεδη επιφάνεια

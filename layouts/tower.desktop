@@ -2,6 +2,7 @@
 Name=Tower
 Name[be]=Башня
 Name[ca]=Torre
+Name[ca@valencia]=Torre
 Name[cs]=Věž
 Name[da]=Tårn
 Name[de]=Turm
@@ -46,6 +47,7 @@ Name[zh_CN]=堡垒
 Name[zh_TW]=塔
 Description=Remove the towers
 Description[ca]=Elimina les torres
+Description[ca@valencia]=Elimina les torres
 Description[cs]=Odstraňte věže
 Description[da]=Fjern tårnene
 Description[de]=Entfernen Sie die Türme.

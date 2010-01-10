@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=KM
 Name[ca]=KM
+Name[ca@valencia]=KM
 Name[da]=KM
 Name[de]=KM
 Name[el]=KM
@@ -37,6 +38,7 @@ Name[zh_CN]=K M
 Name[zh_TW]=KM
 Description=Letters K and M. Do you have your favourite extension for that?
 Description[ca]=Lletres K i M. Tens el teu favorit per ampliar-les?
+Description[ca@valencia]=Lletres K i M. Tens el teu favorit per ampliar-les?
 Description[da]=Bogstaverne K og M. Hvad er din yndlingsfortsættelse af dem?
 Description[de]=Die Buchstaben „K“ und „M“. Denken Sie dabei an etwas bestimmtes?
 Description[el]=Τα γράμματα Κ και Μ.

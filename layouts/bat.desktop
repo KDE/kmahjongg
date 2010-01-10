@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Bat
 Name[ca]=Ratpenat
+Name[ca@valencia]=Ratpenat
 Name[cs]=Netopýr
 Name[da]=Flagermus
 Name[de]=Fledermaus
@@ -37,6 +38,7 @@ Name[zh_CN]=蝙蝠
 Name[zh_TW]=蝙蝠
 Description=A bat-shaped layout
 Description[ca]=Una disposició amb forma de ratpenat
+Description[ca@valencia]=Una disposició amb forma de ratpenat
 Description[da]=Et flagermus-lignende layout
 Description[de]=Ein fledermaus-ähnliches Design.
 Description[el]=Μια διάταξη σε σχήμα νυχτερίδας
