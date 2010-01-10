@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Crab
 Name[ca]=Cranc
+Name[ca@valencia]=Cranc
 Name[cs]=Krab
 Name[da]=Krabbe
 Name[de]=Krabbe
@@ -34,6 +35,7 @@ Name[zh_CN]=螃蟹
 Name[zh_TW]=螃蟹
 Description=Vista-styled crab layout
 Description[ca]=Disposició amb la forma d'un cranc
+Description[ca@valencia]=Disposició amb la forma d'un cranc
 Description[cs]=Kříž
 Description[da]=Krabbelayout i Vista-stil
 Description[de]=Eine Krabbe im Vista-Stil.

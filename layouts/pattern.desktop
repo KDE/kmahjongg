@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Pattern
 Name[ca]=Patró
+Name[ca@valencia]=Patró
 Name[cs]=Vzorek
 Name[da]=Mønster
 Name[de]=Muster
@@ -35,6 +36,7 @@ Name[zh_CN]=花式
 Name[zh_TW]=樣式
 Description=A mysterious pattern atop rectangular blocks
 Description[ca]=Un misteriós patró fet de blocs rectangulars
+Description[ca@valencia]=Un misteriós patró fet de blocs rectangulars
 Description[da]=Et mystisk mønster ovenpå rektangulære blokke
 Description[de]=Ein geheimnisvolles Muster auf Rechtecken.
 Description[el]=Ένα μυστηριώδες μοτίβο πάνω σε ορθογώνια κομμάτια

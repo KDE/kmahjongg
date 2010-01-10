@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Checkered
 Name[ca]=Escacada
+Name[ca@valencia]=Escacada
 Name[da]=Skakternet
 Name[de]=Schachbrett
 Name[el]=Σκακιέρα
@@ -30,6 +31,7 @@ Name[zh_CN]=棋局
 Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
 Description[ca]=Què passa si el tauler d'escacs no és quadrat?
+Description[ca@valencia]=Què passa si el tauler d'escacs no és quadrat?
 Description[da]=Hvad nu hvis skakbrættet ikke var firkantet?
 Description[de]=Ein nicht ganz quadratisches Schachbrett.
 Description[el]=Τι θα συνέβαινε αν η σκακιέρα δεν ήταν τετράγωνη;

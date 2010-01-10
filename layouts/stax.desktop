@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Stacks
 Name[ca]=Piles
+Name[ca@valencia]=Piles
 Name[cs]=Zásobníky
 Name[da]=Stakke
 Name[de]=Stapel
@@ -39,6 +40,7 @@ Name[zh_CN]=堆叠
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
 Description[ca]=Disposició difícil amb piles de fitxes
+Description[ca@valencia]=Disposició difícil amb piles de fitxes
 Description[cs]=Těžké rozložení se zásobníky kostek
 Description[da]=Svært layout med stakke af fliser
 Description[de]=Ein schwieriges Design mit Stapeln aus Spielsteinen.

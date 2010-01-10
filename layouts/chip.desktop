@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Chip
 Name[ca]=Xip
+Name[ca@valencia]=Xip
 Name[da]=Chip
 Name[de]=Baustein
 Name[el]=Τσιπ
@@ -34,6 +35,7 @@ Name[zh_CN]=晶片
 Name[zh_TW]=晶片
 Description=An electronic component with many connectors
 Description[ca]=Un component electrònic amb molts connectors
+Description[ca@valencia]=Un component electrònic amb molts connectors
 Description[da]=En elektronisk komponent med mange tilslutninger
 Description[de]=Ein elektronischer Baustein mit vielen Anschlüssen.
 Description[el]=Ένα ηλεκτρονικό στοιχείο με πολλές συνδέσεις

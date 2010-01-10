@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Tomb
 Name[ca]=Tomba
+Name[ca@valencia]=Tomba
 Name[cs]=Hrobka
 Name[da]=Grav
 Name[de]=Grabstätte
@@ -33,6 +34,7 @@ Name[zh_CN]=古墓
 Name[zh_TW]=墳墓
 Description=Fans of Lara Croft may start digging
 Description[ca]=Els fans de Lara Croft poden començar a cavar
+Description[ca@valencia]=Els fans de Lara Croft poden començar a cavar
 Description[da]=Fans af Lara Croft kan begynde at grave
 Description[de]=Verehrer von Lara Croft könnten jetzt mit dem Graben beginnen.
 Description[el]=Οι φίλοι της Λάρα Κροφτ μπορούν να αρχίσουν τις ανασκαφές

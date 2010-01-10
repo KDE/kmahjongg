@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Totem
 Name[ca]=Totem
+Name[ca@valencia]=Totem
 Name[cs]=Totem
 Name[da]=Totem
 Name[de]=Talisman
@@ -34,6 +35,7 @@ Name[zh_CN]=图腾
 Name[zh_TW]=圖騰
 Description=A T-shaped embossed object with a hole
 Description[ca]=Un objecte amb forma de T i relleu amb un forat
+Description[ca@valencia]=Un objecte amb forma de T i relleu amb un forat
 Description[da]=Et T-formet præget objekt med et hul
 Description[de]=Ein T-förmiges Objekt mit einem Loch.
 Description[el]=Ένα αντικείμενο με σχήμα Τ και μια τρύπα

@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Star Ship
 Name[ca]=Nau estel·lar
+Name[ca@valencia]=Nau estel·lar
 Name[cs]=Hvězdná loď
 Name[da]=Rumskib
 Name[de]=Raumschiff
@@ -32,6 +33,7 @@ Name[zh_CN]=太空船
 Name[zh_TW]=太空船
 Description=A sci-fi space transport
 Description[ca]=Un transport de l'espai de ciència-ficció
+Description[ca@valencia]=Un transport de l'espai de ciència-ficció
 Description[da]=En fremtids rumtransport
 Description[de]=Ein zukunftsmäßiger Raumtransporter.
 Description[el]=Ένα διαστημικό μέσο μεταφοράς

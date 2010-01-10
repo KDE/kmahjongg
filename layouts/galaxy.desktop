@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Galaxy
 Name[ca]=Galàxia
+Name[ca@valencia]=Galàxia
 Name[cs]=Galaxie
 Name[da]=Galakse
 Name[de]=Sternsystem
@@ -36,6 +37,7 @@ Name[zh_CN]=银河
 Name[zh_TW]=銀河
 Description=Diversely sized piles of matter
 Description[ca]=Piles de matèria de diverses mides
+Description[ca@valencia]=Piles de matèria de diverses mides
 Description[da]=Stabler af materiale i forskelig størrelse
 Description[de]=Unterschiedlich große Haufen von Materie.
 Description[el]=Ποικίλου μεγέθους κομμάτια ύλης

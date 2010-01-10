@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Glade
 Name[ca]=Clariana
+Name[ca@valencia]=Clariana
 Name[da]=Lysning
 Name[de]=Lichtung
 Name[el]=Ξέφωτο
@@ -32,6 +33,7 @@ Name[zh_CN]=林中空地
 Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
 Description[ca]=Una petit tros d'espai buit envoltat d'un bosc
+Description[ca@valencia]=Una petit tros d'espai buit envoltat d'un bosc
 Description[da]=Et mindre tomt område omgivet af en skov
 Description[de]=Ein kleines Stück freier Fläche, das von einem Wald umgeben ist.
 Description[el]=Ένας μικρός κενός χώρος περιτριγυρισμένος από δάσος

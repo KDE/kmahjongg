@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Penta
 Name[ca]=Penta
+Name[ca@valencia]=Penta
 Name[da]=Penta
 Name[de]=Penta
 Name[el]=Πέντε
@@ -32,6 +33,7 @@ Name[zh_CN]=五尊塔
 Name[zh_TW]=五座塔
 Description=A fortress with five towers
 Description[ca]=Una fortalesa amb cinc torres
+Description[ca@valencia]=Una fortalesa amb cinc torres
 Description[da]=Et fæstningsværk med fem tårne
 Description[de]=Eine Festung mit fünf Türmen.
 Description[el]=Ένα οχυρό με πέντε πύργους
