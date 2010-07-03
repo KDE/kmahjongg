@@ -83,7 +83,7 @@ BoardWidget::BoardWidget( QWidget* parent )
 }
 
 BoardWidget::~BoardWidget(){
-  if (Game) delete Game;
+  delete Game;
 }
 
 void BoardWidget::loadSettings(){
@@ -779,10 +779,7 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->TileNum--;                    // Eine Figur weniger
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
-    TileSprite * thissprite =spriteMap.value(TileCoord(X,Y,E));
-    if (thissprite) delete thissprite;
-
-    spriteMap.remove(TileCoord(X,Y,E));
+    delete spriteMap.take(TileCoord(X,Y,E));
     // remove tile from game board
     Game->putTile( E, Y, X, 0 );
 }
@@ -936,7 +933,7 @@ void BoardWidget::transformPointToPosition(
 // ---------------------------------------------------------
 bool BoardWidget::loadBoard( )
 {
-    if (Game) delete Game;
+    delete Game;
     Game = new GameData(theBoardLayout.board());
     return(true);
 }
