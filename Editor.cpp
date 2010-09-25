@@ -111,20 +111,20 @@ void Editor::setupToolbar()
 
     actionCollection = new KActionCollection(this);
     // new game
-    QAction* newBoard = actionCollection->addAction("new_board");
-    newBoard->setIcon(KIcon("document-new"));
+    QAction* newBoard = actionCollection->addAction( QLatin1String( "new_board" ));
+    newBoard->setIcon(KIcon( QLatin1String( "document-new" )));
     newBoard->setText(i18n("New board"));
     connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
     topToolbar->addAction(newBoard);
     // open game
-    QAction* openBoard = actionCollection->addAction("open_board");
-    openBoard->setIcon(KIcon("document-open"));
+    QAction* openBoard = actionCollection->addAction( QLatin1String( "open_board" ));
+    openBoard->setIcon(KIcon( QLatin1String( "document-open" )));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
     topToolbar->addAction(openBoard);
     // save game
-    QAction* saveBoard = actionCollection->addAction("save_board");
-    saveBoard->setIcon(KIcon("document-save"));
+    QAction* saveBoard = actionCollection->addAction( QLatin1String( "save_board" ));
+    saveBoard->setIcon(KIcon( QLatin1String( "document-save" )));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
     topToolbar->addAction(saveBoard);
@@ -134,39 +134,39 @@ void Editor::setupToolbar()
     topToolbar->addSeparator();
 #ifdef FUTURE_OPTIONS
     // Select
-    QAction* select = actionCollection->addAction("select");
-    select->setIcon(KIcon("rectangle_select"));
+    QAction* select = actionCollection->addAction( QLatin1String( "select" ));
+    select->setIcon(KIcon( QLatin1String( "rectangle_select" )));
     select->setText(i18n("Select"));
     topToolbar->addAction(select);
 
     // NOTE: use kstandarddactions?
-    QAction* cut = actionCollection->addAction("edit_cut");
-    cut->setIcon(KIcon("edit-cut"));
+    QAction* cut = actionCollection->addAction( QLatin1String( "edit_cut" ));
+    cut->setIcon(KIcon( QLatin1String( "edit-cut" )));
     cut->setText(i18n("Cut"));
     topToolbar->addAction(cut);
 
-    QAction* copy = actionCollection->addAction("edit_copy");
-    copy->setIcon(KIcon("edit-copy"));
+    QAction* copy = actionCollection->addAction( QLatin1String( "edit_copy" ));
+    copy->setIcon(KIcon( QLatin1String( "edit-copy" )));
     copy->setText(i18n("Copy"));
     topToolbar->addAction(copy);
 
-    QAction* paste = actionCollection->addAction("edit_paste");
-    paste->setIcon(KIcon("edit-paste"));
+    QAction* paste = actionCollection->addAction( QLatin1String( "edit_paste" ));
+    paste->setIcon(KIcon( QLatin1String( "edit-paste" )));
     paste->setText(i18n("Paste"));
     topToolbar->addAction(paste);
 
     topToolbar->addSeparator();
 
-    QAction* moveTiles = actionCollection->addAction("move_tiles");
-    moveTiles->setIcon(KIcon("move"));
+    QAction* moveTiles = actionCollection->addAction( QLatin1String( "move_tiles" ));
+    moveTiles->setIcon(KIcon( QLatin1String( "move" )));
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
-    KToggleAction* addTiles = new KToggleAction(KIcon("draw-freehand"), i18n("Add tiles"), this);
-    actionCollection->addAction("add_tiles", addTiles);
+    KToggleAction* addTiles = new KToggleAction(KIcon( QLatin1String( "draw-freehand"), i18n("Add tiles" )), this);
+    actionCollection->addAction( QLatin1String( "add_tiles" ), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction* delTiles = new KToggleAction(KIcon("edit-delete"), i18n("Remove tiles"), this);
-    actionCollection->addAction("del_tiles", delTiles);
+    KToggleAction* delTiles = new KToggleAction(KIcon( QLatin1String( "edit-delete"), i18n("Remove tiles" )), this);
+    actionCollection->addAction( QLatin1String( "del_tiles" ), delTiles);
     topToolbar->addAction(delTiles);
 
     QActionGroup* radioGrp = new QActionGroup(this);
@@ -185,32 +185,32 @@ void Editor::setupToolbar()
 
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
-    QAction* shiftLeft = actionCollection->addAction("shift_left");
-    shiftLeft->setIcon(KIcon("go-previous"));
+    QAction* shiftLeft = actionCollection->addAction( QLatin1String( "shift_left" ));
+    shiftLeft->setIcon(KIcon( QLatin1String( "go-previous" )));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
     topToolbar->addAction(shiftLeft);
 
-    QAction* shiftUp = actionCollection->addAction("shift_up");
-    shiftUp->setIcon(KIcon("go-up"));
+    QAction* shiftUp = actionCollection->addAction( QLatin1String( "shift_up" ));
+    shiftUp->setIcon(KIcon( QLatin1String( "go-up" )));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
     topToolbar->addAction(shiftUp);
 
-    QAction* shiftDown = actionCollection->addAction("shift_down");
-    shiftDown->setIcon(KIcon("go-down"));
+    QAction* shiftDown = actionCollection->addAction( QLatin1String( "shift_down" ));
+    shiftDown->setIcon(KIcon( QLatin1String( "go-down" )));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
     topToolbar->addAction(shiftDown);
 
-    QAction* shiftRight = actionCollection->addAction("shift_right");
-    shiftRight->setIcon(KIcon("go-next"));
+    QAction* shiftRight = actionCollection->addAction( QLatin1String( "shift_right" ));
+    shiftRight->setIcon(KIcon( QLatin1String( "go-next" )));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    QAction* quit = actionCollection->addAction(KStandardAction::Quit, "quit",
+    QAction* quit = actionCollection->addAction( QLatin1String( KStandardAction::Quit, "quit" ),
                                                 this, SLOT(close()));
     topToolbar->addAction(quit);
 

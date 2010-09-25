@@ -46,8 +46,8 @@ int main( int argc, char** argv )
     KCmdLineArgs::init( argc, argv, &aboutData );
 
     KApplication application;
-    KGlobal::locale()->insertCatalog("libkdegames");
-    KGlobal::locale()->insertCatalog("libkmahjongg");
+    KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
+    KGlobal::locale()->insertCatalog( QLatin1String( "libkmahjongg" ));
     
 
     if (application.isSessionRestored())

@@ -144,24 +144,24 @@ void KMahjongg::setupKAction()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
     KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
 
-    QAction* newNumGame = actionCollection()->addAction("game_new_numeric");
+    QAction* newNumGame = actionCollection()->addAction( QLatin1String( "game_new_numeric" ));
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
     // originally "file" ends here
     QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
     actionCollection()->addAction(action->objectName(), action);
-    QAction* shuffle = actionCollection()->addAction("move_shuffle");
+    QAction* shuffle = actionCollection()->addAction( QLatin1String( "move_shuffle" ));
     shuffle->setText(i18n("Shu&ffle"));
-    shuffle->setIcon(KIcon("view-refresh"));
+    shuffle->setIcon(KIcon( QLatin1String( "view-refresh" )));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
-    KAction* angleccw = actionCollection()->addAction("view_angleccw");
+    KAction* angleccw = actionCollection()->addAction( QLatin1String( "view_angleccw" ));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
-    angleccw->setIcon(KIcon("object-rotate-left"));
+    angleccw->setIcon(KIcon( QLatin1String( "object-rotate-left" )));
     angleccw->setShortcuts( KShortcut( "f"  ) );
-    KAction* anglecw = actionCollection()->addAction("view_anglecw");
+    KAction* anglecw = actionCollection()->addAction( QLatin1String( "view_anglecw" ));
     anglecw->setText(i18n("Rotate View Clockwise"));
-    anglecw->setIcon(KIcon("object-rotate-right"));
+    anglecw->setIcon(KIcon( QLatin1String( "object-rotate-right" )));
     anglecw->setShortcuts( KShortcut( "g"  ) );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
@@ -175,7 +175,7 @@ void KMahjongg::setupKAction()
     redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    //QAction* boardEdit = actionCollection()->addAction("edit_board_editor");
+    //QAction* boardEdit = actionCollection()->addAction( QLatin1String( "edit_board_editor" ));
     //boardEdit->setText(i18n("&Board Editor"));
     //connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
