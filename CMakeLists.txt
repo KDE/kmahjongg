@@ -31,7 +31,7 @@ install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( FILES kmahjongg.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS kmahjongg.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kmahjongg.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kmahjonggui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg )
 
