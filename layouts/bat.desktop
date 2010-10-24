@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Bat
+Name[ast]=Esperteyu
 Name[ca]=Ratpenat
 Name[ca@valencia]=Ratpenat
 Name[cs]=Netopýr
@@ -41,6 +42,7 @@ Name[x-test]=xxBatxx
 Name[zh_CN]=蝙蝠
 Name[zh_TW]=蝙蝠
 Description=A bat-shaped layout
+Description[ast]=Un diseñu en forma d'esperteyu
 Description[ca]=Una disposició amb forma de ratpenat
 Description[ca@valencia]=Una disposició amb forma de ratpenat
 Description[da]=Et flagermus-lignende layout

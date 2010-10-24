@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Order
+Name[ast]=Orde
 Name[ca]=Ordre
 Name[ca@valencia]=Orde
 Name[da]=Orden
@@ -40,6 +41,7 @@ Name[x-test]=xxOrderxx
 Name[zh_CN]=序列
 Name[zh_TW]=排序
 Description=A cross with thick ends
+Description[ast]=Una cruz de puntes gordes
 Description[ca]=Una creu amb extrems gruixuts
 Description[ca@valencia]=Una creu amb extrems gruixuts
 Description[da]=Et kors med tykke ender

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Tower
+Name[ast]=Torre
 Name[be]=Башня
 Name[ca]=Torre
 Name[ca@valencia]=Torre
@@ -51,6 +52,7 @@ Name[x-test]=xxTowerxx
 Name[zh_CN]=堡垒
 Name[zh_TW]=塔
 Description=Remove the towers
+Description[ast]=Desaniciar les torres
 Description[ca]=Elimina les torres
 Description[ca@valencia]=Elimina les torres
 Description[cs]=Odstraňte věže

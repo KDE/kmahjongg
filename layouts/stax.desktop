@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Stacks
+Name[ast]=Piles
 Name[ca]=Piles
 Name[ca@valencia]=Piles
 Name[cs]=Zásobníky
@@ -46,6 +47,7 @@ Name[x-test]=xxStacksxx
 Name[zh_CN]=堆叠
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
+Description[ast]=Diseñu difícil con piles de baldoses
 Description[ca]=Disposició difícil amb piles de fitxes
 Description[ca@valencia]=Disposició difícil amb piles de fitxes
 Description[cs]=Těžké rozložení se zásobníky kostek

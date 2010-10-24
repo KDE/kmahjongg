@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Triangle
+Name[ast]=Triángulu
 Name[be]=Трохкутнік
 Name[ca]=Triangle
 Name[ca@valencia]=Triangle
@@ -52,6 +53,7 @@ Name[x-test]=xxTrianglexx
 Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular pyramid
+Description[ast]=Pirámide triangular
 Description[ca]=Piràmide triangular
 Description[ca@valencia]=Piràmide triangular
 Description[cs]=Trojúhelníková pyramida

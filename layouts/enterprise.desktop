@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Enterprise
+Name[ast]=Empresa
 Name[ca]=Enterprise
 Name[ca@valencia]=Enterprise
 Name[da]=Enterprise
@@ -40,6 +41,7 @@ Name[x-test]=xxEnterprisexx
 Name[zh_CN]=企业号
 Name[zh_TW]=企業號
 Description=A layout for Star Trek fans
+Description[ast]=Un diseñu pa los fans de Star Trek
 Description[ca]=Una disposició pels trekkies
 Description[ca@valencia]=Una disposició pels trekkies
 Description[da]=Et layout til Star Trek-fans
