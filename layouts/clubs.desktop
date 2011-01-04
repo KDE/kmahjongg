@@ -2,7 +2,7 @@
 Name=Clubs
 Name[ast]=Tréboles
 Name[ca]=Trèvols
-Name[ca@valencia]=Piques
+Name[ca@valencia]=Trèvols
 Name[da]=Klør
 Name[de]=Kreuz
 Name[el]=Μπαστούνια
@@ -41,7 +41,7 @@ Name[zh_CN]=梅花
 Name[zh_TW]=梅花
 Description=A layout resembling a multitude of card clubs
 Description[ca]=Un disseny semblant a un gran nombre de trèvols de cartes
-Description[ca@valencia]=Un disseny paregut a un gran nombre de piques de carta
+Description[ca@valencia]=Un disseny paregut a un gran nombre de trèvols de cartes
 Description[da]=Et layout der ligner en mangfoldighed af kort-klør
 Description[de]=Dieses Design zeigt mehrere Kreuzkarten.
 Description[el]=Μια διάταξη που μοιάζει ένα πλήθος χαρτιών μπαστουνιών
