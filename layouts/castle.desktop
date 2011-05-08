@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Castle
 Name[ast]=Castiellu
+Name[bs]=Dvorac
 Name[ca]=Castell
 Name[ca@valencia]=Castell
 Name[cs]=Hrad
@@ -44,6 +45,7 @@ Name[zh_CN]=城堡
 Name[zh_TW]=城堡
 Description=Vista-styled castle layout
 Description[ast]=Un diseñu en forma de castiellu
+Description[bs]=Izgled dvorca u Vista stilu
 Description[ca]=Disposició amb la forma d'un castell
 Description[ca@valencia]=Disposició amb la forma d'un castell
 Description[da]=Slotslayout i Vista-stil

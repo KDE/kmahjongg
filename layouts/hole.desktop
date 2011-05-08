@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Hole
 Name[ast]=Furacu
+Name[bs]=Rupa
 Name[ca]=Forat
 Name[ca@valencia]=Forat
 Name[da]=Hul
@@ -41,6 +42,7 @@ Name[x-test]=xxHolexx
 Name[zh_CN]=洞穴
 Name[zh_TW]=洞穴
 Description=A pyramid with a hole in the middle
+Description[bs]=Piramida sa rupom u sredini
 Description[ca]=Una piràmide amb un forat al mig
 Description[ca@valencia]=Una piràmide amb un forat al mig
 Description[da]=En pyramide med et hul i midten

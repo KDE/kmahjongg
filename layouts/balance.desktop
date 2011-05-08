@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Balance
 Name[ast]=Balance
+Name[bs]=Ravnoteža
 Name[ca]=Balanç
 Name[ca@valencia]=Balanç
 Name[da]=Vægt
@@ -42,6 +43,7 @@ Name[zh_CN]=平衡
 Name[zh_TW]=平衡
 Description=Time to weight every decision carefully!
 Description[ast]=¡Hora de valorar toles decisiones con curiáu!
+Description[bs]=Vrijeme je da odvagate svaku odluku pažljivo!
 Description[ca]=Temps per a totes les decisions de pes amb molta precaució!
 Description[ca@valencia]=Temps per a totes les decisions de pes amb molta precaució!
 Description[da]=Tid til omhyggeligt at afveje enhver beslutning.

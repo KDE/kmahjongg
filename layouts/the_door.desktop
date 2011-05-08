@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=The Door
+Name[bs]=Vrata
 Name[ca]=La porta
 Name[ca@valencia]=La porta
 Name[cs]=Dveře
@@ -41,6 +42,7 @@ Name[x-test]=xxThe Doorxx
 Name[zh_CN]=门扉
 Name[zh_TW]=門
 Description=A doorway through a pyramid-shaped wall
+Description[bs]=Vrata kroz piramidu-oblikovani zid
 Description[ca]=Una entrada a través d'una paret amb forma de piràmide
 Description[ca@valencia]=Una entrada a través d'una paret amb forma de piràmide
 Description[da]=En døråbning gennem en pyramideformet væg

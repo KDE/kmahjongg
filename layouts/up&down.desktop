@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Up&Down
+Name[bs]=Gore&Dolje
 Name[ca]=Amunt i avall
 Name[ca@valencia]=Amunt i avall
 Name[da]=Op-og-ned
@@ -39,6 +40,7 @@ Name[x-test]=xxUp&Downxx
 Name[zh_CN]=上上下下
 Name[zh_TW]=上與下
 Description=Have you ever tried to represent waves in rectangular blocks?
+Description[bs]=Jesi li ikad pokušalo da predstaviš valove u pravougaonim blokovima?
 Description[ca]=Has intentat mai representar ones amb blocs rectangulars?
 Description[ca@valencia]=Has intentat mai representar ones amb blocs rectangulars?
 Description[da]=Har du nogensinde prøvet at forestille bølger i firkantede blokke?

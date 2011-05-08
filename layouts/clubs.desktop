@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Clubs
 Name[ast]=Tréboles
+Name[bs]=Klubovi
 Name[ca]=Trèvols
 Name[ca@valencia]=Trèvols
 Name[da]=Klør
@@ -40,6 +41,7 @@ Name[x-test]=xxClubsxx
 Name[zh_CN]=梅花
 Name[zh_TW]=梅花
 Description=A layout resembling a multitude of card clubs
+Description[bs]=Izgleda kao mnoštvo kartica klubova
 Description[ca]=Un disseny semblant a un gran nombre de trèvols de cartes
 Description[ca@valencia]=Un disseny paregut a un gran nombre de trèvols de cartes
 Description[da]=Et layout der ligner en mangfoldighed af kort-klør

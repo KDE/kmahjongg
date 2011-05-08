@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Chains
 Name[ast]=Cadenes
+Name[bs]=Lanci
 Name[ca]=Cadenes
 Name[ca@valencia]=Cadenes
 Name[da]=Kæder
@@ -43,6 +44,7 @@ Name[zh_CN]=锁链
 Name[zh_TW]=鍊條
 Description=Four chains making up a single structure
 Description[ast]=Cuatro cadenes que formen una única estructura
+Description[bs]=Četiri lanca koja prave jedinstvenu strukturu
 Description[ca]=Quatre cadenes que composen una estructura única
 Description[ca@valencia]=Quatre cadenes que composen una estructura única
 Description[da]=Fire kæder der udgør en enkelt struktur

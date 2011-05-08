@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Cross
 Name[ast]=Cruce
+Name[bs]=Krst
 Name[ca]=Creu
 Name[ca@valencia]=Creu
 Name[cs]=Kříž
@@ -44,6 +45,7 @@ Name[x-test]=xxCrossxx
 Name[zh_CN]=十字
 Name[zh_TW]=十字型
 Description=A six-ended cross resembling the Cyrillic letter Zh
+Description[bs]=Krst sa šest krajeva predstavlja ćirilićno slovo Ž
 Description[ca]=Una creu de sis puntes semblant a la lletra ciríl·lica Zh
 Description[ca@valencia]=Una creu de sis puntes paregut a la lletra ciríl·lica Zh
 Description[da]=Et sekstakket kors der ligner det kyrilliske bogstav Zh

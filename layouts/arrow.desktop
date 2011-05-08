@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Arrow
 Name[ast]=Flecha
+Name[bs]=Strelica
 Name[ca]=Fletxa
 Name[ca@valencia]=Fletxa
 Name[cs]=Šíp
@@ -43,6 +44,7 @@ Name[x-test]=xxArrowxx
 Name[zh_CN]=箭头
 Name[zh_TW]=箭頭
 Description=A big arrow pointing in the right direction
+Description[bs]=Velika strelica okrenuta u pravom smjeru
 Description[ca]=Una gran fletxa apuntant cap a la dreta
 Description[ca@valencia]=Una gran fletxa apuntant cap a la dreta
 Description[da]=En stor pil der peger i den rigtige retning

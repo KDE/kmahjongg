@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Vi
 Name[ast]=Uve
+Name[bs]=Vi
 Name[ca]=Vi
 Name[ca@valencia]=Vi
 Name[cs]=Vi
@@ -41,6 +42,7 @@ Name[x-test]=xxVixx
 Name[zh_CN]=V 字布局
 Name[zh_TW]=V 型佈局
 Description=A V-shaped layout with thick lower corners
+Description[bs]=A V-oblikovan izgled sa velikim nižim uglovima
 Description[ca]=Una disposició amb forma de V amb cantonades primes
 Description[ca@valencia]=Una disposició amb forma de V amb cantonades primes
 Description[da]=Et V-formet layout med tykke nedre hjørner

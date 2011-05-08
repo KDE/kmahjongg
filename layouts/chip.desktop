@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Chip
 Name[ast]=Chip
+Name[bs]=Čip
 Name[ca]=Xip
 Name[ca@valencia]=Xip
 Name[da]=Chip
@@ -41,6 +42,7 @@ Name[x-test]=xxChipxx
 Name[zh_CN]=晶片
 Name[zh_TW]=晶片
 Description=An electronic component with many connectors
+Description[bs]=Elektronska komponenta sa puno konektora
 Description[ca]=Un component electrònic amb molts connectors
 Description[ca@valencia]=Un component electrònic amb molts connectors
 Description[da]=En elektronisk komponent med mange tilslutninger
