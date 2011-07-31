@@ -80,10 +80,10 @@ Editor::Editor ( QWidget* parent)
     // tell the user what we do
     setCaption(i18n("Edit Board Layout"));
 
-    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent *) ),
-             SLOT(drawFrameMousePressEvent(QMouseEvent *)));
-    connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent *) ),
-             SLOT(drawFrameMouseMovedEvent(QMouseEvent *)));
+    connect( drawFrame, SIGNAL(mousePressed(QMouseEvent*)),
+             SLOT(drawFrameMousePressEvent(QMouseEvent*)));
+    connect( drawFrame, SIGNAL(mouseMoved(QMouseEvent*)),
+             SLOT(drawFrameMouseMovedEvent(QMouseEvent*)));
 
     statusChanged();
 

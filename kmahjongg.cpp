@@ -102,22 +102,22 @@ KMahjongg::KMahjongg( QWidget* parent)
 
     gameTimer = new KGameClock(this);
 
-    connect( gameTimer, SIGNAL( timeChanged(const QString&)), this,
-                SLOT( displayTime(const QString&)));
+    connect( gameTimer, SIGNAL(timeChanged(QString)), this,
+                SLOT(displayTime(QString)));
 
     bDemoModeActive = false;
 
-    connect( bw, SIGNAL( statusTextChanged(const QString&, long) ),
-                 SLOT( showStatusText(const QString&, long) ) );
+    connect( bw, SIGNAL(statusTextChanged(QString,long)),
+                 SLOT(showStatusText(QString,long)) );
 
-    connect( bw, SIGNAL( tileNumberChanged(int,int,int) ),
-                 SLOT( showTileNumber(int,int,int) ) );
+    connect( bw, SIGNAL(tileNumberChanged(int,int,int)),
+                 SLOT(showTileNumber(int,int,int)) );
 
-    connect( bw, SIGNAL( demoModeChanged(bool) ),
-                 SLOT( demoModeChanged(bool) ) );
+    connect( bw, SIGNAL(demoModeChanged(bool)),
+                 SLOT(demoModeChanged(bool)) );
 
-    connect( bw, SIGNAL( gameOver(unsigned short , unsigned short)), this,
-                SLOT( gameOver(unsigned short , unsigned short)));
+    connect( bw, SIGNAL(gameOver(unsigned short,unsigned short)), this,
+                SLOT(gameOver(unsigned short,unsigned short)));
 
 
     connect(bw, SIGNAL(gameCalculated()),
@@ -268,8 +268,8 @@ void KMahjongg::showSettings(){
   dialog->addTilesetPage();
   dialog->addBackgroundPage();
   dialog->setHelp(QString(),"kmahjongg");
-  connect(dialog, SIGNAL(settingsChanged(const QString &)), bw, SLOT(loadSettings()));
-  connect(dialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(setDisplayedWidth()));
+  connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
+  connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
   dialog->show();
 }
 

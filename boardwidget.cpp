@@ -546,7 +546,7 @@ void BoardWidget::demoMoveTimeout()
                 break;
         }
         // restart timer
-        QTimer::singleShot( ANIMSPEED, this, SLOT( demoMoveTimeout() ) );
+        QTimer::singleShot( ANIMSPEED, this, SLOT(demoMoveTimeout()) );
     }
 }
 
@@ -578,7 +578,7 @@ void BoardWidget::matchAnimationTimeout()
         }
     }
     if( TimerState == Match )
-        QTimer::singleShot( ANIMSPEED, this, SLOT( matchAnimationTimeout() ) );
+        QTimer::singleShot( ANIMSPEED, this, SLOT(matchAnimationTimeout()) );
 }
 // ---------------------------------------------------------
 void BoardWidget::stopMatchAnimation()
