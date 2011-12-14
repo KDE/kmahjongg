@@ -866,6 +866,52 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
     }
 }
 
+//-----------------------------------------------------------
+KGameCanvasItem* BoardWidget::itemAt(const QPoint& point) const {
+    // Get the shadows...
+    // theTiles.width() == The whole tile width including offset and shadow.
+    // theTiles.qWidth() == Half of the width of the tile face (without the offset and the shadow).
+    // theTiles.levelOffsetX() == The level of the tile (the perspective height of the tile)
+    int shadowWidth = theTiles.width() - (theTiles.qWidth() * 2 + theTiles.levelOffsetX());
+    int shadowHeight = theTiles.height() - (theTiles.qHeight() * 2 + theTiles.levelOffsetY());
+
+    for (int i = m_items.size() - 1; i >= 0; i--) {
+        KGameCanvasItem *canvasItem = m_items[i];
+
+        // Cause of the shadow, that is not really a part of a tile. Correct the rect positions
+        // related to the angle. Actually we just correct the rect of the canvas item cause of the
+        // shadow, that is not part of the clickable tile.
+        QRect oldRect = canvasItem->rect();
+        QRect rectCorrection = oldRect;
+
+        // Correct the positions related to the angle we had set.
+        switch(m_angle) {
+            case NW:
+                rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y(),
+                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+                break;
+            case NE:
+                rectCorrection.setRect(oldRect.x(), oldRect.y(), oldRect.width() - shadowWidth,
+                    oldRect.height() - shadowHeight);
+                break;
+            case SW:
+                rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y() + shadowHeight,
+                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+                break;
+            case SE:
+                rectCorrection.setRect(oldRect.x(), oldRect.y() + shadowHeight,
+                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+                break;
+        }
+
+        // if the canvas is visible and we click inside the corrected rect of the canvas item, we
+        // can return the actual canvas item.
+        if (canvasItem->visible() && rectCorrection.contains(point))
+            return canvasItem;
+    }
+
+    return NULL;
+}
 
 // ----------------------------------------------------------
 /*

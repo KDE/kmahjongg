@@ -219,6 +219,14 @@ class BoardWidget : public KGameCanvasWidget
      * Signal Description */
 	void gameOver(unsigned short removed, unsigned short cheats);
     protected:
+
+    /**
+     * Override the itemAt method of the KGameCanvasWidget. We need this cause of corrections in the
+     * 3D simulated view with the stones, as the normal KGameCanvasWidget only supports 2D objects,
+     * and the thrown shadows should not be a part of the click event.
+     * @param point the point we click on the KGameCanvasWidget. */
+    KGameCanvasItem* itemAt(const QPoint &point) const;
+
     /**
      * Virtual Method Description */
 	virtual void resizeEvent ( QResizeEvent * event );
