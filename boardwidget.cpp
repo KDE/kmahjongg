@@ -848,9 +848,9 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
                         gameOver(Game->MaxTileNum,cheatsUsed);
                     }
                     // else if no more moves are possible, display the sour grapes dialog
-                    else if( ! Game->findMove( TimerPos1, TimerPos2 ) )
+                    else
                     {
-                        KMessageBox::information(this, i18n("Game over: You have no moves left."));
+                      validMovesAvailable();
                     }
                 }
                 else
@@ -1154,6 +1154,20 @@ void BoardWidget::shuffle() {
   // 300 points per use
   cheatsUsed += 15;
   drawTileNumber();
+
+  // Test if any moves are available
+  validMovesAvailable();
+}
+
+bool BoardWidget::validMovesAvailable()
+{
+  if(!Game->findMove(TimerPos1, TimerPos2))
+  {
+    KMessageBox::information(this, i18n("Game over: You have no moves left."));
+    return false;
+  }
+
+  return true;
 }
 
 QString  BoardWidget::getLayoutName() {

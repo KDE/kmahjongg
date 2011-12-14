@@ -297,6 +297,11 @@ class BoardWidget : public KGameCanvasWidget
      */
 	int requiredVerticalCells();
 
+    /**
+     * This method test if any valid moves are available.
+     *
+     * @return False if no valid move available, else true. */
+    bool validMovesAvailable();
 
     POSITION MouseClickPos1; /**< Member Description @ref pos */
     POSITION MouseClickPos2; /**< Member Description @ref pos */
