@@ -453,8 +453,8 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    int xOffset = tiles.width()/2;
-    int yOffset = tiles.height()/2;
+    int xOffset = 0 - tiles.levelOffsetX();
+    int yOffset = 0 - tiles.levelOffsetY();
     short tile = 0;
 
     // we iterate over the depth stacking order. Each successive level is
@@ -465,8 +465,8 @@ void Editor::drawTiles(QPixmap *dest) {
         for (int y = 0; y < theBoard.m_height; y++) {
             // drawing right to left to prevent border overwrite
             for (int x= theBoard.m_width-1; x>=0; x--) {
-                int sx = x*(tiles.qWidth()  )+xOffset;
-                int sy = y*(tiles.qHeight()  )+yOffset;
+                int sx = x*(tiles.qWidth()  )+ xOffset + borderLeft;
+                int sy = y*(tiles.qHeight()  )+ yOffset + borderTop;
                 if (theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
@@ -533,8 +533,8 @@ void Editor::transformPointToPosition(
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print zvent (FIX ME)
-        x = ((point.x()-tiles.width()/2)-(z+1)*tiles.levelOffsetX())/ tiles.qWidth();
-        y = ((point.y()-tiles.height()/2)+ z*tiles.levelOffsetX()) / tiles.qHeight();
+        x = ((point.x() - borderLeft)-(z+1)*tiles.levelOffsetX())/ tiles.qWidth();
+        y = ((point.y()- borderTop)+ z*tiles.levelOffsetX()) / tiles.qHeight();
 
 
         // skip when position is illegal
@@ -621,8 +621,8 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
-    int x = tiles.qWidth() + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
-    int y = tiles.qHeight() - (p.e * tiles.levelOffsetX()) + (p.y * tiles.qHeight());
+    int x = borderLeft + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
+    int y = borderTop - ((p.e + 1) * tiles.levelOffsetY()) + (p.y * tiles.qHeight());
     int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
     int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
 
