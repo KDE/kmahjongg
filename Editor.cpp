@@ -52,6 +52,8 @@ Editor::Editor ( QWidget* parent)
     QString tile = Prefs::tileSet();
     if (!tiles.loadTileset(tile)) tiles.loadDefault();
 
+    tiles.loadGraphics();
+
     //TODO delay this initialization, must define board dimensions
     int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
     int sHeight =( theBoard.m_height+2)*tiles.qHeight();
