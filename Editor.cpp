@@ -613,10 +613,10 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
-    int x = (tiles.width()/2)+(p.e*tiles.levelOffsetX())+(p.x * tiles.qWidth());
-    int y = (tiles.height()/2)-(p.e*tiles.levelOffsetX())+(p.y * tiles.qHeight());
-    int w = tiles.width();
-    int h = tiles.height();
+    int x = tiles.qWidth() + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
+    int y = tiles.qHeight() - (p.e * tiles.levelOffsetX()) + (p.y * tiles.qHeight());
+    int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
+    int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
 
 
     if (p.e==100 || !visible)
