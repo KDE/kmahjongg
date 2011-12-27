@@ -175,7 +175,7 @@ void KMahjongg::setupKAction()
     redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    QAction* boardEdit = actionCollection()->addAction( QLatin1String( "edit_board_editor" ));
+    QAction* boardEdit = actionCollection()->addAction( QLatin1String( "game_board_editor" ));
     boardEdit->setText(i18n("&Board Editor"));
     connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
