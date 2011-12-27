@@ -23,6 +23,7 @@
 #include <qevent.h>
 #include <qpainter.h>
 #include <QHBoxLayout>
+#include <QGridLayout>
 
 #include "prefs.h"
 
@@ -55,26 +56,27 @@ Editor::Editor ( QWidget* parent)
     tiles.loadGraphics();
 
     //TODO delay this initialization, must define board dimensions
-    int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
-    int sHeight =( theBoard.m_height+2)*tiles.qHeight();
+    int sWidth = ( theBoard.m_width)*(tiles.qWidth());
+    int sHeight =( theBoard.m_height)*tiles.qHeight();
 
     sWidth += 4*tiles.levelOffsetX();
 
-    drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
-    drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
-    drawFrame->setMinimumSize( 0, 0 );
-    drawFrame->setMaximumSize( 32767, 32767 );
-    drawFrame->setFocusPolicy( Qt::NoFocus );
-    //drawFrame->setFrameStyle( 49 );
-    drawFrame->setMouseTracking(true);
+    QWidget *mainWidget = new QWidget(this);
+    setMainWidget(mainWidget);
+
+    QGridLayout *gridLayout = new QGridLayout(mainWidget);
+    QVBoxLayout *layout = new QVBoxLayout();
 
     // setup the tool bar
     setupToolbar();
+    layout->addWidget(topToolbar);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(topToolbar,0);
-    layout->addWidget(drawFrame,1);
-    layout->activate();
+    drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
+    drawFrame->setFocusPolicy( Qt::NoFocus );
+    drawFrame->setMouseTracking(true);
+
+    layout->addWidget(drawFrame);
+    gridLayout->addLayout(layout, 0, 0, 1, 1);
 
     resize( sWidth+60, sHeight+60);
     //toolbar will set our minimum height
@@ -90,6 +92,8 @@ Editor::Editor ( QWidget* parent)
 
     statusChanged();
 
+    setButtons(KDialog::None);
+
     update();
 }
 
@@ -101,7 +105,7 @@ Editor::~Editor()
 
 void Editor::resizeEvent ( QResizeEvent * event )
 {
-    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width+2)/2,( theBoard.m_height+2)/2);
+    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width)/2,( theBoard.m_height)/2);
     tiles.reloadTileset(newtiles);
 }
 
@@ -427,8 +431,8 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
 
     // now put in a grid of tile quater width squares
-    int sy = (tiles.height()/2)+tiles.levelOffsetX();
-    int sx = (tiles.width()/2);
+    int sy = (tiles.qHeight())+tiles.levelOffsetX();
+    int sx = (tiles.qWidth());
 
     for (int y=0; y<=theBoard.m_height; y++) {
 	int nextY=sy+(y*tiles.qHeight());
