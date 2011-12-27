@@ -60,6 +60,7 @@ Editor::Editor ( QWidget* parent)
     int sHeight =( theBoard.m_height)*tiles.qHeight();
 
     sWidth += 4*tiles.levelOffsetX();
+    sHeight += 4*tiles.levelOffsetY();
 
     QWidget *mainWidget = new QWidget(this);
     setMainWidget(mainWidget);
