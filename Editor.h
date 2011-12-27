@@ -146,6 +146,8 @@ protected:
      * Method Description @return status description */
 	QString statusText();
 private:
+    int borderLeft;
+    int borderTop;
 	int mode;
 	int numTiles;
 	KToolBar *topToolbar;

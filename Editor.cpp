@@ -108,6 +108,9 @@ void Editor::resizeEvent ( QResizeEvent * event )
 {
     QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width)/2,( theBoard.m_height)/2);
     tiles.reloadTileset(newtiles);
+
+    borderLeft = (drawFrame->size().width() - (theBoard.m_width * tiles.qWidth())) / 2;
+    borderTop = (drawFrame->size().height() - (theBoard.m_height * tiles.qHeight())) / 2;
 }
 
 // ---------------------------------------------------------
@@ -432,17 +435,17 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
 
     // now put in a grid of tile quater width squares
-    int sy = (tiles.qHeight())+tiles.levelOffsetX();
-    int sx = (tiles.qWidth());
+    int sy = tiles.qHeight();
+    int sx = tiles.qWidth();
 
     for (int y=0; y<=theBoard.m_height; y++) {
-	int nextY=sy+(y*tiles.qHeight());
-	p.drawLine(sx, nextY,sx+(theBoard.m_width*tiles.qWidth()), nextY);
+	int nextY = borderTop + (y * tiles.qHeight());
+    p.drawLine(borderLeft, nextY, borderLeft + (theBoard.m_width * tiles.qWidth()), nextY);
     }
 
     for (int x=0; x<=theBoard.m_width; x++) {
-	int nextX=sx+(x*tiles.qWidth());
-	p.drawLine(nextX, sy, nextX, sy+theBoard.m_height*tiles.qHeight());
+	int nextX = borderLeft + (x * tiles.qWidth());
+	p.drawLine(nextX, borderTop, nextX, borderTop + (theBoard.m_height * tiles.qHeight()));
     }
 }
 
