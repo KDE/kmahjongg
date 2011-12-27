@@ -22,6 +22,7 @@
 #include <QLabel>
 #include <qevent.h>
 #include <qpainter.h>
+#include <QHBoxLayout>
 
 #include "prefs.h"
 
@@ -162,10 +163,10 @@ void Editor::setupToolbar()
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
-    KToggleAction* addTiles = new KToggleAction(KIcon( QLatin1String( "draw-freehand"), i18n("Add tiles" )), this);
+    KToggleAction* addTiles = new KToggleAction(KIcon( QLatin1String( "draw-freehand")), i18n("Add tiles" ), this);
     actionCollection->addAction( QLatin1String( "add_tiles" ), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction* delTiles = new KToggleAction(KIcon( QLatin1String( "edit-delete"), i18n("Remove tiles" )), this);
+    KToggleAction* delTiles = new KToggleAction(KIcon( QLatin1String( "edit-delete")), i18n("Remove tiles" ), this);
     actionCollection->addAction( QLatin1String( "del_tiles" ), delTiles);
     topToolbar->addAction(delTiles);
 
@@ -210,7 +211,7 @@ void Editor::setupToolbar()
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    QAction* quit = actionCollection->addAction( QLatin1String( KStandardAction::Quit, "quit" ),
+    QAction* quit = actionCollection->addAction( KStandardAction::Quit, QLatin1String( "quit" ),
                                                 this, SLOT(close()));
     topToolbar->addAction(quit);
 
