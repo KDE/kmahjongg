@@ -190,12 +190,13 @@ void BoardLayout::initialiseBoard() {
     short y=0;
     maxTileNum = 0;
 
-    if (loadedBoard.isEmpty())
-	return;
-
     m_maxTiles = (m_width*m_height*m_depth)/4;
     board.resize(m_width*m_height*m_depth);
     board.fill(0);
+
+    if (loadedBoard.isEmpty()) {
+        return;
+    }
 
     int idx = 0;
     // loop will be left by break or return
