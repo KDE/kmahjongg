@@ -688,6 +688,11 @@ bool Editor::canInsert(POSITION &p) {
 
 }
 
+void Editor::closeEvent(QCloseEvent *e)
+{
+    newBoard();
+    e->accept();
+}
 
 
 #include "Editor.moc"
