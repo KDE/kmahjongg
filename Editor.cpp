@@ -55,13 +55,6 @@ Editor::Editor ( QWidget* parent)
 
     tiles.loadGraphics();
 
-    //TODO delay this initialization, must define board dimensions
-    int sWidth = ( theBoard.m_width)*(tiles.qWidth());
-    int sHeight =( theBoard.m_height)*tiles.qHeight();
-
-    sWidth += 4*tiles.levelOffsetX();
-    sHeight += 4*tiles.levelOffsetY();
-
     QWidget *mainWidget = new QWidget(this);
     setMainWidget(mainWidget);
 
@@ -72,14 +65,13 @@ Editor::Editor ( QWidget* parent)
     setupToolbar();
     layout->addWidget(topToolbar);
 
-    drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
+    drawFrame = new FrameImage( this, QSize(0, 0) );
     drawFrame->setFocusPolicy( Qt::NoFocus );
     drawFrame->setMouseTracking(true);
 
     layout->addWidget(drawFrame);
     gridLayout->addLayout(layout, 0, 0, 1, 1);
 
-    resize( sWidth+60, sHeight+60);
     //toolbar will set our minimum height
     setMinimumHeight(120);
 

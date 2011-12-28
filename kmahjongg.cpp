@@ -97,6 +97,8 @@ KMahjongg::KMahjongg( QWidget* parent)
     bw = new BoardWidget( this );
     setCentralWidget( bw );
 
+    boardEditor = NULL;
+
     setupStatusBar();
     setupKAction();
 
@@ -131,6 +133,9 @@ KMahjongg::KMahjongg( QWidget* parent)
 KMahjongg::~KMahjongg()
 {
     delete bw;
+    if (boardEditor != NULL) {
+        delete boardEditor;
+    }
 }
 
 // ---------------------------------------------------------
@@ -304,9 +309,12 @@ void KMahjongg::showHighscores()
 
 void KMahjongg::slotBoardEditor()
 {
-    Editor *boardEditor = new Editor(this);
-    boardEditor->exec();
-    delete boardEditor;
+    if (boardEditor == NULL) {
+        boardEditor = new Editor(this);
+    }
+
+    boardEditor->setVisible(true);
+    boardEditor->resize(800, 600);
 }
 
 //----------------------------------------------------------
