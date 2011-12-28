@@ -335,6 +335,11 @@ void Editor::newBoard() {
 }
 
 bool Editor::saveBoard() {
+    if (!((numTiles !=0) && ((numTiles & 1) == 0))) {
+        KMessageBox::sorry( this, i18n( "You can only save with a even number of tiles." ) );
+        return false;
+    }
+
     // get a save file name
     KUrl url = KFileDialog::getSaveUrl(
 				KUrl(),
@@ -393,6 +398,7 @@ bool Editor::testSave()
   	    return true;
 	} else {
 	    KMessageBox::sorry(this, i18n("Save failed. Aborting operation."));
+        return false;
 	}
     } else {
 	return (res != KMessageBox::Cancel);
@@ -598,6 +604,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			n.e += 1;
 		    if (canInsert(n)) {
 			theBoard.insertTile(n);
+            clean = false;
 			numTiles++;
 			statusChanged();
 			update();
@@ -690,8 +697,17 @@ bool Editor::canInsert(POSITION &p) {
 
 void Editor::closeEvent(QCloseEvent *e)
 {
-    newBoard();
-    e->accept();
+    if (testSave()) {
+        theBoard.clearBoardLayout();
+        clean = true;
+        numTiles = 0;
+        statusChanged();
+        update();
+
+        e->accept();
+    } else {
+        e->ignore();
+    }
 }
 
 
