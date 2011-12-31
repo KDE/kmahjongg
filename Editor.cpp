@@ -451,9 +451,12 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    int xOffset = 0 - tiles.levelOffsetX();
-    int yOffset = 0 - tiles.levelOffsetY();
+    int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
+    int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
     short tile = 0;
+
+    int xOffset = - shadowX;
+    int yOffset = - tiles.levelOffsetY();
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -485,11 +488,16 @@ void Editor::drawTiles(QPixmap *dest) {
                 // we simply split the tile draw so the top half is drawn
                 // minus border
                 if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
-                    p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
-                        t.width() - tiles.levelOffsetX(), t.height() / 2);
+//                     p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
+//                         t.width() - tiles.levelOffsetX(), t.height() / 2);
+// 
+//                     p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
+//                         t.height() / 2);
 
-                    p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
-                        t.height() / 2);
+                    p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
+
+                    p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t, t.width() - tiles.qWidth(), t.height() - tiles.qHeight() - tiles.levelOffsetX() - shadowY,
+                        tiles.qWidth(), tiles.qHeight() + tiles.levelOffsetX());
                 } else {
 
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
