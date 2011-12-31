@@ -463,19 +463,19 @@ void Editor::drawTiles(QPixmap *dest) {
         for (int y = 0; y < theBoard.m_height; y++) {
             // drawing right to left to prevent border overwrite
             for (int x= theBoard.m_width-1; x>=0; x--) {
-                int sx = x*(tiles.qWidth()  )+ xOffset + borderLeft;
-                int sy = y*(tiles.qHeight()  )+ yOffset + borderTop;
+                int sx = x * tiles.qWidth() + xOffset + borderLeft;
+                int sy = y * tiles.qHeight() + yOffset + borderTop;
+
                 if (theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-		QPixmap t;
-		tile=(z*theBoard.m_depth)+
-			(y*theBoard.m_height)+
-				(x*theBoard.m_width);
+
+                QPixmap t;
+                tile = (z * theBoard.m_depth) + (y * theBoard.m_height) + (x * theBoard.m_width);
 //		if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
 //                   t = tiles.selectedPixmaps(44));
 //		} else {
-                   t = tiles.unselectedTile(0);
+                t = tiles.unselectedTile(0);
 //		}
 
                 // Only one compilcation. Since we render top to bottom , left
@@ -484,19 +484,15 @@ void Editor::drawTiles(QPixmap *dest) {
                 // in this situation we would draw our top left border over it
                 // we simply split the tile draw so the top half is drawn
                 // minus border
-                if ((x>1) && (y>0) && theBoard.getBoardData(z,y-1,x-2)=='1'){
-                    p.drawPixmap( sx+tiles.levelOffsetX(), sy,
-                            t, tiles.levelOffsetX() ,0,
-                            t.width()-tiles.levelOffsetX(),
-                            t.height()/2);
+                if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
+                    p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
+                        t.width() - tiles.levelOffsetX(), t.height() / 2);
 
-
-                    p.drawPixmap( sx, sy+t.height()/2,
-                        t, 0,t.height()/2,t.width(),t.height()/2);
+                    p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
+                        t.height() / 2);
                 } else {
 
-                p.drawPixmap(sx, sy,
-                    t, 0,0, t.width(), t.height());
+                    p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
 
 
@@ -504,8 +500,8 @@ void Editor::drawTiles(QPixmap *dest) {
                 tile = tile % 143;
             }
         }
-        xOffset +=tiles.levelOffsetX();
-        yOffset -=tiles.levelOffsetY();
+        xOffset += tiles.levelOffsetX();
+        yOffset -= tiles.levelOffsetY();
     }
 }
 
