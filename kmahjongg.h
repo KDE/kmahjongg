@@ -35,6 +35,7 @@ class QAction;
 class KToggleAction;
 class QLabel;
 class KGameClock;
+class Editor;
 
 /**
    @short  Class Description
@@ -105,7 +106,7 @@ private slots:
   void demoMode();
   void displayTime(const QString& timestring);
   void showHighscores();
-  //void slotBoardEditor();
+  void slotBoardEditor();
 
 protected:
     /**
@@ -119,6 +120,7 @@ private:
   // number of seconds since the start of the game
   unsigned long gameElapsedTime;
   BoardWidget* bw;
+  Editor *boardEditor;
 
   QLabel *gameNumLabel;
   QLabel *tilesLeftLabel;

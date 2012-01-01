@@ -77,9 +77,12 @@ void FrameImage::paintEvent( QPaintEvent* pa )
 p.drawPixmap(x,y,*thePixmap,x,y,w-(2),h-(2));
     if (rx >=0) {
 
-	p.drawRect(rx, ry, rw, rh);
-	p.drawRect(rx+rs, ry, rw-rs, rh-rs);
-	p.drawLine(rx, ry+rh, rx+rs, ry+rh-rs);
+    p.drawRect(rx + rs, ry, rw - rs, rh - rs);
+    p.drawLine(rx, ry + rs, rx, ry + rh);
+    p.drawLine(rx, ry + rs, rx + rs, ry);
+    p.drawLine(rx, ry + rh, rx + rs, ry + rh - rs);
+    p.drawLine(rx, ry + rh, rx + rw - rs, ry + rh);
+    p.drawLine(rx + rw - rs, ry + rh, rx + rw, ry + rh - rs);
 
 	int midX = rx+rs+((rw-rs)/2);
 	int midY = ry+((rh-rs)/2);

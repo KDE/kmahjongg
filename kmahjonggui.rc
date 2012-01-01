@@ -9,6 +9,7 @@
 <MenuBar>
   <Menu name="game"><text>&amp;Game</text>
     <Action name="game_new_numeric" append="new_merge" />
+    <Action name="game_board_editor" />
   </Menu>
   <Menu name="move"><text>&amp;Move</text>
     <Action name="move_shuffle" />

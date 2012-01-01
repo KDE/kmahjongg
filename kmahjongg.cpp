@@ -48,7 +48,7 @@
 #include "prefs.h"
 #include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
-//#include "Editor.h"
+#include "Editor.h"
 
 #include <kmahjonggconfigdialog.h>
 
@@ -97,6 +97,8 @@ KMahjongg::KMahjongg( QWidget* parent)
     bw = new BoardWidget( this );
     setCentralWidget( bw );
 
+    boardEditor = NULL;
+
     setupStatusBar();
     setupKAction();
 
@@ -131,6 +133,7 @@ KMahjongg::KMahjongg( QWidget* parent)
 KMahjongg::~KMahjongg()
 {
     delete bw;
+    delete boardEditor;
 }
 
 // ---------------------------------------------------------
@@ -175,9 +178,9 @@ void KMahjongg::setupKAction()
     redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    //QAction* boardEdit = actionCollection()->addAction( QLatin1String( "edit_board_editor" ));
-    //boardEdit->setText(i18n("&Board Editor"));
-    //connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
+    QAction* boardEdit = actionCollection()->addAction( QLatin1String( "game_board_editor" ));
+    boardEdit->setText(i18n("&Board Editor"));
+    connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
 
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
@@ -302,12 +305,15 @@ void KMahjongg::showHighscores()
     ksdialog.exec();
 }
 
-/*void KMahjongg::slotBoardEditor()
+void KMahjongg::slotBoardEditor()
 {
-    Editor *boardEditor = new Editor(this);
-    boardEditor->exec();
-    delete boardEditor;
-}*/
+    if (boardEditor == NULL) {
+        boardEditor = new Editor(this);
+    }
+
+    boardEditor->setVisible(true);
+    boardEditor->resize(800, 600);
+}
 
 //----------------------------------------------------------
 // signalled from the prieview dialog to generate a new game

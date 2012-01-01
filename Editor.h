@@ -145,7 +145,13 @@ protected:
     /**
      * Method Description @return status description */
 	QString statusText();
+
+    /**
+     * Override the closeEvent(...) method of kdialog..qdialog. */
+    void closeEvent(QCloseEvent *e);
 private:
+    int borderLeft;
+    int borderTop;
 	int mode;
 	int numTiles;
 	KToolBar *topToolbar;

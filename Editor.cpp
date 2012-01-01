@@ -22,6 +22,8 @@
 #include <QLabel>
 #include <qevent.h>
 #include <qpainter.h>
+#include <QHBoxLayout>
+#include <QGridLayout>
 
 #include "prefs.h"
 
@@ -51,29 +53,25 @@ Editor::Editor ( QWidget* parent)
     QString tile = Prefs::tileSet();
     if (!tiles.loadTileset(tile)) tiles.loadDefault();
 
-    //TODO delay this initialization, must define board dimensions
-    int sWidth = ( theBoard.m_width+2)*(tiles.qWidth());
-    int sHeight =( theBoard.m_height+2)*tiles.qHeight();
+    tiles.loadGraphics();
 
-    sWidth += 4*tiles.levelOffsetX();
+    QWidget *mainWidget = new QWidget(this);
+    setMainWidget(mainWidget);
 
-    drawFrame = new FrameImage( this, QSize(sWidth, sHeight) );
-    drawFrame->setGeometry( 10, 40 ,sWidth ,sHeight);
-    drawFrame->setMinimumSize( 0, 0 );
-    drawFrame->setMaximumSize( 32767, 32767 );
-    drawFrame->setFocusPolicy( Qt::NoFocus );
-    //drawFrame->setFrameStyle( 49 );
-    drawFrame->setMouseTracking(true);
+    QGridLayout *gridLayout = new QGridLayout(mainWidget);
+    QVBoxLayout *layout = new QVBoxLayout();
 
     // setup the tool bar
     setupToolbar();
+    layout->addWidget(topToolbar);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(topToolbar,0);
-    layout->addWidget(drawFrame,1);
-    layout->activate();
+    drawFrame = new FrameImage( this, QSize(0, 0) );
+    drawFrame->setFocusPolicy( Qt::NoFocus );
+    drawFrame->setMouseTracking(true);
 
-    resize( sWidth+60, sHeight+60);
+    layout->addWidget(drawFrame);
+    gridLayout->addLayout(layout, 0, 0, 1, 1);
+
     //toolbar will set our minimum height
     setMinimumHeight(120);
 
@@ -87,6 +85,8 @@ Editor::Editor ( QWidget* parent)
 
     statusChanged();
 
+    setButtons(KDialog::None);
+
     update();
 }
 
@@ -98,8 +98,11 @@ Editor::~Editor()
 
 void Editor::resizeEvent ( QResizeEvent * event )
 {
-    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width+2)/2,( theBoard.m_height+2)/2);
+    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width)/2,( theBoard.m_height)/2);
     tiles.reloadTileset(newtiles);
+
+    borderLeft = (drawFrame->size().width() - (theBoard.m_width * tiles.qWidth())) / 2;
+    borderTop = (drawFrame->size().height() - (theBoard.m_height * tiles.qHeight())) / 2;
 }
 
 // ---------------------------------------------------------
@@ -162,10 +165,10 @@ void Editor::setupToolbar()
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
-    KToggleAction* addTiles = new KToggleAction(KIcon( QLatin1String( "draw-freehand"), i18n("Add tiles" )), this);
+    KToggleAction* addTiles = new KToggleAction(KIcon( QLatin1String( "draw-freehand")), i18n("Add tiles" ), this);
     actionCollection->addAction( QLatin1String( "add_tiles" ), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction* delTiles = new KToggleAction(KIcon( QLatin1String( "edit-delete"), i18n("Remove tiles" )), this);
+    KToggleAction* delTiles = new KToggleAction(KIcon( QLatin1String( "edit-delete")), i18n("Remove tiles" ), this);
     actionCollection->addAction( QLatin1String( "del_tiles" ), delTiles);
     topToolbar->addAction(delTiles);
 
@@ -210,7 +213,7 @@ void Editor::setupToolbar()
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    QAction* quit = actionCollection->addAction( QLatin1String( KStandardAction::Quit, "quit" ),
+    QAction* quit = actionCollection->addAction( KStandardAction::Quit, QLatin1String( "quit" ),
                                                 this, SLOT(close()));
     topToolbar->addAction(quit);
 
@@ -332,6 +335,11 @@ void Editor::newBoard() {
 }
 
 bool Editor::saveBoard() {
+    if (!((numTiles !=0) && ((numTiles & 1) == 0))) {
+        KMessageBox::sorry( this, i18n( "You can only save with a even number of tiles." ) );
+        return false;
+    }
+
     // get a save file name
     KUrl url = KFileDialog::getSaveUrl(
 				KUrl(),
@@ -390,6 +398,7 @@ bool Editor::testSave()
   	    return true;
 	} else {
 	    KMessageBox::sorry(this, i18n("Save failed. Aborting operation."));
+        return false;
 	}
     } else {
 	return (res != KMessageBox::Cancel);
@@ -424,17 +433,17 @@ void Editor::drawBackground(QPixmap *pixmap) {
 
 
     // now put in a grid of tile quater width squares
-    int sy = (tiles.height()/2)+tiles.levelOffsetX();
-    int sx = (tiles.width()/2);
+    int sy = tiles.qHeight();
+    int sx = tiles.qWidth();
 
     for (int y=0; y<=theBoard.m_height; y++) {
-	int nextY=sy+(y*tiles.qHeight());
-	p.drawLine(sx, nextY,sx+(theBoard.m_width*tiles.qWidth()), nextY);
+	int nextY = borderTop + (y * tiles.qHeight());
+    p.drawLine(borderLeft, nextY, borderLeft + (theBoard.m_width * tiles.qWidth()), nextY);
     }
 
     for (int x=0; x<=theBoard.m_width; x++) {
-	int nextX=sx+(x*tiles.qWidth());
-	p.drawLine(nextX, sy, nextX, sy+theBoard.m_height*tiles.qHeight());
+	int nextX = borderLeft + (x * tiles.qWidth());
+	p.drawLine(nextX, borderTop, nextX, borderTop + (theBoard.m_height * tiles.qHeight()));
     }
 }
 
@@ -442,9 +451,12 @@ void Editor::drawTiles(QPixmap *dest) {
 
     QPainter p(dest);
 
-    int xOffset = tiles.width()/2;
-    int yOffset = tiles.height()/2;
+    int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
+    int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
     short tile = 0;
+
+    int xOffset = - shadowX;
+    int yOffset = - tiles.levelOffsetY();
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -454,19 +466,19 @@ void Editor::drawTiles(QPixmap *dest) {
         for (int y = 0; y < theBoard.m_height; y++) {
             // drawing right to left to prevent border overwrite
             for (int x= theBoard.m_width-1; x>=0; x--) {
-                int sx = x*(tiles.qWidth()  )+xOffset;
-                int sy = y*(tiles.qHeight()  )+yOffset;
+                int sx = x * tiles.qWidth() + xOffset + borderLeft;
+                int sy = y * tiles.qHeight() + yOffset + borderTop;
+
                 if (theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
-		QPixmap t;
-		tile=(z*theBoard.m_depth)+
-			(y*theBoard.m_height)+
-				(x*theBoard.m_width);
+
+                QPixmap t;
+                tile = (z * theBoard.m_depth) + (y * theBoard.m_height) + (x * theBoard.m_width);
 //		if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
 //                   t = tiles.selectedPixmaps(44));
 //		} else {
-                   t = tiles.unselectedTile(0);
+                t = tiles.unselectedTile(0);
 //		}
 
                 // Only one compilcation. Since we render top to bottom , left
@@ -475,19 +487,20 @@ void Editor::drawTiles(QPixmap *dest) {
                 // in this situation we would draw our top left border over it
                 // we simply split the tile draw so the top half is drawn
                 // minus border
-                if ((x>1) && (y>0) && theBoard.getBoardData(z,y-1,x-2)=='1'){
-                    p.drawPixmap( sx+tiles.levelOffsetX(), sy,
-                            t, tiles.levelOffsetX() ,0,
-                            t.width()-tiles.levelOffsetX(),
-                            t.height()/2);
+                if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
+//                     p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
+//                         t.width() - tiles.levelOffsetX(), t.height() / 2);
+// 
+//                     p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
+//                         t.height() / 2);
 
+                    p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
 
-                    p.drawPixmap( sx, sy+t.height()/2,
-                        t, 0,t.height()/2,t.width(),t.height()/2);
+                    p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t, t.width() - tiles.qWidth(), t.height() - tiles.qHeight() - tiles.levelOffsetX() - shadowY,
+                        tiles.qWidth(), tiles.qHeight() + tiles.levelOffsetX());
                 } else {
 
-                p.drawPixmap(sx, sy,
-                    t, 0,0, t.width(), t.height());
+                    p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
 
 
@@ -495,8 +508,8 @@ void Editor::drawTiles(QPixmap *dest) {
                 tile = tile % 143;
             }
         }
-        xOffset +=tiles.levelOffsetX();
-        yOffset -=tiles.levelOffsetY();
+        xOffset += tiles.levelOffsetX();
+        yOffset -= tiles.levelOffsetY();
     }
 }
 
@@ -522,8 +535,8 @@ void Editor::transformPointToPosition(
         // calculate mouse coordiantes --> position in game board
 	// the factor -theTiles.width()/2 must keep track with the
 	// offset for blitting in the print zvent (FIX ME)
-        x = ((point.x()-tiles.width()/2)-(z+1)*tiles.levelOffsetX())/ tiles.qWidth();
-        y = ((point.y()-tiles.height()/2)+ z*tiles.levelOffsetX()) / tiles.qHeight();
+        x = ((point.x() - borderLeft)-(z+1)*tiles.levelOffsetX())/ tiles.qWidth();
+        y = ((point.y()- borderTop)+ z*tiles.levelOffsetX()) / tiles.qHeight();
 
 
         // skip when position is illegal
@@ -595,6 +608,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 			n.e += 1;
 		    if (canInsert(n)) {
 			theBoard.insertTile(n);
+            clean = false;
 			numTiles++;
 			statusChanged();
 			update();
@@ -610,10 +624,10 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
-    int x = (tiles.width()/2)+(p.e*tiles.levelOffsetX())+(p.x * tiles.qWidth());
-    int y = (tiles.height()/2)-(p.e*tiles.levelOffsetX())+(p.y * tiles.qHeight());
-    int w = tiles.width();
-    int h = tiles.height();
+    int x = borderLeft + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
+    int y = borderTop - ((p.e + 1) * tiles.levelOffsetY()) + (p.y * tiles.qHeight());
+    int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
+    int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
 
 
     if (p.e==100 || !visible)
@@ -685,6 +699,20 @@ bool Editor::canInsert(POSITION &p) {
 
 }
 
+void Editor::closeEvent(QCloseEvent *e)
+{
+    if (testSave()) {
+        theBoard.clearBoardLayout();
+        clean = true;
+        numTiles = 0;
+        statusChanged();
+        update();
+
+        e->accept();
+    } else {
+        e->ignore();
+    }
+}
 
 
 #include "Editor.moc"
