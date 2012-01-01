@@ -133,9 +133,7 @@ KMahjongg::KMahjongg( QWidget* parent)
 KMahjongg::~KMahjongg()
 {
     delete bw;
-    if (boardEditor != NULL) {
-        delete boardEditor;
-    }
+    delete boardEditor;
 }
 
 // ---------------------------------------------------------
