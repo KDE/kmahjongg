@@ -333,6 +333,9 @@ class BoardWidget : public KGameCanvasWidget
 	unsigned short cheatsUsed; /**< storage for highscore calculation  */
 	long  gameGenerationNum; /**< seed for the random number generator used for this game */
 
+private:
+    QString getRandomLayoutName() const;
+
 public:
   GameData * Game; /**< Member Description */
   KMahjonggTileset  theTiles;  /**< Member Description @see KMahjonggTileset */

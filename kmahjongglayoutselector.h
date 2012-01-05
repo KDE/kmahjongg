@@ -41,6 +41,7 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
     QMap<QString, KMahjonggLayout *> layoutMap;
   public slots:
     void layoutChanged();
+    void useRandomLayoutToggled(bool);
   private:
     BoardWidget * bw;
 };

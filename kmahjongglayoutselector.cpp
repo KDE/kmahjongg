@@ -122,7 +122,10 @@ void KMahjonggLayoutSelector::layoutChanged()
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));*/
+}
 
+void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active) {
+    widgetNoRandom->setEnabled(!active);
 }
 
 #include "kmahjongglayoutselector.moc"

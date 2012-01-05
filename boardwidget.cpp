@@ -99,12 +99,19 @@ void BoardWidget::loadSettings(){
       kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
     }
     setShowMatch( Prefs::showMatchingTiles() );
-    
-    if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive)!=0) {
-      //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
-      loadBoardLayout(Prefs::layout());
-      calculateNewGame();
+
+    // If the random layout is activated, we won't load a boardlayout, as it will be created
+    // randomly in calculateNewGame().
+    if (!Prefs::randomLayout()) {
+        if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive)!=0) {
+        //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
+        loadBoardLayout(Prefs::layout());
+        calculateNewGame();
+        }
+    } else {
+        calculateNewGame();
     }
+
     setDisplayedWidth();
     drawBoard(true);
     //Store our updated settings, some values might have been changed to defaults
@@ -644,14 +651,29 @@ void BoardWidget::stopEndAnimation()
 }
 
 // ---------------------------------------------------------
+
+QString BoardWidget::getRandomLayoutName() const {
+    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout",
+            QString("*.desktop"), KStandardDirs::Recursive);
+
+    return tilesAvailable.at(qrand() % tilesAvailable.size());
+}
+
+// ---------------------------------------------------------
 void BoardWidget::calculateNewGame( int gNumber)
 {
     cancelUserSelectedTiles();
     stopMatchAnimation();
     stopEndAnimation();
     Game->initialiseRemovedTiles();
-    setStatusText( i18n("Calculating new game...") );
 
+    // If random layout is true, we will create a new random layout from the existing layouts.
+    if (Prefs::randomLayout()) {
+        QString layoutName = getRandomLayoutName();
+        loadBoardLayout(layoutName);
+    }
+
+    setStatusText( i18n("Calculating new game...") );
 
     if( !loadBoard())
     {
