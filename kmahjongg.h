@@ -116,6 +116,10 @@ protected:
      * Method Description */
     void setupStatusBar();
 
+    /**
+     * Method Override */
+    void changeEvent(QEvent *event);
+
 private:
   // number of seconds since the start of the game
   unsigned long gameElapsedTime;
