@@ -50,9 +50,6 @@ Editor::Editor ( QWidget* parent)
     numTiles=0;
     mode = insert;
 
-    // Set the tileset, that is already in use.
-    setTileset(Prefs::tileSet());
-
     QWidget *mainWidget = new QWidget(this);
     setMainWidget(mainWidget);
 
