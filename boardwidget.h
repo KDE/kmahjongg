@@ -221,6 +221,10 @@ class BoardWidget : public KGameCanvasWidget
     protected:
 
     /**
+     * Overridden virtual method for wheel events. */
+    virtual void wheelEvent(QWheelEvent * event);
+
+    /**
      * Override the itemAt method of the KGameCanvasWidget. We need this cause of corrections in the
      * 3D simulated view with the stones, as the normal KGameCanvasWidget only supports 2D objects,
      * and the thrown shadows should not be a part of the click event.

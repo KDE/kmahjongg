@@ -1197,5 +1197,17 @@ QString  BoardWidget::getLayoutName() {
     return theBoardLayout.authorProperty(key);
 }
 
+void BoardWidget::wheelEvent(QWheelEvent * event)
+{
+    if (event->orientation() == Qt::Vertical) {
+        if (event->delta() > 0) {
+            angleSwitchCCW();
+        } else {
+            angleSwitchCW();
+        }
+    }
+
+    event->accept();
+}
 
 #include "boardwidget.moc"
