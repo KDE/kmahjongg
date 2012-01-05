@@ -56,6 +56,14 @@ public:
      * Default Destructor */
     virtual ~Editor();
 
+    /**
+     * Return the tileset that is actually set. */
+    const QString getTileset() const;
+
+    /**
+     * Set a new tileset. */
+    void setTileset(const QString tileset);
+
 protected slots:
     /**
      * Slot Description */
@@ -149,7 +157,13 @@ protected:
     /**
      * Override the closeEvent(...) method of kdialog..qdialog. */
     void closeEvent(QCloseEvent *e);
+
+    /**
+     * Update the tile size. */
+    void updateTileSize(const QSize size);
 private:
+    QString mTileset;
+
     int borderLeft;
     int borderTop;
 	int mode;

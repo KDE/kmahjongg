@@ -311,6 +311,7 @@ void KMahjongg::slotBoardEditor()
         boardEditor = new Editor(this);
     }
 
+    boardEditor->setTileset(Prefs::tileSet());
     boardEditor->setVisible(true);
     boardEditor->resize(800, 600);
 }

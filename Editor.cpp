@@ -50,10 +50,8 @@ Editor::Editor ( QWidget* parent)
     numTiles=0;
     mode = insert;
 
-    QString tile = Prefs::tileSet();
-    if (!tiles.loadTileset(tile)) tiles.loadDefault();
-
-    tiles.loadGraphics();
+    // Set the tileset, that is already in use.
+    setTileset(Prefs::tileSet());
 
     QWidget *mainWidget = new QWidget(this);
     setMainWidget(mainWidget);
@@ -90,19 +88,51 @@ Editor::Editor ( QWidget* parent)
     update();
 }
 
-
-
 Editor::~Editor()
 {
 }
 
-void Editor::resizeEvent ( QResizeEvent * event )
+void Editor::setTileset(const QString tileset)
 {
-    QSize newtiles = tiles.preferredTileSize(event->size(), (theBoard.m_width)/2,( theBoard.m_height)/2);
-    tiles.reloadTileset(newtiles);
+    // Exit if the tileset is already set.
+    if (tileset == mTileset) {
+        return;
+    }
+
+    // Try to load the new tileset.
+    if (!tiles.loadTileset(tileset)) {
+        // Try to load the old one.
+        if (!tiles.loadTileset(mTileset)) {
+            tiles.loadDefault();
+        }
+    } else {
+        // If loading the new tileset was ok, set the new tileset name.
+        mTileset = tileset;
+    }
+
+    // Must be called to load the graphics and its informations.
+    tiles.loadGraphics();
+
+    updateTileSize(size());
+}
+
+const QString Editor::getTileset() const
+{
+    return mTileset;
+}
+
+void Editor::updateTileSize(const QSize size)
+{
+    QSize tileSize = tiles.preferredTileSize(size, theBoard.m_width / 2, theBoard.m_height / 2);
+    tiles.reloadTileset(tileSize);
 
     borderLeft = (drawFrame->size().width() - (theBoard.m_width * tiles.qWidth())) / 2;
     borderTop = (drawFrame->size().height() - (theBoard.m_height * tiles.qHeight())) / 2;
+}
+
+void Editor::resizeEvent ( QResizeEvent * event )
+{
+    updateTileSize(event->size());
 }
 
 // ---------------------------------------------------------
