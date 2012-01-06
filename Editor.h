@@ -64,6 +64,11 @@ public:
      * Set a new tileset. */
     void setTileset(const QString tileset);
 
+public slots:
+    /**
+     * Load the settings from prefs. */
+    void setTilesetFromSettings();
+
 protected slots:
     /**
      * Slot Description */

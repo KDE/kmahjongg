@@ -97,7 +97,11 @@ KMahjongg::KMahjongg( QWidget* parent)
     bw = new BoardWidget( this );
     setCentralWidget( bw );
 
-    boardEditor = NULL;
+    // Initialize boardEditor
+    boardEditor = new Editor();
+    boardEditor->setModal(false);
+    // Set the tileset setted in the the settings.
+    boardEditor->setTilesetFromSettings();
 
     setupStatusBar();
     setupKAction();
@@ -272,6 +276,7 @@ void KMahjongg::showSettings(){
   dialog->addBackgroundPage();
   dialog->setHelp(QString(),"kmahjongg");
   connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
+  connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
   connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
   dialog->show();
 }
@@ -307,19 +312,10 @@ void KMahjongg::showHighscores()
 
 void KMahjongg::slotBoardEditor()
 {
-    if (boardEditor == NULL) {
-        boardEditor = new Editor();
-        boardEditor->setModal(false);
-        boardEditor->setVisible(true);
+    boardEditor->setVisible(true);
 
-        // Set the default size.
-        boardEditor->setGeometry(Prefs::editorGeometry());
-
-        // Set the default tileset.
-        boardEditor->setTileset(Prefs::tileSet());
-    } else {
-        boardEditor->setVisible(true);
-    }
+    // Set the default size.
+    boardEditor->setGeometry(Prefs::editorGeometry());
 }
 
 //----------------------------------------------------------

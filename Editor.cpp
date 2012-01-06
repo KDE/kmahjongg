@@ -745,5 +745,9 @@ void Editor::closeEvent(QCloseEvent *e)
     }
 }
 
+void Editor::setTilesetFromSettings()
+{
+    setTileset(Prefs::tileSet());
+}
 
 #include "Editor.moc"
