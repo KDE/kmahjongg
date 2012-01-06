@@ -40,6 +40,11 @@ public:
      * Default Constructor
      */
     BoardLayout();
+
+    /**
+     * Copy constructor */
+    BoardLayout(const BoardLayout &boardLayout);
+
     /**
      * Default Deconstructor
      */
@@ -185,6 +190,17 @@ public:
      */
     void shiftDown();
 
+    /**
+     * Get the loaded board. */
+    QByteArray getLoadedBoard() const;
+
+    /**
+     * Get the board. */
+    QByteArray getBoard() const;
+
+    /**
+     * Get max tile num. */
+    unsigned short getMaxTileNum() const;
 
      int m_width;   /**< Member Description */
      int m_height;  /**< Member Description */
@@ -195,7 +211,7 @@ public:
      *
      * @return filename
      */
-     QString &getFilename() {return filename;}
+    QString getFilename() const;
      
 protected:
     /**

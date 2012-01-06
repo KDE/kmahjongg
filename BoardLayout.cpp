@@ -32,8 +32,40 @@ BoardLayout::BoardLayout()
 	clearBoardLayout();
 }
 
+BoardLayout::BoardLayout(const BoardLayout &boardLayout)
+{
+    m_width = boardLayout.m_width;
+    m_height = boardLayout.m_height;
+    m_depth = boardLayout.m_depth;
+    m_maxTiles = boardLayout.m_maxTiles;
+    maxTileNum = boardLayout.getMaxTileNum();
+    filename = boardLayout.getFilename();
+    board = boardLayout.getBoard();
+    loadedBoard = boardLayout.getLoadedBoard();
+}
+
 BoardLayout::~BoardLayout()
 {
+}
+
+QString BoardLayout::getFilename() const
+{
+    return filename;
+}
+
+QByteArray BoardLayout::getLoadedBoard() const
+{
+    return loadedBoard;
+}
+
+QByteArray BoardLayout::getBoard() const
+{
+    return board;
+}
+
+unsigned short BoardLayout::getMaxTileNum() const
+{
+    return maxTileNum;
 }
 
 void BoardLayout::clearBoardLayout() {

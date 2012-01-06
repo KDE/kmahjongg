@@ -108,7 +108,7 @@ class BoardWidget : public KGameCanvasWidget
      * 
      * @return QString filename
      */
-	QString &getBoardName(){return theBoardLayout.board()->getFilename();}
+	QString getBoardName(){return theBoardLayout.board()->getFilename();}
     /**
      * Method Description
      * 
