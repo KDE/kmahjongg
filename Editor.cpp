@@ -735,6 +735,10 @@ void Editor::closeEvent(QCloseEvent *e)
         statusChanged();
         update();
 
+        // Save the window geometry.
+        Prefs::setEditorGeometry(geometry());
+        Prefs::self()->writeConfig();
+
         e->accept();
     } else {
         e->ignore();

@@ -308,12 +308,18 @@ void KMahjongg::showHighscores()
 void KMahjongg::slotBoardEditor()
 {
     if (boardEditor == NULL) {
-        boardEditor = new Editor(this);
-    }
+        boardEditor = new Editor();
+        boardEditor->setModal(false);
+        boardEditor->setVisible(true);
 
-    boardEditor->setTileset(Prefs::tileSet());
-    boardEditor->setVisible(true);
-    boardEditor->resize(800, 600);
+        // Set the default size.
+        boardEditor->setGeometry(Prefs::editorGeometry());
+
+        // Set the default tileset.
+        boardEditor->setTileset(Prefs::tileSet());
+    } else {
+        boardEditor->setVisible(true);
+    }
 }
 
 //----------------------------------------------------------

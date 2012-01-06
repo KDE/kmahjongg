@@ -29,5 +29,7 @@
       <label>Whether matching tiles are shown.</label>
       <default>false</default>
     </entry>
+    <entry name="EditorGeometry" type="Rect">
+    </entry>
   </group>
 </kcfg>
