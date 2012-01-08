@@ -46,7 +46,9 @@ class KMahjongg : public KXmlGuiWindow
 
 public:
     /**
-     * Constructor @param parent */
+     * Constructor
+     *
+     * @param parent */
     explicit KMahjongg(QWidget *parent = 0);
 
     /**
@@ -56,17 +58,20 @@ public:
 public slots:
     /**
      * Slot Description
+     *
      * @param num */
     void startNewGame(int num = -1);
 
     /**
      * Slot Description
+     *
      * @param msg
      * @param board */
     void showStatusText(const QString &msg, long board);
 
     /**
      * Slot Description
+     *
      * @param iMaximum
      * @param iCurrent
      * @param iLeft */
@@ -74,17 +79,20 @@ public slots:
 
     /**
      * Slot Description
+     *
      * @param bActive */
     void demoModeChanged(bool bActive);
 
     /**
      * Slot Description
+     *
      * @param removed
      * @param cheats */
     void gameOver(unsigned short removed, unsigned short cheats);
 
     /**
      * Load BoardLayout from file
+     *
      * @param file */
 //     void loadBoardLayout(const QString &file);
 
