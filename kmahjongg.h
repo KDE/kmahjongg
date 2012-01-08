@@ -20,6 +20,7 @@
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
+
 #include <kxmlguiwindow.h>
 
 #include "KmTypes.h"

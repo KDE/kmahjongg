@@ -1,50 +1,46 @@
-/*
-    Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
-    Copyright (C) 2006 Mauricio Piacentini   <mauricio@tabuleiro.com>
-
-    Kmahjongg is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
+/* Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
+ * Copyright (C) 2006 Mauricio Piacentini   <mauricio@tabuleiro.com>
+ *
+ * Kmahjongg is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
 #include "boardwidget.h"
 #include "prefs.h"
 
-#include <kmessagebox.h>
-#include <krandom.h>
 #include <QTimer>
 #include <qpainter.h>
+#include <qapplication.h>
+
 #include <klocale.h>
 #include <kstandarddirs.h>
-#include <qapplication.h>
+#include <kmessagebox.h>
+#include <krandom.h>
 #include <kconfig.h>
 #include <kglobal.h>
 #include <KDebug>
 
-/**
- * Constructor.
- * Loads tileset and background bitmaps.
- */
-BoardWidget::BoardWidget( QWidget* parent )
-  : KGameCanvasWidget( parent ), theTiles()
+
+BoardWidget::BoardWidget(QWidget *parent)
+    : KGameCanvasWidget(parent),
+    theTiles()
 {
     QPalette palette;
-    palette.setColor( backgroundRole(), Qt::black );
+    palette.setColor(backgroundRole(), Qt::black);
     setPalette(palette);
 
     timer = new QTimer(this);
-    connect( timer, SIGNAL(timeout()),
-             this, SLOT(helpMoveTimeout()) );
+    connect(timer, SIGNAL(timeout()), this, SLOT(helpMoveTimeout()));
 
     TimerState = Stop;
     gamePaused = false;
@@ -72,41 +68,45 @@ BoardWidget::BoardWidget( QWidget* parent )
     animateForwardTimer->setInterval(100);
     connect(animateForwardTimer, SIGNAL(timeout()), SLOT(animatingMoveListForward()));
     animateForwardTimer->stop();
-    
+
     animateBackwardsTimer = new QTimer(this);
     animateBackwardsTimer->setSingleShot(true);
     animateBackwardsTimer->setInterval(100);
     connect(animateBackwardsTimer, SIGNAL(timeout()), SLOT(animatingMoveListBackwards()));
     animateBackwardsTimer->stop();
-    
+
     loadSettings();
 }
 
-BoardWidget::~BoardWidget(){
-  delete Game;
+BoardWidget::~BoardWidget()
+{
+    delete Game;
 }
 
-void BoardWidget::loadSettings(){
+void BoardWidget::loadSettings()
+{
     // Load tileset. First try to load the last use tileset
 
-    if (!loadTileset(Prefs::tileSet())){
-      kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() <<"KMahjongg will continue with the default tileset.";
+    if (!loadTileset(Prefs::tileSet())) {
+        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
+            "will continue with the default tileset.";
     }
 
     // Load background
-    if( ! loadBackground(Prefs::background(), false ) )
-    {
-      kDebug() << "An error occurred when loading the background" << Prefs::background() <<"KMahjongg will continue with the default background.";
+    if (!loadBackground(Prefs::background(), false)) {
+        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
+            "jongg will continue with the default background.";
     }
-    setShowMatch( Prefs::showMatchingTiles() );
+
+    setShowMatch(Prefs::showMatchingTiles());
 
     // If the random layout is activated, we won't load a boardlayout, as it will be created
     // randomly in calculateNewGame().
     if (!Prefs::randomLayout()) {
-        if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive)!=0) {
-        //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
-        loadBoardLayout(Prefs::layout());
-        calculateNewGame();
+        if (QString::compare(Prefs::layout(), theBoardLayout.path(), Qt::CaseSensitive) !=0 ) {
+            //TODO: WARN USER HERE ABOUT DESTRUCTIVE OPERATION!!!
+            loadBoardLayout(Prefs::layout());
+            calculateNewGame();
         }
     } else {
         calculateNewGame();
@@ -114,81 +114,90 @@ void BoardWidget::loadSettings(){
 
     setDisplayedWidth();
     drawBoard(true);
+
     //Store our updated settings, some values might have been changed to defaults
     saveSettings();
 }
 
-void BoardWidget::resizeEvent ( QResizeEvent * event )
+void BoardWidget::resizeEvent(QResizeEvent *event)
 {
-    if (event->spontaneous()) return;
+    if (event->spontaneous()) {
+        return;
+    }
+
     resizeTileset(event->size());
     theBackground.sizeChanged(requiredWidth(), requiredHeight());
     drawBoard(true);
 }
 
-void BoardWidget::resizeTileset ( const QSize & wsize )
+void BoardWidget::resizeTileset(const QSize &wsize)
 {
-    QSize newtiles = theTiles.preferredTileSize(wsize, requiredHorizontalCells(), requiredVerticalCells());
+    QSize newtiles = theTiles.preferredTileSize(wsize, requiredHorizontalCells(),
+        requiredVerticalCells());
 
     theTiles.reloadTileset(newtiles);
     stopMatchAnimation();
 }
 
-
-
-void BoardWidget::saveSettings(){
-  Prefs::setTileSet(theTiles.path());
-  Prefs::setLayout(theBoardLayout.path());
-  Prefs::setBackground(theBackground.path());
-  Prefs::setAngle(m_angle);
-  Prefs::self()->writeConfig();
+void BoardWidget::saveSettings()
+{
+    Prefs::setTileSet(theTiles.path());
+    Prefs::setLayout(theBoardLayout.path());
+    Prefs::setBackground(theBackground.path());
+    Prefs::setAngle(m_angle);
+    Prefs::self()->writeConfig();
 }
 
-void BoardWidget::setDisplayedWidth() {
-  //TODO remove method and let the layout handle it
-  //for now we just force our resizeEvent() to be called
-  resize(width() , height());
+void BoardWidget::setDisplayedWidth()
+{
+    //TODO remove method and let the layout handle it
+    //for now we just force our resizeEvent() to be called
+    resize(width(), height());
 }
 
-void BoardWidget::populateSpriteMap() {
+void BoardWidget::populateSpriteMap()
+{
     //Delete previous sprites (full update), synchronize state with GameData
-    while (!items()->isEmpty())
-	delete items()->first();
+    while (!items()->isEmpty()) {
+        delete items()->first();
+    }
 
     //Clear our spritemap as well
     spriteMap.clear();
 
     //Recreate our background
     QPalette palette;
-    palette.setBrush( backgroundRole(), theBackground.getBackground() );
-    setPalette( palette );
-    setAutoFillBackground (true);
+    palette.setBrush(backgroundRole(), theBackground.getBackground());
+    setPalette(palette);
+    setAutoFillBackground(true);
 
     //create the sprites
-    for (int z=0; z<Game->m_depth; z++) {
+    for (int z = 0; z < Game->m_depth; z++) {
         // we draw down the board so the tile below over rights our border
         for (int y = 0; y < Game->m_height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x=Game->m_width-1; x>=0; x--) {
+            for (int x = Game->m_width - 1; x >= 0; x--) {
 
-		// skip if no tile to display
-		if (!Game->tilePresent(z,y,x))
-			continue;
+                // skip if no tile to display
+                if (!Game->tilePresent(z, y, x)) {
+                    continue;
+                }
 
                 QPixmap s;
-		QPixmap us;
-		QPixmap f;
-		bool selected = false;
-		s= theTiles.selectedTile(m_angle);
-		us= theTiles.unselectedTile(m_angle);
-		f= theTiles.tileface(Game->BoardData(z,y,x)-TILE_OFFSET);
-		if (Game->HighlightData(z,y,x)) {
-		    selected = true;
-		}
+                QPixmap us;
+                QPixmap f;
+                bool selected = false;
+                s = theTiles.selectedTile(m_angle);
+                us = theTiles.unselectedTile(m_angle);
+                f = theTiles.tileface(Game->BoardData(z, y, x) - TILE_OFFSET);
 
-		  TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, selected);
+                if (Game->HighlightData(z, y, x)) {
+                    selected = true;
+                }
 
-		  spriteMap.insert(TileCoord(x,y,z), thissprite);
+                TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, selected);
+
+                spriteMap.insert(TileCoord(x, y, z), thissprite);
             }
         }
     }
@@ -196,421 +205,468 @@ void BoardWidget::populateSpriteMap() {
     updateSpriteMap();
 }
 
-
-void BoardWidget::updateSpriteMap() {
+void BoardWidget::updateSpriteMap()
+{
     // initial offset on the screen of tile 0,0
-    // think of it as what is left if you add all tilefaces (qwidth/heigh*2) plus one (wholetile-shadow(3dindent)-tileface), and divide by 2
-    int xOffset = (width() - (Game->m_width*(theTiles.qWidth())) - (theTiles.width()-(theTiles.qWidth()*2)))/2;;
-    int yOffset = (height() - (Game->m_height*(theTiles.qHeight())) - (theTiles.height()-(theTiles.qHeight()*2)))/2;;
+    // think of it as what is left if you add all tilefaces (qwidth/heigh*2) plus one
+    // (wholetile - shadow(3dindent) - tileface), and divide by 2
+    int xOffset = (width() - (Game->m_width * (theTiles.qWidth())) - (theTiles.width()
+        - (theTiles.qWidth() * 2))) / 2;
+    int yOffset = (height() - (Game->m_height * (theTiles.qHeight())) - (theTiles.height()
+        - (theTiles.qHeight() * 2))) / 2;
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    switch (m_angle)
-    {
-	case NW:
-	//remove shadow from margin calculation
-	xOffset += theTiles.levelOffsetX()/2;
-        yOffset += theTiles.levelOffsetY()/2;
+    switch (m_angle) {
+    case NW:
+        //remove shadow from margin calculation
+        xOffset += theTiles.levelOffsetX() / 2;
+            yOffset += theTiles.levelOffsetY() / 2;
 
-	//Position
-	for (int z=0; z<Game->m_depth; z++) {
-		// we draw down the board so the tile below over rights our border
-		for (int y = 0; y < Game->m_height; y++) {
-		// drawing right to left to prevent border overwrite
-		for (int x=Game->m_width-1; x>=0; x--) {
-			int sx = x*(theTiles.qWidth()  )+xOffset;
-			int sy = y*(theTiles.qHeight()  )+yOffset;
-	
-			// skip if no tile to display
-			if (!Game->tilePresent(z,y,x))
-				continue;
-	
-			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
-	
-			if (thissprite) thissprite->moveTo(sx, sy);
-			if (thissprite) thissprite->show();
-		}
-		}
-		xOffset +=theTiles.levelOffsetX();
-		yOffset -=theTiles.levelOffsetY();
-	}
-	//Layer
-	for (int z=0; z<Game->m_depth; z++) {
-		// start drawing in diagonal for correct layering. For this we double the board, 
-		//actually starting outside of it, in the bottom right corner, so our first diagonal ends
-		// at the actual top right corner of the board
-		for (int x=Game->m_width*2; x>=0; x--) {
-		// reset the offset
-		int offset = 0;
-		for (int y=Game->m_height-1; y>=0; y--) {
-			if (Game->tilePresent(z,y,x-offset))
-			{
-				TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
-				if (thissprite) thissprite->raise();
-			}
-			//at each pass, move one place to the left
-			offset++;
-		}
-		}
-	}
-	break;
+        //Position
+        for (int z = 0; z < Game->m_depth; z++) {
+            // we draw down the board so the tile below over rights our border
+            for (int y = 0; y < Game->m_height; y++) {
+            // drawing right to left to prevent border overwrite
+                for (int x=Game->m_width - 1; x >= 0; x--) {
+                    int sx = x * (theTiles.qWidth()) + xOffset;
+                    int sy = y * (theTiles.qHeight()) + yOffset;
 
-	case NE:
-	xOffset -= theTiles.levelOffsetX()/2;
-        yOffset += theTiles.levelOffsetY()/2;
-	//Position
-	for (int z=0; z<Game->m_depth; z++) {
-		// we draw down the board so the tile below over rights our border
-		for (int y = 0; y < Game->m_height; y++) {
-		// drawing right to left to prevent border overwrite
-		for (int x=0; x<=Game->m_width-1; x++) {
-			int sx = x*(theTiles.qWidth()  )+xOffset;
-			int sy = y*(theTiles.qHeight()  )+yOffset;
-	
-			// skip if no tile to display
-			if (!Game->tilePresent(z,y,x))
-				continue;
-	
-			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
-	
-			if (thissprite) thissprite->moveTo(sx, sy);
-			if (thissprite) thissprite->show();
-		}
-		}
-		xOffset -=theTiles.levelOffsetX();
-		yOffset -=theTiles.levelOffsetY();
-	}
-	//Layer
-	for (int z=0; z<Game->m_depth; z++) {
-		// start drawing in diagonal for correct layering. For this we double the board, 
-		//actually starting outside of it, in the bottom right corner, so our first diagonal ends
-		// at the actual top right corner of the board
-		for (int x=-(Game->m_width); x<=Game->m_width-1; x++) {
-		// reset the offset
-		int offset = 0;
-		for (int y=Game->m_height-1; y>=0; y--) {
-			if (Game->tilePresent(z,y,x+offset))
-			{
-				TileSprite * thissprite =spriteMap.value(TileCoord(x+offset,y,z));
-				if (thissprite) thissprite->raise();
-			}
-			//at each pass, move one place to the right
-			offset++;
-		}
-		}
-	}
-	break;
+                    // skip if no tile to display
+                    if (!Game->tilePresent(z, y, x)) {
+                        continue;
+                    }
 
-	case SE:
-	xOffset -= theTiles.levelOffsetX()/2;
-        yOffset -= theTiles.levelOffsetY()/2;
-	//Position
-	for (int z=0; z<Game->m_depth; z++) {
-		for (int y = Game->m_height-1; y >= 0; y--) {
-		for (int x=0; x<=Game->m_width-1; x++) {
-			int sx = x*(theTiles.qWidth()  )+xOffset;
-			int sy = y*(theTiles.qHeight()  )+yOffset;
-	
-			if (!Game->tilePresent(z,y,x))
-				continue;
-	
-			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
-	
-			if (thissprite) thissprite->moveTo(sx, sy);
-			if (thissprite) thissprite->show();
-		}
-		}
-		xOffset -=theTiles.levelOffsetX();
-		yOffset +=theTiles.levelOffsetY();
-	}
-	//Layer
-	for (int z=0; z<Game->m_depth; z++) {
-		for (int x=-(Game->m_width); x<=Game->m_width-1; x++) {
-		int offset = 0;
-		for (int y=0; y<Game->m_height; y++) {
-			if (Game->tilePresent(z,y,x+offset))
-			{
-				TileSprite * thissprite =spriteMap.value(TileCoord(x+offset,y,z));
-				if (thissprite) thissprite->raise();
-			}
-			offset++;
-		}
-		}
-	}
-	break;
+                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
 
-	case SW:
-	xOffset += theTiles.levelOffsetX()/2;
-        yOffset -= theTiles.levelOffsetY()/2;
+                    if (thissprite) {
+                        thissprite->moveTo(sx, sy);
+                    }
 
-	//Position
-	for (int z=0; z<Game->m_depth; z++) {
-		for (int y = Game->m_height-1; y >= 0; y--) {
-		for (int x=Game->m_width-1; x>=0; x--) {
-			int sx = x*(theTiles.qWidth()  )+xOffset;
-			int sy = y*(theTiles.qHeight()  )+yOffset;
+                    if (thissprite) {
+                        thissprite->show();
+                    }
+                }
+            }
 
-			if (!Game->tilePresent(z,y,x))
-				continue;
-	
-			TileSprite * thissprite =spriteMap.value(TileCoord(x,y,z));
-	
-			if (thissprite) thissprite->moveTo(sx, sy);
-			if (thissprite) thissprite->show();
-		}
-		}
-		xOffset +=theTiles.levelOffsetX();
-		yOffset +=theTiles.levelOffsetY();
-	}
-	//Layer
-	for (int z=0; z<Game->m_depth; z++) {
-		for (int x=Game->m_width*2; x>=0; x--) {
-		int offset = 0;
-		for (int y=0; y<Game->m_height; y++) {
-			if (Game->tilePresent(z,y,x-offset))
-			{
-				TileSprite * thissprite =spriteMap.value(TileCoord(x-offset,y,z));
-				if (thissprite) thissprite->raise();
-			}
-			offset++;
-		}
-		}
-	}
-	break;
-   }
+            xOffset += theTiles.levelOffsetX();
+            yOffset -= theTiles.levelOffsetY();
+        }
+
+        //Layer
+        for (int z = 0; z < Game->m_depth; z++) {
+            // start drawing in diagonal for correct layering. For this we double the board,
+            //actually starting outside of it, in the bottom right corner, so our first diagonal ends
+            // at the actual top right corner of the board
+            for (int x = Game->m_width * 2; x >= 0; x--) {
+                // reset the offset
+                int offset = 0;
+
+                for (int y = Game->m_height - 1; y >= 0; y--) {
+                    if (Game->tilePresent(z, y, x - offset)) {
+                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+
+                        if (thissprite) {
+                            thissprite->raise();
+                        }
+                    }
+
+                    //at each pass, move one place to the left
+                    offset++;
+                }
+            }
+        }
+
+        break;
+
+    case NE:
+        xOffset -= theTiles.levelOffsetX() / 2;
+        yOffset += theTiles.levelOffsetY() / 2;
+
+        //Position
+        for (int z = 0; z < Game->m_depth; z++) {
+            // we draw down the board so the tile below over rights our border
+            for (int y = 0; y < Game->m_height; y++) {
+                // drawing right to left to prevent border overwrite
+                for (int x = 0; x <= Game->m_width - 1; x++) {
+                    int sx = x * (theTiles.qWidth()) + xOffset;
+                    int sy = y * (theTiles.qHeight()) + yOffset;
+
+                    // skip if no tile to display
+                    if (!Game->tilePresent(z, y, x)) {
+                        continue;
+                    }
+
+                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+
+                    if (thissprite) {
+                        thissprite->moveTo(sx, sy);
+                    }
+
+                    if (thissprite) {
+                        thissprite->show();
+                    }
+                }
+            }
+
+            xOffset -= theTiles.levelOffsetX();
+            yOffset -= theTiles.levelOffsetY();
+        }
+
+        //Layer
+        for (int z = 0; z < Game->m_depth; z++) {
+            // start drawing in diagonal for correct layering. For this we double the board,
+            //actually starting outside of it, in the bottom right corner, so our first diagonal ends
+            // at the actual top right corner of the board
+            for (int x =- (Game->m_width); x <= Game->m_width - 1; x++) {
+                // reset the offset
+                int offset = 0;
+
+                for (int y = Game->m_height - 1; y >= 0; y--) {
+                    if (Game->tilePresent(z, y, x + offset)) {
+                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+
+                        if (thissprite) {
+                            thissprite->raise();
+                        }
+                    }
+
+                    //at each pass, move one place to the right
+                    offset++;
+                }
+            }
+        }
+
+        break;
+
+    case SE:
+        xOffset -= theTiles.levelOffsetX() / 2;
+        yOffset -= theTiles.levelOffsetY() / 2;
+
+        //Position
+        for (int z = 0; z < Game->m_depth; z++) {
+            for (int y = Game->m_height - 1; y >= 0; y--) {
+                for (int x = 0; x <= Game->m_width - 1; x++) {
+                    int sx = x * (theTiles.qWidth()) + xOffset;
+                    int sy = y * (theTiles.qHeight()) + yOffset;
+
+                    if (!Game->tilePresent(z, y, x)) {
+                        continue;
+                    }
+
+                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+
+                    if (thissprite) {
+                        thissprite->moveTo(sx, sy);
+                    }
+
+                    if (thissprite) {
+                        thissprite->show();
+                    }
+                }
+            }
+
+            xOffset -= theTiles.levelOffsetX();
+            yOffset += theTiles.levelOffsetY();
+        }
+
+        //Layer
+        for (int z = 0; z < Game->m_depth; z++) {
+            for (int x =- (Game->m_width); x <= Game->m_width - 1; x++) {
+                int offset = 0;
+
+                for (int y = 0; y < Game->m_height; y++) {
+                    if (Game->tilePresent(z, y, x + offset)) {
+                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+                        if (thissprite) {
+                            thissprite->raise();
+                        }
+                    }
+
+                    offset++;
+                }
+            }
+        }
+
+        break;
+
+    case SW:
+        xOffset += theTiles.levelOffsetX() / 2;
+        yOffset -= theTiles.levelOffsetY() / 2;
+
+        //Position
+        for (int z = 0; z < Game->m_depth; z++) {
+            for (int y = Game->m_height - 1; y >= 0; y--) {
+                for (int x = Game->m_width - 1; x >= 0; x--) {
+                    int sx = x * (theTiles.qWidth()) + xOffset;
+                    int sy = y * (theTiles.qHeight()) + yOffset;
+
+                    if (!Game->tilePresent(z, y, x)) {
+                        continue;
+                    }
+
+                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+
+                    if (thissprite) {
+                        thissprite->moveTo(sx, sy);
+                    }
+
+                    if (thissprite) {
+                        thissprite->show();
+                    }
+                }
+            }
+
+            xOffset += theTiles.levelOffsetX();
+            yOffset += theTiles.levelOffsetY();
+        }
+
+        //Layer
+        for (int z = 0; z < Game->m_depth; z++) {
+            for (int x = Game->m_width * 2; x >= 0; x--) {
+                int offset = 0;
+
+                for (int y = 0; y < Game->m_height; y++) {
+                    if (Game->tilePresent(z, y, x - offset)) {
+                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+
+                        if (thissprite) {
+                            thissprite->raise();
+                        }
+                    }
+
+                    offset++;
+                }
+            }
+        }
+
+        break;
+    }
 }
 
-void BoardWidget::pause() {
-	gamePaused = !gamePaused;
-	drawBoard(!gamePaused);
+void BoardWidget::pause()
+{
+    gamePaused = !gamePaused;
+    drawBoard(!gamePaused);
 }
 
 void BoardWidget::gameLoaded()
 {
-	int i;
-	Game->initialiseRemovedTiles();
-	i = Game->TileNum;
-	// use the history of moves to put in the removed tiles area the correct tiles
-	while (i < Game->MaxTileNum )
-	{
-		Game->setRemovedTilePair(Game->MoveListData(i), Game->MoveListData(i+1));
-		i +=2;
-	}
-        populateSpriteMap();
-	drawBoard(true);
+    int i;
+    Game->initialiseRemovedTiles();
+    i = Game->TileNum;
+
+    // use the history of moves to put in the removed tiles area the correct tiles
+    while (i < Game->MaxTileNum) {
+        Game->setRemovedTilePair(Game->MoveListData(i), Game->MoveListData(i + 1));
+        i += 2;
+    }
+
+    populateSpriteMap();
+    drawBoard(true);
 }
 
-// ---------------------------------------------------------
 int BoardWidget::undoMove()
 {
     cancelUserSelectedTiles();
 
-    if( Game->TileNum < Game->MaxTileNum )
+    if (Game->TileNum < Game->MaxTileNum)
     {
-
-        Game->clearRemovedTilePair(Game->MoveListData(Game->TileNum), Game->MoveListData(Game->TileNum+1));
-        putTileInBoard( Game->MoveListData(Game->TileNum), false );
+        Game->clearRemovedTilePair(Game->MoveListData(Game->TileNum), Game->MoveListData(
+            Game->TileNum + 1));
+        putTileInBoard(Game->MoveListData(Game->TileNum), false);
         Game->TileNum++;
-        putTileInBoard( Game->MoveListData(Game->TileNum) );
+        putTileInBoard(Game->MoveListData(Game->TileNum));
         Game->TileNum++;
         drawTileNumber();
-        setStatusText( i18n("Undo operation done successfully.") );
-	return 1;
-    }
-    else {
+        setStatusText(i18n("Undo operation done successfully."));
+
+        return 1;
+    } else {
         setStatusText(i18n("What do you want to undo? You have done nothing!"));
-	return 0;
-	}
+
+        return 0;
+    }
 }
 
-// ---------------------------------------------------------
 void BoardWidget::helpMove()
 {
     cancelUserSelectedTiles();
     if (showHelp) helpMoveStop();
 
-    if( Game->findMove( TimerPos1, TimerPos2 ) )
-    {
+    if (Game->findMove(TimerPos1, TimerPos2)) {
         cheatsUsed++;
         iTimerStep = 1;
         showHelp = true;
         helpMoveTimeout();
+    } else {
+        setStatusText(i18n("Sorry, you have lost the game."));
     }
-    else
-        setStatusText( i18n("Sorry, you have lost the game.") );
 }
-// ---------------------------------------------------------
+
 void BoardWidget::helpMoveTimeout()
 {
-    if( iTimerStep & 1 )
-    {
-        hilightTile( TimerPos1, true, false );
-        hilightTile( TimerPos2, true );
+    if (iTimerStep & 1) {
+        hilightTile(TimerPos1, true, false);
+        hilightTile(TimerPos2, true);
+    } else {
+        hilightTile(TimerPos1, false, false);
+        hilightTile(TimerPos2, false);
     }
-    else
-    {
-        hilightTile( TimerPos1, false, false );
-        hilightTile( TimerPos2, false );
-    }
+
     // restart timer
-    if( iTimerStep++ < 8 )
-    {
+    if (iTimerStep++ < 8) {
         timer->setSingleShot(true);
-        timer->start( ANIMSPEED );
-    }
-    else
+        timer->start(ANIMSPEED);
+    } else {
         showHelp = false;
+    }
 }
-// ---------------------------------------------------------
 
 void BoardWidget::helpMoveStop()
 {
     timer->stop();
     iTimerStep = 8;
-    hilightTile( TimerPos1, false, false );
-    hilightTile( TimerPos2, false );
+    hilightTile(TimerPos1, false, false);
+    hilightTile(TimerPos2, false);
     showHelp = false;
 }
 
-// ---------------------------------------------------------
 void BoardWidget::startDemoMode()
 {
     calculateNewGame();
 
-    if( TimerState == Stop )
-    {
+    if (TimerState == Stop) {
         TimerState = Demo;
         iTimerStep = 0;
-        emit demoModeChanged( true );
-        setStatusText( i18n("Demo mode. Click mousebutton to stop.") );
+        emit demoModeChanged(true);
+        setStatusText(i18n("Demo mode. Click mousebutton to stop."));
         demoMoveTimeout();
     }
 }
-// ---------------------------------------------------------
+
 void BoardWidget::stopDemoMode()
 {
     TimerState = Stop;    // stop demo
     calculateNewGame();
-    setStatusText( i18n("Now it is you again.") );
-    emit demoModeChanged( false );
+    setStatusText(i18n("Now it is you again."));
+
+    emit demoModeChanged(false);
     emit gameCalculated();
 }
-// ---------------------------------------------------------
+
 void BoardWidget::demoMoveTimeout()
 {
-    if( TimerState == Demo )
-    {
-        switch( iTimerStep++ % 6 )
-        {
-            // at firts, find new matching tiles
-            case 0:
-                if( ! Game->findMove( TimerPos1, TimerPos2 ) )
-	        {
-                    // if computer has won
-	            if( Game->TileNum == 0 )
-                    {
-                        animateMoveList();
+    if (TimerState == Demo) {
+        switch (iTimerStep++ % 6) {
+        case 0:
+            if (!Game->findMove(TimerPos1, TimerPos2)) {
+                // if computer has won
+                if (Game->TileNum == 0) {
+                    animateMoveList();
+                } else {
+                    setStatusText(i18n("Your computer has lost the game."));
+
+                    while (Game->TileNum < Game->MaxTileNum) {
+                        putTileInBoard(Game->MoveListData(Game->TileNum), false);
+                        Game->TileNum++;
+                        putTileInBoard(Game->MoveListData(Game->TileNum));
+                        Game->TileNum++;
+                        drawTileNumber();
                     }
-                    // else computer has lost
-                    else
-                    {
-                        setStatusText( i18n("Your computer has lost the game.") );
-                        while( Game->TileNum < Game->MaxTileNum )
-                        {
-                            putTileInBoard( Game->MoveListData(Game->TileNum), false );
-                            Game->TileNum++;
-                            putTileInBoard( Game->MoveListData(Game->TileNum) );
-                            Game->TileNum++;
-                            drawTileNumber();
-                        }
-                    }
-                    TimerState = Stop;
-                    //startDemoMode();
-		    //do not loop demo
-		    stopDemoMode();
-                    return;
                 }
-                break;
-	    // hilight matching tiles two times
-            case 1:
-            case 3:
-                hilightTile( TimerPos1, true, false );
-                hilightTile( TimerPos2, true );
+
+                TimerState = Stop;
+                //startDemoMode();
+                //do not loop demo
+                stopDemoMode();
+
+                return;
+            }
+
             break;
 
-            case 2:
-            case 4:
-                hilightTile( TimerPos1, false, false );
-                hilightTile( TimerPos2, false );
-                break;
-	    // remove matching tiles from game board
-            case 5:
-                Game->setRemovedTilePair(TimerPos1, TimerPos2);
-                removeTile( TimerPos1, false );
-                removeTile( TimerPos2 );
-                drawTileNumber();
-                break;
+        case 1:
+        case 3:
+            hilightTile(TimerPos1, true, false);
+            hilightTile(TimerPos2, true);
+
+            break;
+
+        case 2:
+        case 4:
+            hilightTile(TimerPos1, false, false);
+            hilightTile(TimerPos2, false);
+
+            break;
+
+        case 5:
+            Game->setRemovedTilePair(TimerPos1, TimerPos2);
+            removeTile(TimerPos1, false);
+            removeTile(TimerPos2);
+            drawTileNumber();
+
+            break;
         }
+
         // restart timer
-        QTimer::singleShot( ANIMSPEED, this, SLOT(demoMoveTimeout()) );
+        QTimer::singleShot(ANIMSPEED, this, SLOT(demoMoveTimeout()));
     }
 }
 
-// ---------------------------------------------------------
-void BoardWidget::setShowMatch( bool show )
+void BoardWidget::setShowMatch(bool show)
 {
-    if( showMatch )
+    if (showMatch) {
         stopMatchAnimation();
+    }
+
     showMatch = show;
 }
-// ---------------------------------------------------------
+
 void BoardWidget::matchAnimationTimeout()
 {
-    if (matchCount == 0)
+    if (matchCount == 0) {
         return;
+    }
 
-    if( iTimerStep++ & 1 )
-    {
-        for(short Pos = 0; Pos < matchCount; Pos++)
-        {
+    if (iTimerStep++ & 1) {
+        for (short Pos = 0; Pos < matchCount; Pos++) {
           hilightTile(Game->getFromPosTable(Pos), true);
         }
-    }
-    else
-    {
-        for(short Pos = 0; Pos < matchCount; Pos++)
-        {
+    } else {
+        for (short Pos = 0; Pos < matchCount; Pos++) {
           hilightTile(Game->getFromPosTable(Pos), false);
         }
     }
-    if( TimerState == Match )
-        QTimer::singleShot( ANIMSPEED, this, SLOT(matchAnimationTimeout()) );
+
+    if (TimerState == Match) {
+        QTimer::singleShot(ANIMSPEED, this, SLOT(matchAnimationTimeout()));
+    }
 }
-// ---------------------------------------------------------
+
 void BoardWidget::stopMatchAnimation()
 {
-    for(short Pos = 0; Pos < matchCount; Pos++)
-    {
+    for (short Pos = 0; Pos < matchCount; Pos++) {
       hilightTile(Game->getFromPosTable(Pos), false);
     }
+
     TimerState = Stop;
     matchCount = 0;
 }
 
 void BoardWidget::redoMove()
 {
-
-	Game->setRemovedTilePair(Game->MoveListData(Game->TileNum-1),Game->MoveListData(Game->TileNum-2));
-        removeTile(Game->MoveListData(Game->TileNum-1), false);
-        removeTile(Game->MoveListData(Game->TileNum-1));
-        drawTileNumber();
+    Game->setRemovedTilePair(Game->MoveListData(Game->TileNum - 1), Game->MoveListData(Game->TileNum
+        - 2));
+    removeTile(Game->MoveListData(Game->TileNum - 1), false);
+    removeTile(Game->MoveListData(Game->TileNum - 1));
+    drawTileNumber();
 }
 
-// ---------------------------------------------------------
 void BoardWidget::animateMoveList()
 {
-    setStatusText( i18n("Congratulations. You have won!") );
+    setStatusText(i18n("Congratulations. You have won!"));
     animatingMoveListForward();
 }
 
@@ -632,10 +688,10 @@ void BoardWidget::animatingMoveListForward()
 
 void BoardWidget::animatingMoveListBackwards()
 {
-    if (Game->TileNum > 0 ) {
+    if (Game->TileNum > 0) {
         // remove all tiles
-        removeTile(Game->MoveListData(Game->TileNum-1), false);
-        removeTile(Game->MoveListData(Game->TileNum-1));
+        removeTile(Game->MoveListData(Game->TileNum - 1), false);
+        removeTile(Game->MoveListData(Game->TileNum - 1));
         drawTileNumber();
         animateBackwardsTimer->start(); //it is a single shot timer
     } else {
@@ -646,21 +702,19 @@ void BoardWidget::animatingMoveListBackwards()
 
 void BoardWidget::stopEndAnimation()
 {
-  animateForwardTimer->stop();
-  animateBackwardsTimer->stop();
+    animateForwardTimer->stop();
+    animateBackwardsTimer->stop();
 }
 
-// ---------------------------------------------------------
-
-QString BoardWidget::getRandomLayoutName() const {
+QString BoardWidget::getRandomLayoutName() const
+{
     QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout",
-            QString("*.desktop"), KStandardDirs::Recursive);
+        QString("*.desktop"), KStandardDirs::Recursive);
 
     return tilesAvailable.at(qrand() % tilesAvailable.size());
 }
 
-// ---------------------------------------------------------
-void BoardWidget::calculateNewGame( int gNumber)
+void BoardWidget::calculateNewGame(int gNumber)
 {
     cancelUserSelectedTiles();
     stopMatchAnimation();
@@ -673,18 +727,18 @@ void BoardWidget::calculateNewGame( int gNumber)
         loadBoardLayout(layoutName);
     }
 
-    setStatusText( i18n("Calculating new game...") );
+    setStatusText(i18n("Calculating new game..."));
 
-    if( !loadBoard())
-    {
-        setStatusText( i18n("Error converting board information!") );
+    if (!loadBoard()) {
+        setStatusText(i18n("Error converting board information!"));
+
         return;
     }
 
     if (gNumber == -1) {
-    	gameGenerationNum = KRandom::random();
+        gameGenerationNum = KRandom::random();
     } else {
-	gameGenerationNum = gNumber;
+        gameGenerationNum = gNumber;
     }
 
     Game->random.setSeed(gameGenerationNum);
@@ -698,101 +752,93 @@ void BoardWidget::calculateNewGame( int gNumber)
     Game->generatePositionDepends();
 
     // Now try to position tiles on the board, 64 tries max.
-    for( short nr=0; nr<64; nr++ )
-    {
-        if( Game->generateStartPosition2() )
-        {
+    for (short nr = 0; nr < 64; nr++) {
+        if (Game->generateStartPosition2()) {
             drawBoard(true);
-            setStatusText( i18n("Ready. Now it is your turn.") );
-            cheatsUsed=0;
+            setStatusText(i18n("Ready. Now it is your turn."));
+            cheatsUsed = 0;
             emit gameCalculated();
+
             return;
         }
     }
 
     drawBoard(false);
-    setStatusText( i18n("Error generating new game!") );
+    setStatusText(i18n("Error generating new game!"));
 }
 
-// ---------------------------------------------------------
-// This function replaces the old method of hilighting by
-// modifying color 21 to color 20. This was single tileset
-// specific. We now have two tile faces, one selected one not.
-
-void BoardWidget::hilightTile( POSITION& Pos, bool on, bool doRepaint )
+void BoardWidget::hilightTile(POSITION& Pos, bool on, bool doRepaint)
 {
-	TileSprite * atile = 0;
+    TileSprite *atile = 0;
+    TileCoord coord = TileCoord(Pos.x, Pos.y, Pos.e);
 
-	TileCoord coord = TileCoord(Pos.x,Pos.y,Pos.e);
+    if (spriteMap.contains(coord)) {
+        atile = spriteMap.value(coord);
+    }
 
-	if (spriteMap.contains(coord)) {
-	  atile = spriteMap.value(coord);
-	}
-
-	if (on) {
-		Game->setHighlightData(Pos.e,Pos.y,Pos.x,1);
-		if (atile)
-		atile->setSelected(true);
-	} else {
-		Game->setHighlightData(Pos.e,Pos.y,Pos.x,0);
-		if (atile)
-		atile->setSelected(false);
-	}
+    if (on) {
+        Game->setHighlightData(Pos.e, Pos.y, Pos.x, 1);
+        if (atile) {
+            atile->setSelected(true);
+        }
+    } else {
+        Game->setHighlightData(Pos.e, Pos.y, Pos.x, 0);
+        if (atile) {
+            atile->setSelected(false);
+        }
+    }
 }
 
-
-
-// ---------------------------------------------------------
 void BoardWidget::drawBoard(bool showTiles)
 {
-   if (gamePaused) showTiles = false;
-   if (showTiles) {
-    populateSpriteMap();
-    drawTileNumber();
-   } else {
-     //Delete previous sprites
-     while (!items()->isEmpty())
-       delete items()->first();
+    if (gamePaused) {
+        showTiles = false;
+    }
 
-    //Clear our spritemap as well
-     spriteMap.clear();
+    if (showTiles) {
+        populateSpriteMap();
+        drawTileNumber();
+    } else {
+        //Delete previous sprites
+        while (!items()->isEmpty()) {
+            delete items()->first();
+        }
 
-    //Recreate our background
-     QPalette palette;
-     palette.setBrush( backgroundRole(), theBackground.getBackground() );
-     setPalette( palette );
-     setAutoFillBackground (true);
-   }
+        //Clear our spritemap as well
+        spriteMap.clear();
+
+        //Recreate our background
+        QPalette palette;
+        palette.setBrush(backgroundRole(), theBackground.getBackground());
+        setPalette(palette);
+        setAutoFillBackground(true);
+    }
 }
 
-// ---------------------------------------------------------
-void BoardWidget::putTileInBoard( POSITION& Pos, bool doRepaint )
+void BoardWidget::putTileInBoard(POSITION& Pos, bool doRepaint)
 {
-    short E=Pos.e;
-    short Y=Pos.y;
-    short X=Pos.x;
+    short E = Pos.e;
+    short Y = Pos.y;
+    short X = Pos.x;
 
     // we ensure that any tile we put on has highlighting off
-    Game->putTile( E, Y, X, Pos.f );
-    Game->setHighlightData(E,Y,X,0);
+    Game->putTile(E, Y, X, Pos.f);
+    Game->setHighlightData(E, Y, X, 0);
 
     QPixmap s;
     QPixmap us;
     QPixmap f;
-    s= theTiles.selectedTile(m_angle);
-    us= theTiles.unselectedTile(m_angle);
-    f= theTiles.tileface(Game->BoardData(E,Y,X)-TILE_OFFSET);
-    TileSprite * thissprite = new TileSprite(this, us, s, f, m_angle, false);
+    s = theTiles.selectedTile(m_angle);
+    us = theTiles.unselectedTile(m_angle);
+    f = theTiles.tileface(Game->BoardData(E, Y, X) - TILE_OFFSET);
+    TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, false);
     thissprite->show();
-    spriteMap.insert(TileCoord(X,Y,E), thissprite);
+    spriteMap.insert(TileCoord(X, Y, E), thissprite);
 
     updateSpriteMap();
 }
 
-
-// ---------------------------------------------------------
-//TODO move this to Game after handling the repaint situation
-void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
+void BoardWidget::removeTile(POSITION& Pos, bool doRepaint)
 {
     short E = Pos.e;
     short Y = Pos.y;
@@ -802,54 +848,44 @@ void BoardWidget::removeTile( POSITION& Pos , bool doRepaint)
     Game->setMoveListData(Game->TileNum,Pos); // Position ins Protokoll eintragen
 
     delete spriteMap.take(TileCoord(X,Y,E));
+
     // remove tile from game board
-    Game->putTile( E, Y, X, 0 );
+    Game->putTile(E, Y, X, 0);
 }
 
-// ---------------------------------------------------------
-void BoardWidget::mousePressEvent ( QMouseEvent* event )
+void BoardWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (gamePaused)
+    if (gamePaused) {
         return;
+    }
 
-    if( event->button() == Qt::LeftButton )
-    {
-        if( TimerState == Demo )
-        {
+    if (event->button() == Qt::LeftButton) {
+        if (TimerState == Demo) {
             stopDemoMode();
-        }
-        else if( showMatch )
-        {
+        } else if (showMatch) {
             stopMatchAnimation();
         }
 
-        if( showHelp ) // stop hilighting tiles
+        if (showHelp) { // stop hilighting tiles
             helpMoveStop();
+        }
 
-        if( MouseClickPos1.e == Game->m_depth )       // first tile
-        {
-            transformPointToPosition( event->pos(), MouseClickPos1 );
+        if (MouseClickPos1.e == Game->m_depth) {      // first tile
+            transformPointToPosition(event->pos(), MouseClickPos1);
 
-            if( MouseClickPos1.e != Game->m_depth && showMatch )
-            {
-                matchCount = Game->findAllMatchingTiles( MouseClickPos1 );
+            if (MouseClickPos1.e != Game->m_depth && showMatch) {
+                matchCount = Game->findAllMatchingTiles(MouseClickPos1);
                 TimerState = Match;
                 iTimerStep = 1;
                 matchAnimationTimeout();
                 cheatsUsed++;
             }
-        }
-        else                                // second tile
-        {
-            transformPointToPosition( event->pos(), MouseClickPos2 );
-            if( MouseClickPos2.e == Game->m_depth )
-            {
+        } else {                             // second tile
+            transformPointToPosition(event->pos(), MouseClickPos2);
+            if (MouseClickPos2.e == Game->m_depth) {
                 cancelUserSelectedTiles();
-            }
-            else
-            {
-                if( Game->isMatchingTile( MouseClickPos1, MouseClickPos2 ) )
-                {
+            } else {
+                if (Game->isMatchingTile(MouseClickPos1, MouseClickPos2)) {
                     // update the removed tiles (we do this before the remove below
                     // so that we only require 1 screen paint for both actions)
                     Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
@@ -860,27 +896,23 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
 
                     // removing a tile means redo is impossible without
                     // a further undo.
-                    Game->allow_redo=false;
+                    Game->allow_redo = false;
                     demoModeChanged(false);
                     drawTileNumber();
 
                     // if no tiles are left, the player has `won`, so celebrate
-                    if( Game->TileNum == 0 )
-                    {
+                    if (Game->TileNum == 0) {
                         gameOver(Game->MaxTileNum,cheatsUsed);
-                    }
+                    } else {
                     // else if no more moves are possible, display the sour grapes dialog
-                    else
-                    {
-                      validMovesAvailable();
+                        validMovesAvailable();
                     }
-                }
-                else
-                {
+                } else {
                     // redraw tiles in normal state
-                    hilightTile( MouseClickPos1, false, false );
-                    hilightTile( MouseClickPos2, false );
+                    hilightTile(MouseClickPos1, false, false);
+                    hilightTile(MouseClickPos2, false);
                 }
+
                 MouseClickPos1.e = Game->m_depth;     // mark tile position as invalid
                 MouseClickPos2.e = Game->m_depth;
             }
@@ -888,8 +920,8 @@ void BoardWidget::mousePressEvent ( QMouseEvent* event )
     }
 }
 
-//-----------------------------------------------------------
-KGameCanvasItem* BoardWidget::itemAt(const QPoint& point) const {
+KGameCanvasItem* BoardWidget::itemAt(const QPoint& point) const
+{
     // Get the shadows...
     // theTiles.width() == The whole tile width including offset and shadow.
     // theTiles.qWidth() == Half of the width of the tile face (without the offset and the shadow).
@@ -907,54 +939,49 @@ KGameCanvasItem* BoardWidget::itemAt(const QPoint& point) const {
         QRect rectCorrection = oldRect;
 
         // Correct the positions related to the angle we had set.
-        switch(m_angle) {
-            case NW:
-                rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y(),
-                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
-                break;
-            case NE:
-                rectCorrection.setRect(oldRect.x(), oldRect.y(), oldRect.width() - shadowWidth,
-                    oldRect.height() - shadowHeight);
-                break;
-            case SW:
-                rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y() + shadowHeight,
-                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
-                break;
-            case SE:
-                rectCorrection.setRect(oldRect.x(), oldRect.y() + shadowHeight,
-                    oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
-                break;
+        switch (m_angle) {
+        case NW:
+            rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y(),
+                oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+            break;
+        case NE:
+            rectCorrection.setRect(oldRect.x(), oldRect.y(), oldRect.width() - shadowWidth,
+                oldRect.height() - shadowHeight);
+            break;
+        case SW:
+            rectCorrection.setRect(oldRect.x() + shadowWidth, oldRect.y() + shadowHeight,
+                oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+            break;
+        case SE:
+            rectCorrection.setRect(oldRect.x(), oldRect.y() + shadowHeight,
+                oldRect.width() - shadowWidth, oldRect.height() - shadowHeight);
+            break;
         }
 
         // if the canvas is visible and we click inside the corrected rect of the canvas item, we
         // can return the actual canvas item.
-        if (canvasItem->visible() && rectCorrection.contains(point))
+        if (canvasItem->visible() && rectCorrection.contains(point)) {
             return canvasItem;
+        }
     }
 
     return NULL;
 }
 
-// ----------------------------------------------------------
-/*
-    Transform window point to board position.
-
-    @param  point          Input: Point in window coordinates
-    @param  MouseClickPos  Output: Position in game board
-*/
-void BoardWidget::transformPointToPosition(
-        const QPoint& point,
-        POSITION&     MouseClickPos
-    )
+void BoardWidget::transformPointToPosition(const QPoint &point, POSITION &MouseClickPos)
 {
-    int E,X,Y;
+    int E;
+    int X;
+    int Y;
 
-    TileSprite * clickedItem = NULL;
+    TileSprite *clickedItem = NULL;
     clickedItem = (TileSprite *) itemAt(point);
+
     if (!clickedItem) {
-	//no item under mouse
-	qDebug() << "no tile registered";
-	return;
+        //no item under mouse
+        qDebug() << "no tile registered";
+
+        return;
     }
 
     TileCoord coord = spriteMap.key(clickedItem);
@@ -963,241 +990,269 @@ void BoardWidget::transformPointToPosition(
     Y = coord.y();
 
     //sanity checking
-    if (X<0 || X>= Game->m_width || Y<0 || Y>= Game->m_height) return;
+    if (X < 0 || X >= Game->m_width || Y < 0 || Y >= Game->m_height) {
+        return;
+    }
 
     // if gameboard is empty, skip 
     //sanity checking
-    if ( ! Game->BoardData(E,Y,X) ) {
-	qDebug() << "Tile not in BoardData. Fading out?";
-	return;
+    if (!Game->BoardData(E, Y, X)) {
+        qDebug() << "Tile not in BoardData. Fading out?";
+
+        return;
     }
 
     // tile must be 'free' (nothing left, right or above it)
     //Optimization, skip "over" test for the top layer
-    if( E < Game->m_depth-1 )
-    {
-        if( Game->BoardData(E+1,Y,X) || (Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X)) ||
-            (X< Game->m_width-1 && Game->BoardData(E+1,Y,X+1)) ||
-	    (X< Game->m_width-1 && Y< Game->m_height-1 && Game->BoardData(E+1,Y+1,X+1)) )
+    if (E < Game->m_depth - 1) {
+        if (Game->BoardData(E + 1, Y, X)
+            || (Y < Game->m_height - 1 && Game->BoardData(E + 1, Y + 1, X))
+            || (X < Game->m_width - 1 && Game->BoardData(E + 1, Y, X + 1))
+            || (X < Game->m_width - 1 && Y < Game->m_height - 1
+            && Game->BoardData(E + 1, Y + 1, X + 1))) {
             return;
+        }
     }
 
     // No left test on left edge
-    if (( X > 0) && (Game->BoardData(E,Y,X-1) || Game->BoardData(E,Y+1,X-1))) {
-	if ((X< Game->m_width-2) && (Game->BoardData(E,Y,X+2) || Game->BoardData(E,Y+1,X+2))) {
-            return;
-	}
+    if (( X > 0) && (Game->BoardData(E, Y, X - 1) || Game->BoardData(E, Y + 1, X - 1))) {
+        if ((X < Game->m_width - 2)
+            && (Game->BoardData(E, Y, X + 2) || Game->BoardData(E, Y + 1, X + 2))) {
+                return;
+        }
     }
 
     // if we reach here, position is legal
     MouseClickPos.e = E;
     MouseClickPos.y = Y;
     MouseClickPos.x = X;
-    MouseClickPos.f = Game->BoardData(E,Y,X);
+    MouseClickPos.f = Game->BoardData(E, Y, X);
+
     // give visible feedback
     hilightTile( MouseClickPos );
 }
 
-// ---------------------------------------------------------
 bool BoardWidget::loadBoard( )
 {
     delete Game;
     Game = new GameData(theBoardLayout.board());
-    return(true);
+
+    return true;
 }
 
-// ---------------------------------------------------------
-void BoardWidget::setStatusText( const QString & pszText )
+void BoardWidget::setStatusText(const QString &pszText)
 {
-    emit statusTextChanged( pszText, gameGenerationNum );
+    emit statusTextChanged(pszText, gameGenerationNum);
 }
 
-// ---------------------------------------------------------
-bool BoardWidget::loadBackground(
-        const QString& pszFileName,
-        bool        bShowError
-    )
+bool BoardWidget::loadBackground(const QString &pszFileName, bool bShowError)
 {
-  if (theBackground.load( pszFileName, requiredWidth(), requiredHeight())) {
-    if (theBackground.loadGraphics()) {
-      return true;
+    if (theBackground.load(pszFileName, requiredWidth(), requiredHeight())) {
+        if (theBackground.loadGraphics()) {
+            return true;
+        }
     }
-  } 
-  //Try default
+
+    //Try default
     if (theBackground.loadDefault()) {
-      if (theBackground.loadGraphics()) {
-      }
-    } 
+        if (theBackground.loadGraphics()) {
+        }
+    }
+
     return false;
 }
 
-// ---------------------------------------------------------
 void BoardWidget::drawTileNumber()
 {
-    emit tileNumberChanged( Game->MaxTileNum, Game->TileNum, Game->moveCount( ) );
+    emit tileNumberChanged(Game->MaxTileNum, Game->TileNum, Game->moveCount());
 }
 
-// ---------------------------------------------------------
 void BoardWidget::cancelUserSelectedTiles()
 {
-    if( MouseClickPos1.e != Game->m_depth )
-    {
-        hilightTile( MouseClickPos1, false ); // redraw tile
+    if (MouseClickPos1.e != Game->m_depth) {
+        hilightTile(MouseClickPos1, false); // redraw tile
         MouseClickPos1.e = Game->m_depth;    // mark tile invalid
     }
 }
 
-// ---------------------------------------------------------
-bool BoardWidget::loadTileset(const QString &path) {
+bool BoardWidget::loadTileset(const QString &path)
+{
+    if (theTiles.loadTileset(path)) {
+        if (theTiles.loadGraphics()) {
+            resizeTileset(size());
 
-  if (theTiles.loadTileset(path)) {
-    if (theTiles.loadGraphics()) {
-      resizeTileset(size());
-      return true;
+            return true;
+        }
     }
-  } 
-  //Tileset or graphics could not be loaded, try default
-  if (theTiles.loadDefault()) {
-    if (theTiles.loadGraphics()) {
-    resizeTileset(size());
+
+    //Tileset or graphics could not be loaded, try default
+    if (theTiles.loadDefault()) {
+        if (theTiles.loadGraphics()) {
+            resizeTileset(size());
+        }
     }
-  } 
-  return false;
+
+    return false;
 }
 
-bool BoardWidget::loadBoardLayout(const QString &file) {
-  if (theBoardLayout.load(file)) {
-    return true;
-  } else {
-    if (theBoardLayout.loadDefault()) {
-      return false;
+bool BoardWidget::loadBoardLayout(const QString &file)
+{
+    if (theBoardLayout.load(file)) {
+        return true;
     } else {
-      return false;
+        if (theBoardLayout.loadDefault()) {
+            return false;
+        } else {
+            return false;
+        }
     }
-  }
 }
 
 int BoardWidget::requiredHorizontalCells()
 {
-	int res = (Game->m_width/2);
-	/*if (Prefs::showRemoved()) 
-		res = res + 3; //space for removed tiles*/
-	return res;
+    int res = (Game->m_width / 2);
+    /*if (Prefs::showRemoved())
+        res = res + 3; //space for removed tiles*/
+
+    return res;
 }
 
 int BoardWidget::requiredVerticalCells()
 {
-	int res = (Game->m_height/2);
-	return res;
+    int res = (Game->m_height / 2);
+
+    return res;
 }
 
-// calculate the required window width (board + removed tiles)
-int BoardWidget::requiredWidth() {
-	//int res = ((BoardLayout::width+12)* theTiles.qWidth());
-	int res = width();
-	return res;
+int BoardWidget::requiredWidth()
+{
+    //int res = ((BoardLayout::width+12)* theTiles.qWidth());
+    int res = width();
+
+    return res;
 }
 
-// calculate the required window height (board + removed tiles)
-int BoardWidget::requiredHeight() {
+int BoardWidget::requiredHeight()
+{
+    //int res = ((BoardLayout::height+3)* theTiles.qHeight());
+    int res = height();
 
-	//int res = ((BoardLayout::height+3)* theTiles.qHeight());
-	int res = height();
-	return res;
+    return res;
 }
 
-void BoardWidget::angleSwitchCCW() {
-	switch (m_angle) 
-	{
-	    case NW : 
-		m_angle = NE;
-		break;
-	    case NE : 
-		m_angle = SE;
-		break;
-	    case SE : 
-		m_angle = SW;
-		break;
-	    case SW : 
-		m_angle = NW;
-		break;
-	}
-	
-	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
- 	while (i.hasNext()) {
-     	    i.next();
-	    QPixmap u = theTiles.unselectedTile(m_angle);
-	    QPixmap s = theTiles.selectedTile(m_angle);
-     	    i.value()->setAngle(m_angle, u, s  );
- 	}
-	//re-position and re-layer
-	updateSpriteMap();
-	//save angle
-	saveSettings();
+void BoardWidget::angleSwitchCCW()
+{
+    switch (m_angle) {
+    case NW :
+        m_angle = NE;
+
+        break;
+
+    case NE :
+        m_angle = SE;
+
+        break;
+
+    case SE :
+        m_angle = SW;
+
+        break;
+
+    case SW :
+        m_angle = NW;
+
+        break;
+    }
+
+    QHashIterator<TileCoord, TileSprite*> i(spriteMap);
+    while (i.hasNext()) {
+        i.next();
+        QPixmap u = theTiles.unselectedTile(m_angle);
+        QPixmap s = theTiles.selectedTile(m_angle);
+        i.value()->setAngle(m_angle, u, s);
+    }
+
+    //re-position and re-layer
+    updateSpriteMap();
+
+    //save angle
+    saveSettings();
 }
 
-void BoardWidget::angleSwitchCW() {
-	switch (m_angle) 
-	{
-	    case NW : 
-		m_angle = SW;
-		break;
-	    case NE : 
-		m_angle = NW;
-		break;
-	    case SE : 
-		m_angle = NE;
-		break;
-	    case SW : 
-		m_angle = SE;
-		break;
-	}
-	
-	QHashIterator<TileCoord, TileSprite *> i(spriteMap);
- 	while (i.hasNext()) {
-     	    i.next();
-     	    QPixmap u = theTiles.unselectedTile(m_angle);
-	    QPixmap s = theTiles.selectedTile(m_angle);
-     	    i.value()->setAngle(m_angle, u, s  );
- 	}
-	//re-position and re-layer
-	updateSpriteMap();
-	//save settings
-	saveSettings();
+void BoardWidget::angleSwitchCW()
+{
+    switch (m_angle) {
+    case NW :
+        m_angle = SW;
+
+        break;
+
+    case NE :
+        m_angle = NW;
+
+        break;
+
+    case SE :
+        m_angle = NE;
+
+        break;
+
+    case SW :
+        m_angle = SE;
+
+        break;
+    }
+
+    QHashIterator<TileCoord, TileSprite *> i(spriteMap);
+    while (i.hasNext()) {
+        i.next();
+        QPixmap u = theTiles.unselectedTile(m_angle);
+        QPixmap s = theTiles.selectedTile(m_angle);
+        i.value()->setAngle(m_angle, u, s);
+    }
+
+    //re-position and re-layer
+    updateSpriteMap();
+
+    //save settings
+    saveSettings();
 }
-// shuffle the remaining tiles around, useful if a deadlock ocurrs
-// this is a big cheat so we penalise the user.
-void BoardWidget::shuffle() {
-  Game->shuffle();
-  // force a full redraw
-  populateSpriteMap();
 
-  // I consider this s very bad cheat so, I punish the user
-  // 300 points per use
-  cheatsUsed += 15;
-  drawTileNumber();
+void BoardWidget::shuffle()
+{
+    Game->shuffle();
 
-  // Test if any moves are available
-  validMovesAvailable();
+    // force a full redraw
+    populateSpriteMap();
+
+    // I consider this s very bad cheat so, I punish the user
+    // 300 points per use
+    cheatsUsed += 15;
+    drawTileNumber();
+
+    // Test if any moves are available
+    validMovesAvailable();
 }
 
 bool BoardWidget::validMovesAvailable()
 {
-  if(!Game->findMove(TimerPos1, TimerPos2))
-  {
-    KMessageBox::information(this, i18n("Game over: You have no moves left."));
-    return false;
-  }
+    if (!Game->findMove(TimerPos1, TimerPos2)) {
+        KMessageBox::information(this, i18n("Game over: You have no moves left."));
 
-  return true;
+        return false;
+    }
+
+    return true;
 }
 
-QString  BoardWidget::getLayoutName() {
+QString  BoardWidget::getLayoutName()
+{
     QString key("Name");
+
     return theBoardLayout.authorProperty(key);
 }
 
-void BoardWidget::wheelEvent(QWheelEvent * event)
+void BoardWidget::wheelEvent(QWheelEvent *event)
 {
     if (event->orientation() == Qt::Vertical) {
         if (event->delta() > 0) {
@@ -1209,5 +1264,6 @@ void BoardWidget::wheelEvent(QWheelEvent * event)
 
     event->accept();
 }
+
 
 #include "boardwidget.moc"
