@@ -105,6 +105,7 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     connect(gameTimer, SIGNAL(timeChanged(QString)), this, SLOT(displayTime(QString)));
 
+    mFinished = false;
     bDemoModeActive = false;
 
     connect(bw, SIGNAL(statusTextChanged(QString, long)), SLOT(showStatusText(QString, long)));
@@ -321,6 +322,7 @@ void KMahjongg::startNewGame(int item)
 
         // update the initial enabled/disabled state for
         // the menu and the tool bar.
+        mFinished = false;
         demoModeChanged(false);
     }
 }
@@ -355,6 +357,9 @@ void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
     long gameNum = bw->getGameNum();
 
     KMessageBox::information(this, i18n("You have won!"));
+
+    mFinished = true;
+    demoModeChanged(false);
 
     int elapsed = gameTimer->seconds();
 
@@ -416,7 +421,7 @@ void KMahjongg::showTileNumber(int iMaximum, int iCurrent, int iLeft)
     bw->Game->allow_undo = iMaximum != iCurrent;
 
     // update undo menu item, if demomode is inactive
-    if (!bDemoModeActive && !is_paused) {
+    if (!bDemoModeActive && !is_paused && !mFinished) {
         undoAction->setEnabled(bw->Game->allow_undo);
     }
 }
@@ -430,6 +435,8 @@ void KMahjongg::demoModeChanged(bool bActive)
 
     if (is_paused) {
         stateChanged("paused");
+    } else if (mFinished) {
+        stateChanged("finished");
     } else if (bActive) {
         stateChanged("active");
     } else {
@@ -451,7 +458,9 @@ void KMahjongg::restartGame()
 
         // update the initial enabled/disabled state for
         // the menu and the tool bar.
+        mFinished = false;
         demoModeChanged(false);
+
         if (is_paused) {
             pauseAction->setChecked(false);
             is_paused = false;
@@ -532,6 +541,9 @@ void KMahjongg::loadGame()
 
     // refresh the board
     bw->gameLoaded();
+
+    mFinished = false;
+    demoModeChanged(false);
 }
 
 void KMahjongg::saveGame()

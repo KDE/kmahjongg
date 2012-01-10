@@ -138,6 +138,7 @@ private slots:
 private:
     unsigned long gameElapsedTime;
     bool bDemoModeActive;
+    bool mFinished;
 
     BoardWidget *bw;
 
