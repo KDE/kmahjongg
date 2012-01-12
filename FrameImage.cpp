@@ -58,9 +58,9 @@ void FrameImage::paintEvent(QPaintEvent *pa)
     QPainter p(this);
 
     QPen line;
-    line.setStyle(Qt::DotLine);
-    line.setWidth(2);
-    line.setColor(Qt::yellow);
+//     line.setStyle(Qt::DotLine);
+    line.setWidth(1);
+    line.setColor(Qt::red);
     p.setPen(line);
     p.setBackgroundMode(Qt::OpaqueMode);
     p.setBackground(Qt::black);
