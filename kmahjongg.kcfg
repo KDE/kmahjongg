@@ -18,7 +18,7 @@
       <default>0</default>
     </entry>
     <entry name="RandomLayout" type="Bool">
-        <label>Whether a random layout is choosed on startup.</label>
+        <label>Whether a random layout is chosen on startup.</label>
         <default>false</default>
     </entry>
     <entry name="SolvableGames" type="Bool" key="Solvable_game">
