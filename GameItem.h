@@ -37,7 +37,7 @@ public:
      * @param pUnselPix The pixmap for a unselected item
      * @param pSelPix The pixmap for a selected item
      * @param pFacePix The pixmap fo the face (the symbol on the tiles)
-     * @param angle The angle of the stone
+     * @param angle The angle of the item
      * @param selected Should the item be selected */
     GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix,
         TileViewAngle angle, bool selected, QGraphicsItem *pItem = 0);
@@ -46,10 +46,32 @@ public:
      * Destructor */
     ~GameItem();
 
+    /**
+     * Get the actual angle.
+     *
+     * @return The angle that is actually set. */
+    TileViewAngle getAngle() const;
+
+    /**
+     * Set the actual angle and therefore all pixmaps related to the angle.
+     *
+     * @param angle The angle of the item
+     * @param pUnselPix The pixmap for a unselected item
+     * @param pSelPix The pixmap for a selected item */
+    void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix);
+
 private:
+    /**
+     * Updates the angle offset. Cause of 3D items, a shift related to the angle exist. */
+    void updateFaceOffset();
+
+    TileViewAngle m_angle;
+
     QPixmap *m_pUnselPix;
     QPixmap *m_pSelPix;
     QPixmap *m_pFacePix;
+
+    QPointF m_faceOffset;
 };
 
 

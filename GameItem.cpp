@@ -14,6 +14,8 @@
 
 #include "GameItem.h"
 
+#include <kdebug.h>
+
 #include <QPixmap>
 
 
@@ -22,12 +24,49 @@ GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, Tile
     : QObject(0),
     QGraphicsItem(pItem),
     m_pUnselPix(pUnselPix),
-    m_pSelPix(pSelPix),
     m_pFacePix(pFacePix)
 {
+    setAngle(angle, pSelPix, pUnselPix);
     setSelected(selected);
 }
 
 GameItem::~GameItem()
 {
+}
+
+TileViewAngle GameItem::getAngle() const
+{
+    return m_angle;
+}
+
+void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix)
+{
+    m_angle = angle;
+    m_pSelPix = pSelPix;
+    m_pUnselPix = pUnselPix;
+
+    updateFaceOffset();
+}
+
+void GameItem::updateFaceOffset()
+{
+    int iHorizontalOffset = m_pSelPix->width() - m_pFacePix->width();
+    int iVerticalOffset = m_pSelPix->height() - m_pFacePix->height();
+
+    switch (m_angle) {
+    case NW:
+        m_faceOffset = QPointF(iHorizontalOffset, 0);
+        break;
+    case NE:
+        m_faceOffset = QPointF(0, 0);
+        break;
+    case SE:
+        m_faceOffset = QPointF(0, iVerticalOffset);
+        break;
+    case SW:
+        m_faceOffset = QPointF(iHorizontalOffset, iVerticalOffset);
+        break;
+    default:
+        kDebug() << "Cannot detect the angle!";
+    }
 }
