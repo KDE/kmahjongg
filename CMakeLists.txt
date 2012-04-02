@@ -7,17 +7,18 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 
 ########### next target ###############
 
-set(kmahjongg_SRCS 
-   main.cpp 
-   kmahjongg.cpp 
-   boardwidget.cpp 
-   BoardLayout.cpp 
-   GameData.cpp 
-   kmahjongglayoutselector.cpp 
-   kmahjongglayout.cpp 
+set(kmahjongg_SRCS
+   main.cpp
+   kmahjongg.cpp
+   boardwidget.cpp
+   BoardLayout.cpp
+   GameData.cpp
+   kmahjongglayoutselector.cpp
+   kmahjongglayout.cpp
    TileSprite.cpp
    Editor.cpp
-   FrameImage.cpp)
+   FrameImage.cpp
+   GameItem.cpp)
 
 kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
 

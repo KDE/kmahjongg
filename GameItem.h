@@ -1,0 +1,56 @@
+/* Copyright (C) 2012 Christian Krippendorf <Coding@Christian-Krippendorf.de>
+ *
+ * Kmahjongg is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this program; if
+ * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA. */
+
+#ifndef GAMEITEM_H
+#define GAMEITEM_H
+
+#include <QObject>
+#include <QGraphicsItem>
+
+#include "KmTypes.h"
+
+
+/**
+ * The tile of a mahjongg board.
+ *
+ * @author Christian Krippendorf */
+class GameItem : public QObject, public QGraphicsItem
+{
+    Q_OBJECT
+
+public:
+    /**
+     * Constructor
+     *
+     * @param pItem The parent item
+     * @param pUnselPix The pixmap for a unselected item
+     * @param pSelPix The pixmap for a selected item
+     * @param pFacePix The pixmap fo the face (the symbol on the tiles)
+     * @param angle The angle of the stone
+     * @param selected Should the item be selected */
+    GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix,
+        TileViewAngle angle, bool selected, QGraphicsItem *pItem = 0);
+
+    /**
+     * Destructor */
+    ~GameItem();
+
+private:
+    QPixmap *m_pUnselPix;
+    QPixmap *m_pSelPix;
+    QPixmap *m_pFacePix;
+};
+
+
+#endif // GAMEITEM_H
