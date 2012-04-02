@@ -65,6 +65,16 @@ public:
     virtual void paint(QPainter *pPainter, const QStyleOptionGraphicsItem * pOption,
         QWidget *pWidget);
 
+    /**
+     * Overrides the boundingRect method of QGraphicsItem. */
+    virtual QRectF boundingRect() const;
+
+    /**
+     * Returns the rect of the item.
+     *
+     * @return The rect of the item. */
+    QRectF rect() const;
+
 public slots:
     /**
      * Fade in the item. */

@@ -25,13 +25,14 @@ GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, Tile
     bool selected, QGraphicsItem *pItem)
     : QObject(0),
     QGraphicsItem(pItem),
-    m_pUnselPix(pUnselPix),
     m_pFacePix(pFacePix),
     m_dying(false)
 {
     setAngle(angle, pSelPix, pUnselPix);
     setSelected(selected);
     setOpacity(1.0);
+
+    kDebug() << "Create a new GameItem instance.";
 }
 
 GameItem::~GameItem()
@@ -75,7 +76,7 @@ void GameItem::updateFaceOffset()
     }
 }
 
-void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem * pOption, QWidget *pWidget)
+void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if (isSelected()) {
         pPainter->drawPixmap(pos(), *m_pSelPix);
@@ -117,4 +118,14 @@ void GameItem::fadeIn()
 
     //keep fading
     QTimer::singleShot(40, this, SLOT(fadeIn()));
+}
+
+QRectF GameItem::boundingRect() const
+{
+    return m_pSelPix->rect();
+}
+
+QRectF GameItem::rect() const
+{
+    return boundingRect();
 }

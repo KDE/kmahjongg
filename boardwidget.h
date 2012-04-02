@@ -42,10 +42,13 @@
 #define ID_GAME_TIMER 999
 
 
+class GameItem;
+class QGraphicsItem;
+
 /**
  * @short Where all the funn happens
  *
- * @see BoardLayout 
+ * @see BoardLayout
  * @author Mathias Mueller */
 class BoardWidget : public KGameCanvasWidget
 {
@@ -54,7 +57,7 @@ class BoardWidget : public KGameCanvasWidget
 public:
     /**
      * Class Constructor
-     * 
+     *
      * @param *parent blah blah */
     explicit BoardWidget(QWidget *parent = 0);
 
@@ -98,7 +101,7 @@ public:
     void animateMoveList();
 
     /**
-     * Method Description 
+     * Method Description
      *
      * @param show */
     void setShowMatch(bool show);
@@ -128,7 +131,11 @@ public:
     KMahjonggBackground theBackground;
     KMahjonggLayout theBoardLayout;
 
-    QHash<TileCoord, TileSprite *> spriteMap;
+//    QHash<TileCoord, TileSprite *> spriteMap;
+    QHash<TileCoord, GameItem *> spriteMap;
+
+    void raiseItem(QGraphicsItem *item);
+    void lowerItem(QGraphicsItem *item);
 
 public slots:
     /**
@@ -202,7 +209,7 @@ public slots:
     bool loadBoardLayout( const QString& );
 
     /**
-     * Slot Description 
+     * Slot Description
      *
      * @return @c true if ...
      * @return @c false if ... */
@@ -218,10 +225,10 @@ public slots:
 
     /**
      * Slot Description */
-	void populateSpriteMap();
+    void populateSpriteMap();
 
     /**
-     * Slot Description 
+     * Slot Description
      *
      * @return @c true if ...
      * @return @c false if ... */
@@ -237,8 +244,8 @@ signals:
     void tileNumberChanged(int iMaximum, int iCurrent, int iLeft);
 
     /**
-     * Signal Description 
-     * 
+     * Signal Description
+     *
      * @param bActive */
     void demoModeChanged(bool bActive);
 
@@ -316,25 +323,25 @@ protected:
 
     /**
      * Method Description
-     * 
+     *
      * @return int blah blah */
     int requiredWidth();
 
     /**
      * Method Description
-     * 
+     *
      * @return int blah blah */
     int requiredHeight();
 
     /**
      * Method Description
-     * 
+     *
      * @return int blah blah */
     int requiredHorizontalCells();
 
     /**
      * Method Description
-     * 
+     *
      * @return int blah blah */
     int requiredVerticalCells();
 

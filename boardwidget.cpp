@@ -17,10 +17,12 @@
 
 #include "boardwidget.h"
 #include "prefs.h"
+#include "GameItem.h"
 
 #include <QTimer>
 #include <qpainter.h>
 #include <qapplication.h>
+#include <QGraphicsItem>
 
 #include <klocale.h>
 #include <kstandarddirs.h>
@@ -195,7 +197,8 @@ void BoardWidget::populateSpriteMap()
                     selected = true;
                 }
 
-                TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, selected);
+//                TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, selected);
+                GameItem *thissprite = new GameItem(&us, &s, &f, m_angle, selected);
 
                 spriteMap.insert(TileCoord(x, y, z), thissprite);
             }
@@ -238,10 +241,11 @@ void BoardWidget::updateSpriteMap()
                         continue;
                     }
 
-                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+//                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+                    GameItem *thissprite = spriteMap.value(TileCoord(x, y, z));
 
                     if (thissprite) {
-                        thissprite->moveTo(sx, sy);
+                        thissprite->moveBy(sx, sy);
                     }
 
                     if (thissprite) {
@@ -265,10 +269,11 @@ void BoardWidget::updateSpriteMap()
 
                 for (int y = Game->m_height - 1; y >= 0; y--) {
                     if (Game->tilePresent(z, y, x - offset)) {
-                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+//                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+                        GameItem *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
 
                         if (thissprite) {
-                            thissprite->raise();
+                            raiseItem(thissprite);
                         }
                     }
 
@@ -298,10 +303,11 @@ void BoardWidget::updateSpriteMap()
                         continue;
                     }
 
-                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+//                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+                    GameItem *thissprite = spriteMap.value(TileCoord(x, y, z));
 
                     if (thissprite) {
-                        thissprite->moveTo(sx, sy);
+                        thissprite->moveBy(sx, sy);
                     }
 
                     if (thissprite) {
@@ -325,10 +331,11 @@ void BoardWidget::updateSpriteMap()
 
                 for (int y = Game->m_height - 1; y >= 0; y--) {
                     if (Game->tilePresent(z, y, x + offset)) {
-                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+//                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+                        GameItem *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
 
                         if (thissprite) {
-                            thissprite->raise();
+                            raiseItem(thissprite);
                         }
                     }
 
@@ -355,10 +362,11 @@ void BoardWidget::updateSpriteMap()
                         continue;
                     }
 
-                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+//                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+                    GameItem *thissprite = spriteMap.value(TileCoord(x, y, z));
 
                     if (thissprite) {
-                        thissprite->moveTo(sx, sy);
+                        thissprite->moveBy(sx, sy);
                     }
 
                     if (thissprite) {
@@ -378,9 +386,10 @@ void BoardWidget::updateSpriteMap()
 
                 for (int y = 0; y < Game->m_height; y++) {
                     if (Game->tilePresent(z, y, x + offset)) {
-                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+//                        TileSprite *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
+                        GameItem *thissprite = spriteMap.value(TileCoord(x + offset, y, z));
                         if (thissprite) {
-                            thissprite->raise();
+                            raiseItem(thissprite);
                         }
                     }
 
@@ -406,10 +415,11 @@ void BoardWidget::updateSpriteMap()
                         continue;
                     }
 
-                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+//                    TileSprite *thissprite = spriteMap.value(TileCoord(x, y, z));
+                    GameItem *thissprite = spriteMap.value(TileCoord(x, y, z));
 
                     if (thissprite) {
-                        thissprite->moveTo(sx, sy);
+                        thissprite->moveBy(sx, sy);
                     }
 
                     if (thissprite) {
@@ -429,10 +439,11 @@ void BoardWidget::updateSpriteMap()
 
                 for (int y = 0; y < Game->m_height; y++) {
                     if (Game->tilePresent(z, y, x - offset)) {
-                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+//                        TileSprite *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
+                        GameItem *thissprite = spriteMap.value(TileCoord(x - offset, y, z));
 
                         if (thissprite) {
-                            thissprite->raise();
+                            raiseItem(thissprite);
                         }
                     }
 
@@ -769,7 +780,8 @@ void BoardWidget::calculateNewGame(int gNumber)
 
 void BoardWidget::hilightTile(POSITION& Pos, bool on, bool doRepaint)
 {
-    TileSprite *atile = 0;
+//    TileSprite *atile = 0;
+    GameItem *atile = 0;
     TileCoord coord = TileCoord(Pos.x, Pos.y, Pos.e);
 
     if (spriteMap.contains(coord)) {
@@ -831,7 +843,8 @@ void BoardWidget::putTileInBoard(POSITION& Pos, bool doRepaint)
     s = theTiles.selectedTile(m_angle);
     us = theTiles.unselectedTile(m_angle);
     f = theTiles.tileface(Game->BoardData(E, Y, X) - TILE_OFFSET);
-    TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, false);
+//    TileSprite *thissprite = new TileSprite(this, us, s, f, m_angle, false);
+    GameItem *thissprite = new GameItem(&us, &s, &f, m_angle, false);
     thissprite->show();
     spriteMap.insert(TileCoord(X, Y, E), thissprite);
 
@@ -890,7 +903,7 @@ void BoardWidget::mousePressEvent(QMouseEvent *event)
                     // so that we only require 1 screen paint for both actions)
                     Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
-                    // now we remove the tiles from the board*t, 
+                    // now we remove the tiles from the board*t,
                     removeTile(MouseClickPos1, false);
                     removeTile(MouseClickPos2);
 
@@ -974,8 +987,10 @@ void BoardWidget::transformPointToPosition(const QPoint &point, POSITION &MouseC
     int X;
     int Y;
 
-    TileSprite *clickedItem = NULL;
-    clickedItem = (TileSprite *) itemAt(point);
+//    TileSprite *clickedItem = NULL;
+    GameItem *clickedItem = NULL;
+//    clickedItem = (TileSprite *) itemAt(point);
+    clickedItem = (GameItem *) itemAt(point);
 
     if (!clickedItem) {
         //no item under mouse
@@ -994,7 +1009,7 @@ void BoardWidget::transformPointToPosition(const QPoint &point, POSITION &MouseC
         return;
     }
 
-    // if gameboard is empty, skip 
+    // if gameboard is empty, skip
     //sanity checking
     if (!Game->BoardData(E, Y, X)) {
         qDebug() << "Tile not in BoardData. Fading out?";
@@ -1164,12 +1179,13 @@ void BoardWidget::angleSwitchCCW()
         break;
     }
 
-    QHashIterator<TileCoord, TileSprite*> i(spriteMap);
+//    QHashIterator<TileCoord, TileSprite*> i(spriteMap);
+    QHashIterator<TileCoord, GameItem*> i(spriteMap);
     while (i.hasNext()) {
         i.next();
         QPixmap u = theTiles.unselectedTile(m_angle);
         QPixmap s = theTiles.selectedTile(m_angle);
-        i.value()->setAngle(m_angle, u, s);
+        i.value()->setAngle(m_angle, &u, &s);
     }
 
     //re-position and re-layer
@@ -1203,12 +1219,13 @@ void BoardWidget::angleSwitchCW()
         break;
     }
 
-    QHashIterator<TileCoord, TileSprite *> i(spriteMap);
+//    QHashIterator<TileCoord, TileSprite *> i(spriteMap);
+    QHashIterator<TileCoord, GameItem *> i(spriteMap);
     while (i.hasNext()) {
         i.next();
         QPixmap u = theTiles.unselectedTile(m_angle);
         QPixmap s = theTiles.selectedTile(m_angle);
-        i.value()->setAngle(m_angle, u, s);
+        i.value()->setAngle(m_angle, &u, &s);
     }
 
     //re-position and re-layer
@@ -1263,6 +1280,36 @@ void BoardWidget::wheelEvent(QWheelEvent *event)
     }
 
     event->accept();
+}
+
+void BoardWidget::raiseItem(QGraphicsItem *item)
+{
+//    if (items().last() == item) {
+//        return;
+//    }
+
+//    int old_pos = m_canvas->m_items.indexOf(item);
+//    items().removeAt(old_pos);
+//    items().append(item);
+
+//    if (m_visible) {
+//        updateAfterRestack(old_pos, m_canvas->m_items.size()-1);
+//    }
+}
+
+void BoardWidget::lowerItem(QGraphicsItem *item)
+{
+//    if (items().first() == item) {
+//        return;
+//    }
+
+//    int old_pos = m_canvas->m_items.indexOf(item);
+//    items().removeAt(old_pos);
+//    items().prepend(item);
+
+//    if (m_visible) {
+//        updateAfterRestack(old_pos, 0);
+//    }
 }
 
 
