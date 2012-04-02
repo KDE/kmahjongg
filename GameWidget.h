@@ -18,6 +18,9 @@
 #include <QGraphicsView>
 
 
+class GameData;
+class KMahjonggLayout;
+
 /**
  * The Mahjongg board where the tiles will be placed.
  *
@@ -36,6 +39,48 @@ public:
     /**
      * Destructor */
     ~GameWidget();
+
+    /**
+     * Calculates a new game with the given number.
+     *
+     * @param iGameNumber The game number to create a new game from. */
+    void calculateNewGame(int iGameNumber = -1);
+
+    /**
+     * Set the BoardLayout file and therefore load the new one.
+     *
+     * @param rBoardLayoutFile A reference to the BoardLayout file name.
+     * @return True if loading the file success. */
+    bool setBoardLayoutFile(QString const &rBoardLayoutFile);
+
+    /**
+     * Sets the status text.
+     *
+     * @param rText The new status text. */
+    void setStatusText(QString const &rText);
+
+signals:
+    /**
+     * Emits when a new game was calculated. */
+    void newGameCalculated();
+
+    /**
+     * Emits when the status text changed.
+     *
+     * @param rText The new status text.
+     * @param lGameNumber The actual game number. */
+    void statusTextChanged(const QString &rText, long lGameNumber);
+
+private:
+    /**
+     * Reloads the board and therefore create a new GameData object. */
+    void loadBoard();
+
+    int cheatsUsed;
+    long m_lGameNumber;
+
+    GameData *m_pGameData;
+    KMahjonggLayout *m_pBoardLayout;
 };
 
 
