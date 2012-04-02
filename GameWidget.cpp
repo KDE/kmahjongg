@@ -14,6 +14,7 @@
 
 #include "GameWidget.h"
 #include "GameData.h"
+#include "GameScene.h"
 #include "kmahjongglayout.h"
 #include "prefs.h"
 
@@ -30,10 +31,15 @@ GameWidget::GameWidget(QWidget *pParent)
 
     // Init the game structure.
     m_pGameData = new GameData(m_pBoardLayout->board());
+
+    // Init the game scene object for the GameItems.
+    m_pGameScene = new GameScene();
 }
 
 GameWidget::~GameWidget()
 {
+    delete m_pGameData;
+    delete m_pGameScene;
 }
 
 bool GameWidget::setBoardLayoutFile(QString const &rBoardLayoutFile)

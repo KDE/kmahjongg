@@ -18,6 +18,7 @@
 #include <QGraphicsView>
 
 
+class GameScene;
 class GameData;
 class KMahjonggLayout;
 
@@ -79,6 +80,7 @@ private:
     int cheatsUsed;
     long m_lGameNumber;
 
+    GameScene *m_pGameScene;
     GameData *m_pGameData;
     KMahjonggLayout *m_pBoardLayout;
 };
