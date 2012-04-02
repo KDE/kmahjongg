@@ -60,10 +60,26 @@ public:
      * @param pSelPix The pixmap for a selected item */
     void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix);
 
+    /**
+     * Overrides the paint method of QGraphicsItem. */
+    virtual void paint(QPainter *pPainter, const QStyleOptionGraphicsItem * pOption,
+        QWidget *pWidget);
+
+public slots:
+    /**
+     * Fade in the item. */
+    void fadeIn();
+
+    /**
+     * Fade out the item. */
+    void fadeOut();
+
 private:
     /**
      * Updates the angle offset. Cause of 3D items, a shift related to the angle exist. */
     void updateFaceOffset();
+
+    bool m_dying;
 
     TileViewAngle m_angle;
 

@@ -17,6 +17,8 @@
 #include <kdebug.h>
 
 #include <QPixmap>
+#include <QPainter>
+#include <QTimer>
 
 
 GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, TileViewAngle angle,
@@ -24,10 +26,12 @@ GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, Tile
     : QObject(0),
     QGraphicsItem(pItem),
     m_pUnselPix(pUnselPix),
-    m_pFacePix(pFacePix)
+    m_pFacePix(pFacePix),
+    m_dying(false)
 {
     setAngle(angle, pSelPix, pUnselPix);
     setSelected(selected);
+    setOpacity(1.0);
 }
 
 GameItem::~GameItem()
@@ -69,4 +73,48 @@ void GameItem::updateFaceOffset()
     default:
         kDebug() << "Cannot detect the angle!";
     }
+}
+
+void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem * pOption, QWidget *pWidget)
+{
+    if (isSelected()) {
+        pPainter->drawPixmap(pos(), *m_pSelPix);
+        pPainter->drawPixmap(pos() + m_faceOffset, *m_pFacePix);
+    } else {
+        pPainter->drawPixmap(pos(), *m_pUnselPix);
+        pPainter->drawPixmap(pos() + m_faceOffset, *m_pFacePix);
+    }
+}
+
+void GameItem::fadeOut()
+{
+    m_dying = true;
+    setOpacity(opacity() - 0.05);
+
+    if (opacity() <= 0) {
+        // cancel fade and schedule our destruction
+        deleteLater();
+
+        return;
+    }
+
+    // keep fading
+    QTimer::singleShot(40, this, SLOT(fadeOut()));
+}
+
+void GameItem::fadeIn()
+{
+    if (m_dying) {
+        return;
+    }
+
+    setOpacity(opacity() + 0.05);
+
+    if (opacity() == 1.00 || m_dying) {
+        //cancel fade in
+        return;
+    }
+
+    //keep fading
+    QTimer::singleShot(40, this, SLOT(fadeIn()));
 }
