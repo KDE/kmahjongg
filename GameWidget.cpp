@@ -15,7 +15,10 @@
 #include "GameWidget.h"
 #include "GameData.h"
 #include "GameScene.h"
+#include "GameItem.h"
 #include "kmahjongglayout.h"
+#include "kmahjonggtileset.h"
+#include "kmahjonggbackground.h"
 #include "prefs.h"
 
 #include <KLocale>
@@ -25,6 +28,11 @@
 GameWidget::GameWidget(QWidget *pParent)
     : QGraphicsView(pParent)
 {
+    m_bGamePaused = false;
+    m_lGameNumber = 0;
+
+    m_angle = (TileViewAngle) Prefs::angle();
+
     // Set the board layout.
     m_pBoardLayout = new KMahjonggLayout();
     setBoardLayoutFile(Prefs::layout());
@@ -34,12 +42,74 @@ GameWidget::GameWidget(QWidget *pParent)
 
     // Init the game scene object for the GameItems.
     m_pGameScene = new GameScene();
+    setScene(m_pGameScene);
+
+    // Create tiles...
+    m_pTiles = new KMahjonggTileset();
+
+    if (!setTilesetFile(Prefs::tileSet())) {
+        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
+            "will continue with the default tileset.";
+    }
+
+    // Load background
+    if (!setBackgroundFile(Prefs::background())) {
+        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
+            "jongg will continue with the default background.";
+    }
 }
 
 GameWidget::~GameWidget()
 {
     delete m_pGameData;
     delete m_pGameScene;
+    delete m_pBackground;
+    delete m_pTiles;
+}
+
+bool GameWidget::setTilesetFile(QString const &rTilesetFile)
+{
+    if (m_pTiles->loadTileset(rTilesetFile)) {
+        if (m_pTiles->loadGraphics()) {
+            resizeTileset(size());
+
+            return true;
+        }
+    }
+
+    //Tileset or graphics could not be loaded, try default
+    if (m_pTiles->loadDefault()) {
+        if (m_pTiles->loadGraphics()) {
+            resizeTileset(size());
+        }
+    }
+
+    return false;
+}
+
+bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
+{
+    if (m_pBackground->load(rBackgroundFile, width(), height())) {
+        if (m_pBackground->loadGraphics()) {
+            return true;
+        }
+    }
+
+    //Try default
+    if (m_pBackground->loadDefault()) {
+        if (m_pBackground->loadGraphics()) {
+        }
+    }
+
+    return false;
+}
+
+void GameWidget::resizeTileset(QSize const &rSize)
+{
+    QSize newtiles = m_pTiles->preferredTileSize(rSize, m_pGameData->m_width / 2,
+        m_pGameData->m_height / 2);
+
+    m_pTiles->reloadTileset(newtiles);
 }
 
 bool GameWidget::setBoardLayoutFile(QString const &rBoardLayoutFile)
@@ -107,7 +177,7 @@ void GameWidget::calculateNewGame(int iGameNumber)
     for (short sNr = 0; sNr < 64; sNr++) {
         if (m_pGameData->generateStartPosition2()) {
             // Make the board visible.
-//            drawBoard(true);
+            updateWidget(true);
             setStatusText(i18n("Ready. Now it is your turn."));
 
             // No cheats are used until now.
@@ -121,6 +191,85 @@ void GameWidget::calculateNewGame(int iGameNumber)
     }
 
     // Hide the board cause something went wrong.
-//    drawBoard(false);
+    updateWidget(false);
     setStatusText(i18n("Error generating new game!"));
+}
+
+void GameWidget::updateWidget(bool bShowTiles)
+{
+    if (m_bGamePaused) {
+        bShowTiles = false;
+    }
+
+    if (bShowTiles) {
+        updateGameScene();
+//        drawTileNumber();
+    } else {
+        // Delete all items in GameScene.
+        QList<QGraphicsItem *> items = m_pGameScene->items();
+        while (!items.isEmpty()) {
+            QGraphicsItem *item = items.first();
+            m_pGameScene->removeItem(item);
+            delete item;
+        }
+
+        //Recreate our background
+        QPalette palette;
+        palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+        setPalette(palette);
+        setAutoFillBackground(true);
+    }
+}
+
+void GameWidget::updateGameScene()
+{
+    // Delete all items in GameScene.
+    QList<QGraphicsItem *> items = m_pGameScene->items();
+    while (!items.isEmpty()) {
+        QGraphicsItem *item = items.first();
+        m_pGameScene->removeItem(item);
+        delete item;
+    }
+
+    //Clear our spritemap as well
+//    spriteMap.clear();
+
+    // Recreate the background
+    QPalette palette;
+    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+    setPalette(palette);
+    setAutoFillBackground(true);
+
+    // Create the items and add them to the scene.
+    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
+        for (int iY = 0; iY < m_pGameData->m_height; iY++) {
+            for (int iX = m_pGameData->m_width - 1; iX >= 0; iX--) {
+
+                // Skip if no tile should be displayed on this position.
+                if (!m_pGameData->tilePresent(iZ, iY, iX)) {
+                    continue;
+                }
+
+                bool bSelected = false;
+
+                QPixmap selPix;
+                QPixmap unselPix;
+                QPixmap facePix;
+
+                selPix = m_pTiles->selectedTile(m_angle);
+                unselPix = m_pTiles->unselectedTile(m_angle);
+                facePix = m_pTiles->tileface(m_pGameData->BoardData(iZ, iY, iX) - TILE_OFFSET);
+
+                if (m_pGameData->HighlightData(iZ, iY, iX)) {
+                    bSelected = true;
+                }
+
+                GameItem *item = new GameItem(&unselPix, &selPix, &facePix, m_angle, bSelected);
+                m_pGameScene->addItem(item);
+
+//                spriteMap.insert(TileCoord(x, y, z), thissprite);
+            }
+        }
+    }
+//    updateSpriteMap();
 }

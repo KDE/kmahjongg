@@ -17,10 +17,14 @@
 
 #include <QGraphicsView>
 
+#include "KmTypes.h"
+
 
 class GameScene;
 class GameData;
 class KMahjonggLayout;
+class KMahjonggTileset;
+class KMahjonggBackground;
 
 /**
  * The Mahjongg board where the tiles will be placed.
@@ -55,6 +59,20 @@ public:
     bool setBoardLayoutFile(QString const &rBoardLayoutFile);
 
     /**
+     * Set the Background file and therefore load the new one.
+     *
+     * @param rBackgroundFile A reference to the Background file name.
+     * @return True if loading the file success. */
+    bool setBackgroundFile(QString const &rBackgroundFile);
+
+    /**
+     * Set the Tileset file and therefore load the new one.
+     *
+     * @param rTilesetFile A reference to the Tileset file name.
+     * @return True if loading the file success. */
+    bool setTilesetFile(QString const &rTilesetFile);
+
+    /**
      * Sets the status text.
      *
      * @param rText The new status text. */
@@ -77,12 +95,33 @@ private:
      * Reloads the board and therefore create a new GameData object. */
     void loadBoard();
 
+    /**
+     * Updates the game scene object by deleting all items and recreate them related to the
+     * layout. */
+    void updateGameScene();
+
+    /**
+     * Updates the whole widget.
+     *
+     * @param bShowTiles True if the tiles should be displayed, else false. */
+    void updateWidget(bool bShowTiles);
+
+    /**
+     * Resize the tileset to the given size. */
+    void resizeTileset(QSize const &rSize);
+
     int cheatsUsed;
     long m_lGameNumber;
+    bool m_bGamePaused;
 
     GameScene *m_pGameScene;
     GameData *m_pGameData;
+
     KMahjonggLayout *m_pBoardLayout;
+    KMahjonggTileset *m_pTiles;
+    KMahjonggBackground *m_pBackground;
+
+    TileViewAngle m_angle;
 };
 
 
