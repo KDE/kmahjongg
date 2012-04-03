@@ -23,6 +23,7 @@
 #include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
 #include "Editor.h"
+#include "GameWidget.h"
 
 #include <kmahjonggconfigdialog.h>
 
@@ -88,8 +89,10 @@ KMahjongg::KMahjongg(QWidget *parent)
     setMinimumSize(320, 320);
 
     // init board widget
-    bw = new BoardWidget(this);
-    setCentralWidget(bw);
+//    bw = new BoardWidget(this);
+//    setCentralWidget(bw);
+    m_pGameWidget = new GameWidget(this);
+    setCentralWidget(m_pGameWidget);
 
     // Initialize boardEditor
     boardEditor = new Editor();
@@ -108,19 +111,20 @@ KMahjongg::KMahjongg(QWidget *parent)
     mFinished = false;
     bDemoModeActive = false;
 
-    connect(bw, SIGNAL(statusTextChanged(QString, long)), SLOT(showStatusText(QString, long)));
-    connect(bw, SIGNAL(tileNumberChanged(int, int, int)), SLOT(showTileNumber(int, int, int)));
-    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
-    connect(bw, SIGNAL(gameOver(unsigned short, unsigned short)), this,
-        SLOT(gameOver(unsigned short, unsigned short)));
-    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
+//    connect(bw, SIGNAL(statusTextChanged(QString, long)), SLOT(showStatusText(QString, long)));
+//    connect(bw, SIGNAL(tileNumberChanged(int, int, int)), SLOT(showTileNumber(int, int, int)));
+//    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
+//    connect(bw, SIGNAL(gameOver(unsigned short, unsigned short)), this,
+//        SLOT(gameOver(unsigned short, unsigned short)));
+//    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
 
     startNewGame();
 }
 
 KMahjongg::~KMahjongg()
 {
-    delete bw;
+//    delete bw;
+    delete m_pGameWidget;
     delete boardEditor;
 }
 
@@ -136,25 +140,25 @@ void KMahjongg::setupKAction()
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
-    QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
-    actionCollection()->addAction(action->objectName(), action);
+//    QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
+//    actionCollection()->addAction(action->objectName(), action);
 
     QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
     shuffle->setIcon(KIcon(QLatin1String("view-refresh")));
-    connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
+//    connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
 
     KAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(KIcon(QLatin1String("object-rotate-left")));
     angleccw->setShortcuts(KShortcut("f"));
-    connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
+//    connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
 
     KAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(KIcon(QLatin1String("object-rotate-right")));
     anglecw->setShortcuts(KShortcut("g"));
-    connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
+//    connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
@@ -210,8 +214,10 @@ void KMahjongg::displayTime(const QString& timestring)
 
 void KMahjongg::setDisplayedWidth()
 {
-    bw->setDisplayedWidth();
-    bw->drawBoard();
+//    bw->setDisplayedWidth();
+//    bw->drawBoard();
+//    m_pGameWidget->setDisplayedWidth();
+    m_pGameWidget->updateWidget(true);
 }
 
 void KMahjongg::startNewNumeric()
@@ -227,17 +233,17 @@ void KMahjongg::startNewNumeric()
 
 void KMahjongg::undo()
 {
-    bw->Game->allow_redo += bw->undoMove();
+//    bw->Game->allow_redo += bw->undoMove();
     demoModeChanged(false);
 }
 
 void KMahjongg::redo()
 {
-    if (bw->Game->allow_redo > 0) {
-        bw->Game->allow_redo--;
-        bw->redoMove();
-        demoModeChanged(false);
-    }
+//    if (bw->Game->allow_redo > 0) {
+//        bw->Game->allow_redo--;
+//        bw->redoMove();
+//        demoModeChanged(false);
+//    }
 }
 
 void KMahjongg::showSettings()
@@ -257,7 +263,7 @@ void KMahjongg::showSettings()
     dialog->addBackgroundPage();
     dialog->setHelp(QString(),"kmahjongg");
 
-    connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
+//    connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
 
@@ -267,12 +273,12 @@ void KMahjongg::showSettings()
 void KMahjongg::demoMode()
 {
     if (bDemoModeActive) {
-        bw->stopDemoMode();
+//        bw->stopDemoMode();
     } else {
         // we assume demo mode removes tiles so we can
         // disable redo here.
-        bw->Game->allow_redo = false;
-        bw->startDemoMode();
+//        bw->Game->allow_redo = false;
+//        bw->startDemoMode();
     }
 
 }
@@ -287,13 +293,13 @@ void KMahjongg::pause()
 
     is_paused = !is_paused;
     demoModeChanged(false);
-    bw->pause();
+//    bw->pause();
 }
 
 void KMahjongg::showHighscores()
 {
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(bw->getLayoutName());
+//    ksdialog.setConfigGroup(bw->getLayoutName());
     ksdialog.exec();
 }
 
@@ -313,10 +319,10 @@ void KMahjongg::newGame()
 void KMahjongg::startNewGame(int item)
 {
     if (!bDemoModeActive) {
-        bw->calculateNewGame(item);
+        m_pGameWidget->calculateNewGame(item);
 
         // initialise button states
-        bw->Game->allow_redo = bw->Game->allow_undo = 0;
+//        bw->Game->allow_redo = bw->Game->allow_undo = 0;
 
         timerReset();
 
@@ -348,13 +354,14 @@ void KMahjongg::changeEvent(QEvent *event)
     }
 }
 
-void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
+void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 {
     int time;
     int score;
 
     gameTimer->pause();
-    long gameNum = bw->getGameNum();
+//    long gameNum = bw->getGameNum();
+    long gameNum = 0;
 
     KMessageBox::information(this, i18n("You have won!"));
 
@@ -386,7 +393,7 @@ void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
     //TODO: add gameNum as a Custom KScoreDialog field?
 //     theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(bw->getLayoutName());
+//    ksdialog.setConfigGroup(bw->getLayoutName());
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
@@ -394,7 +401,7 @@ void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
         ksdialog.exec();
     }
 
-    bw->animateMoveList();
+//    bw->animateMoveList();
 
     timerReset();
 }
@@ -418,11 +425,11 @@ void KMahjongg::showTileNumber(int iMaximum, int iCurrent, int iLeft)
     // Update here since undo allow is effected by demo mode
     // removal. However we only change the enabled state of the
     // items when not in demo mode
-    bw->Game->allow_undo = iMaximum != iCurrent;
+//    bw->Game->allow_undo = iMaximum != iCurrent;
 
     // update undo menu item, if demomode is inactive
     if (!bDemoModeActive && !is_paused && !mFinished) {
-        undoAction->setEnabled(bw->Game->allow_undo);
+//        undoAction->setEnabled(bw->Game->allow_undo);
     }
 }
 
@@ -441,18 +448,18 @@ void KMahjongg::demoModeChanged(bool bActive)
         stateChanged("active");
     } else {
         stateChanged("inactive");
-        undoAction->setEnabled(bw->Game->allow_undo);
-        redoAction->setEnabled(bw->Game->allow_redo);
+//        undoAction->setEnabled(bw->Game->allow_undo);
+//        redoAction->setEnabled(bw->Game->allow_redo);
     }
 }
 
 void KMahjongg::restartGame()
 {
     if (!bDemoModeActive) {
-        bw->calculateNewGame(bw->getGameNum());
+        m_pGameWidget->calculateNewGame(43/* bw->getGameNum() */);
 
         // initialise button states
-        bw->Game->allow_redo = bw->Game->allow_undo = 0;
+//        bw->Game->allow_redo = bw->Game->allow_undo = 0;
 
         timerReset();
 
@@ -464,7 +471,7 @@ void KMahjongg::restartGame()
         if (is_paused) {
             pauseAction->setChecked(false);
             is_paused = false;
-            bw->pause();
+//            bw->pause();
         }
     }
 }
@@ -520,9 +527,9 @@ void KMahjongg::loadGame()
     QString theBackgroundName;
     QString theBoardLayoutName;
     in >> theTilesName;
-    bw->loadTileset(theTilesName);
+    m_pGameWidget->setTilesetFile(theTilesName);
     in >> theBackgroundName;
-    bw->loadBackground(theBackgroundName, false);
+    m_pGameWidget->setBackgroundFile(theBackgroundName);
     in >> theBoardLayoutName;
 
     //GameTime
@@ -530,17 +537,17 @@ void KMahjongg::loadGame()
     in >> seconds;
     gameTimer->setTime(seconds);
 
-    delete bw->Game;
-    bw->loadBoardLayout(theBoardLayoutName);
-    bw->Game = new GameData(bw->theBoardLayout.board());
-    bw->Game->loadFromStream(in);
+//    delete bw->Game;
+    m_pGameWidget->setBoardLayoutFile(theBoardLayoutName);
+//    bw->Game = new GameData(bw->theBoardLayout.board());
+//    bw->Game->loadFromStream(in);
 
     infile.close();
 
     KIO::NetAccess::removeTempFile(fname);
 
     // refresh the board
-    bw->gameLoaded();
+//    bw->gameLoaded();
 
     mFinished = false;
     demoModeChanged(false);
@@ -583,14 +590,14 @@ void KMahjongg::saveGame()
     out << (qint32) gameDataVersion;
     out.setVersion(QDataStream::Qt_4_0);
 
-    out << bw->theTiles.path();
-    out << bw->theBackground.path();
-    out << bw->theBoardLayout.path();
+//    out << bw->theTiles.path();
+//    out << bw->theBackground.path();
+//    out << bw->theBoardLayout.path();
 
     //GameTime
     out << gameTimer->seconds();
     // Write the Game data
-    bw->Game->saveToStream(out);
+//    bw->Game->saveToStream(out);
 
     outfile.close();
     gameTimer->resume();

@@ -89,11 +89,11 @@ bool GameWidget::setTilesetFile(QString const &rTilesetFile)
 
 bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
 {
-    if (m_pBackground->load(rBackgroundFile, width(), height())) {
+    /*if (m_pBackground->load(rBackgroundFile, width(), height())) {
         if (m_pBackground->loadGraphics()) {
             return true;
         }
-    }
+    }*/
 
     //Try default
     if (m_pBackground->loadDefault()) {
@@ -236,7 +236,7 @@ void GameWidget::updateGameScene()
 
     // Recreate the background
     QPalette palette;
-    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+//    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
     setPalette(palette);
     setAutoFillBackground(true);
 

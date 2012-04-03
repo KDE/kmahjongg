@@ -78,6 +78,12 @@ public:
      * @param rText The new status text. */
     void setStatusText(QString const &rText);
 
+    /**
+     * Updates the whole widget.
+     *
+     * @param bShowTiles True if the tiles should be displayed, else false. */
+    void updateWidget(bool bShowTiles);
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -99,12 +105,6 @@ private:
      * Updates the game scene object by deleting all items and recreate them related to the
      * layout. */
     void updateGameScene();
-
-    /**
-     * Updates the whole widget.
-     *
-     * @param bShowTiles True if the tiles should be displayed, else false. */
-    void updateWidget(bool bShowTiles);
 
     /**
      * Resize the tileset to the given size. */

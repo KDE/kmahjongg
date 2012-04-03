@@ -25,9 +25,13 @@ GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, Tile
     bool selected, QGraphicsItem *pItem)
     : QObject(0),
     QGraphicsItem(pItem),
-    m_pFacePix(pFacePix),
-    m_dying(false)
+    m_dying(false),
+    m_pSelPix(new QPixmap()),
+    m_pUnselPix(new QPixmap()),
+    m_pFacePix(new QPixmap())
 {
+    *m_pFacePix = *pFacePix;
+
     setAngle(angle, pSelPix, pUnselPix);
     setSelected(selected);
     setOpacity(1.0);
@@ -47,8 +51,8 @@ TileViewAngle GameItem::getAngle() const
 void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix)
 {
     m_angle = angle;
-    m_pSelPix = pSelPix;
-    m_pUnselPix = pUnselPix;
+    *m_pSelPix = *pSelPix;
+    *m_pUnselPix = *pUnselPix;
 
     updateFaceOffset();
 }
@@ -122,7 +126,11 @@ void GameItem::fadeIn()
 
 QRectF GameItem::boundingRect() const
 {
-    return m_pSelPix->rect();
+    if (m_pSelPix) {
+        return m_pSelPix->rect();
+    } else {
+        return QRectF(0, 0, 0, 0);
+    }
 }
 
 QRectF GameItem::rect() const
