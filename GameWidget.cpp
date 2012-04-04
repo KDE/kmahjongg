@@ -98,6 +98,9 @@ bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
 
     if (m_pBackground->load(rBackgroundFile, width(), height())) {
         if (m_pBackground->loadGraphics()) {
+            // Update the new background.
+            updateBackground();
+
             return true;
         }
     }
@@ -107,6 +110,9 @@ bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
         if (m_pBackground->loadGraphics()) {
         }
     }
+
+    // Update the new background.
+    updateBackground();
 
     return false;
 }
@@ -217,16 +223,16 @@ void GameWidget::updateWidget(bool bShowTiles)
         // Delete all items in GameScene.
         QList<QGraphicsItem *> items = m_pGameScene->items();
         while (!items.isEmpty()) {
-            QGraphicsItem *item = items.first();
+            QGraphicsItem *item = items.takeFirst();
             m_pGameScene->removeItem(item);
             delete item;
         }
 
         //Recreate our background
-        QPalette palette;
-        palette.setBrush(backgroundRole(), m_pBackground->getBackground());
-        setPalette(palette);
-        setAutoFillBackground(true);
+//        QPalette palette;
+//        palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+//        setPalette(palette);
+//        setAutoFillBackground(true);
     }
 }
 
@@ -242,14 +248,11 @@ void GameWidget::updateGameScene()
         delete item;
     }
 
-    //Clear our spritemap as well
-//    spriteMap.clear();
-
     // Recreate the background
-    QPalette palette;
-    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
-    setPalette(palette);
-    setAutoFillBackground(true);
+//    QPalette palette;
+//    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+//    setPalette(palette);
+//    setAutoFillBackground(true);
 
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
@@ -283,4 +286,12 @@ void GameWidget::updateGameScene()
         }
     }
 //    updateSpriteMap();
+}
+
+void GameWidget::updateBackground()
+{
+    QPalette palette;
+    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+    setPalette(palette);
+    setAutoFillBackground(true);
 }

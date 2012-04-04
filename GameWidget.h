@@ -110,6 +110,10 @@ private:
      * Resize the tileset to the given size. */
     void resizeTileset(QSize const &rSize);
 
+    /**
+     * Updates the background by creating a new QPalette object. */
+    void updateBackground();
+
     int cheatsUsed;
     long m_lGameNumber;
     bool m_bGamePaused;
