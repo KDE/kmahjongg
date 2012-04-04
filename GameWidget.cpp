@@ -25,6 +25,8 @@
 #include <KRandom>
 #include <KDebug>
 
+#include <QResizeEvent>
+
 
 GameWidget::GameWidget(QWidget *pParent)
     : QGraphicsView(pParent)
@@ -48,18 +50,8 @@ GameWidget::GameWidget(QWidget *pParent)
     // Create tiles...
     m_pTiles = new KMahjonggTileset();
 
-    if (!setTilesetFile(Prefs::tileSet())) {
-        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
-            "will continue with the default tileset.";
-    }
-
     // Load background
     m_pBackground = new KMahjonggBackground();
-
-    if (!setBackgroundFile(Prefs::background())) {
-        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
-            "jongg will continue with the default background.";
-    }
 
     updateWidget(true);
 }
@@ -108,13 +100,25 @@ bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
     // Try default
     if (m_pBackground->loadDefault()) {
         if (m_pBackground->loadGraphics()) {
+            // Update the new background.
+            updateBackground();
         }
     }
 
-    // Update the new background.
-    updateBackground();
-
     return false;
+}
+
+void GameWidget::resizeEvent(QResizeEvent *pEvent)
+{
+    if (pEvent->spontaneous()) {
+        return;
+    }
+
+    resizeTileset(pEvent->size());
+    m_pBackground->sizeChanged(m_pGameData->m_width / 2,
+        m_pGameData->m_height / 2);
+
+    updateWidget(true);
 }
 
 void GameWidget::resizeTileset(QSize const &rSize)
@@ -280,7 +284,8 @@ void GameWidget::updateGameScene()
 
                 GameItem *item = new GameItem(&unselPix, &selPix, &facePix, m_angle, bSelected);
                 m_pGameScene->addItem(item);
-
+                item->moveBy(iX * item->boundingRect().width(), 0);
+                kDebug() << selPix.rect().width();
 //                spriteMap.insert(TileCoord(x, y, z), thissprite);
             }
         }

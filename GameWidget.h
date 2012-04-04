@@ -84,6 +84,10 @@ public:
      * @param bShowTiles True if the tiles should be displayed, else false. */
     void updateWidget(bool bShowTiles);
 
+    /**
+     * Override from QWidget. */
+    virtual void resizeEvent(QResizeEvent *pEvent);
+
 signals:
     /**
      * Emits when a new game was calculated. */
