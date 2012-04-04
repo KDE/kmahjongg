@@ -64,6 +64,10 @@ public slots:
     void startNewGame(int num = -1);
 
     /**
+     * Load the settings... */
+    void loadSettings();
+
+    /**
      * Slot Description
      *
      * @param msg

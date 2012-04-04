@@ -23,6 +23,7 @@
 
 #include <KLocale>
 #include <KRandom>
+#include <KDebug>
 
 
 GameWidget::GameWidget(QWidget *pParent)
@@ -53,10 +54,14 @@ GameWidget::GameWidget(QWidget *pParent)
     }
 
     // Load background
+    m_pBackground = new KMahjonggBackground();
+
     if (!setBackgroundFile(Prefs::background())) {
         kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
             "jongg will continue with the default background.";
     }
+
+    updateWidget(true);
 }
 
 GameWidget::~GameWidget()
@@ -89,13 +94,15 @@ bool GameWidget::setTilesetFile(QString const &rTilesetFile)
 
 bool GameWidget::setBackgroundFile(QString const &rBackgroundFile)
 {
-    /*if (m_pBackground->load(rBackgroundFile, width(), height())) {
+    kDebug() << "Loading background file: " + rBackgroundFile;
+
+    if (m_pBackground->load(rBackgroundFile, width(), height())) {
         if (m_pBackground->loadGraphics()) {
             return true;
         }
-    }*/
+    }
 
-    //Try default
+    // Try default
     if (m_pBackground->loadDefault()) {
         if (m_pBackground->loadGraphics()) {
         }
@@ -197,6 +204,8 @@ void GameWidget::calculateNewGame(int iGameNumber)
 
 void GameWidget::updateWidget(bool bShowTiles)
 {
+    kDebug() << "Update widget";
+
     if (m_bGamePaused) {
         bShowTiles = false;
     }
@@ -223,10 +232,12 @@ void GameWidget::updateWidget(bool bShowTiles)
 
 void GameWidget::updateGameScene()
 {
+    kDebug() << "Update game scene";
+
     // Delete all items in GameScene.
     QList<QGraphicsItem *> items = m_pGameScene->items();
     while (!items.isEmpty()) {
-        QGraphicsItem *item = items.first();
+        QGraphicsItem *item = items.takeFirst();
         m_pGameScene->removeItem(item);
         delete item;
     }
@@ -236,7 +247,7 @@ void GameWidget::updateGameScene()
 
     // Recreate the background
     QPalette palette;
-//    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
+    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
     setPalette(palette);
     setAutoFillBackground(true);
 

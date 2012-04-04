@@ -263,11 +263,25 @@ void KMahjongg::showSettings()
     dialog->addBackgroundPage();
     dialog->setHelp(QString(),"kmahjongg");
 
-//    connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
+    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(loadSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
 
     dialog->show();
+}
+
+void KMahjongg::loadSettings()
+{
+    if (!m_pGameWidget->setTilesetFile(Prefs::tileSet())) {
+        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
+            "will continue with the default tileset.";
+    }
+
+    // Load background
+    if (!m_pGameWidget->setBackgroundFile(Prefs::background())) {
+        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
+            "jongg will continue with the default background.";
+    }
 }
 
 void KMahjongg::demoMode()
