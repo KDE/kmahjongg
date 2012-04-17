@@ -44,7 +44,7 @@
 
 /**
  * @short This class implements
- * 
+ *
  * longer description
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
@@ -53,8 +53,8 @@ class GameData
 public:
     /**
      * Constructor
-     * 
-     * @param boardlayout 
+     *
+     * @param boardlayout
      * @see BoardLayout */
     explicit GameData(BoardLayout *boardlayout);
 
@@ -154,7 +154,7 @@ public:
     /**
      * Method Description
      *
-     * @param i 
+     * @param i
      * @param value
      * @ref pos */
     void setMoveListData(short i, POSITION &value);

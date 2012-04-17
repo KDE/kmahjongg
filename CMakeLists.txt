@@ -10,7 +10,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 set(kmahjongg_SRCS
    main.cpp
    kmahjongg.cpp
-   boardwidget.cpp
    BoardLayout.cpp
    GameData.cpp
    kmahjongglayoutselector.cpp

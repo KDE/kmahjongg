@@ -39,38 +39,11 @@ public:
      * Constructor
      *
      * @param pParent The parent widget. */
-    GameWidget(QWidget *pParent = 0);
+    GameWidget(QGraphicsScene *pScene = 0, QWidget *pParent = 0);
 
     /**
      * Destructor */
     ~GameWidget();
-
-    /**
-     * Calculates a new game with the given number.
-     *
-     * @param iGameNumber The game number to create a new game from. */
-    void calculateNewGame(int iGameNumber = -1);
-
-    /**
-     * Set the BoardLayout file and therefore load the new one.
-     *
-     * @param rBoardLayoutFile A reference to the BoardLayout file name.
-     * @return True if loading the file success. */
-    bool setBoardLayoutFile(QString const &rBoardLayoutFile);
-
-    /**
-     * Set the Background file and therefore load the new one.
-     *
-     * @param rBackgroundFile A reference to the Background file name.
-     * @return True if loading the file success. */
-    bool setBackgroundFile(QString const &rBackgroundFile);
-
-    /**
-     * Set the Tileset file and therefore load the new one.
-     *
-     * @param rTilesetFile A reference to the Tileset file name.
-     * @return True if loading the file success. */
-    bool setTilesetFile(QString const &rTilesetFile);
 
     /**
      * Sets the status text.
@@ -87,6 +60,21 @@ public:
     /**
      * Override from QWidget. */
     virtual void resizeEvent(QResizeEvent *pEvent);
+
+public slots:
+    /**
+     * Sets the tileset path and tries to load it.
+     *
+     * @param rTilesetPath The path to the tileset.
+     * @return True if setting and therfore loading success, else false. */
+    bool setTilesetPath(QString const &rTilesetPath);
+
+    /**
+     * Sets the background path and tries to load it.
+     *
+     * @param rBackgroundPath The path to the background.
+     * @return True if setting and therfore loading success, else false. */
+    bool setBackgroundPath(QString const &rBackgroundPath);
 
 signals:
     /**
@@ -106,11 +94,6 @@ private:
     void loadBoard();
 
     /**
-     * Updates the game scene object by deleting all items and recreate them related to the
-     * layout. */
-    void updateGameScene();
-
-    /**
      * Resize the tileset to the given size. */
     void resizeTileset(QSize const &rSize);
 
@@ -122,7 +105,6 @@ private:
     long m_lGameNumber;
     bool m_bGamePaused;
 
-    GameScene *m_pGameScene;
     GameData *m_pGameData;
 
     KMahjonggLayout *m_pBoardLayout;

@@ -24,6 +24,8 @@
 #include "ui_settings.h"
 #include "Editor.h"
 #include "GameWidget.h"
+#include "GameScene.h"
+#include "GameData.h"
 
 #include <kmahjonggconfigdialog.h>
 
@@ -91,7 +93,9 @@ KMahjongg::KMahjongg(QWidget *parent)
     // init board widget
 //    bw = new BoardWidget(this);
 //    setCentralWidget(bw);
-    m_pGameWidget = new GameWidget(this);
+    m_pGameScene = new GameScene();
+    m_pGameWidget = new GameWidget(m_pGameScene, this);
+
     setCentralWidget(m_pGameWidget);
 
     // Initialize boardEditor
@@ -124,8 +128,9 @@ KMahjongg::KMahjongg(QWidget *parent)
 
 KMahjongg::~KMahjongg()
 {
-//    delete bw;
     delete m_pGameWidget;
+    delete m_pGameScene;
+    delete m_pGameData;
     delete boardEditor;
 }
 
@@ -218,7 +223,7 @@ void KMahjongg::setDisplayedWidth()
 //    bw->setDisplayedWidth();
 //    bw->drawBoard();
 //    m_pGameWidget->setDisplayedWidth();
-    m_pGameWidget->updateWidget(true);
+    //~ m_pGameWidget->updateWidget(true);
 }
 
 void KMahjongg::startNewNumeric()
@@ -273,15 +278,21 @@ void KMahjongg::showSettings()
 
 void KMahjongg::loadSettings()
 {
-    if (!m_pGameWidget->setTilesetFile(Prefs::tileSet())) {
+    if (!m_pGameScene->setTilesetPath(Prefs::tileSet())) {
         kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
             "will continue with the default tileset.";
     }
 
     // Load background
-    if (!m_pGameWidget->setBackgroundFile(Prefs::background())) {
+    if (!m_pGameScene->setBackgroundPath(Prefs::background())) {
         kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
             "jongg will continue with the default background.";
+    }
+
+    // Load layout
+    if (!m_pGameScene->setBoardLayoutPath(Prefs::layout())) {
+        kDebug() << "An error occurred when loading the board layout" << Prefs::layout() << "KMah"
+            "jongg will continue with the default board layout.";
     }
 }
 
@@ -334,7 +345,7 @@ void KMahjongg::newGame()
 void KMahjongg::startNewGame(int item)
 {
     if (!bDemoModeActive) {
-        m_pGameWidget->calculateNewGame(item);
+        m_pGameScene->createNewGameScene(item);
 
         // initialise button states
 //        bw->Game->allow_redo = bw->Game->allow_undo = 0;
@@ -471,7 +482,7 @@ void KMahjongg::demoModeChanged(bool bActive)
 void KMahjongg::restartGame()
 {
     if (!bDemoModeActive) {
-        m_pGameWidget->calculateNewGame(43/* bw->getGameNum() */);
+        m_pGameScene->createNewGameScene(43/* bw->getGameNum() */);
 
         // initialise button states
 //        bw->Game->allow_redo = bw->Game->allow_undo = 0;
@@ -542,9 +553,9 @@ void KMahjongg::loadGame()
     QString theBackgroundName;
     QString theBoardLayoutName;
     in >> theTilesName;
-    m_pGameWidget->setTilesetFile(theTilesName);
+    m_pGameWidget->setTilesetPath(theTilesName);
     in >> theBackgroundName;
-    m_pGameWidget->setBackgroundFile(theBackgroundName);
+    m_pGameWidget->setBackgroundPath(theBackgroundName);
     in >> theBoardLayoutName;
 
     //GameTime
@@ -553,7 +564,7 @@ void KMahjongg::loadGame()
     gameTimer->setTime(seconds);
 
 //    delete bw->Game;
-    m_pGameWidget->setBoardLayoutFile(theBoardLayoutName);
+    m_pGameScene->setBoardLayoutPath(theBoardLayoutName);
 //    bw->Game = new GameData(bw->theBoardLayout.board());
 //    bw->Game->loadFromStream(in);
 

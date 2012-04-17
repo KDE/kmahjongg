@@ -21,8 +21,7 @@
 #include <QTimer>
 
 
-GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, TileViewAngle angle,
-    bool selected, QGraphicsItem *pItem)
+GameItem::GameItem(bool selected, QGraphicsItem *pItem)
     : QObject(0),
     QGraphicsItem(pItem),
     m_dying(false),
@@ -30,9 +29,6 @@ GameItem::GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix, Tile
     m_pUnselPix(new QPixmap()),
     m_pFacePix(new QPixmap())
 {
-    *m_pFacePix = *pFacePix;
-
-    setAngle(angle, pSelPix, pUnselPix);
     setSelected(selected);
     setOpacity(1.0);
 
@@ -89,6 +85,11 @@ void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem *, QWidg
         pPainter->drawPixmap(pos(), *m_pUnselPix);
         pPainter->drawPixmap(pos() + m_faceOffset, *m_pFacePix);
     }
+}
+
+void GameItem::setFace(QPixmap *pFacePix)
+{
+    *m_pFacePix = *pFacePix;
 }
 
 void GameItem::fadeOut()

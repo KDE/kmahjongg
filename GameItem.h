@@ -34,13 +34,8 @@ public:
      * Constructor
      *
      * @param pItem The parent item
-     * @param pUnselPix The pixmap for a unselected item
-     * @param pSelPix The pixmap for a selected item
-     * @param pFacePix The pixmap fo the face (the symbol on the tiles)
-     * @param angle The angle of the item
      * @param selected Should the item be selected */
-    GameItem(QPixmap *pUnselPix, QPixmap *pSelPix, QPixmap *pFacePix,
-        TileViewAngle angle, bool selected, QGraphicsItem *pItem = 0);
+    GameItem(bool selected, QGraphicsItem *pItem = 0);
 
     /**
      * Destructor */
@@ -59,6 +54,12 @@ public:
      * @param pUnselPix The pixmap for a unselected item
      * @param pSelPix The pixmap for a selected item */
     void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix);
+
+    /**
+     * Set the face of the stone.
+     *
+     * @param pFacePix The pixmap of the face. */
+    void setFace(QPixmap *pFacePix);
 
     /**
      * Overrides the paint method of QGraphicsItem. */

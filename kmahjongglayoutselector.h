@@ -27,6 +27,9 @@
 #include <KConfigSkeleton>
 #include "ui_gametype.h"
 
+
+class GameWidget;
+class GameScene;
 class KMahjonggLayout;
 class BoardWidget;
 
@@ -44,6 +47,8 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
     void useRandomLayoutToggled(bool);
   private:
     BoardWidget * bw;
+    GameScene *m_pGameScene;
+    GameWidget *m_pGameWidget;
 };
 
 #endif

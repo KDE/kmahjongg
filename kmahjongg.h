@@ -36,6 +36,8 @@ class QLabel;
 class KGameClock;
 class Editor;
 class GameWidget;
+class GameScene;
+class GameData;
 
 /**
  * @short  Class Description
@@ -145,8 +147,9 @@ private:
     bool bDemoModeActive;
     bool mFinished;
 
-//    BoardWidget *bw;
     GameWidget *m_pGameWidget;
+    GameScene *m_pGameScene;
+    GameData *m_pGameData;
 
     Editor *boardEditor;
 

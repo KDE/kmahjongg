@@ -13,13 +13,195 @@
  * 02110-1301, USA. */
 
 #include "GameScene.h"
+#include "GameData.h"
+#include "GameItem.h"
+#include "GameWidget.h"
+#include "kmahjongglayout.h"
+
+#include <KRandom>
+
+#include <QList>
 
 
-GameScene::GameScene(QObject *pParent)
-    : QGraphicsScene(pParent)
+GameScene::GameScene(GameData *pGameData, QObject *pParent)
+    : QGraphicsScene(pParent),
+    m_pBoardLayoutPath(new QString()),
+    m_pBackgroundPath(new QString()),
+    m_pTilesetPath(new QString()),
+    m_pBoardLayout(new KMahjonggLayout()),
+    m_pGameData(0)
 {
 }
 
 GameScene::~GameScene()
 {
+    delete m_pBoardLayoutPath;
+    delete m_pBackgroundPath;
+    delete m_pTilesetPath;
+    delete m_pBoardLayout;
+}
+
+bool GameScene::setBoardLayoutPath(QString const &rBoardLayoutPath)
+{
+    *m_pBoardLayoutPath = rBoardLayoutPath;
+
+    // When loading a new layout fails, return false.
+    if (!loadBoardLayoutFromPath()) {
+        return false;
+    }
+
+    // We need to create a new GameData object.
+    delete m_pGameData;
+    m_pGameData = new GameData(m_pBoardLayout->board());
+
+    return true;
+}
+
+QString GameScene::getBoardLayoutPath() const
+{
+    return *m_pBoardLayoutPath;
+}
+
+bool GameScene::setTilesetPath(QString const &rTilesetPath)
+{
+    QList<QGraphicsView *> tmpViews = views();
+
+    for (int iI = 0; iI < tmpViews.size(); iI++) {
+        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
+
+        if (!pGameWidget->setTilesetPath(rTilesetPath)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool GameScene::setBackgroundPath(QString const &rBackgroundPath)
+{
+    QList<QGraphicsView *> tmpViews = views();
+
+    for (int iI = 0; iI < tmpViews.size(); iI++) {
+        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
+
+        if (!pGameWidget->setBackgroundPath(rBackgroundPath)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+bool GameScene::loadBoardLayoutFromPath()
+{
+    if (m_pBoardLayout->load(*m_pBoardLayoutPath)) {
+        return true;
+    } else {
+        if (m_pBoardLayout->loadDefault()) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+}
+
+void GameScene::removeItems()
+{
+    // Delete all items in GameScene.
+    QList<QGraphicsItem *> tmpItems = items();
+
+    while (!tmpItems.isEmpty()) {
+        QGraphicsItem *pItem = tmpItems.takeFirst();
+        removeItem(pItem);
+        delete pItem;
+    }
+}
+
+GameData * GameScene::setGameData(GameData *pGameData)
+{
+    GameData *pTmpGameData = m_pGameData;
+    m_pGameData = pGameData;
+
+    return pTmpGameData;
+}
+
+void GameScene::createNewGameScene(int iGameNumber)
+{
+    // Create a random game number, if no one was given.
+    if (iGameNumber == -1) {
+        m_lGameNumber = KRandom::random();
+    } else {
+        m_lGameNumber = iGameNumber;
+    }
+
+    m_pGameData->random.setSeed(m_lGameNumber);
+
+    // Translate m_pGameData->Map to an array of POSITION data.  We only need to
+    // do this once for each new game.
+    m_pGameData->generateTilePositions();
+
+    // Now use the tile position data to generate tile dependency data.
+    // We only need to do this once for each new game.
+    m_pGameData->generatePositionDepends();
+
+    // TODO: This is really bad... the generatedStartPosition2-function should never fail!!!!
+    // Now try to position tiles on the board, 64 tries max.
+    for (short sNr = 0; sNr < 64; sNr++) {
+        if (m_pGameData->generateStartPosition2()) {
+            // No cheats are used until now.
+            m_iCheatsUsed = 0;
+
+            // Throw a signal, that a new game was calculated.
+            emit newGameSceneCreated();
+
+            return;
+        }
+    }
+}
+
+void GameScene::addItemsFromBoardLayout()
+{
+    // Create the items and add them to the scene.
+    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
+        for (int iY = 0; iY < m_pGameData->m_height; iY++) {
+            for (int iX = m_pGameData->m_width - 1; iX >= 0; iX--) {
+
+                // Skip if no tile should be displayed on this position.
+                if (!m_pGameData->tilePresent(iZ, iY, iX)) {
+                    continue;
+                }
+
+                bool bSelected = false;
+
+//                QPixmap selPix;
+//                QPixmap unselPix;
+//                QPixmap facePix;
+
+//                selPix = m_pTiles->selectedTile(m_angle);
+//                unselPix = m_pTiles->unselectedTile(m_angle);
+//                facePix = m_pTiles->tileface(m_pGameData->BoardData(iZ, iY, iX) - TILE_OFFSET);
+
+                if (m_pGameData->HighlightData(iZ, iY, iX)) {
+                    bSelected = true;
+                }
+
+//                GameItem *item = new GameItem(&unselPix, &selPix, &facePix, m_angle, bSelected);
+                GameItem *item = new GameItem(bSelected);
+                addItem(item);
+            }
+        }
+    }
+
+//    updateItemPositions();
+}
+
+QString GameScene::getTilesetPath() const
+{
+    return *m_pTilesetPath;
+}
+
+QString GameScene::getBackgroundPath() const
+{
+    return *m_pBackgroundPath;
 }

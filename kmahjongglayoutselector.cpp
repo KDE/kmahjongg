@@ -30,13 +30,18 @@
 #include <QPainter>
 
 #include "kmahjongglayout.h"
+#include "GameWidget.h"
+#include "GameScene.h"
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent )
 {
     setupUi(this);
-    bw = new BoardWidget( layoutPreview );
-    bw->resize(layoutPreview->size());
+    m_pGameScene = new GameScene();
+    m_pGameWidget = new GameWidget(m_pGameScene);
+    //~ bw = new BoardWidget( layoutPreview );
+    //~ bw->resize(layoutPreview->size());
+    m_pGameWidget->resize(layoutPreview->size());
     setupData(aconfig);
 }
 
@@ -49,7 +54,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
 
     //The lineEdit widget holds our tileset path, but the user does not manipulate it directly
     kcfg_Layout->hide();
-    
+
     //No new stuff yet
     getNewButton->hide();
 
@@ -62,7 +67,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     QString namestr("Name");
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
-    {   
+    {
         KMahjonggLayout * aset = new KMahjonggLayout();
         QString atileset = tilesAvailable.at(i);
         if (aset->load(atileset)) {
@@ -79,7 +84,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
             delete aset;
         }
     }
-    
+
     connect(layoutList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(layoutChanged()));
 }
 
@@ -98,16 +103,20 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutAuthor->setText(selLayout->authorProperty(authstr));
     layoutContact->setText(selLayout->authorProperty(contactstr));
     layoutDescription->setText(selLayout->authorProperty(descstr));
-    
+
     //If settings for tiles/background have been applied, update our preview
-    if (bw->theTiles.path()!=Prefs::tileSet()) 
-      bw->loadTileset(Prefs::tileSet());
-    if (bw->theBackground.path()!=Prefs::background())
-      bw->loadBackground(Prefs::background());
-          
+    if (m_pGameScene->getTilesetPath() != Prefs::tileSet())
+      //~ bw->loadTileset(Prefs::tileSet());
+      m_pGameScene->setTilesetPath(Prefs::tileSet());
+    if (m_pGameScene->getBackgroundPath() != Prefs::background())
+      //~ bw->loadBackground(Prefs::background());
+      m_pGameScene->setBackgroundPath(Prefs::background());
+
     //Now load the boardLayout temporarily
-    bw->loadBoardLayout(selLayout->path());
-    bw->calculateNewGame();
+    //~ bw->loadBoardLayout(selLayout->path());
+    //~ bw->calculateNewGame();
+    m_pGameScene->setBoardLayoutPath(selLayout->path());
+    m_pGameScene->createNewGameScene();
 
    /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
