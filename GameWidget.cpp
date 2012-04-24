@@ -64,12 +64,22 @@ void GameWidget::itemsAddedToScene()
         GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
 
         int iX = pGameItem->getXPosition() - 1;
-        int iY = pGameItem->getYPosition();
+        int iY = pGameItem->getYPosition() - 1;
 
-        int iTileWidth = m_pTiles->qWidth() / 2;
-        int iTileHeight = m_pTiles->qHeight() / 2;
+        int iTileWidth = m_pTiles->qWidth();
+        int iTileHeight = m_pTiles->qHeight();
 
-        pGameItem->setPos((iTileWidth * iX), (iTileHeight * iY));
+        int iTilesWidth = iTileWidth * (m_pGameData->m_width / 2);
+        int iTilesHeight = iTileHeight * (m_pGameData->m_height / 2);
+
+        int iXFrame = (width() / 2 - iTilesWidth) / 2;
+        int iYFrame = (height() / 2 - iTilesHeight) / 2;
+
+        kDebug() << "iXFrame: " << iXFrame;
+        kDebug() << "width: " << iTileWidth;
+        kDebug() << "rest: " << ((iTileWidth * 2) * m_pGameData->m_width);
+
+        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame, iTileHeight / 2 * iY + iYFrame);
     }
 }
 
