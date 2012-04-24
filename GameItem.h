@@ -48,6 +48,22 @@ public:
     TileViewAngle getAngle() const;
 
     /**
+     * Set the tile position.
+     *
+     * @param iX The x position.
+     * @param iY The y position.
+     * @param iZ The z position. */
+    void setPosition(int iX, int iY, int iZ);
+
+    /**
+     * Get the positions.
+     *
+     * @return The position value. */
+    int getXPosition() const;
+    int getYPosition() const;
+    int getZPosition() const;
+
+    /**
      * Set the actual angle and therefore all pixmaps related to the angle.
      *
      * @param angle The angle of the item
@@ -91,6 +107,9 @@ private:
     void updateFaceOffset();
 
     bool m_dying;
+    int m_iZ;
+    int m_iX;
+    int m_iY;
 
     TileViewAngle m_angle;
 

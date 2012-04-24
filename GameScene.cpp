@@ -19,6 +19,7 @@
 #include "kmahjongglayout.h"
 
 #include <KRandom>
+#include <KDebug>
 
 #include <QList>
 
@@ -45,14 +46,19 @@ bool GameScene::setBoardLayoutPath(QString const &rBoardLayoutPath)
 {
     *m_pBoardLayoutPath = rBoardLayoutPath;
 
-    // When loading a new layout fails, return false.
-    if (!loadBoardLayoutFromPath()) {
-        return false;
-    }
+    loadBoardLayoutFromPath();
 
     // We need to create a new GameData object.
     delete m_pGameData;
     m_pGameData = new GameData(m_pBoardLayout->board());
+
+    // Give the new GameData object to every widget.
+    QList<QGraphicsView *> tmpViews = views();
+
+    for (int iI = 0; iI < tmpViews.size(); iI++) {
+        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
+        pGameWidget->setGameData(m_pGameData);
+    }
 
     return true;
 }
@@ -128,6 +134,8 @@ GameData * GameScene::setGameData(GameData *pGameData)
 
 void GameScene::createNewGameScene(int iGameNumber)
 {
+    kDebug() << "Create new game with game number: " << iGameNumber;
+
     // Create a random game number, if no one was given.
     if (iGameNumber == -1) {
         m_lGameNumber = KRandom::random();
@@ -155,6 +163,8 @@ void GameScene::createNewGameScene(int iGameNumber)
             // Throw a signal, that a new game was calculated.
             emit newGameSceneCreated();
 
+            addItemsFromBoardLayout();
+
             return;
         }
     }
@@ -162,6 +172,9 @@ void GameScene::createNewGameScene(int iGameNumber)
 
 void GameScene::addItemsFromBoardLayout()
 {
+    // Remove all existing items.
+    removeItems();
+
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
         for (int iY = 0; iY < m_pGameData->m_height; iY++) {
@@ -174,26 +187,24 @@ void GameScene::addItemsFromBoardLayout()
 
                 bool bSelected = false;
 
-//                QPixmap selPix;
-//                QPixmap unselPix;
-//                QPixmap facePix;
-
-//                selPix = m_pTiles->selectedTile(m_angle);
-//                unselPix = m_pTiles->unselectedTile(m_angle);
-//                facePix = m_pTiles->tileface(m_pGameData->BoardData(iZ, iY, iX) - TILE_OFFSET);
-
                 if (m_pGameData->HighlightData(iZ, iY, iX)) {
                     bSelected = true;
                 }
 
-//                GameItem *item = new GameItem(&unselPix, &selPix, &facePix, m_angle, bSelected);
                 GameItem *item = new GameItem(bSelected);
+                item->setPosition(iX, iY, iZ);
                 addItem(item);
             }
         }
     }
 
-//    updateItemPositions();
+    emit itemsAddedFromBoardLayout();
+}
+
+void GameScene::addItem(GameItem *pGameItem)
+{
+    QGraphicsScene::addItem(pGameItem);
+    emit itemAdded(pGameItem);
 }
 
 QString GameScene::getTilesetPath() const
@@ -204,4 +215,9 @@ QString GameScene::getTilesetPath() const
 QString GameScene::getBackgroundPath() const
 {
     return *m_pBackgroundPath;
+}
+
+GameData * GameScene::getGameData()
+{
+    return m_pGameData;
 }

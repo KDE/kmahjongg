@@ -22,6 +22,7 @@
 
 class GameScene;
 class GameData;
+class GameItem;
 class KMahjonggLayout;
 class KMahjonggTileset;
 class KMahjonggBackground;
@@ -38,8 +39,9 @@ public:
     /**
      * Constructor
      *
-     * @param pParent The parent widget. */
-    GameWidget(QGraphicsScene *pScene = 0, QWidget *pParent = 0);
+     * @param pParent The parent widget.
+     * @param pGameScene The related GameScene object. */
+    GameWidget(GameScene *pGameScene, QWidget *pParent = 0);
 
     /**
      * Destructor */
@@ -61,6 +63,15 @@ public:
      * Override from QWidget. */
     virtual void resizeEvent(QResizeEvent *pEvent);
 
+    /**
+     * Updates the images of the items. */
+    void updateItemImages();
+
+    /**
+     * Set and get the GameData object. */
+    void setGameData(GameData *pGameData);
+    GameData * getGameData();
+
 public slots:
     /**
      * Sets the tileset path and tries to load it.
@@ -76,6 +87,10 @@ public slots:
      * @return True if setting and therfore loading success, else false. */
     bool setBackgroundPath(QString const &rBackgroundPath);
 
+    /**
+     * Items where added to the scene and should now be layouted. */
+    void itemsAddedToScene();
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -87,6 +102,13 @@ signals:
      * @param rText The new status text.
      * @param lGameNumber The actual game number. */
     void statusTextChanged(const QString &rText, long lGameNumber);
+
+private slots:
+    /**
+     * Set data to the game item, that was added.
+     *
+     * @param pGameItem The GameItem object, that was added. */
+    void itemAddedToScene(GameItem *pGameItem);
 
 private:
     /**

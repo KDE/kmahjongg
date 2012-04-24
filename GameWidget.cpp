@@ -28,8 +28,8 @@
 #include <QResizeEvent>
 
 
-GameWidget::GameWidget(QGraphicsScene *pScene, QWidget *pParent)
-    : QGraphicsView(pScene, pParent),
+GameWidget::GameWidget(GameScene *pGameScene, QWidget *pParent)
+    : QGraphicsView(pGameScene, pParent),
     m_pGameData(0)
 {
     m_angle = (TileViewAngle) Prefs::angle();
@@ -42,17 +42,49 @@ GameWidget::GameWidget(QGraphicsScene *pScene, QWidget *pParent)
 
     //~ updateWidget(true);
 
+    // Try to get the GameData object from the scene.
+    m_pGameData = pGameScene->getGameData();
+
     // Connect to the scene...
-    connect(pScene, SIGNAL(backgroundChanged(QString const &rBackgroundPath)), this,
-        SLOT(setBackgroundPath(QString const &rBackgroundPath)));
-    connect(pScene, SIGNAL(tilesetChanged(QString const &rTilesetPath)), this,
-        SLOT(setTilesetPath(QString const &rTilesetPath)));
+    connect(pGameScene, SIGNAL(itemAdded(GameItem *)), this, SLOT(itemAddedToScene(GameItem *)));
+    connect(pGameScene, SIGNAL(itemsAddedFromBoardLayout()), this, SLOT(itemsAddedToScene()));
 }
 
 GameWidget::~GameWidget()
 {
     delete m_pBackground;
     delete m_pTiles;
+}
+
+void GameWidget::itemsAddedToScene()
+{
+    QList<QGraphicsItem *> tmpItems = items();
+
+    for (int iI = 0; iI < tmpItems.size(); iI++) {
+        GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
+
+        int iX = pGameItem->getXPosition() - 1;
+        int iY = pGameItem->getYPosition();
+
+        int iTileWidth = m_pTiles->qWidth() / 2;
+        int iTileHeight = m_pTiles->qHeight() / 2;
+
+        pGameItem->setPos((iTileWidth * iX), (iTileHeight * iY));
+    }
+}
+
+void GameWidget::itemAddedToScene(GameItem *pGameItem)
+{
+    kDebug() << "Added to scene";
+
+    QPixmap selPix;
+    QPixmap unselPix;
+
+    selPix = m_pTiles->selectedTile(SW);
+    unselPix = m_pTiles->unselectedTile(SW);
+
+    // Set the background pictures to the item.
+    pGameItem->setAngle(SW, &selPix, &unselPix);
 }
 
 bool GameWidget::setTilesetPath(QString const &rTilesetPath)
@@ -105,6 +137,8 @@ void GameWidget::resizeEvent(QResizeEvent *pEvent)
 
     resizeTileset(pEvent->size());
     m_pBackground->sizeChanged(m_pGameData->m_width / 2, m_pGameData->m_height / 2);
+
+    setSceneRect(0, 0, width(), height());
 }
 
 void GameWidget::resizeTileset(QSize const &rSize)
@@ -117,6 +151,30 @@ void GameWidget::resizeTileset(QSize const &rSize)
         m_pGameData->m_height / 2);
 
     m_pTiles->reloadTileset(newtiles);
+
+    updateItemImages();
+}
+
+void GameWidget::updateItemImages()
+{
+    kDebug() << "Update";
+
+    QList<QGraphicsItem *> tmpItems = items();
+
+    for (int iI = 0; iI < tmpItems.size(); iI++) {
+        GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
+
+        QPixmap selPix;
+        QPixmap unselPix;
+
+        selPix = m_pTiles->selectedTile(SW);
+        unselPix = m_pTiles->unselectedTile(SW);
+
+        // Set the background pictures to the item.
+        pGameItem->setAngle(SW, &selPix, &unselPix);
+    }
+
+    itemsAddedToScene();
 }
 
 void GameWidget::setStatusText(QString const &rText)
@@ -130,4 +188,14 @@ void GameWidget::updateBackground()
     palette.setBrush(backgroundRole(), m_pBackground->getBackground());
     setPalette(palette);
     setAutoFillBackground(true);
+}
+
+void GameWidget::setGameData(GameData *pGameData)
+{
+    m_pGameData = pGameData;
+}
+
+GameData * GameWidget::getGameData()
+{
+    return m_pGameData;
 }

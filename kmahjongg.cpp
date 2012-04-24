@@ -278,16 +278,8 @@ void KMahjongg::showSettings()
 
 void KMahjongg::loadSettings()
 {
-    if (!m_pGameScene->setTilesetPath(Prefs::tileSet())) {
-        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
-            "will continue with the default tileset.";
-    }
-
-    // Load background
-    if (!m_pGameScene->setBackgroundPath(Prefs::background())) {
-        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
-            "jongg will continue with the default background.";
-    }
+    m_pGameScene->setTilesetPath(Prefs::tileSet());
+    m_pGameScene->setBackgroundPath(Prefs::background());
 
     // Load layout
     if (!m_pGameScene->setBoardLayoutPath(Prefs::layout())) {

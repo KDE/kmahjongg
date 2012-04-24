@@ -27,7 +27,10 @@ GameItem::GameItem(bool selected, QGraphicsItem *pItem)
     m_dying(false),
     m_pSelPix(new QPixmap()),
     m_pUnselPix(new QPixmap()),
-    m_pFacePix(new QPixmap())
+    m_pFacePix(new QPixmap()),
+    m_iY(0),
+    m_iZ(0),
+    m_iX(0)
 {
     setSelected(selected);
     setOpacity(1.0);
@@ -137,4 +140,26 @@ QRectF GameItem::boundingRect() const
 QRectF GameItem::rect() const
 {
     return boundingRect();
+}
+
+void GameItem::setPosition(int iX, int iY, int iZ)
+{
+    m_iZ = iZ;
+    m_iY = iY;
+    m_iX = iX;
+}
+
+int GameItem::getXPosition() const
+{
+    return m_iX;
+}
+
+int GameItem::getYPosition() const
+{
+    return m_iY;
+}
+
+int GameItem::getZPosition() const
+{
+    return m_iZ;
 }

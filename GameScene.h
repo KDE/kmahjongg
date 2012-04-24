@@ -80,6 +80,14 @@ public:
      * @return The background path. */
     QString getBackgroundPath() const;
 
+    /**
+     * Override the function from QGraphicsScene. */
+    void addItem(GameItem *pGameItem);
+
+    /**
+     * Get the actual GameData object. */
+    GameData * getGameData();
+
 public slots:
     /**
      * Sets the tileset path for all GameWidgets, that are connected to this GameScene object and
@@ -115,6 +123,16 @@ signals:
     /**
      * A new game scene was created */
     void newGameSceneCreated();
+
+    /**
+     * New item was added to the scene.
+     *
+     * @param pItem The graphics added, that was added to the scene. */
+    void itemAdded(GameItem *pGameItem);
+
+    /**
+     * All items are added to the board layout. */
+    void itemsAddedFromBoardLayout();
 
 private:
     /**
