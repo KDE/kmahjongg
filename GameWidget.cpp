@@ -91,12 +91,16 @@ void GameWidget::itemAddedToScene(GameItem *pGameItem)
 
     QPixmap selPix;
     QPixmap unselPix;
+    QPixmap facePix;
 
+    facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
+        pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
     selPix = m_pTiles->selectedTile(SW);
     unselPix = m_pTiles->unselectedTile(SW);
 
     // Set the background pictures to the item.
     pGameItem->setAngle(SW, &selPix, &unselPix);
+    pGameItem->setFace(&facePix);
 }
 
 bool GameWidget::setTilesetPath(QString const &rTilesetPath)
@@ -178,12 +182,16 @@ void GameWidget::updateItemImages()
 
         QPixmap selPix;
         QPixmap unselPix;
+        QPixmap facePix;
 
+        facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
+            pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
         selPix = m_pTiles->selectedTile(SW);
         unselPix = m_pTiles->unselectedTile(SW);
 
         // Set the background pictures to the item.
         pGameItem->setAngle(SW, &selPix, &unselPix);
+        pGameItem->setFace(&facePix);
     }
 
     itemsAddedToScene();

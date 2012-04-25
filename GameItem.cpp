@@ -93,6 +93,7 @@ void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem *, QWidg
 void GameItem::setFace(QPixmap *pFacePix)
 {
     *m_pFacePix = *pFacePix;
+    updateFaceOffset();
 }
 
 void GameItem::fadeOut()
