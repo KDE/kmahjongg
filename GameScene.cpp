@@ -177,7 +177,7 @@ void GameScene::addItemsFromBoardLayout()
 
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
-        for (int iY = 0; iY < m_pGameData->m_height; iY++) {
+        for (int iY = m_pGameData->m_height - 1; iY >= 0; iY--) {
             for (int iX = m_pGameData->m_width - 1; iX >= 0; iX--) {
 
                 // Skip if no tile should be displayed on this position.
