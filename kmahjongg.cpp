@@ -130,7 +130,6 @@ KMahjongg::~KMahjongg()
 {
     delete m_pGameWidget;
     delete m_pGameScene;
-    delete m_pGameData;
     delete boardEditor;
 }
 

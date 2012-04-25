@@ -37,7 +37,6 @@ class KGameClock;
 class Editor;
 class GameWidget;
 class GameScene;
-class GameData;
 
 /**
  * @short  Class Description
@@ -149,7 +148,6 @@ private:
 
     GameWidget *m_pGameWidget;
     GameScene *m_pGameScene;
-    GameData *m_pGameData;
 
     Editor *boardEditor;
 
