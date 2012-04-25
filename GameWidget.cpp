@@ -65,6 +65,7 @@ void GameWidget::itemsAddedToScene()
 
         int iX = pGameItem->getXPosition() - 1;
         int iY = pGameItem->getYPosition() - 1;
+        int iZ = pGameItem->getZPosition();
 
         int iTileWidth = m_pTiles->qWidth();
         int iTileHeight = m_pTiles->qHeight();
@@ -79,7 +80,8 @@ void GameWidget::itemsAddedToScene()
         kDebug() << "width: " << iTileWidth;
         kDebug() << "rest: " << ((iTileWidth * 2) * m_pGameData->m_width);
 
-        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame, iTileHeight / 2 * iY + iYFrame);
+        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * (m_pTiles->levelOffsetX() / 2),
+            iTileHeight / 2 * iY + iYFrame + iZ * (m_pTiles->levelOffsetY() / 2));
     }
 }
 
