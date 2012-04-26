@@ -14,11 +14,12 @@
 
 #include "GameItem.h"
 
-#include <kdebug.h>
+#include <KDebug>
 
 #include <QPixmap>
 #include <QPainter>
 #include <QTimer>
+#include <QGraphicsSceneMouseEvent>
 
 
 GameItem::GameItem(bool selected, QGraphicsItem *pItem)
@@ -35,7 +36,7 @@ GameItem::GameItem(bool selected, QGraphicsItem *pItem)
     setSelected(selected);
     setOpacity(1.0);
 
-    kDebug() << "Create a new GameItem instance.";
+    setFlags(QGraphicsItem::ItemIsSelectable);
 }
 
 GameItem::~GameItem()
@@ -132,7 +133,7 @@ void GameItem::fadeIn()
 QRectF GameItem::boundingRect() const
 {
     if (m_pSelPix) {
-        return m_pSelPix->rect();
+        return QRectF(pos(), m_pSelPix->size());
     } else {
         return QRectF(0, 0, 0, 0);
     }
