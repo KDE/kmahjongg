@@ -151,7 +151,7 @@ void GameWidget::resizeEvent(QResizeEvent *pEvent)
     resizeTileset(pEvent->size());
     m_pBackground->sizeChanged(m_pGameData->m_width / 2, m_pGameData->m_height / 2);
 
-    setSceneRect(0, 0, width() - 50, height() - 50);
+    setSceneRect(0, 0, width(), height());
 }
 
 void GameWidget::resizeTileset(QSize const &rSize)
