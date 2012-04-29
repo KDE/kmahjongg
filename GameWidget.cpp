@@ -32,6 +32,9 @@ GameWidget::GameWidget(GameScene *pGameScene, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
     m_pGameData(0)
 {
+    setFocusPolicy(Qt::NoFocus);
+    setStyleSheet( "QGraphicsView { border-style: none; }" );
+
     m_angle = (TileViewAngle) Prefs::angle();
 
     // Create tiles...
@@ -76,10 +79,6 @@ void GameWidget::itemsAddedToScene()
         int iXFrame = (width() / 2 - iTilesWidth) / 2;
         int iYFrame = (height() / 2 - iTilesHeight) / 2;
 
-        kDebug() << "iXFrame: " << iXFrame;
-        kDebug() << "width: " << iTileWidth;
-        kDebug() << "rest: " << ((iTileWidth * 2) * m_pGameData->m_width);
-
         pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * (m_pTiles->levelOffsetX() / 2),
             iTileHeight / 2 * iY + iYFrame + iZ * (m_pTiles->levelOffsetY() / 2));
     }
@@ -87,8 +86,6 @@ void GameWidget::itemsAddedToScene()
 
 void GameWidget::itemAddedToScene(GameItem *pGameItem)
 {
-    kDebug() << "Added to scene";
-
     QPixmap selPix;
     QPixmap unselPix;
     QPixmap facePix;
@@ -154,7 +151,7 @@ void GameWidget::resizeEvent(QResizeEvent *pEvent)
     resizeTileset(pEvent->size());
     m_pBackground->sizeChanged(m_pGameData->m_width / 2, m_pGameData->m_height / 2);
 
-    setSceneRect(0, 0, width(), height());
+    setSceneRect(0, 0, width() - 50, height() - 50);
 }
 
 void GameWidget::resizeTileset(QSize const &rSize)
@@ -173,8 +170,6 @@ void GameWidget::resizeTileset(QSize const &rSize)
 
 void GameWidget::updateItemImages()
 {
-    kDebug() << "Update";
-
     QList<QGraphicsItem *> tmpItems = items();
 
     for (int iI = 0; iI < tmpItems.size(); iI++) {
