@@ -14,8 +14,8 @@
 
 #include "GameScene.h"
 #include "GameData.h"
+#include "GameView.h"
 #include "GameItem.h"
-#include "GameWidget.h"
 #include "kmahjongglayout.h"
 
 #include <KRandom>
@@ -57,8 +57,8 @@ bool GameScene::setBoardLayoutPath(QString const &rBoardLayoutPath)
     QList<QGraphicsView *> tmpViews = views();
 
     for (int iI = 0; iI < tmpViews.size(); iI++) {
-        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
-        pGameWidget->setGameData(m_pGameData);
+        GameView *pGameView = dynamic_cast<GameView *>(tmpViews.at(iI));
+        pGameView->setGameData(m_pGameData);
     }
 
     // New game data object so set, so delete the old one.
@@ -77,9 +77,9 @@ bool GameScene::setTilesetPath(QString const &rTilesetPath)
     QList<QGraphicsView *> tmpViews = views();
 
     for (int iI = 0; iI < tmpViews.size(); iI++) {
-        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
+        GameView *pGameView = dynamic_cast<GameView *>(tmpViews.at(iI));
 
-        if (!pGameWidget->setTilesetPath(rTilesetPath)) {
+        if (!pGameView->setTilesetPath(rTilesetPath)) {
             return false;
         }
     }
@@ -92,9 +92,9 @@ bool GameScene::setBackgroundPath(QString const &rBackgroundPath)
     QList<QGraphicsView *> tmpViews = views();
 
     for (int iI = 0; iI < tmpViews.size(); iI++) {
-        GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
+        GameView *pGameView = dynamic_cast<GameView *>(tmpViews.at(iI));
 
-        if (!pGameWidget->setBackgroundPath(rBackgroundPath)) {
+        if (!pGameView->setBackgroundPath(rBackgroundPath)) {
             return false;
         }
     }

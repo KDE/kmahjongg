@@ -30,7 +30,7 @@
 #include <QPainter>
 
 #include "kmahjongglayout.h"
-#include "GameWidget.h"
+#include "GameView.h"
 #include "GameScene.h"
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
@@ -38,8 +38,8 @@ KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkelet
 {
     setupUi(this);
     m_pGameScene = new GameScene();
-    m_pGameWidget = new GameWidget(m_pGameScene, layoutPreview);
-    m_pGameWidget->resize(layoutPreview->size());
+    m_pGameView = new GameView(m_pGameScene, layoutPreview);
+    m_pGameView->resize(layoutPreview->size());
     setupData(aconfig);
 }
 

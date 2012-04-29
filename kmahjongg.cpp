@@ -23,7 +23,7 @@
 #include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
 #include "Editor.h"
-#include "GameWidget.h"
+#include "GameView.h"
 #include "GameScene.h"
 #include "GameData.h"
 
@@ -94,9 +94,9 @@ KMahjongg::KMahjongg(QWidget *parent)
 //    bw = new BoardWidget(this);
 //    setCentralWidget(bw);
     m_pGameScene = new GameScene();
-    m_pGameWidget = new GameWidget(m_pGameScene, this);
+    m_pGameView = new GameView(m_pGameScene, this);
 
-    setCentralWidget(m_pGameWidget);
+    setCentralWidget(m_pGameView);
 
     // Initialize boardEditor
     boardEditor = new Editor();
@@ -128,7 +128,7 @@ KMahjongg::KMahjongg(QWidget *parent)
 
 KMahjongg::~KMahjongg()
 {
-    delete m_pGameWidget;
+    delete m_pGameView;
     delete m_pGameScene;
     delete boardEditor;
 }
@@ -221,8 +221,8 @@ void KMahjongg::setDisplayedWidth()
 {
 //    bw->setDisplayedWidth();
 //    bw->drawBoard();
-//    m_pGameWidget->setDisplayedWidth();
-    //~ m_pGameWidget->updateWidget(true);
+//    m_pGameView->setDisplayedWidth();
+    //~ m_pGameView->updateWidget(true);
 }
 
 void KMahjongg::startNewNumeric()
@@ -544,9 +544,9 @@ void KMahjongg::loadGame()
     QString theBackgroundName;
     QString theBoardLayoutName;
     in >> theTilesName;
-    m_pGameWidget->setTilesetPath(theTilesName);
+    m_pGameView->setTilesetPath(theTilesName);
     in >> theBackgroundName;
-    m_pGameWidget->setBackgroundPath(theBackgroundName);
+    m_pGameView->setBackgroundPath(theBackgroundName);
     in >> theBoardLayoutName;
 
     //GameTime

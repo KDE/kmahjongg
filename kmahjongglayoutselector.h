@@ -28,7 +28,7 @@
 #include "ui_gametype.h"
 
 
-class GameWidget;
+class GameView;
 class GameScene;
 class KMahjonggLayout;
 class BoardWidget;
@@ -48,7 +48,7 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
   private:
     BoardWidget * bw;
     GameScene *m_pGameScene;
-    GameWidget *m_pGameWidget;
+    GameView *m_pGameView;
 };
 
 #endif

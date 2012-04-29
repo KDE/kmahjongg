@@ -35,7 +35,7 @@ class KToggleAction;
 class QLabel;
 class KGameClock;
 class Editor;
-class GameWidget;
+class GameView;
 class GameScene;
 
 /**
@@ -146,7 +146,7 @@ private:
     bool bDemoModeActive;
     bool mFinished;
 
-    GameWidget *m_pGameWidget;
+    GameView *m_pGameView;
     GameScene *m_pGameScene;
 
     Editor *boardEditor;
