@@ -35,8 +35,6 @@ GameItem::GameItem(bool selected, QGraphicsItem *pItem)
 {
     setSelected(selected);
     setOpacity(1.0);
-
-    setFlags(QGraphicsItem::ItemIsSelectable);
 }
 
 GameItem::~GameItem()
@@ -55,6 +53,12 @@ void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPi
     *m_pUnselPix = *pUnselPix;
 
     updateFaceOffset();
+}
+
+void GameItem::mousePressEvent(QGraphicsSceneMouseEvent *pEvent)
+{
+    QGraphicsItem::mousePressEvent(pEvent);
+    pEvent->accept();
 }
 
 void GameItem::updateFaceOffset()

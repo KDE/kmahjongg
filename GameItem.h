@@ -87,6 +87,10 @@ public:
     virtual QRectF boundingRect() const;
 
     /**
+     * Override the mousePressEvent method of QGraphicsItem. */
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *pEvent);
+
+    /**
      * Returns the rect of the item.
      *
      * @return The rect of the item. */
