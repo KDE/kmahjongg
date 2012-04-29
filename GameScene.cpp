@@ -46,10 +46,11 @@ bool GameScene::setBoardLayoutPath(QString const &rBoardLayoutPath)
 {
     *m_pBoardLayoutPath = rBoardLayoutPath;
 
+    // Load the new set board layout.
     loadBoardLayoutFromPath();
 
     // We need to create a new GameData object.
-    delete m_pGameData;
+    GameData *pOldGameData = m_pGameData;
     m_pGameData = new GameData(m_pBoardLayout->board());
 
     // Give the new GameData object to every widget.
@@ -59,6 +60,9 @@ bool GameScene::setBoardLayoutPath(QString const &rBoardLayoutPath)
         GameWidget *pGameWidget = dynamic_cast<GameWidget *>(tmpViews.at(iI));
         pGameWidget->setGameData(m_pGameData);
     }
+
+    // New game data object so set, so delete the old one.
+    delete pOldGameData;
 
     return true;
 }
@@ -114,14 +118,7 @@ bool GameScene::loadBoardLayoutFromPath()
 
 void GameScene::removeItems()
 {
-    // Delete all items in GameScene.
-    QList<QGraphicsItem *> tmpItems = items();
-
-    while (!tmpItems.isEmpty()) {
-        QGraphicsItem *pItem = tmpItems.takeFirst();
-        removeItem(pItem);
-        delete pItem;
-    }
+    clear();
 }
 
 GameData * GameScene::setGameData(GameData *pGameData)

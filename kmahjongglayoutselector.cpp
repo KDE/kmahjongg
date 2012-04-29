@@ -38,9 +38,7 @@ KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkelet
 {
     setupUi(this);
     m_pGameScene = new GameScene();
-    m_pGameWidget = new GameWidget(m_pGameScene);
-    //~ bw = new BoardWidget( layoutPreview );
-    //~ bw->resize(layoutPreview->size());
+    m_pGameWidget = new GameWidget(m_pGameScene, layoutPreview);
     m_pGameWidget->resize(layoutPreview->size());
     setupData(aconfig);
 }
@@ -106,19 +104,15 @@ void KMahjonggLayoutSelector::layoutChanged()
 
     //If settings for tiles/background have been applied, update our preview
     if (m_pGameScene->getTilesetPath() != Prefs::tileSet())
-      //~ bw->loadTileset(Prefs::tileSet());
       m_pGameScene->setTilesetPath(Prefs::tileSet());
     if (m_pGameScene->getBackgroundPath() != Prefs::background())
-      //~ bw->loadBackground(Prefs::background());
       m_pGameScene->setBackgroundPath(Prefs::background());
 
     //Now load the boardLayout temporarily
-    //~ bw->loadBoardLayout(selLayout->path());
-    //~ bw->calculateNewGame();
     m_pGameScene->setBoardLayoutPath(selLayout->path());
     m_pGameScene->createNewGameScene();
 
-   /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
+    /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
     selTileset->reloadTileset(tilesize);
     //Draw the preview
@@ -130,7 +124,7 @@ void KMahjonggLayoutSelector::layoutChanged()
     //Draw unselected tile and first tileface
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
     p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
-    tilesetPreview->setPixmap(QPixmap::fromImage(qiRend));*/
+    tilesetPreview->setPixmap(QPixmap::fromImage(qiRend)); */
 }
 
 void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active) {
