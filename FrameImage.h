@@ -18,8 +18,9 @@
 #ifndef FRAMEIMAGE_H
 #define FRAMEIMAGE_H
 
+#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
+#include <libkdegamesprivate/kgamecanvas.h>
 
-#include "kgamecanvas.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
 #include "BoardLayout.h"

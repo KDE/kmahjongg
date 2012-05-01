@@ -26,7 +26,7 @@ kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 kde4_add_app_icon(kmahjongg_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kmahjongg.png")
 kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames kmahjongglib )
+target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames kdegamesprivate kmahjongglib )
 
 install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

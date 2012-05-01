@@ -31,7 +31,9 @@
 #include <QPoint>
 
 #include <qevent.h>
-#include <kgamecanvas.h>
+
+#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
+#include <libkdegamesprivate/kgamecanvas.h>
 
 #include <ktoolbar.h>
 #include <kstatusbar.h>
