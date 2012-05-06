@@ -30,33 +30,118 @@
 
 GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
-    m_pGameData(0)
+    m_pGameData(0),
+    m_pBoardLayoutPath(new QString()),
+    m_pBackgroundPath(new QString()),
+    m_pTilesetPath(new QString()),
+    m_pBoardLayout(new KMahjonggLayout()),
+    m_pBackground(new KMahjonggBackground()),
+    m_pTiles(new KMahjonggTileset())
 {
     setFocusPolicy(Qt::NoFocus);
     setStyleSheet( "QGraphicsView { border-style: none; }" );
 
     m_angle = (TileViewAngle) Prefs::angle();
-
-    // Create tiles...
-    m_pTiles = new KMahjonggTileset();
-
-    // Load background
-    m_pBackground = new KMahjonggBackground();
-
-    //~ updateWidget(true);
-
-    // Try to get the GameData object from the scene.
-    m_pGameData = pGameScene->getGameData();
-
-    // Connect to the scene...
-    connect(pGameScene, SIGNAL(itemAdded(GameItem *)), this, SLOT(itemAddedToScene(GameItem *)));
-    connect(pGameScene, SIGNAL(itemsAddedFromBoardLayout()), this, SLOT(itemsAddedToScene()));
 }
 
 GameView::~GameView()
 {
     delete m_pBackground;
     delete m_pTiles;
+    delete m_pGameData;
+}
+
+void GameView::createNewGame(int iGameNumber)
+{
+    kDebug() << "Create new game with game number: " << iGameNumber;
+
+    // Create a random game number, if no one was given.
+    if (iGameNumber == -1) {
+        m_lGameNumber = KRandom::random();
+    } else {
+        m_lGameNumber = iGameNumber;
+    }
+
+    m_pGameData->random.setSeed(m_lGameNumber);
+
+    // Translate m_pGameData->Map to an array of POSITION data.  We only need to
+    // do this once for each new game.
+    m_pGameData->generateTilePositions();
+
+    // Now use the tile position data to generate tile dependency data.
+    // We only need to do this once for each new game.
+    m_pGameData->generatePositionDepends();
+
+    // TODO: This is really bad... the generatedStartPosition2-function should never fail!!!!
+    // Now try to position tiles on the board, 64 tries max.
+    for (short sNr = 0; sNr < 64; sNr++) {
+        if (m_pGameData->generateStartPosition2()) {
+            // No cheats are used until now.
+            m_iCheatsUsed = 0;
+            addItemsFromBoardLayout();
+
+            return;
+        }
+    }
+}
+
+void GameView::addItemsFromBoardLayout()
+{
+    // Remove all existing items.
+    scene()->clear();
+
+    // Create the items and add them to the scene.
+    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
+        for (int iY = m_pGameData->m_height - 1; iY >= 0; iY--) {
+            for (int iX = m_pGameData->m_width - 1; iX >= 0; iX--) {
+
+                // Skip if no tile should be displayed on this position.
+                if (!m_pGameData->tilePresent(iZ, iY, iX)) {
+                    continue;
+                }
+
+                bool bSelected = false;
+
+                if (m_pGameData->HighlightData(iZ, iY, iX)) {
+                    bSelected = true;
+                }
+
+                GameItem *item = new GameItem(bSelected);
+                item->setPosition(iX, iY, iZ);
+                scene()->addItem(item);
+                updateItemPictures(item);
+
+                // We need to decide whether the item is selectable or not.
+
+                // If another item overlay this item, continue.
+                if (m_pGameData->tilePresent(iZ + 1, iY - 1, iX - 1) ||
+                    m_pGameData->tilePresent(iZ + 1, iY - 1, iX) ||
+                    m_pGameData->tilePresent(iZ + 1, iY - 1, iX + 1) ||
+                    m_pGameData->tilePresent(iZ + 1, iY, iX - 1) ||
+                    m_pGameData->tilePresent(iZ + 1, iY, iX) ||
+                    m_pGameData->tilePresent(iZ + 1, iY, iX + 1) ||
+                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX - 1) ||
+                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX) ||
+                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX + 1)) {
+                    continue;
+                }
+
+                // Find items beside this one.
+                if ((m_pGameData->tilePresent(iZ, iY, iX - 2) ||
+                     m_pGameData->tilePresent(iZ, iY - 1, iX - 2) ||
+                     m_pGameData->tilePresent(iZ, iY + 1, iX - 2)) &&
+                    (m_pGameData->tilePresent(iZ, iY, iX + 2) ||
+                     m_pGameData->tilePresent(iZ, iY - 1, iX + 2) ||
+                     m_pGameData->tilePresent(iZ, iY + 1, iX + 2))) {
+                    continue;
+                }
+
+                item->setFlag(QGraphicsItem::ItemIsSelectable);
+            }
+        }
+    }
+
+    itemsAddedToScene();
 }
 
 void GameView::itemsAddedToScene()
@@ -84,7 +169,7 @@ void GameView::itemsAddedToScene()
     }
 }
 
-void GameView::itemAddedToScene(GameItem *pGameItem)
+void GameView::updateItemPictures(GameItem *pGameItem)
 {
     QPixmap selPix;
     QPixmap unselPix;
@@ -100,8 +185,42 @@ void GameView::itemAddedToScene(GameItem *pGameItem)
     pGameItem->setFace(&facePix);
 }
 
+bool GameView::loadBoardLayoutFromPath()
+{
+    if (m_pBoardLayout->load(*m_pBoardLayoutPath)) {
+        return true;
+    } else {
+        if (m_pBoardLayout->loadDefault()) {
+            return false;
+        } else {
+            return false;
+        }
+    }
+}
+
+bool GameView::setBoardLayoutPath(QString const &rBoardLayoutPath)
+{
+    *m_pBoardLayoutPath = rBoardLayoutPath;
+
+    kDebug() << *m_pBoardLayoutPath;
+
+    // Load the new set board layout.
+    loadBoardLayoutFromPath();
+
+    // We need to create a new GameData object.
+    GameData *pOldGameData = m_pGameData;
+    m_pGameData = new GameData(m_pBoardLayout->board());
+
+    // New game data object so set, so delete the old one.
+    delete pOldGameData;
+
+    return true;
+}
+
 bool GameView::setTilesetPath(QString const &rTilesetPath)
 {
+    *m_pTilesetPath = rTilesetPath;
+
     if (m_pTiles->loadTileset(rTilesetPath)) {
         if (m_pTiles->loadGraphics()) {
             resizeTileset(size());
@@ -122,6 +241,8 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
 
 bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 {
+    *m_pBackgroundPath = rBackgroundPath;
+
     if (m_pBackground->load(rBackgroundPath, width(), height())) {
         if (m_pBackground->loadGraphics()) {
             // Update the new background.
@@ -140,6 +261,57 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
     }
 
     return false;
+}
+
+void GameView::setAngle(TileViewAngle angle)
+{
+    m_angle = angle;
+    updateItemImages();
+}
+
+TileViewAngle GameView::getAngle() const
+{
+    return m_angle;
+}
+
+void GameView::angleSwitchCCW()
+{
+    switch (m_angle) {
+    case SW:
+        m_angle = NW;
+        break;
+    case NW:
+        m_angle = NE;
+        break;
+    case NE:
+        m_angle = SE;
+        break;
+    case SE:
+        m_angle = SW;
+        break;
+    }
+
+    updateItemImages();
+}
+
+void GameView::angleSwitchCW()
+{
+    switch (m_angle) {
+    case SW:
+        m_angle = SE;
+        break;
+    case SE:
+        m_angle = NE;
+        break;
+    case NE:
+        m_angle = NW;
+        break;
+    case NW:
+        m_angle = SW;
+        break;
+    }
+
+    updateItemImages();
 }
 
 void GameView::resizeEvent(QResizeEvent *pEvent)
@@ -181,15 +353,18 @@ void GameView::updateItemImages()
 
         facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
             pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
-        selPix = m_pTiles->selectedTile(SW);
-        unselPix = m_pTiles->unselectedTile(SW);
+        selPix = m_pTiles->selectedTile(m_angle);
+        unselPix = m_pTiles->unselectedTile(m_angle);
 
         // Set the background pictures to the item.
-        pGameItem->setAngle(SW, &selPix, &unselPix);
+        pGameItem->setAngle(m_angle, &selPix, &unselPix);
         pGameItem->setFace(&facePix);
     }
 
     itemsAddedToScene();
+
+    // Repaint the view.
+    update();
 }
 
 void GameView::setStatusText(QString const &rText)
@@ -213,4 +388,19 @@ void GameView::setGameData(GameData *pGameData)
 GameData * GameView::getGameData()
 {
     return m_pGameData;
+}
+
+QString GameView::getTilesetPath()
+{
+    return *m_pTilesetPath;
+}
+
+QString GameView::getBackgroundPath()
+{
+    return *m_pBackgroundPath;
+}
+
+QString GameView::getBoardLayoutPath()
+{
+    return *m_pBoardLayoutPath;
 }

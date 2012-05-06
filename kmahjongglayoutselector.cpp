@@ -103,14 +103,14 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutDescription->setText(selLayout->authorProperty(descstr));
 
     //If settings for tiles/background have been applied, update our preview
-    if (m_pGameScene->getTilesetPath() != Prefs::tileSet())
-      m_pGameScene->setTilesetPath(Prefs::tileSet());
-    if (m_pGameScene->getBackgroundPath() != Prefs::background())
-      m_pGameScene->setBackgroundPath(Prefs::background());
+    if (m_pGameView->getTilesetPath() != Prefs::tileSet())
+      m_pGameView->setTilesetPath(Prefs::tileSet());
+    if (m_pGameView->getBackgroundPath() != Prefs::background())
+      m_pGameView->setBackgroundPath(Prefs::background());
 
     //Now load the boardLayout temporarily
-    m_pGameScene->setBoardLayoutPath(selLayout->path());
-    m_pGameScene->createNewGameScene();
+    m_pGameView->setBoardLayoutPath(selLayout->path());
+    m_pGameView->createNewGame();
 
     /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
     QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);

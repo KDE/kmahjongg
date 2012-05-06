@@ -157,13 +157,13 @@ void KMahjongg::setupKAction()
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(KIcon(QLatin1String("object-rotate-left")));
     angleccw->setShortcuts(KShortcut("f"));
-//    connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
+    connect(angleccw, SIGNAL(triggered(bool)), m_pGameView, SLOT(angleSwitchCCW()));
 
     KAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(KIcon(QLatin1String("object-rotate-right")));
     anglecw->setShortcuts(KShortcut("g"));
-//    connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
+    connect(anglecw, SIGNAL(triggered(bool)), m_pGameView, SLOT(angleSwitchCW()));
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
@@ -277,11 +277,11 @@ void KMahjongg::showSettings()
 
 void KMahjongg::loadSettings()
 {
-    m_pGameScene->setTilesetPath(Prefs::tileSet());
-    m_pGameScene->setBackgroundPath(Prefs::background());
+    m_pGameView->setTilesetPath(Prefs::tileSet());
+    m_pGameView->setBackgroundPath(Prefs::background());
 
     // Load layout
-    if (!m_pGameScene->setBoardLayoutPath(Prefs::layout())) {
+    if (!m_pGameView->setBoardLayoutPath(Prefs::layout())) {
         kDebug() << "An error occurred when loading the board layout" << Prefs::layout() << "KMah"
             "jongg will continue with the default board layout.";
     }
@@ -336,7 +336,7 @@ void KMahjongg::newGame()
 void KMahjongg::startNewGame(int item)
 {
     if (!bDemoModeActive) {
-        m_pGameScene->createNewGameScene(item);
+        m_pGameView->createNewGame(item);
 
         // initialise button states
 //        bw->Game->allow_redo = bw->Game->allow_undo = 0;
@@ -473,7 +473,7 @@ void KMahjongg::demoModeChanged(bool bActive)
 void KMahjongg::restartGame()
 {
     if (!bDemoModeActive) {
-        m_pGameScene->createNewGameScene(43/* bw->getGameNum() */);
+        m_pGameView->createNewGame(43/* bw->getGameNum() */);
 
         // initialise button states
 //        bw->Game->allow_redo = bw->Game->allow_undo = 0;
@@ -555,7 +555,7 @@ void KMahjongg::loadGame()
     gameTimer->setTime(seconds);
 
 //    delete bw->Game;
-    m_pGameScene->setBoardLayoutPath(theBoardLayoutName);
+    m_pGameView->setBoardLayoutPath(theBoardLayoutName);
 //    bw->Game = new GameData(bw->theBoardLayout.board());
 //    bw->Game->loadFromStream(in);
 

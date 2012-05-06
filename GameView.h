@@ -72,13 +72,34 @@ public:
     void setGameData(GameData *pGameData);
     GameData * getGameData();
 
+    /**
+     * Set the angle of the view.
+     *
+     * @param angle The angle of to set up. */
+    void setAngle(TileViewAngle angle);
+
+    /**
+     * Get the angle of the view.
+     *
+     * @return The angle of the view. */
+    TileViewAngle getAngle() const;
+
 public slots:
+    /**
+     * Switch the view angle to the next right around. */
+    void angleSwitchCCW();
+
+    /**
+     * Switch the view angle to the next left around. */
+    void angleSwitchCW();
+
     /**
      * Sets the tileset path and tries to load it.
      *
      * @param rTilesetPath The path to the tileset.
      * @return True if setting and therfore loading success, else false. */
     bool setTilesetPath(QString const &rTilesetPath);
+    QString getTilesetPath();
 
     /**
      * Sets the background path and tries to load it.
@@ -86,6 +107,21 @@ public slots:
      * @param rBackgroundPath The path to the background.
      * @return True if setting and therfore loading success, else false. */
     bool setBackgroundPath(QString const &rBackgroundPath);
+    QString getBackgroundPath();
+
+    /**
+     * Set the board layout path and tries to load it.
+     *
+     * @param rBoardLayoutPath THe path to the board layout.
+     * @return True if loading success else false. */
+    bool setBoardLayoutPath(QString const &rBoardLayoutPath);
+    QString getBoardLayoutPath();
+
+    /**
+     * Create a new game.
+     *
+     * @param iGameNumber The game number to create or -1 for a random number. */
+    void createNewGame(int iGameNumber = -1);
 
     /**
      * Items where added to the scene and should now be layouted. */
@@ -103,31 +139,47 @@ signals:
      * @param lGameNumber The actual game number. */
     void statusTextChanged(const QString &rText, long lGameNumber);
 
-private slots:
-    /**
-     * Set data to the game item, that was added.
-     *
-     * @param pGameItem The GameItem object, that was added. */
-    void itemAddedToScene(GameItem *pGameItem);
-
 private:
     /**
      * Reloads the board and therefore create a new GameData object. */
     void loadBoard();
 
     /**
-     * Resize the tileset to the given size. */
+     * Resize the tileset to the given size.
+     *
+     * @param rSize The new size of the tileset. */
     void resizeTileset(QSize const &rSize);
 
     /**
      * Updates the background by creating a new QPalette object. */
     void updateBackground();
 
-    int cheatsUsed;
+    /**
+     * Add all the items from the board layout to the scene object. */
+    void addItemsFromBoardLayout();
+
+    /**
+     * Loads the board layout from the given path.
+     *
+     * @return True if loading success, else false. */
+    bool loadBoardLayoutFromPath();
+
+    /**
+     * Updates the pictures of the given item.
+     *
+     * @param pGameItem The item to update. */
+    void updateItemPictures(GameItem *pGameItem);
+
+
+    int m_iCheatsUsed;
     long m_lGameNumber;
     bool m_bGamePaused;
 
     GameData *m_pGameData;
+
+    QString *m_pBoardLayoutPath;
+    QString *m_pTilesetPath;
+    QString *m_pBackgroundPath;
 
     KMahjonggLayout *m_pBoardLayout;
     KMahjonggTileset *m_pTiles;
