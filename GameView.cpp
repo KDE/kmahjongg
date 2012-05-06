@@ -148,6 +148,10 @@ void GameView::itemsAddedToScene()
 {
     QList<QGraphicsItem *> tmpItems = items();
 
+
+    int iAngleXFactor = (m_angle == NE || m_angle == SE) ? -1 : 1;
+    int iAngleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
+
     for (int iI = 0; iI < tmpItems.size(); iI++) {
         GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
 
@@ -164,8 +168,9 @@ void GameView::itemsAddedToScene()
         int iXFrame = (width() / 2 - iTilesWidth) / 2;
         int iYFrame = (height() / 2 - iTilesHeight) / 2;
 
-        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * (m_pTiles->levelOffsetX() / 2),
-            iTileHeight / 2 * iY + iYFrame + iZ * (m_pTiles->levelOffsetY() / 2));
+        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * iAngleXFactor *
+            (m_pTiles->levelOffsetX() / 2), iTileHeight / 2 * iY + iYFrame + iZ * iAngleYFactor *
+            (m_pTiles->levelOffsetY() / 2));
     }
 }
 
