@@ -27,8 +27,54 @@
 GameScene::GameScene(GameData *pGameData, QObject *pParent)
     : QGraphicsScene(pParent)
 {
+    initializeGameItemsArray();
 }
 
 GameScene::~GameScene()
 {
+}
+
+void GameScene::clear()
+{
+    QGraphicsScene::clear();
+    initializeGameItemsArray();
+}
+
+void GameScene::initializeGameItemsArray()
+{
+    // initialize all array pointers with NULL.
+    for (int i = 0; i < BOARD_WIDTH; i++) {
+        for (int j = 0; j < BOARD_HEIGHT; j++) {
+            for (int k = 0; k < BOARD_DEPH; k++) {
+                m_pGameItemsArray[i][j][k] = NULL;
+            }
+        }
+    }
+}
+
+void GameScene::addItem(GameItem *pGameItem)
+{
+    QGraphicsScene::addItem(pGameItem);
+
+    // Build a connection to recognize wheather the position of the tile changes.
+//     connect(pGameItem, SINGAL(positionChanged(GameItem*)), this,
+//         SLOT(addItemToPositionArray(GameItem*)));
+
+    // Call the slot function for the first time.
+    addItemToPositionArray(pGameItem);
+}
+
+void GameScene::addItemToPositionArray(GameItem *pGameItem)
+{
+    // Take a look, if the place is already taken.
+    if (m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
+        [pGameItem->getZPosition()] == NULL) {
+        m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
+            [pGameItem->getZPosition()] = pGameItem;
+    }
+}
+
+GameItem * GameScene::getItemOnPosition(int &iX, int &iY, int &iZ)
+{
+    return m_pGameItemsArray[iX][iY][iZ];
 }

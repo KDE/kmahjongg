@@ -65,7 +65,11 @@ public:
 
     /**
      * Updates the images of the items. */
-    void updateItemImages();
+    void updateItemsImages();
+
+    /**
+     * Updates the order of the items. */
+    void updateItemsOrder();
 
     /**
      * Set and get the GameData object. */

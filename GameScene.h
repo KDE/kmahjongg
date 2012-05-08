@@ -17,6 +17,10 @@
 
 #include <QGraphicsScene>
 
+#define BOARD_WIDTH 32
+#define BOARD_HEIGHT 16
+#define BOARD_DEPH 5
+
 
 class GameItem;
 class GameData;
@@ -41,6 +45,37 @@ public:
     /**
      * Destructor */
     ~GameScene();
+
+    /**
+     * Return the GameItem on the given position.
+     *
+     * @param iX The x position of the item.
+     * @param iY The y position of the item.
+     * @param iZ The z position of the item.
+     *
+     * @return The GameItem object or null if no one was found. */
+    GameItem * getItemOnPosition(int &iX, int &iY, int &iZ);
+
+    /**
+     * Override from QGraphicsScene. */
+    void clear();
+
+    /**
+     * Override from QGraphicsScene. */
+    void addItem(GameItem *pGameItem);
+
+private:
+    /**
+     * Initialize the m_pGameItemsArray. */
+    void initializeGameItemsArray();
+
+    /**
+     * Adds an item to the positions array.
+     *
+     * @param pGameItem THe game item to add to array. */
+    void addItemToPositionArray(GameItem *pGameItem);
+
+    GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPH];
 };
 
 

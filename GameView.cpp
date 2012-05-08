@@ -87,8 +87,10 @@ void GameView::createNewGame(int iGameNumber)
 
 void GameView::addItemsFromBoardLayout()
 {
+    GameScene *pGameScene = dynamic_cast<GameScene *>(scene());
+
     // Remove all existing items.
-    scene()->clear();
+    pGameScene->clear();
 
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
@@ -108,7 +110,7 @@ void GameView::addItemsFromBoardLayout()
 
                 GameItem *item = new GameItem(bSelected);
                 item->setPosition(iX, iY, iZ);
-                scene()->addItem(item);
+                pGameScene->addItem(item);
                 updateItemPictures(item);
 
                 // We need to decide whether the item is selectable or not.
@@ -188,6 +190,79 @@ void GameView::updateItemPictures(GameItem *pGameItem)
     // Set the background pictures to the item.
     pGameItem->setAngle(SW, &selPix, &unselPix);
     pGameItem->setFace(&facePix);
+}
+
+void GameView::updateItemsOrder()
+{
+    int iZCount = 0;
+    int iXStart;
+    int iXEnd;
+    int iXCounter;
+    int iYStart;
+    int iYEnd;
+    int iYCounter;
+
+    switch (m_angle) {
+    case NW:
+        kDebug() << "NW";
+        iXStart = m_pGameData->m_width - 1;
+        iXEnd = 0;
+        iXCounter = -1;
+
+        iYStart = 0;
+        iYEnd = m_pGameData->m_height;
+        iYCounter = 1;
+        break;
+    case NE:
+        kDebug() << "NE";
+        iXStart = 0;
+        iXEnd = m_pGameData->m_width;
+        iXCounter = 1;
+
+        iYStart = 0;
+        iYEnd = m_pGameData->m_height;
+        iYCounter = 1;
+        break;
+    case SE:
+        kDebug() << "SE";
+        iXStart = 0;
+        iXEnd = m_pGameData->m_width;
+        iXCounter = 1;
+
+        iYStart = m_pGameData->m_height - 1;
+        iYEnd = -1;
+        iYCounter = -1;
+        break;
+    case SW:
+        kDebug() << "SW";
+        iXStart = m_pGameData->m_width - 1;
+        iXEnd = -1;
+        iXCounter = -1;
+
+        iYStart = m_pGameData->m_height - 1;
+        iYEnd = -1;
+        iYCounter = -1;
+        break;
+    }
+
+    GameScene *pGameScene = dynamic_cast<GameScene *>(scene());
+
+    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
+        for (int iY = iYStart; iY != iYEnd; iY = iY + iYCounter) {
+            for (int iX = iXStart; iX != iXEnd; iX = iX + iXCounter) {
+                GameItem *pGameItem = pGameScene->getItemOnPosition(iX, iY, iZ);
+
+                if (pGameItem == NULL) {
+                    continue;
+                }
+
+                pGameItem->setZValue(iZCount);
+                iZCount++;
+            }
+        }
+    }
+
+    itemsAddedToScene();
 }
 
 bool GameView::loadBoardLayoutFromPath()
@@ -271,7 +346,8 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 void GameView::setAngle(TileViewAngle angle)
 {
     m_angle = angle;
-    updateItemImages();
+    updateItemsImages();
+    updateItemsOrder();
 }
 
 TileViewAngle GameView::getAngle() const
@@ -296,7 +372,8 @@ void GameView::angleSwitchCCW()
         break;
     }
 
-    updateItemImages();
+    updateItemsImages();
+    updateItemsOrder();
 }
 
 void GameView::angleSwitchCW()
@@ -316,7 +393,8 @@ void GameView::angleSwitchCW()
         break;
     }
 
-    updateItemImages();
+    updateItemsImages();
+    updateItemsOrder();
 }
 
 void GameView::resizeEvent(QResizeEvent *pEvent)
@@ -342,10 +420,10 @@ void GameView::resizeTileset(QSize const &rSize)
 
     m_pTiles->reloadTileset(newtiles);
 
-    updateItemImages();
+    updateItemsImages();
 }
 
-void GameView::updateItemImages()
+void GameView::updateItemsImages()
 {
     QList<QGraphicsItem *> tmpItems = items();
 
