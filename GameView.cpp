@@ -143,7 +143,7 @@ void GameView::addItemsFromBoardLayout()
         }
     }
 
-    itemsAddedToScene();
+    updateItemsOrder();
 }
 
 void GameView::itemsAddedToScene()
