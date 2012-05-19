@@ -184,11 +184,11 @@ void GameView::updateItemPictures(GameItem *pGameItem)
 
     facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
         pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
-    selPix = m_pTiles->selectedTile(SW);
-    unselPix = m_pTiles->unselectedTile(SW);
+    selPix = m_pTiles->selectedTile(m_angle);
+    unselPix = m_pTiles->unselectedTile(m_angle);
 
     // Set the background pictures to the item.
-    pGameItem->setAngle(SW, &selPix, &unselPix);
+    pGameItem->setAngle(m_angle, &selPix, &unselPix);
     pGameItem->setFace(&facePix);
 }
 
