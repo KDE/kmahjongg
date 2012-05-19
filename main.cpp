@@ -28,12 +28,12 @@ static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 int main(int argc, char** argv)
 {
     KAboutData aboutData("kmahjongg", 0, ki18n("KMahjongg"), KMAHJONGG_VERSION, ki18n(description),
-        KAboutData::License_GPL, ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini"),
-        KLocalizedString(), "http://games.kde.org/kmahjongg");
+        KAboutData::License_GPL, ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
+        "c) 2011, Christian Krippendorf"), KLocalizedString(), "http://games.kde.org/kmahjongg");
     aboutData.addAuthor(ki18n("Mathias Mueller"), ki18n("Original Author"), "in5y158@public.uni-ham"
         "burg.de");
-    aboutData.addAuthor(ki18n("Mauricio Piacentini"), ki18n("Current maintainer"), "mauricio@tabule"
-        "iro.com");
+    aboutData.addAuthor(ki18n("Christian Krippendorf"), ki18n("Current maintainer"), "Coding@Christ"
+        "ian-Krippendorf.de");
     aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "aacid@kde.org");
     aboutData.addAuthor(ki18n("David Black"), ki18n("KDE 3 rewrite and Extension"), "david.black@lu"
         "tris.com");
