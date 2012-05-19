@@ -29,6 +29,8 @@ GameItem::GameItem(bool selected, QGraphicsItem *pItem)
     m_pSelPix(new QPixmap()),
     m_pUnselPix(new QPixmap()),
     m_pFacePix(new QPixmap()),
+    m_iShadowWidth(0),
+    m_iShadowHeight(0),
     m_iY(0),
     m_iZ(0),
     m_iX(0)
@@ -46,19 +48,46 @@ TileViewAngle GameItem::getAngle() const
     return m_angle;
 }
 
-void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix)
+void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix,
+    int iShadowWidth, int iShadowHeight)
 {
     m_angle = angle;
     *m_pSelPix = *pSelPix;
     *m_pUnselPix = *pUnselPix;
+
+    m_iShadowWidth = iShadowWidth;
+    m_iShadowHeight = iShadowHeight;
 
     updateFaceOffset();
 }
 
 void GameItem::mousePressEvent(QGraphicsSceneMouseEvent *pEvent)
 {
-    QGraphicsItem::mousePressEvent(pEvent);
-    pEvent->accept();
+    // If the mouse pressed on the shadow we won't accept the event and won't pass it.
+    if (!isShadow(pEvent->pos())) {
+        QGraphicsItem::mousePressEvent(pEvent);
+        pEvent->accept();
+    } else {
+        pEvent->ignore();
+    }
+}
+
+bool GameItem::isShadow(QPointF const position) const
+{
+    QPointF mappedPosition = mapFromParent(position);
+
+    int iAngleXFactor = (m_angle == NE || m_angle == SE) ? 1 : -1;
+    int iAngleYFactor = (m_angle == NW || m_angle == NE) ? 1 : -1;
+
+    int iNewPosX = mappedPosition.x() + iAngleXFactor * m_iShadowWidth;
+    int iNewPosY = mappedPosition.y() + iAngleYFactor * m_iShadowWidth;
+
+    if ((iNewPosX < 0 || iNewPosX > m_pSelPix->width()) ||
+        (iNewPosY < 0 || iNewPosY > m_pSelPix->height())) {
+        return true;
+    }
+
+    return false;
 }
 
 void GameItem::updateFaceOffset()

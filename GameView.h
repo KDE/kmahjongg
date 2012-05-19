@@ -168,12 +168,6 @@ private:
      * @return True if loading success, else false. */
     bool loadBoardLayoutFromPath();
 
-    /**
-     * Updates the pictures of the given item.
-     *
-     * @param pGameItem The item to update. */
-    void updateItemPictures(GameItem *pGameItem);
-
 
     int m_iCheatsUsed;
     long m_lGameNumber;

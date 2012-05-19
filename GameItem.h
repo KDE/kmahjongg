@@ -68,8 +68,11 @@ public:
      *
      * @param angle The angle of the item
      * @param pUnselPix The pixmap for a unselected item
-     * @param pSelPix The pixmap for a selected item */
-    void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix);
+     * @param pSelPix The pixmap for a selected item
+     * @param iShadowWidth The width of the shadow
+     * @param iShadowHeight The height of the shadow */
+    void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix, int iShadowWidth,
+        int iShadowHeight);
 
     /**
      * Set the face of the stone.
@@ -110,10 +113,16 @@ private:
      * Updates the angle offset. Cause of 3D items, a shift related to the angle exist. */
     void updateFaceOffset();
 
+    /**
+     * Test whether the point is on the shadow or not. */
+    bool isShadow(QPointF const position) const;
+
     bool m_dying;
     int m_iZ;
     int m_iX;
     int m_iY;
+    int m_iShadowWidth;
+    int m_iShadowHeight;
 
     TileViewAngle m_angle;
 

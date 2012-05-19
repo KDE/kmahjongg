@@ -111,7 +111,6 @@ void GameView::addItemsFromBoardLayout()
                 GameItem *item = new GameItem(bSelected);
                 item->setPosition(iX, iY, iZ);
                 pGameScene->addItem(item);
-                updateItemPictures(item);
 
                 // We need to decide whether the item is selectable or not.
 
@@ -143,6 +142,7 @@ void GameView::addItemsFromBoardLayout()
         }
     }
 
+    updateItemsImages();
     updateItemsOrder();
 }
 
@@ -174,22 +174,6 @@ void GameView::itemsAddedToScene()
             (m_pTiles->levelOffsetX() / 2), iTileHeight / 2 * iY + iYFrame + iZ * iAngleYFactor *
             (m_pTiles->levelOffsetY() / 2));
     }
-}
-
-void GameView::updateItemPictures(GameItem *pGameItem)
-{
-    QPixmap selPix;
-    QPixmap unselPix;
-    QPixmap facePix;
-
-    facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
-        pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
-    selPix = m_pTiles->selectedTile(m_angle);
-    unselPix = m_pTiles->unselectedTile(m_angle);
-
-    // Set the background pictures to the item.
-    pGameItem->setAngle(m_angle, &selPix, &unselPix);
-    pGameItem->setFace(&facePix);
 }
 
 void GameView::updateItemsOrder()
@@ -440,7 +424,10 @@ void GameView::updateItemsImages()
         unselPix = m_pTiles->unselectedTile(m_angle);
 
         // Set the background pictures to the item.
-        pGameItem->setAngle(m_angle, &selPix, &unselPix);
+        int iShadowWidth = selPix.width() - m_pTiles->levelOffsetX() - facePix.width();
+        int iShadowHeight = selPix.height() - m_pTiles->levelOffsetY() - facePix.height();
+
+        pGameItem->setAngle(m_angle, &selPix, &unselPix, iShadowWidth, iShadowHeight);
         pGameItem->setFace(&facePix);
     }
 
