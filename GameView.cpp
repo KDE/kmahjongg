@@ -165,8 +165,8 @@ void GameView::updateItemsPosition()
     int iTilesHeight = iTileHeight * (m_pGameData->m_height / 2);
 
     // The frame of the window to center the items in the view.
-    int iXFrame = (width() / 2 - iTilesWidth) / 2;
-    int iYFrame = (height() / 2 - iTilesHeight) / 2;
+    int iXFrame = (width() / 2 - iTilesWidth) / 2 + (m_pTiles->levelOffsetX());
+    int iYFrame = (height() / 2 - iTilesHeight) / 2 + (m_pTiles->levelOffsetY());
 
     for (int iI = 0; iI < tmpItems.size(); iI++) {
         GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
