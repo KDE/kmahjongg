@@ -146,7 +146,7 @@ void GameView::addItemsFromBoardLayout()
     updateItemsOrder();
 }
 
-void GameView::itemsAddedToScene()
+void GameView::updateItemsPosition()
 {
     QList<QGraphicsItem *> tmpItems = items();
 
@@ -246,7 +246,7 @@ void GameView::updateItemsOrder()
         }
     }
 
-    itemsAddedToScene();
+    updateItemsPosition();
 }
 
 bool GameView::loadBoardLayoutFromPath()
@@ -431,7 +431,7 @@ void GameView::updateItemsImages()
         pGameItem->setFace(&facePix);
     }
 
-    itemsAddedToScene();
+    updateItemsPosition();
 
     // Repaint the view.
     update();

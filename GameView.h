@@ -129,7 +129,7 @@ public slots:
 
     /**
      * Items where added to the scene and should now be layouted. */
-    void itemsAddedToScene();
+    void updateItemsPosition();
 
 signals:
     /**
