@@ -148,28 +148,35 @@ void GameView::addItemsFromBoardLayout()
 
 void GameView::updateItemsPosition()
 {
+    // Get all items, that actually exist on the view.
     QList<QGraphicsItem *> tmpItems = items();
 
-
+    // These factor are needed for the different angles. So we simply can calculate to move the
+    // items to the left or right (eg up or down).
     int iAngleXFactor = (m_angle == NE || m_angle == SE) ? -1 : 1;
     int iAngleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
+
+    // Get the item width and height.
+    int iTileWidth = m_pTiles->qWidth();
+    int iTileHeight = m_pTiles->qHeight();
+
+    // Get the items height and width.
+    int iTilesWidth = iTileWidth * (m_pGameData->m_width / 2);
+    int iTilesHeight = iTileHeight * (m_pGameData->m_height / 2);
+
+    // The frame of the window to center the items in the view.
+    int iXFrame = (width() / 2 - iTilesWidth) / 2;
+    int iYFrame = (height() / 2 - iTilesHeight) / 2;
 
     for (int iI = 0; iI < tmpItems.size(); iI++) {
         GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
 
+        // Get rasterized positions of the item.
         int iX = pGameItem->getXPosition() - 1;
         int iY = pGameItem->getYPosition() - 1;
         int iZ = pGameItem->getZPosition();
 
-        int iTileWidth = m_pTiles->qWidth();
-        int iTileHeight = m_pTiles->qHeight();
-
-        int iTilesWidth = iTileWidth * (m_pGameData->m_width / 2);
-        int iTilesHeight = iTileHeight * (m_pGameData->m_height / 2);
-
-        int iXFrame = (width() / 2 - iTilesWidth) / 2;
-        int iYFrame = (height() / 2 - iTilesHeight) / 2;
-
+        // Set the position of the item on the view.
         pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * iAngleXFactor *
             (m_pTiles->levelOffsetX() / 2), iTileHeight / 2 * iY + iYFrame + iZ * iAngleYFactor *
             (m_pTiles->levelOffsetY() / 2));
