@@ -53,7 +53,7 @@ GameView::~GameView()
 
 void GameView::createNewGame(int iGameNumber)
 {
-    kDebug() << "Create new game with game number: " << iGameNumber;
+    setStatusText(i18n("Calculating new game..."));
 
     // Create a random game number, if no one was given.
     if (iGameNumber == -1) {
@@ -80,9 +80,14 @@ void GameView::createNewGame(int iGameNumber)
             m_iCheatsUsed = 0;
             addItemsFromBoardLayout();
 
+            setStatusText(i18n("Ready. Now it is your turn."));
+
             return;
         }
     }
+
+    setVisible(!isVisible());
+    setStatusText(i18n("Error generating new game!"));
 }
 
 void GameView::addItemsFromBoardLayout()

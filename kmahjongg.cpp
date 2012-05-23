@@ -91,8 +91,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     setMinimumSize(320, 320);
 
     // init board widget
-//    bw = new BoardWidget(this);
-//    setCentralWidget(bw);
     m_pGameScene = new GameScene();
     m_pGameView = new GameView(m_pGameScene, this);
 
@@ -115,7 +113,8 @@ KMahjongg::KMahjongg(QWidget *parent)
     mFinished = false;
     bDemoModeActive = false;
 
-//    connect(bw, SIGNAL(statusTextChanged(QString, long)), SLOT(showStatusText(QString, long)));
+    connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
+        SLOT(showStatusText(QString, long)));
 //    connect(bw, SIGNAL(tileNumberChanged(int, int, int)), SLOT(showTileNumber(int, int, int)));
 //    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
 //    connect(bw, SIGNAL(gameOver(unsigned short, unsigned short)), this,
