@@ -310,7 +310,7 @@ void KMahjongg::pause()
 
     is_paused = !is_paused;
     demoModeChanged(false);
-//    bw->pause();
+    m_pGameView->setVisible(!m_pGameView->isVisible());
 }
 
 void KMahjongg::showHighscores()
