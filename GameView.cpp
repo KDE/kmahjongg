@@ -42,6 +42,9 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     setStyleSheet( "QGraphicsView { border-style: none; }" );
 
     m_angle = (TileViewAngle) Prefs::angle();
+
+    connect(scene(), SIGNAL(pairSelected(QGraphicsItem*, QGraphicsItem*)), this,
+        SLOT(pairSelected(QGraphicsItem*, QGraphicsItem*)));
 }
 
 GameView::~GameView()
@@ -88,6 +91,11 @@ void GameView::createNewGame(int iGameNumber)
 
     setVisible(!isVisible());
     setStatusText(i18n("Error generating new game!"));
+}
+
+void GameView::pairSelected(QGraphicsItem * pFirstSelectedItem, QGraphicsItem * pSecondSelectedItem)
+{
+    kDebug() << "Here";
 }
 
 void GameView::addItemsFromBoardLayout()

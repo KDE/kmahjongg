@@ -90,14 +90,28 @@ public:
     virtual QRectF boundingRect() const;
 
     /**
-     * Override the mousePressEvent method of QGraphicsItem. */
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *pEvent);
-
-    /**
      * Returns the rect of the item.
      *
      * @return The rect of the item. */
     QRectF rect() const;
+
+    /**
+     * Test whether the point is on the shadow or not.
+     *
+     * @param position The position where the point is. */
+    bool isShadow(QPointF const position) const;
+
+    /**
+    * Override from QGraphicsScene. */
+    void mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent);
+
+    /**
+     * */
+    int getShadowDeltaX() const;
+
+    /**
+     * */
+    int getShadowDeltaY() const;
 
 public slots:
     /**
@@ -112,10 +126,6 @@ private:
     /**
      * Updates the angle offset. Cause of 3D items, a shift related to the angle exist. */
     void updateFaceOffset();
-
-    /**
-     * Test whether the point is on the shadow or not. */
-    bool isShadow(QPointF const position) const;
 
     bool m_dying;
     int m_iZ;

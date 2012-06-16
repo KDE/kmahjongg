@@ -21,11 +21,14 @@
 #include <KRandom>
 #include <KDebug>
 
+#include <QGraphicsSceneMouseEvent>
 #include <QList>
 
 
 GameScene::GameScene(GameData *pGameData, QObject *pParent)
-    : QGraphicsScene(pParent)
+    : QGraphicsScene(pParent),
+    m_pFirstSelectedItem(NULL),
+    m_pSecondSelectedItem(NULL)
 {
     initializeGameItemsArray();
 }
@@ -38,6 +41,9 @@ void GameScene::clear()
 {
     QGraphicsScene::clear();
     initializeGameItemsArray();
+
+    m_pFirstSelectedItem = NULL;
+    m_pSecondSelectedItem = NULL;
 }
 
 void GameScene::initializeGameItemsArray()
@@ -77,4 +83,57 @@ void GameScene::addItemToPositionArray(GameItem *pGameItem)
 GameItem * GameScene::getItemOnPosition(int &iX, int &iY, int &iZ)
 {
     return m_pGameItemsArray[iX][iY][iZ];
+}
+
+
+void GameScene::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
+{
+    GameItem * pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x(),
+        pMouseEvent->scenePos().y()));
+
+    // No item was clicked.
+    if (pGameItem != NULL) {
+        // If we click on a shadow of the actual item, we have to correct the clicking position, in
+        // order to simulate a transparent shadow.
+        if (pGameItem->isShadow(pMouseEvent->scenePos() - pGameItem->pos())) {
+            pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x() +
+                pGameItem->getShadowDeltaX(), pMouseEvent->scenePos().y() +
+                pGameItem->getShadowDeltaY()));
+        }
+    }
+
+    // No item was clicked.
+    if (pGameItem == NULL) {
+        pMouseEvent->ignore();
+        return;
+    }
+
+    int iSelectedItems = selectedItems().size();
+
+    pMouseEvent->accept();
+    pGameItem->setSelected(true);
+
+    // Update the number of selected items.
+    iSelectedItems = selectedItems().size();
+
+    // If got a 2 selected items after selection, emit a signal.
+    if (iSelectedItems == 2) {
+        // TODO: Emit a signal, that we have two selected items.
+        emit pairSelected(m_pFirstSelectedItem, m_pSecondSelectedItem);
+
+        // Now it could be, that the selection of the items changes between 0 and 1 selection. So if
+        // any selection exist, the item should be the new m_pFirstSelectedItem.
+        iSelectedItems = selectedItems().size();
+
+        if (iSelectedItems == 1) {
+            m_pFirstSelectedItem = selectedItems().at(0);
+        }
+
+        // If something went wrong and more than one item is selected, clear all selections.
+        if (iSelectedItems > 1) {
+            // clearSelection();
+        }
+    } else {
+        m_pFirstSelectedItem = pGameItem;
+    }
 }

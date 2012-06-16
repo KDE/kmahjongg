@@ -61,14 +61,10 @@ void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPi
     updateFaceOffset();
 }
 
-void GameItem::mousePressEvent(QGraphicsSceneMouseEvent *pEvent)
+void GameItem::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
 {
-    // If the mouse pressed on the shadow we won't accept the event and won't pass it.
-    if (!isShadow(pEvent->pos())) {
-        QGraphicsItem::mousePressEvent(pEvent);
-        pEvent->accept();
-    } else {
-        pEvent->ignore();
+    if (!isShadow(pMouseEvent->scenePos() - pos())) {
+        setSelected(true);
     }
 }
 
@@ -76,11 +72,10 @@ bool GameItem::isShadow(QPointF const position) const
 {
     QPointF mappedPosition = mapFromParent(position);
 
-    int iAngleXFactor = (m_angle == NE || m_angle == SE) ? 1 : -1;
     int iAngleYFactor = (m_angle == NW || m_angle == NE) ? 1 : -1;
 
-    int iNewPosX = mappedPosition.x() + iAngleXFactor * m_iShadowWidth;
-    int iNewPosY = mappedPosition.y() + iAngleYFactor * m_iShadowWidth;
+    int iNewPosX = mappedPosition.x() + getShadowDeltaX();
+    int iNewPosY = mappedPosition.y() + getShadowDeltaY();
 
     if ((iNewPosX < 0 || iNewPosX > m_pSelPix->width()) ||
         (iNewPosY < 0 || iNewPosY > m_pSelPix->height())) {
@@ -88,6 +83,16 @@ bool GameItem::isShadow(QPointF const position) const
     }
 
     return false;
+}
+
+int GameItem::getShadowDeltaX() const
+{
+    return (m_angle == NE || m_angle == SE) ? 1 * m_iShadowWidth: -1 * m_iShadowWidth;
+}
+
+int GameItem::getShadowDeltaY() const
+{
+    return (m_angle == NW || m_angle == NE) ? 1 * m_iShadowHeight: -1 * m_iShadowHeight;
 }
 
 void GameItem::updateFaceOffset()
@@ -165,11 +170,7 @@ void GameItem::fadeIn()
 
 QRectF GameItem::boundingRect() const
 {
-    if (m_pSelPix) {
-        return QRectF(pos(), m_pSelPix->size());
-    } else {
-        return QRectF(0, 0, 0, 0);
-    }
+    return QRectF(pos(), m_pSelPix->size());
 }
 
 QRectF GameItem::rect() const

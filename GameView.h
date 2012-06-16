@@ -143,6 +143,14 @@ signals:
      * @param lGameNumber The actual game number. */
     void statusTextChanged(const QString &rText, long lGameNumber);
 
+private slots:
+    /**
+     * Gets called when a pair was selected.
+     *
+     * @param pFirstSelectedItem The first selected item.
+     * @param pSecondSelectedItem The second selected item. */
+    void pairSelected(QGraphicsItem * pFirstSelectedItem, QGraphicsItem * pSecondSelectedItem);
+
 private:
     /**
      * Reloads the board and therefore create a new GameData object. */
