@@ -64,6 +64,10 @@ public:
     virtual void resizeEvent(QResizeEvent *pEvent);
 
     /**
+     * Override from QGraphicsView. */
+    GameScene * scene() const;
+
+    /**
      * Updates the images of the items. */
     void updateItemsImages();
 
@@ -131,6 +135,12 @@ public slots:
      * Items where added to the scene and should now be layouted. */
     void updateItemsPosition();
 
+    /**
+     * Get the POSITION struct copy of the GameItem positions.
+     *
+     * @param pGameItem The GameItem to get the position struct from. */
+    POSITION getPositionFromItem(GameItem * pGameItem);
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -145,11 +155,8 @@ signals:
 
 private slots:
     /**
-     * Gets called when a pair was selected.
-     *
-     * @param pFirstSelectedItem The first selected item.
-     * @param pSecondSelectedItem The second selected item. */
-    void pairSelected(QGraphicsItem * pFirstSelectedItem, QGraphicsItem * pSecondSelectedItem);
+     * Gets called when a pair was selected. */
+    void selectionChanged();
 
 private:
     /**

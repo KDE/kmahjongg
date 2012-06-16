@@ -66,15 +66,15 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent);
+    void removeItem(GameItem *pGameItem);
 
-signals:
     /**
-     * Emited when two items are selected.
-     *
-     * @param pFirstSelectedItem The item that was selected first.
-     * @param pSecondSelectedItem The item that was selected as second. */
-     void pairSelected(QGraphicsItem * pFirstSelectedItem, QGraphicsItem * pSecondSelectedItem);
+     * Override from QGraphicsScene. */
+    QList<GameItem *> selectedItems() const;
+
+    /**
+     * Override from QGraphicsScene. */
+    void mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent);
 
 private:
     /**
@@ -88,8 +88,8 @@ private:
     void addItemToPositionArray(GameItem *pGameItem);
 
     GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPH];
-    QGraphicsItem *m_pFirstSelectedItem;
-    QGraphicsItem *m_pSecondSelectedItem;
+    GameItem *m_pFirstSelectedItem;
+    GameItem *m_pSecondSelectedItem;
 };
 
 

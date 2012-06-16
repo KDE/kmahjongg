@@ -43,8 +43,7 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
 
     m_angle = (TileViewAngle) Prefs::angle();
 
-    connect(scene(), SIGNAL(pairSelected(QGraphicsItem*, QGraphicsItem*)), this,
-        SLOT(pairSelected(QGraphicsItem*, QGraphicsItem*)));
+    connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 }
 
 GameView::~GameView()
@@ -52,6 +51,11 @@ GameView::~GameView()
     delete m_pBackground;
     delete m_pTiles;
     delete m_pGameData;
+}
+
+GameScene * GameView::scene() const
+{
+    return dynamic_cast<GameScene *>(QGraphicsView::scene());
 }
 
 void GameView::createNewGame(int iGameNumber)
@@ -93,9 +97,29 @@ void GameView::createNewGame(int iGameNumber)
     setStatusText(i18n("Error generating new game!"));
 }
 
-void GameView::pairSelected(QGraphicsItem * pFirstSelectedItem, QGraphicsItem * pSecondSelectedItem)
+void GameView::selectionChanged()
 {
-    kDebug() << "Here";
+    QList<GameItem *> selectedGameItems = scene()->selectedItems();
+
+    if (selectedGameItems.size() < 1) {
+        return;
+    }
+
+    if (selectedGameItems.size() == 1) {
+        kDebug() << "Einer selektiert";
+    }
+}
+
+POSITION GameView::getPositionFromItem(GameItem * pGameItem)
+{
+    POSITION stPos;
+
+    stPos.e = pGameItem->getZPosition();
+    stPos.x = pGameItem->getXPosition();
+    stPos.y = pGameItem->getZPosition();
+    stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x);
+
+    return stPos;
 }
 
 void GameView::addItemsFromBoardLayout()

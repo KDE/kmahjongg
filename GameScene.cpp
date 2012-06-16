@@ -70,6 +70,14 @@ void GameScene::addItem(GameItem *pGameItem)
     addItemToPositionArray(pGameItem);
 }
 
+void GameScene::removeItem(GameItem *pGameItem)
+{
+    m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
+        [pGameItem->getZPosition()] = NULL;
+
+    QGraphicsScene::removeItem(pGameItem);
+}
+
 void GameScene::addItemToPositionArray(GameItem *pGameItem)
 {
     // Take a look, if the place is already taken.
@@ -85,6 +93,17 @@ GameItem * GameScene::getItemOnPosition(int &iX, int &iY, int &iZ)
     return m_pGameItemsArray[iX][iY][iZ];
 }
 
+QList<GameItem *> GameScene::selectedItems() const
+{
+    QList<QGraphicsItem *> originalList = QGraphicsScene::selectedItems();
+    QList<GameItem *> tmpList;
+
+    for (int i = 0; i < originalList.size(); i++) {
+        tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
+    }
+
+    return tmpList;
+}
 
 void GameScene::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
 {
@@ -108,32 +127,6 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
         return;
     }
 
-    int iSelectedItems = selectedItems().size();
-
     pMouseEvent->accept();
     pGameItem->setSelected(true);
-
-    // Update the number of selected items.
-    iSelectedItems = selectedItems().size();
-
-    // If got a 2 selected items after selection, emit a signal.
-    if (iSelectedItems == 2) {
-        // TODO: Emit a signal, that we have two selected items.
-        emit pairSelected(m_pFirstSelectedItem, m_pSecondSelectedItem);
-
-        // Now it could be, that the selection of the items changes between 0 and 1 selection. So if
-        // any selection exist, the item should be the new m_pFirstSelectedItem.
-        iSelectedItems = selectedItems().size();
-
-        if (iSelectedItems == 1) {
-            m_pFirstSelectedItem = selectedItems().at(0);
-        }
-
-        // If something went wrong and more than one item is selected, clear all selections.
-        if (iSelectedItems > 1) {
-            // clearSelection();
-        }
-    } else {
-        m_pFirstSelectedItem = pGameItem;
-    }
 }
