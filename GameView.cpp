@@ -101,12 +101,29 @@ void GameView::selectionChanged()
 {
     QList<GameItem *> selectedGameItems = scene()->selectedItems();
 
-    if (selectedGameItems.size() < 1) {
+    // When no item or just one is selected, there is nothing to do.
+    if (selectedGameItems.size() <= 1) {
         return;
-    }
+    } else {
+        // Get both items and their positions.
+        POSITION stFirstPos = getPositionFromItem(selectedGameItems.at(0));
+        POSITION stSecondPos = getPositionFromItem(selectedGameItems.at(1));
 
-    if (selectedGameItems.size() == 1) {
-        kDebug() << "Einer selektiert";
+        // Test if the items are the same...
+        if (m_pGameData->isMatchingTile(stFirstPos, stSecondPos)) {
+            // Debug
+            kDebug() << stFirstPos.f << ":" << stSecondPos.f;
+
+            // Clear the positions in the game data object and remove the items from the scene.
+            m_pGameData->putTile(stFirstPos.e, stFirstPos.y, stFirstPos.x, 0);
+            m_pGameData->putTile(stSecondPos.e, stSecondPos.y, stSecondPos.x, 0);
+
+            scene()->removeItem(selectedGameItems.at(0));
+            scene()->removeItem(selectedGameItems.at(1));
+        } else {
+            // Deselect all...
+            scene()->clearSelection();
+        }
     }
 }
 
@@ -116,7 +133,7 @@ POSITION GameView::getPositionFromItem(GameItem * pGameItem)
 
     stPos.e = pGameItem->getZPosition();
     stPos.x = pGameItem->getXPosition();
-    stPos.y = pGameItem->getZPosition();
+    stPos.y = pGameItem->getYPosition();
     stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x);
 
     return stPos;
@@ -124,7 +141,7 @@ POSITION GameView::getPositionFromItem(GameItem * pGameItem)
 
 void GameView::addItemsFromBoardLayout()
 {
-    GameScene *pGameScene = dynamic_cast<GameScene *>(scene());
+    GameScene *pGameScene = scene();
 
     // Remove all existing items.
     pGameScene->clear();
