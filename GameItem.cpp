@@ -61,13 +61,6 @@ void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPi
     updateFaceOffset();
 }
 
-void GameItem::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
-{
-    if (!isShadow(pMouseEvent->scenePos() - pos())) {
-        setSelected(true);
-    }
-}
-
 bool GameItem::isShadow(QPointF const position) const
 {
     QPointF mappedPosition = mapFromParent(position);

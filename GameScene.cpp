@@ -90,6 +90,13 @@ void GameScene::addItemToPositionArray(GameItem *pGameItem)
 
 GameItem * GameScene::getItemOnPosition(int &iX, int &iY, int &iZ)
 {
+    // Test for range
+    if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
+        (iY < 0 || iY > BOARD_HEIGHT - 1) ||
+        (iZ < 0 || iZ > BOARD_DEPH - 1)) {
+        return NULL;
+    }
+
     return m_pGameItemsArray[iX][iY][iZ];
 }
 
@@ -105,7 +112,52 @@ QList<GameItem *> GameScene::selectedItems() const
     return tmpList;
 }
 
-void GameScene::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
+bool GameScene::isSelectable(GameItem * pGameItem)
+{
+    int iX = pGameItem->getXPosition();
+    int iY = pGameItem->getYPosition();
+    int iZ = pGameItem->getZPosition();
+
+    // Test for items above...
+
+    // We need one layer above.
+    iZ++;
+
+    for (int i = iX - 1; i <= iX + 1; i++) {
+        for (int j = iY - 1; j <= iY + 1; j++) {
+            // If there is a stone on the position, the item is not selectable.
+            if (getItemOnPosition(i, j, iZ) != NULL) {
+                return false;
+            }
+        }
+    }
+
+    // Test for items beside...
+
+    // Go back to the layer of the item.
+    iZ--;
+
+    bool bSideFree = true;
+    for (int i = iX - 2; i <= iX + 2; i += 4) {
+        for (int j = iY - 1; j <= iY + 1; j++) {
+            // If there is one item on the side, it is no longer free.
+            if (getItemOnPosition(i, j, iZ) != NULL) {
+                bSideFree = false;
+            }
+        }
+
+        // If a side is free the item is selectable.
+        if (bSideFree == true) {
+            return true;
+        } else {
+            bSideFree = true;
+        }
+    }
+
+    return false;
+}
+
+void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 {
     GameItem * pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x(),
         pMouseEvent->scenePos().y()));
@@ -127,6 +179,14 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent)
         return;
     }
 
-    pMouseEvent->accept();
-    pGameItem->setSelected(true);
+    if (isSelectable(pGameItem)) {
+        clearSelection();
+        pGameItem->setSelected(true);
+        pMouseEvent->accept();
+    }
+}
+
+void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent)
+{
+    pMouseEvent->ignore();
 }

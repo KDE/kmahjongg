@@ -102,10 +102,6 @@ public:
     bool isShadow(QPointF const position) const;
 
     /**
-    * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent);
-
-    /**
      * */
     int getShadowDeltaX() const;
 

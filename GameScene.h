@@ -74,7 +74,18 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent* pMouseEvent);
+    void mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent);
+
+    /**
+     * Override from QGraphicsScene. */
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent);
+
+    /**
+     * Test if the item is selectable or not.
+     *
+     * @param pGameItem The game item to test.
+     * @return True if selectable else false. */
+    bool isSelectable(GameItem * pGameItem);
 
 private:
     /**

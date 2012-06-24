@@ -165,32 +165,6 @@ void GameView::addItemsFromBoardLayout()
                 GameItem *item = new GameItem(bSelected);
                 item->setPosition(iX, iY, iZ);
                 pGameScene->addItem(item);
-
-                // We need to decide whether the item is selectable or not.
-
-                // If another item overlay this item, continue.
-                if (m_pGameData->tilePresent(iZ + 1, iY - 1, iX - 1) ||
-                    m_pGameData->tilePresent(iZ + 1, iY - 1, iX) ||
-                    m_pGameData->tilePresent(iZ + 1, iY - 1, iX + 1) ||
-                    m_pGameData->tilePresent(iZ + 1, iY, iX - 1) ||
-                    m_pGameData->tilePresent(iZ + 1, iY, iX) ||
-                    m_pGameData->tilePresent(iZ + 1, iY, iX + 1) ||
-                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX - 1) ||
-                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX) ||
-                    m_pGameData->tilePresent(iZ + 1, iY + 1, iX + 1)) {
-                    continue;
-                }
-
-                // Find items beside this one.
-                if ((m_pGameData->tilePresent(iZ, iY, iX - 2) ||
-                     m_pGameData->tilePresent(iZ, iY - 1, iX - 2) ||
-                     m_pGameData->tilePresent(iZ, iY + 1, iX - 2)) &&
-                    (m_pGameData->tilePresent(iZ, iY, iX + 2) ||
-                     m_pGameData->tilePresent(iZ, iY - 1, iX + 2) ||
-                     m_pGameData->tilePresent(iZ, iY + 1, iX + 2))) {
-                    continue;
-                }
-
                 item->setFlag(QGraphicsItem::ItemIsSelectable);
             }
         }
