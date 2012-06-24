@@ -54,7 +54,7 @@ public:
      * @param iZ The z position of the item.
      *
      * @return The GameItem object or null if no one was found. */
-    GameItem * getItemOnPosition(int &iX, int &iY, int &iZ);
+    GameItem * getItemOnPosition(int iX, int iY, int iZ);
 
     /**
      * Override from QGraphicsScene. */

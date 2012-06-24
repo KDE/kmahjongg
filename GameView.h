@@ -195,6 +195,17 @@ private:
      * @return True if loading success, else false. */
     bool loadBoardLayoutFromPath();
 
+    /**
+     * Order the line starting by the item.
+     *
+     * @param pStartItem The item where the line starts.
+     * @param iXStart The x position of the item.
+     * @param iY The y position of the item.
+     * @param iZ The z position of the item.
+     * @param iZCount The z count variable for ther order. */
+    void orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
+        int iYCounter, int iZ, int &iZCount);
+
 
     int m_iCheatsUsed;
     long m_lGameNumber;

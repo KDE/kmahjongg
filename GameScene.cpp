@@ -88,7 +88,7 @@ void GameScene::addItemToPositionArray(GameItem *pGameItem)
     }
 }
 
-GameItem * GameScene::getItemOnPosition(int &iX, int &iY, int &iZ)
+GameItem * GameScene::getItemOnPosition(int iX, int iY, int iZ)
 {
     // Test for range
     if ((iX < 0 || iX > BOARD_WIDTH - 1) ||

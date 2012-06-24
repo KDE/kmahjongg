@@ -188,8 +188,8 @@ void GameView::addItemsFromBoardLayout()
 
                 GameItem *item = new GameItem(bSelected);
                 item->setPosition(iX, iY, iZ);
-                pGameScene->addItem(item);
                 item->setFlag(QGraphicsItem::ItemIsSelectable);
+                pGameScene->addItem(item);
             }
         }
     }
@@ -288,24 +288,41 @@ void GameView::updateItemsOrder()
         break;
     }
 
-    GameScene *pGameScene = dynamic_cast<GameScene *>(scene());
+    GameScene *pGameScene = scene();
 
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
         for (int iY = iYStart; iY != iYEnd; iY = iY + iYCounter) {
-            for (int iX = iXStart; iX != iXEnd; iX = iX + iXCounter) {
-                GameItem *pGameItem = pGameScene->getItemOnPosition(iX, iY, iZ);
-
-                if (pGameItem == NULL) {
-                    continue;
-                }
-
-                pGameItem->setZValue(iZCount);
-                iZCount++;
-            }
+            orderLine(pGameScene->getItemOnPosition(iXStart, iY, iZ), iXStart, iXEnd, iXCounter, iY,
+                iYCounter, iZ, iZCount);
         }
     }
 
     updateItemsPosition();
+}
+
+void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
+    int iYCounter, int iZ, int &iZCount)
+{
+    GameScene * pGameScene = scene();
+    GameItem * pGameItem = pStartItem;
+
+    for (int i = iXStart; i != iXEnd; i = i + iXCounter) {
+        if (pGameItem == NULL) {
+            if ((pGameItem = pGameScene->getItemOnPosition(i, iY, iZ)) == NULL) {
+                continue;
+            }
+        }
+
+        pGameItem->setZValue(iZCount);
+        iZCount++;
+
+        pGameItem = pGameScene->getItemOnPosition(i + 2 * iXCounter, iY - 1 * iYCounter, iZ);
+        if (pGameItem != NULL) {
+            orderLine(pGameItem, i + 2 * iXCounter, iXEnd, iXCounter, iY - 1 * iYCounter, iYCounter,
+                iZ, iZCount);
+            pGameItem = NULL;
+        }
+    }
 }
 
 bool GameView::loadBoardLayoutFromPath()
