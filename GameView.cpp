@@ -134,8 +134,10 @@ void GameView::selectionChanged()
             // Decrement the tilenum variable from GameData.
             m_pGameData->TileNum -= 2;
 
+            // Reset the selected item variable.
             m_pSelectedItem = NULL;
 
+            // The item numbers changed, so we need to populate the new informations.
             populateItemNumber();
         } else {
             // The second tile keeps selected and becomes the first one.
