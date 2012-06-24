@@ -30,13 +30,14 @@
 
 GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
-    m_pGameData(0),
+    m_pGameData(NULL),
     m_pBoardLayoutPath(new QString()),
     m_pBackgroundPath(new QString()),
     m_pTilesetPath(new QString()),
     m_pBoardLayout(new KMahjonggLayout()),
     m_pBackground(new KMahjonggBackground()),
-    m_pTiles(new KMahjonggTileset())
+    m_pTiles(new KMahjonggTileset()),
+    m_pSelectedItem(NULL)
 {
     setFocusPolicy(Qt::NoFocus);
     setStyleSheet( "QGraphicsView { border-style: none; }" );
@@ -101,28 +102,35 @@ void GameView::selectionChanged()
 {
     QList<GameItem *> selectedGameItems = scene()->selectedItems();
 
-    // When no item or just one is selected, there is nothing to do.
-    if (selectedGameItems.size() <= 1) {
+    // When no item is selected, there is nothing to do.
+    if (selectedGameItems.size() < 1) {
         return;
+    }
+
+    // If no item was already selected...
+    if (m_pSelectedItem == NULL) {
+        // ...set tehe selected item.
+        m_pSelectedItem = selectedGameItems.at(0);
     } else {
+        // The selected item is already there, so this is the second selected item.
+
         // Get both items and their positions.
-        POSITION stFirstPos = getPositionFromItem(selectedGameItems.at(0));
-        POSITION stSecondPos = getPositionFromItem(selectedGameItems.at(1));
+        POSITION stFirstPos = getPositionFromItem(m_pSelectedItem);
+        POSITION stSecondPos = getPositionFromItem(selectedGameItems.at(0));
 
         // Test if the items are the same...
         if (m_pGameData->isMatchingTile(stFirstPos, stSecondPos)) {
-            // Debug
-            kDebug() << stFirstPos.f << ":" << stSecondPos.f;
-
             // Clear the positions in the game data object and remove the items from the scene.
             m_pGameData->putTile(stFirstPos.e, stFirstPos.y, stFirstPos.x, 0);
             m_pGameData->putTile(stSecondPos.e, stSecondPos.y, stSecondPos.x, 0);
 
+            scene()->removeItem(m_pSelectedItem);
             scene()->removeItem(selectedGameItems.at(0));
-            scene()->removeItem(selectedGameItems.at(1));
+
+            m_pSelectedItem = NULL;
         } else {
-            // Deselect all...
-            scene()->clearSelection();
+            // The second tile keeps selected and becomes the first one.
+            m_pSelectedItem = selectedGameItems.at(0);
         }
     }
 }

@@ -189,6 +189,7 @@ private:
     bool m_bGamePaused;
 
     GameData *m_pGameData;
+    GameItem *m_pSelectedItem;
 
     QString *m_pBoardLayoutPath;
     QString *m_pTilesetPath;
