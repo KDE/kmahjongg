@@ -87,6 +87,7 @@ void GameView::createNewGame(int iGameNumber)
             // No cheats are used until now.
             m_iCheatsUsed = 0;
             addItemsFromBoardLayout();
+            populateItemNumber();
 
             setStatusText(i18n("Ready. Now it is your turn."));
 
@@ -120,6 +121,9 @@ void GameView::selectionChanged()
 
         // Test if the items are the same...
         if (m_pGameData->isMatchingTile(stFirstPos, stSecondPos)) {
+            // Update the removed tiles in GameData.
+            m_pGameData->setRemovedTilePair(stFirstPos, stSecondPos);
+
             // Clear the positions in the game data object and remove the items from the scene.
             m_pGameData->putTile(stFirstPos.e, stFirstPos.y, stFirstPos.x, 0);
             m_pGameData->putTile(stSecondPos.e, stSecondPos.y, stSecondPos.x, 0);
@@ -127,12 +131,22 @@ void GameView::selectionChanged()
             scene()->removeItem(m_pSelectedItem);
             scene()->removeItem(selectedGameItems.at(0));
 
+            // Decrement the tilenum variable from GameData.
+            m_pGameData->TileNum -= 2;
+
             m_pSelectedItem = NULL;
+
+            populateItemNumber();
         } else {
             // The second tile keeps selected and becomes the first one.
             m_pSelectedItem = selectedGameItems.at(0);
         }
     }
+}
+
+void GameView::populateItemNumber()
+{
+    emit itemNumberChanged(m_pGameData->MaxTileNum, m_pGameData->TileNum, m_pGameData->moveCount());
 }
 
 POSITION GameView::getPositionFromItem(GameItem * pGameItem)

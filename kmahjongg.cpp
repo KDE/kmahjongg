@@ -115,7 +115,8 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
         SLOT(showStatusText(QString, long)));
-//    connect(bw, SIGNAL(tileNumberChanged(int, int, int)), SLOT(showTileNumber(int, int, int)));
+    connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
+        SLOT(showItemNumber(int, int, int)));
 //    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
 //    connect(bw, SIGNAL(gameOver(unsigned short, unsigned short)), this,
 //        SLOT(gameOver(unsigned short, unsigned short)));
@@ -430,7 +431,7 @@ void KMahjongg::showStatusText(const QString &msg, long board)
     gameNumLabel->setText(str);
 }
 
-void KMahjongg::showTileNumber(int iMaximum, int iCurrent, int iLeft)
+void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 {
     // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
     //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);

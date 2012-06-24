@@ -81,7 +81,7 @@ public slots:
      * @param iMaximum
      * @param iCurrent
      * @param iLeft */
-    void showTileNumber(int iMaximum, int iCurrent, int iLeft);
+    void showItemNumber(int iMaximum, int iCurrent, int iLeft);
 
     /**
      * Slot Description

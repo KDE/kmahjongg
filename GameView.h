@@ -141,6 +141,10 @@ public slots:
      * @param pGameItem The GameItem to get the position struct from. */
     POSITION getPositionFromItem(GameItem * pGameItem);
 
+    /**
+     * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
+    void populateItemNumber();
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -152,6 +156,14 @@ signals:
      * @param rText The new status text.
      * @param lGameNumber The actual game number. */
     void statusTextChanged(const QString &rText, long lGameNumber);
+
+    /**
+     * Emits when the number of the items changed or could change.
+     *
+     * @param
+     * @param
+     * @param */
+    void itemNumberChanged(int iMaxItemNum, int iItemNum, int iMoveCount);
 
 private slots:
     /**
