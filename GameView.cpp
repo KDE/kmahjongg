@@ -89,7 +89,7 @@ void GameView::createNewGame(int iGameNumber)
     for (short sNr = 0; sNr < 64; sNr++) {
         if (m_pGameData->generateStartPosition2()) {
             // No cheats are used until now.
-            m_iCheatsUsed = 0;
+            m_usCheatsUsed = 0;
             addItemsFromBoardLayout();
             populateItemNumber();
 
@@ -146,7 +146,7 @@ void GameView::selectionChanged()
 
             // Test whether the game is over or not.
             if (m_pGameData->TileNum == 0) {
-                emit gameOver(m_pGameData->MaxTileNum, m_iCheatsUsed);
+                emit gameOver(m_pGameData->MaxTileNum, m_usCheatsUsed);
             } else {
                 // The game is not over, so test if there are any valid moves.
                 validMovesAvailable();
@@ -172,6 +172,23 @@ bool GameView::validMovesAvailable(bool bSilent)
     }
 
     return true;
+}
+
+void GameView::shuffle()
+{
+    m_pGameData->shuffle();
+
+    // Update the item images.
+    updateItemsImages();
+
+    // Cause of using the shuffle function... increase the cheat used variable.
+    m_usCheatsUsed += 15;
+
+    // Populate the new item numbers.
+    populateItemNumber();
+
+    // Test if any moves are available
+    validMovesAvailable();
 }
 
 void GameView::populateItemNumber()

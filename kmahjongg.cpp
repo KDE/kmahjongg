@@ -151,7 +151,7 @@ void KMahjongg::setupKAction()
     QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
     shuffle->setIcon(KIcon(QLatin1String("view-refresh")));
-//    connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
+    connect(shuffle, SIGNAL(triggered(bool)), m_pGameView, SLOT(shuffle()));
 
     KAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));

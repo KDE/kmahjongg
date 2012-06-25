@@ -153,6 +153,10 @@ public slots:
      * @return True if a legal move exist, else false. */
     bool validMovesAvailable(bool bSilent = false);
 
+    /**
+     * Shuffle the position of items. */
+    void shuffle();
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -221,7 +225,7 @@ private:
     void orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
         int iYCounter, int iZ, int &iZCount);
 
-    int m_iCheatsUsed;
+    unsigned short m_usCheatsUsed;
     long m_lGameNumber;
     bool m_bGamePaused;
 
