@@ -105,7 +105,19 @@ public:
      *
      * @param bStop Stop the help animation if running.
      * @return Return true if the help animation was running else false. */
-    bool checkHelpMoveActive(bool bStop);
+    bool checkHelpAnimationActive(bool bStop);
+
+    /**
+     * Set the match variable. If set to true, the matching items to the selected will be animated.
+     *
+     * @param bMatch The match value to set up. */
+    void setMatch(bool bMatch);
+
+    /**
+     * Get the match value.
+     *
+     * @return True when matching items of the eselected one will be displayed, else false. */
+    bool getMatch() const;
 
 public slots:
     /**
@@ -183,6 +195,12 @@ public slots:
      * Give a hint for a valid move. */
     void helpMove();
 
+    /**
+     * Give a hint to the matching tiles.
+     *
+     * @param pGameItem The item we search matching tiles for. */
+    void helpMatch(GameItem * pGameItem);
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -254,6 +272,7 @@ private:
     unsigned short m_usCheatsUsed;
     long m_lGameNumber;
     bool m_bGamePaused;
+    bool m_bMatch;
 
     GameData * m_pGameData;
     GameItem * m_pSelectedItem;

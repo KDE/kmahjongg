@@ -297,6 +297,9 @@ void KMahjongg::loadSettings()
             newGame();
         }
     }
+
+    // Set the showmatchingtiles option.
+    m_pGameView->setMatch(Prefs::showMatchingTiles());
 }
 
 void KMahjongg::demoMode()
