@@ -456,7 +456,7 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
         }
     }
 
-    //Tileset or graphics could not be loaded, try default
+    // Tileset or graphics could not be loaded, try default
     if (m_pTiles->loadDefault()) {
         if (m_pTiles->loadGraphics()) {
             resizeTileset(size());

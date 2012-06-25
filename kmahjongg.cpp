@@ -181,7 +181,6 @@ void KMahjongg::setupKAction()
 
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
-
     setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
 }
 
@@ -277,13 +276,26 @@ void KMahjongg::showSettings()
 
 void KMahjongg::loadSettings()
 {
+    // Just set the new tileset, if it is not already set.
     m_pGameView->setTilesetPath(Prefs::tileSet());
+    if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
+        if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
+            kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() <<
+                "KMahjongg will continue with the default tileset.";
+        }
+    }
+
+
     m_pGameView->setBackgroundPath(Prefs::background());
 
-    // Load layout
-    if (!m_pGameView->setBoardLayoutPath(Prefs::layout())) {
-        kDebug() << "An error occurred when loading the board layout" << Prefs::layout() << "KMah"
-            "jongg will continue with the default board layout.";
+    // Just load the new layout, if it is not already set.
+    if (m_pGameView->getBoardLayoutPath() != Prefs::layout()) {
+        if (!m_pGameView->setBoardLayoutPath(Prefs::layout())) {
+            kDebug() << "An error occurred when loading the board layout" << Prefs::layout() <<
+                "KMahjongg will continue with the default board layout.";
+        } else {
+            newGame();
+        }
     }
 }
 
