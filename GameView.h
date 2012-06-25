@@ -221,7 +221,6 @@ private:
     void orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
         int iYCounter, int iZ, int &iZCount);
 
-
     int m_iCheatsUsed;
     long m_lGameNumber;
     bool m_bGamePaused;

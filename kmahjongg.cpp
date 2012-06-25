@@ -117,9 +117,10 @@ KMahjongg::KMahjongg(QWidget *parent)
         SLOT(showStatusText(QString, long)));
     connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
         SLOT(showItemNumber(int, int, int)));
+    connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
+        SLOT(gameOver(unsigned short, unsigned short)));
+
 //    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
-//    connect(bw, SIGNAL(gameOver(unsigned short, unsigned short)), this,
-//        SLOT(gameOver(unsigned short, unsigned short)));
 //    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
 
     loadSettings();
