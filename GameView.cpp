@@ -24,6 +24,7 @@
 #include <KLocale>
 #include <KRandom>
 #include <KDebug>
+#include <KMessageBox>
 
 #include <QResizeEvent>
 
@@ -142,11 +143,35 @@ void GameView::selectionChanged()
 
             // The item numbers changed, so we need to populate the new informations.
             populateItemNumber();
+
+            // Test whether the game is over or not.
+            if (m_pGameData->TileNum == 0) {
+                emit gameOver(m_pGameData->MaxTileNum, m_iCheatsUsed);
+            } else {
+                // The game is not over, so test if there are any valid moves.
+                validMovesAvailable();
+            }
         } else {
             // The second tile keeps selected and becomes the first one.
             m_pSelectedItem = selectedGameItems.at(0);
         }
     }
+}
+
+bool GameView::validMovesAvailable(bool bSilent)
+{
+    POSITION stItem1;
+    POSITION stItem2;
+
+    if (!m_pGameData->findMove(stItem1, stItem2)) {
+        if (!bSilent) {
+            KMessageBox::information(this, i18n("Game over: You have no moves left."));
+        }
+
+        return false;
+    }
+
+    return true;
 }
 
 void GameView::populateItemNumber()

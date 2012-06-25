@@ -145,6 +145,14 @@ public slots:
      * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
     void populateItemNumber();
 
+    /**
+     * Search for a valid move silently or with an information text.
+     *
+     * @param bSilent False if a message should appears when no legal moves exist, else true.
+     *        Default ist false!
+     * @return True if a legal move exist, else false. */
+    bool validMovesAvailable(bool bSilent = false);
+
 signals:
     /**
      * Emits when a new game was calculated. */
@@ -160,10 +168,17 @@ signals:
     /**
      * Emits when the number of the items changed or could change.
      *
-     * @param
-     * @param
-     * @param */
+     * @param iMaxItemNum The max tile number.
+     * @param iItemNum The item number that are still there.
+     * @param iMoveCount Number of moves. */
     void itemNumberChanged(int iMaxItemNum, int iItemNum, int iMoveCount);
+
+    /**
+     * Emits when the game is over.
+     *
+     * @param usRemovedItems The number of the removed items.
+     * @param usCheatsUsed The number of the cheats that are used. */
+    void gameOver(unsigned short usRemovedItems, unsigned short usCheatsUsed);
 
 private slots:
     /**
