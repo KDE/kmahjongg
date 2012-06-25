@@ -39,11 +39,14 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     m_pTiles(new KMahjonggTileset()),
     m_pSelectedItem(NULL)
 {
+    // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
     setStyleSheet( "QGraphicsView { border-style: none; }" );
 
+    // Read in some settings.
     m_angle = (TileViewAngle) Prefs::angle();
 
+    // Connections
     connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 }
 

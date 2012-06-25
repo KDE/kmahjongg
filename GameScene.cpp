@@ -179,6 +179,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
         return;
     }
 
+    // If the item is selectable go on with selection.
     if (isSelectable(pGameItem)) {
         clearSelection();
         pGameItem->setSelected(true);
