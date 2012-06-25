@@ -121,7 +121,6 @@ KMahjongg::KMahjongg(QWidget *parent)
         SLOT(gameOver(unsigned short, unsigned short)));
 
 //    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
-//    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
 
     loadSettings();
     startNewGame();
