@@ -74,6 +74,10 @@ public:
 
     /**
      * Override from QGraphicsScene. */
+    QList<GameItem *> items() const;
+
+    /**
+     * Override from QGraphicsScene. */
     void mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent);
 
     /**

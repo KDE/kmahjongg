@@ -112,6 +112,18 @@ QList<GameItem *> GameScene::selectedItems() const
     return tmpList;
 }
 
+QList<GameItem *> GameScene::items() const
+{
+    QList<QGraphicsItem *> originalList = QGraphicsScene::items();
+    QList<GameItem *> tmpList;
+
+    for (int i = 0; i < originalList.size(); i++) {
+        tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
+    }
+
+    return tmpList;
+}
+
 bool GameScene::isSelectable(GameItem * pGameItem)
 {
     int iX = pGameItem->getXPosition();

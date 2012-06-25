@@ -581,10 +581,10 @@ void GameView::resizeTileset(QSize const &rSize)
 
 void GameView::updateItemsImages()
 {
-    QList<QGraphicsItem *> tmpItems = items();
+    QList<GameItem *> tmpItems = scene()->items();
 
     for (int iI = 0; iI < tmpItems.size(); iI++) {
-        GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
+        GameItem *pGameItem = tmpItems.at(iI);
 
         QPixmap selPix;
         QPixmap unselPix;
