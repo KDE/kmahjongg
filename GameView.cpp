@@ -16,6 +16,7 @@
 #include "GameData.h"
 #include "GameScene.h"
 #include "GameItem.h"
+#include "SelectionAnimation.h"
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
@@ -27,6 +28,7 @@
 #include <KMessageBox>
 
 #include <QResizeEvent>
+#include <QMouseEvent>
 
 
 GameView::GameView(GameScene *pGameScene, QWidget *pParent)
@@ -38,7 +40,8 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     m_pBoardLayout(new KMahjonggLayout()),
     m_pBackground(new KMahjonggBackground()),
     m_pTiles(new KMahjonggTileset()),
-    m_pSelectedItem(NULL)
+    m_pSelectedItem(NULL),
+    m_pHelpAnimation(new SelectionAnimation(this))
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
@@ -47,12 +50,17 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     // Read in some settings.
     m_angle = (TileViewAngle) Prefs::angle();
 
+    // Init HelpAnimation
+    m_pHelpAnimation->setAnimationSpeed(ANIMATION_SPEED);
+    m_pHelpAnimation->setRepetitions(2);
+
     // Connections
     connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 }
 
 GameView::~GameView()
 {
+    delete m_pHelpAnimation;
     delete m_pBackground;
     delete m_pTiles;
     delete m_pGameData;
@@ -66,6 +74,9 @@ GameScene * GameView::scene() const
 void GameView::createNewGame(int iGameNumber)
 {
     setStatusText(i18n("Calculating new game..."));
+
+    // Check any animations are running and stop them.
+    checkHelpMoveActive(true);
 
     // Create a random game number, if no one was given.
     if (iGameNumber == -1) {
@@ -107,8 +118,8 @@ void GameView::selectionChanged()
 {
     QList<GameItem *> selectedGameItems = scene()->selectedItems();
 
-    // When no item is selected, there is nothing to do.
-    if (selectedGameItems.size() < 1) {
+    // When no item is selected or help animation is running, there is nothing to do.
+    if (selectedGameItems.size() < 1 || checkHelpMoveActive(false)) {
         return;
     }
 
@@ -158,6 +169,32 @@ void GameView::selectionChanged()
     }
 }
 
+void GameView::helpMove()
+{
+    POSITION stItem1;
+    POSITION stItem2;
+
+    if (m_pGameData->findMove(stItem1, stItem2)) {
+        m_pHelpAnimation->stop();
+        m_pHelpAnimation->clearGameItems();
+        m_pHelpAnimation->addGameItem(getItemFromPosition(stItem1));
+        m_pHelpAnimation->addGameItem(getItemFromPosition(stItem2));
+        m_pHelpAnimation->start();
+    }
+}
+
+bool GameView::checkHelpMoveActive(bool bStop)
+{
+    bool bActive = m_pHelpAnimation->isActive();
+
+    // If animation is running and it should be closed, do so.
+    if (bActive && bStop) {
+        m_pHelpAnimation->stop();
+    }
+
+    return bActive;
+}
+
 bool GameView::validMovesAvailable(bool bSilent)
 {
     POSITION stItem1;
@@ -194,6 +231,11 @@ void GameView::shuffle()
 void GameView::populateItemNumber()
 {
     emit itemNumberChanged(m_pGameData->MaxTileNum, m_pGameData->TileNum, m_pGameData->moveCount());
+}
+
+GameItem * GameView::getItemFromPosition(POSITION stGamePos)
+{
+    return scene()->getItemOnPosition(stGamePos.x, stGamePos.y, stGamePos.e);
 }
 
 POSITION GameView::getPositionFromItem(GameItem * pGameItem)
@@ -500,6 +542,15 @@ void GameView::angleSwitchCW()
 
     updateItemsImages();
     updateItemsOrder();
+}
+
+void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
+{
+    // If the help mode is active, ... stop it.
+    checkHelpMoveActive(true);
+
+    // Then go on with the press event.
+    QGraphicsView::mousePressEvent(pMouseEvent);
 }
 
 void GameView::resizeEvent(QResizeEvent *pEvent)

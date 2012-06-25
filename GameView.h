@@ -19,13 +19,17 @@
 
 #include "KmTypes.h"
 
+#define ANIMATION_SPEED 200
+
 
 class GameScene;
 class GameData;
 class GameItem;
+class SelectionAnimation;
 class KMahjonggLayout;
 class KMahjonggTileset;
 class KMahjonggBackground;
+class QMouseEvent;
 
 /**
  * The Mahjongg board where the tiles will be placed.
@@ -60,8 +64,12 @@ public:
     void updateWidget(bool bShowTiles);
 
     /**
-     * Override from QWidget. */
+     * Override from QGraphicsView. */
     virtual void resizeEvent(QResizeEvent *pEvent);
+
+    /**
+     * Override from QGraphicsView. */
+    virtual void mousePressEvent(QMouseEvent * pMouseEvent);
 
     /**
      * Override from QGraphicsView. */
@@ -91,6 +99,13 @@ public:
      *
      * @return The angle of the view. */
     TileViewAngle getAngle() const;
+
+    /**
+     * Test for active help animation and maybe close.
+     *
+     * @param bStop Stop the help animation if running.
+     * @return Return true if the help animation was running else false. */
+    bool checkHelpMoveActive(bool bStop);
 
 public slots:
     /**
@@ -142,6 +157,13 @@ public slots:
     POSITION getPositionFromItem(GameItem * pGameItem);
 
     /**
+     * Get the GameItem of a POSITION.
+     *
+     * @param stGamePos The position of the item.
+     * @return The GameItem object or NULL if no one exist with the given position. */
+    GameItem * getItemFromPosition(POSITION stGamePos);
+
+    /**
      * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
     void populateItemNumber();
 
@@ -156,6 +178,10 @@ public slots:
     /**
      * Shuffle the position of items. */
     void shuffle();
+
+    /**
+     * Give a hint for a valid move. */
+    void helpMove();
 
 signals:
     /**
@@ -229,16 +255,18 @@ private:
     long m_lGameNumber;
     bool m_bGamePaused;
 
-    GameData *m_pGameData;
-    GameItem *m_pSelectedItem;
+    GameData * m_pGameData;
+    GameItem * m_pSelectedItem;
 
-    QString *m_pBoardLayoutPath;
-    QString *m_pTilesetPath;
-    QString *m_pBackgroundPath;
+    QString * m_pBoardLayoutPath;
+    QString * m_pTilesetPath;
+    QString * m_pBackgroundPath;
 
-    KMahjonggLayout *m_pBoardLayout;
-    KMahjonggTileset *m_pTiles;
-    KMahjonggBackground *m_pBackground;
+    SelectionAnimation * m_pHelpAnimation;
+
+    KMahjonggLayout * m_pBoardLayout;
+    KMahjonggTileset * m_pTiles;
+    KMahjonggBackground * m_pBackground;
 
     TileViewAngle m_angle;
 };

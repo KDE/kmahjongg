@@ -145,8 +145,8 @@ void KMahjongg::setupKAction()
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
 
-//    QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
-//    actionCollection()->addAction(action->objectName(), action);
+    QAction *action = KStandardGameAction::hint(m_pGameView, SLOT(helpMove()), this);
+    actionCollection()->addAction(action->objectName(), action);
 
     QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));

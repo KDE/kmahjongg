@@ -19,7 +19,8 @@ set(kmahjongg_SRCS
    FrameImage.cpp
    GameItem.cpp
    GameView.cpp
-   GameScene.cpp)
+   GameScene.cpp
+   SelectionAnimation.cpp)
 
 kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
 
