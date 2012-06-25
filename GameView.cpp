@@ -336,7 +336,7 @@ void GameView::updateItemsOrder()
     case NW:
         kDebug() << "NW";
         iXStart = m_pGameData->m_width - 1;
-        iXEnd = 0;
+        iXEnd = -1;
         iXCounter = -1;
 
         iYStart = 0;
