@@ -83,9 +83,11 @@ void SelectionAnimation::start()
 
 void SelectionAnimation::stop()
 {
+    m_iFinishedRepetitions = 8;
     QTimer::stop();
     m_iFinishedRepetitions = 0;
     setSelectedGameItems(false);
+    m_bItemsSelected = false;
 }
 
 void SelectionAnimation::timeoutOccurred()

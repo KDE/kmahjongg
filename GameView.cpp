@@ -588,7 +588,7 @@ void GameView::angleSwitchCW()
 
 void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
-    // If the help mode is active, ... stop it.
+    // If any help mode is active, ... stop it.
     checkHelpAnimationActive(true);
 
     // Then go on with the press event.
@@ -625,8 +625,8 @@ void GameView::updateItemsImages()
 {
     QList<GameItem *> tmpItems = scene()->items();
 
-    for (int iI = 0; iI < tmpItems.size(); iI++) {
-        GameItem *pGameItem = tmpItems.at(iI);
+    for (int i = 0; i < tmpItems.size(); i++) {
+        GameItem *pGameItem = tmpItems.at(i);
 
         QPixmap selPix;
         QPixmap unselPix;
