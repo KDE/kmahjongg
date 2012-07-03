@@ -248,6 +248,12 @@ signals:
 
 private slots:
     /**
+     * When the game is over by the demo mode.
+     *
+     * @param bWon True if the computer won in demo mode, else false. */
+    void demoGameOver(bool bWon);
+
+    /**
      * Change the selected state of the given item.
      *
      * @param stItemPos The position of the item.

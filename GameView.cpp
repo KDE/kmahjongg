@@ -66,6 +66,7 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     connect(m_pDemoAnimation, SIGNAL(changeItemSelectedState(POSITION &, bool)), this,
         SLOT(changeItemSelectedState(POSITION &, bool)));
     connect(m_pDemoAnimation, SIGNAL(removeItem(POSITION &)), this, SLOT(removeItem(POSITION &)));
+    connect(m_pDemoAnimation, SIGNAL(gameOver(bool)), this, SLOT(demoGameOver(bool)));
 }
 
 GameView::~GameView()
@@ -79,6 +80,15 @@ GameView::~GameView()
 GameScene * GameView::scene() const
 {
     return dynamic_cast<GameScene *>(QGraphicsView::scene());
+}
+
+void GameView::demoGameOver(bool bWon)
+{
+    if (bWon) {
+        // animateMoveList();
+    } else {
+        setStatusText(i18n("Your computer has lost the game."));
+    }
 }
 
 void GameView::createNewGame(int iGameNumber)
