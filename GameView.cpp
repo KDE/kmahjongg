@@ -97,6 +97,7 @@ void GameView::createNewGame(int iGameNumber)
 
     // Check any animations are running and stop them.
     checkHelpAnimationActive(true);
+    checkDemoAnimationActive(true);
 
     // Create a random game number, if no one was given.
     if (iGameNumber == -1) {
