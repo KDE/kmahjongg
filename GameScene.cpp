@@ -58,7 +58,7 @@ void GameScene::initializeGameItemsArray()
     }
 }
 
-void GameScene::addItem(GameItem *pGameItem)
+void GameScene::addItem(GameItem * pGameItem)
 {
     QGraphicsScene::addItem(pGameItem);
 
@@ -70,7 +70,7 @@ void GameScene::addItem(GameItem *pGameItem)
     addItemToPositionArray(pGameItem);
 }
 
-void GameScene::removeItem(GameItem *pGameItem)
+void GameScene::removeItem(GameItem * pGameItem)
 {
     m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
         [pGameItem->getZPosition()] = NULL;
@@ -78,7 +78,14 @@ void GameScene::removeItem(GameItem *pGameItem)
     QGraphicsScene::removeItem(pGameItem);
 }
 
-void GameScene::addItemToPositionArray(GameItem *pGameItem)
+void GameScene::removeItem(POSITION & stItemPos)
+{
+    GameItem * pGameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.e];
+
+    removeItem(pGameItem);
+}
+
+void GameScene::addItemToPositionArray(GameItem * pGameItem)
 {
     // Take a look, if the place is already taken.
     if (m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]

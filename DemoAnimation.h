@@ -17,8 +17,11 @@
 
 #include <QTimer>
 
+#include "KmTypes.h"
+
 
 // Forward declarations...
+class GameData;
 
 /**
  * A class for a demo animation with the help of selection.
@@ -38,12 +41,6 @@ public:
     ~DemoAnimation();
 
     /**
-     * Set the count of repetitions before the items will be removed.
-     *
-     * @param iRepetitions The number of repetitions. */
-    void setRepetitions(int iRepetitions);
-
-    /**
      * Set the animation speed in milliseconds.
      *
      * @param iAnimationSpeed The animation speed in milliseconds. */
@@ -56,14 +53,10 @@ public:
     int getAnimationSpeed() const;
 
     /**
-     * Get the number of repetitions set.
+     * Override of QTimer.
      *
-     * @return The number of repetitions. */
-    int getRepetitions() const;
-
-    /**
-     * Override of QTimer. */
-    void start();
+     * @param pGameData The data object to handle with for this animation process. */
+    void start(GameData * pGameData);
 
     /**
      * Override of QTimer. */
@@ -72,6 +65,22 @@ public:
 public slots:
 
 signals:
+    /**
+     * Emits when the game is over.
+     *
+     * @param bWon True if computer won the game, else false. */
+    void gameOver(bool bWon);
+
+    /**
+     * Emit to remove the given item. */
+    void removeItem(POSITION & stItem);
+
+    /**
+     * Emit to set the selected state of the given item.
+     *
+     * @param stItem The position of the item to change the selected state.
+     * @param bSelected THe item should be selected on true, else deselected. */
+    void changeItemSelectedState(POSITION & stItem, bool bSelected);
 
 private slots:
     /**
@@ -79,9 +88,13 @@ private slots:
     void timeoutOccurred();
 
 private:
-    int m_iRepetitions;
-    int m_iFinishedRepetitions;
+    int m_iStep;
     int m_iAnimationSpeed;
+
+    POSITION m_stFirst;
+    POSITION m_stSecond;
+
+    GameData * m_pGameData;
 };
 
 

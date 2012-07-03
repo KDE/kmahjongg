@@ -13,27 +13,24 @@
  * 02110-1301, USA. */
 
 #include "DemoAnimation.h"
-#include "GameItem.h"
+#include "GameData.h"
 
 #include <QList>
+
+#include <KDebug>
 
 
 DemoAnimation::DemoAnimation(QObject * pParent)
     : QTimer(pParent),
     m_iAnimationSpeed(0),
-    m_iRepetitions(0),
-    m_iFinishedRepetitions(0)
+    m_iStep(0),
+    m_pGameData(NULL)
 {
     connect(this, SIGNAL(timeout()), this, SLOT(timeoutOccurred()));
 }
 
 DemoAnimation::~DemoAnimation()
 {
-}
-
-void DemoAnimation::setRepetitions(int iRepetitions)
-{
-    m_iRepetitions = iRepetitions;
 }
 
 void DemoAnimation::setAnimationSpeed(int iAnimationSpeed)
@@ -46,21 +43,70 @@ int DemoAnimation::getAnimationSpeed() const
     return m_iAnimationSpeed;
 }
 
-int DemoAnimation::getRepetitions() const
+void DemoAnimation::start(GameData * pGameData)
 {
-    return m_iRepetitions;
-}
+    m_pGameData = pGameData;
 
-void DemoAnimation::start()
-{
     QTimer::start(m_iAnimationSpeed);
 }
 
 void DemoAnimation::stop()
 {
     QTimer::stop();
+
+    m_iStep = 0;
 }
 
 void DemoAnimation::timeoutOccurred()
 {
+    switch (m_iStep++ % 5) {
+    case 0:
+        // Test if we got a game data object.
+        if (m_pGameData == NULL) {
+            kDebug() << "m_pGameData is null";
+
+            stop();
+            return;
+        }
+
+        if (!m_pGameData->findMove(m_stFirst, m_stSecond)) {
+            // First stop the animation.
+            stop();
+
+            if (m_pGameData->TileNum == 0) {
+                // The computer has won the game.
+                emit gameOver(true);
+            } else {
+                // The computer lost the game.
+                // setStatusText(i18n("Your computer has lost the game."));
+                emit gameOver(false);
+
+                // while (Game->TileNum < Game->MaxTileNum) {
+                //     putTileInBoard(Game->MoveListData(Game->TileNum), false);
+                //     Game->TileNum++;
+                //     putTileInBoard(Game->MoveListData(Game->TileNum));
+                //     Game->TileNum++;
+                //     drawTileNumber();
+                // }
+            }
+        }
+
+        break;
+    case 1:
+    case 3:
+        emit changeItemSelectedState(m_stFirst, true);
+        emit changeItemSelectedState(m_stSecond, true);
+
+        break;
+    case 2:
+        emit changeItemSelectedState(m_stFirst, false);
+        emit changeItemSelectedState(m_stSecond, false);
+
+        break;
+    case 4:
+        emit removeItem(m_stFirst);
+        emit removeItem(m_stSecond);
+
+        break;
+    }
 }

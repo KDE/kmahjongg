@@ -310,7 +310,7 @@ void KMahjongg::demoMode()
         // we assume demo mode removes tiles so we can
         // disable redo here.
 //        bw->Game->allow_redo = false;
-//        bw->startDemoMode();
+        m_pGameView->startDemo();
     }
 
 }

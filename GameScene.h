@@ -17,11 +17,14 @@
 
 #include <QGraphicsScene>
 
+#include "KmTypes.h"
+
 #define BOARD_WIDTH 32
 #define BOARD_HEIGHT 16
 #define BOARD_DEPH 5
 
 
+// Forward declarations...
 class GameItem;
 class GameData;
 class GameWidget;
@@ -62,11 +65,17 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void addItem(GameItem *pGameItem);
+    void addItem(GameItem * pGameItem);
 
     /**
      * Override from QGraphicsScene. */
-    void removeItem(GameItem *pGameItem);
+    void removeItem(GameItem * pGameItem);
+
+    /**
+     * Override from QGraphicsScene with POSITION parameter.
+     *
+     * @param stItemPos The item position. */
+    void removeItem(POSITION & stItemPos);
 
     /**
      * Override from QGraphicsScene. */

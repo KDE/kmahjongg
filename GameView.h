@@ -26,6 +26,7 @@ class GameScene;
 class GameData;
 class GameItem;
 class SelectionAnimation;
+class DemoAnimation;
 class KMahjonggLayout;
 class KMahjonggTileset;
 class KMahjonggBackground;
@@ -50,6 +51,23 @@ public:
     /**
      * Destructor */
     ~GameView();
+
+    /**
+     * Items where added to the scene and should now be layouted. */
+    void updateItemsPosition();
+
+    /**
+     * Get the POSITION struct copy of the GameItem positions.
+     *
+     * @param pGameItem The GameItem to get the position struct from. */
+    POSITION getPositionFromItem(GameItem * pGameItem);
+
+    /**
+     * Get the GameItem of a POSITION.
+     *
+     * @param stGamePos The position of the item.
+     * @return The GameItem object or NULL if no one exist with the given position. */
+    GameItem * getItemFromPosition(POSITION stGamePos);
 
     /**
      * Sets the status text.
@@ -105,7 +123,14 @@ public:
      *
      * @param bStop Stop the help animation if running.
      * @return Return true if the help animation was running else false. */
-    bool checkHelpAnimationActive(bool bStop);
+    bool checkHelpAnimationActive(bool bStop = false);
+
+    /**
+     * Test for active demo animation and maybe close.
+     *
+     * @param bStop Stop the demo animation if running.
+     * @return Return true if the demo animation was running else false. */
+    bool checkDemoAnimationActive(bool bStop = false);
 
     /**
      * Set the match variable. If set to true, the matching items to the selected will be animated.
@@ -120,6 +145,16 @@ public:
     bool getMatch() const;
 
 public slots:
+    /**
+     * Remove the given item.
+     *
+     * @param stItemPos The item position. */
+    void removeItem(POSITION &stItemPos);
+
+    /**
+     * Starts the demo animation. */
+    void startDemo();
+
     /**
      * Switch the view angle to the next right around. */
     void angleSwitchCCW();
@@ -157,23 +192,6 @@ public slots:
      *
      * @param iGameNumber The game number to create or -1 for a random number. */
     void createNewGame(int iGameNumber = -1);
-
-    /**
-     * Items where added to the scene and should now be layouted. */
-    void updateItemsPosition();
-
-    /**
-     * Get the POSITION struct copy of the GameItem positions.
-     *
-     * @param pGameItem The GameItem to get the position struct from. */
-    POSITION getPositionFromItem(GameItem * pGameItem);
-
-    /**
-     * Get the GameItem of a POSITION.
-     *
-     * @param stGamePos The position of the item.
-     * @return The GameItem object or NULL if no one exist with the given position. */
-    GameItem * getItemFromPosition(POSITION stGamePos);
 
     /**
      * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
@@ -230,6 +248,13 @@ signals:
 
 private slots:
     /**
+     * Change the selected state of the given item.
+     *
+     * @param stItemPos The position of the item.
+     * @param bSelected The selection state to set. */
+    void changeItemSelectedState(POSITION & stItemPos, bool bSelected);
+
+    /**
      * Gets called when a pair was selected. */
     void selectionChanged();
 
@@ -282,6 +307,7 @@ private:
     QString * m_pBackgroundPath;
 
     SelectionAnimation * m_pHelpAnimation;
+    DemoAnimation * m_pDemoAnimation;
 
     KMahjonggLayout * m_pBoardLayout;
     KMahjonggTileset * m_pTiles;

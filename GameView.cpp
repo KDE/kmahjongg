@@ -17,6 +17,7 @@
 #include "GameScene.h"
 #include "GameItem.h"
 #include "SelectionAnimation.h"
+#include "DemoAnimation.h"
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
@@ -42,6 +43,7 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     m_pTiles(new KMahjonggTileset()),
     m_pSelectedItem(NULL),
     m_pHelpAnimation(new SelectionAnimation(this)),
+    m_pDemoAnimation(new DemoAnimation(this)),
     m_bMatch(false)
 {
     // Some settings to the QGraphicsView.
@@ -55,8 +57,15 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     m_pHelpAnimation->setAnimationSpeed(ANIMATION_SPEED);
     m_pHelpAnimation->setRepetitions(2);
 
+    // Init DemoAnimation
+    m_pDemoAnimation->setAnimationSpeed(ANIMATION_SPEED);
+
     // Connections
     connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
+
+    connect(m_pDemoAnimation, SIGNAL(changeItemSelectedState(POSITION &, bool)), this,
+        SLOT(changeItemSelectedState(POSITION &, bool)));
+    connect(m_pDemoAnimation, SIGNAL(removeItem(POSITION &)), this, SLOT(removeItem(POSITION &)));
 }
 
 GameView::~GameView()
@@ -120,7 +129,7 @@ void GameView::selectionChanged()
     QList<GameItem *> selectedGameItems = scene()->selectedItems();
 
     // When no item is selected or help animation is running, there is nothing to do.
-    if (selectedGameItems.size() < 1 || checkHelpAnimationActive(false)) {
+    if (selectedGameItems.size() < 1 || checkHelpAnimationActive() || checkDemoAnimationActive()) {
         return;
     }
 
@@ -145,21 +154,12 @@ void GameView::selectionChanged()
             // Update the removed tiles in GameData.
             m_pGameData->setRemovedTilePair(stFirstPos, stSecondPos);
 
-            // Clear the positions in the game data object and remove the items from the scene.
-            m_pGameData->putTile(stFirstPos.e, stFirstPos.y, stFirstPos.x, 0);
-            m_pGameData->putTile(stSecondPos.e, stSecondPos.y, stSecondPos.x, 0);
-
-            scene()->removeItem(m_pSelectedItem);
-            scene()->removeItem(selectedGameItems.at(0));
-
-            // Decrement the tilenum variable from GameData.
-            m_pGameData->TileNum -= 2;
+            // Remove the items.
+            removeItem(stFirstPos);
+            removeItem(stSecondPos);
 
             // Reset the selected item variable.
             m_pSelectedItem = NULL;
-
-            // The item numbers changed, so we need to populate the new informations.
-            populateItemNumber();
 
             // Test whether the game is over or not.
             if (m_pGameData->TileNum == 0) {
@@ -178,6 +178,46 @@ void GameView::selectionChanged()
             }
         }
     }
+}
+
+void GameView::removeItem(POSITION & stItemPos)
+{
+    // Put an empty item in the data object. (data part)
+    m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, 0);
+
+    // Remove the item from the scene object. (graphic part)
+    scene()->removeItem(stItemPos);
+
+    // Decrement the tilenum variable from GameData.
+    m_pGameData->TileNum -= 1;
+
+    // If TileNum is % 2 then update the number in the status bar.
+    if (!(m_pGameData->TileNum % 2)) {
+        // The item numbers changed, so we need to populate the new informations.
+        populateItemNumber();
+    }
+}
+
+void GameView::startDemo()
+{
+    kDebug() << "Starting demo mode";
+
+    // Stop any helping animation.
+    checkHelpAnimationActive(true);
+
+    // Stop demo animation, if anyone is running.
+    checkDemoAnimationActive(true);
+
+    // Create a new game with the actual game number.
+    createNewGame(m_lGameNumber);
+
+    // Start the demo mode.
+    m_pDemoAnimation->start(m_pGameData);
+}
+
+void GameView::changeItemSelectedState(POSITION & stItemPos, bool bSelected)
+{
+    getItemFromPosition(stItemPos)->setSelected(bSelected);
 }
 
 void GameView::helpMove()
@@ -232,6 +272,18 @@ bool GameView::checkHelpAnimationActive(bool bStop)
     // If animation is running and it should be closed, do so.
     if (bActive && bStop) {
         m_pHelpAnimation->stop();
+    }
+
+    return bActive;
+}
+
+bool GameView::checkDemoAnimationActive(bool bStop)
+{
+    bool bActive = m_pDemoAnimation->isActive();
+
+    // If animation is running and it should be closed, do so.
+    if (bActive && bStop) {
+        m_pDemoAnimation->stop();
     }
 
     return bActive;
@@ -588,6 +640,11 @@ void GameView::angleSwitchCW()
 
 void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
+    // No mouse events when the demo mode is active.
+    if (checkDemoAnimationActive()) {
+        return;
+    }
+
     // If any help mode is active, ... stop it.
     checkHelpAnimationActive(true);
 
