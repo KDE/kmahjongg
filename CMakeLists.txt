@@ -37,7 +37,8 @@ set(kmahjongg_SRCS
    GameView.cpp
    GameScene.cpp
    SelectionAnimation.cpp
-   DemoAnimation.cpp)
+   DemoAnimation.cpp
+   MoveListAnimation.cpp)
 
 kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
 
