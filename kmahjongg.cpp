@@ -433,7 +433,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
         ksdialog.exec();
     }
 
-//    bw->animateMoveList();
+    m_pGameView->startMoveListAnimation();
 
     timerReset();
 }

@@ -17,6 +17,7 @@
 #include "GameScene.h"
 #include "GameItem.h"
 #include "SelectionAnimation.h"
+#include "MoveListAnimation.h"
 #include "DemoAnimation.h"
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
@@ -44,6 +45,7 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     m_pSelectedItem(NULL),
     m_pHelpAnimation(new SelectionAnimation(this)),
     m_pDemoAnimation(new DemoAnimation(this)),
+    m_pMoveListAnimation(new MoveListAnimation(this)),
     m_bMatch(false)
 {
     // Some settings to the QGraphicsView.
@@ -60,6 +62,9 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     // Init DemoAnimation
     m_pDemoAnimation->setAnimationSpeed(ANIMATION_SPEED);
 
+    // Init MoveListAnimation
+    m_pMoveListAnimation->setAnimationSpeed(ANIMATION_SPEED);
+
     // Connections
     connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 
@@ -67,11 +72,18 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
         SLOT(changeItemSelectedState(POSITION &, bool)));
     connect(m_pDemoAnimation, SIGNAL(removeItem(POSITION &)), this, SLOT(removeItem(POSITION &)));
     connect(m_pDemoAnimation, SIGNAL(gameOver(bool)), this, SLOT(demoGameOver(bool)));
+
+    connect(m_pMoveListAnimation, SIGNAL(removeItem(POSITION &)), this,
+        SLOT(removeItem(POSITION &)));
+    connect(m_pMoveListAnimation, SIGNAL(addItem(POSITION &)), this,
+        SLOT(addItemAndUpdate(POSITION &)));
 }
 
 GameView::~GameView()
 {
     delete m_pHelpAnimation;
+    delete m_pDemoAnimation;
+    delete m_pMoveListAnimation;
     delete m_pBackground;
     delete m_pTiles;
     delete m_pGameData;
@@ -85,7 +97,7 @@ GameScene * GameView::scene() const
 void GameView::demoGameOver(bool bWon)
 {
     if (bWon) {
-        // animateMoveList();
+        startMoveListAnimation();
     } else {
         setStatusText(i18n("Your computer has lost the game."));
     }
@@ -193,6 +205,9 @@ void GameView::selectionChanged()
 
 void GameView::removeItem(POSITION & stItemPos)
 {
+    // Adding the data to the protocoll.
+    m_pGameData->setMoveListData(m_pGameData->TileNum, stItemPos);
+
     // Put an empty item in the data object. (data part)
     m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, 0);
 
@@ -224,6 +239,19 @@ void GameView::startDemo()
 
     // Start the demo mode.
     m_pDemoAnimation->start(m_pGameData);
+}
+
+void GameView::startMoveListAnimation()
+{
+    kDebug() << "Starting move list animation";
+
+    // Stop any helping animation.
+    checkHelpAnimationActive(true);
+
+    // Stop demo animation, if anyone is running.
+    checkDemoAnimationActive(true);
+
+    m_pMoveListAnimation->start(m_pGameData);
 }
 
 void GameView::changeItemSelectedState(POSITION & stItemPos, bool bSelected)
@@ -321,7 +349,7 @@ void GameView::shuffle()
     m_pGameData->shuffle();
 
     // Update the item images.
-    updateItemsImages();
+    updateItemsImages(items());
 
     // Cause of using the shuffle function... increase the cheat used variable.
     m_usCheatsUsed += 15;
@@ -381,20 +409,55 @@ void GameView::addItemsFromBoardLayout()
                 GameItem *item = new GameItem(bSelected);
                 item->setPosition(iX, iY, iZ);
                 item->setFlag(QGraphicsItem::ItemIsSelectable);
-                pGameScene->addItem(item);
+                addItem(item);
             }
         }
     }
 
-    updateItemsImages();
+    updateItemsImages(items());
     updateItemsOrder();
 }
 
-void GameView::updateItemsPosition()
+void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrder,
+    bool bUpdatePosition)
 {
-    // Get all items, that actually exist on the view.
-    QList<QGraphicsItem *> tmpItems = items();
+    kDebug() << "Add item...";
 
+    // Add the itme to the scene.
+    scene()->addItem(pGameItem);
+
+    QList<GameItem *> gameItems;
+    gameItems.append(pGameItem);
+
+    if (bUpdateImage) {
+        updateItemsImages(gameItems);
+    }
+
+    if (bUpdatePosition) {
+        updateItemsPosition(gameItems);
+    }
+}
+
+void GameView::addItem(POSITION & stItemPos, bool bUpdateImage, bool bUpdateOrder,
+    bool bUpdatePosition)
+{
+    GameItem * pGameItem = new GameItem(m_pGameData->HighlightData(stItemPos.e, stItemPos.y,
+        stItemPos.x));
+    pGameItem->setPosition(stItemPos.x, stItemPos.y, stItemPos.e);
+    pGameItem->setFlag(QGraphicsItem::ItemIsSelectable);
+
+    m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f);
+    kDebug() << "Face: " << stItemPos.f;
+    addItem(pGameItem, bUpdateImage, bUpdateOrder, bUpdatePosition);
+}
+
+void GameView::addItemAndUpdate(POSITION & stItemPos)
+{
+    addItem(stItemPos, true, true, true);
+}
+
+void GameView::updateItemsPosition(QList<GameItem *> gameItems)
+{
     // These factor are needed for the different angles. So we simply can calculate to move the
     // items to the left or right (eg up or down).
     int iAngleXFactor = (m_angle == NE || m_angle == SE) ? -1 : 1;
@@ -412,8 +475,8 @@ void GameView::updateItemsPosition()
     int iXFrame = (width() / 2 - iTilesWidth) / 2 + (m_pTiles->levelOffsetX());
     int iYFrame = (height() / 2 - iTilesHeight) / 2 + (m_pTiles->levelOffsetY());
 
-    for (int iI = 0; iI < tmpItems.size(); iI++) {
-        GameItem *pGameItem = dynamic_cast<GameItem *>(tmpItems.at(iI));
+    for (int iI = 0; iI < gameItems.size(); iI++) {
+        GameItem *pGameItem = gameItems.at(iI);
 
         // Get rasterized positions of the item.
         int iX = pGameItem->getXPosition() - 1;
@@ -489,7 +552,7 @@ void GameView::updateItemsOrder()
         }
     }
 
-    updateItemsPosition();
+    updateItemsPosition(items());
 }
 
 void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
@@ -598,7 +661,7 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 void GameView::setAngle(TileViewAngle angle)
 {
     m_angle = angle;
-    updateItemsImages();
+    updateItemsImages(items());
     updateItemsOrder();
 }
 
@@ -624,7 +687,7 @@ void GameView::angleSwitchCCW()
         break;
     }
 
-    updateItemsImages();
+    updateItemsImages(items());
     updateItemsOrder();
 }
 
@@ -645,8 +708,20 @@ void GameView::angleSwitchCW()
         break;
     }
 
-    updateItemsImages();
+    updateItemsImages(items());
     updateItemsOrder();
+}
+
+QList<GameItem *> GameView::items() const
+{
+    QList<QGraphicsItem *> originalList = QGraphicsView::items();
+    QList<GameItem *> tmpList;
+
+    for (int i = 0; i < originalList.size(); i++) {
+        tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
+    }
+
+    return tmpList;
 }
 
 void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
@@ -686,15 +761,14 @@ void GameView::resizeTileset(QSize const &rSize)
 
     m_pTiles->reloadTileset(newtiles);
 
-    updateItemsImages();
+    updateItemsImages(items());
+    updateItemsPosition(items());
 }
 
-void GameView::updateItemsImages()
+void GameView::updateItemsImages(QList<GameItem *> gameItems)
 {
-    QList<GameItem *> tmpItems = scene()->items();
-
-    for (int i = 0; i < tmpItems.size(); i++) {
-        GameItem *pGameItem = tmpItems.at(i);
+    for (int i = 0; i < gameItems.size(); i++) {
+        GameItem *pGameItem = gameItems.at(i);
 
         QPixmap selPix;
         QPixmap unselPix;
@@ -712,8 +786,6 @@ void GameView::updateItemsImages()
         pGameItem->setAngle(m_angle, &selPix, &unselPix, iShadowWidth, iShadowHeight);
         pGameItem->setFace(&facePix);
     }
-
-    updateItemsPosition();
 
     // Repaint the view.
     update();

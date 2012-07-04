@@ -82,7 +82,9 @@ void GameScene::removeItem(POSITION & stItemPos)
 {
     GameItem * pGameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.e];
 
-    removeItem(pGameItem);
+    if (pGameItem != NULL) {
+        removeItem(pGameItem);
+    }
 }
 
 void GameScene::addItemToPositionArray(GameItem * pGameItem)

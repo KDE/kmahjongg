@@ -19,13 +19,14 @@
 
 #include "KmTypes.h"
 
-#define ANIMATION_SPEED 200
+#define ANIMATION_SPEED 10
 
 
 class GameScene;
 class GameData;
 class GameItem;
 class SelectionAnimation;
+class MoveListAnimation;
 class DemoAnimation;
 class KMahjonggLayout;
 class KMahjonggTileset;
@@ -53,8 +54,10 @@ public:
     ~GameView();
 
     /**
-     * Items where added to the scene and should now be layouted. */
-    void updateItemsPosition();
+     * Items where added to the scene and should now be layouted.
+     *
+     * @param pGameItem The items of which the positions should be updated. */
+    void updateItemsPosition(QList<GameItem *> gameItems);
 
     /**
      * Get the POSITION struct copy of the GameItem positions.
@@ -94,8 +97,10 @@ public:
     GameScene * scene() const;
 
     /**
-     * Updates the images of the items. */
-    void updateItemsImages();
+     * Updates the images of the items.
+     *
+     * @param pGameItem The items of which the images should be updated. */
+    void updateItemsImages(QList<GameItem *> gameItems);
 
     /**
      * Updates the order of the items. */
@@ -144,7 +149,37 @@ public:
      * @return True when matching items of the eselected one will be displayed, else false. */
     bool getMatch() const;
 
+    /**
+     * Override from QGraphcisView. */
+    virtual QList<GameItem *> items() const;
+
 public slots:
+    /**
+     * Add a new item with the given position.
+     *
+     * @param stItemPos The position for the new item.
+     * @param bUpdateImage True for updating the images else false.
+     * @param bUpdateOrder True for updating the order else false.
+     * @param bUpdatePosition True for updating the position else false. */
+    void addItem(POSITION & stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
+        bool bUpdatePosition = false);
+
+    /**
+     * Add a new item.
+     *
+     * @param pGameItem The new game item object.
+     * @param bUpdateImage True for updating the images else false.
+     * @param bUpdateOrder True for updating the order else false.
+     * @param bUpdatePosition True for updating the position else false. */
+    void addItem(GameItem * pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
+        bool bUpdatePosition = false);
+
+    /**
+     * Add a new item with teh given position and update imgages, position and order.
+     *
+     * @param pGameItem The new game item object. */
+    void addItemAndUpdate(POSITION & stItemPos);
+
     /**
      * Remove the given item.
      *
@@ -218,6 +253,10 @@ public slots:
      *
      * @param pGameItem The item we search matching tiles for. */
     void helpMatch(GameItem * pGameItem);
+
+    /**
+     * Start the move list animation. */
+    void startMoveListAnimation();
 
 signals:
     /**
@@ -313,6 +352,7 @@ private:
     QString * m_pBackgroundPath;
 
     SelectionAnimation * m_pHelpAnimation;
+    MoveListAnimation * m_pMoveListAnimation;
     DemoAnimation * m_pDemoAnimation;
 
     KMahjonggLayout * m_pBoardLayout;
