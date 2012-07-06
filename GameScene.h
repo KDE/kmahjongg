@@ -50,14 +50,14 @@ public:
     ~GameScene();
 
     /**
-     * Return the GameItem on the given position.
+     * Return the GameItem on the given grid position.
      *
      * @param iX The x position of the item.
      * @param iY The y position of the item.
      * @param iZ The z position of the item.
      *
      * @return The GameItem object or null if no one was found. */
-    GameItem * getItemOnPosition(int iX, int iY, int iZ);
+    GameItem * getItemOnGridPos(int iX, int iY, int iZ);
 
     /**
      * Override from QGraphicsScene. */

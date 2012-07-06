@@ -368,16 +368,16 @@ void GameView::populateItemNumber()
 
 GameItem * GameView::getItemFromPosition(POSITION stGamePos)
 {
-    return scene()->getItemOnPosition(stGamePos.x, stGamePos.y, stGamePos.e);
+    return scene()->getItemOnGridPos(stGamePos.x, stGamePos.y, stGamePos.e);
 }
 
 POSITION GameView::getPositionFromItem(GameItem * pGameItem)
 {
     POSITION stPos;
 
-    stPos.e = pGameItem->getZPosition();
-    stPos.x = pGameItem->getXPosition();
-    stPos.y = pGameItem->getYPosition();
+    stPos.e = pGameItem->getGridPosZ();
+    stPos.x = pGameItem->getGridPosX();
+    stPos.y = pGameItem->getGridPosY();
     stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x) - TILE_OFFSET;
 
     return stPos;
@@ -407,7 +407,7 @@ void GameView::addItemsFromBoardLayout()
                 }
 
                 GameItem *item = new GameItem(bSelected);
-                item->setPosition(iX, iY, iZ);
+                item->setGridPos(iX, iY, iZ);
                 item->setFlag(QGraphicsItem::ItemIsSelectable);
                 addItem(item);
             }
@@ -452,7 +452,7 @@ void GameView::addItem(POSITION & stItemPos, bool bUpdateImage, bool bUpdateOrde
 {
     GameItem * pGameItem = new GameItem(m_pGameData->HighlightData(stItemPos.e, stItemPos.y,
         stItemPos.x));
-    pGameItem->setPosition(stItemPos.x, stItemPos.y, stItemPos.e);
+    pGameItem->setGridPos(stItemPos.x, stItemPos.y, stItemPos.e);
     pGameItem->setFlag(QGraphicsItem::ItemIsSelectable);
 
     m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f);
@@ -487,9 +487,9 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
         GameItem *pGameItem = gameItems.at(iI);
 
         // Get rasterized positions of the item.
-        int iX = pGameItem->getXPosition() - 1;
-        int iY = pGameItem->getYPosition() - 1;
-        int iZ = pGameItem->getZPosition();
+        int iX = pGameItem->getGridPosX() - 1;
+        int iY = pGameItem->getGridPosY() - 1;
+        int iZ = pGameItem->getGridPosZ();
 
         // Set the position of the item on the view.
         pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * iAngleXFactor *
@@ -555,7 +555,7 @@ void GameView::updateItemsOrder()
 
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
         for (int iY = iYStart; iY != iYEnd; iY = iY + iYCounter) {
-            orderLine(pGameScene->getItemOnPosition(iXStart, iY, iZ), iXStart, iXEnd, iXCounter, iY,
+            orderLine(pGameScene->getItemOnGridPos(iXStart, iY, iZ), iXStart, iXEnd, iXCounter, iY,
                 iYCounter, iZ, iZCount);
         }
     }
@@ -571,7 +571,7 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
 
     for (int i = iXStart; i != iXEnd; i = i + iXCounter) {
         if (pGameItem == NULL) {
-            if ((pGameItem = pGameScene->getItemOnPosition(i, iY, iZ)) == NULL) {
+            if ((pGameItem = pGameScene->getItemOnGridPos(i, iY, iZ)) == NULL) {
                 continue;
             }
         }
@@ -579,7 +579,7 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
         pGameItem->setZValue(iZCount);
         iZCount++;
 
-        pGameItem = pGameScene->getItemOnPosition(i + 2 * iXCounter, iY - 1 * iYCounter, iZ);
+        pGameItem = pGameScene->getItemOnGridPos(i + 2 * iXCounter, iY - 1 * iYCounter, iZ);
         if (pGameItem != NULL) {
             orderLine(pGameItem, i + 2 * iXCounter, iXEnd, iXCounter, iY - 1 * iYCounter, iYCounter,
                 iZ, iZCount);
@@ -782,8 +782,8 @@ void GameView::updateItemsImages(QList<GameItem *> gameItems)
         QPixmap unselPix;
         QPixmap facePix;
 
-        facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getZPosition(),
-            pGameItem->getYPosition(), pGameItem->getXPosition()) - TILE_OFFSET);
+        facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getGridPosZ(),
+            pGameItem->getGridPosY(), pGameItem->getGridPosX()) - TILE_OFFSET);
         selPix = m_pTiles->selectedTile(m_angle);
         unselPix = m_pTiles->unselectedTile(m_angle);
 

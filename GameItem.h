@@ -48,20 +48,26 @@ public:
     TileViewAngle getAngle() const;
 
     /**
-     * Set the tile position.
+     * Set the items grid position.
      *
      * @param iX The x position.
      * @param iY The y position.
      * @param iZ The z position. */
-    void setPosition(int iX, int iY, int iZ);
+    void setGridPos(int iX, int iY, int iZ);
 
     /**
-     * Get the positions.
+     * Set the item grid position with the POSITION struct.
+     *
+     * @param stPos The POSITION type. */
+    void setGridPos(POSITION & stPos);
+
+    /**
+     * Get the grid positions.
      *
      * @return The position value. */
-    int getXPosition() const;
-    int getYPosition() const;
-    int getZPosition() const;
+    int getGridPosX() const;
+    int getGridPosY() const;
+    int getGridPosZ() const;
 
     /**
      * Set the actual angle and therefore all pixmaps related to the angle.
@@ -124,16 +130,15 @@ private:
     void updateFaceOffset();
 
     bool m_dying;
-    int m_iZ;
-    int m_iX;
-    int m_iY;
     int m_iShadowWidth;
     int m_iShadowHeight;
 
+    POSITION m_stPos;
+
     TileViewAngle m_angle;
 
-    QPixmap *m_pUnselPix;
     QPixmap *m_pSelPix;
+    QPixmap *m_pUnselPix;
     QPixmap *m_pFacePix;
 
     QPointF m_faceOffset;

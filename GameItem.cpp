@@ -26,21 +26,27 @@ GameItem::GameItem(bool selected, QGraphicsItem *pItem)
     : QObject(0),
     QGraphicsItem(pItem),
     m_dying(false),
-    m_pSelPix(new QPixmap()),
-    m_pUnselPix(new QPixmap()),
-    m_pFacePix(new QPixmap()),
     m_iShadowWidth(0),
     m_iShadowHeight(0),
-    m_iY(0),
-    m_iZ(0),
-    m_iX(0)
+    m_pSelPix(new QPixmap()),
+    m_pUnselPix(new QPixmap()),
+    m_pFacePix(new QPixmap())
 {
+    // Init POSITION
+    m_stPos.y = 0;
+    m_stPos.x = 0;
+    m_stPos.e = 0;
+    m_stPos.f = 0;
+
     setSelected(selected);
     setOpacity(1.0);
 }
 
 GameItem::~GameItem()
 {
+    delete m_pUnselPix;
+    delete m_pSelPix;
+    delete m_pFacePix;
 }
 
 TileViewAngle GameItem::getAngle() const
@@ -48,24 +54,27 @@ TileViewAngle GameItem::getAngle() const
     return m_angle;
 }
 
-void GameItem::setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix,
+void GameItem::setAngle(TileViewAngle angle, QPixmap * pSelPix, QPixmap * pUnselPix,
     int iShadowWidth, int iShadowHeight)
 {
     m_angle = angle;
+
+    // Set the new pictures realted to the new angle.
     *m_pSelPix = *pSelPix;
     *m_pUnselPix = *pUnselPix;
 
+    // Set the new shadow width and height.
     m_iShadowWidth = iShadowWidth;
     m_iShadowHeight = iShadowHeight;
 
+    // Update the face offset.
     updateFaceOffset();
 }
 
 bool GameItem::isShadow(QPointF const position) const
 {
+    // Get the realated point.
     QPointF mappedPosition = mapFromParent(position);
-
-    int iAngleYFactor = (m_angle == NW || m_angle == NE) ? 1 : -1;
 
     int iNewPosX = mappedPosition.x() + getShadowDeltaX();
     int iNewPosY = mappedPosition.y() + getShadowDeltaY();
@@ -106,12 +115,10 @@ void GameItem::updateFaceOffset()
     case SW:
         m_faceOffset = QPointF(iHorizontalOffset, iVerticalOffset);
         break;
-    default:
-        kDebug() << "Cannot detect the angle!";
     }
 }
 
-void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem *, QWidget *)
+void GameItem::paint(QPainter * pPainter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if (isSelected()) {
         pPainter->drawPixmap(pos(), *m_pSelPix);
@@ -122,7 +129,7 @@ void GameItem::paint(QPainter *pPainter, const QStyleOptionGraphicsItem *, QWidg
     }
 }
 
-void GameItem::setFace(QPixmap *pFacePix)
+void GameItem::setFace(QPixmap * pFacePix)
 {
     *m_pFacePix = *pFacePix;
     updateFaceOffset();
@@ -171,24 +178,29 @@ QRectF GameItem::rect() const
     return boundingRect();
 }
 
-void GameItem::setPosition(int iX, int iY, int iZ)
+void GameItem::setGridPos(int iX, int iY, int iZ)
 {
-    m_iZ = iZ;
-    m_iY = iY;
-    m_iX = iX;
+    m_stPos.e = iZ;
+    m_stPos.y = iY;
+    m_stPos.x = iX;
 }
 
-int GameItem::getXPosition() const
+void GameItem::setGridPos(POSITION & stPos)
 {
-    return m_iX;
+    m_stPos = stPos;
 }
 
-int GameItem::getYPosition() const
+int GameItem::getGridPosX() const
 {
-    return m_iY;
+    return m_stPos.x;
 }
 
-int GameItem::getZPosition() const
+int GameItem::getGridPosY() const
 {
-    return m_iZ;
+    return m_stPos.y;
+}
+
+int GameItem::getGridPosZ() const
+{
+    return m_stPos.e;
 }

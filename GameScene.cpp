@@ -72,8 +72,8 @@ void GameScene::addItem(GameItem * pGameItem)
 
 void GameScene::removeItem(GameItem * pGameItem)
 {
-    m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
-        [pGameItem->getZPosition()] = NULL;
+    m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
+        [pGameItem->getGridPosZ()] = NULL;
 
     QGraphicsScene::removeItem(pGameItem);
 }
@@ -90,14 +90,14 @@ void GameScene::removeItem(POSITION & stItemPos)
 void GameScene::addItemToPositionArray(GameItem * pGameItem)
 {
     // Take a look, if the place is already taken.
-    if (m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
-        [pGameItem->getZPosition()] == NULL) {
-        m_pGameItemsArray[pGameItem->getXPosition()][pGameItem->getYPosition()]
-            [pGameItem->getZPosition()] = pGameItem;
+    if (m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
+        [pGameItem->getGridPosZ()] == NULL) {
+        m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
+        [pGameItem->getGridPosZ()] = pGameItem;
     }
 }
 
-GameItem * GameScene::getItemOnPosition(int iX, int iY, int iZ)
+GameItem * GameScene::getItemOnGridPos(int iX, int iY, int iZ)
 {
     // Test for range
     if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
@@ -135,9 +135,9 @@ QList<GameItem *> GameScene::items() const
 
 bool GameScene::isSelectable(GameItem * pGameItem)
 {
-    int iX = pGameItem->getXPosition();
-    int iY = pGameItem->getYPosition();
-    int iZ = pGameItem->getZPosition();
+    int iX = pGameItem->getGridPosX();
+    int iY = pGameItem->getGridPosY();
+    int iZ = pGameItem->getGridPosZ();
 
     // Test for items above...
 
@@ -147,7 +147,7 @@ bool GameScene::isSelectable(GameItem * pGameItem)
     for (int i = iX - 1; i <= iX + 1; i++) {
         for (int j = iY - 1; j <= iY + 1; j++) {
             // If there is a stone on the position, the item is not selectable.
-            if (getItemOnPosition(i, j, iZ) != NULL) {
+            if (getItemOnGridPos(i, j, iZ) != NULL) {
                 return false;
             }
         }
@@ -162,7 +162,7 @@ bool GameScene::isSelectable(GameItem * pGameItem)
     for (int i = iX - 2; i <= iX + 2; i += 4) {
         for (int j = iY - 1; j <= iY + 1; j++) {
             // If there is one item on the side, it is no longer free.
-            if (getItemOnPosition(i, j, iZ) != NULL) {
+            if (getItemOnGridPos(i, j, iZ) != NULL) {
                 bSideFree = false;
             }
         }
