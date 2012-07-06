@@ -215,7 +215,7 @@ void GameView::removeItem(POSITION & stItemPos)
     scene()->removeItem(stItemPos);
 
     // Decrement the tilenum variable from GameData.
-    m_pGameData->TileNum -= 1;
+    m_pGameData->TileNum = m_pGameData->TileNum - 1;
 
     // If TileNum is % 2 then update the number in the status bar.
     if (!(m_pGameData->TileNum % 2)) {
@@ -378,7 +378,7 @@ POSITION GameView::getPositionFromItem(GameItem * pGameItem)
     stPos.e = pGameItem->getZPosition();
     stPos.x = pGameItem->getXPosition();
     stPos.y = pGameItem->getYPosition();
-    stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x);
+    stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x) - TILE_OFFSET;
 
     return stPos;
 }
@@ -421,10 +421,14 @@ void GameView::addItemsFromBoardLayout()
 void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrder,
     bool bUpdatePosition)
 {
-    kDebug() << "Add item...";
-
     // Add the itme to the scene.
     scene()->addItem(pGameItem);
+
+    // If TileNum is % 2 then update the number in the status bar.
+    if (!(m_pGameData->TileNum % 2)) {
+        // The item numbers changed, so we need to populate the new informations.
+        populateItemNumber();
+    }
 
     QList<GameItem *> gameItems;
     gameItems.append(pGameItem);
@@ -434,7 +438,12 @@ void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrde
     }
 
     if (bUpdatePosition) {
-        updateItemsPosition(gameItems);
+        // When updating the order... the position will automatically be updated after.
+        if (bUpdateOrder) {
+            updateItemsOrder();
+        } else {
+            updateItemsPosition(gameItems);
+        }
     }
 }
 
@@ -447,7 +456,6 @@ void GameView::addItem(POSITION & stItemPos, bool bUpdateImage, bool bUpdateOrde
     pGameItem->setFlag(QGraphicsItem::ItemIsSelectable);
 
     m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f);
-    kDebug() << "Face: " << stItemPos.f;
     addItem(pGameItem, bUpdateImage, bUpdateOrder, bUpdatePosition);
 }
 
