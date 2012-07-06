@@ -763,8 +763,8 @@ bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2)
 {
     // don't compare 'equal' positions
     if (memcmp(&Pos1, &Pos2, sizeof(POSITION))) {
-        UCHAR FA = Pos1.f;
-        UCHAR FB = Pos2.f;
+        UCHAR FA = BoardData(Pos1.e, Pos1.y, Pos1.x);
+        UCHAR FB = BoardData(Pos2.e, Pos2.y, Pos2.x);
 
         if ((FA == FB) || (isFlower(FA) && isFlower(FB)) || (isSeason(FA) && isSeason(FB))) {
             return true;

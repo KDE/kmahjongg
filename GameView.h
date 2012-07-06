@@ -19,9 +19,10 @@
 
 #include "KmTypes.h"
 
-#define ANIMATION_SPEED 10
+#define ANIMATION_SPEED 100
 
 
+// Forward declaration...
 class GameScene;
 class GameData;
 class GameItem;
@@ -34,7 +35,7 @@ class KMahjonggBackground;
 class QMouseEvent;
 
 /**
- * The Mahjongg board where the tiles will be placed.
+ * The Mahjongg board where the tiles (GameItems) will be painted.
  *
  * @author Christian Krippendorf */
 class GameView : public QGraphicsView
@@ -60,23 +61,10 @@ public:
     void updateItemsPosition(QList<GameItem *> gameItems);
 
     /**
-     * Get the POSITION struct copy of the GameItem positions.
-     *
-     * @param pGameItem The GameItem to get the position struct from. */
-    POSITION getPositionFromItem(GameItem * pGameItem);
-
-    /**
-     * Get the GameItem of a POSITION.
-     *
-     * @param stGamePos The position of the item.
-     * @return The GameItem object or NULL if no one exist with the given position. */
-    GameItem * getItemFromPosition(POSITION stGamePos);
-
-    /**
      * Sets the status text.
      *
      * @param rText The new status text. */
-    void setStatusText(QString const &rText);
+    void setStatusText(const QString &text);
 
     /**
      * Updates the whole widget.
@@ -97,6 +85,10 @@ public:
     GameScene * scene() const;
 
     /**
+     * Override from QGraphcisView. */
+    virtual QList<GameItem *> items() const;
+
+    /**
      * Updates the images of the items.
      *
      * @param pGameItem The items of which the images should be updated. */
@@ -107,9 +99,16 @@ public:
     void updateItemsOrder();
 
     /**
-     * Set and get the GameData object. */
+     * Set the GameData object.
+     *
+     * @param pGameData The game data object. */
     void setGameData(GameData *pGameData);
-    GameData * getGameData();
+
+    /**
+     * Get the GameData object that is actually set.
+     *
+     * @return The actual GameData object. */
+    GameData * getGameData() const;
 
     /**
      * Set the angle of the view.
@@ -150,8 +149,22 @@ public:
     bool getMatch() const;
 
     /**
-     * Override from QGraphcisView. */
-    virtual QList<GameItem *> items() const;
+     * Gets the tilesetpath that is actually set.
+     *
+     * @return The tilesetpath as a string. */
+    QString getTilesetPath() const;
+
+    /**
+     * Gets the background path that is actually set.
+     *
+     * @return The background path as a string. */
+    QString getBackgroundPath() const;
+
+    /**
+     * Gets the board layout path that is actually set.
+     *
+     * @return The board layout path as a string. */
+    QString getBoardLayoutPath() const;
 
 public slots:
     /**
@@ -161,7 +174,7 @@ public slots:
      * @param bUpdateImage True for updating the images else false.
      * @param bUpdateOrder True for updating the order else false.
      * @param bUpdatePosition True for updating the position else false. */
-    void addItem(POSITION & stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
+    void addItem(POSITION &stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
         bool bUpdatePosition = false);
 
     /**
@@ -171,14 +184,14 @@ public slots:
      * @param bUpdateImage True for updating the images else false.
      * @param bUpdateOrder True for updating the order else false.
      * @param bUpdatePosition True for updating the position else false. */
-    void addItem(GameItem * pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
+    void addItem(GameItem *pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
         bool bUpdatePosition = false);
 
     /**
      * Add a new item with teh given position and update imgages, position and order.
      *
      * @param pGameItem The new game item object. */
-    void addItemAndUpdate(POSITION & stItemPos);
+    void addItemAndUpdate(POSITION &stItemPos);
 
     /**
      * Remove the given item.
@@ -204,7 +217,6 @@ public slots:
      * @param rTilesetPath The path to the tileset.
      * @return True if setting and therfore loading success, else false. */
     bool setTilesetPath(QString const &rTilesetPath);
-    QString getTilesetPath();
 
     /**
      * Sets the background path and tries to load it.
@@ -212,7 +224,6 @@ public slots:
      * @param rBackgroundPath The path to the background.
      * @return True if setting and therfore loading success, else false. */
     bool setBackgroundPath(QString const &rBackgroundPath);
-    QString getBackgroundPath();
 
     /**
      * Set the board layout path and tries to load it.
@@ -220,13 +231,12 @@ public slots:
      * @param rBoardLayoutPath THe path to the board layout.
      * @return True if loading success else false. */
     bool setBoardLayoutPath(QString const &rBoardLayoutPath);
-    QString getBoardLayoutPath();
 
     /**
      * Create a new game.
      *
      * @param iGameNumber The game number to create or -1 for a random number. */
-    void createNewGame(int iGameNumber = -1);
+    void createNewGame(long iGameNumber = -1);
 
     /**
      * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
@@ -252,7 +262,7 @@ public slots:
      * Give a hint to the matching tiles.
      *
      * @param pGameItem The item we search matching tiles for. */
-    void helpMatch(GameItem * pGameItem);
+    void helpMatch(const GameItem * const pGameItem);
 
     /**
      * Start the move list animation. */
@@ -268,7 +278,7 @@ signals:
      *
      * @param rText The new status text.
      * @param lGameNumber The actual game number. */
-    void statusTextChanged(const QString &rText, long lGameNumber);
+    void statusTextChanged(const QString &text, long lGameNumber);
 
     /**
      * Emits when the number of the items changed or could change.
@@ -297,7 +307,7 @@ private slots:
      *
      * @param stItemPos The position of the item.
      * @param bSelected The selection state to set. */
-    void changeItemSelectedState(POSITION & stItemPos, bool bSelected);
+    void changeItemSelectedState(POSITION &stItemPos, bool bSelected);
 
     /**
      * Gets called when a pair was selected. */
@@ -312,7 +322,7 @@ private:
      * Resize the tileset to the given size.
      *
      * @param rSize The new size of the tileset. */
-    void resizeTileset(QSize const &rSize);
+    void resizeTileset(const QSize &size);
 
     /**
      * Updates the background by creating a new QPalette object. */
@@ -336,7 +346,7 @@ private:
      * @param iY The y position of the item.
      * @param iZ The z position of the item.
      * @param iZCount The z count variable for ther order. */
-    void orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
+    void orderLine(GameItem *pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
         int iYCounter, int iZ, int &iZCount);
 
     unsigned short m_usCheatsUsed;
@@ -344,20 +354,20 @@ private:
     bool m_bGamePaused;
     bool m_bMatch;
 
-    GameData * m_pGameData;
-    GameItem * m_pSelectedItem;
+    GameData *m_pGameData;
+    GameItem *m_pSelectedItem;
 
-    QString * m_pBoardLayoutPath;
-    QString * m_pTilesetPath;
-    QString * m_pBackgroundPath;
+    QString *m_pBoardLayoutPath;
+    QString *m_pTilesetPath;
+    QString *m_pBackgroundPath;
 
-    SelectionAnimation * m_pHelpAnimation;
-    MoveListAnimation * m_pMoveListAnimation;
-    DemoAnimation * m_pDemoAnimation;
+    SelectionAnimation *m_pHelpAnimation;
+    MoveListAnimation *m_pMoveListAnimation;
+    DemoAnimation *m_pDemoAnimation;
 
-    KMahjonggLayout * m_pBoardLayout;
-    KMahjonggTileset * m_pTiles;
-    KMahjonggBackground * m_pBackground;
+    KMahjonggLayout *m_pBoardLayout;
+    KMahjonggTileset *m_pTiles;
+    KMahjonggBackground *m_pBackground;
 
     TileViewAngle m_angle;
 };

@@ -105,6 +105,11 @@ GameItem * GameScene::getItemOnGridPos(int iX, int iY, int iZ)
     return m_pGameItemsArray[iX][iY][iZ];
 }
 
+GameItem * GameScene::getItemOnGridPos(POSITION &stItemPos)
+{
+    return getItemOnGridPos(stItemPos.x, stItemPos.y, stItemPos.e);
+}
+
 bool GameScene::isItemOnGridPos(int iX, int iY, int iZ) const
 {
         // Test for range

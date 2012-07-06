@@ -190,6 +190,11 @@ void GameItem::setGridPos(POSITION & stPos)
     m_stPos = stPos;
 }
 
+POSITION GameItem::getGridPos() const
+{
+    return m_stPos;
+}
+
 int GameItem::getGridPosX() const
 {
     return m_stPos.x;

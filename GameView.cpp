@@ -35,18 +35,18 @@
 
 GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
+    m_bMatch(false),
     m_pGameData(NULL),
-    m_pBoardLayoutPath(new QString()),
-    m_pBackgroundPath(new QString()),
-    m_pTilesetPath(new QString()),
-    m_pBoardLayout(new KMahjonggLayout()),
-    m_pBackground(new KMahjonggBackground()),
-    m_pTiles(new KMahjonggTileset()),
     m_pSelectedItem(NULL),
+    m_pBoardLayoutPath(new QString()),
+    m_pTilesetPath(new QString()),
+    m_pBackgroundPath(new QString()),
     m_pHelpAnimation(new SelectionAnimation(this)),
-    m_pDemoAnimation(new DemoAnimation(this)),
     m_pMoveListAnimation(new MoveListAnimation(this)),
-    m_bMatch(false)
+    m_pDemoAnimation(new DemoAnimation(this)),
+    m_pBoardLayout(new KMahjonggLayout()),
+    m_pTiles(new KMahjonggTileset()),
+    m_pBackground(new KMahjonggBackground())
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
@@ -103,7 +103,7 @@ void GameView::demoGameOver(bool bWon)
     }
 }
 
-void GameView::createNewGame(int iGameNumber)
+void GameView::createNewGame(long lGameNumber)
 {
     setStatusText(i18n("Calculating new game..."));
 
@@ -112,10 +112,10 @@ void GameView::createNewGame(int iGameNumber)
     checkDemoAnimationActive(true);
 
     // Create a random game number, if no one was given.
-    if (iGameNumber == -1) {
+    if (lGameNumber == -1) {
         m_lGameNumber = KRandom::random();
     } else {
-        m_lGameNumber = iGameNumber;
+        m_lGameNumber = lGameNumber;
     }
 
     m_pGameData->random.setSeed(m_lGameNumber);
@@ -169,8 +169,8 @@ void GameView::selectionChanged()
         // The selected item is already there, so this is the second selected item.
 
         // Get both items and their positions.
-        POSITION stFirstPos = getPositionFromItem(m_pSelectedItem);
-        POSITION stSecondPos = getPositionFromItem(selectedGameItems.at(0));
+        POSITION stFirstPos = m_pSelectedItem->getGridPos();
+        POSITION stSecondPos = selectedGameItems.at(0)->getGridPos();
 
         // Test if the items are the same...
         if (m_pGameData->isMatchingTile(stFirstPos, stSecondPos)) {
@@ -254,9 +254,13 @@ void GameView::startMoveListAnimation()
     m_pMoveListAnimation->start(m_pGameData);
 }
 
-void GameView::changeItemSelectedState(POSITION & stItemPos, bool bSelected)
+void GameView::changeItemSelectedState(POSITION &stItemPos, bool bSelected)
 {
-    getItemFromPosition(stItemPos)->setSelected(bSelected);
+    GameItem *pGameItem = scene()->getItemOnGridPos(stItemPos);
+
+    if (pGameItem != NULL) {
+        pGameItem->setSelected(bSelected);
+    }
 }
 
 void GameView::helpMove()
@@ -269,8 +273,8 @@ void GameView::helpMove()
 
     if (m_pGameData->findMove(stItem1, stItem2)) {
         m_pHelpAnimation->clearGameItems();
-        m_pHelpAnimation->addGameItem(getItemFromPosition(stItem1));
-        m_pHelpAnimation->addGameItem(getItemFromPosition(stItem2));
+        m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem1));
+        m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem2));
 
         // Increase the cheat variable.
         m_usCheatsUsed++;
@@ -279,21 +283,22 @@ void GameView::helpMove()
     }
 }
 
-void GameView::helpMatch(GameItem * pGameItem)
+void GameView::helpMatch(GameItem const * const pGameItem)
 {
     int iMatchCount = 0;
-    POSITION stGameItemPos = getPositionFromItem(pGameItem);
+    POSITION stGameItemPos = pGameItem->getGridPos();
 
     // Stop a running help animation.
     checkHelpAnimationActive(true);
 
     // Find matching items...
-    if (iMatchCount = m_pGameData->findAllMatchingTiles(stGameItemPos)) {
+    if ((iMatchCount = m_pGameData->findAllMatchingTiles(stGameItemPos))) {
         m_pHelpAnimation->clearGameItems();
 
         // ...add them to the animation object...
         for (int i = 0; i < iMatchCount; i++) {
-            m_pHelpAnimation->addGameItem(getItemFromPosition(m_pGameData->getFromPosTable(i)));
+            m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(
+                m_pGameData->getFromPosTable(i)));
         }
 
         // Increase the cheat variable.
@@ -364,23 +369,6 @@ void GameView::shuffle()
 void GameView::populateItemNumber()
 {
     emit itemNumberChanged(m_pGameData->MaxTileNum, m_pGameData->TileNum, m_pGameData->moveCount());
-}
-
-GameItem * GameView::getItemFromPosition(POSITION stGamePos)
-{
-    return scene()->getItemOnGridPos(stGamePos.x, stGamePos.y, stGamePos.e);
-}
-
-POSITION GameView::getPositionFromItem(GameItem * pGameItem)
-{
-    POSITION stPos;
-
-    stPos.e = pGameItem->getGridPosZ();
-    stPos.x = pGameItem->getGridPosX();
-    stPos.y = pGameItem->getGridPosY();
-    stPos.f = m_pGameData->BoardData(stPos.e, stPos.y, stPos.x) - TILE_OFFSET;
-
-    return stPos;
 }
 
 void GameView::addItemsFromBoardLayout()
@@ -758,13 +746,13 @@ void GameView::resizeEvent(QResizeEvent *pEvent)
     setSceneRect(0, 0, width(), height());
 }
 
-void GameView::resizeTileset(QSize const &rSize)
+void GameView::resizeTileset(const QSize &size)
 {
     if (m_pGameData == 0) {
         return;
     }
 
-    QSize newtiles = m_pTiles->preferredTileSize(rSize, m_pGameData->m_width / 2,
+    QSize newtiles = m_pTiles->preferredTileSize(size, m_pGameData->m_width / 2,
         m_pGameData->m_height / 2);
 
     m_pTiles->reloadTileset(newtiles);
@@ -817,22 +805,22 @@ void GameView::setGameData(GameData *pGameData)
     m_pGameData = pGameData;
 }
 
-GameData * GameView::getGameData()
+GameData * GameView::getGameData() const
 {
     return m_pGameData;
 }
 
-QString GameView::getTilesetPath()
+QString GameView::getTilesetPath() const
 {
     return *m_pTilesetPath;
 }
 
-QString GameView::getBackgroundPath()
+QString GameView::getBackgroundPath() const
 {
     return *m_pBackgroundPath;
 }
 
-QString GameView::getBoardLayoutPath()
+QString GameView::getBoardLayoutPath() const
 {
     return *m_pBoardLayoutPath;
 }

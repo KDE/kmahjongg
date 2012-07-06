@@ -60,6 +60,14 @@ public:
     GameItem * getItemOnGridPos(int iX, int iY, int iZ);
 
     /**
+     * Return the GameItem on the given grid position.
+     *
+     * @param stItemPos The position struct.
+     *
+     * @return The GameItem object or null if no one was found. */
+    GameItem * getItemOnGridPos(POSITION &stItemPos);
+
+    /**
      * Test whether a item exist on the given position or not.
      *
      * @param iX The x position of the item.

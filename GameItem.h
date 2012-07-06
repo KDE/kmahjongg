@@ -62,6 +62,12 @@ public:
     void setGridPos(POSITION & stPos);
 
     /**
+     * Get the POSITION struct that is actually set.
+     *
+     * @return The POSITION struct. */
+    POSITION getGridPos() const;
+
+    /**
      * Get the grid positions.
      *
      * @return The position value. */
