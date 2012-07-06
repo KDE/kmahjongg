@@ -25,7 +25,7 @@
 #include <QList>
 
 
-GameScene::GameScene(GameData *pGameData, QObject *pParent)
+GameScene::GameScene(QObject *pParent)
     : QGraphicsScene(pParent),
     m_pFirstSelectedItem(NULL),
     m_pSecondSelectedItem(NULL)
@@ -62,11 +62,7 @@ void GameScene::addItem(GameItem * pGameItem)
 {
     QGraphicsScene::addItem(pGameItem);
 
-    // Build a connection to recognize wheather the position of the tile changes.
-//     connect(pGameItem, SINGAL(positionChanged(GameItem*)), this,
-//         SLOT(addItemToPositionArray(GameItem*)));
-
-    // Call the slot function for the first time.
+    // Add the item to the position array.
     addItemToPositionArray(pGameItem);
 }
 
@@ -78,16 +74,16 @@ void GameScene::removeItem(GameItem * pGameItem)
     QGraphicsScene::removeItem(pGameItem);
 }
 
-void GameScene::removeItem(POSITION & stItemPos)
+void GameScene::removeItem(POSITION const &stItemPos)
 {
-    GameItem * pGameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.e];
+    GameItem *pGameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.e];
 
     if (pGameItem != NULL) {
         removeItem(pGameItem);
     }
 }
 
-void GameScene::addItemToPositionArray(GameItem * pGameItem)
+void GameScene::addItemToPositionArray(GameItem * const pGameItem)
 {
     // Take a look, if the place is already taken.
     if (m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
@@ -107,6 +103,18 @@ GameItem * GameScene::getItemOnGridPos(int iX, int iY, int iZ)
     }
 
     return m_pGameItemsArray[iX][iY][iZ];
+}
+
+bool GameScene::isItemOnGridPos(int iX, int iY, int iZ) const
+{
+        // Test for range
+    if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
+        (iY < 0 || iY > BOARD_HEIGHT - 1) ||
+        (iZ < 0 || iZ > BOARD_DEPH - 1)) {
+        return false;
+    }
+
+    return !(m_pGameItemsArray[iX][iY][iZ] == NULL);
 }
 
 QList<GameItem *> GameScene::selectedItems() const
@@ -133,7 +141,7 @@ QList<GameItem *> GameScene::items() const
     return tmpList;
 }
 
-bool GameScene::isSelectable(GameItem * pGameItem)
+bool GameScene::isSelectable(const GameItem * const pGameItem) const
 {
     int iX = pGameItem->getGridPosX();
     int iY = pGameItem->getGridPosY();
@@ -147,7 +155,7 @@ bool GameScene::isSelectable(GameItem * pGameItem)
     for (int i = iX - 1; i <= iX + 1; i++) {
         for (int j = iY - 1; j <= iY + 1; j++) {
             // If there is a stone on the position, the item is not selectable.
-            if (getItemOnGridPos(i, j, iZ) != NULL) {
+            if (isItemOnGridPos(i, j, iZ)) {
                 return false;
             }
         }
@@ -162,7 +170,7 @@ bool GameScene::isSelectable(GameItem * pGameItem)
     for (int i = iX - 2; i <= iX + 2; i += 4) {
         for (int j = iY - 1; j <= iY + 1; j++) {
             // If there is one item on the side, it is no longer free.
-            if (getItemOnGridPos(i, j, iZ) != NULL) {
+            if (isItemOnGridPos(i, j, iZ)) {
                 bSideFree = false;
             }
         }

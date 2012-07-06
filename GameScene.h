@@ -43,7 +43,7 @@ public:
      * Constructor
      *
      * @param pParent The parent object. */
-    GameScene(GameData *pGameData = 0, QObject *pParent = 0);
+    GameScene(QObject *pParent = 0);
 
     /**
      * Destructor */
@@ -60,22 +60,32 @@ public:
     GameItem * getItemOnGridPos(int iX, int iY, int iZ);
 
     /**
+     * Test whether a item exist on the given position or not.
+     *
+     * @param iX The x position of the item.
+     * @param iY The y position of the item.
+     * @param iZ The z position of the item.
+     *
+     * @return True if GameItem object was found, else false. */
+    bool isItemOnGridPos(int iX, int iY, int iZ) const;
+
+    /**
      * Override from QGraphicsScene. */
     void clear();
 
     /**
      * Override from QGraphicsScene. */
-    void addItem(GameItem * pGameItem);
+    void addItem(GameItem *pGameItem);
 
     /**
      * Override from QGraphicsScene. */
-    void removeItem(GameItem * pGameItem);
+    void removeItem(GameItem *pGameItem);
 
     /**
      * Override from QGraphicsScene with POSITION parameter.
      *
      * @param stItemPos The item position. */
-    void removeItem(POSITION & stItemPos);
+    void removeItem(POSITION const &stItemPos);
 
     /**
      * Override from QGraphicsScene. */
@@ -87,18 +97,18 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent);
+    void mousePressEvent(QGraphicsSceneMouseEvent *pMouseEvent);
 
     /**
      * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *pMouseEvent);
 
     /**
      * Test if the item is selectable or not.
      *
      * @param pGameItem The game item to test.
      * @return True if selectable else false. */
-    bool isSelectable(GameItem * pGameItem);
+    bool isSelectable(const GameItem * const pGameItem) const;
 
 private:
     /**
@@ -109,7 +119,7 @@ private:
      * Adds an item to the positions array.
      *
      * @param pGameItem THe game item to add to array. */
-    void addItemToPositionArray(GameItem *pGameItem);
+    void addItemToPositionArray(GameItem * const pGameItem);
 
     GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPH];
     GameItem *m_pFirstSelectedItem;
