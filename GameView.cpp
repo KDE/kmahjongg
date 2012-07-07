@@ -440,7 +440,7 @@ void GameView::addItem(POSITION & stItemPos, bool bUpdateImage, bool bUpdateOrde
 {
     GameItem * pGameItem = new GameItem(m_pGameData->HighlightData(stItemPos.e, stItemPos.y,
         stItemPos.x));
-    pGameItem->setGridPos(stItemPos.x, stItemPos.y, stItemPos.e);
+    pGameItem->setGridPos(stItemPos);
     pGameItem->setFlag(QGraphicsItem::ItemIsSelectable);
 
     m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f);
@@ -498,7 +498,6 @@ void GameView::updateItemsOrder()
 
     switch (m_angle) {
     case NW:
-        kDebug() << "NW";
         iXStart = m_pGameData->m_width - 1;
         iXEnd = -1;
         iXCounter = -1;
@@ -508,7 +507,6 @@ void GameView::updateItemsOrder()
         iYCounter = 1;
         break;
     case NE:
-        kDebug() << "NE";
         iXStart = 0;
         iXEnd = m_pGameData->m_width;
         iXCounter = 1;
@@ -518,7 +516,6 @@ void GameView::updateItemsOrder()
         iYCounter = 1;
         break;
     case SE:
-        kDebug() << "SE";
         iXStart = 0;
         iXEnd = m_pGameData->m_width;
         iXCounter = 1;
@@ -528,7 +525,6 @@ void GameView::updateItemsOrder()
         iYCounter = -1;
         break;
     case SW:
-        kDebug() << "SW";
         iXStart = m_pGameData->m_width - 1;
         iXEnd = -1;
         iXCounter = -1;
