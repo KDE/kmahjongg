@@ -766,8 +766,11 @@ void GameView::updateItemsImages(QList<GameItem *> gameItems)
         QPixmap unselPix;
         QPixmap facePix;
 
-        facePix = m_pTiles->tileface(m_pGameData->BoardData(pGameItem->getGridPosZ(),
-            pGameItem->getGridPosY(), pGameItem->getGridPosX()) - TILE_OFFSET);
+        int iFaceId = m_pGameData->BoardData(pGameItem->getGridPosZ(), pGameItem->getGridPosY(),
+            pGameItem->getGridPosX()) - TILE_OFFSET;
+
+        pGameItem->setFaceId(iFaceId);
+        facePix = m_pTiles->tileface(iFaceId);
         selPix = m_pTiles->selectedTile(m_angle);
         unselPix = m_pTiles->unselectedTile(m_angle);
 

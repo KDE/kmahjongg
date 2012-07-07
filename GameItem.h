@@ -62,6 +62,18 @@ public:
     void setGridPos(POSITION & stPos);
 
     /**
+     * Set the face id of the pixmap.
+     *
+     * @param iFaceId The face id to set up. */
+    void setFaceId(int iFaceId);
+
+    /**
+     * Get the face id.
+     *
+     * @return The face id.*/
+    int getFaceId() const;
+
+    /**
      * Get the POSITION struct that is actually set.
      *
      * @return The POSITION struct. */

@@ -195,6 +195,16 @@ POSITION GameItem::getGridPos() const
     return m_stPos;
 }
 
+void GameItem::setFaceId(int iFaceId)
+{
+    m_stPos.f = iFaceId;
+}
+
+int GameItem::getFaceId() const
+{
+    return m_stPos.f;
+}
+
 int GameItem::getGridPosX() const
 {
     return m_stPos.x;
