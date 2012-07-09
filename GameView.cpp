@@ -321,6 +321,18 @@ bool GameView::checkHelpAnimationActive(bool bStop)
     return bActive;
 }
 
+bool GameView::checkMoveListAnimationActive(bool bStop)
+{
+    bool bActive = m_pMoveListAnimation->isActive();
+
+    // If animation is running and it should be closed, do so.
+    if (bActive && bStop) {
+        m_pMoveListAnimation->stop();
+    }
+
+    return bActive;
+}
+
 bool GameView::checkDemoAnimationActive(bool bStop)
 {
     bool bActive = m_pDemoAnimation->isActive();
@@ -388,16 +400,13 @@ void GameView::addItemsFromBoardLayout()
                     continue;
                 }
 
-                bool bSelected = false;
+                POSITION stItemPos;
+                stItemPos.x = iX;
+                stItemPos.y = iY;
+                stItemPos.e = iZ;
+                stItemPos.f = (m_pGameData->BoardData(iZ, iY, iX) - TILE_OFFSET);
 
-                if (m_pGameData->HighlightData(iZ, iY, iX)) {
-                    bSelected = true;
-                }
-
-                GameItem *item = new GameItem(bSelected);
-                item->setGridPos(iX, iY, iZ);
-                item->setFlag(QGraphicsItem::ItemIsSelectable);
-                addItem(item);
+                addItem(stItemPos, false, false, false);
             }
         }
     }
@@ -443,7 +452,7 @@ void GameView::addItem(POSITION & stItemPos, bool bUpdateImage, bool bUpdateOrde
     pGameItem->setGridPos(stItemPos);
     pGameItem->setFlag(QGraphicsItem::ItemIsSelectable);
 
-    m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f);
+    m_pGameData->putTile(stItemPos.e, stItemPos.y, stItemPos.x, stItemPos.f + TILE_OFFSET);
     addItem(pGameItem, bUpdateImage, bUpdateOrder, bUpdatePosition);
 }
 
@@ -718,6 +727,12 @@ QList<GameItem *> GameView::items() const
 
 void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
+    // If a move list animation is running start a new game.
+    if (checkMoveListAnimationActive(true)) {
+        createNewGame();
+        return;
+    }
+
     // No mouse events when the demo mode is active.
     if (checkDemoAnimationActive()) {
         return;
@@ -766,11 +781,12 @@ void GameView::updateItemsImages(QList<GameItem *> gameItems)
         QPixmap unselPix;
         QPixmap facePix;
 
-        int iFaceId = m_pGameData->BoardData(pGameItem->getGridPosZ(), pGameItem->getGridPosY(),
-            pGameItem->getGridPosX()) - TILE_OFFSET;
+        USHORT usFaceId = (m_pGameData->BoardData(pGameItem->getGridPosZ(),
+            pGameItem->getGridPosY(), pGameItem->getGridPosX()) - TILE_OFFSET);
 
-        pGameItem->setFaceId(iFaceId);
-        facePix = m_pTiles->tileface(iFaceId);
+        pGameItem->setFaceId(usFaceId);
+
+        facePix = m_pTiles->tileface(usFaceId);
         selPix = m_pTiles->selectedTile(m_angle);
         unselPix = m_pTiles->unselectedTile(m_angle);
 

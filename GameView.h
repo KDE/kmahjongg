@@ -19,7 +19,7 @@
 
 #include "KmTypes.h"
 
-#define ANIMATION_SPEED 100
+#define ANIMATION_SPEED 200
 
 
 // Forward declaration...
@@ -135,6 +135,13 @@ public:
      * @param bStop Stop the demo animation if running.
      * @return Return true if the demo animation was running else false. */
     bool checkDemoAnimationActive(bool bStop = false);
+
+    /**
+     * Test for active move list animation and maybe close.
+     *
+     * @param bStop Stop the move list animation if running.
+     * @return Return true if the move list animation was running else false. */
+    bool checkMoveListAnimationActive(bool bStop = false);
 
     /**
      * Set the match variable. If set to true, the matching items to the selected will be animated.

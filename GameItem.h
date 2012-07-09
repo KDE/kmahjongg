@@ -50,10 +50,10 @@ public:
     /**
      * Set the items grid position.
      *
-     * @param iX The x position.
-     * @param iY The y position.
-     * @param iZ The z position. */
-    void setGridPos(int iX, int iY, int iZ);
+     * @param usX The x position.
+     * @param usY The y position.
+     * @param usZ The z position. */
+    void setGridPos(USHORT usX, USHORT usY, USHORT usZ);
 
     /**
      * Set the item grid position with the POSITION struct.
@@ -64,14 +64,14 @@ public:
     /**
      * Set the face id of the pixmap.
      *
-     * @param iFaceId The face id to set up. */
-    void setFaceId(int iFaceId);
+     * @param usFaceId The face id to set up. */
+    void setFaceId(USHORT usFaceId);
 
     /**
      * Get the face id.
      *
      * @return The face id.*/
-    int getFaceId() const;
+    USHORT getFaceId() const;
 
     /**
      * Get the POSITION struct that is actually set.
@@ -83,9 +83,9 @@ public:
      * Get the grid positions.
      *
      * @return The position value. */
-    int getGridPosX() const;
-    int getGridPosY() const;
-    int getGridPosZ() const;
+    USHORT getGridPosX() const;
+    USHORT getGridPosY() const;
+    USHORT getGridPosZ() const;
 
     /**
      * Set the actual angle and therefore all pixmaps related to the angle.

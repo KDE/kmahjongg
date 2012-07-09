@@ -178,11 +178,11 @@ QRectF GameItem::rect() const
     return boundingRect();
 }
 
-void GameItem::setGridPos(int iX, int iY, int iZ)
+void GameItem::setGridPos(USHORT usX, USHORT usY, USHORT usZ)
 {
-    m_stPos.e = iZ;
-    m_stPos.y = iY;
-    m_stPos.x = iX;
+    m_stPos.e = usZ;
+    m_stPos.y = usY;
+    m_stPos.x = usX;
 }
 
 void GameItem::setGridPos(POSITION & stPos)
@@ -195,27 +195,27 @@ POSITION GameItem::getGridPos() const
     return m_stPos;
 }
 
-void GameItem::setFaceId(int iFaceId)
+void GameItem::setFaceId(USHORT usFaceId)
 {
-    m_stPos.f = iFaceId;
+    m_stPos.f = usFaceId;
 }
 
-int GameItem::getFaceId() const
+USHORT GameItem::getFaceId() const
 {
     return m_stPos.f;
 }
 
-int GameItem::getGridPosX() const
+USHORT GameItem::getGridPosX() const
 {
     return m_stPos.x;
 }
 
-int GameItem::getGridPosY() const
+USHORT GameItem::getGridPosY() const
 {
     return m_stPos.y;
 }
 
-int GameItem::getGridPosZ() const
+USHORT GameItem::getGridPosZ() const
 {
     return m_stPos.e;
 }
