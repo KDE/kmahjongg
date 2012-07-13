@@ -237,17 +237,14 @@ void KMahjongg::startNewNumeric()
 
 void KMahjongg::undo()
 {
-//    bw->Game->allow_redo += bw->undoMove();
+    m_pGameView->undo();
     demoModeChanged(false);
 }
 
 void KMahjongg::redo()
 {
-//    if (bw->Game->allow_redo > 0) {
-//        bw->Game->allow_redo--;
-//        bw->redoMove();
-//        demoModeChanged(false);
-//    }
+    m_pGameView->redo();
+    demoModeChanged(false);
 }
 
 void KMahjongg::showSettings()
@@ -454,14 +451,9 @@ void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
         iLeft);
     tilesLeftLabel->setText(szBuffer);
 
-    // Update here since undo allow is effected by demo mode
-    // removal. However we only change the enabled state of the
-    // items when not in demo mode
-//    bw->Game->allow_undo = iMaximum != iCurrent;
-
     // update undo menu item, if demomode is inactive
-    if (!bDemoModeActive && !is_paused && !mFinished) {
-//        undoAction->setEnabled(bw->Game->allow_undo);
+    if (!is_paused && !mFinished) {
+        undoAction->setEnabled(m_pGameView->checkUndoAllowed());
     }
 }
 
@@ -480,8 +472,8 @@ void KMahjongg::demoModeChanged(bool bActive)
         stateChanged("active");
     } else {
         stateChanged("inactive");
-//        undoAction->setEnabled(bw->Game->allow_undo);
-//        redoAction->setEnabled(bw->Game->allow_redo);
+        undoAction->setEnabled(m_pGameView->checkUndoAllowed());
+        redoAction->setEnabled(m_pGameView->checkRedoAllowed());
     }
 }
 

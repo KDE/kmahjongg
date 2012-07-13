@@ -95,11 +95,66 @@ GameScene * GameView::scene() const
     return dynamic_cast<GameScene *>(QGraphicsView::scene());
 }
 
+bool GameView::checkUndoAllowed()
+{
+    return (m_pGameData->allow_undo && !checkDemoAnimationActive() &&
+        !checkMoveListAnimationActive());
+}
+
+bool GameView::checkRedoAllowed()
+{
+    return m_pGameData->allow_redo;
+}
+
+bool GameView::undo()
+{
+    // Clear user selections.
+    scene()->clearSelection();
+
+    if (m_pGameData->TileNum < m_pGameData->MaxTileNum) {
+        m_pGameData->clearRemovedTilePair(m_pGameData->MoveListData(m_pGameData->TileNum + 1),
+            m_pGameData->MoveListData(m_pGameData->TileNum + 2));
+
+        m_pGameData->TileNum++;
+        addItemAndUpdate(m_pGameData->MoveListData(m_pGameData->TileNum));
+        m_pGameData->TileNum++;
+        addItemAndUpdate(m_pGameData->MoveListData(m_pGameData->TileNum));
+
+        m_pGameData->allow_redo++;
+
+        setStatusText(i18n("Undo operation done successfully."));
+
+        return true;
+    }
+
+    setStatusText(i18n("What do you want to undo? You have done nothing!"));
+
+    return false;
+}
+
+bool GameView::redo()
+{
+    if (m_pGameData->allow_redo > 0) {
+        m_pGameData->setRemovedTilePair(m_pGameData->MoveListData(m_pGameData->TileNum),
+            m_pGameData->MoveListData(m_pGameData->TileNum - 1));
+
+        removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
+        removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
+
+        m_pGameData->allow_redo--;
+
+        return true;
+    }
+
+    return false;
+}
+
 void GameView::demoGameOver(bool bWon)
 {
     if (bWon) {
         startMoveListAnimation();
     } else {
+        createNewGame(m_lGameNumber);
         setStatusText(i18n("Your computer has lost the game."));
     }
 }
@@ -119,6 +174,8 @@ void GameView::createNewGame(long lGameNumber)
         m_lGameNumber = lGameNumber;
     }
 
+    m_pGameData->allow_undo = 0;
+    m_pGameData->allow_redo = 0;
     m_pGameData->random.setSeed(m_lGameNumber);
 
     // Translate m_pGameData->Map to an array of POSITION data.  We only need to
@@ -384,6 +441,9 @@ void GameView::shuffle()
 
 void GameView::populateItemNumber()
 {
+    // Update the allow_undo variable, cause the item number changes.
+    m_pGameData->allow_undo = (m_pGameData->MaxTileNum != m_pGameData->TileNum);
+
     emit itemNumberChanged(m_pGameData->MaxTileNum, m_pGameData->TileNum, m_pGameData->moveCount());
 }
 

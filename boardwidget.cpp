@@ -490,7 +490,7 @@ int BoardWidget::undoMove()
         Game->TileNum++;
         putTileInBoard(Game->MoveListData(Game->TileNum));
         Game->TileNum++;
-        drawTileNumber();
+
         setStatusText(i18n("Undo operation done successfully."));
 
         return 1;

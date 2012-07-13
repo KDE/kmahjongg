@@ -173,6 +173,30 @@ public:
      * @return The board layout path as a string. */
     QString getBoardLayoutPath() const;
 
+    /**
+     * Undo the last move.
+     *
+     * @return True if successfull, else false. */
+    bool undo();
+
+    /**
+     * Redo the last undo.
+     *
+     * @return True if successfull, else false. */
+    bool redo();
+
+    /**
+     * Test if undo is allowed.
+     *
+     * @return True if allowed, else false. */
+    bool checkUndoAllowed();
+
+    /**
+     * Test if redo is allowed.
+     *
+     * @return True if allowed, else false. */
+    bool checkRedoAllowed();
+
 public slots:
     /**
      * Add a new item with the given position.
