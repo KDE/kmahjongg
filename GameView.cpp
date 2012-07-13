@@ -759,7 +759,9 @@ void GameView::resizeEvent(QResizeEvent *pEvent)
     }
 
     resizeTileset(pEvent->size());
+
     m_pBackground->sizeChanged(width(), height());
+    updateBackground();
 
     setSceneRect(0, 0, width(), height());
 }
