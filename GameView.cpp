@@ -240,6 +240,9 @@ void GameView::startDemo()
 
     // Start the demo mode.
     m_pDemoAnimation->start(m_pGameData);
+
+    // Set the status text.
+    setStatusText(i18n("Demo mode. Click mousebutton to stop."));
 }
 
 void GameView::startMoveListAnimation()
@@ -736,12 +739,13 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
     // If a move list animation is running start a new game.
     if (checkMoveListAnimationActive(true)) {
-        createNewGame();
+        createNewGame(m_lGameNumber);
         return;
     }
 
     // No mouse events when the demo mode is active.
-    if (checkDemoAnimationActive()) {
+    if (checkDemoAnimationActive(true)) {
+        createNewGame(m_lGameNumber);
         return;
     }
 
