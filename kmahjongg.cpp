@@ -3,19 +3,17 @@
  * Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
  * Copyright (C) 2006-2007 Mauricio Piacentini   <mauricio@tabuleiro.com>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ * Kmahjongg is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
+ * You should have received a copy of the GNU General Public License along with this program; if
+ * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA. */
 
 #include "kmahjongg.h"
 
@@ -119,8 +117,6 @@ KMahjongg::KMahjongg(QWidget *parent)
         SLOT(showItemNumber(int, int, int)));
     connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
         SLOT(gameOver(unsigned short, unsigned short)));
-
-//    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
 
     loadSettings();
     startNewGame();
@@ -341,9 +337,6 @@ void KMahjongg::startNewGame(int item)
     if (!bDemoModeActive) {
         m_pGameView->createNewGame(item);
 
-        // initialise button states
-//        bw->Game->allow_redo = bw->Game->allow_undo = 0;
-
         timerReset();
 
         // update the initial enabled/disabled state for
@@ -380,8 +373,8 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     int score;
 
     gameTimer->pause();
-//    long gameNum = bw->getGameNum();
-    long gameNum = 0;
+
+    long gameNum = m_pGameView->getGameNumber();
 
     KMessageBox::information(this, i18n("You have won!"));
 
@@ -411,7 +404,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     }
 
     //TODO: add gameNum as a Custom KScoreDialog field?
-//     theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+//    theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
 //    ksdialog.setConfigGroup(bw->getLayoutName());
     KScoreDialog::FieldInfo scoreInfo;
@@ -436,9 +429,7 @@ void KMahjongg::showStatusText(const QString &msg, long board)
 
 void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 {
-    // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
-    //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum-iCurrent, iMaximum,
+    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum - iCurrent, iMaximum,
         iLeft);
     tilesLeftLabel->setText(szBuffer);
 
@@ -472,9 +463,6 @@ void KMahjongg::restartGame()
 {
     if (!bDemoModeActive) {
         m_pGameView->createNewGame(43/* bw->getGameNum() */);
-
-        // initialise button states
-//        bw->Game->allow_redo = bw->Game->allow_undo = 0;
 
         timerReset();
 

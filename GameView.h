@@ -174,6 +174,12 @@ public:
     QString getBoardLayoutPath() const;
 
     /**
+     * Return the name of the boar dlayout.
+     *
+     * @return The name of the board layout. */
+    QString getBoardLayoutName() const;
+
+    /**
      * Undo the last move.
      *
      * @return True if successfull, else false. */
@@ -196,6 +202,12 @@ public:
      *
      * @return True if allowed, else false. */
     bool checkRedoAllowed();
+
+    /**
+     * Get the game number.
+     *
+     * @return The game number or -1 if no game number set. */
+    long getGameNumber() const;
 
 public slots:
     /**

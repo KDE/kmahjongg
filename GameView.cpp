@@ -106,6 +106,11 @@ bool GameView::checkRedoAllowed()
     return m_pGameData->allow_redo;
 }
 
+long GameView::getGameNumber() const
+{
+    return m_lGameNumber;
+}
+
 bool GameView::undo()
 {
     // Clear user selections.
@@ -911,6 +916,13 @@ QString GameView::getBackgroundPath() const
 QString GameView::getBoardLayoutPath() const
 {
     return *m_pBoardLayoutPath;
+}
+
+QString GameView::getBoardLayoutName() const
+{
+    QString key("Name");
+
+    return m_pBoardLayout->authorProperty(key);
 }
 
 void GameView::setMatch(bool bMatch)
