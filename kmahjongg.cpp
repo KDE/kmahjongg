@@ -216,14 +216,6 @@ void KMahjongg::displayTime(const QString& timestring)
     gameTimerLabel->setText(i18n("Time: ") + timestring);
 }
 
-void KMahjongg::setDisplayedWidth()
-{
-//    bw->setDisplayedWidth();
-//    bw->drawBoard();
-//    m_pGameView->setDisplayedWidth();
-    //~ m_pGameView->updateWidget(true);
-}
-
 void KMahjongg::startNewNumeric()
 {
     bool ok;
@@ -266,7 +258,6 @@ void KMahjongg::showSettings()
 
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(loadSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
 
     dialog->show();
 }

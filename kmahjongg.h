@@ -104,10 +104,6 @@ public slots:
 
     /**
      * Slot Description */
-    void setDisplayedWidth();
-
-    /**
-     * Slot Description */
     void newGame();
 
     /**
