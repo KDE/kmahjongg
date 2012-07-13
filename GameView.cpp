@@ -51,6 +51,7 @@ GameView::GameView(GameScene *pGameScene, QWidget *pParent)
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
     setStyleSheet( "QGraphicsView { border-style: none; }" );
+    setAutoFillBackground(true);
 
     // Read in some settings.
     m_angle = (TileViewAngle) Prefs::angle();
@@ -637,6 +638,8 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
 
 bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 {
+    kDebug() << "Set a new Background: " << rBackgroundPath;
+
     *m_pBackgroundPath = rBackgroundPath;
 
     if (m_pBackground->load(rBackgroundPath, width(), height())) {
@@ -648,6 +651,8 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
         }
     }
 
+    kDebug() << "Loading the background failed. Try to load the default background.";
+
     // Try default
     if (m_pBackground->loadDefault()) {
         if (m_pBackground->loadGraphics()) {
@@ -655,6 +660,8 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
             updateBackground();
         }
     }
+
+    kDebug() << "Loading the default background failed.";
 
     return false;
 }
@@ -752,7 +759,7 @@ void GameView::resizeEvent(QResizeEvent *pEvent)
     }
 
     resizeTileset(pEvent->size());
-    m_pBackground->sizeChanged(m_pGameData->m_width / 2, m_pGameData->m_height / 2);
+    m_pBackground->sizeChanged(width(), height());
 
     setSceneRect(0, 0, width(), height());
 }
@@ -809,10 +816,10 @@ void GameView::setStatusText(QString const &rText)
 
 void GameView::updateBackground()
 {
-    QPalette palette;
-    palette.setBrush(backgroundRole(), m_pBackground->getBackground());
-    setPalette(palette);
-    setAutoFillBackground(true);
+    kDebug() << "Update the background";
+
+    QBrush brush(m_pBackground->getBackground());
+    setBackgroundBrush(brush);
 }
 
 void GameView::setGameData(GameData *pGameData)
