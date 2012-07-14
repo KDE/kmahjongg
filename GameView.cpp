@@ -33,10 +33,10 @@
 #include <QMouseEvent>
 
 
-GameView::GameView(GameScene *pGameScene, QWidget *pParent)
+GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
     m_bMatch(false),
-    m_pGameData(NULL),
+    m_pGameData(pGameData),
     m_pSelectedItem(NULL),
     m_pBoardLayoutPath(new QString()),
     m_pTilesetPath(new QString()),
@@ -87,7 +87,6 @@ GameView::~GameView()
     delete m_pMoveListAnimation;
     delete m_pBackground;
     delete m_pTiles;
-    delete m_pGameData;
 }
 
 GameScene * GameView::scene() const
@@ -650,38 +649,6 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
     }
 }
 
-bool GameView::loadBoardLayoutFromPath()
-{
-    if (m_pBoardLayout->load(*m_pBoardLayoutPath)) {
-        return true;
-    } else {
-        if (m_pBoardLayout->loadDefault()) {
-            return false;
-        } else {
-            return false;
-        }
-    }
-}
-
-bool GameView::setBoardLayoutPath(QString const &rBoardLayoutPath)
-{
-    *m_pBoardLayoutPath = rBoardLayoutPath;
-
-    kDebug() << *m_pBoardLayoutPath;
-
-    // Load the new set board layout.
-    loadBoardLayoutFromPath();
-
-    // We need to create a new GameData object.
-    GameData *pOldGameData = m_pGameData;
-    m_pGameData = new GameData(m_pBoardLayout->board());
-
-    // New game data object so set, so delete the old one.
-    delete pOldGameData;
-
-    return true;
-}
-
 bool GameView::setTilesetPath(QString const &rTilesetPath)
 {
     *m_pTilesetPath = rTilesetPath;
@@ -896,6 +863,9 @@ void GameView::updateBackground()
 void GameView::setGameData(GameData *pGameData)
 {
     m_pGameData = pGameData;
+
+    addItemsFromBoardLayout();
+    populateItemNumber();
 }
 
 GameData * GameView::getGameData() const
@@ -911,18 +881,6 @@ QString GameView::getTilesetPath() const
 QString GameView::getBackgroundPath() const
 {
     return *m_pBackgroundPath;
-}
-
-QString GameView::getBoardLayoutPath() const
-{
-    return *m_pBoardLayoutPath;
-}
-
-QString GameView::getBoardLayoutName() const
-{
-    QString key("Name");
-
-    return m_pBoardLayout->authorProperty(key);
 }
 
 void GameView::setMatch(bool bMatch)

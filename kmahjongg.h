@@ -35,6 +35,8 @@ class KGameClock;
 class Editor;
 class GameView;
 class GameScene;
+class GameData;
+class KMahjonggLayout;
 
 /**
  * @short  Class Description
@@ -135,7 +137,10 @@ private:
     bool mFinished;
 
     GameView *m_pGameView;
+    GameData *m_pGameData;
     GameScene *m_pGameScene;
+
+    KMahjonggLayout *m_pBoardLayout;
 
     Editor *boardEditor;
 

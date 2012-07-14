@@ -48,7 +48,7 @@ public:
      *
      * @param pParent The parent widget.
      * @param pGameScene The related GameScene object. */
-    GameView(GameScene *pGameScene, QWidget *pParent = 0);
+    GameView(GameScene *pGameScene, GameData *pGameData = NULL, QWidget *pParent = 0);
 
     /**
      * Destructor */
@@ -168,18 +168,6 @@ public:
     QString getBackgroundPath() const;
 
     /**
-     * Gets the board layout path that is actually set.
-     *
-     * @return The board layout path as a string. */
-    QString getBoardLayoutPath() const;
-
-    /**
-     * Return the name of the boar dlayout.
-     *
-     * @return The name of the board layout. */
-    QString getBoardLayoutName() const;
-
-    /**
      * Undo the last move.
      *
      * @return True if successfull, else false. */
@@ -269,13 +257,6 @@ public slots:
     bool setBackgroundPath(QString const &rBackgroundPath);
 
     /**
-     * Set the board layout path and tries to load it.
-     *
-     * @param rBoardLayoutPath THe path to the board layout.
-     * @return True if loading success else false. */
-    bool setBoardLayoutPath(QString const &rBoardLayoutPath);
-
-    /**
      * Create a new game.
      *
      * @param iGameNumber The game number to create or -1 for a random number. */
@@ -358,10 +339,6 @@ private slots:
 
 private:
     /**
-     * Reloads the board and therefore create a new GameData object. */
-    void loadBoard();
-
-    /**
      * Resize the tileset to the given size.
      *
      * @param rSize The new size of the tileset. */
@@ -374,12 +351,6 @@ private:
     /**
      * Add all the items from the board layout to the scene object. */
     void addItemsFromBoardLayout();
-
-    /**
-     * Loads the board layout from the given path.
-     *
-     * @return True if loading success, else false. */
-    bool loadBoardLayoutFromPath();
 
     /**
      * Order the line starting by the item.

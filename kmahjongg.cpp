@@ -24,6 +24,7 @@
 #include "GameView.h"
 #include "GameScene.h"
 #include "GameData.h"
+#include "kmahjongglayout.h"
 
 #include <kmahjonggconfigdialog.h>
 
@@ -80,7 +81,9 @@ public:
 };
 
 KMahjongg::KMahjongg(QWidget *parent)
-    : KXmlGuiWindow(parent)
+    : KXmlGuiWindow(parent),
+    m_pBoardLayout(new KMahjonggLayout()),
+    m_pGameData(NULL)
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3 * 1024);
@@ -89,8 +92,9 @@ KMahjongg::KMahjongg(QWidget *parent)
     setMinimumSize(320, 320);
 
     // init board widget
+    // For new don't set a GameData object, as we don't got any board layout informations.
     m_pGameScene = new GameScene();
-    m_pGameView = new GameView(m_pGameScene, this);
+    m_pGameView = new GameView(m_pGameScene, NULL, this);
 
     setCentralWidget(m_pGameView);
 
@@ -126,6 +130,8 @@ KMahjongg::~KMahjongg()
 {
     delete m_pGameView;
     delete m_pGameScene;
+    delete m_pGameData;
+    delete m_pBoardLayout;
     delete boardEditor;
 }
 
@@ -273,13 +279,20 @@ void KMahjongg::loadSettings()
     m_pGameView->setBackgroundPath(Prefs::background());
 
     // Just load the new layout, if it is not already set.
-    if (m_pGameView->getBoardLayoutPath() != Prefs::layout()) {
-        if (!m_pGameView->setBoardLayoutPath(Prefs::layout())) {
-            kDebug() << "An error occurred when loading the board layout" << Prefs::layout() <<
-                "KMahjongg will continue with the default board layout.";
-        } else {
-            newGame();
+    if (m_pBoardLayout->path() != Prefs::layout()) {
+        if (!m_pBoardLayout->load(Prefs::layout())) {
+            kDebug() << "Error loading the layout. Try to load the default layout.";
+
+            m_pBoardLayout->loadDefault();
         }
+
+        GameData *pGameDataOld = m_pGameData;
+        m_pGameData = new GameData(m_pBoardLayout->board());
+        m_pGameView->setGameData(m_pGameData);
+
+        delete pGameDataOld;
+
+        newGame();
     }
 
     // Set the showmatchingtiles option.
@@ -541,9 +554,25 @@ void KMahjongg::loadGame()
     gameTimer->setTime(seconds);
 
 //    delete bw->Game;
-    m_pGameView->setBoardLayoutPath(theBoardLayoutName);
+
+    // Load the boardlayout.
+    if (m_pBoardLayout->path() != Prefs::layout()) {
+        if (!m_pBoardLayout->load(Prefs::layout())) {
+            kDebug() << "Error loading the layout. Try to load the default layout.";
+
+            m_pBoardLayout->loadDefault();
+        }
+    }
+
+    GameData *pGameDataOld = m_pGameData;
+    m_pGameData = new GameData(m_pBoardLayout->board());
+    m_pGameData->loadFromStream(in);
+    m_pGameView->setGameData(m_pGameData);
+
+    delete pGameDataOld;
+
 //    bw->Game = new GameData(bw->theBoardLayout.board());
-//    bw->Game->loadFromStream(in);
+//    m_pGameView->getGameData()->loadFromStream(in);
 
     infile.close();
 
@@ -593,14 +622,15 @@ void KMahjongg::saveGame()
     out << (qint32) gameDataVersion;
     out.setVersion(QDataStream::Qt_4_0);
 
-//    out << bw->theTiles.path();
-//    out << bw->theBackground.path();
-//    out << bw->theBoardLayout.path();
+    out << m_pGameView->getTilesetPath();
+    out << m_pGameView->getBackgroundPath();
+    out << m_pBoardLayout->path();
 
     //GameTime
     out << gameTimer->seconds();
+
     // Write the Game data
-//    bw->Game->saveToStream(out);
+    m_pGameData->saveToStream(out);
 
     outfile.close();
     gameTimer->resume();

@@ -32,13 +32,15 @@
 #include "kmahjongglayout.h"
 #include "GameView.h"
 #include "GameScene.h"
+#include "GameData.h"
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
-        : QWidget( parent )
+        : QWidget( parent ),
+        m_pGameData(NULL)
 {
     setupUi(this);
     m_pGameScene = new GameScene();
-    m_pGameView = new GameView(m_pGameScene, layoutPreview);
+    m_pGameView = new GameView(m_pGameScene, NULL, layoutPreview);
     m_pGameView->resize(layoutPreview->size());
     setupData(aconfig);
 }
@@ -109,7 +111,12 @@ void KMahjonggLayoutSelector::layoutChanged()
       m_pGameView->setBackgroundPath(Prefs::background());
 
     //Now load the boardLayout temporarily
-    m_pGameView->setBoardLayoutPath(selLayout->path());
+    GameData *pGameDataOld = m_pGameData;
+    m_pGameData = new GameData(selLayout->board());
+    m_pGameView->setGameData(m_pGameData);
+
+    delete pGameDataOld;
+
     m_pGameView->createNewGame();
 
     /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)

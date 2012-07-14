@@ -29,6 +29,7 @@
 
 
 class GameView;
+class GameData;
 class GameScene;
 class KMahjonggLayout;
 class BoardWidget;
@@ -48,6 +49,7 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
   private:
     BoardWidget * bw;
     GameScene *m_pGameScene;
+    GameData *m_pGameData;
     GameView *m_pGameView;
 };
 
