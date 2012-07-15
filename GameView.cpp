@@ -102,7 +102,8 @@ bool GameView::checkUndoAllowed()
 
 bool GameView::checkRedoAllowed()
 {
-    return m_pGameData->allow_redo;
+    return (m_pGameData->allow_redo && !checkDemoAnimationActive() &&
+        !checkMoveListAnimationActive());
 }
 
 long GameView::getGameNumber() const
@@ -238,6 +239,9 @@ void GameView::selectionChanged()
         if (m_pGameData->isMatchingTile(stFirstPos, stSecondPos)) {
             // Update the removed tiles in GameData.
             m_pGameData->setRemovedTilePair(stFirstPos, stSecondPos);
+
+            // One tile pair is removed, so we are not allowed to redo anymore.
+            m_pGameData->allow_redo = 0;
 
             // Remove the items.
             removeItem(stFirstPos);

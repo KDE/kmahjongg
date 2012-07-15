@@ -441,6 +441,7 @@ void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
     // update undo menu item, if demomode is inactive
     if (!is_paused && !mFinished) {
         undoAction->setEnabled(m_pGameView->checkUndoAllowed());
+        redoAction->setEnabled(m_pGameView->checkRedoAllowed());
     }
 }
 
