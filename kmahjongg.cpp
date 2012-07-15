@@ -130,9 +130,9 @@ KMahjongg::~KMahjongg()
 {
     delete m_pGameView;
     delete m_pGameScene;
-    delete m_pGameData;
     delete m_pBoardLayout;
     delete boardEditor;
+    delete m_pGameData;
 }
 
 void KMahjongg::setupKAction()
