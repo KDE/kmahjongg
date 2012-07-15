@@ -301,15 +301,7 @@ void KMahjongg::loadSettings()
 
 void KMahjongg::demoMode()
 {
-    if (bDemoModeActive) {
-//        bw->stopDemoMode();
-    } else {
-        // we assume demo mode removes tiles so we can
-        // disable redo here.
-//        bw->Game->allow_redo = false;
-        m_pGameView->startDemo();
-    }
-
+    m_pGameView->startDemo();
 }
 
 void KMahjongg::pause()
@@ -328,7 +320,7 @@ void KMahjongg::pause()
 void KMahjongg::showHighscores()
 {
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-//    ksdialog.setConfigGroup(bw->getLayoutName());
+    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     ksdialog.exec();
 }
 
@@ -419,7 +411,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //TODO: add gameNum as a Custom KScoreDialog field?
 //    theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-//    ksdialog.setConfigGroup(bw->getLayoutName());
+    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
@@ -475,7 +467,7 @@ void KMahjongg::demoModeChanged(bool bActive)
 void KMahjongg::restartGame()
 {
     if (!bDemoModeActive) {
-        m_pGameView->createNewGame(43/* bw->getGameNum() */);
+        m_pGameView->createNewGame(m_pGameView->getGameNumber());
 
         timerReset();
 
@@ -486,8 +478,7 @@ void KMahjongg::restartGame()
 
         if (is_paused) {
             pauseAction->setChecked(false);
-            is_paused = false;
-//            bw->pause();
+            pause();
         }
     }
 }
@@ -553,8 +544,6 @@ void KMahjongg::loadGame()
     in >> seconds;
     gameTimer->setTime(seconds);
 
-//    delete bw->Game;
-
     // Load the boardlayout.
     if (m_pBoardLayout->path() != Prefs::layout()) {
         if (!m_pBoardLayout->load(Prefs::layout())) {
@@ -571,15 +560,9 @@ void KMahjongg::loadGame()
 
     delete pGameDataOld;
 
-//    bw->Game = new GameData(bw->theBoardLayout.board());
-//    m_pGameView->getGameData()->loadFromStream(in);
-
     infile.close();
 
     KIO::NetAccess::removeTempFile(fname);
-
-    // refresh the board
-//    bw->gameLoaded();
 
     mFinished = false;
     demoModeChanged(false);
