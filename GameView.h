@@ -48,7 +48,7 @@ public:
      *
      * @param pParent The parent widget.
      * @param pGameScene The related GameScene object. */
-    GameView(GameScene *pGameScene, GameData *pGameData = NULL, QWidget *pParent = 0);
+    GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent = 0);
 
     /**
      * Destructor */
@@ -61,42 +61,18 @@ public:
     void updateItemsPosition(QList<GameItem *> gameItems);
 
     /**
-     * Sets the status text.
-     *
-     * @param rText The new status text. */
-    void setStatusText(const QString &text);
-
-    /**
      * Updates the whole widget.
      *
      * @param bShowTiles True if the tiles should be displayed, else false. */
     void updateWidget(bool bShowTiles);
 
     /**
-     * Override from QGraphicsView. */
-    virtual void resizeEvent(QResizeEvent *pEvent);
-
-    /**
-     * Override from QGraphicsView. */
-    virtual void mousePressEvent(QMouseEvent * pMouseEvent);
-
-    /**
-     * Override from QGraphicsView. */
-    GameScene * scene() const;
-
-    /**
      * Override from QGraphcisView. */
     virtual QList<GameItem *> items() const;
 
     /**
-     * Updates the images of the items.
-     *
-     * @param pGameItem The items of which the images should be updated. */
-    void updateItemsImages(QList<GameItem *> gameItems);
-
-    /**
-     * Updates the order of the items. */
-    void updateItemsOrder();
+     * Override from QGraphicsView. */
+    GameScene * scene() const;
 
     /**
      * Set the GameData object.
@@ -168,6 +144,20 @@ public:
     QString getBackgroundPath() const;
 
     /**
+     * Sets the tileset path and tries to load it.
+     *
+     * @param rTilesetPath The path to the tileset.
+     * @return True if setting and therfore loading success, else false. */
+    bool setTilesetPath(QString const &rTilesetPath);
+
+    /**
+     * Sets the background path and tries to load it.
+     *
+     * @param rBackgroundPath The path to the background.
+     * @return True if setting and therfore loading success, else false. */
+    bool setBackgroundPath(QString const &rBackgroundPath);
+
+    /**
      * Undo the last move.
      *
      * @return True if successfull, else false. */
@@ -197,27 +187,15 @@ public:
      * @return The game number or -1 if no game number set. */
     long getGameNumber() const;
 
+    /**
+     * Search for a valid move silently or with an information text.
+     *
+     * @param bSilent False if a message should appears when no legal moves exist, else true.
+     *        Default ist false!
+     * @return True if a legal move exist, else false. */
+    bool validMovesAvailable(bool bSilent = false);
+
 public slots:
-    /**
-     * Add a new item with the given position.
-     *
-     * @param stItemPos The position for the new item.
-     * @param bUpdateImage True for updating the images else false.
-     * @param bUpdateOrder True for updating the order else false.
-     * @param bUpdatePosition True for updating the position else false. */
-    void addItem(POSITION &stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
-        bool bUpdatePosition = false);
-
-    /**
-     * Add a new item.
-     *
-     * @param pGameItem The new game item object.
-     * @param bUpdateImage True for updating the images else false.
-     * @param bUpdateOrder True for updating the order else false.
-     * @param bUpdatePosition True for updating the position else false. */
-    void addItem(GameItem *pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
-        bool bUpdatePosition = false);
-
     /**
      * Add a new item with teh given position and update imgages, position and order.
      *
@@ -243,36 +221,10 @@ public slots:
     void angleSwitchCW();
 
     /**
-     * Sets the tileset path and tries to load it.
-     *
-     * @param rTilesetPath The path to the tileset.
-     * @return True if setting and therfore loading success, else false. */
-    bool setTilesetPath(QString const &rTilesetPath);
-
-    /**
-     * Sets the background path and tries to load it.
-     *
-     * @param rBackgroundPath The path to the background.
-     * @return True if setting and therfore loading success, else false. */
-    bool setBackgroundPath(QString const &rBackgroundPath);
-
-    /**
      * Create a new game.
      *
      * @param iGameNumber The game number to create or -1 for a random number. */
     void createNewGame(long iGameNumber = -1);
-
-    /**
-     * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
-    void populateItemNumber();
-
-    /**
-     * Search for a valid move silently or with an information text.
-     *
-     * @param bSilent False if a message should appears when no legal moves exist, else true.
-     *        Default ist false!
-     * @return True if a legal move exist, else false. */
-    bool validMovesAvailable(bool bSilent = false);
 
     /**
      * Shuffle the position of items. */
@@ -291,6 +243,15 @@ public slots:
     /**
      * Start the move list animation. */
     void startMoveListAnimation();
+
+protected:
+    /**
+     * Override from QGraphicsView. */
+    virtual void resizeEvent(QResizeEvent *pEvent);
+
+    /**
+     * Override from QGraphicsView. */
+    virtual void mousePressEvent(QMouseEvent * pMouseEvent);
 
 signals:
     /**
@@ -321,6 +282,26 @@ signals:
 
 private slots:
     /**
+     * Add a new item with the given position.
+     *
+     * @param stItemPos The position for the new item.
+     * @param bUpdateImage True for updating the images else false.
+     * @param bUpdateOrder True for updating the order else false.
+     * @param bUpdatePosition True for updating the position else false. */
+    void addItem(POSITION &stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
+        bool bUpdatePosition = false);
+
+    /**
+     * Add a new item.
+     *
+     * @param pGameItem The new game item object.
+     * @param bUpdateImage True for updating the images else false.
+     * @param bUpdateOrder True for updating the order else false.
+     * @param bUpdatePosition True for updating the position else false. */
+    void addItem(GameItem *pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
+        bool bUpdatePosition = false);
+
+    /**
      * When the game is over by the demo mode.
      *
      * @param bWon True if the computer won in demo mode, else false. */
@@ -338,6 +319,26 @@ private slots:
     void selectionChanged();
 
 private:
+    /**
+     * Updates the images of the items.
+     *
+     * @param pGameItem The items of which the images should be updated. */
+    void updateItemsImages(QList<GameItem *> gameItems);
+
+    /**
+     * Updates the order of the items. */
+    void updateItemsOrder();
+
+    /**
+     * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
+    void populateItemNumber();
+
+    /**
+     * Sets the status text.
+     *
+     * @param rText The new status text. */
+    void setStatusText(const QString &text);
+
     /**
      * Resize the tileset to the given size.
      *
