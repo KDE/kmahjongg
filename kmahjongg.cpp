@@ -83,7 +83,8 @@ public:
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
     m_pBoardLayout(new KMahjonggLayout()),
-    m_pGameData(NULL)
+    m_pGameData(NULL),
+    m_pGameView(NULL)
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3 * 1024);
@@ -94,7 +95,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     // init board widget
     // For new don't set a GameData object, as we don't got any board layout informations.
     m_pGameScene = new GameScene();
-    m_pGameView = new GameView(m_pGameScene, NULL, this);
 
     setCentralWidget(m_pGameView);
 
@@ -123,7 +123,6 @@ KMahjongg::KMahjongg(QWidget *parent)
         SLOT(gameOver(unsigned short, unsigned short)));
 
     loadSettings();
-    startNewGame();
 }
 
 KMahjongg::~KMahjongg()
@@ -266,6 +265,35 @@ void KMahjongg::showSettings()
 
 void KMahjongg::loadSettings()
 {
+    // Just load the new layout, if it is not already set.
+    if (m_pBoardLayout->path() != Prefs::layout()) {
+        if (!m_pBoardLayout->load(Prefs::layout())) {
+            kDebug() << "Error loading the layout. Try to load the default layout.";
+
+            m_pBoardLayout->loadDefault();
+        }
+
+        GameData *pGameDataOld = m_pGameData;
+        m_pGameData = new GameData(m_pBoardLayout->board());
+
+        if (m_pGameView == NULL) {
+            m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
+            setCentralWidget(m_pGameView);
+        } else {
+            m_pGameView->setGameData(m_pGameData);
+        }
+
+        delete pGameDataOld;
+
+        startNewGame();
+    }
+
+    if (m_pGameView == NULL) {
+        kDebug() << "GameView not initialised!";
+
+        return;
+    }
+
     // Just set the new tileset, if it is not already set.
     m_pGameView->setTilesetPath(Prefs::tileSet());
     if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
@@ -277,23 +305,6 @@ void KMahjongg::loadSettings()
 
 
     m_pGameView->setBackgroundPath(Prefs::background());
-
-    // Just load the new layout, if it is not already set.
-    if (m_pBoardLayout->path() != Prefs::layout()) {
-        if (!m_pBoardLayout->load(Prefs::layout())) {
-            kDebug() << "Error loading the layout. Try to load the default layout.";
-
-            m_pBoardLayout->loadDefault();
-        }
-
-        GameData *pGameDataOld = m_pGameData;
-        m_pGameData = new GameData(m_pBoardLayout->board());
-        m_pGameView->setGameData(m_pGameData);
-
-        delete pGameDataOld;
-
-        newGame();
-    }
 
     // Set the showmatchingtiles option.
     m_pGameView->setMatch(Prefs::showMatchingTiles());
