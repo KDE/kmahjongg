@@ -96,8 +96,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     // For new don't set a GameData object, as we don't got any board layout informations.
     m_pGameScene = new GameScene();
 
-    setCentralWidget(m_pGameView);
-
     // Initialize boardEditor
     boardEditor = new Editor();
     boardEditor->setModal(false);
@@ -114,13 +112,6 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     mFinished = false;
     bDemoModeActive = false;
-
-    connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
-        SLOT(showStatusText(QString, long)));
-    connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
-        SLOT(showItemNumber(int, int, int)));
-    connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
-        SLOT(gameOver(unsigned short, unsigned short)));
 
     loadSettings();
 }
@@ -278,6 +269,14 @@ void KMahjongg::loadSettings()
 
         if (m_pGameView == NULL) {
             m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
+
+            connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
+                SLOT(showStatusText(QString, long)));
+            connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
+                SLOT(showItemNumber(int, int, int)));
+            connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
+                SLOT(gameOver(unsigned short, unsigned short)));
+
             setCentralWidget(m_pGameView);
         } else {
             m_pGameView->setGameData(m_pGameData);
