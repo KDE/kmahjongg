@@ -2,7 +2,7 @@
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kmahjongg;"> 
-  <!ENTITY kappversion "0.8.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "0.8"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
  
-<date>2007-10-11</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2012-08-06</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>&kappversion; (&kde; 4.9)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -286,6 +286,13 @@
 					When your game scores exceed the top ten scores listed, you are prompted to enter your name.
 				</para>	</listitem>
 			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term><menuchoice>
+				<guimenu>Game</guimenu>
+				<guimenuitem>Board Editor</guimenuitem>
+				</menuchoice></term>
+				<listitem><para><action>Shows the board editor.</action></para></listitem>
+			</varlistentry>
 			<varlistentry>
 				<term><menuchoice>
 					<shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
@@ -467,6 +474,11 @@
 
 <sect1 id="layout-options"><title><guilabel>Board layout</guilabel> options</title>
 	<variablelist>
+		<varlistentry>
+			<term><guilabel>Random Layout</guilabel></term>
+			<listitem><para>Every new game will have a random layout of the existing one in the list.
+			</para></listitem>
+		</varlistentry>
 		<varlistentry>
 			<term><guilabel>Board Layout</guilabel> selector</term>
 			<listitem><para>
