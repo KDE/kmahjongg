@@ -17,6 +17,7 @@ else(NOT COMPILING_KDEGAMES)
 endif(NOT COMPILING_KDEGAMES)
 
 add_subdirectory( layouts )
+add_subdirectory( doc )
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
 
