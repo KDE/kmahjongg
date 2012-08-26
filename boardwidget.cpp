@@ -890,7 +890,7 @@ void BoardWidget::mousePressEvent(QMouseEvent *event)
                     // so that we only require 1 screen paint for both actions)
                     Game->setRemovedTilePair(MouseClickPos1, MouseClickPos2);
 
-                    // now we remove the tiles from the board*t, 
+                    // now we remove the tiles from the board*t,
                     removeTile(MouseClickPos1, false);
                     removeTile(MouseClickPos2);
 
@@ -994,7 +994,7 @@ void BoardWidget::transformPointToPosition(const QPoint &point, POSITION &MouseC
         return;
     }
 
-    // if gameboard is empty, skip 
+    // if gameboard is empty, skip
     //sanity checking
     if (!Game->BoardData(E, Y, X)) {
         qDebug() << "Tile not in BoardData. Fading out?";
@@ -1220,6 +1220,7 @@ void BoardWidget::angleSwitchCW()
 
 void BoardWidget::shuffle()
 {
+    cancelUserSelectedTiles();
     Game->shuffle();
 
     // force a full redraw
