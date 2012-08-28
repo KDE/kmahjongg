@@ -4,7 +4,7 @@ if(NOT COMPILING_KDEGAMES)
 	find_package(KDE4 REQUIRED)
 	include(KDE4Defaults)
 	include(MacroLibrary)
-	find_package(KDEGames REQUIRED)
+	find_package(KDEGames 4.9.0 REQUIRED)
 
 	set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
 	find_package(LibKMahjongg REQUIRED)
