@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Inner Circle
+Name[uk]=Внутрішнє коло
+Name[x-test]=xxInner Circlexx
 Description=Concentric boxes with openings pointing in opposite directions
+Description[uk]=Концентричні прямокутники з початковими точками у різних напрямках
+Description[x-test]=xxConcentric boxes with openings pointing in opposite directionsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

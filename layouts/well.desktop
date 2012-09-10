@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Well
+Name[uk]=Колодязь
+Name[x-test]=xxWellxx
 Description=A rectangular well with stairs at all sides
+Description[uk]=Прямокутний колодязь зі сходами з усіх сторін
+Description[x-test]=xxA rectangular well with stairs at all sidesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

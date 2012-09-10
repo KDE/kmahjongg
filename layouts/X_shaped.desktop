@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=X-shaped
+Name[uk]=X-форма
+Name[x-test]=xxX-shapedxx
 Description=A large letter X made of mahjongg tiles
+Description[uk]=Велика літера X викладена з плиток маджонґ
+Description[x-test]=xxA large letter X made of mahjongg tilesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

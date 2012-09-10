@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Bat
+Name[uk]=Летюча миша
+Name[x-test]=xxBatxx
 Description=A bat-shaped layout
+Description[uk]=Розкладка у формі летючої миші
+Description[x-test]=xxA bat-shaped layoutxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

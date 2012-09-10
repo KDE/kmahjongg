@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Tower
+Name[uk]=Башта
+Name[x-test]=xxTowerxx
 Description=Remove the towers
+Description[uk]=Вилучіть башти
+Description[x-test]=xxRemove the towersxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

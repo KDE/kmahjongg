@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Bug
+Name[uk]=Жучок
+Name[x-test]=xxBugxx
 Description=The bug. Let us take it apart!
+Description[uk]=Жучок. Спробуйте розібрати!
+Description[x-test]=xxThe bug. Let us take it apart!xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

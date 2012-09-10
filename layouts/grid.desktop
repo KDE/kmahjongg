@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Grid
+Name[uk]=Ґратка
+Name[x-test]=xxGridxx
 Description=A rectangular grid of varying height
+Description[uk]=Прямокутна ґратка змінної висоти
+Description[x-test]=xxA rectangular grid of varying heightxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

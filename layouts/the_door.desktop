@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=The Door
+Name[uk]=Двері
+Name[x-test]=xxThe Doorxx
 Description=A doorway through a pyramid-shaped wall
+Description[uk]=Двері крізь стіну у формі піраміди
+Description[x-test]=xxA doorway through a pyramid-shaped wallxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

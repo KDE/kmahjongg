@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Star Ship
+Name[uk]=Космічний корабель
+Name[x-test]=xxStar Shipxx
 Description=A sci-fi space transport
+Description[uk]=Космічний корабель з наукової фантастики
+Description[x-test]=xxA sci-fi space transportxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

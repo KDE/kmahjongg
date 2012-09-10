@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Default
+Name[uk]=Типова
+Name[x-test]=xxDefaultxx
 Description=Default KMahjongg game layout
+Description[uk]=Типовий вигляд гри KMahjongg
+Description[x-test]=xxDefault KMahjongg game layoutxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

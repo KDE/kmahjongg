@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Aztec
+Name[uk]=Ацтецька
+Name[x-test]=xxAztecxx
 Description=A layout resembling Aztec buildings
+Description[uk]=Розкладка у формі будівель ацтеків
+Description[x-test]=xxA layout resembling Aztec buildingsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

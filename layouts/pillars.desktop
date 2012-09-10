@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Pillars
+Name[uk]=Колони
+Name[x-test]=xxPillarsxx
 Description=A couple of vertical pillars supporting a flat surface
+Description[uk]=Пара вертикальних колон, які підтримують плоску поверхню
+Description[x-test]=xxA couple of vertical pillars supporting a flat surfacexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

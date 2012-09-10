@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Squaring
+Name[uk]=Квадратура
+Name[x-test]=xxSquaringxx
 Description=Who said squares are flat?
+Description[uk]=Хто сказав, що квадрати мають бути плоскими?
+Description[x-test]=xxWho said squares are flat?xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

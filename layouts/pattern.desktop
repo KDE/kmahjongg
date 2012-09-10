@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Pattern
+Name[uk]=Візерунок
+Name[x-test]=xxPatternxx
 Description=A mysterious pattern atop rectangular blocks
+Description[uk]=Таємничий візерунок над прямокутними блоками
+Description[x-test]=xxA mysterious pattern atop rectangular blocksxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Crab
+Name[uk]=Краб
+Name[x-test]=xxCrabxx
 Description=Vista-styled crab layout
+Description[uk]=Розкладка у стилі краба з Vista
+Description[x-test]=xxVista-styled crab layoutxx
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

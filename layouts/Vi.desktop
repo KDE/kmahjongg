@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Vi
+Name[uk]=Vi
+Name[x-test]=xxVixx
 Description=A V-shaped layout with thick lower corners
+Description[uk]=Розкладка у формі літери V з широкими нижніми краями
+Description[x-test]=xxA V-shaped layout with thick lower cornersxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

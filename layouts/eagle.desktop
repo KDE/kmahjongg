@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Eagle
+Name[uk]=Орел
+Name[x-test]=xxEaglexx
 Description=A large carnivore bird in Mahjongg tiles
+Description[uk]=Великий хижий птах, викладений з плиток Маджонґ
+Description[x-test]=xxA large carnivore bird in Mahjongg tilesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

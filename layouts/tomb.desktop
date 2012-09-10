@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Tomb
+Name[uk]=Могила
+Name[x-test]=xxTombxx
 Description=Fans of Lara Croft may start digging
+Description[uk]=Фани Лари Крофт можуть починати копання
+Description[x-test]=xxFans of Lara Croft may start diggingxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

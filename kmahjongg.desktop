@@ -1,8 +1,12 @@
 [Desktop Entry]
 Name=KMahjongg
+Name[uk]=KMahjongg
+Name[x-test]=xxKMahjonggxx
 Exec=kmahjongg -caption "%c"
 Type=Application
 GenericName=Mahjongg Solitaire
+GenericName[uk]=Карткова гра Маджонґ
+GenericName[x-test]=xxMahjongg Solitairexx
 Terminal=false
 Icon=kmahjongg
 X-KDE-StartupNotify=true

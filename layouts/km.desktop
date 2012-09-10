@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=KM
+Name[uk]=KM
+Name[x-test]=xxKMxx
 Description=Letters K and M. Do you have your favourite extension for that?
+Description[uk]=Літери K і M. Маєте улюблений суфікс назв файлів для цього?
+Description[x-test]=xxLetters K and M. Do you have your favourite extension for that?xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

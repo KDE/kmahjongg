@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Theatre
+Name[uk]=Театр
+Name[x-test]=xxTheatrexx
 Description=A rectangular building with empty space in the middle
+Description[uk]=Прямокутна будівля з майданчиком посередині
+Description[x-test]=xxA rectangular building with empty space in the middlexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

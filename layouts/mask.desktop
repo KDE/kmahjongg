@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Mask
+Name[uk]=Маска
+Name[x-test]=xxMaskxx
 Description=A scary embossed pagan mask
+Description[uk]=Жахлива рельєфна язичницька маска
+Description[x-test]=xxA scary embossed pagan maskxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

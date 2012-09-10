@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Arrow
+Name[uk]=Стрілка
+Name[x-test]=xxArrowxx
 Description=A big arrow pointing in the right direction
+Description[uk]=Велика стрілка, що вказує праворуч
+Description[x-test]=xxA big arrow pointing in the right directionxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

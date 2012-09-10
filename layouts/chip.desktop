@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Chip
+Name[uk]=Чип
+Name[x-test]=xxChipxx
 Description=An electronic component with many connectors
+Description[uk]=Компонент електроніки з багатьма ніжками
+Description[x-test]=xxAn electronic component with many connectorsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Swirl
+Name[uk]=Вихор
+Name[x-test]=xxSwirlxx
 Description=A spiral with thick ends
+Description[uk]=Спіраль з товстими кінцями
+Description[x-test]=xxA spiral with thick endsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

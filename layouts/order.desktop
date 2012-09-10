@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Order
+Name[uk]=Порядок
+Name[x-test]=xxOrderxx
 Description=A cross with thick ends
+Description[uk]=Хрест з потовщеними вершинами
+Description[x-test]=xxA cross with thick endsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

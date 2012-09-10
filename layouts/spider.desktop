@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Spider
+Name[uk]=Павук
+Name[x-test]=xxSpiderxx
 Description=Vista-styled spider layout
+Description[uk]=Розкладка павука у стилі Vista
+Description[x-test]=xxVista-styled spider layoutxx
 VersionFormat=1
 Author=alchark
 AuthorEmail=alchark@gmail.com

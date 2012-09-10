@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Pyramid
+Name[uk]=Піраміда
+Name[x-test]=xxPyramidxx
 Description=Can you tear the pyramid apart?
+Description[uk]=Можете розібрати піраміду?
+Description[x-test]=xxCan you tear the pyramid apart?xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

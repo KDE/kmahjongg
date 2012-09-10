@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Chains
+Name[uk]=Ланцюжки
+Name[x-test]=xxChainsxx
 Description=Four chains making up a single structure
+Description[uk]=Чотири ланцюжки, що створюють одну конструкцію
+Description[x-test]=xxFour chains making up a single structurexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

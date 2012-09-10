@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Clubs
+Name[uk]=Трефи
+Name[x-test]=xxClubsxx
 Description=A layout resembling a multitude of card clubs
+Description[uk]=Розкладка, що нагадує позначку масті у картах
+Description[x-test]=xxA layout resembling a multitude of card clubsxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

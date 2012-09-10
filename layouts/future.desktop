@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Future
+Name[uk]=Футуристичний
+Name[x-test]=xxFuturexx
 Description=An abstract image resembling an asterisk
+Description[uk]=Абстрактне зображення, що нагадує зірку
+Description[x-test]=xxAn abstract image resembling an asteriskxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

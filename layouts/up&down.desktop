@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Up&Down
+Name[uk]=Вгору і вниз
+Name[x-test]=xxUp&Downxx
 Description=Have you ever tried to represent waves in rectangular blocks?
+Description[uk]=Ніколи не намагалися викласти хвилі з прямокутних блоків?
+Description[x-test]=xxHave you ever tried to represent waves in rectangular blocks?xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

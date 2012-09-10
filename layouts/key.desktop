@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Key
+Name[uk]=Ключ
+Name[x-test]=xxKeyxx
 Description=A large key made of Mahjongg tiles
+Description[uk]=Великий ключ, викладений з плиток Маджонґ
+Description[x-test]=xxA large key made of Mahjongg tilesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

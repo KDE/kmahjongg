@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[uk]=Пірати
+Name[x-test]=xxPiratesxx
 Description=A sailing boat under the sun
+Description[uk]=Парусний човен під сонцем
+Description[x-test]=xxA sailing boat under the sunxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

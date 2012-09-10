@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Arena
+Name[uk]=Арена
+Name[x-test]=xxArenaxx
 Description=Circular-aligned seats around a performance area
+Description[uk]=Викладені колом місця навколо поля для гри
+Description[x-test]=xxCircular-aligned seats around a performance areaxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

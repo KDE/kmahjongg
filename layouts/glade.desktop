@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Glade
+Name[uk]=Прогалина
+Name[x-test]=xxGladexx
 Description=A small piece of empty space surrounded by a forest
+Description[uk]=Невеличка порожнє місце, оточене лісом
+Description[x-test]=xxA small piece of empty space surrounded by a forestxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

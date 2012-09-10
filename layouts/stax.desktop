@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Stacks
+Name[uk]=Штабелі
+Name[x-test]=xxStacksxx
 Description=Difficult layout with stacks of tiles
+Description[uk]=Складний вид з штабелями плиток
+Description[x-test]=xxDifficult layout with stacks of tilesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

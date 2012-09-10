@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Explosion
+Name[uk]=Вибух
+Name[x-test]=xxExplosionxx
 Description=Something has exploded. Collect the pieces.
+Description[uk]=Щось вибухнуло. Зберіть шматки.
+Description[x-test]=xxSomething has exploded. Collect the pieces.xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

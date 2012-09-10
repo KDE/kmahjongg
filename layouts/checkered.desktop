@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Checkered
+Name[uk]=Картата
+Name[x-test]=xxCheckeredxx
 Description=What if the chess board was not square?
+Description[uk]=Що було б, якби шахова дошка не була квадратною?
+Description[x-test]=xxWhat if the chess board was not square?xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

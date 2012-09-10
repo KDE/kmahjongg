@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Stadion
+Name[uk]=Стадіон
+Name[x-test]=xxStadionxx
 Description=A layout representing a football field
+Description[uk]=Розкладка, схожа на футбольне поле
+Description[x-test]=xxA layout representing a football fieldxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

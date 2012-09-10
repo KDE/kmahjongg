@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Flowers
+Name[uk]=Квіти
+Name[x-test]=xxFlowersxx
 Description=A layout consisting of six flowers
+Description[uk]=Розкладка, що складається з шістьох квіток
+Description[x-test]=xxA layout consisting of six flowersxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

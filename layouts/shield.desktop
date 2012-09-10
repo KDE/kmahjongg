@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Shield
+Name[uk]=Щит
+Name[x-test]=xxShieldxx
 Description=A shield and a sword made up of Mahjongg tiles
+Description[uk]=Щит і меч, викладені з плиток Маджонґ
+Description[x-test]=xxA shield and a sword made up of Mahjongg tilesxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

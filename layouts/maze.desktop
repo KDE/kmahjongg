@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Maze
+Name[uk]=Лабіринт
+Name[x-test]=xxMazexx
 Description=An extremely twisted maze. Beware of minotaurs!
+Description[uk]=Дуже заплутаний лабіринт. Стережіться мінотаврів!
+Description[x-test]=xxAn extremely twisted maze. Beware of minotaurs!xx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

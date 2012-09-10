@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=4 Winds
+Name[uk]=4 Вітри
+Name[x-test]=xx4 Windsxx
 Description=A layout resembling a fortress
+Description[uk]=Розкладка, яка нагадує фортецю
+Description[x-test]=xxA layout resembling a fortressxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

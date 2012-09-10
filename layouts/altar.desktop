@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Altar
+Name[uk]=Вівтар
+Name[x-test]=xxAltarxx
 Description=An elevated surface with stairs and columns aside
+Description[uk]=Піднята поверхня зі сходами і боковими стовпчиками
+Description[x-test]=xxAn elevated surface with stairs and columns asidexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

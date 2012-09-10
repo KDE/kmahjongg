@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Penta
+Name[uk]=Пента
+Name[x-test]=xxPentaxx
 Description=A fortress with five towers
+Description[uk]=Фортеця з п’ятьма баштами
+Description[x-test]=xxA fortress with five towersxx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Castle View
+Name[uk]=Вид на замок
+Name[x-test]=xxCastle Viewxx
 Description=A castle as viewed from one side
+Description[uk]=Форма замка, вид збоку
+Description[x-test]=xxA castle as viewed from one sidexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org

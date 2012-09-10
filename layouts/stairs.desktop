@@ -1,6 +1,10 @@
 [KMahjonggLayout]
 Name=Stairs
+Name[uk]=Сходи
+Name[x-test]=xxStairsxx
 Description=A staircase for those who dislike taking the same path twice
+Description[uk]=Сходи для тих, хто не любить ходити одним шляхом двічі
+Description[x-test]=xxA staircase for those who dislike taking the same path twicexx
 VersionFormat=1
 Author=KDE Games team
 AuthorEmail=kde-games-devel@kde.org
