@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Aztec
 Name[ast]=Azteca
-Name[bs]=Astek
 Name[ca]=Asteca
 Name[ca@valencia]=Azteca
 Name[cs]=Aztec
@@ -47,7 +46,6 @@ Name[zh_CN]=阿兹特克
 Name[zh_TW]=阿茲特克
 Description=A layout resembling Aztec buildings
 Description[ast]=Un diseñu que se paez a una construcción azteca
-Description[bs]=Izgled Astek zgrada
 Description[ca]=Una disposició semblant a una construcció asteca
 Description[ca@valencia]=Una disposició paregut a una construcció azteca
 Description[da]=Et layout der ligner aztekiske bygninger

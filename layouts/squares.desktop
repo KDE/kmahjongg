@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Squares
 Name[ast]=Cuadraos
-Name[bs]=Kvadrati
 Name[ca]=Quadrats
 Name[ca@valencia]=Quadrats
 Name[cs]=Čtverce
@@ -48,7 +47,6 @@ Name[zh_CN]=方块
 Name[zh_TW]=方塊
 Description=Concentric squares of alterating height
 Description[ast]=Cuadraos concéntricos d'altura alterna
-Description[bs]=Koncentrični kvadrati svih visina
 Description[ca]=Quadrats concèntrics d'alçada alterada
 Description[ca@valencia]=Quadrats concèntrics d'alçada alterada
 Description[da]=Koncentriske felter af varierende højde

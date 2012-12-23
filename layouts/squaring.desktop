@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Squaring
 Name[ast]=Cuadrando
-Name[bs]=Kvadriranje
 Name[ca]=Quadratura
 Name[ca@valencia]=Quadratura
 Name[da]=Fire kanter
@@ -44,7 +43,6 @@ Name[zh_CN]=方形
 Name[zh_TW]=方形
 Description=Who said squares are flat?
 Description[ast]=¿Quién dixo que los cuadraos yeren planos?
-Description[bs]=Ko je rekao da su kvadrati ravni?
 Description[ca]=Qui ha dit que els quadrats són plans?
 Description[ca@valencia]=Qui ha dit que els quadrats són plans?
 Description[da]=Hvem siger at firkanter er flade?

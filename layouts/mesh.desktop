@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Mesh
 Name[ast]=Malla
-Name[bs]=Zamka
 Name[ca]=Malla
 Name[ca@valencia]=Malla
 Name[da]=Masket
@@ -43,7 +42,6 @@ Name[x-test]=xxMeshxx
 Name[zh_CN]=织网
 Name[zh_TW]=網子
 Description=An interweaved structure made up of Mahjongg tiles
-Description[bs]=Prepletena struktura sastavljena od Mahjongg pločica
 Description[ca]=Una estructura entrellaçada feta de peces del Mahjongg
 Description[ca@valencia]=Una estructura entrellaçada feta de peces del Mahjongg
 Description[da]=En indvævet struktur lavet af Mahjongg-fliser

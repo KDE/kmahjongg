@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Maya
 Name[ast]=Maya
-Name[bs]=Maje
 Name[ca]=Maya
 Name[ca@valencia]=Maya
 Name[cs]=Maya
@@ -46,7 +45,6 @@ Name[zh_CN]=玛雅
 Name[zh_TW]=馬雅
 Description=A layout resembling Maya pyramids
 Description[ast]=Un diseñu que se paez a les pirámides mayes
-Description[bs]=Izgled nalik na Maja piramide
 Description[ca]=Una disposició semblant a una piràmide Maya
 Description[ca@valencia]=Una disposició paregut a una piràmide Maya
 Description[da]=Et layout der ligner Maya-pyramider

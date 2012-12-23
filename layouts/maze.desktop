@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Maze
 Name[ast]=Llaberintu
-Name[bs]=Lavirint
 Name[ca]=Gran laberint
 Name[ca@valencia]=Gran laberint
 Name[cs]=Bludiště
@@ -46,7 +45,6 @@ Name[x-test]=xxMazexx
 Name[zh_CN]=迷路
 Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
-Description[bs]=Vrlo uvijen labirinta. Čuvajte se minotaura!
 Description[ca]=Un recargolat laberint. Compte amb els minotaures!
 Description[ca@valencia]=Un recargolat laberint. Compte amb els minotaures!
 Description[da]=En ekstremt kroget labyrint. Pas på minotaurerne!

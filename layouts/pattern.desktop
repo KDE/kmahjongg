@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Pattern
 Name[ast]=Patrón
-Name[bs]=Obrazac
 Name[ca]=Patró
 Name[ca@valencia]=Patró
 Name[cs]=Vzorek
@@ -47,7 +46,6 @@ Name[x-test]=xxPatternxx
 Name[zh_CN]=花式
 Name[zh_TW]=樣式
 Description=A mysterious pattern atop rectangular blocks
-Description[bs]=Tajanstveni obrazac na vrhu pravougaonih blokova
 Description[ca]=Un misteriós patró fet de blocs rectangulars
 Description[ca@valencia]=Un misteriós patró fet de blocs rectangulars
 Description[da]=Et mystisk mønster ovenpå rektangulære blokke

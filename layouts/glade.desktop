@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Glade
 Name[ast]=Claru
-Name[bs]=Proplanak
 Name[ca]=Clariana
 Name[ca@valencia]=Clariana
 Name[da]=Lysning
@@ -43,7 +42,6 @@ Name[x-test]=xxGladexx
 Name[zh_CN]=林中空地
 Name[zh_TW]=沼澤
 Description=A small piece of empty space surrounded by a forest
-Description[bs]=Mali dio praznog prostora okruženog šumom
 Description[ca]=Una petit tros d'espai buit envoltat d'un bosc
 Description[ca@valencia]=Una petit tros d'espai buit envoltat d'un bosc
 Description[da]=Et mindre tomt område omgivet af en skov

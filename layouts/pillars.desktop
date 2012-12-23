@@ -1,7 +1,6 @@
 [KMahjonggLayout]
 Name=Pillars
 Name[ast]=Pegoyos
-Name[bs]=Stubovi
 Name[ca]=Pilars
 Name[ca@valencia]=Pilars
 Name[cs]=Pilíře
@@ -45,7 +44,6 @@ Name[zh_CN]=台柱
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
 Description[ast]=Un conxuntu de pegoyos verticales que tienen una superficie plana
-Description[bs]=Par okomitih stubova podupire ravnu površinu
 Description[ca]=Un grup de pilars verticals que suporten una superfície plana
 Description[ca@valencia]=Un grup de pilars verticals que suporten una superfície plana
 Description[da]=Et par lodrette piller der understøtter en flad overflade

@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Theatre
-Name[bs]=Pozorište
 Name[ca]=Teatre
 Name[ca@valencia]=Teatre
 Name[cs]=Divadlo
@@ -44,7 +43,6 @@ Name[x-test]=xxTheatrexx
 Name[zh_CN]=剧院
 Name[zh_TW]=戲院
 Description=A rectangular building with empty space in the middle
-Description[bs]=Pravougaona građevina sa praznim prostorom u sredini
 Description[ca]=Una construcció rectangular amb un espai buit al mig
 Description[ca@valencia]=Una construcció rectangular amb un espai buit al mig
 Description[da]=En rektangulær bygning med tomt rum i midten
