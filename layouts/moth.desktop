@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Moth
 Name[ast]=Coroyu
+Name[bs]=Moljac
 Name[ca]=Arna
 Name[ca@valencia]=Arna
 Name[da]=Møl
@@ -41,6 +42,7 @@ Name[x-test]=xxMothxx
 Name[zh_CN]=蛾
 Name[zh_TW]=蛾
 Description=A layout representing a small flying insect
+Description[bs]=Izgled nalik na male leteće insekte
 Description[ca]=Una disposició que representa un petit insecte volador
 Description[ca@valencia]=Una disposició que representa un petit insecte volador
 Description[da]=Et layout der forestiller et lille flyvende insekt

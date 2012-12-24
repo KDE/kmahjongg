@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Dragon
 Name[ast]=Cuélebre
+Name[bs]=Zmaj
 Name[ca]=Drac
 Name[ca@valencia]=Drac
 Name[cs]=Drak
@@ -49,6 +50,7 @@ Name[zh_CN]=龙
 Name[zh_TW]=龍
 Description=Vista-styled dragon layout
 Description[ast]=Un diseñu en forma de cuélebre
+Description[bs]=Vista-izgled zmaja sa stilom
 Description[ca]=Disposició amb la forma d'un drac
 Description[ca@valencia]=Disposició amb la forma d'un drac
 Description[da]=Dragelayout i Vista-stil

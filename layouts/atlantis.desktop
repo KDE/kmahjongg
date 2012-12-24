@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Atlantis
 Name[ast]=Atlantis
+Name[bs]=Atlantida
 Name[ca]=Atlantis
 Name[ca@valencia]=Atlantis
 Name[da]=Atlantis
@@ -46,6 +47,7 @@ Name[zh_CN]=亚特兰蒂斯
 Name[zh_TW]=亞特蘭提斯
 Description=The starship-city from Stargate Atlantis
 Description[ast]=La ciudá estelar de Stargate Atlantis
+Description[bs]=Starship-grad od Stargate Atlantide
 Description[ca]=La nau-ciutat de l'Stargate Atlantis
 Description[ca@valencia]=La nau-ciutat de l'Stargate Atlantis
 Description[da]=Rumfartøjsbyen fra Stargate Atlantis

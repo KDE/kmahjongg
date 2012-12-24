@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Arena
 Name[ast]=Sable
+Name[bs]=Arena
 Name[ca]=Arena
 Name[ca@valencia]=Arena
 Name[cs]=Aréna
@@ -47,6 +48,7 @@ Name[x-test]=xxArenaxx
 Name[zh_CN]=竞技场
 Name[zh_TW]=競技場
 Description=Circular-aligned seats around a performance area
+Description[bs]=Kružno-poravnata sjedišta oko izvedbenog područja
 Description[ca]=Seients alineats circularment al voltant d'un àrea d'acompliment
 Description[ca@valencia]=Seients alineats circularment al voltant d'un àrea d'acompliment
 Description[da]=Stole i ring omkring et optræderareal

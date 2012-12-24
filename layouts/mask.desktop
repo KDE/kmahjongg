@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Mask
 Name[ast]=Mázcara
+Name[bs]=Maska
 Name[ca]=Màscara
 Name[ca@valencia]=Màscara
 Name[cs]=Maska
@@ -47,6 +48,7 @@ Name[zh_CN]=面具
 Name[zh_TW]=面具
 Description=A scary embossed pagan mask
 Description[ast]=Una terrorífica mázcara pagana en relieve
+Description[bs]=Strašna isklesana paganska maska
 Description[ca]=Una màscara pagana amb un relleu terrorífic
 Description[ca@valencia]=Una màscara pagana amb un relleu terrorífic
 Description[da]=Et skræmmende relief af en hedensk maske

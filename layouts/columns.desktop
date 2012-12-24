@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Columns
 Name[ast]=Columnes
+Name[bs]=Kolone
 Name[ca]=Columnes
 Name[ca@valencia]=Columnes
 Name[cs]=Sloupce
@@ -47,6 +48,7 @@ Name[x-test]=xxColumnsxx
 Name[zh_CN]=圆柱
 Name[zh_TW]=圓柱
 Description=A circular arena covered with columns of varying height
+Description[bs]=Kružna arena pokrivena sa kolonama različitih visina
 Description[ca]=Un escenari circular cobert amb columnes d'alçada variable
 Description[ca@valencia]=Un escenari circular cobert amb columnes d'alçada variable
 Description[da]=En rund arena fyldt med søjler af forskellig højde

@@ -2,6 +2,7 @@
 Name=Triangle
 Name[ast]=Triángulu
 Name[be]=Трохкутнік
+Name[bs]=Trougao
 Name[ca]=Triangle
 Name[ca@valencia]=Triangle
 Name[cs]=Trojúhelník
@@ -57,6 +58,7 @@ Name[zh_CN]=三角
 Name[zh_TW]=三角形
 Description=Triangular pyramid
 Description[ast]=Pirámide triangular
+Description[bs]=Trostrana piramida
 Description[ca]=Piràmide triangular
 Description[ca@valencia]=Piràmide triangular
 Description[cs]=Trojúhelníková pyramida

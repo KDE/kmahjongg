@@ -1,6 +1,7 @@
 [KMahjonggLayout]
 Name=Inner Circle
 Name[ast]=Círculu interior
+Name[bs]=Unutrašnji krug
 Name[ca]=Cercle interior
 Name[ca@valencia]=Cercle interior
 Name[da]=Inderkreds
@@ -41,6 +42,7 @@ Name[x-test]=xxInner Circlexx
 Name[zh_CN]=同心圆
 Name[zh_TW]=內圓
 Description=Concentric boxes with openings pointing in opposite directions
+Description[bs]=Koncentrične kutije sa otvorima uperenim u suprotnom smjeru
 Description[ca]=Quadres concèntrics amb obertures apuntant en direccions oposades
 Description[ca@valencia]=Caixes concèntriques amb obertures apuntant en direccions oposades
 Description[da]=Koncentriske kasser med åbningerne pegende i modsat retning

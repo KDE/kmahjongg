@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Temple
+Name[bs]=Hram
 Name[ca]=Temple
 Name[ca@valencia]=Temple
 Name[cs]=Chrám
@@ -45,6 +46,7 @@ Name[x-test]=xxTemplexx
 Name[zh_CN]=神庙
 Name[zh_TW]=廟宇
 Description=A temple-shaped layout
+Description[bs]=Hram-oblikovani izgled
 Description[ca]=Una disposició amb forma de temple
 Description[ca@valencia]=Una disposició amb forma de temple
 Description[da]=Et tempelformet layout
