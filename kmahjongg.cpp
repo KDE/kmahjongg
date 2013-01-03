@@ -124,6 +124,8 @@ KMahjongg::KMahjongg(QWidget *parent)
                 SLOT(showItemNumber(int, int, int)));
     connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
                 SLOT(gameOver(unsigned short, unsigned short)));
+    connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
+    connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
 
 
     mFinished = false;

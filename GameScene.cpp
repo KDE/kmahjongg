@@ -225,3 +225,12 @@ void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 {
     pMouseEvent->ignore();
 }
+
+void GameScene::wheelEvent(QGraphicsSceneWheelEvent* pMouseEvent)
+{
+    if (pMouseEvent->delta() < 0) {
+        emit rotateCW();
+    } else {
+        emit rotateCCW();
+    }
+}

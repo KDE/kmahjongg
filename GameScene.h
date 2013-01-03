@@ -112,11 +112,20 @@ public:
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *pMouseEvent);
 
     /**
+     * Override from QGraphicsScene.
+     * Mouse wheel rotates view. */
+    void wheelEvent(QGraphicsSceneWheelEvent *pMouseEvent);
+
+    /**
      * Test if the item is selectable or not.
      *
      * @param pGameItem The game item to test.
      * @return True if selectable else false. */
     bool isSelectable(const GameItem * const pGameItem) const;
+
+signals:
+    void rotateCW();
+    void rotateCCW();
 
 private:
     /**
