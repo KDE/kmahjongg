@@ -430,6 +430,19 @@ bool GameView::validMovesAvailable(bool bSilent)
     return true;
 }
 
+void GameView::pause(bool isPaused)
+{
+    if (isPaused) {
+        foreach (GameItem *item, items()) {
+            item->hide();
+        }
+    } else {
+        foreach (GameItem *item, items()) {
+            item->show();
+        }
+    }
+}
+
 void GameView::shuffle()
 {
     m_pGameData->shuffle();

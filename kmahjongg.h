@@ -137,6 +137,7 @@ private:
     unsigned long gameElapsedTime;
     bool bDemoModeActive;
     bool mFinished;
+    bool m_bPaused;
 
     GameView *m_pGameView;
     GameData *m_pGameData;

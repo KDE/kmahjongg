@@ -60,8 +60,6 @@
 static const char *gameMagic = "kmahjongg-gamedata";
 static int gameDataVersion = 1;
 
-int is_paused = 0;
-
 /**
  * This class implements
  *
@@ -82,6 +80,7 @@ public:
 
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
+    m_bPaused(false),
     m_pBoardLayout(new KMahjonggLayout()),
     m_pGameData(NULL),
     m_pGameView(NULL)
@@ -325,15 +324,17 @@ void KMahjongg::demoMode()
 
 void KMahjongg::pause()
 {
-    if (is_paused) {
-        gameTimer->resume();
-    } else {
+    m_bPaused = !m_bPaused;
+
+    if (m_bPaused) {
         gameTimer->pause();
+    } else {
+        gameTimer->resume();
     }
 
-    is_paused = !is_paused;
+    m_pGameView->pause(m_bPaused);
+
     demoModeChanged(false);
-    m_pGameView->setVisible(!m_pGameView->isVisible());
 }
 
 void KMahjongg::showHighscores()
@@ -458,7 +459,7 @@ void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
     tilesLeftLabel->setText(szBuffer);
 
     // update undo menu item, if demomode is inactive
-    if (!is_paused && !mFinished) {
+    if (!m_bPaused && !mFinished) {
         undoAction->setEnabled(m_pGameView->checkUndoAllowed());
         redoAction->setEnabled(m_pGameView->checkRedoAllowed());
     }
@@ -468,10 +469,10 @@ void KMahjongg::demoModeChanged(bool bActive)
 {
     bDemoModeActive = bActive;
 
-    pauseAction->setChecked(is_paused);
-    demoAction->setChecked(bActive || is_paused);
+    pauseAction->setChecked(m_bPaused);
+    demoAction->setChecked(bActive || m_bPaused);
 
-    if (is_paused) {
+    if (m_bPaused) {
         stateChanged("paused");
     } else if (mFinished) {
         stateChanged("finished");
@@ -496,7 +497,7 @@ void KMahjongg::restartGame()
         mFinished = false;
         demoModeChanged(false);
 
-        if (is_paused) {
+        if (m_bPaused) {
             pauseAction->setChecked(false);
             pause();
         }

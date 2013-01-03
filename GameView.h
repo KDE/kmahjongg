@@ -195,6 +195,10 @@ public:
      * @return True if a legal move exist, else false. */
     bool validMovesAvailable(bool bSilent = false);
 
+    /**
+     * Hide/show tiles when game is paused/unpaused. */
+    void pause(bool isPaused);
+
 public slots:
     /**
      * Add a new item with teh given position and update imgages, position and order.
