@@ -132,6 +132,8 @@ private slots:
     void slotBoardEditor();
 
 private:
+    void loadLayout();
+
     unsigned long gameElapsedTime;
     bool bDemoModeActive;
     bool mFinished;

@@ -93,8 +93,17 @@ KMahjongg::KMahjongg(QWidget *parent)
     setMinimumSize(320, 320);
 
     // init board widget
-    // For new don't set a GameData object, as we don't got any board layout informations.
     m_pGameScene = new GameScene();
+
+    // load the layout
+    loadLayout();
+
+    // init game data
+    m_pGameData = new GameData(m_pBoardLayout->board());
+
+    // init view and add to window
+    m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
+    setCentralWidget(m_pGameView);
 
     // Initialize boardEditor
     boardEditor = new Editor();
@@ -109,11 +118,20 @@ KMahjongg::KMahjongg(QWidget *parent)
     gameTimer = new KGameClock(this);
 
     connect(gameTimer, SIGNAL(timeChanged(QString)), this, SLOT(displayTime(QString)));
+    connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
+                SLOT(showStatusText(QString, long)));
+    connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
+                SLOT(showItemNumber(int, int, int)));
+    connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
+                SLOT(gameOver(unsigned short, unsigned short)));
+
 
     mFinished = false;
     bDemoModeActive = false;
 
     loadSettings();
+
+    startNewGame();
 }
 
 KMahjongg::~KMahjongg()
@@ -254,35 +272,24 @@ void KMahjongg::showSettings()
     dialog->show();
 }
 
+void KMahjongg::loadLayout()
+{
+    if (!m_pBoardLayout->load(Prefs::layout())) {
+        kDebug() << "Error loading the layout. Try to load the default layout.";
+
+        m_pBoardLayout->loadDefault();
+    }
+}
+
 void KMahjongg::loadSettings()
 {
     // Just load the new layout, if it is not already set.
     if (m_pBoardLayout->path() != Prefs::layout()) {
-        if (!m_pBoardLayout->load(Prefs::layout())) {
-            kDebug() << "Error loading the layout. Try to load the default layout.";
+        loadLayout();
 
-            m_pBoardLayout->loadDefault();
-        }
-
-        GameData *pGameDataOld = m_pGameData;
+        delete m_pGameData;
         m_pGameData = new GameData(m_pBoardLayout->board());
-
-        if (m_pGameView == NULL) {
-            m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
-
-            connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
-                SLOT(showStatusText(QString, long)));
-            connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
-                SLOT(showItemNumber(int, int, int)));
-            connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
-                SLOT(gameOver(unsigned short, unsigned short)));
-
-            setCentralWidget(m_pGameView);
-        } else {
-            m_pGameView->setGameData(m_pGameData);
-        }
-
-        delete pGameDataOld;
+        m_pGameView->setGameData(m_pGameData);
 
         startNewGame();
     }
