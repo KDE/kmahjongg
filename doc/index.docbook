@@ -725,7 +725,7 @@ What's this? Help
 			<listitem><para><personname><firstname>Michael</firstname><surname>Haertjens</surname></personname> <email>mhaertjens@modusoperandi.com</email></para></listitem>
 			<listitem><para><personname><firstname>Osvaldo</firstname><surname>Stark</surname></personname> <email>starko@dnet.it</email></para></listitem>
 			<listitem><para><personname><firstname>Benjamin</firstname><surname>Meyer</surname></personname> <email>ben+kmahjongg@meyerhome.net</email></para></listitem>
-			<listitem><para><personname><firstname>Albert</firstname><othername>Astals</othername><surname>Cid</surname></personname> <email>astals11@terra.es</email></para></listitem>
+			<listitem><para><personname><firstname>Albert</firstname><othername>Astals</othername><surname>Cid</surname></personname> &Albert.Astals.Cid.mail;</para></listitem>
 			<listitem><para><personname><firstname>Raquel</firstname><surname>Ravanini</surname></personname> <email>raquel@tabuleiro.com</email></para></listitem>
 		</itemizedlist>
 	</para>
