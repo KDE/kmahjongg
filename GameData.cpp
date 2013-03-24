@@ -363,12 +363,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].lhs_dep[0]) != -1) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].lhs_dep[1]) != -1 && i0 != i) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
     } while (lin > out);
@@ -386,12 +392,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].rhs_dep[0]) != -1) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].rhs_dep[1]) != -1 && i0 != i) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
     } while (rin > out);
