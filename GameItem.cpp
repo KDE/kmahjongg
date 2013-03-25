@@ -97,6 +97,11 @@ int GameItem::getShadowDeltaY() const
     return (m_angle == NW || m_angle == NE) ? 1 * m_iShadowHeight: -1 * m_iShadowHeight;
 }
 
+void GameItem::prepareForGeometryChange()
+{
+    prepareGeometryChange();
+}
+
 void GameItem::updateFaceOffset()
 {
     int iHorizontalOffset = m_pSelPix->width() - m_pFacePix->width();

@@ -830,6 +830,9 @@ void GameView::resizeTileset(const QSize &size)
     QSize newtiles = m_pTiles->preferredTileSize(size, m_pGameData->m_width / 2,
         m_pGameData->m_height / 2);
 
+    foreach (GameItem *item, items())
+        item->prepareForGeometryChange();
+
     m_pTiles->reloadTileset(newtiles);
 
     updateItemsImages(items());

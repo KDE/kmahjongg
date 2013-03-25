@@ -133,6 +133,11 @@ public:
      * */
     int getShadowDeltaY() const;
 
+    /**
+     * Called in GameView::resizeTileset() before reloading the tiles.
+     */
+    void prepareForGeometryChange();
+
 public slots:
     /**
      * Fade in the item. */
