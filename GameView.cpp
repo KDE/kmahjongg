@@ -159,8 +159,8 @@ void GameView::demoGameOver(bool bWon)
     if (bWon) {
         startMoveListAnimation();
     } else {
-        createNewGame(m_lGameNumber);
         setStatusText(i18n("Your computer has lost the game."));
+        emit demoOrMoveListAnimationOver(true);
     }
 }
 
@@ -171,6 +171,7 @@ void GameView::createNewGame(long lGameNumber)
     // Check any animations are running and stop them.
     checkHelpAnimationActive(true);
     checkDemoAnimationActive(true);
+    checkMoveListAnimationActive(true);
 
     // Create a random game number, if no one was given.
     if (lGameNumber == -1) {
@@ -295,12 +296,6 @@ void GameView::removeItem(POSITION & stItemPos)
 void GameView::startDemo()
 {
     kDebug() << "Starting demo mode";
-
-    // Stop any helping animation.
-    checkHelpAnimationActive(true);
-
-    // Stop demo animation, if anyone is running.
-    checkDemoAnimationActive(true);
 
     // Create a new game with the actual game number.
     createNewGame(m_lGameNumber);
@@ -790,13 +785,13 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
     // If a move list animation is running start a new game.
     if (checkMoveListAnimationActive(true)) {
-        createNewGame(m_lGameNumber);
+        emit demoOrMoveListAnimationOver(false);
         return;
     }
 
     // No mouse events when the demo mode is active.
     if (checkDemoAnimationActive(true)) {
-        createNewGame(m_lGameNumber);
+        emit demoOrMoveListAnimationOver(false);
         return;
     }
 

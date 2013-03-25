@@ -104,6 +104,10 @@ public slots:
      * Slot Description */
     void timerReset();
 
+    /**
+     * Connected to GameView::demoOrMoveListAnimationOver(bool) signal. */
+    void demoOrMoveListAnimationOver(bool bDemoGameLost);
+
 protected:
     /**
      * Method Description */

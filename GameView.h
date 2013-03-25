@@ -284,6 +284,13 @@ signals:
      * @param usCheatsUsed The number of the cheats that are used. */
     void gameOver(unsigned short usRemovedItems, unsigned short usCheatsUsed);
 
+    /**
+     * Emits when demo is played out and lost or stopped by a mouse click, or
+     * the MoveListAnimation is stopped by a mouse click.
+     *
+     * @param bDemoGameLost True if demo game is played out and lost. */
+    void demoOrMoveListAnimationOver(bool bDemoGameLost);
+
 private slots:
     /**
      * Add a new item with the given position.

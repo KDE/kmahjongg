@@ -123,6 +123,8 @@ KMahjongg::KMahjongg(QWidget *parent)
                 SLOT(showItemNumber(int, int, int)));
     connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
                 SLOT(gameOver(unsigned short, unsigned short)));
+    connect(m_pGameView, SIGNAL(demoOrMoveListAnimationOver(bool)),
+            this, SLOT(demoOrMoveListAnimationOver(bool)));
     connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
     connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
 
@@ -319,7 +321,15 @@ void KMahjongg::loadSettings()
 
 void KMahjongg::demoMode()
 {
-    m_pGameView->startDemo();
+    if (demoAction->isChecked()) {
+        demoModeChanged(true);
+        gameTimer->setTime(0);
+        gameTimer->pause();
+        m_pGameView->startDemo();
+    } else {
+        demoModeChanged(false);
+        startNewGame();
+    }
 }
 
 void KMahjongg::pause()
@@ -378,6 +388,16 @@ void KMahjongg::timerReset()
 
     // start the game timer
     gameTimer->restart();
+}
+
+void KMahjongg::demoOrMoveListAnimationOver(bool bDemoGameLost)
+{
+    if (bDemoGameLost) {
+        KMessageBox::information(this, i18n("Your computer has lost the game."));
+    }
+
+    demoModeChanged(false);
+    startNewGame();
 }
 
 void KMahjongg::changeEvent(QEvent *event)
