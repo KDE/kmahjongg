@@ -206,7 +206,9 @@ void GameView::createNewGame(long lGameNumber)
         }
     }
 
-    setVisible(!isVisible());
+    // Couldn't generate the game.
+    // Remove all generated tiles from the scene.
+    scene()->clear();
     setStatusText(i18n("Error generating new game!"));
 }
 
