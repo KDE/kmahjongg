@@ -19,7 +19,7 @@
 
 #include "KmTypes.h"
 
-#define BOARD_WIDTH 32
+#define BOARD_WIDTH 36
 #define BOARD_HEIGHT 16
 #define BOARD_DEPH 5
 
