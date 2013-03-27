@@ -442,6 +442,10 @@ void GameView::pause(bool isPaused)
 
 void GameView::shuffle()
 {
+    if (checkDemoAnimationActive() || checkMoveListAnimationActive()) {
+        return;
+    }
+
     m_pGameData->shuffle();
 
     // Update the item images.
