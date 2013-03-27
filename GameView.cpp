@@ -363,8 +363,10 @@ void GameView::helpMatch(GameItem const * const pGameItem)
 
         // ...add them to the animation object...
         for (int i = 0; i < iMatchCount; i++) {
-            m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(
-                m_pGameData->getFromPosTable(i)));
+            if (scene()->getItemOnGridPos(m_pGameData->getFromPosTable(i)) != pGameItem) {
+                m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(
+                    m_pGameData->getFromPosTable(i)));
+            }
         }
 
         // Increase the cheat variable.
