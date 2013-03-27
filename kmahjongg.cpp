@@ -458,8 +458,6 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     }
 
     m_pGameView->startMoveListAnimation();
-
-    timerReset();
 }
 
 
