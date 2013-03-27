@@ -81,9 +81,9 @@ public:
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
     m_bPaused(false),
-    m_pBoardLayout(new KMahjonggLayout()),
+    m_pGameView(NULL),
     m_pGameData(NULL),
-    m_pGameView(NULL)
+    m_pBoardLayout(new KMahjonggLayout())
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3 * 1024);
@@ -419,14 +419,10 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 
     gameTimer->pause();
 
-    long gameNum = m_pGameView->getGameNumber();
-
     KMessageBox::information(this, i18n("You have won!"));
 
     mFinished = true;
     demoModeChanged(false);
-
-    int elapsed = gameTimer->seconds();
 
     time = score = 0;
 
@@ -449,7 +445,9 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     }
 
     //TODO: add gameNum as a Custom KScoreDialog field?
-//    theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
+    //int elapsed = gameTimer->seconds();
+    //long gameNum = m_pGameView->getGameNumber();
+    //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
     ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     KScoreDialog::FieldInfo scoreInfo;

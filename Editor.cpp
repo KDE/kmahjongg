@@ -474,9 +474,6 @@ void Editor::drawBackground(QPixmap *pixmap)
     p.fillRect(0, 0, pixmap->width(), pixmap->height(), Qt::white);
 
     // now put in a grid of tile quater width squares
-    int sy = tiles.qHeight();
-    int sx = tiles.qWidth();
-
     for (int y = 0; y <= theBoard.m_height; y++) {
         int nextY = borderTop + (y * tiles.qHeight());
         p.drawLine(borderLeft, nextY, borderLeft + (theBoard.m_width * tiles.qWidth()), nextY);
@@ -531,7 +528,7 @@ void Editor::drawTiles(QPixmap *dest)
                 if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
 //                     p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
 //                         t.width() - tiles.levelOffsetX(), t.height() / 2);
-// 
+//
 //                     p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
 //                         t.height() / 2);
 

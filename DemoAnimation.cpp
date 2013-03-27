@@ -22,8 +22,8 @@
 
 DemoAnimation::DemoAnimation(QObject * pParent)
     : QTimer(pParent),
-    m_iAnimationSpeed(0),
     m_iStep(0),
+    m_iAnimationSpeed(0),
     m_pGameData(NULL)
 {
     connect(this, SIGNAL(timeout()), this, SLOT(timeoutOccurred()));

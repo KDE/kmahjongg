@@ -109,9 +109,9 @@ private:
      * @param bSelected True if all items should be selected and false for deselecting all items. */
     void setSelectedGameItems(bool bSelected);
 
+    int m_iAnimationSpeed;
     int m_iRepetitions;
     int m_iFinishedRepetitions;
-    int m_iAnimationSpeed;
     bool m_bItemsSelected;
 
     QList<GameItem *> * m_pGameItems;
