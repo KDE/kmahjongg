@@ -17,6 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
+#include "prefs.h"
 #include "GameData.h"
 
 #include <KDebug>
@@ -580,16 +581,14 @@ bool GameData::generateStartPosition2()
     }
 
     // If solvable games should be generated,
-//     if (Prefs::solvableGames()) {
-
-    if (generateSolvableGame()) {
-        TileNum = MaxTileNum;
-        return true;
-    } else {
-        return false;
+    if (Prefs::solvableGames()) {
+        if (generateSolvableGame()) {
+            TileNum = MaxTileNum;
+            return true;
+        } else {
+            return false;
+        }
     }
-
-//     }
 
     // Initialise the faces to allocate. For the classic
     // dragon board there are 144 tiles. So we allocate and
