@@ -22,9 +22,8 @@
 #include <QGraphicsSceneMouseEvent>
 
 
-GameItem::GameItem(bool selected, QGraphicsItem *pItem)
-    : QObject(0),
-    QGraphicsItem(pItem),
+GameItem::GameItem(bool selected, QGraphicsObject *pItem)
+    : QGraphicsObject(pItem),
     m_dying(false),
     m_iShadowWidth(0),
     m_iShadowHeight(0),

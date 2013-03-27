@@ -16,7 +16,7 @@
 #define GAMEITEM_H
 
 #include <QObject>
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 
 #include "KmTypes.h"
 
@@ -25,7 +25,7 @@
  * The tile of a mahjongg board.
  *
  * @author Christian Krippendorf */
-class GameItem : public QObject, public QGraphicsItem
+class GameItem : public QGraphicsObject
 {
     Q_OBJECT
 
@@ -35,7 +35,7 @@ public:
      *
      * @param pItem The parent item
      * @param selected Should the item be selected */
-    GameItem(bool selected, QGraphicsItem *pItem = 0);
+    GameItem(bool selected, QGraphicsObject *pItem = 0);
 
     /**
      * Destructor */
