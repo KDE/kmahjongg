@@ -60,7 +60,7 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
 
     // Init HelpAnimation
     m_pHelpAnimation->setAnimationSpeed(ANIMATION_SPEED);
-    m_pHelpAnimation->setRepetitions(2);
+    m_pHelpAnimation->setRepetitions(3);
 
     // Init DemoAnimation
     m_pDemoAnimation->setAnimationSpeed(ANIMATION_SPEED);
@@ -364,6 +364,8 @@ void GameView::helpMove()
     checkHelpAnimationActive(true);
 
     if (m_pGameData->findMove(stItem1, stItem2)) {
+        scene()->clearSelection();
+        m_pSelectedItem = 0;
         m_pHelpAnimation->clearGameItems();
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem1));
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem2));
