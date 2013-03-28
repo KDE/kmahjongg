@@ -25,6 +25,15 @@
 
 GameData::GameData(BoardLayout *boardlayout)
 {
+    setBoardLayout(boardlayout);
+}
+
+GameData::~GameData()
+{
+}
+
+void GameData::setBoardLayout(BoardLayout *boardlayout)
+{
     m_width = boardlayout->m_width;
     m_height = boardlayout->m_height;
     m_depth = boardlayout->m_depth;
@@ -43,10 +52,6 @@ GameData::GameData(BoardLayout *boardlayout)
 
     //Copy board layout over
     boardlayout->copyBoardLayout((UCHAR *) getMaskBytes(), MaxTileNum);
-}
-
-GameData::~GameData()
-{
 }
 
 void GameData::putTile(short e, short y, short x, UCHAR f)

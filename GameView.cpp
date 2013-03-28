@@ -28,6 +28,7 @@
 #include <KRandom>
 #include <KDebug>
 #include <KMessageBox>
+#include <KStandardDirs>
 
 #include <QResizeEvent>
 #include <QMouseEvent>
@@ -173,6 +174,23 @@ void GameView::createNewGame(long lGameNumber)
     checkHelpAnimationActive(true);
     checkDemoAnimationActive(true);
     checkMoveListAnimationActive(true);
+
+    if (Prefs::randomLayout()) {
+        QStringList availableLayouts = KGlobal::dirs()->findAllResources(
+                    "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
+        QString layout = availableLayouts.at(qrand() % availableLayouts.size());
+
+        if (m_pBoardLayout->path() != layout) {
+            // Try to load the random layout.
+            if (!m_pBoardLayout->load(layout)) {
+                // Or load the default.
+                m_pBoardLayout->loadDefault();
+            }
+
+            // Set the game's boardlayout
+            m_pGameData->setBoardLayout(m_pBoardLayout->board());
+        }
+    }
 
     // Create a random game number, if no one was given.
     if (lGameNumber == -1) {

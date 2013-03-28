@@ -63,6 +63,10 @@ public:
     ~GameData();
 
     /**
+     * Set the boardLayout. */
+    void setBoardLayout(BoardLayout *boardlayout);
+
+    /**
      * Method Description
      *
      * @param e
