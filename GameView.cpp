@@ -36,6 +36,7 @@
 GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     : QGraphicsView(pGameScene, pParent),
     m_bMatch(false),
+    m_bGameGenerated(false),
     m_pGameData(pGameData),
     m_pSelectedItem(NULL),
     m_pBoardLayoutPath(new QString()),
@@ -196,6 +197,9 @@ void GameView::createNewGame(long lGameNumber)
     // Now try to position tiles on the board, 64 tries max.
     for (short sNr = 0; sNr < 64; sNr++) {
         if (m_pGameData->generateStartPosition2()) {
+
+            m_bGameGenerated = true;
+
             // No cheats are used until now.
             m_usCheatsUsed = 0;
             addItemsFromBoardLayout();
@@ -208,6 +212,8 @@ void GameView::createNewGame(long lGameNumber)
     }
 
     // Couldn't generate the game.
+    m_bGameGenerated = false;
+
     // Remove all generated tiles from the scene.
     scene()->clear();
     setStatusText(i18n("Error generating new game!"));
@@ -300,11 +306,13 @@ void GameView::startDemo()
     // Create a new game with the actual game number.
     createNewGame(m_lGameNumber);
 
-    // Start the demo mode.
-    m_pDemoAnimation->start(m_pGameData);
+    if (m_bGameGenerated) {
+        // Start the demo mode.
+        m_pDemoAnimation->start(m_pGameData);
 
-    // Set the status text.
-    setStatusText(i18n("Demo mode. Click mousebutton to stop."));
+        // Set the status text.
+        setStatusText(i18n("Demo mode. Click mousebutton to stop."));
+    }
 }
 
 void GameView::startMoveListAnimation()
@@ -440,6 +448,11 @@ void GameView::pause(bool isPaused)
             item->show();
         }
     }
+}
+
+bool GameView::gameGenerated()
+{
+    return m_bGameGenerated;
 }
 
 void GameView::shuffle()

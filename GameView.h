@@ -199,6 +199,12 @@ public:
      * Hide/show tiles when game is paused/unpaused. */
     void pause(bool isPaused);
 
+    /**
+     * Get whether a game was generated.
+     *
+     * @return True if game was generated, or false. */
+    bool gameGenerated();
+
 public slots:
     /**
      * Add a new item with teh given position and update imgages, position and order.
@@ -379,6 +385,7 @@ private:
     long m_lGameNumber;
     bool m_bGamePaused;
     bool m_bMatch;
+    bool m_bGameGenerated;
 
     GameData *m_pGameData;
     GameItem *m_pSelectedItem;

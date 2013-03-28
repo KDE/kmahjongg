@@ -326,6 +326,10 @@ void KMahjongg::demoMode()
         gameTimer->setTime(0);
         gameTimer->pause();
         m_pGameView->startDemo();
+
+        if (!m_pGameView->gameGenerated()) {
+            demoModeChanged(false);
+        }
     } else {
         demoModeChanged(false);
         startNewGame();
@@ -378,6 +382,11 @@ void KMahjongg::startNewGame(int item)
         // the menu and the tool bar.
         mFinished = false;
         demoModeChanged(false);
+
+        if (!m_pGameView->gameGenerated()) {
+            gameTimer->pause();
+            showItemNumber(0, 0, 0);
+        }
     }
 }
 
