@@ -225,6 +225,10 @@ void GameView::createNewGame(long lGameNumber)
 
             setStatusText(i18n("Ready. Now it is your turn."));
 
+            // Connect our selectionChanged() slot if not already connected.
+            connect(scene(), SIGNAL(selectionChanged()),
+                    this, SLOT(selectionChanged()), Qt::UniqueConnection);
+
             return;
         }
     }
@@ -830,6 +834,13 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 
     // No mouse events when the demo mode is active.
     if (checkDemoAnimationActive(true)) {
+        // Emit our signal to start a new game, causing the scene to be cleared. The
+        // QGraphicsScene::selectionChanged() signal can be emitted when deleting or removing items,
+        // so disconnect from this signal to prevent our selectionChanged() slot being triggered
+        // and trying to access those items.
+        // The signal is reconnected in createNewGame().
+        disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
+
         emit demoOrMoveListAnimationOver(false);
         return;
     }
