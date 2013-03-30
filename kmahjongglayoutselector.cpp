@@ -22,7 +22,6 @@
 
 #include "kmahjongglayoutselector.h"
 
-#include "boardwidget.h"
 #include "prefs.h"
 
 #include <klocale.h>

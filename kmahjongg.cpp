@@ -33,6 +33,7 @@
 #include <QPixmapCache>
 #include <QLabel>
 #include <QDesktopWidget>
+#include <QWindowStateChangeEvent>
 
 #include <KAboutData>
 #include <KAction>

@@ -25,7 +25,6 @@
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
 #include "BoardLayout.h"
-#include "boardwidget.h"
 
 
 class QAction;

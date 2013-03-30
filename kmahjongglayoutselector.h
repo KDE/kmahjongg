@@ -32,7 +32,6 @@ class GameView;
 class GameData;
 class GameScene;
 class KMahjonggLayout;
-class BoardWidget;
 
 class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelector
 {
@@ -47,7 +46,6 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
     void layoutChanged();
     void useRandomLayoutToggled(bool);
   private:
-    BoardWidget * bw;
     GameScene *m_pGameScene;
     GameData *m_pGameData;
     GameView *m_pGameView;

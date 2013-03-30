@@ -51,7 +51,7 @@ public:
     ~BoardLayout();
     /**
      * Method description
-     * 
+     *
      * @param from blah blah
      * @return @c true if ...
      * @return @c false if ...
@@ -59,7 +59,7 @@ public:
     bool loadBoardLayout(const QString &from);
     /**
      * Method description
-     * 
+     *
      * @param from blah blah
      * @return @c true if ...
      * @return @c false if ...
@@ -68,7 +68,7 @@ public:
     bool loadBoardLayout_10(const QString &from);
     /**
      * Method description
-     * 
+     *
      * @param where blah blah
      * @return @c true if ...
      * @return @c false if ...
@@ -77,7 +77,7 @@ public:
     bool saveBoardLayout(const QString &where);
     /**
      * Method description
-     * 
+     *
      * @param z blah blah
      * @param y blah blah
      * @param x blah blah
@@ -86,7 +86,7 @@ public:
     UCHAR getBoardData(short z, short y, short x);
     /**
      * Method description
-     * 
+     *
      * @param z blah blah
      * @param y blah blah
      * @param x blah blah
@@ -96,7 +96,7 @@ public:
 
     /**
      * is there a tile anywhere above here (top left to bot right quarter)
-     * 
+     *
      * @param z blah blah
      * @param y blah blah
      * @param x blah blah
@@ -106,17 +106,17 @@ public:
     bool tileAbove(short z, short y, short x);
     /**
      * is there a tile anywhere above here (top left to bot right quarter)
-     * 
+     *
      * @param &p blah blah @ref pos
      * @return @c true if title abowe
      * @return @c false if title not abowe
      * @see tileAbove
      */
-    bool tileAbove(POSITION &p) { return(tileAbove(p.e, p.y, p.x));	}	
+    bool tileAbove(POSITION &p) { return(tileAbove(p.e, p.y, p.x));	}
 
     /**
      * is this tile blocked to the left or right
-     * 
+     *
      * @param z blah blah
      * @param y blah blah
      * @param x blah blah
@@ -126,13 +126,13 @@ public:
     bool blockedLeftOrRight(short z, short y, short x);
     /**
      * Description
-     * 
+     *
      * @param &p blah blah @ref pos
      */
     void deleteTile(POSITION &p);
     /**
      * Description
-     * 
+     *
      * @param &p blah blah @ref pos
      * @return @c true if title abowe
      * @return @c false if title not abowe
@@ -140,7 +140,7 @@ public:
     bool anyFilled(POSITION &p);
     /**
      * Description
-     * 
+     *
      * @param &p blah blah @ref pos
      * @return @c true if title abowe
      * @return @c false if title not abowe
@@ -148,14 +148,14 @@ public:
     bool allFilled(POSITION &p);
     /**
      * Description
-     * 
+     *
      * @param &p blah blah
      * @see pos
      */
     void insertTile(POSITION &p);
     /**
      * Description
-     * 
+     *
      * @param &p blah blah
      * @see pos
      * @return @c true if title abowe
@@ -164,11 +164,11 @@ public:
     bool isTileAt(POSITION &p) { return getBoardData(p.e, p.y, p.x) == '1'; }
     /**
      * Description
-     * 
+     *
      * @param *to blah blah
      * @param &numTiles blah blah
      */
-    void copyBoardLayout(UCHAR *to , unsigned short &numTiles); 
+    void copyBoardLayout(UCHAR *to , unsigned short &numTiles);
     /**
      * Method description
      */
@@ -212,12 +212,12 @@ public:
      * @return filename
      */
     QString getFilename() const;
-     
+
 protected:
     /**
      * Protected Method description
      */
-    void initialiseBoard(); 
+    void initialiseBoard();
 
 private:
     QString filename;       /**< Private Member Description */
