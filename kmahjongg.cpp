@@ -329,6 +329,8 @@ void KMahjongg::demoMode()
 
         if (!m_pGameView->gameGenerated()) {
             demoModeChanged(false);
+            gameTimer->pause();
+            showItemNumber(0, 0, 0);
         }
     } else {
         demoModeChanged(false);
