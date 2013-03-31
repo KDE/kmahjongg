@@ -76,10 +76,6 @@ public:
     void addGameItems(QList<GameItem *> gameItems);
 
     /**
-     * Remove all game items for animation. */
-    void clearGameItems();
-
-    /**
      * Get all the game items.
      *
      * @return A list of game items. */

@@ -370,7 +370,6 @@ void GameView::helpMove()
     if (m_pGameData->findMove(stItem1, stItem2)) {
         scene()->clearSelection();
         m_pSelectedItem = 0;
-        m_pHelpAnimation->clearGameItems();
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem1));
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem2));
 
@@ -391,7 +390,6 @@ void GameView::helpMatch(GameItem const * const pGameItem)
 
     // Find matching items...
     if ((iMatchCount = m_pGameData->findAllMatchingTiles(stGameItemPos))) {
-        m_pHelpAnimation->clearGameItems();
 
         // ...add them to the animation object...
         for (int i = 0; i < iMatchCount; i++) {

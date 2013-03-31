@@ -66,11 +66,6 @@ void SelectionAnimation::addGameItem(GameItem * pGameItem)
     m_pGameItems->append(pGameItem);
 }
 
-void SelectionAnimation::clearGameItems()
-{
-    m_pGameItems->clear();
-}
-
 QList<GameItem *> SelectionAnimation::getGameItems() const
 {
     return *m_pGameItems;
@@ -83,6 +78,7 @@ void SelectionAnimation::start()
 
 void SelectionAnimation::stop()
 {
+    m_pGameItems->clear();
     m_iFinishedRepetitions = 8;
     QTimer::stop();
     m_iFinishedRepetitions = 0;
