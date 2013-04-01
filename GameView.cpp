@@ -181,7 +181,9 @@ void GameView::createNewGame(long lGameNumber)
     // The signal is reconnected below, when the game has been generated.
     disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 
-    if (Prefs::randomLayout()) {
+    // Only load new layout in random mode if we are not given a game number.
+    // Use same layout if restarting game, starting numbered game, or starting demo game.
+    if (Prefs::randomLayout() && lGameNumber == -1) {
         QStringList availableLayouts = KGlobal::dirs()->findAllResources(
                     "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
         QString layout = availableLayouts.at(qrand() % availableLayouts.size());
