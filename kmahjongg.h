@@ -120,6 +120,10 @@ protected:
      * Method Override */
     void changeEvent(QEvent *event);
 
+    /**
+     * Method Override. */
+    void closeEvent(QCloseEvent *event);
+
 private slots:
     void showSettings();
     void startNewNumeric();
@@ -136,6 +140,7 @@ private slots:
 
 private:
     void loadLayout();
+    void saveSettings();
 
     unsigned long gameElapsedTime;
     bool bDemoModeActive;

@@ -727,6 +727,8 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
     if (m_pTiles->loadDefault()) {
         if (m_pTiles->loadGraphics()) {
             resizeTileset(size());
+
+            *m_pTilesetPath = m_pTiles->path();
         }
     }
 
@@ -755,10 +757,10 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
         if (m_pBackground->loadGraphics()) {
             // Update the new background.
             updateBackground();
+
+            *m_pBackgroundPath = m_pBackground->path();
         }
     }
-
-    kDebug() << "Loading the default background failed.";
 
     return false;
 }

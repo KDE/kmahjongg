@@ -285,9 +285,31 @@ void KMahjongg::loadLayout()
     }
 }
 
+void KMahjongg::saveSettings()
+{
+    Prefs::setLayout(m_pBoardLayout->path());
+    Prefs::setTileSet(m_pGameView->getTilesetPath());
+    Prefs::setBackground(m_pGameView->getBackgroundPath());
+    Prefs::setAngle(m_pGameView->getAngle());
+    Prefs::self()->writeConfig();
+}
+
 void KMahjongg::loadSettings()
 {
-    // Just load the new layout, if it is not already set.
+
+    // Load the tileset.
+    if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
+        kDebug() << "An error occurred when loading the tileset " << Prefs::tileSet() <<
+                    " KMahjongg will continue with the default tileset.";
+    }
+
+    // Load the background
+    if (!m_pGameView->setBackgroundPath(Prefs::background())) {
+        kDebug() << "An error occurred when loading the background " << Prefs::background() <<
+                    " KMahjongg will continue with the default background.";
+    }
+
+    // Load the layout.
     if (m_pBoardLayout->path() != Prefs::layout()) {
         loadLayout();
 
@@ -298,26 +320,7 @@ void KMahjongg::loadSettings()
         startNewGame();
     }
 
-    if (m_pGameView == NULL) {
-        kDebug() << "GameView not initialised!";
-
-        return;
-    }
-
-    // Just set the new tileset, if it is not already set.
-    m_pGameView->setTilesetPath(Prefs::tileSet());
-    if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
-        if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
-            kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() <<
-                "KMahjongg will continue with the default tileset.";
-        }
-    }
-
-
-    m_pGameView->setBackgroundPath(Prefs::background());
-
-    // Set the showmatchingtiles option.
-    m_pGameView->setMatch(Prefs::showMatchingTiles());
+    saveSettings();
 }
 
 void KMahjongg::demoMode()
@@ -422,6 +425,13 @@ void KMahjongg::changeEvent(QEvent *event)
             pause();
         }
     }
+}
+
+void KMahjongg::closeEvent(QCloseEvent *event)
+{
+    saveSettings();
+
+    event->accept();
 }
 
 void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
