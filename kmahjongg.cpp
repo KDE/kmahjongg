@@ -296,6 +296,8 @@ void KMahjongg::saveSettings()
 
 void KMahjongg::loadSettings()
 {
+    // Set the blink-matching-tiles option.
+    m_pGameView->setMatch(Prefs::showMatchingTiles());
 
     // Load the tileset.
     if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
