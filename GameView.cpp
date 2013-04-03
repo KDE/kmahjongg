@@ -28,7 +28,6 @@
 #include <KRandom>
 #include <KDebug>
 #include <KMessageBox>
-#include <KStandardDirs>
 
 #include <QResizeEvent>
 #include <QMouseEvent>
@@ -180,25 +179,6 @@ void GameView::createNewGame(long lGameNumber)
     // prevent our selectionChanged() slot being triggered  and trying to access those items.
     // The signal is reconnected below, when the game has been generated.
     disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
-
-    // Only load new layout in random mode if we are not given a game number.
-    // Use same layout if restarting game, starting numbered game, or starting demo game.
-    if (Prefs::randomLayout() && lGameNumber == -1) {
-        QStringList availableLayouts = KGlobal::dirs()->findAllResources(
-                    "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
-        QString layout = availableLayouts.at(qrand() % availableLayouts.size());
-
-        if (m_pBoardLayout->path() != layout) {
-            // Try to load the random layout.
-            if (!m_pBoardLayout->load(layout)) {
-                // Or load the default.
-                m_pBoardLayout->loadDefault();
-            }
-
-            // Set the game's boardlayout
-            m_pGameData->setBoardLayout(m_pBoardLayout->board());
-        }
-    }
 
     // Create a random game number, if no one was given.
     if (lGameNumber == -1) {
@@ -765,11 +745,6 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
     }
 
     return false;
-}
-
-QString GameView::getCurrentRandomModeBoardName()
-{
-    return m_pBoardLayout->authorProperty("Name");
 }
 
 void GameView::setAngle(TileViewAngle angle)

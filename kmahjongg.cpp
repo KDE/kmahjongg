@@ -46,6 +46,7 @@
 #include <KIcon>
 #include <KScoreDialog>
 #include <KGameClock>
+#include <KStandardDirs>
 
 #include <kio/netaccess.h>
 #include <klocale.h>
@@ -397,20 +398,38 @@ void KMahjongg::newGame()
 
 void KMahjongg::startNewGame(int item)
 {
-    if (!bDemoModeActive) {
-        m_pGameView->createNewGame(item);
+    // Only load new layout in random mode if we are not given a game number.
+    // Use same layout if restarting game or starting a numbered game.
+    if (Prefs::randomLayout() && item == -1) {
+        QStringList availableLayouts = KGlobal::dirs()->findAllResources(
+                    "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
+        QString layout = availableLayouts.at(qrand() % availableLayouts.size());
 
-        timerReset();
+        if (m_pBoardLayout->path() != layout) {
+            // Try to load the random layout.
+            if (!m_pBoardLayout->load(layout)) {
+                // Or load the default.
+                m_pBoardLayout->loadDefault();
+            }
 
-        // update the initial enabled/disabled state for
-        // the menu and the tool bar.
-        mFinished = false;
-        demoModeChanged(false);
-
-        if (!m_pGameView->gameGenerated()) {
-            gameTimer->pause();
-            showItemNumber(0, 0, 0);
+            delete m_pGameData;
+            m_pGameData = new GameData(m_pBoardLayout->board());
+            m_pGameView->setGameData(m_pGameData);
         }
+    }
+
+    m_pGameView->createNewGame(item);
+
+    timerReset();
+
+    // update the initial enabled/disabled state for
+    // the menu and the tool bar.
+    mFinished = false;
+    demoModeChanged(false);
+
+    if (!m_pGameView->gameGenerated()) {
+        gameTimer->pause();
+        showItemNumber(0, 0, 0);
     }
 }
 
@@ -489,11 +508,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    if (Prefs::randomLayout()) {
-        ksdialog.setConfigGroup(m_pGameView->getCurrentRandomModeBoardName());
-    } else {
-        ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
-    }
+    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
