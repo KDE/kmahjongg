@@ -158,6 +158,10 @@ public:
     bool setBackgroundPath(QString const &rBackgroundPath);
 
     /**
+     * Get the view's currently loaded board in random mode. */
+    QString getCurrentRandomModeBoardName();
+
+    /**
      * Undo the last move.
      *
      * @return True if successfull, else false. */

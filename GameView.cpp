@@ -767,6 +767,11 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
     return false;
 }
 
+QString GameView::getCurrentRandomModeBoardName()
+{
+    return m_pBoardLayout->authorProperty("Name");
+}
+
 void GameView::setAngle(TileViewAngle angle)
 {
     m_angle = angle;

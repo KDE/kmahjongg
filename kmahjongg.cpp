@@ -489,7 +489,11 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
+    if (Prefs::randomLayout()) {
+        ksdialog.setConfigGroup(m_pGameView->getCurrentRandomModeBoardName());
+    } else {
+        ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
+    }
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
