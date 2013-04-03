@@ -174,12 +174,6 @@ void GameView::createNewGame(long lGameNumber)
     checkDemoAnimationActive(true);
     checkMoveListAnimationActive(true);
 
-    // The scene will be cleared before creating the game. The QGraphicsScene::selectionChanged()
-    // signal can be emitted when deleting or removing items, so disconnect from this signal to
-    // prevent our selectionChanged() slot being triggered  and trying to access those items.
-    // The signal is reconnected below, when the game has been generated.
-    disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
-
     // Create a random game number, if no one was given.
     if (lGameNumber == -1) {
         m_lGameNumber = KRandom::random();
@@ -212,9 +206,6 @@ void GameView::createNewGame(long lGameNumber)
             populateItemNumber();
 
             setStatusText(i18n("Ready. Now it is your turn."));
-
-            // Reconnect our selectionChanged() slot.
-            connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 
             return;
         }
@@ -497,10 +488,14 @@ void GameView::populateItemNumber()
 
 void GameView::addItemsFromBoardLayout()
 {
-    GameScene *pGameScene = scene();
+    // The QGraphicsScene::selectionChanged() signal can be emitted when deleting or removing
+    // items, so disconnect from this signal to prevent our selectionChanged() slot being
+    // triggered and trying to access those items when we clear the scene.
+    // The signal is reconnected at the end of the function.
+    disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 
     // Remove all existing items.
-    pGameScene->clear();
+    scene()->clear();
 
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
@@ -525,6 +520,9 @@ void GameView::addItemsFromBoardLayout()
 
     updateItemsImages(items());
     updateItemsOrder();
+
+    // Reconnect our selectionChanged() slot.
+    connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
 }
 
 void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrder,
