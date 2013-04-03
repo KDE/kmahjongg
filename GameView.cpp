@@ -214,8 +214,11 @@ void GameView::createNewGame(long lGameNumber)
     // Couldn't generate the game.
     m_bGameGenerated = false;
 
-    // Remove all generated tiles from the scene.
-    scene()->clear();
+    // Hide all generated tiles.
+    foreach (GameItem *item, items()) {
+        item->hide();
+    }
+
     setStatusText(i18n("Error generating new game!"));
 }
 
