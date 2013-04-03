@@ -134,6 +134,7 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     mFinished = false;
     bDemoModeActive = false;
+    m_bLastRandomSetting = Prefs::randomLayout();
 
     loadSettings();
 
@@ -313,15 +314,36 @@ void KMahjongg::loadSettings()
                     " KMahjongg will continue with the default background.";
     }
 
-    // Load the layout.
-    if (m_pBoardLayout->path() != Prefs::layout()) {
-        loadLayout();
+    // Maybe load a new layout and start a new game if the layout or random mode has changed.
+    if (m_pBoardLayout->path() != Prefs::layout() || m_bLastRandomSetting != Prefs::randomLayout()) {
 
-        delete m_pGameData;
-        m_pGameData = new GameData(m_pBoardLayout->board());
-        m_pGameView->setGameData(m_pGameData);
+        // The boardlayout path will likely not be the same as the preference setting if
+        // random layouts are set. If they are and were last time we don't want to load
+        // a new layout or start a new game when the user may have just changed the
+        // tileset, background or other settings.
+        if (m_bLastRandomSetting && Prefs::randomLayout()) {
 
-        startNewGame();
+            // Do nothing, just continue on and save the settings.
+
+        } else {
+
+            // The user has changed the layout, or the random setting.
+
+            // If random layouts are set a new layout will be loaded when we call
+            // startNewGame, so no need to do so here.
+            if (!Prefs::randomLayout()) {
+                loadLayout();
+
+                delete m_pGameData;
+                m_pGameData = new GameData(m_pBoardLayout->board());
+                m_pGameView->setGameData(m_pGameData);
+            }
+
+            // Track the last random setting.
+            m_bLastRandomSetting = Prefs::randomLayout();
+
+            startNewGame();
+        }
     }
 
     saveSettings();

@@ -147,6 +147,7 @@ private:
     bool bDemoModeActive;
     bool mFinished;
     bool m_bPaused;
+    bool m_bLastRandomSetting;
 
     GameView *m_pGameView;
     GameData *m_pGameData;
