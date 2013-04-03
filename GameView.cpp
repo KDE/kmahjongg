@@ -457,7 +457,9 @@ bool GameView::validMovesAvailable(bool bSilent)
 
     if (!m_pGameData->findMove(stItem1, stItem2)) {
         if (!bSilent) {
-            KMessageBox::information(this, i18n("Game over: You have no moves left."));
+            //KMessageBox::information(this, i18n("Game over: You have no moves left."));
+
+            emit noMovesAvailable();
         }
 
         return false;

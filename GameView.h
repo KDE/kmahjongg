@@ -297,6 +297,10 @@ signals:
      * @param bDemoGameLost True if demo game is played out and lost. */
     void demoOrMoveListAnimationOver(bool bDemoGameLost);
 
+    /**
+     * Emits when no more moves are available. */
+    void noMovesAvailable();
+
 private slots:
     /**
      * Add a new item with the given position.

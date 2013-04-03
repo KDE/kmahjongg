@@ -137,6 +137,7 @@ private slots:
     void displayTime(const QString& timestring);
     void showHighscores();
     void slotBoardEditor();
+    void noMovesAvailable();
 
 private:
     void loadLayout();

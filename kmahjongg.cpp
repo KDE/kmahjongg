@@ -126,6 +126,7 @@ KMahjongg::KMahjongg(QWidget *parent)
                 SLOT(gameOver(unsigned short, unsigned short)));
     connect(m_pGameView, SIGNAL(demoOrMoveListAnimationOver(bool)),
             this, SLOT(demoOrMoveListAnimationOver(bool)));
+    connect(m_pGameView, SIGNAL(noMovesAvailable()), this, SLOT(noMovesAvailable()));
     connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
     connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
 
@@ -372,6 +373,21 @@ void KMahjongg::slotBoardEditor()
 
     // Set the default size.
     boardEditor->setGeometry(Prefs::editorGeometry());
+}
+
+void KMahjongg::noMovesAvailable()
+{
+    int answer = KMessageBox::questionYesNoCancel(
+                this,
+                i18n("Game Over: You have no moves left."),
+                i18n("Game Over"),
+                KGuiItem(i18n("New Game")),    // Yes
+                KGuiItem(i18n("Restart")));    // No
+    if (answer == KMessageBox::Yes) {
+        startNewGame();
+    } else if (answer == KMessageBox::No) {
+        restartGame();
+    }
 }
 
 void KMahjongg::newGame()
