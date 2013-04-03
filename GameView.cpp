@@ -39,13 +39,11 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     m_bGameGenerated(false),
     m_pGameData(pGameData),
     m_pSelectedItem(NULL),
-    m_pBoardLayoutPath(new QString()),
     m_pTilesetPath(new QString()),
     m_pBackgroundPath(new QString()),
     m_pHelpAnimation(new SelectionAnimation(this)),
     m_pMoveListAnimation(new MoveListAnimation(this)),
     m_pDemoAnimation(new DemoAnimation(this)),
-    m_pBoardLayout(new KMahjonggLayout()),
     m_pTiles(new KMahjonggTileset()),
     m_pBackground(new KMahjonggBackground())
 {

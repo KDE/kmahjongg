@@ -29,7 +29,6 @@ class GameItem;
 class SelectionAnimation;
 class MoveListAnimation;
 class DemoAnimation;
-class KMahjonggLayout;
 class KMahjonggTileset;
 class KMahjonggBackground;
 class QMouseEvent;
@@ -394,7 +393,6 @@ private:
     GameData *m_pGameData;
     GameItem *m_pSelectedItem;
 
-    QString *m_pBoardLayoutPath;
     QString *m_pTilesetPath;
     QString *m_pBackgroundPath;
 
@@ -402,7 +400,6 @@ private:
     MoveListAnimation *m_pMoveListAnimation;
     DemoAnimation *m_pDemoAnimation;
 
-    KMahjonggLayout *m_pBoardLayout;
     KMahjonggTileset *m_pTiles;
     KMahjonggBackground *m_pBackground;
 
