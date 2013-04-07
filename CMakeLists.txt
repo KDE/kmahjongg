@@ -30,7 +30,6 @@ set(kmahjongg_SRCS
    GameData.cpp
    kmahjongglayoutselector.cpp
    kmahjongglayout.cpp
-   TileSprite.cpp
    Editor.cpp
    FrameImage.cpp
    GameItem.cpp
