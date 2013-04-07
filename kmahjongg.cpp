@@ -404,8 +404,12 @@ void KMahjongg::noMovesAvailable()
                 this,
                 i18n("Game Over: You have no moves left."),
                 i18n("Game Over"),
-                KGuiItem(i18n("New Game")),    // Yes
-                KGuiItem(i18n("Restart")));    // No
+                KGuiItem(i18n("New Game"), KIcon(
+                             actionCollection()->action(KStandardGameAction::name(
+                             KStandardGameAction::New))->icon())),
+                KGuiItem(i18n("Restart"), KIcon(
+                             actionCollection()->action(KStandardGameAction::name(
+                             KStandardGameAction::Restart))->icon())));
     if (answer == KMessageBox::Yes) {
         startNewGame();
     } else if (answer == KMessageBox::No) {
