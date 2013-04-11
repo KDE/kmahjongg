@@ -104,7 +104,9 @@ void DemoAnimation::timeoutOccurred()
 
         break;
     case 4:
+        m_stFirst.f -= TILE_OFFSET;
         emit removeItem(m_stFirst);
+        m_stSecond.f -= TILE_OFFSET;
         emit removeItem(m_stSecond);
 
         break;
