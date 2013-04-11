@@ -126,6 +126,7 @@ public:
 signals:
     void rotateCW();
     void rotateCCW();
+    void clearSelectedTile();
 
 private:
     /**

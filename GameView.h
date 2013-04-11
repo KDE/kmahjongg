@@ -253,6 +253,10 @@ public slots:
      * Start the move list animation. */
     void startMoveListAnimation();
 
+    /**
+     * Clear the selection. */
+    void clearSelectedTile();
+
 protected:
     /**
      * Override from QGraphicsView. */

@@ -77,6 +77,7 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
         SLOT(removeItem(POSITION &)));
     connect(m_pMoveListAnimation, SIGNAL(addItem(POSITION &)), this,
         SLOT(addItemAndUpdate(POSITION &)));
+    connect(scene(), SIGNAL(clearSelectedTile()), this, SLOT(clearSelectedTile()));
 }
 
 GameView::~GameView()
@@ -241,6 +242,12 @@ void GameView::selectionChanged()
     } else {
         // The selected item is already there, so this is the second selected item.
 
+        // If the same item was clicked, clear the selection and return.
+        if (m_pSelectedItem == selectedGameItems.at(0)) {
+            clearSelectedTile();
+            return;
+        }
+
         // Get both items and their positions.
         POSITION stFirstPos = m_pSelectedItem->getGridPos();
         POSITION stSecondPos = selectedGameItems.at(0)->getGridPos();
@@ -329,6 +336,12 @@ void GameView::startMoveListAnimation()
     m_pMoveListAnimation->start(m_pGameData);
 }
 
+void GameView::clearSelectedTile()
+{
+    scene()->clearSelection();
+    m_pSelectedItem = NULL;
+}
+
 void GameView::changeItemSelectedState(POSITION &stItemPos, bool bSelected)
 {
     GameItem *pGameItem = scene()->getItemOnGridPos(stItemPos);
@@ -347,8 +360,7 @@ void GameView::helpMove()
     checkHelpAnimationActive(true);
 
     if (m_pGameData->findMove(stItem1, stItem2)) {
-        scene()->clearSelection();
-        m_pSelectedItem = 0;
+        clearSelectedTile();
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem1));
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem2));
 

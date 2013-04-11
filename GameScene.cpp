@@ -209,6 +209,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 
     // No item was clicked.
     if (pGameItem == NULL) {
+        emit clearSelectedTile();
         pMouseEvent->ignore();
         return;
     }
@@ -218,6 +219,8 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
         clearSelection();
         pGameItem->setSelected(true);
         pMouseEvent->accept();
+    } else {
+        emit clearSelectedTile();
     }
 }
 
