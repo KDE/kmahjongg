@@ -224,12 +224,6 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
     }
 }
 
-void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent)
-{
-    mousePressEvent(pMouseEvent);
-    pMouseEvent->ignore();
-}
-
 void GameScene::wheelEvent(QGraphicsSceneWheelEvent* pMouseEvent)
 {
     if (pMouseEvent->delta() < 0) {

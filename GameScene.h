@@ -108,10 +108,6 @@ public:
     void mousePressEvent(QGraphicsSceneMouseEvent *pMouseEvent);
 
     /**
-     * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *pMouseEvent);
-
-    /**
      * Override from QGraphicsScene.
      * Mouse wheel rotates view. */
     void wheelEvent(QGraphicsSceneWheelEvent *pMouseEvent);

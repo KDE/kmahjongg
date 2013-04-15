@@ -54,6 +54,9 @@ int main(int argc, char** argv)
     KGlobal::locale()->insertCatalog(QLatin1String("libkdegames"));
     KGlobal::locale()->insertCatalog(QLatin1String("libkmahjongg"));
 
+    // We don't use double-clicks. Set the interval to 0ms to prevent them being triggered.
+    application.setDoubleClickInterval(0);
+
     if (application.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
