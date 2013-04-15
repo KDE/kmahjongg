@@ -226,6 +226,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 
 void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 {
+    mousePressEvent(pMouseEvent);
     pMouseEvent->ignore();
 }
 
