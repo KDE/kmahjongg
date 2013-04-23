@@ -302,16 +302,20 @@ void KMahjongg::loadSettings()
     // Set the blink-matching-tiles option.
     m_pGameView->setMatch(Prefs::showMatchingTiles());
 
-    // Load the tileset.
-    if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
-        kDebug() << "An error occurred when loading the tileset " << Prefs::tileSet() <<
-                    " KMahjongg will continue with the default tileset.";
+    // If changed, load the tileset.
+    if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
+        if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
+            kDebug() << "An error occurred when loading the tileset " << Prefs::tileSet() <<
+                        " KMahjongg will continue with the default tileset.";
+        }
     }
 
-    // Load the background
-    if (!m_pGameView->setBackgroundPath(Prefs::background())) {
-        kDebug() << "An error occurred when loading the background " << Prefs::background() <<
-                    " KMahjongg will continue with the default background.";
+    // If changed, load the background
+    if (m_pGameView->getBackgroundPath() != Prefs::background()) {
+        if (!m_pGameView->setBackgroundPath(Prefs::background())) {
+            kDebug() << "An error occurred when loading the background " << Prefs::background() <<
+                        " KMahjongg will continue with the default background.";
+        }
     }
 
     // Maybe load a new layout and start a new game if the layout or random mode has changed.
