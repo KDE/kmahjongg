@@ -34,9 +34,9 @@ GameData::~GameData()
 
 void GameData::setBoardLayout(BoardLayout *boardlayout)
 {
-    m_width = boardlayout->m_width;
-    m_height = boardlayout->m_height;
-    m_depth = boardlayout->m_depth;
+    m_width = boardlayout->getWidth();
+    m_height = boardlayout->getHeight();
+    m_depth = boardlayout->getDepth();
     m_maxTiles = (m_width * m_height * m_depth) / 4;
 
     Highlight = QByteArray(m_width * m_height * m_depth, 0);

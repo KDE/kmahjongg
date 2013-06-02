@@ -19,8 +19,11 @@
 
 #include "BoardLayout.h"
 #include <QFile>
-#include <qtextstream.h>
-#include <qtextcodec.h>
+#include <QTextStream>
+#include <QTextCodec>
+
+const QString BoardLayout::layoutMagic1_0 = "kmahjongg-layout-v1.0";
+const QString BoardLayout::layoutMagic1_1 = "kmahjongg-layout-v1.1";
 
 BoardLayout::BoardLayout()
 {
@@ -38,34 +41,14 @@ BoardLayout::BoardLayout(const BoardLayout &boardLayout)
     m_height = boardLayout.m_height;
     m_depth = boardLayout.m_depth;
     m_maxTiles = boardLayout.m_maxTiles;
-    maxTileNum = boardLayout.getMaxTileNum();
-    filename = boardLayout.getFilename();
-    board = boardLayout.getBoard();
-    loadedBoard = boardLayout.getLoadedBoard();
+    maxTileNum = boardLayout.maxTileNum;
+    filename = boardLayout.filename;
+    board = boardLayout.board;
+    loadedBoard = boardLayout.loadedBoard;
 }
 
 BoardLayout::~BoardLayout()
 {
-}
-
-QString BoardLayout::getFilename() const
-{
-    return filename;
-}
-
-QByteArray BoardLayout::getLoadedBoard() const
-{
-    return loadedBoard;
-}
-
-QByteArray BoardLayout::getBoard() const
-{
-    return board;
-}
-
-unsigned short BoardLayout::getMaxTileNum() const
-{
-    return maxTileNum;
 }
 
 void BoardLayout::clearBoardLayout() {
@@ -73,7 +56,7 @@ void BoardLayout::clearBoardLayout() {
     initialiseBoard();
 }
 
-bool BoardLayout::saveBoardLayout(const QString &where) {
+bool BoardLayout::saveBoardLayout(const QString &where) const {
     QFile f(where);
     if (!f.open(QIODevice::ReadWrite)) {
         return false;
@@ -126,22 +109,24 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
     }
 
     QFile f(from);
-    QString all = "";
 
     if ( f.open(QIODevice::ReadOnly) ) {
         QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
-        QString s;
-        s = t.readLine();
+        QString s(t.readLine());
+
         if (s != layoutMagic1_0) {
             f.close();
             return false;
         }
+
         //version 1.0 layouts used hardcoded board dimensions
         m_width = 32;
         m_height = 16;
         m_depth = 5;
         int lines = 0;
+        QString all("");
+
         while ( !t.atEnd() ) {
             s = t.readLine();
             if (s[0] == '#') {
@@ -151,6 +136,7 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
             lines++;
         }
         f.close();
+
         if (lines == m_height*m_depth) {
             loadedBoard = all.toLatin1();
             initialiseBoard();
@@ -172,19 +158,21 @@ bool BoardLayout::loadBoardLayout(const QString &from)
     }
 
     QFile f(from);
-    QString all = "";
     if ( f.open(QIODevice::ReadOnly) ) {
         QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
-        QString s;
-        s = t.readLine();
+        QString s(t.readLine());
+
         if (s != layoutMagic1_1) {
             f.close();
             //maybe a version 1_0 layout?
             return(loadBoardLayout_10(from));
         }
+
         int lines = 0;
         m_width = m_height = m_depth = 0;
+        QString all("");
+
         while ( !t.atEnd() ) {
             s = t.readLine();
             if (s[0] == '#') {
@@ -206,6 +194,7 @@ bool BoardLayout::loadBoardLayout(const QString &from)
             lines++;
         }
         f.close();
+
         if ((lines == m_height*m_depth)&&(m_width>0)&&(m_height>0)&&(m_depth>0)) {
             loadedBoard = all.toLatin1();
             initialiseBoard();
@@ -270,7 +259,7 @@ void BoardLayout::initialiseBoard()
     }
 }
 
-void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n)
+void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n) const
 {
     memcpy(to, board.data(), m_width*m_height*m_depth);
     n = maxTileNum;
@@ -380,7 +369,7 @@ void BoardLayout::shiftDown()
 
 
 // is there a tile anywhere above here (top left to bot right quarter)
-bool BoardLayout::tileAbove(short z, short y, short x)
+bool BoardLayout::tileAbove(short z, short y, short x) const
 {
     if (z >= m_depth -1) {
         return false;
@@ -394,13 +383,6 @@ bool BoardLayout::tileAbove(short z, short y, short x)
     return false;
 }
 
-
-bool BoardLayout::blockedLeftOrRight(short z, short y, short x)
-{
-     return( (getBoardData(z,y,x-1) || getBoardData(z,y+1,x-1)) &&
-             (getBoardData(z,y,x+2) || getBoardData(z,y+1,x+2)) );
-}
-
 void BoardLayout::deleteTile(POSITION &p)
 {
     if ( p.e <m_depth && getBoardData(p.e,p.y,p.x) == '1') {
@@ -412,7 +394,7 @@ void BoardLayout::deleteTile(POSITION &p)
     }
 }
 
-bool BoardLayout::anyFilled(POSITION &p)
+bool BoardLayout::anyFilled(POSITION &p) const
 {
     return(getBoardData(p.e, p.y, p.x) != 0 ||
            getBoardData(p.e, p.y, p.x+1) != 0 ||
@@ -420,7 +402,7 @@ bool BoardLayout::anyFilled(POSITION &p)
            getBoardData(p.e, p.y+1, p.x+1) != 0);
 }
 
-bool BoardLayout::allFilled(POSITION &p)
+bool BoardLayout::allFilled(POSITION &p) const
 {
     return(getBoardData(p.e, p.y, p.x) != 0 &&
            getBoardData(p.e, p.y, p.x+1) != 0 &&
@@ -436,7 +418,7 @@ void BoardLayout::insertTile(POSITION &p)
     setBoardData(p.e,p.y+1,p.x,'4');
 }
 
-UCHAR BoardLayout::getBoardData(short z, short y, short x)
+UCHAR BoardLayout::getBoardData(short z, short y, short x) const
 {
     return board.at((z*m_width*m_height)+(y*m_width)+x);
 }

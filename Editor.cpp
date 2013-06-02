@@ -114,11 +114,14 @@ const QString Editor::getTileset() const
 
 void Editor::updateTileSize(const QSize size)
 {
-    QSize tileSize = tiles.preferredTileSize(size, theBoard.m_width / 2, theBoard.m_height / 2);
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
+
+    QSize tileSize = tiles.preferredTileSize(size, width / 2, height / 2);
     tiles.reloadTileset(tileSize);
 
-    borderLeft = (drawFrame->size().width() - (theBoard.m_width * tiles.qWidth())) / 2;
-    borderTop = (drawFrame->size().height() - (theBoard.m_height * tiles.qHeight())) / 2;
+    borderLeft = (drawFrame->size().width() - (width * tiles.qWidth())) / 2;
+    borderTop = (drawFrame->size().height() - (height * tiles.qHeight())) / 2;
 }
 
 void Editor::resizeEvent(QResizeEvent *event)
@@ -329,7 +332,7 @@ QString Editor::statusText()
         z = z + 1;
     }
 
-    if (x >= theBoard.m_width || x < 0 || y >= theBoard.m_height || y < 0) {
+    if (x >= theBoard.getWidth() || x < 0 || y >= theBoard.getHeight() || y < 0) {
         x = y = z = 0;
     }
 
@@ -468,20 +471,22 @@ void Editor::paintEvent(QPaintEvent*)
 
 void Editor::drawBackground(QPixmap *pixmap)
 {
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
     QPainter p(pixmap);
 
     // blast in a white background
     p.fillRect(0, 0, pixmap->width(), pixmap->height(), Qt::white);
 
     // now put in a grid of tile quater width squares
-    for (int y = 0; y <= theBoard.m_height; y++) {
+    for (int y = 0; y <= height; y++) {
         int nextY = borderTop + (y * tiles.qHeight());
-        p.drawLine(borderLeft, nextY, borderLeft + (theBoard.m_width * tiles.qWidth()), nextY);
+        p.drawLine(borderLeft, nextY, borderLeft + (width * tiles.qWidth()), nextY);
     }
 
-    for (int x = 0; x <= theBoard.m_width; x++) {
+    for (int x = 0; x <= width; x++) {
         int nextX = borderLeft + (x * tiles.qWidth());
-        p.drawLine(nextX, borderTop, nextX, borderTop + (theBoard.m_height * tiles.qHeight()));
+        p.drawLine(nextX, borderTop, nextX, borderTop + (height * tiles.qHeight()));
     }
 }
 
@@ -489,6 +494,9 @@ void Editor::drawTiles(QPixmap *dest)
 {
     QPainter p(dest);
 
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
+    const int depth = theBoard.getDepth();
     int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
     int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
     short tile = 0;
@@ -499,11 +507,11 @@ void Editor::drawTiles(QPixmap *dest)
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z = 0; z < theBoard.m_depth; z++) {
+    for (int z = 0; z < depth; z++) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < theBoard.m_height; y++) {
+        for (int y = 0; y < height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x = theBoard.m_width - 1; x >= 0; x--) {
+            for (int x = width - 1; x >= 0; x--) {
                 int sx = x * tiles.qWidth() + xOffset + borderLeft;
                 int sy = y * tiles.qHeight() + yOffset + borderTop;
 
@@ -512,7 +520,7 @@ void Editor::drawTiles(QPixmap *dest)
                 }
 
                 QPixmap t;
-                tile = (z * theBoard.m_depth) + (y * theBoard.m_height) + (x * theBoard.m_width);
+                tile = (z * depth) + (y * height) + (x * width);
 //                 if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
 //                     t = tiles.selectedPixmaps(44));
 //                 } else {
@@ -563,7 +571,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
     MouseClickPos.e = 100;
 
     // iterate over z coordinate from top to bottom
-    for (z = theBoard.m_depth - 1; z >= 0; --z) {
+    for (z = theBoard.getDepth() - 1; z >= 0; --z) {
         // calculate mouse coordiantes --> position in game board
         // the factor -theTiles.width()/2 must keep track with the
         // offset for blitting in the print zvent (FIX ME)
@@ -571,7 +579,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
         y = ((point.y() - borderTop) + z * tiles.levelOffsetX()) / tiles.qHeight();
 
         // skip when position is illegal
-        if (x < 0 || x >= theBoard.m_width || y < 0 || y >= theBoard.m_height) {
+        if (x < 0 || x >= theBoard.getWidth() || y < 0 || y >= theBoard.getHeight()) {
             continue;
         }
 
@@ -635,7 +643,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
     switch (mode) {
     case remove:
-        if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.m_depth && theBoard.isTileAt(mPos)) {
+        if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.getDepth() && theBoard.isTileAt(mPos)) {
             theBoard.deleteTile(mPos);
             numTiles--;
             statusChanged();
@@ -728,15 +736,15 @@ bool Editor::canInsert(POSITION &p)
     // there are tiles in all positions below us (or we are a ground level)
     // there are no tiles intersecting with us on this level
 
-    if (p.e >= theBoard.m_depth) {
+    if (p.e >= theBoard.getDepth()) {
         return false;
     }
 
-    if (p.y > theBoard.m_height - 2) {
+    if (p.y > theBoard.getHeight() - 2) {
         return false;
     }
 
-    if (p.x > theBoard.m_width - 2) {
+    if (p.x > theBoard.getWidth() - 2) {
         return false;
     }
 
