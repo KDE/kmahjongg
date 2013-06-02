@@ -16,29 +16,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
 #include "FrameImage.h"
-#include "prefs.h"
 
-#include <qevent.h>
-#include <qimage.h>
-#include <qpainter.h>
-#include <qtextstream.h>
-
-#include <kcomponentdata.h>
-#include <kfiledialog.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <kstandarddirs.h>
-#include <KStandardGuiItem>
-#include <kimageio.h>
-#include <kvbox.h>
-
+#include <QPaintEvent>
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
-  : KGameCanvasWidget(parent)
+  : KGameCanvasWidget(parent),
+    rx(-1),
+    thePixmap(new QPixmap(initialImageSize))
 {
-    rx = -1;
-    thePixmap = new QPixmap(initialImageSize);
 }
 
 FrameImage::~FrameImage()
@@ -53,12 +38,9 @@ void FrameImage::resizeEvent(QResizeEvent *ev)
 
 void FrameImage::paintEvent(QPaintEvent *pa)
 {
-    //QFrame::paintEvent(pa);
-
     QPainter p(this);
 
     QPen line;
-//     line.setStyle(Qt::DotLine);
     line.setWidth(1);
     line.setColor(Qt::red);
     p.setPen(line);
@@ -70,7 +52,6 @@ void FrameImage::paintEvent(QPaintEvent *pa)
     int h = pa->rect().height();
     int w  = pa->rect().width();
 
-//     p.drawPixmap(x+frameWidth(),y+frameWidth(),*thePixmap,x+frameWidth(),y+frameWidth(),w-(2*frameWidth()),h-(2*frameWidth()));
     p.drawPixmap(x, y, *thePixmap, x, y, w - 2, h - 2);
     if (rx >=0) {
         p.drawRect(rx + rs, ry, rw - rs, rh - rs);

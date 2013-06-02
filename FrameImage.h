@@ -21,21 +21,9 @@
 #define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
 #include <libkdegamesprivate/kgamecanvas.h>
 
-#include "kmahjonggtileset.h"
-#include "kmahjonggbackground.h"
-#include "BoardLayout.h"
-
-#include <qframe.h>
-
-#include <kdialog.h>
-
-
-class QComboBox;
-class QPixmap;
-
 /**
  * @short This class implements
- * 
+ *
  * longer description
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
@@ -57,12 +45,12 @@ public:
 
     /**
      * Method Description
-     * 
+     *
      * @return QPixmap */
     QPixmap* getPreviewPixmap() {return thePixmap;}
 
     /**
-     * Method Description 
+     * Method Description
      *
      * @param x
      * @param y
