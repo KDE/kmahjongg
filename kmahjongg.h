@@ -18,16 +18,8 @@
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
-
 #include <kxmlguiwindow.h>
 
-#include "KmTypes.h"
-#include "kmahjonggtileset.h"
-#include "kmahjonggbackground.h"
-#include "BoardLayout.h"
-
-
-class QAction;
 class KToggleAction;
 class QLabel;
 class KGameClock;
@@ -96,14 +88,6 @@ public slots:
     void gameOver(unsigned short removed, unsigned short cheats);
 
     /**
-     * Slot Description */
-    void newGame();
-
-    /**
-     * Slot Description */
-    void timerReset();
-
-    /**
      * Connected to GameView::demoOrMoveListAnimationOver(bool) signal. */
     void demoOrMoveListAnimationOver(bool bDemoGameLost);
 
@@ -143,7 +127,6 @@ private:
     void loadLayout();
     void saveSettings();
 
-    unsigned long gameElapsedTime;
     bool bDemoModeActive;
     bool mFinished;
     bool m_bPaused;
@@ -169,6 +152,9 @@ private:
 
     KToggleAction *pauseAction;
     KToggleAction *demoAction;
+
+    static const QString gameMagic;
+    static const int gameDataVersion;
 };
 
 

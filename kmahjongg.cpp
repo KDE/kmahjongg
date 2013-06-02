@@ -28,8 +28,6 @@
 
 #include <kmahjonggconfigdialog.h>
 
-#include <limits.h>
-
 #include <QPixmapCache>
 #include <QLabel>
 #include <QDesktopWidget>
@@ -40,29 +38,18 @@
 #include <KConfigDialog>
 #include <KFileDialog>
 #include <KInputDialog>
-#include <KMenuBar>
 #include <KMessageBox>
+#include <KActionCollection>
 #include <KStandardGameAction>
-#include <KStandardAction>
-#include <KIcon>
 #include <KScoreDialog>
 #include <KGameClock>
 #include <KStandardDirs>
 #include <KStatusBar>
+#include <KToggleAction>
+#include <KIO/NetAccess>
 
-#include <kio/netaccess.h>
-#include <klocale.h>
-#include <ktoggleaction.h>
-#include <kactioncollection.h>
-
-
-#define ID_STATUS_TILENUMBER 1
-#define ID_STATUS_MESSAGE    2
-#define ID_STATUS_GAME       3
-
-
-static const char *gameMagic = "kmahjongg-gamedata";
-static int gameDataVersion = 1;
+const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
+const int KMahjongg::gameDataVersion = 1;
 
 /**
  * This class implements
@@ -154,7 +141,7 @@ KMahjongg::~KMahjongg()
 
 void KMahjongg::setupKAction()
 {
-    KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    KStandardGameAction::gameNew(this, SLOT(startNewGame()), actionCollection());
     KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
     KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
@@ -238,8 +225,8 @@ void KMahjongg::displayTime(const QString& timestring)
 void KMahjongg::startNewNumeric()
 {
     bool ok;
-    int s = KInputDialog::getInteger(i18n("New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1,
-        &ok, this);
+    int s = KInputDialog::getInteger(i18n("New Game"), i18n("Enter game number:"),
+            0, 0, INT_MAX, 1, &ok, this);
 
     if (ok) {
         startNewGame(s);
@@ -269,8 +256,8 @@ void KMahjongg::showSettings()
 
     //The Settings class is ours
     dialog->addPage(new Settings(0), i18n("General"), "games-config-options");
-    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), "games-con"
-        "fig-board");
+    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"),
+            "games-config-board");
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
     dialog->setHelp(QString(),"kmahjongg");
@@ -423,11 +410,6 @@ void KMahjongg::noMovesAvailable()
     }
 }
 
-void KMahjongg::newGame()
-{
-    startNewGame();
-}
-
 void KMahjongg::startNewGame(int item)
 {
     // Only load new layout in random mode if we are not given a game number.
@@ -452,7 +434,7 @@ void KMahjongg::startNewGame(int item)
 
     m_pGameView->createNewGame(item);
 
-    timerReset();
+    gameTimer->restart();
 
     // update the initial enabled/disabled state for
     // the menu and the tool bar.
@@ -463,15 +445,6 @@ void KMahjongg::startNewGame(int item)
         gameTimer->pause();
         showItemNumber(0, 0, 0);
     }
-}
-
-void KMahjongg::timerReset()
-{
-    // initialise the scoring system
-    gameElapsedTime = 0;
-
-    // start the game timer
-    gameTimer->restart();
 }
 
 void KMahjongg::demoOrMoveListAnimationOver(bool bDemoGameLost)
@@ -505,9 +478,6 @@ void KMahjongg::closeEvent(QCloseEvent *event)
 
 void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 {
-    int time;
-    int score;
-
     gameTimer->pause();
 
     KMessageBox::information(this, i18n("You have won!"));
@@ -515,18 +485,16 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     mFinished = true;
     demoModeChanged(false);
 
-    time = score = 0;
-
     // get the time in milli secs
     // subtract from 20 minutes to get bonus. if longer than 20 then ignore
-    time = (60 * 20) - gameTimer->seconds();
+    int time = (60 * 20) - gameTimer->seconds();
     if (time < 0) {
         time =0;
     }
     // conv back to  secs (max bonus = 60*20 = 1200
 
     // points per removed tile bonus (for deragon max = 144*10 = 1440
-    score += (numRemoved * 20);
+    int score = (numRemoved * 20);
     // time bonus one point per second under one hour
     score += time;
     // points per cheat penalty (max penalty = 1440 for dragon)
@@ -561,8 +529,8 @@ void KMahjongg::showStatusText(const QString &msg, long board)
 
 void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 {
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum - iCurrent, iMaximum,
-        iLeft);
+    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3",
+            iMaximum - iCurrent, iMaximum, iLeft);
     tilesLeftLabel->setText(szBuffer);
 
     // update undo menu item, if demomode is inactive
@@ -597,7 +565,7 @@ void KMahjongg::restartGame()
     if (!bDemoModeActive) {
         m_pGameView->createNewGame(m_pGameView->getGameNumber());
 
-        timerReset();
+        gameTimer->restart();
 
         // update the initial enabled/disabled state for
         // the menu and the tool bar.
