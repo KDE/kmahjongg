@@ -51,7 +51,7 @@ void GameScene::initializeGameItemsArray()
     // initialize all array pointers with NULL.
     for (int i = 0; i < BOARD_WIDTH; i++) {
         for (int j = 0; j < BOARD_HEIGHT; j++) {
-            for (int k = 0; k < BOARD_DEPH; k++) {
+            for (int k = 0; k < BOARD_DEPTH; k++) {
                 m_pGameItemsArray[i][j][k] = NULL;
             }
         }
@@ -98,7 +98,7 @@ GameItem * GameScene::getItemOnGridPos(int iX, int iY, int iZ)
     // Test for range
     if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
         (iY < 0 || iY > BOARD_HEIGHT - 1) ||
-        (iZ < 0 || iZ > BOARD_DEPH - 1)) {
+        (iZ < 0 || iZ > BOARD_DEPTH - 1)) {
         return NULL;
     }
 
@@ -115,7 +115,7 @@ bool GameScene::isItemOnGridPos(int iX, int iY, int iZ) const
         // Test for range
     if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
         (iY < 0 || iY > BOARD_HEIGHT - 1) ||
-        (iZ < 0 || iZ > BOARD_DEPH - 1)) {
+        (iZ < 0 || iZ > BOARD_DEPTH - 1)) {
         return false;
     }
 

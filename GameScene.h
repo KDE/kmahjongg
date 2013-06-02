@@ -21,7 +21,7 @@
 
 #define BOARD_WIDTH 36
 #define BOARD_HEIGHT 16
-#define BOARD_DEPH 5
+#define BOARD_DEPTH 5
 
 
 // Forward declarations...
@@ -135,7 +135,7 @@ private:
      * @param pGameItem THe game item to add to array. */
     void addItemToPositionArray(GameItem * const pGameItem);
 
-    GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPH];
+    GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPTH];
     GameItem *m_pFirstSelectedItem;
     GameItem *m_pSecondSelectedItem;
 };
