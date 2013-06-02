@@ -23,15 +23,12 @@
 #include "kmahjongglayoutselector.h"
 
 #include "prefs.h"
-
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <QPainter>
-
 #include "kmahjongglayout.h"
 #include "GameView.h"
 #include "GameScene.h"
 #include "GameData.h"
+
+#include <KStandardDirs>
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent ),
@@ -58,9 +55,6 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     //No new stuff yet
     getNewButton->hide();
 
-    //This will also load our resourcedir if it is not done already
-    KMahjonggLayout tile;
-
     //Now get our tilesets into a list
     QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
     tilesAvailable.sort();
@@ -85,30 +79,33 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
 
-    connect(layoutList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(layoutChanged()));
+    connect(layoutList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+            this, SLOT(layoutChanged()));
 }
 
 void KMahjonggLayoutSelector::layoutChanged()
 {
     KMahjonggLayout * selLayout = layoutMap.value(layoutList->currentItem()->text());
         //Sanity checkings. Should not happen.
-    if (!selLayout) return;
+    if (!selLayout) {
+        return;
+    }
     if (selLayout->path()==kcfg_Layout->text()) {
         return;
     }
-    QString authstr("Author");
-    QString contactstr("AuthorEmail");
-    QString descstr("Description");
+
     kcfg_Layout->setText(selLayout->path());
-    layoutAuthor->setText(selLayout->authorProperty(authstr));
-    layoutContact->setText(selLayout->authorProperty(contactstr));
-    layoutDescription->setText(selLayout->authorProperty(descstr));
+    layoutAuthor->setText(selLayout->authorProperty("Author"));
+    layoutContact->setText(selLayout->authorProperty("AuthorEmail"));
+    layoutDescription->setText(selLayout->authorProperty("Description"));
 
     //If settings for tiles/background have been applied, update our preview
-    if (m_pGameView->getTilesetPath() != Prefs::tileSet())
-      m_pGameView->setTilesetPath(Prefs::tileSet());
-    if (m_pGameView->getBackgroundPath() != Prefs::background())
-      m_pGameView->setBackgroundPath(Prefs::background());
+    if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
+        m_pGameView->setTilesetPath(Prefs::tileSet());
+    }
+    if (m_pGameView->getBackgroundPath() != Prefs::background()) {
+        m_pGameView->setBackgroundPath(Prefs::background());
+    }
 
     //Now load the boardLayout temporarily
     GameData *pGameDataOld = m_pGameData;
@@ -134,7 +131,8 @@ void KMahjonggLayoutSelector::layoutChanged()
     tilesetPreview->setPixmap(QPixmap::fromImage(qiRend)); */
 }
 
-void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active) {
+void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active)
+{
     widgetNoRandom->setEnabled(!active);
 }
 
