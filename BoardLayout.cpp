@@ -267,23 +267,19 @@ void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n) const
 
 void BoardLayout::shiftLeft()
 {
-    for (int z=0; z<m_depth; z++) {
-        for (int y=0; y<m_height; y++) {
-            UCHAR keep=getBoardData(z,y,0);
-            if (keep == '1') {
-                // tile going off board, delete it
-                setBoardData(z,y,0,0);
-                setBoardData(z,y,1,0);
+    // Do not allow tiles to be shifted off the board.
+    for (int y = 0; y < m_height - 1; ++y) {
+        if (getBoardData(0, y, 0) == '1') {
+            return;
+        }
+    }
 
-                if (y<m_height-1) {
-                    setBoardData(z,y+1,0,0);
-                    setBoardData(z,y+1,1,0);
-                }
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = 0; x < m_width - 1; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y, x + 1));
             }
-            for (int x=0; x<m_width-1; x++) {
-                setBoardData(z,y,x,getBoardData(z,y,x+1));
-            }
-            setBoardData(z,y,m_width-1,0);
+            setBoardData(z, y, m_width - 1, 0);
         }
     }
 }
@@ -291,78 +287,68 @@ void BoardLayout::shiftLeft()
 
 void BoardLayout::shiftRight()
 {
-    for (int z=0; z<m_depth; z++) {
-        for (int y=0; y<m_height; y++) {
-            UCHAR keep=getBoardData(z,y,m_width-2);
-            if (keep == '1') {
-                // tile going off board, delete it
-                setBoardData(z,y,m_width-2,0);
-                setBoardData(z,y,m_width-1,0);
+    // Do not allow tiles to be shifted off the board.
+    for (int y = 0; y < m_height - 1; ++y) {
+        if (getBoardData(0, y, m_width - 2) == '1') {
+            return;
+        }
+    }
 
-                if (y < m_height-1) {
-                    setBoardData(z,y+1,m_width-2,0);
-                    setBoardData(z,y+1,m_width-1,0);
-                }
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = m_width - 1; x > 0; --x) {
+                setBoardData(z, y, x, getBoardData(z, y, x - 1));
             }
-            for (int x=m_width-1; x>0; x--) {
-                setBoardData(z,y,x,getBoardData(z,y,x-1));
-            }
-            setBoardData(z,y,0,0);
+            setBoardData(z, y, 0, 0);
         }
     }
 }
 void BoardLayout::shiftUp()
 {
-    for (int z=0; z<m_depth; z++) {
-        // remove tiles going off the top
-        for (int x=0; x<m_width; x++) {
-            if (getBoardData(z,0,x) == '1') {
-                setBoardData(z,0,x,0);
+    // Do not allow tiles to be shifted off the board.
+    for (int x = 0; x < m_width - 1; ++x) {
+        if (getBoardData(0, 0, x) == '1') {
+            return;
+        }
+    }
 
-                if (x<m_width-1) {
-                    setBoardData(z,0,x+1,0);
-                    setBoardData(z,1,x+1,0);
-                }
-                setBoardData(z,1,x,0);
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height - 1; ++y) {
+            for (int x = 0; x < m_width; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y + 1, x));
             }
         }
     }
-    for (int z=0; z<m_depth;z++) {
-        for (int y=0; y<m_height-1; y++) {
-            for (int x=0; x<m_width; x++) {
-                setBoardData(z,y,x,getBoardData(z,y+1,x));
-                if (y == m_height-2)
-                    setBoardData(z,y+1,x,0);
-            }
+
+    // Clear row m_height - 1
+    for (int z = 0; z < m_depth; ++z) {
+        for (int x = 0; x < m_width; ++x) {
+            setBoardData(z, m_height - 1, x, 0);
         }
     }
 }
 
-
 void BoardLayout::shiftDown()
 {
-    for (int z=0; z<m_depth; z++) {
-        // remove tiles going off the top
-        for (int x=0; x<m_width; x++) {
-            if (getBoardData(z,m_height-2,x) == '1') {
-                setBoardData(z,m_height-2,x,0);
+    // Do not allow tiles to be shifted off the board.
+    for (int x = 0; x < m_width - 1; ++x) {
+        if (getBoardData(0, m_height - 2, x) == '1') {
+            return;
+        }
+    }
 
-                if (x<m_width-1) {
-                    setBoardData(z,m_height-2,x+1,0);
-                    setBoardData(z,m_height-1,x+1,0);
-                }
-                setBoardData(z,m_height-1,x,0);
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = m_height - 1; y > 0; --y) {
+            for (int x = 0; x < m_width; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y - 1, x));
             }
         }
     }
-    for (int z=0; z<m_depth;z++) {
-        for (int y=m_height-1; y>0; y--) {
-            for (int x=0; x<m_width; x++) {
-                setBoardData(z,y,x,getBoardData(z,y-1,x));
 
-                if (y == 1)
-                    setBoardData(z,y-1,x,0);
-            }
+    // Clear row 0
+    for (int z = 0; z < m_depth; ++z) {
+        for (int x = 0; x < m_width; ++x) {
+            setBoardData(z, 0, x, 0);
         }
     }
 }
