@@ -19,24 +19,27 @@
 
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
-#include <kstandarddirs.h>
-#include <klocale.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+
 #include <QFile>
 #include <QMap>
+
+#include <KStandardDirs>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KDebug>
+
+const int KMahjonggLayout::kLayoutVersionFormat = 1;
 
 class KMahjonggLayoutPrivate
 {
 public:
     KMahjonggLayoutPrivate()
     {
-      board = new BoardLayout();
+        board = new BoardLayout();
     }
     ~KMahjonggLayoutPrivate()
     {
-      delete board;
+        delete board;
     }
 
     BoardLayout * board;
@@ -48,14 +51,17 @@ KMahjonggLayout::KMahjonggLayout()
     : d(new KMahjonggLayoutPrivate)
 {
     static bool _inited = false;
-    if (_inited)
+    if (_inited) {
         return;
-    KGlobal::dirs()->addResourceType("kmahjongglayout", "data", QString::fromLatin1("kmahjongg/layouts/"));
+    }
+    KGlobal::dirs()->addResourceType("kmahjongglayout", "data",
+            QString::fromLatin1("kmahjongg/layouts/"));
 
     _inited = true;
 }
 
-KMahjonggLayout::~KMahjonggLayout() {
+KMahjonggLayout::~KMahjonggLayout()
+{
     delete d;
 }
 
@@ -66,23 +72,20 @@ bool KMahjonggLayout::loadDefault()
     QString layoutPath = KStandardDirs::locate("kmahjongglayout", idx);
     kDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
-		return false;
+        return false;
     }
     return load(layoutPath);
 }
 
-#define kLayoutVersionFormat 1
-
-bool KMahjonggLayout::load(const QString &file) {
+bool KMahjonggLayout::load(const QString &file)
+{
     kDebug() << "Layout loading";
-
-    QString layoutPath;
     kDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
-      return (false);
+        return false;
     }
     bgfile.close();
 
@@ -94,36 +97,43 @@ bool KMahjonggLayout::load(const QString &file) {
     d->authorproperties.insert("Description", group.readEntry("Description"));
     d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
 
-    //Version control
+    // Version control
     int bgversion = group.readEntry("VersionFormat",0);
-    //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
+    // Format is increased when we have incompatible changes, meaning that older clients
+    // are not able to use the remaining information safely
     if (bgversion > kLayoutVersionFormat) {
         return false;
     }
 
     QString layoutName = group.readEntry("FileName");
-
-    layoutPath = KStandardDirs::locate("kmahjongglayout", layoutName);
+    QString layoutPath = KStandardDirs::locate("kmahjongglayout", layoutName);
     kDebug() << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 
-    if (layoutPath.isEmpty()) return (false);
-    
-    if (!d->board->loadBoardLayout(d->filename)) return (false);
-    
+    if (layoutPath.isEmpty()) {
+        return false;
+    }
+
+    if (!d->board->loadBoardLayout(d->filename)) {
+        return false;
+    }
+
     filename = file;
 
-   return true;
+    return true;
 }
 
-BoardLayout * KMahjonggLayout::board() { 
-  return d->board; 
+BoardLayout * KMahjonggLayout::board() const
+{
+  return d->board;
 }
 
-QString KMahjonggLayout::path() const {
+QString KMahjonggLayout::path() const
+{
     return filename;
 }
 
-QString KMahjonggLayout::authorProperty(const QString &key) const {
+QString KMahjonggLayout::authorProperty(const QString &key) const
+{
     return d->authorproperties[key];
 }
