@@ -38,6 +38,7 @@
 #include <KAboutData>
 #include <KAction>
 #include <KConfigDialog>
+#include <KFileDialog>
 #include <KInputDialog>
 #include <KMenuBar>
 #include <KMessageBox>
@@ -47,6 +48,7 @@
 #include <KScoreDialog>
 #include <KGameClock>
 #include <KStandardDirs>
+#include <KStatusBar>
 
 #include <kio/netaccess.h>
 #include <klocale.h>
