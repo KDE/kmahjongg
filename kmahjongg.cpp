@@ -99,9 +99,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     boardEditor = new Editor();
     boardEditor->setModal(false);
 
-    // Set the tileset setted in the the settings.
-    boardEditor->setTilesetFromSettings();
-
     setupStatusBar();
     setupKAction();
 
@@ -126,6 +123,8 @@ KMahjongg::KMahjongg(QWidget *parent)
     m_bLastRandomSetting = Prefs::randomLayout();
 
     loadSettings();
+
+    boardEditor->setTilesetFromSettings();
 
     startNewGame();
 }
