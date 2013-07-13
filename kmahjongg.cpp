@@ -629,20 +629,12 @@ void KMahjongg::loadGame()
     in >> theBackgroundName;
     m_pGameView->setBackgroundPath(theBackgroundName);
     in >> theBoardLayoutName;
+    m_pBoardLayout->load(theBoardLayoutName);
 
     //GameTime
     uint seconds;
     in >> seconds;
     gameTimer->setTime(seconds);
-
-    // Load the boardlayout.
-    if (m_pBoardLayout->path() != Prefs::layout()) {
-        if (!m_pBoardLayout->load(Prefs::layout())) {
-            kDebug() << "Error loading the layout. Try to load the default layout.";
-
-            m_pBoardLayout->loadDefault();
-        }
-    }
 
     GameData *pGameDataOld = m_pGameData;
     m_pGameData = new GameData(m_pBoardLayout->board());
