@@ -77,12 +77,6 @@ public slots:
     /**
      * Slot Description
      *
-     * @param bActive */
-    void demoModeChanged(bool bActive);
-
-    /**
-     * Slot Description
-     *
      * @param removed
      * @param cheats */
     void gameOver(unsigned short removed, unsigned short cheats);
@@ -124,12 +118,13 @@ private slots:
     void noMovesAvailable();
 
 private:
+    enum GameState { Gameplay, Demo, Paused, Finished };
+
+    void updateState(GameState state);
+    void updateUndoAndRedoStates();
     void loadLayout();
     void saveSettings();
 
-    bool bDemoModeActive;
-    bool mFinished;
-    bool m_bPaused;
     bool m_bLastRandomSetting;
 
     GameView *m_pGameView;

@@ -71,7 +71,6 @@ public:
 
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
-    m_bPaused(false),
     m_pGameView(NULL),
     m_pGameData(NULL),
     m_pBoardLayout(new KMahjonggLayout())
@@ -117,9 +116,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
     connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
 
-
-    mFinished = false;
-    bDemoModeActive = false;
     m_bLastRandomSetting = Prefs::randomLayout();
 
     loadSettings();
@@ -235,13 +231,13 @@ void KMahjongg::startNewNumeric()
 void KMahjongg::undo()
 {
     m_pGameView->undo();
-    demoModeChanged(false);
+    updateUndoAndRedoStates();
 }
 
 void KMahjongg::redo()
 {
     m_pGameView->redo();
-    demoModeChanged(false);
+    updateUndoAndRedoStates();
 }
 
 void KMahjongg::showSettings()
@@ -340,35 +336,31 @@ void KMahjongg::loadSettings()
 void KMahjongg::demoMode()
 {
     if (demoAction->isChecked()) {
-        demoModeChanged(true);
+        updateState(Demo);
         gameTimer->setTime(0);
         gameTimer->pause();
         m_pGameView->startDemo();
 
         if (!m_pGameView->gameGenerated()) {
-            demoModeChanged(false);
-            gameTimer->pause();
+            updateState(Gameplay);
             showItemNumber(0, 0, 0);
         }
     } else {
-        demoModeChanged(false);
         startNewGame();
     }
 }
 
 void KMahjongg::pause()
 {
-    m_bPaused = !m_bPaused;
-
-    if (m_bPaused) {
+    if (pauseAction->isChecked()) {
         gameTimer->pause();
+        updateState(Paused);
+        m_pGameView->pause(true);
     } else {
         gameTimer->resume();
+        updateState(Gameplay);
+        m_pGameView->pause(false);
     }
-
-    m_pGameView->pause(m_bPaused);
-
-    demoModeChanged(false);
 }
 
 void KMahjongg::showHighscores()
@@ -431,10 +423,7 @@ void KMahjongg::startNewGame(int item)
 
     gameTimer->restart();
 
-    // update the initial enabled/disabled state for
-    // the menu and the tool bar.
-    mFinished = false;
-    demoModeChanged(false);
+    updateState(Gameplay);
 
     if (!m_pGameView->gameGenerated()) {
         gameTimer->pause();
@@ -448,7 +437,6 @@ void KMahjongg::demoOrMoveListAnimationOver(bool bDemoGameLost)
         KMessageBox::information(this, i18n("Your computer has lost the game."));
     }
 
-    demoModeChanged(false);
     startNewGame();
 }
 
@@ -475,10 +463,9 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 {
     gameTimer->pause();
 
-    KMessageBox::information(this, i18n("You have won!"));
+    updateState(Finished);
 
-    mFinished = true;
-    demoModeChanged(false);
+    KMessageBox::information(this, i18n("You have won!"));
 
     // get the time in milli secs
     // subtract from 20 minutes to get bonus. if longer than 20 then ignore
@@ -528,50 +515,42 @@ void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
             iMaximum - iCurrent, iMaximum, iLeft);
     tilesLeftLabel->setText(szBuffer);
 
-    // update undo menu item, if demomode is inactive
-    if (!m_bPaused && !mFinished) {
-        undoAction->setEnabled(m_pGameView->checkUndoAllowed());
-        redoAction->setEnabled(m_pGameView->checkRedoAllowed());
-    }
+    updateUndoAndRedoStates();
 }
 
-void KMahjongg::demoModeChanged(bool bActive)
+void KMahjongg::updateState(GameState state)
 {
-    bDemoModeActive = bActive;
-
-    pauseAction->setChecked(m_bPaused);
-    demoAction->setChecked(bActive || m_bPaused);
-
-    if (m_bPaused) {
-        stateChanged("paused");
-    } else if (mFinished) {
-        stateChanged("finished");
-    } else if (bActive) {
-        stateChanged("active");
-    } else {
-        stateChanged("inactive");
-        undoAction->setEnabled(m_pGameView->checkUndoAllowed());
-        redoAction->setEnabled(m_pGameView->checkRedoAllowed());
+    switch (state) {
+    case Demo:
+        stateChanged("demo_state");
+        break;
+    case Paused:
+        stateChanged("paused_state");
+        break;
+    case Finished:
+        stateChanged("finished_state");
+        break;
+    default:
+        stateChanged("gameplay_state");
+        updateUndoAndRedoStates();
+        break;
     }
+
+    demoAction->setChecked(state == Demo);
+    pauseAction->setChecked(state == Paused);
+}
+
+void KMahjongg::updateUndoAndRedoStates()
+{
+    undoAction->setEnabled(m_pGameView->checkUndoAllowed());
+    redoAction->setEnabled(m_pGameView->checkRedoAllowed());
 }
 
 void KMahjongg::restartGame()
 {
-    if (!bDemoModeActive) {
-        m_pGameView->createNewGame(m_pGameView->getGameNumber());
-
-        gameTimer->restart();
-
-        // update the initial enabled/disabled state for
-        // the menu and the tool bar.
-        mFinished = false;
-        demoModeChanged(false);
-
-        if (m_bPaused) {
-            pauseAction->setChecked(false);
-            pause();
-        }
-    }
+    m_pGameView->createNewGame(m_pGameView->getGameNumber());
+    gameTimer->restart();
+    updateState(Gameplay);
 }
 
 void KMahjongg::loadGame()
@@ -647,8 +626,7 @@ void KMahjongg::loadGame()
 
     KIO::NetAccess::removeTempFile(fname);
 
-    mFinished = false;
-    demoModeChanged(false);
+    updateState(Gameplay);
 }
 
 void KMahjongg::saveGame()
