@@ -472,6 +472,10 @@ bool GameView::gameGenerated()
 
 void GameView::shuffle()
 {
+    if (!gameGenerated()) {
+        return;
+    }
+
     if (checkDemoAnimationActive() || checkMoveListAnimationActive()) {
         return;
     }

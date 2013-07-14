@@ -340,11 +340,6 @@ void KMahjongg::demoMode()
         gameTimer->setTime(0);
         gameTimer->pause();
         m_pGameView->startDemo();
-
-        if (!m_pGameView->gameGenerated()) {
-            updateState(Gameplay);
-            showItemNumber(0, 0, 0);
-        }
     } else {
         startNewGame();
     }
@@ -423,9 +418,10 @@ void KMahjongg::startNewGame(int item)
 
     gameTimer->restart();
 
-    updateState(Gameplay);
-
-    if (!m_pGameView->gameGenerated()) {
+    if (m_pGameView->gameGenerated()) {
+        updateState(Gameplay);
+    } else {
+        updateState(Finished);
         gameTimer->pause();
         showItemNumber(0, 0, 0);
     }
@@ -548,9 +544,11 @@ void KMahjongg::updateUndoAndRedoStates()
 
 void KMahjongg::restartGame()
 {
-    m_pGameView->createNewGame(m_pGameView->getGameNumber());
-    gameTimer->restart();
-    updateState(Gameplay);
+    if (m_pGameView->gameGenerated()) {
+        m_pGameView->createNewGame(m_pGameView->getGameNumber());
+        gameTimer->restart();
+        updateState(Gameplay);
+    }
 }
 
 void KMahjongg::loadGame()
