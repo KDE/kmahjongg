@@ -345,7 +345,7 @@ void Editor::loadBoard()
         return;
     }
 
-    KUrl url = KFileDialog::getOpenUrl(KUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
+    QUrl url = KFileDialog::getOpenUrl(QUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
         "s"), this, i18n("Open Board Layout"));
 
     if (url.isEmpty()) {
@@ -383,7 +383,7 @@ bool Editor::saveBoard()
     }
 
     // get a save file name
-    KUrl url = KFileDialog::getSaveUrl(KUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
+    QUrl url = KFileDialog::getSaveUrl(QUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
         "s"), this, i18n("Save Board Layout"));
 
     if (url.isEmpty()) {
@@ -768,7 +768,7 @@ void Editor::closeEvent(QCloseEvent *e)
 
         // Save the window geometry.
         Prefs::setEditorGeometry(geometry());
-        Prefs::self()->writeConfig();
+        Prefs::self()->save();
 
         e->accept();
     } else {

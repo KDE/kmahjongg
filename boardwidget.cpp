@@ -21,14 +21,13 @@
 #include <QTimer>
 #include <qpainter.h>
 #include <qapplication.h>
+#include <QDebug>
 
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <krandom.h>
 #include <kconfig.h>
-#include <kglobal.h>
-#include <KDebug>
 
 
 BoardWidget::BoardWidget(QWidget *parent)
@@ -88,13 +87,13 @@ void BoardWidget::loadSettings()
     // Load tileset. First try to load the last use tileset
 
     if (!loadTileset(Prefs::tileSet())) {
-        kDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
+        qDebug() << "An error occurred when loading the tileset" << Prefs::tileSet() << "KMahjongg "
             "will continue with the default tileset.";
     }
 
     // Load background
     if (!loadBackground(Prefs::background(), false)) {
-        kDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
+        qDebug() << "An error occurred when loading the background" << Prefs::background() << "KMah"
             "jongg will continue with the default background.";
     }
 
@@ -708,9 +707,14 @@ void BoardWidget::stopEndAnimation()
 
 QString BoardWidget::getRandomLayoutName() const
 {
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout",
-        QString("*.desktop"), KStandardDirs::Recursive);
-
+    QStringList tilesAvailable;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongg/layouts", QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString& dir, dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        Q_FOREACH (const QString& file, fileNames) {
+            tilesAvailable.append(dir + '/' + file);
+        }
+    }
     return tilesAvailable.at(qrand() % tilesAvailable.size());
 }
 

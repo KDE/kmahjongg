@@ -1,26 +1,35 @@
 project(kmahjongg)
 
-if(NOT COMPILING_KDEGAMES)
-	find_package(KDE4 REQUIRED)
-	include(KDE4Defaults)
-	include(MacroLibrary)
-	find_package(KDEGames 4.9.0 REQUIRED)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 
-	set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
-	find_package(LibKMahjongg REQUIRED)
+set (QT_MIN_VERSION "5.2.0")
 
-	add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-	add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-	include_directories(${LIBKMAHJONGG_INCLUDE_DIR} ${KDEGAMES_INCLUDE_DIRS} ${KDE4_INCLUDES} ${QDBUS_INCLUDE_DIRS})
-else(NOT COMPILING_KDEGAMES)
-	set(LIBKMAHJONGG_LIBRARY kmahjongglib)
-endif(NOT COMPILING_KDEGAMES)
+find_package(ECM 1.0.0 REQUIRED NO_MODULE)
+
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg Qml Quick QuickWidgets)
+find_package(KF5 REQUIRED COMPONENTS CoreAddons XmlGui Config KIO DNSSD NewStuff Declarative DocTools KDELibs4Support)
+
+include(FeatureSummary)
+include(GenerateExportHeader)
+include(ECMPackageConfigHelpers)
+include(ECMSetupVersion)
+include(ECMGenerateHeaders)
+include(ECMMarkNonGuiExecutable)
+include(KDEInstallDirs)
+include(ECMInstallIcons)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+
+find_package(KF5KMahjongglib REQUIRED)
+find_package(KF5KDEGames 4.9.0 REQUIRED)
+
+add_definitions(${QT_DEFINITIONS} )
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 add_subdirectory( layouts )
 add_subdirectory( doc )
-
-include_directories( ${CMAKE_SOURCE_DIR}/libkmahjongg  )
-
 
 ########### next target ###############
 
@@ -36,14 +45,14 @@ set(kmahjongg_SRCS
    Editor.cpp
    FrameImage.cpp)
 
-kde4_add_ui_files(kmahjongg_SRCS settings.ui gametype.ui )
+qt5_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui )
 
-kde4_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
+kconfig_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
-kde4_add_app_icon(kmahjongg_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-kmahjongg.png")
-kde4_add_executable(kmahjongg ${kmahjongg_SRCS})
+add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg  ${KDE4_KIO_LIBS} kdegames kdegamesprivate ${LIBKMAHJONGG_LIBRARY} )
+target_link_libraries(kmahjongg Qt5::Gui KF5::CoreAddons KF5::KIOWidgets KF5::DNSSD 
+                                KF5::XmlGui KF5KDEGames KF5KDEGamesPrivate KF5KMahjongglib )
 
 install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -52,11 +61,21 @@ install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( PROGRAMS kmahjongg.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kmahjongg.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES kmahjonggui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kmahjongg )
+install( FILES kmahjonggui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmahjongg )
 
-kde4_install_icons( ${ICON_INSTALL_DIR}   )
+ecm_install_icons( ICONS
+                   128-apps-kmahjongg.png
+                   64-apps-kmahjongg.png
+                   48-apps-kmahjongg.png
+                   32-apps-kmahjongg.png
+                   22-apps-kmahjongg.png
+                   16-apps-kmahjongg.png
+                   sc-apps-kmahjongg.svgz
+                   DESTINATION  ${ICON_INSTALL_DIR}
+                   THEME hicolor   )
 
-
-
-
+########### Display Summary ###############
+feature_summary(WHAT ALL
+                INCLUDE_QUIET_PACKAGES
+                FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

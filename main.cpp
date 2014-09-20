@@ -15,51 +15,72 @@
 #include "kmahjongg.h"
 #include "version.h"
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <kimageio.h>
-#include <klocale.h>
-#include <kglobal.h>
 
+
+#include <kimageio.h>
+#include <QApplication>
+#include <KAboutData>
+#include <KLocalizedString>
+#include <QCommandLineParser>
+#include <Kdelibs4ConfigMigrator>
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 
 int main(int argc, char** argv)
 {
-    KAboutData aboutData("kmahjongg", 0, ki18n("KMahjongg"), KMAHJONGG_VERSION, ki18n(description),
-        KAboutData::License_GPL, ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
-        "c) 2011, Christian Krippendorf"), KLocalizedString(), "http://games.kde.org/kmahjongg");
-    aboutData.addAuthor(ki18n("Mathias Mueller"), ki18n("Original Author"), "in5y158@public.uni-ham"
+    KAboutData aboutData("kmahjongg", i18n("KMahjongg"), KMAHJONGG_VERSION, i18n(description),
+        KAboutLicense::GPL, i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
+        "c) 2011, Christian Krippendorf"));
+    aboutData.setHomepage("http://games.kde.org/kmahjongg");
+    aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), "in5y158@public.uni-ham"
         "burg.de");
-    aboutData.addAuthor(ki18n("Christian Krippendorf"), ki18n("Current maintainer"), "Coding@Christ"
+    aboutData.addAuthor(i18n("Christian Krippendorf"), i18n("Current maintainer"), "Coding@Christ"
         "ian-Krippendorf.de");
-    aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "aacid@kde.org");
-    aboutData.addAuthor(ki18n("David Black"), ki18n("KDE 3 rewrite and Extension"), "david.black@lu"
+    aboutData.addAuthor(i18n("Albert Astals Cid"), i18n("Bug fixes"), "aacid@kde.org");
+    aboutData.addAuthor(i18n("David Black"), i18n("KDE 3 rewrite and Extension"), "david.black@lu"
         "tris.com");
-    aboutData.addAuthor(ki18n("Michael Haertjens"), ki18n("Solvable game generation\nbased on algor"
+    aboutData.addAuthor(i18n("Michael Haertjens"), i18n("Solvable game generation\nbased on algor"
         "ithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
-    aboutData.addCredit(ki18n("Raquel Ravanini"), ki18n("SVG Tileset for KDE4"), "raquel@tabuleiro."
+    aboutData.addCredit(i18n("Raquel Ravanini"), i18n("SVG Tileset for KDE4"), "raquel@tabuleiro."
         "com");
-    aboutData.addCredit(ki18n("Richard Lohman"), ki18n("Tile set contributor and current web page m"
+    aboutData.addCredit(i18n("Richard Lohman"), i18n("Tile set contributor and current web page m"
         "aintainer"),"richardjlohman@yahoo.com");
-    aboutData.addCredit(ki18n("Osvaldo Stark"), ki18n("Tile set contributor and original web page m"
+    aboutData.addCredit(i18n("Osvaldo Stark"), i18n("Tile set contributor and original web page m"
         "aintainer"), "starko@dnet.it");
-    aboutData.addCredit(ki18n("Benjamin Meyer"), ki18n("Code cleanup"), "ben+kmahjongg@meyerhome.ne"
+    aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), "ben+kmahjongg@meyerhome.ne"
         "t");
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    QApplication app(argc, argv);
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    //PORTING SCRIPT: adapt aboutdata variable if necessary
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-    KApplication application;
-    KGlobal::locale()->insertCatalog(QLatin1String("libkdegames"));
-    KGlobal::locale()->insertCatalog(QLatin1String("libkmahjongg"));
+    ////KF5 port: remove this line and define TRANSLATION_DOMAIN in CMakeLists.txt instead
+//KLocale::global()->insertCatalog(QLatin1String("libkdegames"));
+    ////KF5 port: remove this line and define TRANSLATION_DOMAIN in CMakeLists.txt instead
+//KLocale::global()->insertCatalog(QLatin1String("libkmahjongg"));
 
-    if (application.isSessionRestored()) {
+    if (app.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
         KMahjongg *window = new KMahjongg();
         window->show();
     }
 
-    return application.exec();
+    // Migrate pre-existing (4.x) configuration
+    QStringList configFiles;
+    configFiles.append(QLatin1String("kmahjonggrc"));
+    configFiles.append(QLatin1String("konversation.notifyrc"));
+
+    Kdelibs4ConfigMigrator migrate(QLatin1String("kmahjongg"));
+    migrate.setConfigFiles(configFiles);
+    migrate.setUiFiles(QStringList() << QLatin1String("kmahjonggui.rc"));
+    migrate.migrate();
+
+    return app.exec();
 }

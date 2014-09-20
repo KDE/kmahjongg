@@ -57,7 +57,15 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     KMahjonggLayout tile;
 
     //Now get our tilesets into a list
-    QStringList tilesAvailable = KGlobal::dirs()->findAllResources("kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
+    QStringList tilesAvailable;
+
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongg/layouts", QStandardPaths::LocateDirectory);
+    Q_FOREACH (const QString& dir, dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        Q_FOREACH (const QString& file, fileNames) {
+            tilesAvailable.append(dir + '/' + file);
+        }
+    }
     tilesAvailable.sort();
     QString namestr("Name");
     int numvalidentries = 0;

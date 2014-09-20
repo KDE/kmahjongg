@@ -31,9 +31,11 @@
 #include <QPixmapCache>
 #include <QLabel>
 #include <QDesktopWidget>
+#include <QKeySequence>
+#include <QShortcut>
 
 #include <KAboutData>
-#include <KAction>
+#include <QAction>
 #include <KConfigDialog>
 #include <KInputDialog>
 #include <KMenuBar>
@@ -144,16 +146,16 @@ void KMahjongg::setupKAction()
     shuffle->setIcon(KIcon(QLatin1String("view-refresh")));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
 
-    KAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
+    QAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(KIcon(QLatin1String("object-rotate-left")));
-    angleccw->setShortcuts(KShortcut("f"));
+    angleccw->setShortcut( Qt::Key_F );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
 
-    KAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
+    QAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(KIcon(QLatin1String("object-rotate-right")));
-    anglecw->setShortcuts(KShortcut("g"));
+    anglecw->setShortcut( Qt::Key_G );
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
@@ -255,7 +257,8 @@ void KMahjongg::showSettings()
         "fig-board");
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
-    dialog->setHelp(QString(),"kmahjongg");
+#pragma message("PORT TO FRAMEWORKS")
+    //dialog->setHelp(QString(),"kmahjongg");
 
     connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
     connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
@@ -474,7 +477,7 @@ void KMahjongg::loadGame()
     QString fname;
 
     // Get the name of the file to load
-    KUrl url = KFileDialog::getOpenUrl(KUrl(), "*.kmgame", this, i18n("Load Game" ));
+    QUrl url = KFileDialog::getOpenUrl(QUrl(), "*.kmgame", this, i18n("Load Game" ));
 
     if (url.isEmpty()) {
         return;
@@ -552,7 +555,7 @@ void KMahjongg::saveGame()
     gameTimer->pause();
 
     // Get the name of the file to save
-    KUrl url = KFileDialog::getSaveUrl(KUrl(), "*.kmgame", this, i18n("Save Game"));
+    QUrl url = KFileDialog::getSaveUrl(QUrl(), "*.kmgame", this, i18n("Save Game"));
 
     if (url.isEmpty()) {
         gameTimer->resume();

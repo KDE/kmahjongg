@@ -50,8 +50,6 @@ KMahjonggLayout::KMahjonggLayout()
     static bool _inited = false;
     if (_inited)
         return;
-    KGlobal::dirs()->addResourceType("kmahjongglayout", "data", QString::fromLatin1("kmahjongg/layouts/"));
-
     _inited = true;
 }
 
@@ -63,8 +61,8 @@ bool KMahjonggLayout::loadDefault()
 {
     QString idx = "default.desktop";
 
-    QString layoutPath = KStandardDirs::locate("kmahjongglayout", idx);
-    kDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
+    QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
+    qDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
 		return false;
     }
@@ -103,8 +101,8 @@ bool KMahjonggLayout::load(const QString &file) {
 
     QString layoutName = group.readEntry("FileName");
 
-    layoutPath = KStandardDirs::locate("kmahjongglayout", layoutName);
-    kDebug() << "Using layout at" << layoutPath;
+    layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
+    qDebug() << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 
     if (layoutPath.isEmpty()) return (false);
