@@ -125,4 +125,4 @@ void FrameImage::mouseMoveEvent(QMouseEvent *e)
 }
 
 
-#include "FrameImage.moc"
+

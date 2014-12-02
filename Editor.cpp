@@ -32,7 +32,7 @@
 #include <kactioncollection.h>
 #include <ktoggleaction.h>
 #include <kstandardaction.h>
-#include <kicon.h>
+#include <QIcon>
 
 
 Editor::Editor(QWidget *parent)
@@ -135,21 +135,21 @@ void Editor::setupToolbar()
 
     // new game
     QAction *newBoard = actionCollection->addAction(QLatin1String("new_board"));
-    newBoard->setIcon(KIcon(QLatin1String("document-new")));
+    newBoard->setIcon(QIcon::fromTheme(QLatin1String("document-new")));
     newBoard->setText(i18n("New board"));
     connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
     topToolbar->addAction(newBoard);
 
     // open game
     QAction *openBoard = actionCollection->addAction(QLatin1String("open_board"));
-    openBoard->setIcon(KIcon(QLatin1String("document-open")));
+    openBoard->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
     topToolbar->addAction(openBoard);
 
     // save game
     QAction *saveBoard = actionCollection->addAction(QLatin1String("save_board"));
-    saveBoard->setIcon(KIcon(QLatin1String("document-save")));
+    saveBoard->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
     topToolbar->addAction(saveBoard);
@@ -164,30 +164,30 @@ void Editor::setupToolbar()
 
     // Select
     QAction *select = actionCollection->addAction(QLatin1String("select"));
-    select->setIcon(KIcon(QLatin1String("rectangle_select")));
+    select->setIcon(QIcon::fromTheme(QLatin1String("rectangle_select")));
     select->setText(i18n("Select"));
     topToolbar->addAction(select);
 
     // NOTE: use kstandarddactions?
     QAction *cut = actionCollection->addAction(QLatin1String("edit_cut"));
-    cut->setIcon(KIcon(QLatin1String("edit-cut")));
+    cut->setIcon(QIcon::fromTheme(QLatin1String("edit-cut")));
     cut->setText(i18n("Cut"));
     topToolbar->addAction(cut);
 
     QAction *copy = actionCollection->addAction(QLatin1String("edit_copy"));
-    copy->setIcon(KIcon(QLatin1String("edit-copy")));
+    copy->setIcon(QIcon::fromTheme(QLatin1String("edit-copy")));
     copy->setText(i18n("Copy"));
     topToolbar->addAction(copy);
 
     QAction *paste = actionCollection->addAction(QLatin1String("edit_paste"));
-    paste->setIcon(KIcon(QLatin1String("edit-paste")));
+    paste->setIcon(QIcon::fromTheme(QLatin1String("edit-paste")));
     paste->setText(i18n("Paste"));
     topToolbar->addAction(paste);
 
     topToolbar->addSeparator();
 
     QAction *moveTiles = actionCollection->addAction(QLatin1String("move_tiles"));
-    moveTiles->setIcon(KIcon(QLatin1String("move")));
+    moveTiles->setIcon(QIcon::fromTheme(QLatin1String("move")));
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 
@@ -195,11 +195,11 @@ void Editor::setupToolbar()
 #endif
 
 
-    KToggleAction *addTiles = new KToggleAction(KIcon(QLatin1String("draw-freehand")), i18n("Add ti"
+    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QLatin1String("draw-freehand")), i18n("Add ti"
         "les"), this);
     actionCollection->addAction(QLatin1String("add_tiles"), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction *delTiles = new KToggleAction(KIcon(QLatin1String("edit-delete")), i18n("Remove t"
+    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Remove t"
         "iles" ), this);
     actionCollection->addAction(QLatin1String("del_tiles"), delTiles);
     topToolbar->addAction(delTiles);
@@ -229,25 +229,25 @@ void Editor::setupToolbar()
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
     QAction *shiftLeft = actionCollection->addAction(QLatin1String("shift_left"));
-    shiftLeft->setIcon(KIcon(QLatin1String("go-previous")));
+    shiftLeft->setIcon(QIcon::fromTheme(QLatin1String("go-previous")));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
     topToolbar->addAction(shiftLeft);
 
     QAction *shiftUp = actionCollection->addAction(QLatin1String("shift_up"));
-    shiftUp->setIcon(KIcon(QLatin1String("go-up")));
+    shiftUp->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
     topToolbar->addAction(shiftUp);
 
     QAction *shiftDown = actionCollection->addAction(QLatin1String("shift_down"));
-    shiftDown->setIcon(KIcon(QLatin1String("go-down")));
+    shiftDown->setIcon(QIcon::fromTheme(QLatin1String("go-down")));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
     topToolbar->addAction(shiftDown);
 
     QAction *shiftRight = actionCollection->addAction(QLatin1String("shift_right"));
-    shiftRight->setIcon(KIcon(QLatin1String("go-next")));
+    shiftRight->setIcon(QIcon::fromTheme(QLatin1String("go-next")));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
     topToolbar->addAction(shiftRight);
@@ -782,4 +782,4 @@ void Editor::setTilesetFromSettings()
 }
 
 
-#include "Editor.moc"
+

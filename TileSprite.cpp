@@ -117,4 +117,4 @@ QRect TileSprite::rect() const {
     return QRect(pos(), m_backselected.size());
 }
 
-#include "TileSprite.moc"
+

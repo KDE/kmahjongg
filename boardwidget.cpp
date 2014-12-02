@@ -1271,4 +1271,4 @@ void BoardWidget::wheelEvent(QWheelEvent *event)
 }
 
 
-#include "boardwidget.moc"
+

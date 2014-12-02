@@ -136,4 +136,4 @@ void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active) {
     widgetNoRandom->setEnabled(!active);
 }
 
-#include "kmahjongglayoutselector.moc"
+

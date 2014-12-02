@@ -42,7 +42,7 @@
 #include <KMessageBox>
 #include <KStandardGameAction>
 #include <KStandardAction>
-#include <KIcon>
+#include <QIcon>
 #include <KScoreDialog>
 #include <KGameClock>
 
@@ -143,18 +143,18 @@ void KMahjongg::setupKAction()
 
     QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
-    shuffle->setIcon(KIcon(QLatin1String("view-refresh")));
+    shuffle->setIcon(QIcon::fromTheme(QLatin1String("view-refresh")));
     connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
 
     QAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
-    angleccw->setIcon(KIcon(QLatin1String("object-rotate-left")));
+    angleccw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-left")));
     angleccw->setShortcut( Qt::Key_F );
     connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
 
     QAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
-    anglecw->setIcon(KIcon(QLatin1String("object-rotate-right")));
+    anglecw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-right")));
     anglecw->setShortcut( Qt::Key_G );
     connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
 
@@ -600,4 +600,4 @@ void KMahjongg::saveGame()
 }
 
 
-#include "kmahjongg.moc"
+
