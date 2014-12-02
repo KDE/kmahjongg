@@ -55,22 +55,9 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(aboutData);
     parser.addVersionOption();
     parser.addHelpOption();
-    //PORTING SCRIPT: adapt aboutdata variable if necessary
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
-
-    ////KF5 port: remove this line and define TRANSLATION_DOMAIN in CMakeLists.txt instead
-//KLocale::global()->insertCatalog(QLatin1String("libkdegames"));
-    ////KF5 port: remove this line and define TRANSLATION_DOMAIN in CMakeLists.txt instead
-//KLocale::global()->insertCatalog(QLatin1String("libkmahjongg"));
-
-    if (app.isSessionRestored()) {
-        RESTORE(KMahjongg)
-    } else {
-        KMahjongg *window = new KMahjongg();
-        window->show();
-    }
 
     // Migrate pre-existing (4.x) configuration
     QStringList configFiles;
@@ -81,6 +68,14 @@ int main(int argc, char** argv)
     migrate.setConfigFiles(configFiles);
     migrate.setUiFiles(QStringList() << QLatin1String("kmahjonggui.rc"));
     migrate.migrate();
+
+
+    if (app.isSessionRestored()) {
+        RESTORE(KMahjongg)
+    } else {
+        KMahjongg *window = new KMahjongg();
+        window->show();
+    }
 
     return app.exec();
 }
