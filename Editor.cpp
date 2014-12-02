@@ -67,10 +67,8 @@ Editor::Editor(QWidget *parent)
     // tell the user what we do
     setCaption(i18n("Edit Board Layout"));
 
-    connect(drawFrame, SIGNAL(mousePressed(QMouseEvent*)), this, SLOT(
-        drawFrameMousePressEvent(QMouseEvent*)));
-    connect(drawFrame, SIGNAL(mouseMoved(QMouseEvent*)), this, SLOT(
-        drawFrameMouseMovedEvent(QMouseEvent*)));
+    connect(drawFrame, &FrameImage::mousePressed, this, &Editor::drawFrameMousePressEvent);
+    connect(drawFrame, &FrameImage::mouseMoved, this, &Editor::drawFrameMouseMovedEvent);
 
     statusChanged();
 
@@ -137,21 +135,21 @@ void Editor::setupToolbar()
     QAction *newBoard = actionCollection->addAction(QLatin1String("new_board"));
     newBoard->setIcon(QIcon::fromTheme(QLatin1String("document-new")));
     newBoard->setText(i18n("New board"));
-    connect(newBoard, SIGNAL(triggered(bool)), SLOT(newBoard()));
+    connect(newBoard, &QAction::triggered, this, &Editor::newBoard);
     topToolbar->addAction(newBoard);
 
     // open game
     QAction *openBoard = actionCollection->addAction(QLatin1String("open_board"));
     openBoard->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
     openBoard->setText(i18n("Open board"));
-    connect(openBoard, SIGNAL(triggered(bool)), SLOT(loadBoard()));
+    connect(openBoard, &QAction::triggered, this, &Editor::loadBoard);
     topToolbar->addAction(openBoard);
 
     // save game
     QAction *saveBoard = actionCollection->addAction(QLatin1String("save_board"));
     saveBoard->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
     saveBoard->setText(i18n("Save board"));
-    connect(saveBoard, SIGNAL(triggered(bool)), SLOT(saveBoard()));
+    connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
     topToolbar->addAction(saveBoard);
     // NOTE dimsuz: how to port this? is it even needed?
     //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("document-save", KIconLoader::Toolbar));
@@ -220,7 +218,7 @@ void Editor::setupToolbar()
 
 
     radioGrp->addAction(delTiles);
-    connect(radioGrp, SIGNAL(triggered(QAction*)), SLOT(slotModeChanged(QAction*)));
+    connect(radioGrp, &QActionGroup::triggered, this, &Editor::slotModeChanged);
 
     // board shift
 
@@ -231,25 +229,25 @@ void Editor::setupToolbar()
     QAction *shiftLeft = actionCollection->addAction(QLatin1String("shift_left"));
     shiftLeft->setIcon(QIcon::fromTheme(QLatin1String("go-previous")));
     shiftLeft->setText(i18n("Shift left"));
-    connect(shiftLeft, SIGNAL(triggered(bool)), SLOT(slotShiftLeft()));
+    connect(shiftLeft, &QAction::triggered, this, &Editor::slotShiftLeft);
     topToolbar->addAction(shiftLeft);
 
     QAction *shiftUp = actionCollection->addAction(QLatin1String("shift_up"));
     shiftUp->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
     shiftUp->setText(i18n("Shift up"));
-    connect(shiftUp, SIGNAL(triggered(bool)), SLOT(slotShiftUp()));
+    connect(shiftUp, &QAction::triggered, this, &Editor::slotShiftUp);
     topToolbar->addAction(shiftUp);
 
     QAction *shiftDown = actionCollection->addAction(QLatin1String("shift_down"));
     shiftDown->setIcon(QIcon::fromTheme(QLatin1String("go-down")));
     shiftDown->setText(i18n("Shift down"));
-    connect(shiftDown, SIGNAL(triggered(bool)), SLOT(slotShiftDown()));
+    connect(shiftDown, &QAction::triggered, this, &Editor::slotShiftDown);
     topToolbar->addAction(shiftDown);
 
     QAction *shiftRight = actionCollection->addAction(QLatin1String("shift_right"));
     shiftRight->setIcon(QIcon::fromTheme(QLatin1String("go-next")));
     shiftRight->setText(i18n("Shift right"));
-    connect(shiftRight, SIGNAL(triggered(bool)), SLOT(slotShiftRight()));
+    connect(shiftRight, &QAction::triggered, this, &Editor::slotShiftRight);
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();

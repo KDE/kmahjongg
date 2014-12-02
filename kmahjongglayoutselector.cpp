@@ -88,7 +88,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
     
-    connect(layoutList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)), this, SLOT(layoutChanged()));
+    connect(layoutList, &QListWidget::currentItemChanged, this, &KMahjonggLayoutSelector::layoutChanged);
 }
 
 void KMahjonggLayoutSelector::layoutChanged()

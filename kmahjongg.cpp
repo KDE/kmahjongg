@@ -105,17 +105,16 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     gameTimer = new KGameClock(this);
 
-    connect(gameTimer, SIGNAL(timeChanged(QString)), this, SLOT(displayTime(QString)));
+    connect(gameTimer, &KGameClock::timeChanged, this, &KMahjongg::displayTime);
 
     mFinished = false;
     bDemoModeActive = false;
 
-    connect(bw, SIGNAL(statusTextChanged(QString,long)), SLOT(showStatusText(QString,long)));
-    connect(bw, SIGNAL(tileNumberChanged(int,int,int)), SLOT(showTileNumber(int,int,int)));
-    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
-    connect(bw, SIGNAL(gameOver(unsigned short,unsigned short)), this,
-        SLOT(gameOver(unsigned short,unsigned short)));
-    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
+    connect(bw, &BoardWidget::statusTextChanged, this, &KMahjongg::showStatusText);
+    connect(bw, &BoardWidget::tileNumberChanged, this, &KMahjongg::showTileNumber);
+    connect(bw, &BoardWidget::demoModeChanged, this, &KMahjongg::demoModeChanged);
+    connect(bw, &BoardWidget::gameOver, this, &KMahjongg::gameOver);
+    connect(bw, &BoardWidget::gameCalculated, this, &KMahjongg::timerReset);
 
     startNewGame();
 }
@@ -136,7 +135,7 @@ void KMahjongg::setupKAction()
 
     QAction *newNumGame = actionCollection()->addAction(QLatin1String("game_new_numeric"));
     newNumGame->setText(i18n("New Numbered Game..."));
-    connect(newNumGame, SIGNAL(triggered(bool)), SLOT(startNewNumeric()));
+    connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
     QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
     actionCollection()->addAction(action->objectName(), action);
@@ -144,19 +143,19 @@ void KMahjongg::setupKAction()
     QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
     shuffle->setIcon(QIcon::fromTheme(QLatin1String("view-refresh")));
-    connect(shuffle, SIGNAL(triggered(bool)), bw, SLOT(shuffle()));
+    connect(shuffle, &QAction::triggered, bw, &BoardWidget::shuffle);
 
     QAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-left")));
     angleccw->setShortcut( Qt::Key_F );
-    connect(angleccw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCCW()));
+    connect(angleccw, &QAction::triggered, bw, &BoardWidget::angleSwitchCCW);
 
     QAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-right")));
     anglecw->setShortcut( Qt::Key_G );
-    connect(anglecw, SIGNAL(triggered(bool)), bw, SLOT(angleSwitchCW()));
+    connect(anglecw, &QAction::triggered, bw, &BoardWidget::angleSwitchCW);
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
@@ -170,7 +169,7 @@ void KMahjongg::setupKAction()
     // edit
     QAction *boardEdit = actionCollection()->addAction(QLatin1String("game_board_editor"));
     boardEdit->setText(i18n("&Board Editor"));
-    connect(boardEdit, SIGNAL(triggered(bool)), SLOT(slotBoardEditor()));
+    connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
@@ -260,9 +259,9 @@ void KMahjongg::showSettings()
 #pragma message("PORT TO FRAMEWORKS")
     //dialog->setHelp(QString(),"kmahjongg");
 
-    connect(dialog, SIGNAL(settingsChanged(QString)), bw, SLOT(loadSettings()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(setDisplayedWidth()));
+    connect(dialog, &KMahjonggConfigDialog::settingsChanged, bw, &BoardWidget::loadSettings);
+    connect(dialog, &KMahjonggConfigDialog::settingsChanged, boardEditor, &Editor::setTilesetFromSettings);
+    connect(dialog, &KMahjonggConfigDialog::settingsChanged, this, &KMahjongg::setDisplayedWidth);
 
     dialog->show();
 }

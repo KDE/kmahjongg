@@ -39,7 +39,7 @@ BoardWidget::BoardWidget(QWidget *parent)
     setPalette(palette);
 
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(helpMoveTimeout()));
+    connect(timer, &QTimer::timeout, this, &BoardWidget::helpMoveTimeout);
 
     TimerState = Stop;
     gamePaused = false;
@@ -65,13 +65,13 @@ BoardWidget::BoardWidget(QWidget *parent)
     animateForwardTimer = new QTimer(this);
     animateForwardTimer->setSingleShot(true);
     animateForwardTimer->setInterval(100);
-    connect(animateForwardTimer, SIGNAL(timeout()), SLOT(animatingMoveListForward()));
+    connect(animateForwardTimer, &QTimer::timeout, this, &BoardWidget::animatingMoveListForward);
     animateForwardTimer->stop();
 
     animateBackwardsTimer = new QTimer(this);
     animateBackwardsTimer->setSingleShot(true);
     animateBackwardsTimer->setInterval(100);
-    connect(animateBackwardsTimer, SIGNAL(timeout()), SLOT(animatingMoveListBackwards()));
+    connect(animateBackwardsTimer, &QTimer::timeout, this, &BoardWidget::animatingMoveListBackwards);
     animateBackwardsTimer->stop();
 
     loadSettings();
