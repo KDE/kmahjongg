@@ -130,3 +130,4 @@ X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
 X-DocPath=kmahjongg/index.html
 Categories=Qt;KDE;Game;BoardGame;
+X-DBUS-ServiceName=org.kde.kmahjongg
