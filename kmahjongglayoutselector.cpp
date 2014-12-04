@@ -25,7 +25,7 @@
 #include "boardwidget.h"
 #include "prefs.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kstandarddirs.h>
 #include <QPainter>
 

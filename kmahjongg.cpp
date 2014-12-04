@@ -33,7 +33,7 @@
 #include <QDesktopWidget>
 #include <QKeySequence>
 #include <QShortcut>
-
+#include <QStatusBar>
 #include <KAboutData>
 #include <QAction>
 #include <KConfigDialog>
@@ -47,7 +47,7 @@
 #include <KGameClock>
 
 #include <kio/netaccess.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <ktoggleaction.h>
 #include <kactioncollection.h>
 

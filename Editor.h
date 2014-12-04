@@ -28,7 +28,6 @@
 
 #include <kdialog.h>
 #include <ktoolbar.h>
-#include <kstatusbar.h>
 #include <kfiledialog.h>
 
 

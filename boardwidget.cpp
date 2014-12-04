@@ -23,7 +23,7 @@
 #include <qapplication.h>
 #include <QDebug>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <krandom.h>

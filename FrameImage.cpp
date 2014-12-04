@@ -25,7 +25,7 @@
 
 #include <kcomponentdata.h>
 #include <kfiledialog.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 #include <kpushbutton.h>
 #include <kstandarddirs.h>

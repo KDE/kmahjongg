@@ -19,7 +19,7 @@
 
 #include "GameData.h"
 
-#include <KDebug>
+#include <QDebug>
 
 
 GameData::GameData(BoardLayout *boardlayout)

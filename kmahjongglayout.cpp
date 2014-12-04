@@ -20,12 +20,12 @@
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
 #include <kstandarddirs.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <QFile>
 #include <QMap>
-#include <KDebug>
+#include <QDebug>
 
 class KMahjonggLayoutPrivate
 {
@@ -72,10 +72,10 @@ bool KMahjonggLayout::loadDefault()
 #define kLayoutVersionFormat 1
 
 bool KMahjonggLayout::load(const QString &file) {
-    kDebug() << "Layout loading";
+    //qDebug() << "Layout loading";
 
     QString layoutPath;
-    kDebug() << "Attempting to load .desktop at" << file;
+    //qDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
