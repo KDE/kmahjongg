@@ -19,7 +19,6 @@
 
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
-#include <kstandarddirs.h>
 #include <KLocalizedString>
 #include <kconfig.h>
 #include <kconfiggroup.h>

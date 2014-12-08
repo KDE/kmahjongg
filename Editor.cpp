@@ -27,8 +27,7 @@
 #include <kmessagebox.h>
 #include <kcomponentdata.h>
 #include <KLocalizedString>
-#include <kstandarddirs.h>
-#include <kaction.h>
+#include <qaction.h>
 #include <kactioncollection.h>
 #include <ktoggleaction.h>
 #include <kstandardaction.h>

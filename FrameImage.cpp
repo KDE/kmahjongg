@@ -27,11 +27,8 @@
 #include <kfiledialog.h>
 #include <KLocalizedString>
 #include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <kstandarddirs.h>
 #include <KStandardGuiItem>
 #include <kimageio.h>
-#include <kvbox.h>
 
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
