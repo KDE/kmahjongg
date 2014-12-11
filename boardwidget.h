@@ -36,7 +36,6 @@
 #include <libkdegamesprivate/kgamecanvas.h>
 
 #include <ktoolbar.h>
-#include <kfiledialog.h>
 
 
 #define ANIMSPEED 200

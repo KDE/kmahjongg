@@ -26,8 +26,8 @@
 #include "prefs.h"
 
 #include <KLocalizedString>
-#include <kstandarddirs.h>
 #include <QPainter>
+#include <QDir>
 
 #include "kmahjongglayout.h"
 

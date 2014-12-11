@@ -22,6 +22,7 @@
 #include <qpainter.h>
 #include <qapplication.h>
 #include <QDebug>
+#include <QDir>
 
 #include <KLocalizedString>
 #include <kstandarddirs.h>
