@@ -339,10 +339,11 @@ void KMahjongg::timerReset()
 void KMahjongg::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::WindowStateChange) {
-        QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
+        const QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
+        const Qt::WindowStates oldMinimizedState  = stateEvent->oldState() & Qt::WindowMinimized;
 
-        if ((isMinimized() && stateEvent->oldState() != Qt::WindowMinimized)
-            || (!isMinimized() && stateEvent->oldState() == Qt::WindowMinimized)) {
+        if ((isMinimized() && oldMinimizedState != Qt::WindowMinimized)
+            || (!isMinimized() && oldMinimizedState == Qt::WindowMinimized)) {
             pause();
         }
     }
