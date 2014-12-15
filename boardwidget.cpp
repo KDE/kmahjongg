@@ -448,7 +448,11 @@ void BoardWidget::updateSpriteMap()
 void BoardWidget::pause()
 {
     gamePaused = !gamePaused;
-    drawBoard(!gamePaused);
+    QListIterator<KGameCanvasItem*> i(m_items);
+    while (i.hasNext())
+    {
+        i.next()->setVisible(!gamePaused);
+    }
 }
 
 void BoardWidget::gameLoaded()
