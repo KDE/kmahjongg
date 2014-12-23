@@ -212,7 +212,7 @@ public slots:
 
     /**
      * Slot Description */
-    void drawBoard(bool showTiles = true);
+    void drawBoard(bool createTiles = true);
 
     /**
      * Slot Description */

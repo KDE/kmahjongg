@@ -244,7 +244,7 @@ void BoardWidget::updateSpriteMap()
                         thissprite->moveTo(sx, sy);
                     }
 
-                    if (thissprite) {
+                    if (thissprite && !gamePaused) {
                         thissprite->show();
                     }
                 }
@@ -304,7 +304,7 @@ void BoardWidget::updateSpriteMap()
                         thissprite->moveTo(sx, sy);
                     }
 
-                    if (thissprite) {
+                    if (thissprite && !gamePaused) {
                         thissprite->show();
                     }
                 }
@@ -361,7 +361,7 @@ void BoardWidget::updateSpriteMap()
                         thissprite->moveTo(sx, sy);
                     }
 
-                    if (thissprite) {
+                    if (thissprite && !gamePaused) {
                         thissprite->show();
                     }
                 }
@@ -412,7 +412,7 @@ void BoardWidget::updateSpriteMap()
                         thissprite->moveTo(sx, sy);
                     }
 
-                    if (thissprite) {
+                    if (thissprite && !gamePaused) {
                         thissprite->show();
                     }
                 }
@@ -793,13 +793,9 @@ void BoardWidget::hilightTile(POSITION& Pos, bool on, bool doRepaint)
     }
 }
 
-void BoardWidget::drawBoard(bool showTiles)
+void BoardWidget::drawBoard(bool createTiles)
 {
-    if (gamePaused) {
-        showTiles = false;
-    }
-
-    if (showTiles) {
+    if (createTiles) {
         populateSpriteMap();
         drawTileNumber();
     } else {
