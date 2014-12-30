@@ -25,7 +25,6 @@
 #include <QDir>
 
 #include <KLocalizedString>
-#include <kstandarddirs.h>
 #include <kmessagebox.h>
 #include <krandom.h>
 #include <kconfig.h>

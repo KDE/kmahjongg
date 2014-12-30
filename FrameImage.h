@@ -27,7 +27,6 @@
 
 #include <qframe.h>
 
-#include <kdialog.h>
 
 
 class QComboBox;
