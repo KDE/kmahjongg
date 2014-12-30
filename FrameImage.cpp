@@ -23,7 +23,6 @@
 #include <qpainter.h>
 #include <qtextstream.h>
 
-#include <kcomponentdata.h>
 #include <kfiledialog.h>
 #include <KLocalizedString>
 #include <kmessagebox.h>
