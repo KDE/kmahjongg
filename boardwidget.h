@@ -377,6 +377,9 @@ protected:
 
 private:
     QString getRandomLayoutName() const;
+    void updateSpritePositions(int xOffset, int yOffset);
+    void moveTileSprite(int x, int y, int z, int sx, int sy);
+    void raiseTileSprite(int x, int y, int z);
 };
 
 
