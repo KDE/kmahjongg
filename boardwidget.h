@@ -210,7 +210,7 @@ public slots:
 
     /**
      * Slot Description */
-    void drawBoard(bool showTiles = true);
+    void drawBoard(bool createTiles = true);
 
     /**
      * Slot Description */
@@ -375,6 +375,9 @@ protected:
 
 private:
     QString getRandomLayoutName() const;
+    void updateSpritePositions(int xOffset, int yOffset);
+    void moveTileSprite(int x, int y, int z, int sx, int sy);
+    void raiseTileSprite(int x, int y, int z);
 };
 
 
