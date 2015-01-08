@@ -23,7 +23,8 @@
 #include <qpainter.h>
 #include <QHBoxLayout>
 #include <QGridLayout>
-
+#include <QFileInfo>
+#include <KFileDialog>
 #include <kmessagebox.h>
 #include <kcomponentdata.h>
 #include <KLocalizedString>

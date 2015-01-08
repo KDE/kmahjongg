@@ -28,7 +28,6 @@
 
 #include <kdialog.h>
 #include <ktoolbar.h>
-#include <kfiledialog.h>
 
 
 class QLabel;

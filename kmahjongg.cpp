@@ -25,7 +25,7 @@
 #include "Editor.h"
 
 #include <kmahjonggconfigdialog.h>
-
+#include <KFileDialog>
 #include <limits.h>
 
 #include <QPixmapCache>
