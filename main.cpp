@@ -22,11 +22,14 @@
 #include <KLocalizedString>
 #include <QCommandLineParser>
 #include <Kdelibs4ConfigMigrator>
+#include <KDBusService>
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 
 int main(int argc, char** argv)
 {
+    QApplication app(argc, argv);
+
     KAboutData aboutData("kmahjongg", i18n("KMahjongg"), KMAHJONGG_VERSION, i18n(description),
         KAboutLicense::GPL, i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
         "c) 2011, Christian Krippendorf"));
@@ -49,7 +52,6 @@ int main(int argc, char** argv)
     aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), "ben+kmahjongg@meyerhome.ne"
         "t");
 
-    QApplication app(argc, argv);
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     parser.addVersionOption();
@@ -68,7 +70,7 @@ int main(int argc, char** argv)
     migrate.setUiFiles(QStringList() << QLatin1String("kmahjonggui.rc"));
     migrate.migrate();
 
-
+    KDBusService service;
     if (app.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
