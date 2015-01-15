@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 #include <kmessagebox.h>
 #include <KStandardGuiItem>
-#include <kimageio.h>
 
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)

@@ -17,7 +17,6 @@
 
 
 
-#include <kimageio.h>
 #include <QApplication>
 #include <KAboutData>
 #include <KLocalizedString>

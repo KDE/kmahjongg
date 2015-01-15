@@ -51,7 +51,8 @@ kconfig_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
 add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg Qt5::Gui KF5::CoreAddons KF5::KIOWidgets KF5::DNSSD 
+target_link_libraries(kmahjongg Qt5::Gui KF5::CoreAddons KF5::KIOWidgets KF5::DNSSD
+   KF5::KDELibs4Support  # KDialog
                                 KF5::XmlGui KF5KDEGames KF5KDEGamesPrivate KF5KMahjongglib )
 
 install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
