@@ -2,13 +2,13 @@
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kmahjongg;"> 
-  <!ENTITY kappversion "0.8.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "0.8"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
 ]>
 
-<book lang="&language;"> <!-- do not change this! -->
+<book id="kmahjongg" lang="&language;"> <!-- do not change this! -->
 <bookinfo>
 	<title>The &kappname; Handbook</title> <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
  
-<date>2007-10-11</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2013-05-06</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -209,8 +209,9 @@
 <chapter id="interface"><title>Interface Overview</title> <!-- do not change this! -->
 <!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist> and <varlistentry>. Split the chapter into sections using <sect1(2,3)> for better viewing.-->
  
- <sect1 id="game-menu">
-	<title>The <guimenu>Game</guimenu> Menu</title>
+<sect1 id="menu">
+<title>Menu Items</title>
+
 		<variablelist>
 			<varlistentry id="game-menu-new">
 				<term><menuchoice>
@@ -286,6 +287,13 @@
 					When your game scores exceed the top ten scores listed, you are prompted to enter your name.
 				</para>	</listitem>
 			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term><menuchoice>
+				<guimenu>Game</guimenu>
+				<guimenuitem>Board Editor</guimenuitem>
+				</menuchoice></term>
+				<listitem><para><action>Shows the board editor.</action></para></listitem>
+			</varlistentry>
 			<varlistentry>
 				<term><menuchoice>
 					<shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
@@ -294,11 +302,7 @@
 				</menuchoice></term>
 				<listitem><para><action>Quits</action> &kappname;.</para></listitem>
 			</varlistentry>
-		</variablelist>
-</sect1>
-<sect1 id="move-menu">
-	<title>The <guimenu>Move</guimenu> Menu</title>
-		<variablelist>
+
 			<varlistentry id="move-menu-undo">
 				<term><menuchoice>
 					<shortcut><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></shortcut>
@@ -338,11 +342,7 @@
 				</menuchoice></term>
 				<listitem><para><action>Shuffles the tiles</action> on the board.</para></listitem>
 			</varlistentry>
-		</variablelist>
-</sect1>
-<sect1 id="view-menu">
-	<title>The <guimenu>View</guimenu> Menu</title>
-		<variablelist>
+
 			<varlistentry id="view-menu-rotate-c">
 				<term><menuchoice>
 					<shortcut><keycap>G</keycap></shortcut>
@@ -360,57 +360,13 @@
 				<listitem><para><action>Rotates</action> the tile viewing angle counter clockwise.</para></listitem>
 			</varlistentry>
 		</variablelist>
-</sect1>
-<sect1 id="settings-menu">
-	<title>The <guimenu>Settings</guimenu> Menu</title>
-		<variablelist>
-			<varlistentry>
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Show Toolbar</guimenuitem>
-				</menuchoice></term>
-				<listitem><para>Shows or hides the Toolbar.</para></listitem>
-			</varlistentry>
-			<varlistentry id="settings-menu-statusbar">
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Show Statusbar</guimenuitem>
-				</menuchoice></term>
-				<listitem><para>Shows or hides the Statusbar.</para></listitem>
-			</varlistentry>
-			<!--varlistentry id="settings-menu-hide-matching">
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Show/Hide Matching Tiles</guimenuitem>
-				</menuchoice></term>
-				<listitem><para>Shows or hides matching tiles by not flashing the matching free tiles when a corresponding tile is selected.</para></listitem>
-			</varlistentry-->
-			<varlistentry id="settings-menu-shortcuts">
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Configure Shortcuts...</guimenuitem>
-				</menuchoice></term>
-				<listitem><para><action>Displays a standard &kde; shortcut configuration dialog</action> to change the <link linkend="default-keybindings">keyboard shortcuts</link> for &kappname;.</para></listitem>
-			</varlistentry>
-			<varlistentry id="settings-menu-toolbar">
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Configure Toolbars...</guimenuitem>
-				</menuchoice></term>
-				<listitem><para>Displays a standard &kde; dialog where you can configure the toolbar icons.</para></listitem>
-			</varlistentry>
-			<varlistentry id="settings-menu-settings">
-				<term><menuchoice>
-					<guimenu>Settings</guimenu>
-					<guimenuitem>Configure &kappname;...</guimenuitem>
-				</menuchoice></term>
-				<listitem><para><action>Opens a dialog to configure &kappname;.</action> For details, see <link linkend="configuration">here</link>.</para></listitem>
-			</varlistentry>
-		</variablelist>
-</sect1>
- <sect1 id="help"><!--This is a standard Help menubar entry. Only change if needed.-->
-<title>The <guimenu>Help</guimenu> Menu</title>
-&help.menu.documentation;
+<para>
+Additionally &kappname; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
+
 </sect1>
 </chapter>
  
@@ -421,7 +377,7 @@
 <!--Following is a standard list of FAQ questions.-->
 	<qandaentry>
 		 <question><para>I want to change the way this game looks. Can I? </para></question>
-		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="settings-menu-settings">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
+		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="menu">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Can I use the keyboard to play the game?</para></question>
@@ -467,6 +423,11 @@
 
 <sect1 id="layout-options"><title><guilabel>Board layout</guilabel> options</title>
 	<variablelist>
+		<varlistentry>
+			<term><guilabel>Random Layout</guilabel></term>
+			<listitem><para>Every new game will have a random layout of the existing one in the list.
+			</para></listitem>
+		</varlistentry>
 		<varlistentry>
 			<term><guilabel>Board Layout</guilabel> selector</term>
 			<listitem><para>
@@ -533,163 +494,34 @@
 
 <para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> allows you to change the default keyboard bindings.</para>
 
-<screenshot>
-<screeninfo>Keybindings Configure Dialog</screeninfo>
-	<mediaobject>
-
-	  <imageobject>
-	    <imagedata fileref="shortcuts.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>Keybindings Configure Dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-
 <para>
 The default kebindings are as follows:
 </para>
 
-<para>
-<variablelist>
+<table>
+<title>Keyboard Shortcuts</title>
+<tgroup cols="2">
+<thead><row><entry>Key Combo</entry><entry>Action</entry></row></thead>
+<tbody>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></entry><entry>Starts a new game</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></entry><entry>Loads a previously saved game</entry></row>
+<row><entry><keycap>F5</keycap></entry><entry>Restart the game</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></entry><entry>Saves the game</entry></row>
+<row><entry><keycap>P</keycap></entry><entry>Pauses or resumes a game</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></entry><entry>Show the highscores</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry><entry>Quits the game</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></entry><entry>Move undo</entry></row>
+<row><entry><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo></entry><entry>Move redo</entry></row>
+<row><entry><keycap>H</keycap></entry><entry>Gives you a hint by flashing two matching tiles</entry></row>
+<row><entry><keycap>D</keycap></entry><entry>Plays the game in Demo mode</entry></row>
+<row><entry><keycap>G</keycap></entry><entry>Rotate the view angle clockwise</entry></row>
+<row><entry><keycap>F</keycap></entry><entry>Rotate the view angle counter-clockwise</entry></row>
+<row><entry><keycap>F1</keycap></entry><entry>Displays this handbook</entry></row>
+<row><entry><keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></entry><entry>What's This Help</entry></row>
 
-<varlistentry>
-<term><keycap>D</keycap></term>
-<listitem>
-<para>
-Plays the game in Demo mode.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>H</keycap></term>
-<listitem>
-<para>
-Gives you a hint by flashing two matching tiles.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>F1</keycap></term>
-<listitem>
-<para>
-Displays this handbook.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></term>
-<listitem>
-<para>
-Loads a previously saved game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></term>
-<listitem>
-<para>
-Starts a new game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>P</keycap></term>
-<listitem>
-<para>
-Pauses or resumes a game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></term>
-<listitem>
-<para>
-Quits the game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo></term>
-<listitem>
-<para>
-Move redo.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>F5</keycap></term>
-<listitem>
-<para>
-Restart the game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></term>
-<listitem>
-<para>
-Saves the game.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo></term>
-<listitem>
-<para>
-Show the highscores.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></term>
-<listitem>
-<para>
-Move undo.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>F</keycap></term>
-<listitem>
-<para>
-Rotate the view angle clockwise.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycap>G</keycap></term>
-<listitem>
-<para>
-Rotate the view angle counter-clockwise.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></term>
-<listitem>
-<para>
-What's this? Help
-</para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-</para>
+</tbody>
+</tgroup>
+</table>
 
 </sect1>
 </chapter>
@@ -713,7 +545,7 @@ What's this? Help
 			<listitem><para><personname><firstname>Michael</firstname><surname>Haertjens</surname></personname> <email>mhaertjens@modusoperandi.com</email></para></listitem>
 			<listitem><para><personname><firstname>Osvaldo</firstname><surname>Stark</surname></personname> <email>starko@dnet.it</email></para></listitem>
 			<listitem><para><personname><firstname>Benjamin</firstname><surname>Meyer</surname></personname> <email>ben+kmahjongg@meyerhome.net</email></para></listitem>
-			<listitem><para><personname><firstname>Albert</firstname><othername>Astals</othername><surname>Cid</surname></personname> <email>astals11@terra.es</email></para></listitem>
+			<listitem><para><personname><firstname>Albert</firstname><othername>Astals</othername><surname>Cid</surname></personname> &Albert.Astals.Cid.mail;</para></listitem>
 			<listitem><para><personname><firstname>Raquel</firstname><surname>Ravanini</surname></personname> <email>raquel@tabuleiro.com</email></para></listitem>
 		</itemizedlist>
 	</para>
