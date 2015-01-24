@@ -122,18 +122,6 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     boardEditor->setTilesetFromSettings();
 
-    /* IDW test. Conflicting lines from merge of master into qgraphic.
-    mFinished = false;
-    bDemoModeActive = false;
-
-    connect(bw, SIGNAL(statusTextChanged(QString,long)), SLOT(showStatusText(QString,long)));
-    connect(bw, SIGNAL(tileNumberChanged(int,int,int)), SLOT(showTileNumber(int,int,int)));
-    connect(bw, SIGNAL(demoModeChanged(bool)), SLOT(demoModeChanged(bool)));
-    connect(bw, SIGNAL(gameOver(unsigned short,unsigned short)), this,
-        SLOT(gameOver(unsigned short,unsigned short)));
-    connect(bw, SIGNAL(gameCalculated()), this, SLOT(timerReset()));
-    */
-
     startNewGame();
 }
 
