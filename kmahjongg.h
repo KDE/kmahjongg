@@ -119,6 +119,7 @@ private slots:
 
 private:
     enum GameState { Gameplay, Demo, Paused, Finished };
+    GameState m_gameState;
 
     void updateState(GameState state);
     void updateUndoAndRedoStates();

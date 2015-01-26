@@ -71,6 +71,7 @@ public:
 
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
+    m_gameState(Gameplay),
     m_pGameView(NULL),
     m_pGameData(NULL),
     m_pBoardLayout(new KMahjonggLayout())
@@ -442,9 +443,17 @@ void KMahjongg::changeEvent(QEvent *event)
         const QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
         const Qt::WindowStates oldMinimizedState  = stateEvent->oldState() & Qt::WindowMinimized;
 
-        if ((isMinimized() && oldMinimizedState != Qt::WindowMinimized)
-            || (!isMinimized() && oldMinimizedState == Qt::WindowMinimized)) {
-            pause();
+	// N.B. KMahjongg::pause() is not used here, because it is irrelevant to
+	// hide the tiles and change the Pause button's state when minimizing.
+        if (isMinimized() && oldMinimizedState != Qt::WindowMinimized &&
+            m_gameState == Gameplay) {
+            // If playing a game and not paused, stop the clock during minimise.
+            gameTimer->pause();
+        }
+        else if (!isMinimized() && oldMinimizedState == Qt::WindowMinimized &&
+                 m_gameState == Gameplay) {
+            // If playing a game, start the clock when restoring the window.
+            gameTimer->resume();
         }
     }
 }
@@ -517,6 +526,8 @@ void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 
 void KMahjongg::updateState(GameState state)
 {
+    m_gameState = state;
+    // KXMLGUIClient::stateChanged() sets action-states def. by kmahjonggui.rc.
     switch (state) {
     case Demo:
         stateChanged("demo_state");
