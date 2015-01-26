@@ -480,6 +480,9 @@ void GameView::shuffle()
         return;
     }
 
+    // Fix bug 156022 comment 5: Redo after shuffle can cause invalid states.
+    m_pGameData->allow_redo = 0;
+
     m_pGameData->shuffle();
 
     // Update the item images.
