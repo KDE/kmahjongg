@@ -337,6 +337,7 @@ void KMahjongg::loadSettings()
 void KMahjongg::demoMode()
 {
     if (demoAction->isChecked()) {
+        loadSettings();		// In case loadGame() has changed the settings.
         updateState(Demo);
         gameTimer->setTime(0);
         gameTimer->pause();
@@ -395,6 +396,8 @@ void KMahjongg::noMovesAvailable()
 
 void KMahjongg::startNewGame(int item)
 {
+    loadSettings();		// In case loadGame() has changed the settings.
+
     // Only load new layout in random mode if we are not given a game number.
     // Use same layout if restarting game or starting a numbered game.
     if (Prefs::randomLayout() && item == -1) {
