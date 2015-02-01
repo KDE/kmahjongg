@@ -26,7 +26,6 @@
 #include <QFileInfo>
 #include <KFileDialog>
 #include <kmessagebox.h>
-#include <kcomponentdata.h>
 #include <KLocalizedString>
 #include <qaction.h>
 #include <kactioncollection.h>

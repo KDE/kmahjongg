@@ -38,7 +38,7 @@
 #include <QAction>
 #include <KConfigDialog>
 #include <KInputDialog>
-#include <KMenuBar>
+#include <QMenuBar>
 #include <KMessageBox>
 #include <KStandardGameAction>
 #include <KStandardAction>
