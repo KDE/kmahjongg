@@ -55,14 +55,14 @@ target_link_libraries(kmahjongg Qt5::Gui KF5::CoreAddons KF5::KIOWidgets KF5::DN
    KF5::KDELibs4Support  # KDialog
                                 KF5::XmlGui KF5KDEGames KF5KDEGamesPrivate KF5KMahjongglib KF5::DBusAddons)
 
-install(TARGETS kmahjongg  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.kmahjongg.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kmahjongg.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES kmahjonggui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kmahjongg )
+install( PROGRAMS org.kde.kmahjongg.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
+install( FILES kmahjongg.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
+install( FILES kmahjonggui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kmahjongg )
 
 ecm_install_icons( ICONS
                    128-apps-kmahjongg.png
@@ -72,7 +72,7 @@ ecm_install_icons( ICONS
                    22-apps-kmahjongg.png
                    16-apps-kmahjongg.png
                    sc-apps-kmahjongg.svgz
-                   DESTINATION  ${ICON_INSTALL_DIR}
+                   DESTINATION  ${KDE_INSTALL_ICONDIR}
                    THEME hicolor   )
 
 ########### Display Summary ###############
