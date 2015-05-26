@@ -19,8 +19,8 @@
 
 #include "GameData.h"
 
+#include <QDataStream>
 #include <QDebug>
-
 
 GameData::GameData(BoardLayout *boardlayout)
 {
