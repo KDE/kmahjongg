@@ -133,27 +133,27 @@ void KMahjongg::setupKAction()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
     KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
 
-    QAction *newNumGame = actionCollection()->addAction(QLatin1String("game_new_numeric"));
+    QAction *newNumGame = actionCollection()->addAction(QStringLiteral("game_new_numeric"));
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
     QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
     actionCollection()->addAction(action->objectName(), action);
 
-    QAction *shuffle = actionCollection()->addAction(QLatin1String("move_shuffle"));
+    QAction *shuffle = actionCollection()->addAction(QStringLiteral("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
-    shuffle->setIcon(QIcon::fromTheme(QLatin1String("view-refresh")));
+    shuffle->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
     connect(shuffle, &QAction::triggered, bw, &BoardWidget::shuffle);
 
-    QAction *angleccw = actionCollection()->addAction(QLatin1String("view_angleccw"));
+    QAction *angleccw = actionCollection()->addAction(QStringLiteral("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
-    angleccw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-left")));
+    angleccw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-left")));
     angleccw->setShortcut( Qt::Key_F );
     connect(angleccw, &QAction::triggered, bw, &BoardWidget::angleSwitchCCW);
 
-    QAction *anglecw = actionCollection()->addAction(QLatin1String("view_anglecw"));
+    QAction *anglecw = actionCollection()->addAction(QStringLiteral("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
-    anglecw->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-right")));
+    anglecw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-right")));
     anglecw->setShortcut( Qt::Key_G );
     connect(anglecw, &QAction::triggered, bw, &BoardWidget::angleSwitchCW);
 
@@ -167,7 +167,7 @@ void KMahjongg::setupKAction()
     redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
 
     // edit
-    QAction *boardEdit = actionCollection()->addAction(QLatin1String("game_board_editor"));
+    QAction *boardEdit = actionCollection()->addAction(QStringLiteral("game_board_editor"));
     boardEdit->setText(i18n("&Board Editor"));
     connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
@@ -200,7 +200,7 @@ void KMahjongg::setupStatusBar()
     gameNumDivider->setFrameStyle(QFrame::VLine);
     statusBar()->addWidget(gameNumDivider);
 
-    statusLabel = new QLabel("Kmahjongg", statusBar());
+    statusLabel = new QLabel(QStringLiteral("Kmahjongg"), statusBar());
     statusBar()->addWidget(statusLabel);
 }
 
@@ -243,17 +243,17 @@ void KMahjongg::redo()
 
 void KMahjongg::showSettings()
 {
-    if (KConfigDialog::showDialog("settings")) {
+    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
         return;
     }
 
     //Use the classes exposed by LibKmahjongg for our configuration dialog
-    KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, "settings", Prefs::self());
+    KMahjonggConfigDialog *dialog = new KMahjonggConfigDialog(this, QStringLiteral("settings"), Prefs::self());
 
     //The Settings class is ours
-    dialog->addPage(new Settings(0), i18n("General"), "games-config-options");
-    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), "games-con"
-        "fig-board");
+    dialog->addPage(new Settings(0), i18n("General"), QStringLiteral("games-config-options"));
+    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), QStringLiteral("games-con"
+        "fig-board"));
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
 #pragma message("PORT TO FRAMEWORKS")
@@ -437,13 +437,13 @@ void KMahjongg::demoModeChanged(bool bActive)
     demoAction->setChecked(bActive || is_paused);
 
     if (is_paused) {
-        stateChanged("paused");
+        stateChanged(QStringLiteral("paused"));
     } else if (mFinished) {
-        stateChanged("finished");
+        stateChanged(QStringLiteral("finished"));
     } else if (bActive) {
-        stateChanged("active");
+        stateChanged(QStringLiteral("active"));
     } else {
-        stateChanged("inactive");
+        stateChanged(QStringLiteral("inactive"));
         undoAction->setEnabled(bw->Game->allow_undo);
         redoAction->setEnabled(bw->Game->allow_redo);
     }
@@ -477,7 +477,7 @@ void KMahjongg::loadGame()
     QString fname;
 
     // Get the name of the file to load
-    QUrl url = KFileDialog::getOpenUrl(QUrl(), "*.kmgame", this, i18n("Load Game" ));
+    QUrl url = KFileDialog::getOpenUrl(QUrl(), QStringLiteral("*.kmgame"), this, i18n("Load Game" ));
 
     if (url.isEmpty()) {
         return;
@@ -555,7 +555,7 @@ void KMahjongg::saveGame()
     gameTimer->pause();
 
     // Get the name of the file to save
-    QUrl url = KFileDialog::getSaveUrl(QUrl(), "*.kmgame", this, i18n("Save Game"));
+    QUrl url = KFileDialog::getSaveUrl(QUrl(), QStringLiteral("*.kmgame"), this, i18n("Save Game"));
 
     if (url.isEmpty()) {
         gameTimer->resume();

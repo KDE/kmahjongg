@@ -23,8 +23,8 @@
 #include <QByteArray>
 #include "KmTypes.h"
 
-const QString layoutMagic1_0 = "kmahjongg-layout-v1.0";
-const QString layoutMagic1_1 = "kmahjongg-layout-v1.1";
+const QString layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
+const QString layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
 
 /**
  * @short This class implements methods for loading and manipulating board

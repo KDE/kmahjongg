@@ -131,22 +131,22 @@ void Editor::setupToolbar()
     actionCollection = new KActionCollection(this);
 
     // new game
-    QAction *newBoard = actionCollection->addAction(QLatin1String("new_board"));
-    newBoard->setIcon(QIcon::fromTheme(QLatin1String("document-new")));
+    QAction *newBoard = actionCollection->addAction(QStringLiteral("new_board"));
+    newBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     newBoard->setText(i18n("New board"));
     connect(newBoard, &QAction::triggered, this, &Editor::newBoard);
     topToolbar->addAction(newBoard);
 
     // open game
-    QAction *openBoard = actionCollection->addAction(QLatin1String("open_board"));
-    openBoard->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
+    QAction *openBoard = actionCollection->addAction(QStringLiteral("open_board"));
+    openBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, &QAction::triggered, this, &Editor::loadBoard);
     topToolbar->addAction(openBoard);
 
     // save game
-    QAction *saveBoard = actionCollection->addAction(QLatin1String("save_board"));
-    saveBoard->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
+    QAction *saveBoard = actionCollection->addAction(QStringLiteral("save_board"));
+    saveBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
     topToolbar->addAction(saveBoard);
@@ -192,13 +192,13 @@ void Editor::setupToolbar()
 #endif
 
 
-    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QLatin1String("draw-freehand")), i18n("Add ti"
+    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add ti"
         "les"), this);
-    actionCollection->addAction(QLatin1String("add_tiles"), addTiles);
+    actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Remove t"
+    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove t"
         "iles" ), this);
-    actionCollection->addAction(QLatin1String("del_tiles"), delTiles);
+    actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
     topToolbar->addAction(delTiles);
 
     QActionGroup *radioGrp = new QActionGroup(this);
@@ -225,32 +225,32 @@ void Editor::setupToolbar()
 
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
-    QAction *shiftLeft = actionCollection->addAction(QLatin1String("shift_left"));
-    shiftLeft->setIcon(QIcon::fromTheme(QLatin1String("go-previous")));
+    QAction *shiftLeft = actionCollection->addAction(QStringLiteral("shift_left"));
+    shiftLeft->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, &QAction::triggered, this, &Editor::slotShiftLeft);
     topToolbar->addAction(shiftLeft);
 
-    QAction *shiftUp = actionCollection->addAction(QLatin1String("shift_up"));
-    shiftUp->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
+    QAction *shiftUp = actionCollection->addAction(QStringLiteral("shift_up"));
+    shiftUp->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, &QAction::triggered, this, &Editor::slotShiftUp);
     topToolbar->addAction(shiftUp);
 
-    QAction *shiftDown = actionCollection->addAction(QLatin1String("shift_down"));
-    shiftDown->setIcon(QIcon::fromTheme(QLatin1String("go-down")));
+    QAction *shiftDown = actionCollection->addAction(QStringLiteral("shift_down"));
+    shiftDown->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, &QAction::triggered, this, &Editor::slotShiftDown);
     topToolbar->addAction(shiftDown);
 
-    QAction *shiftRight = actionCollection->addAction(QLatin1String("shift_right"));
-    shiftRight->setIcon(QIcon::fromTheme(QLatin1String("go-next")));
+    QAction *shiftRight = actionCollection->addAction(QStringLiteral("shift_right"));
+    shiftRight->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, &QAction::triggered, this, &Editor::slotShiftRight);
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    QAction *quit = actionCollection->addAction(KStandardAction::Quit, QLatin1String("quit"), this,
+    QAction *quit = actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this,
         SLOT(close()));
     topToolbar->addAction(quit);
 
@@ -274,7 +274,7 @@ void Editor::statusChanged()
 {
     bool canSave = ((numTiles != 0) && ((numTiles & 1) == 0));
     theLabel->setText(statusText());
-    actionCollection->action("save_board")->setEnabled(canSave);
+    actionCollection->action(QStringLiteral("save_board"))->setEnabled(canSave);
 }
 
 void Editor::slotShiftLeft()
@@ -303,11 +303,11 @@ void Editor::slotShiftDown()
 
 void Editor::slotModeChanged(QAction *act)
 {
-    if (act == actionCollection->action("move_tiles")) {
+    if (act == actionCollection->action(QStringLiteral("move_tiles"))) {
         mode = move;
-    } else if (act == actionCollection->action("del_tiles")) {
+    } else if (act == actionCollection->action(QStringLiteral("del_tiles"))) {
         mode = remove;
-    } else if (act == actionCollection->action("add_tiles")) {
+    } else if (act == actionCollection->action(QStringLiteral("add_tiles"))) {
         mode = insert;
     }
 }

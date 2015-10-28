@@ -59,7 +59,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     //Now get our tilesets into a list
     QStringList tilesAvailable;
 
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongg/layouts", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongg/layouts"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString& dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString& file, fileNames) {
@@ -67,7 +67,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
     tilesAvailable.sort();
-    QString namestr("Name");
+    QString namestr(QStringLiteral("Name"));
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i)
     {   
@@ -99,9 +99,9 @@ void KMahjonggLayoutSelector::layoutChanged()
     if (selLayout->path()==kcfg_Layout->text()) {
         return;
     }
-    QString authstr("Author");
-    QString contactstr("AuthorEmail");
-    QString descstr("Description");
+    QString authstr(QStringLiteral("Author"));
+    QString contactstr(QStringLiteral("AuthorEmail"));
+    QString descstr(QStringLiteral("Description"));
     kcfg_Layout->setText(selLayout->path());
     layoutAuthor->setText(selLayout->authorProperty(authstr));
     layoutContact->setText(selLayout->authorProperty(contactstr));

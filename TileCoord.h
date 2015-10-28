@@ -140,7 +140,7 @@ private:
     int zp;
 };
 
-inline uint qHash(const TileCoord &key) { return qHash(QString("X%1Y%2Z%3").arg(key.x()).arg(key.y()).arg(key.z())); }
+inline uint qHash(const TileCoord &key) { return qHash(QStringLiteral("X%1Y%2Z%3").arg(key.x()).arg(key.y()).arg(key.z())); }
 
 inline TileCoord::TileCoord()
 { xp=0; yp=0; zp=0; }

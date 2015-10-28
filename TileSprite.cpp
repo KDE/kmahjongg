@@ -99,7 +99,7 @@ void TileSprite::fadeOut() {
 	return;
     }
     //keep fading
-    QTimer::singleShot(40, this, SLOT(fadeOut()));
+    QTimer::singleShot(40, this, &TileSprite::fadeOut);
 }
 
 void TileSprite::fadeIn() {
@@ -110,7 +110,7 @@ void TileSprite::fadeIn() {
 	return;
     }
     //keep fading
-    QTimer::singleShot(40, this, SLOT(fadeIn()));
+    QTimer::singleShot(40, this, &TileSprite::fadeIn);
 }
 
 QRect TileSprite::rect() const {

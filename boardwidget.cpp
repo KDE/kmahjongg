@@ -500,7 +500,7 @@ void BoardWidget::demoMoveTimeout()
         }
 
         // restart timer
-        QTimer::singleShot(ANIMSPEED, this, SLOT(demoMoveTimeout()));
+        QTimer::singleShot(ANIMSPEED, this, &BoardWidget::demoMoveTimeout);
     }
 }
 
@@ -530,7 +530,7 @@ void BoardWidget::matchAnimationTimeout()
     }
 
     if (TimerState == Match) {
-        QTimer::singleShot(ANIMSPEED, this, SLOT(matchAnimationTimeout()));
+        QTimer::singleShot(ANIMSPEED, this, &BoardWidget::matchAnimationTimeout);
     }
 }
 
@@ -598,7 +598,7 @@ void BoardWidget::stopEndAnimation()
 QString BoardWidget::getRandomLayoutName() const
 {
     QStringList tilesAvailable;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "kmahjongg/layouts", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongg/layouts"), QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString& dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         Q_FOREACH (const QString& file, fileNames) {
@@ -1138,7 +1138,7 @@ bool BoardWidget::validMovesAvailable()
 
 QString  BoardWidget::getLayoutName()
 {
-    QString key("Name");
+    QString key(QStringLiteral("Name"));
 
     return theBoardLayout.authorProperty(key);
 }

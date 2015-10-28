@@ -24,7 +24,7 @@
 
 BoardLayout::BoardLayout()
 {
-	filename="";
+	filename=QLatin1String("");
 	m_width = 32;
 	m_height = 16;
 	m_depth = 5;
@@ -84,17 +84,17 @@ bool BoardLayout::saveBoardLayout(const QString &where) {
 	    return(false);	
 	}
 
-	tmp = QString("\nw%1").arg(m_width).toUtf8();
+	tmp = QStringLiteral("\nw%1").arg(m_width).toUtf8();
 	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
 
-	tmp = QString("\nh%1").arg(m_height).toUtf8();
+	tmp = QStringLiteral("\nh%1").arg(m_height).toUtf8();
 	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
 
-	tmp = QString("\nd%1").arg(m_depth).toUtf8();
+	tmp = QStringLiteral("\nd%1").arg(m_depth).toUtf8();
 	if (f.write(tmp, tmp.length()) == -1) {
 	    return(false);	
 	}
@@ -124,7 +124,7 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
     } 
 
     QFile f(from);
-    QString all = "";
+    QString all = QLatin1String("");
 
     if ( f.open(QIODevice::ReadOnly) ) {    
  	QTextStream t( &f );
@@ -169,7 +169,7 @@ bool BoardLayout::loadBoardLayout(const QString &from)
     } 
 
     QFile f(from);
-    QString all = "";
+    QString all = QLatin1String("");
     if ( f.open(QIODevice::ReadOnly) ) {    
  	QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
@@ -187,15 +187,15 @@ bool BoardLayout::loadBoardLayout(const QString &from)
 	    if (s[0] == '#')
 		continue;
 	    if (s[0] == 'w') {
-		m_width = s.mid(1).toInt();
+		m_width = s.midRef(1).toInt();
 		continue;
 	    }
 	    if (s[0] == 'h') {
-		m_height = s.mid(1).toInt();
+		m_height = s.midRef(1).toInt();
 		continue;
 	    }
 	    if (s[0] == 'd') {
-		m_depth = s.mid(1).toInt();
+		m_depth = s.midRef(1).toInt();
 		continue;
 	    }
 	    all += s;

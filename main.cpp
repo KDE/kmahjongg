@@ -30,27 +30,27 @@ int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
-    KAboutData aboutData("kmahjongg", i18n("KMahjongg"), KMAHJONGG_VERSION, i18n(description),
+    KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"), KMAHJONGG_VERSION, i18n(description),
         KAboutLicense::GPL, i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
         "c) 2011, Christian Krippendorf"));
-    aboutData.setHomepage("http://games.kde.org/kmahjongg");
-    aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), "in5y158@public.uni-ham"
-        "burg.de");
-    aboutData.addAuthor(i18n("Christian Krippendorf"), i18n("Current maintainer"), "Coding@Christ"
-        "ian-Krippendorf.de");
-    aboutData.addAuthor(i18n("Albert Astals Cid"), i18n("Bug fixes"), "aacid@kde.org");
-    aboutData.addAuthor(i18n("David Black"), i18n("KDE 3 rewrite and Extension"), "david.black@lu"
-        "tris.com");
+    aboutData.setHomepage(QStringLiteral("http://games.kde.org/kmahjongg"));
+    aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), QStringLiteral("in5y158@public.uni-ham"
+        "burg.de"));
+    aboutData.addAuthor(i18n("Christian Krippendorf"), i18n("Current maintainer"), QStringLiteral("Coding@Christ"
+        "ian-Krippendorf.de"));
+    aboutData.addAuthor(i18n("Albert Astals Cid"), i18n("Bug fixes"), QStringLiteral("aacid@kde.org"));
+    aboutData.addAuthor(i18n("David Black"), i18n("KDE 3 rewrite and Extension"), QStringLiteral("david.black@lu"
+        "tris.com"));
     aboutData.addAuthor(i18n("Michael Haertjens"), i18n("Solvable game generation\nbased on algor"
-        "ithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
-    aboutData.addCredit(i18n("Raquel Ravanini"), i18n("SVG Tileset for KDE4"), "raquel@tabuleiro."
-        "com");
+        "ithm by Michael Meeks in GNOME mahjongg"), QStringLiteral("mhaertjens@modusoperandi.com"));
+    aboutData.addCredit(i18n("Raquel Ravanini"), i18n("SVG Tileset for KDE4"), QStringLiteral("raquel@tabuleiro."
+        "com"));
     aboutData.addCredit(i18n("Richard Lohman"), i18n("Tile set contributor and current web page m"
-        "aintainer"),"richardjlohman@yahoo.com");
+        "aintainer"),QStringLiteral("richardjlohman@yahoo.com"));
     aboutData.addCredit(i18n("Osvaldo Stark"), i18n("Tile set contributor and original web page m"
-        "aintainer"), "starko@dnet.it");
-    aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), "ben+kmahjongg@meyerhome.ne"
-        "t");
+        "aintainer"), QStringLiteral("starko@dnet.it"));
+    aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), QStringLiteral("ben+kmahjongg@meyerhome.ne"
+        "t"));
 
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
@@ -62,12 +62,12 @@ int main(int argc, char** argv)
 
     // Migrate pre-existing (4.x) configuration
     QStringList configFiles;
-    configFiles.append(QLatin1String("kmahjonggrc"));
-    configFiles.append(QLatin1String("konversation.notifyrc"));
+    configFiles.append(QStringLiteral("kmahjonggrc"));
+    configFiles.append(QStringLiteral("konversation.notifyrc"));
 
-    Kdelibs4ConfigMigrator migrate(QLatin1String("kmahjongg"));
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("kmahjongg"));
     migrate.setConfigFiles(configFiles);
-    migrate.setUiFiles(QStringList() << QLatin1String("kmahjonggui.rc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("kmahjonggui.rc"));
     migrate.migrate();
 
     KDBusService service;

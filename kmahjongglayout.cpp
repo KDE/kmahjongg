@@ -58,7 +58,7 @@ KMahjonggLayout::~KMahjonggLayout() {
 
 bool KMahjonggLayout::loadDefault()
 {
-    QString idx = "default.desktop";
+    QString idx = QStringLiteral("default.desktop");
 
     QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
     qDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
@@ -86,10 +86,10 @@ bool KMahjonggLayout::load(const QString &file) {
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggLayout");
 
-    d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
-    d->authorproperties.insert("Author", group.readEntry("Author"));
-    d->authorproperties.insert("Description", group.readEntry("Description"));
-    d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
+    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
+    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
 
     //Version control
     int bgversion = group.readEntry("VersionFormat",0);
