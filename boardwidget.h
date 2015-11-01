@@ -132,6 +132,7 @@ public:
 
     QHash<TileCoord, TileSprite *> spriteMap;
 
+    void setGameNum(qint64 gameNum);
 public slots:
     /**
     * Slot Description */

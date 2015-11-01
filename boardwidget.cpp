@@ -1152,5 +1152,10 @@ void BoardWidget::wheelEvent(QWheelEvent *event)
     event->accept();
 }
 
+void BoardWidget::setGameNum(qint64 gameNum)
+{
+    gameGenerationNum = gameNum;
+    setStatusText(i18n("Ready. Now it is your turn."));
+}
 
 #include "boardwidget.moc"

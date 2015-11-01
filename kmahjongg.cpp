@@ -536,12 +536,20 @@ void KMahjongg::loadGame()
     bw->Game = new GameData(bw->theBoardLayout.board());
     bw->Game->loadFromStream(in);
 
+    //GameNumber
+    qint64 gameNum = 0;
+    in >> gameNum;
+
     infile.close();
 
     KIO::NetAccess::removeTempFile(fname);
 
     // refresh the board
     bw->gameLoaded();
+
+    if(gameNum > 0) {
+        bw->setGameNum(gameNum);
+    }
 
     mFinished = false;
     demoModeChanged(false);
@@ -592,6 +600,10 @@ void KMahjongg::saveGame()
     out << gameTimer->seconds();
     // Write the Game data
     bw->Game->saveToStream(out);
+
+    // GameNumber
+    // write game number after game data to obtain backwards compatibility
+    out << (qint64) bw->getGameNum();
 
     outfile.close();
     gameTimer->resume();
