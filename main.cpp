@@ -77,5 +77,7 @@ int main(int argc, char** argv)
         window->show();
     }
 
+    app.setWindowIcon(QIcon::fromTheme(QLatin1String("kmahjongg")));
+
     return app.exec();
 }
