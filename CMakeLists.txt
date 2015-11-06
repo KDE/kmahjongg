@@ -8,7 +8,7 @@ find_package(ECM 1.2.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg Qml Quick QuickWidgets)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg)
 find_package(KF5 REQUIRED COMPONENTS CoreAddons XmlGui Config KIO DNSSD NewStuff Declarative DocTools DBusAddons KDELibs4Support)
 
 include(FeatureSummary)
