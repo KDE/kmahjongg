@@ -63,7 +63,6 @@ int main(int argc, char** argv)
     // Migrate pre-existing (4.x) configuration
     QStringList configFiles;
     configFiles.append(QStringLiteral("kmahjonggrc"));
-    configFiles.append(QStringLiteral("konversation.notifyrc"));
 
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kmahjongg"));
     migrate.setConfigFiles(configFiles);
