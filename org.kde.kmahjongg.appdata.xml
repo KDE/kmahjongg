@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.kmahjongg.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>KMahjongg</name>
+  <description>
+    <p>
+      KMahjongg ist ein Brettspiel, das an das berühmte orientalische Spiel Mahjong (Chinesisch: 麻將) angelehnt ist.
+    </p>
+  </description>
+  <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
+  <url type="help">http://docs.kde.org/stable/en/kdegames/kmahjongg/index.html</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://kde.org/images/screenshots/kmahjongg.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>kmahjongg</binary>
+  </provides>
+</component>
