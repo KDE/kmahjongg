@@ -9,7 +9,7 @@ find_package(ECM 1.2.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg Qml Quick QuickWidgets)
-find_package(KF5 REQUIRED COMPONENTS CoreAddons XmlGui Config KIO DNSSD NewStuff Declarative DocTools KDELibs4Support)
+find_package(KF5 REQUIRED COMPONENTS CoreAddons XmlGui Config KIO DNSSD NewStuff Declarative DocTools DBusAddons KDELibs4Support)
 
 include(FeatureSummary)
 include(GenerateExportHeader)
@@ -51,9 +51,17 @@ kconfig_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc )
 
 add_executable(kmahjongg ${kmahjongg_SRCS})
 
-target_link_libraries(kmahjongg Qt5::Gui KF5::CoreAddons KF5::KIOWidgets KF5::DNSSD
-   KF5::KDELibs4Support  # KDialog
-                                KF5::XmlGui KF5KDEGames KF5KDEGamesPrivate KF5KMahjongglib KF5::DBusAddons)
+target_link_libraries(kmahjongg
+    Qt5::Gui
+    KF5::CoreAddons
+    KF5::KIOWidgets
+    KF5::DNSSD
+    KF5::XmlGui
+    KF5::DBusAddons
+    KF5::KDELibs4Support
+    KF5KDEGames
+    KF5KDEGamesPrivate
+    KF5KMahjongglib)
 
 install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 

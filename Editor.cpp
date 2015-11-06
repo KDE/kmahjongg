@@ -24,7 +24,7 @@
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QFileInfo>
-#include <KFileDialog>
+#include <QFileDialog>
 #include <kmessagebox.h>
 #include <KLocalizedString>
 #include <qaction.h>
@@ -35,7 +35,7 @@
 
 
 Editor::Editor(QWidget *parent)
-    : KDialog( parent ),
+    : QDialog( parent ),
     tiles()
 {
     setModal(true);
@@ -44,7 +44,11 @@ Editor::Editor(QWidget *parent)
     mode = insert;
 
     QWidget *mainWidget = new QWidget(this);
-    setMainWidget(mainWidget);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(mainWidget);
+
+    resize(QSize(800, 400));
 
     QGridLayout *gridLayout = new QGridLayout(mainWidget);
     QVBoxLayout *layout = new QVBoxLayout();
@@ -64,14 +68,12 @@ Editor::Editor(QWidget *parent)
     setMinimumHeight(120);
 
     // tell the user what we do
-    setCaption(i18n("Edit Board Layout"));
+    setWindowTitle(i18n("Edit Board Layout"));
 
     connect(drawFrame, &FrameImage::mousePressed, this, &Editor::drawFrameMousePressEvent);
     connect(drawFrame, &FrameImage::mouseMoved, this, &Editor::drawFrameMouseMovedEvent);
 
     statusChanged();
-
-    setButtons(KDialog::None);
 
     update();
 }
@@ -342,8 +344,8 @@ void Editor::loadBoard()
         return;
     }
 
-    QUrl url = KFileDialog::getOpenUrl(QUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
-        "s"), this, i18n("Open Board Layout"));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Open Board Layout"), QUrl(),
+                                           i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (url.isEmpty()) {
             return;
@@ -380,8 +382,8 @@ bool Editor::saveBoard()
     }
 
     // get a save file name
-    QUrl url = KFileDialog::getSaveUrl(QUrl(), i18n("*.layout|Board Layout (*.layout)\n*|All File"
-        "s"), this, i18n("Save Board Layout"));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Board Layout"), QUrl(),
+                                           i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (url.isEmpty()) {
         return false;

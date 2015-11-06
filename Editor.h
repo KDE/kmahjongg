@@ -24,9 +24,9 @@
 #include "BoardLayout.h"
 #include "FrameImage.h"
 
+#include <qdialog.h>
 #include <qframe.h>
 
-#include <kdialog.h>
 #include <ktoolbar.h>
 
 
@@ -41,7 +41,7 @@ class QLabel;
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
-class Editor: public KDialog
+class Editor: public QDialog
 {
     Q_OBJECT
 

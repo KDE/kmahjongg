@@ -25,7 +25,7 @@
 #include "Editor.h"
 
 #include <kmahjonggconfigdialog.h>
-#include <KFileDialog>
+#include <QFileDialog>
 #include <limits.h>
 
 #include <QPixmapCache>
@@ -37,7 +37,7 @@
 #include <KAboutData>
 #include <QAction>
 #include <KConfigDialog>
-#include <KInputDialog>
+#include <QInputDialog>
 #include <QMenuBar>
 #include <KMessageBox>
 #include <KStandardGameAction>
@@ -218,8 +218,7 @@ void KMahjongg::setDisplayedWidth()
 void KMahjongg::startNewNumeric()
 {
     bool ok;
-    int s = KInputDialog::getInteger(i18n("New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1,
-        &ok, this);
+    int s = QInputDialog::getInt(this, i18n("New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1, &ok);
 
     if (ok) {
         startNewGame(s);
@@ -477,7 +476,7 @@ void KMahjongg::loadGame()
     QString fname;
 
     // Get the name of the file to load
-    QUrl url = KFileDialog::getOpenUrl(QUrl(), QStringLiteral("*.kmgame"), this, i18n("Load Game" ));
+    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Load Game" ), QUrl(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (url.isEmpty()) {
         return;
@@ -555,7 +554,7 @@ void KMahjongg::saveGame()
     gameTimer->pause();
 
     // Get the name of the file to save
-    QUrl url = KFileDialog::getSaveUrl(QUrl(), QStringLiteral("*.kmgame"), this, i18n("Save Game"));
+    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Game"), QUrl(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (url.isEmpty()) {
         gameTimer->resume();
