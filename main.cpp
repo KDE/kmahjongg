@@ -30,6 +30,7 @@ int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
+    KLocalizedString::setApplicationDomain("kmahjongg");
     KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"), KMAHJONGG_VERSION, i18n(description),
         KAboutLicense::GPL, i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
         "c) 2011, Christian Krippendorf"));
