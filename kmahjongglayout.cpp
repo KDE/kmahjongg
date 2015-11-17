@@ -77,8 +77,6 @@ bool KMahjonggLayout::loadDefault()
     return load(layoutPath);
 }
 
-#define kLayoutVersionFormat 1
-
 bool KMahjonggLayout::load(const QString &file) {
     //qDebug() << "Layout loading";
 
