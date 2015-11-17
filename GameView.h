@@ -187,6 +187,12 @@ public:
     long getGameNumber() const;
 
     /**
+     * Set the game number.
+     *
+     * @param gameNumber Game number. */
+    void setGameNumber(long gameNumber);
+
+    /**
      * Search for a valid move silently or with an information text.
      *
      * @param bSilent False if a message should appears when no legal moves exist, else true.

@@ -648,9 +648,17 @@ void KMahjongg::loadGame()
 
     delete pGameDataOld;
 
+    //GameNumber
+    qint64 gameNum = 0;
+    in >> gameNum;
+
     infile.close();
 
     KIO::NetAccess::removeTempFile(fname);
+
+    if(gameNum > 0) {
+        m_pGameView->setGameNumber(gameNum);
+    }
 
     updateState(Gameplay);
 }
@@ -701,6 +709,10 @@ void KMahjongg::saveGame()
 
     // Write the Game data
     m_pGameData->saveToStream(out);
+
+    // GameNumber
+    // write game number after game data to obtain backwards compatibility
+    out << (qint64) m_pGameView->getGameNumber();
 
     outfile.close();
     gameTimer->resume();

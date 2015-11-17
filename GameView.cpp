@@ -111,6 +111,12 @@ long GameView::getGameNumber() const
     return m_lGameNumber;
 }
 
+void GameView::setGameNumber(long gameNumber)
+{
+    m_lGameNumber = gameNumber;
+    setStatusText(i18n("Ready. Now it is your turn."));
+}
+
 bool GameView::undo()
 {
     // Clear user selections.
