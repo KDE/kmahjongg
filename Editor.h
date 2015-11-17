@@ -18,9 +18,7 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
-
 #include "kmahjonggtileset.h"
-#include "kmahjonggbackground.h"
 #include "BoardLayout.h"
 #include "FrameImage.h"
 
@@ -28,15 +26,18 @@
 #include <qframe.h>
 
 #include <ktoolbar.h>
+#include "KmTypes.h"
 
+#include <KDialog>
 
+class FrameImage;
 class QLabel;
+class KToolBar;
 class KActionCollection;
-class QLabel;
 
 /**
  * @short This class implements
- * 
+ *
  * longer description
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
@@ -55,14 +56,6 @@ public:
     /**
      * Default Destructor */
     virtual ~Editor();
-
-    /**
-     * Return the tileset that is actually set. */
-    const QString getTileset() const;
-
-    /**
-     * Set a new tileset. */
-    void setTileset(const QString tileset);
 
 public slots:
     /**
@@ -83,7 +76,7 @@ protected slots:
     void loadBoard();
 
     /**
-     * Slot Description 
+     * Slot Description
      *
      * @return @c true if ...
      * @return @c false if ... */
@@ -113,9 +106,6 @@ protected slots:
      * Slot Description */
     void slotModeChanged(QAction*);
 
-    /**
-     * Slot Description */
-
 protected:
     /**
      * Method Description */
@@ -131,7 +121,7 @@ protected:
 
     /**
      * Method Description */
-    void drawBackground(QPixmap *to);
+    void drawBackground(QPixmap *to) const;
 
     /**
      * Method Description
@@ -141,17 +131,17 @@ protected:
 
     /**
      * Method Description
-     * 
+     *
      * @return @c true if
      * @return @c false if */
     bool testSave();
 
     /**
      * Method Description */
-    void transformPointToPosition(const QPoint&, POSITION&, bool align);
+    void transformPointToPosition(const QPoint&, POSITION&, bool align) const;
 
     /**
-     * Method Description 
+     * Method Description
      *
      * @param p @ref pos
      * @param visible */
@@ -159,21 +149,21 @@ protected:
 
     /**
      * Method Description
-     * 
+     *
      * @param p @ref pos
      * @return @c true if
      * @return @c false if */
-    bool canInsert(POSITION &p);
+    bool canInsert(POSITION &p) const;
 
     /**
      * Method Description */
-    void statusChanged();
+    void statusChanged() const;
 
     /**
      * Method Description
      *
      * @return status description */
-    QString statusText();
+    QString statusText() const;
 
     /**
      * Override the closeEvent(...) method of kdialog..qdialog. */
@@ -212,4 +202,4 @@ private:
 };
 
 
-#endif 
+#endif

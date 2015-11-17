@@ -19,17 +19,20 @@
 
 #include "BoardLayout.h"
 #include <QFile>
-#include <qtextstream.h>
-#include <qtextcodec.h>
+#include <QTextStream>
+#include <QTextCodec>
+
+const QString BoardLayout::layoutMagic1_0 = "kmahjongg-layout-v1.0";
+const QString BoardLayout::layoutMagic1_1 = "kmahjongg-layout-v1.1";
 
 BoardLayout::BoardLayout()
 {
-	filename=QLatin1String("");
-	m_width = 32;
-	m_height = 16;
-	m_depth = 5;
-	board = QByteArray(m_width*m_height*m_depth, 0);
-	clearBoardLayout();
+    filename=QLatin1String("");
+    m_width = 32;
+    m_height = 16;
+    m_depth = 5;
+    board = QByteArray(m_width*m_height*m_depth, 0);
+    clearBoardLayout();
 }
 
 BoardLayout::BoardLayout(const BoardLayout &boardLayout)
@@ -38,185 +41,178 @@ BoardLayout::BoardLayout(const BoardLayout &boardLayout)
     m_height = boardLayout.m_height;
     m_depth = boardLayout.m_depth;
     m_maxTiles = boardLayout.m_maxTiles;
-    maxTileNum = boardLayout.getMaxTileNum();
-    filename = boardLayout.getFilename();
-    board = boardLayout.getBoard();
-    loadedBoard = boardLayout.getLoadedBoard();
+    maxTileNum = boardLayout.maxTileNum;
+    filename = boardLayout.filename;
+    board = boardLayout.board;
+    loadedBoard = boardLayout.loadedBoard;
 }
 
 BoardLayout::~BoardLayout()
 {
 }
 
-QString BoardLayout::getFilename() const
-{
-    return filename;
-}
-
-QByteArray BoardLayout::getLoadedBoard() const
-{
-    return loadedBoard;
-}
-
-QByteArray BoardLayout::getBoard() const
-{
-    return board;
-}
-
-unsigned short BoardLayout::getMaxTileNum() const
-{
-    return maxTileNum;
-}
-
 void BoardLayout::clearBoardLayout() {
-	loadedBoard="";
-	initialiseBoard();	
+    loadedBoard="";
+    initialiseBoard();
 }
 
-bool BoardLayout::saveBoardLayout(const QString &where) {
-	QFile f(where);
-	if (!f.open(QIODevice::ReadWrite)) {
-	    return false;
-	}
+bool BoardLayout::saveBoardLayout(const QString &where) const {
+    QFile f(where);
+    if (!f.open(QIODevice::ReadWrite)) {
+        return false;
+    }
 
-	QByteArray tmp = layoutMagic1_1.toUtf8();
-	if (f.write(tmp, tmp.length()) == -1) {
-	    return(false);	
-	}
+    QByteArray tmp = layoutMagic1_1.toUtf8();
+    if (f.write(tmp, tmp.length()) == -1) {
+        return false;
+    }
 
-	tmp = QStringLiteral("\nw%1").arg(m_width).toUtf8();
-	if (f.write(tmp, tmp.length()) == -1) {
-	    return(false);	
-	}
+    tmp = QString("\nw%1").arg(m_width).toUtf8();
+    if (f.write(tmp, tmp.length()) == -1) {
+        return false;
+    }
 
-	tmp = QStringLiteral("\nh%1").arg(m_height).toUtf8();
-	if (f.write(tmp, tmp.length()) == -1) {
-	    return(false);	
-	}
+    tmp = QString("\nh%1").arg(m_height).toUtf8();
+    if (f.write(tmp, tmp.length()) == -1) {
+        return false;
+    }
 
-	tmp = QStringLiteral("\nd%1").arg(m_depth).toUtf8();
-	if (f.write(tmp, tmp.length()) == -1) {
-	    return(false);	
-	}
+    tmp = QString("\nd%1").arg(m_depth).toUtf8();
+    if (f.write(tmp, tmp.length()) == -1) {
+        return false;
+    }
 
-	for (int z=0; z<m_depth; z++) {
-	    for(int y=0; y<m_height; y++) {
-		if(!f.putChar('\n'))
-		    return(false);
-		for (int x=0; x<m_width; x++) {
-		if (getBoardData(z,y,x)) {
-		    if(!f.putChar(getBoardData(z,y,x)))
-		       return false;
-		} else {
-		    if(!f.putChar('.'))
-			return false;
-		}
-		}
-	    }
-	}
-        return f.putChar('\n');
+    for (int z=0; z<m_depth; z++) {
+        for(int y=0; y<m_height; y++) {
+            if(!f.putChar('\n')) {
+                return false;
+            }
+
+            for (int x=0; x<m_width; x++) {
+                if (getBoardData(z,y,x)) {
+                    if(!f.putChar(getBoardData(z,y,x))) {
+                        return false;
+                    }
+                } else if(!f.putChar('.')) {
+                    return false;
+                }
+            }
+        }
+    }
+    return f.putChar('\n');
 }
 
 bool BoardLayout::loadBoardLayout_10(const QString &from)
 {
     if (from == filename) {
-	return true;	
-    } 
+        return true;
+    }
 
     QFile f(from);
     QString all = QLatin1String("");
 
-    if ( f.open(QIODevice::ReadOnly) ) {    
- 	QTextStream t( &f );
+    if ( f.open(QIODevice::ReadOnly) ) {
+        QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
-	QString s;
-	s = t.readLine();
-	if (s != layoutMagic1_0) {
-	    f.close();
-	    return(false);
-	}
-	//version 1.0 layouts used hardcoded board dimensions
-	m_width = 32;
-	m_height = 16;
-	m_depth = 5;
-	int lines = 0;
-	while ( !t.atEnd() ) {        
-	    s = t.readLine();
-	    if (s[0] == '#')
-		continue;
-	    all += s;
-	    lines++;
-	}
-	f.close();
-	if (lines == m_height*m_depth) {
-	    loadedBoard = all.toLatin1();
-	    initialiseBoard();
-	    filename = from;
-	    return(true);
-	} else {
-	    return(false);
-	}
-	return(true);
+        QString s(t.readLine());
+
+        if (s != layoutMagic1_0) {
+            f.close();
+            return false;
+        }
+
+        //version 1.0 layouts used hardcoded board dimensions
+        m_width = 32;
+        m_height = 16;
+        m_depth = 5;
+        int lines = 0;
+        QString all("");
+
+        while ( !t.atEnd() ) {
+            s = t.readLine();
+            if (s[0] == '#') {
+                continue;
+            }
+            all += s;
+            lines++;
+        }
+        f.close();
+
+        if (all.length() == m_width * m_height * m_depth) {
+            loadedBoard = all.toLatin1();
+            initialiseBoard();
+            filename = from;
+            return true;
+        } else {
+            return false;
+        }
+        return true;
     } else {
-	return(false);
+        return false;
     }
 }
 
 bool BoardLayout::loadBoardLayout(const QString &from)
 {
     if (from == filename) {
-	return true;	
-    } 
+        return true;
+    }
 
     QFile f(from);
-    QString all = QLatin1String("");
-    if ( f.open(QIODevice::ReadOnly) ) {    
- 	QTextStream t( &f );
+    if ( f.open(QIODevice::ReadOnly) ) {
+        QTextStream t( &f );
         t.setCodec(QTextCodec::codecForName("UTF-8"));
-	QString s;
-	s = t.readLine();
-	if (s != layoutMagic1_1) {
-	    f.close();
-	    //maybe a version 1_0 layout?
-	    return(loadBoardLayout_10(from));
-	}
-	int lines = 0;
-	m_width = m_height = m_depth = 0;
-	while ( !t.atEnd() ) {        
-	    s = t.readLine();
-	    if (s[0] == '#')
-		continue;
-	    if (s[0] == 'w') {
-		m_width = s.midRef(1).toInt();
-		continue;
-	    }
-	    if (s[0] == 'h') {
-		m_height = s.midRef(1).toInt();
-		continue;
-	    }
-	    if (s[0] == 'd') {
-		m_depth = s.midRef(1).toInt();
-		continue;
-	    }
-	    all += s;
-	    lines++;
-	}
-	f.close();
-	if ((lines == m_height*m_depth)&&(m_width>0)&&(m_height>0)&&(m_depth>0)) {
-	    loadedBoard = all.toLatin1();
-	    initialiseBoard();
-	    filename = from;
-	    return(true);
-	} else {
-	    return(false);
-	}
-	return(true);
+        QString s(t.readLine());
+
+        if (s != layoutMagic1_1) {
+            f.close();
+            //maybe a version 1_0 layout?
+            return(loadBoardLayout_10(from));
+        }
+
+        int lines = 0;
+        m_width = m_height = m_depth = 0;
+        QString all("");
+
+        while ( !t.atEnd() ) {
+            s = t.readLine();
+            if (s[0] == '#') {
+                continue;
+            }
+            if (s[0] == 'w') {
+                m_width = s.mid(1).toInt();
+                continue;
+            }
+            if (s[0] == 'h') {
+                m_height = s.mid(1).toInt();
+                continue;
+            }
+            if (s[0] == 'd') {
+                m_depth = s.mid(1).toInt();
+                continue;
+            }
+            all += s;
+            lines++;
+        }
+        f.close();
+
+        if ((m_width > 0) && (m_height > 0) && (m_depth > 0)
+                && (all.length() == m_width * m_height * m_depth)) {
+            loadedBoard = all.toLatin1();
+            initialiseBoard();
+            filename = from;
+            return true;
+        } else {
+            return false;
+        }
+        return true;
     } else {
-	return(false);
+        return false;
     }
 }
 
-void BoardLayout::initialiseBoard() {
+void BoardLayout::initialiseBoard()
+{
     short z=0;
     short x=0;
     short y=0;
@@ -237,25 +233,27 @@ void BoardLayout::initialiseBoard() {
         BYTE c = loadedBoard.at(idx++);
         switch( c )
         {
-            case (UCHAR)'1': maxTileNum++;
-            case (UCHAR)'3':
-            case (UCHAR)'2':
-            case (UCHAR)'4': setBoardData(z,y,x,c);
-                             break;
+        case (UCHAR)'1': maxTileNum++;
+        case (UCHAR)'2':
+        case (UCHAR)'3':
+        case (UCHAR)'4': setBoardData(z,y,x,c);
+            break;
 
-            default: setBoardData(z,y,x,0); 
-		break;
+        default: setBoardData(z,y,x,0);
+            break;
         }
-        if( ++x == m_width)
-        {
+        if( ++x == m_width) {
             x=0;
-            if( ++y == m_height)
-            {
+
+            if( ++y == m_height) {
                 y=0;
-                if( ++z == m_depth)
-                {
+
+                if( ++z == m_depth) {
                     // number of tiles have to be even
-                    if( maxTileNum & 1 ) break;
+                    if( maxTileNum & 1 ) {
+                        break;
+                    }
+
                     return;
                 }
             }
@@ -263,162 +261,157 @@ void BoardLayout::initialiseBoard() {
     }
 }
 
-void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n){
+void BoardLayout::copyBoardLayout(UCHAR *to , unsigned short &n) const
+{
     memcpy(to, board.data(), m_width*m_height*m_depth);
     n = maxTileNum;
 }
 
-void BoardLayout::shiftLeft() {
-    for (int z=0; z<m_depth; z++) {
-	for (int y=0; y<m_height; y++) {
-	    UCHAR keep=getBoardData(z,y,0);
-	    if (keep == '1') {
-	        // tile going off board, delete it
-	        setBoardData(z,y,0,0);
-	        setBoardData(z,y,1,0);
-		if (y<m_height-1) {
-	           setBoardData(z,y+1,0,0);
-	           setBoardData(z,y+1,1,0);
-		}
-	    }
-	    for (int x=0; x<m_width-1; x++) {
-		setBoardData(z,y,x,getBoardData(z,y,x+1));
-	    }
-	    setBoardData(z,y,m_width-1,0);
-	}
+void BoardLayout::shiftLeft()
+{
+    // Do not allow tiles to be shifted off the board.
+    for (int y = 0; y < m_height - 1; ++y) {
+        if (getBoardData(0, y, 0) == '1') {
+            return;
+        }
     }
-}
 
-
-void BoardLayout::shiftRight() {
-    for (int z=0; z<m_depth; z++) {
-	for (int y=0; y<m_height; y++) {
-	    UCHAR keep=getBoardData(z,y,m_width-2);
-	    if (keep == '1') {
-	        // tile going off board, delete it
-	        setBoardData(z,y,m_width-2,0);
-	        setBoardData(z,y,m_width-1,0);
-		if (y < m_height-1) {
-		        setBoardData(z,y+1,m_width-2,0);
-		        setBoardData(z,y+1,m_width-1,0);
-		}
-	    }
-	    for (int x=m_width-1; x>0; x--) {
-		setBoardData(z,y,x,getBoardData(z,y,x-1));
-	    }
-	    setBoardData(z,y,0,0);
-	}
-    }
-}
-void BoardLayout::shiftUp() {
-    for (int z=0; z<m_depth; z++) {
-	// remove tiles going off the top
-	for (int x=0; x<m_width; x++) {
-	    if (getBoardData(z,0,x) == '1') {
-		setBoardData(z,0,x,0);
-		if (x<m_width-1) {
-			setBoardData(z,0,x+1,0);
-			setBoardData(z,1,x+1,0);
-		}
-		setBoardData(z,1,x,0);
-	    }
-	}
-    }
-    for (int z=0; z<m_depth;z++) {
-	for (int y=0; y<m_height-1; y++) {
-	    for (int x=0; x<m_width; x++) {
-		setBoardData(z,y,x,getBoardData(z,y+1,x));
-		if (y == m_height-2)
-			setBoardData(z,y+1,x,0);
-	    }
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = 0; x < m_width - 1; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y, x + 1));
+            }
+            setBoardData(z, y, m_width - 1, 0);
         }
     }
 }
 
 
-void BoardLayout::shiftDown() {
-    for (int z=0; z<m_depth; z++) {
-	// remove tiles going off the top
-	for (int x=0; x<m_width; x++) {
-	    if (getBoardData(z,m_height-2,x) == '1') {
-		setBoardData(z,m_height-2,x,0);
-		if (x<m_width-1) {
-			setBoardData(z,m_height-2,x+1,0);
-			setBoardData(z,m_height-1,x+1,0);
-		}
-		setBoardData(z,m_height-1,x,0);
-	    }
-	}
+void BoardLayout::shiftRight()
+{
+    // Do not allow tiles to be shifted off the board.
+    for (int y = 0; y < m_height - 1; ++y) {
+        if (getBoardData(0, y, m_width - 2) == '1') {
+            return;
+        }
     }
-    for (int z=0; z<m_depth;z++) {
-	for (int y=m_height-1; y>0; y--) {
-	    for (int x=0; x<m_width; x++) {
-		setBoardData(z,y,x,getBoardData(z,y-1,x));
-		if (y == 1)
-			setBoardData(z,y-1,x,0);
-	    }
+
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = m_width - 1; x > 0; --x) {
+                setBoardData(z, y, x, getBoardData(z, y, x - 1));
+            }
+            setBoardData(z, y, 0, 0);
+        }
+    }
+}
+void BoardLayout::shiftUp()
+{
+    // Do not allow tiles to be shifted off the board.
+    for (int x = 0; x < m_width - 1; ++x) {
+        if (getBoardData(0, 0, x) == '1') {
+            return;
+        }
+    }
+
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height - 1; ++y) {
+            for (int x = 0; x < m_width; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y + 1, x));
+            }
+        }
+    }
+
+    // Clear row m_height - 1
+    for (int z = 0; z < m_depth; ++z) {
+        for (int x = 0; x < m_width; ++x) {
+            setBoardData(z, m_height - 1, x, 0);
+        }
+    }
+}
+
+void BoardLayout::shiftDown()
+{
+    // Do not allow tiles to be shifted off the board.
+    for (int x = 0; x < m_width - 1; ++x) {
+        if (getBoardData(0, m_height - 2, x) == '1') {
+            return;
+        }
+    }
+
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = m_height - 1; y > 0; --y) {
+            for (int x = 0; x < m_width; ++x) {
+                setBoardData(z, y, x, getBoardData(z, y - 1, x));
+            }
+        }
+    }
+
+    // Clear row 0
+    for (int z = 0; z < m_depth; ++z) {
+        for (int x = 0; x < m_width; ++x) {
+            setBoardData(z, 0, x, 0);
         }
     }
 }
 
 
 // is there a tile anywhere above here (top left to bot right quarter)
-bool BoardLayout::tileAbove(short z, short y, short x) {
-    if (z >= m_depth -1)
+bool BoardLayout::tileAbove(short z, short y, short x) const
+{
+    if (z >= m_depth -1) {
         return false;
-    if( getBoardData(z+1,y,x)   || getBoardData(z+1,y+1,x) || getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1) ) {
+    }
+
+    if( getBoardData(z+1,y,x)   || getBoardData(z+1,y+1,x) ||
+            getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1) ) {
         return true;
     }
+
     return false;
-}  
-
-
-bool BoardLayout::blockedLeftOrRight(short z, short y, short x) {
-     return( (getBoardData(z,y,x-1) || getBoardData(z,y+1,x-1)) &&
-             (getBoardData(z,y,x+2) || getBoardData(z,y+1,x+2)) );
 }
 
-void BoardLayout::deleteTile(POSITION &p) {
+void BoardLayout::deleteTile(POSITION &p)
+{
     if ( p.e <m_depth && getBoardData(p.e,p.y,p.x) == '1') {
         setBoardData(p.e,p.y,p.x,0);
-	setBoardData(p.e,p.y,p.x+1,0);
-	setBoardData(p.e,p.y+1,p.x,0);
+        setBoardData(p.e,p.y,p.x+1,0);
+        setBoardData(p.e,p.y+1,p.x,0);
         setBoardData(p.e,p.y+1,p.x+1,0);
         maxTileNum--;
     }
-} 
+}
 
-bool BoardLayout::anyFilled(POSITION &p) {
+bool BoardLayout::anyFilled(POSITION &p) const
+{
     return(getBoardData(p.e, p.y, p.x) != 0 ||
            getBoardData(p.e, p.y, p.x+1) != 0 ||
            getBoardData(p.e, p.y+1, p.x) != 0 ||
            getBoardData(p.e, p.y+1, p.x+1) != 0);
 }
-bool BoardLayout::allFilled(POSITION &p) {
+
+bool BoardLayout::allFilled(POSITION &p) const
+{
     return(getBoardData(p.e, p.y, p.x) != 0 &&
            getBoardData(p.e, p.y, p.x+1) != 0 &&
            getBoardData(p.e, p.y+1, p.x) != 0 &&
            getBoardData(p.e, p.y+1, p.x+1) != 0);
 }
-void BoardLayout::insertTile(POSITION &p) {
+
+void BoardLayout::insertTile(POSITION &p)
+{
     setBoardData(p.e,p.y,p.x,'1');
     setBoardData(p.e,p.y,p.x+1,'2');
     setBoardData(p.e,p.y+1,p.x+1,'3');
     setBoardData(p.e,p.y+1,p.x,'4');
 }
 
-UCHAR BoardLayout::getBoardData(short z, short y, short x) {
+UCHAR BoardLayout::getBoardData(short z, short y, short x) const
+{
     return board.at((z*m_width*m_height)+(y*m_width)+x);
 }
 
-void BoardLayout::setBoardData(short z, short y, short x, UCHAR value) {
+void BoardLayout::setBoardData(short z, short y, short x, UCHAR value)
+{
     board[(z*m_width*m_height)+(y*m_width)+x] = value;
 }
-
-
-
-
-
-
-
-

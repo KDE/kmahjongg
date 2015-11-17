@@ -3,38 +3,31 @@
  * Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
  * Copyright (C) 2006-2007 Mauricio Piacentini   <mauricio@tabuleiro.com>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ * Kmahjongg is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
+ * You should have received a copy of the GNU General Public License along with this program; if
+ * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA. */
 
 #ifndef _KMAHJONGG_H
 #define _KMAHJONGG_H
 
-
 #include <kxmlguiwindow.h>
 
-#include "KmTypes.h"
-#include "kmahjonggtileset.h"
-#include "kmahjonggbackground.h"
-#include "BoardLayout.h"
-#include "boardwidget.h"
-
-
-class QAction;
 class KToggleAction;
 class QLabel;
 class KGameClock;
 class Editor;
+class GameView;
+class GameScene;
+class GameData;
+class KMahjonggLayout;
 
 /**
  * @short  Class Description
@@ -63,6 +56,10 @@ public slots:
     void startNewGame(int num = -1);
 
     /**
+     * Load the settings... */
+    void loadSettings();
+
+    /**
      * Slot Description
      *
      * @param msg
@@ -75,13 +72,7 @@ public slots:
      * @param iMaximum
      * @param iCurrent
      * @param iLeft */
-    void showTileNumber(int iMaximum, int iCurrent, int iLeft);
-
-    /**
-     * Slot Description
-     *
-     * @param bActive */
-    void demoModeChanged(bool bActive);
+    void showItemNumber(int iMaximum, int iCurrent, int iLeft);
 
     /**
      * Slot Description
@@ -91,22 +82,8 @@ public slots:
     void gameOver(unsigned short removed, unsigned short cheats);
 
     /**
-     * Load BoardLayout from file
-     *
-     * @param file */
-//     void loadBoardLayout(const QString &file);
-
-    /**
-     * Slot Description */
-    void setDisplayedWidth();
-
-    /**
-     * Slot Description */
-    void newGame();
-
-    /**
-     * Slot Description */
-    void timerReset();
+     * Connected to GameView::demoOrMoveListAnimationOver(bool) signal. */
+    void demoOrMoveListAnimationOver(bool bDemoGameLost);
 
 protected:
     /**
@@ -121,6 +98,10 @@ protected:
      * Method Override */
     void changeEvent(QEvent *event);
 
+    /**
+     * Method Override. */
+    void closeEvent(QCloseEvent *event);
+
 private slots:
     void showSettings();
     void startNewNumeric();
@@ -134,13 +115,24 @@ private slots:
     void displayTime(const QString& timestring);
     void showHighscores();
     void slotBoardEditor();
+    void noMovesAvailable();
 
 private:
-    unsigned long gameElapsedTime;
-    bool bDemoModeActive;
-    bool mFinished;
+    enum GameState { Gameplay, Demo, Paused, Finished };
+    GameState m_gameState;
 
-    BoardWidget *bw;
+    void updateState(GameState state);
+    void updateUndoAndRedoStates();
+    void loadLayout();
+    void saveSettings();
+
+    bool m_bLastRandomSetting;
+
+    GameView *m_pGameView;
+    GameData *m_pGameData;
+    GameScene *m_pGameScene;
+
+    KMahjonggLayout *m_pBoardLayout;
 
     Editor *boardEditor;
 
@@ -156,6 +148,9 @@ private:
 
     KToggleAction *pauseAction;
     KToggleAction *demoAction;
+
+    static const QString gameMagic;
+    static const int gameDataVersion;
 };
 
 

@@ -16,12 +16,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
 #include "Editor.h"
+#include "FrameImage.h"
 #include "prefs.h"
 
 #include <QLabel>
-#include <qevent.h>
-#include <qpainter.h>
-#include <QHBoxLayout>
+#include <QResizeEvent>
 #include <QGridLayout>
 #include <QFileInfo>
 #include <QFileDialog>
@@ -36,12 +35,12 @@
 
 Editor::Editor(QWidget *parent)
     : QDialog( parent ),
+    mode(insert),
+    numTiles(0),
+    clean(true),
     tiles()
 {
     setModal(true);
-    clean = true;
-    numTiles = 0;
-    mode = insert;
 
     QWidget *mainWidget = new QWidget(this);
 
@@ -82,42 +81,15 @@ Editor::~Editor()
 {
 }
 
-void Editor::setTileset(const QString tileset)
-{
-    // Exit if the tileset is already set.
-    if (tileset == mTileset) {
-        return;
-    }
-
-    // Try to load the new tileset.
-    if (!tiles.loadTileset(tileset)) {
-        // Try to load the old one.
-        if (!tiles.loadTileset(mTileset)) {
-            tiles.loadDefault();
-        }
-    } else {
-        // If loading the new tileset was ok, set the new tileset name.
-        mTileset = tileset;
-    }
-
-    // Must be called to load the graphics and its informations.
-    tiles.loadGraphics();
-
-    updateTileSize(size());
-}
-
-const QString Editor::getTileset() const
-{
-    return mTileset;
-}
-
 void Editor::updateTileSize(const QSize size)
 {
-    QSize tileSize = tiles.preferredTileSize(size, theBoard.m_width / 2, theBoard.m_height / 2);
-    tiles.reloadTileset(tileSize);
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
+    const QSize tileSize = tiles.preferredTileSize(size, width / 2, height / 2);
 
-    borderLeft = (drawFrame->size().width() - (theBoard.m_width * tiles.qWidth())) / 2;
-    borderTop = (drawFrame->size().height() - (theBoard.m_height * tiles.qHeight())) / 2;
+    tiles.reloadTileset(tileSize);
+    borderLeft = (drawFrame->size().width() - (width * tiles.qWidth())) / 2;
+    borderTop = (drawFrame->size().height() - (height * tiles.qHeight())) / 2;
 }
 
 void Editor::resizeEvent(QResizeEvent *event)
@@ -272,7 +244,7 @@ void Editor::setupToolbar()
     setMinimumWidth(topToolbar->width());
 }
 
-void Editor::statusChanged()
+void Editor::statusChanged() const
 {
     bool canSave = ((numTiles != 0) && ((numTiles & 1) == 0));
     theLabel->setText(statusText());
@@ -314,10 +286,8 @@ void Editor::slotModeChanged(QAction *act)
     }
 }
 
-QString Editor::statusText()
+QString Editor::statusText() const
 {
-    QString buf;
-
     int x = currPos.x;
     int y = currPos.y;
     int z = currPos.e;
@@ -328,13 +298,11 @@ QString Editor::statusText()
         z = z + 1;
     }
 
-    if (x >= theBoard.m_width || x < 0 || y >= theBoard.m_height || y < 0) {
+    if (x >= theBoard.getWidth() || x < 0 || y >= theBoard.getHeight() || y < 0) {
         x = y = z = 0;
     }
 
-    buf = i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
-
-    return buf;
+    return QString(i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z));
 }
 
 
@@ -344,11 +312,11 @@ void Editor::loadBoard()
         return;
     }
 
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Open Board Layout"), QUrl(),
+    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Open Board Layout"), QUrl(),
                                            i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (url.isEmpty()) {
-            return;
+        return;
     }
 
     theBoard.loadBoardLayout(url.path());
@@ -382,7 +350,7 @@ bool Editor::saveBoard()
     }
 
     // get a save file name
-    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Board Layout"), QUrl(),
+    const QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Board Layout"), QUrl(),
                                            i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (url.isEmpty()) {
@@ -395,12 +363,12 @@ bool Editor::saveBoard()
         return false;
     }
 
-    QFileInfo f(url.path());
+    const QFileInfo f(url.path());
     if (f.exists()) {
         // if it already exists, querie the user for replacement
-        int res = KMessageBox::warningContinueCancel(this, i18n("A file with that name already exis"
-            "ts. Do you wish to overwrite it?"), i18n("Save Board Layout" ),
-            KStandardGuiItem::save());
+        int res = KMessageBox::warningContinueCancel(this,
+                i18n("A file with that name already exists. Do you wish to overwrite it?"),
+                i18n("Save Board Layout" ), KStandardGuiItem::save());
 
         if (res != KMessageBox::Continue) {
             return false;
@@ -427,9 +395,9 @@ bool Editor::testSave()
         return true;
     }
 
-    int res;
-    res = KMessageBox::warningYesNoCancel(this, i18n("The board has been modified. Would you like t"
-        "o save the changes?"), QString(), KStandardGuiItem::save(),KStandardGuiItem::dontSave());
+    const int res = KMessageBox::warningYesNoCancel(this,
+            i18n("The board has been modified. Would you like to save the changes?"),
+            QString(), KStandardGuiItem::save(),KStandardGuiItem::dontSave());
 
     if (res == KMessageBox::Yes) {
         // yes to save
@@ -454,7 +422,7 @@ void Editor::paintEvent(QPaintEvent*)
 
     // first we layer on a background grid
     QPixmap buff;
-    QPixmap *dest=drawFrame->getPreviewPixmap();
+    QPixmap *dest = drawFrame->getPreviewPixmap();
     buff = QPixmap(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
@@ -465,25 +433,24 @@ void Editor::paintEvent(QPaintEvent*)
     drawFrame->update();
 }
 
-void Editor::drawBackground(QPixmap *pixmap)
+void Editor::drawBackground(QPixmap *pixmap) const
 {
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
     QPainter p(pixmap);
 
     // blast in a white background
     p.fillRect(0, 0, pixmap->width(), pixmap->height(), Qt::white);
 
     // now put in a grid of tile quater width squares
-    int sy = tiles.qHeight();
-    int sx = tiles.qWidth();
-
-    for (int y = 0; y <= theBoard.m_height; y++) {
+    for (int y = 0; y <= height; y++) {
         int nextY = borderTop + (y * tiles.qHeight());
-        p.drawLine(borderLeft, nextY, borderLeft + (theBoard.m_width * tiles.qWidth()), nextY);
+        p.drawLine(borderLeft, nextY, borderLeft + (width * tiles.qWidth()), nextY);
     }
 
-    for (int x = 0; x <= theBoard.m_width; x++) {
+    for (int x = 0; x <= width; x++) {
         int nextX = borderLeft + (x * tiles.qWidth());
-        p.drawLine(nextX, borderTop, nextX, borderTop + (theBoard.m_height * tiles.qHeight()));
+        p.drawLine(nextX, borderTop, nextX, borderTop + (height * tiles.qHeight()));
     }
 }
 
@@ -491,8 +458,11 @@ void Editor::drawTiles(QPixmap *dest)
 {
     QPainter p(dest);
 
-    int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
-    int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
+    const int width = theBoard.getWidth();
+    const int height = theBoard.getHeight();
+    const int depth = theBoard.getDepth();
+    const int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
+    const int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
     short tile = 0;
 
     int xOffset = -shadowX;
@@ -501,11 +471,11 @@ void Editor::drawTiles(QPixmap *dest)
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z = 0; z < theBoard.m_depth; z++) {
+    for (int z = 0; z < depth; z++) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < theBoard.m_height; y++) {
+        for (int y = 0; y < height; y++) {
             // drawing right to left to prevent border overwrite
-            for (int x = theBoard.m_width - 1; x >= 0; x--) {
+            for (int x = width - 1; x >= 0; x--) {
                 int sx = x * tiles.qWidth() + xOffset + borderLeft;
                 int sy = y * tiles.qHeight() + yOffset + borderTop;
 
@@ -514,12 +484,12 @@ void Editor::drawTiles(QPixmap *dest)
                 }
 
                 QPixmap t;
-                tile = (z * theBoard.m_depth) + (y * theBoard.m_height) + (x * theBoard.m_width);
-//                 if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
-//                     t = tiles.selectedPixmaps(44));
-//                 } else {
+                tile = (z * depth) + (y * height) + (x * width);
+                //if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
+                //    t = tiles.selectedPixmaps(44));
+                //} else {
                 t = tiles.unselectedTile(0);
-//                 }
+                //}
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:
@@ -528,18 +498,19 @@ void Editor::drawTiles(QPixmap *dest)
                 // we simply split the tile draw so the top half is drawn
                 // minus border
                 if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
-//                     p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
-//                         t.width() - tiles.levelOffsetX(), t.height() / 2);
-// 
-//                     p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
-//                         t.height() / 2);
+                //    p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
+                //            t.width() - tiles.levelOffsetX(), t.height() / 2);
+
+                //    p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
+                //            t.height() / 2);
 
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
 
-                    p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t, t.width() - tiles.qWidth(), t.height() - tiles.qHeight() - tiles.levelOffsetX() - shadowY,
-                        tiles.qWidth(), tiles.qHeight() + tiles.levelOffsetX());
+                    p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t,
+                            t.width() - tiles.qWidth(),
+                            t.height() - tiles.qHeight() - tiles.levelOffsetX() - shadowY,
+                            tiles.qWidth(), tiles.qHeight() + tiles.levelOffsetX());
                 } else {
-
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
 
@@ -553,7 +524,7 @@ void Editor::drawTiles(QPixmap *dest)
     }
 }
 
-void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickPos, bool align)
+void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickPos, bool align) const
 {
     // convert mouse position on screen to a tile z y x coord
     // different to the one in kmahjongg.cpp since if we hit ground
@@ -565,7 +536,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
     MouseClickPos.e = 100;
 
     // iterate over z coordinate from top to bottom
-    for (z = theBoard.m_depth - 1; z >= 0; --z) {
+    for (z = theBoard.getDepth() - 1; z >= 0; --z) {
         // calculate mouse coordiantes --> position in game board
         // the factor -theTiles.width()/2 must keep track with the
         // offset for blitting in the print zvent (FIX ME)
@@ -573,7 +544,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
         y = ((point.y() - borderTop) + z * tiles.levelOffsetX()) / tiles.qHeight();
 
         // skip when position is illegal
-        if (x < 0 || x >= theBoard.m_width || y < 0 || y >= theBoard.m_height) {
+        if (x < 0 || x >= theBoard.getWidth() || y < 0 || y >= theBoard.getHeight()) {
             continue;
         }
 
@@ -637,7 +608,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 
     switch (mode) {
     case remove:
-        if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.m_depth && theBoard.isTileAt(mPos)) {
+        if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.getDepth() && theBoard.isTileAt(mPos)) {
             theBoard.deleteTile(mPos);
             numTiles--;
             statusChanged();
@@ -673,9 +644,9 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
 void Editor::drawCursor(POSITION &p, bool visible)
 {
     int x = borderLeft + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
-    int y = borderTop - ((p.e + 1) * tiles.levelOffsetY()) + (p.y * tiles.qHeight());
-    int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
-    int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
+    const int y = borderTop - ((p.e + 1) * tiles.levelOffsetY()) + (p.y * tiles.qHeight());
+    const int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
+    const int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
 
     if (p.e == 100 || !visible) {
         x = -1;
@@ -724,21 +695,21 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
     }
 }
 
-bool Editor::canInsert(POSITION &p)
+bool Editor::canInsert(POSITION &p) const
 {
     // can we inser a tile here. We can iff
     // there are tiles in all positions below us (or we are a ground level)
     // there are no tiles intersecting with us on this level
 
-    if (p.e >= theBoard.m_depth) {
+    if (p.e >= theBoard.getDepth()) {
         return false;
     }
 
-    if (p.y > theBoard.m_height - 2) {
+    if (p.y > theBoard.getHeight() - 2) {
         return false;
     }
 
-    if (p.x > theBoard.m_width - 2) {
+    if (p.x > theBoard.getWidth() - 2) {
         return false;
     }
 
@@ -751,9 +722,7 @@ bool Editor::canInsert(POSITION &p)
         }
     }
 
-    int any = theBoard.anyFilled(p);
-
-    return (!any);
+    return !theBoard.anyFilled(p);
 }
 
 void Editor::closeEvent(QCloseEvent *e)
@@ -777,7 +746,28 @@ void Editor::closeEvent(QCloseEvent *e)
 
 void Editor::setTilesetFromSettings()
 {
-    setTileset(Prefs::tileSet());
+    const QString tileset(Prefs::tileSet());
+
+    // Exit if the tileset is already set.
+    if (tileset == mTileset) {
+        return;
+    }
+
+    // Try to load the new tileset.
+    if (!tiles.loadTileset(tileset)) {
+        // Try to load the old one.
+        if (!tiles.loadTileset(mTileset)) {
+            tiles.loadDefault();
+        }
+    } else {
+        // If loading the new tileset was ok, set the new tileset name.
+        mTileset = tileset;
+    }
+
+    // Must be called to load the graphics and its informations.
+    tiles.loadGraphics();
+
+    updateTileSize(size());
 }
 
 

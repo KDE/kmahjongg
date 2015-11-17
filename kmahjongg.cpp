@@ -3,19 +3,17 @@
  * Copyright (C) 1997 Mathias Mueller   <in5y158@public.uni-hamburg.de>
  * Copyright (C) 2006-2007 Mauricio Piacentini   <mauricio@tabuleiro.com>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ * Kmahjongg is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
+ * You should have received a copy of the GNU General Public License along with this program; if
+ * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA. */
 
 #include "kmahjongg.h"
 
@@ -23,6 +21,10 @@
 #include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
 #include "Editor.h"
+#include "GameView.h"
+#include "GameScene.h"
+#include "GameData.h"
+#include "kmahjongglayout.h"
 
 #include <kmahjonggconfigdialog.h>
 #include <QFileDialog>
@@ -34,33 +36,33 @@
 #include <QKeySequence>
 #include <QShortcut>
 #include <QStatusBar>
+#include <QWindowStateChangeEvent>
+
 #include <KAboutData>
 #include <QAction>
 #include <KConfigDialog>
 #include <QInputDialog>
 #include <QMenuBar>
 #include <KMessageBox>
+#include <KActionCollection>
 #include <KStandardGameAction>
 #include <KStandardAction>
 #include <QIcon>
 #include <KScoreDialog>
 #include <KGameClock>
+#include <KStandardDirs>
+#include <KStatusBar>
+#include <KToggleAction>
+#include <KIO/NetAccess>
+#include <KGlobal>
 
 #include <kio/netaccess.h>
 #include <KLocalizedString>
 #include <ktoggleaction.h>
 #include <kactioncollection.h>
 
-
-#define ID_STATUS_TILENUMBER 1
-#define ID_STATUS_MESSAGE    2
-#define ID_STATUS_GAME       3
-
-
-static const char *gameMagic = "kmahjongg-gamedata";
-static int gameDataVersion = 1;
-
-int is_paused = 0;
+const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
+const int KMahjongg::gameDataVersion = 1;
 
 /**
  * This class implements
@@ -81,7 +83,11 @@ public:
 };
 
 KMahjongg::KMahjongg(QWidget *parent)
-    : KXmlGuiWindow(parent)
+    : KXmlGuiWindow(parent),
+    m_gameState(Gameplay),
+    m_pGameView(NULL),
+    m_pGameData(NULL),
+    m_pBoardLayout(new KMahjonggLayout())
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3 * 1024);
@@ -90,44 +96,61 @@ KMahjongg::KMahjongg(QWidget *parent)
     setMinimumSize(320, 320);
 
     // init board widget
-    bw = new BoardWidget(this);
-    setCentralWidget(bw);
+    m_pGameScene = new GameScene();
+
+    // load the layout
+    loadLayout();
+
+    // init game data
+    m_pGameData = new GameData(m_pBoardLayout->board());
+
+    // init view and add to window
+    m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
+    setCentralWidget(m_pGameView);
 
     // Initialize boardEditor
     boardEditor = new Editor();
     boardEditor->setModal(false);
-
-    // Set the tileset setted in the the settings.
-    boardEditor->setTilesetFromSettings();
 
     setupStatusBar();
     setupKAction();
 
     gameTimer = new KGameClock(this);
 
-    connect(gameTimer, &KGameClock::timeChanged, this, &KMahjongg::displayTime);
+    connect(gameTimer, SIGNAL(timeChanged(QString)), this, SLOT(displayTime(QString)));
+    connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
+                SLOT(showStatusText(QString, long)));
+    connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
+                SLOT(showItemNumber(int, int, int)));
+    connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
+                SLOT(gameOver(unsigned short, unsigned short)));
+    connect(m_pGameView, SIGNAL(demoOrMoveListAnimationOver(bool)),
+            this, SLOT(demoOrMoveListAnimationOver(bool)));
+    connect(m_pGameView, SIGNAL(noMovesAvailable()), this, SLOT(noMovesAvailable()));
+    connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
+    connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
 
-    mFinished = false;
-    bDemoModeActive = false;
+    m_bLastRandomSetting = Prefs::randomLayout();
 
-    connect(bw, &BoardWidget::statusTextChanged, this, &KMahjongg::showStatusText);
-    connect(bw, &BoardWidget::tileNumberChanged, this, &KMahjongg::showTileNumber);
-    connect(bw, &BoardWidget::demoModeChanged, this, &KMahjongg::demoModeChanged);
-    connect(bw, &BoardWidget::gameOver, this, &KMahjongg::gameOver);
-    connect(bw, &BoardWidget::gameCalculated, this, &KMahjongg::timerReset);
+    loadSettings();
+
+    boardEditor->setTilesetFromSettings();
 
     startNewGame();
 }
 
 KMahjongg::~KMahjongg()
 {
-    delete bw;
+    delete m_pGameView;
+    delete m_pGameScene;
+    delete m_pBoardLayout;
     delete boardEditor;
+    delete m_pGameData;
 }
 
 void KMahjongg::setupKAction()
 {
-    KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    KStandardGameAction::gameNew(this, SLOT(startNewGame()), actionCollection());
     KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
     KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
@@ -137,25 +160,25 @@ void KMahjongg::setupKAction()
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
-    QAction *action = KStandardGameAction::hint(bw, SLOT(helpMove()), this);
+    QAction *action = KStandardGameAction::hint(m_pGameView, SLOT(helpMove()), this);
     actionCollection()->addAction(action->objectName(), action);
 
     QAction *shuffle = actionCollection()->addAction(QStringLiteral("move_shuffle"));
     shuffle->setText(i18n("Shu&ffle"));
     shuffle->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
-    connect(shuffle, &QAction::triggered, bw, &BoardWidget::shuffle);
+    connect(shuffle, &QAction::triggered, m_pGameView, &GameView::shuffle);
 
     QAction *angleccw = actionCollection()->addAction(QStringLiteral("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-left")));
     angleccw->setShortcut( Qt::Key_F );
-    connect(angleccw, &QAction::triggered, bw, &BoardWidget::angleSwitchCCW);
+    connect(angleccw, &QAction::triggered, m_pGameView, &GameView::angleSwitchCCW);
 
     QAction *anglecw = actionCollection()->addAction(QStringLiteral("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-right")));
     anglecw->setShortcut( Qt::Key_G );
-    connect(anglecw, &QAction::triggered, bw, &BoardWidget::angleSwitchCW);
+    connect(anglecw, &QAction::triggered, m_pGameView, &GameView::angleSwitchCW);
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
@@ -173,7 +196,6 @@ void KMahjongg::setupKAction()
 
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
-
     setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
 }
 
@@ -209,12 +231,6 @@ void KMahjongg::displayTime(const QString& timestring)
     gameTimerLabel->setText(i18n("Time: ") + timestring);
 }
 
-void KMahjongg::setDisplayedWidth()
-{
-    bw->setDisplayedWidth();
-    bw->drawBoard();
-}
-
 void KMahjongg::startNewNumeric()
 {
     bool ok;
@@ -227,17 +243,14 @@ void KMahjongg::startNewNumeric()
 
 void KMahjongg::undo()
 {
-    bw->Game->allow_redo += bw->undoMove();
-    demoModeChanged(false);
+    m_pGameView->undo();
+    updateUndoAndRedoStates();
 }
 
 void KMahjongg::redo()
 {
-    if (bw->Game->allow_redo > 0) {
-        bw->Game->allow_redo--;
-        bw->redoMove();
-        demoModeChanged(false);
-    }
+    m_pGameView->redo();
+    updateUndoAndRedoStates();
 }
 
 void KMahjongg::showSettings()
@@ -258,43 +271,112 @@ void KMahjongg::showSettings()
 #pragma message("PORT TO FRAMEWORKS")
     //dialog->setHelp(QString(),"kmahjongg");
 
-    connect(dialog, &KMahjonggConfigDialog::settingsChanged, bw, &BoardWidget::loadSettings);
-    connect(dialog, &KMahjonggConfigDialog::settingsChanged, boardEditor, &Editor::setTilesetFromSettings);
-    connect(dialog, &KMahjonggConfigDialog::settingsChanged, this, &KMahjongg::setDisplayedWidth);
+    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(loadSettings()));
+    connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
 
     dialog->show();
 }
 
-void KMahjongg::demoMode()
+void KMahjongg::loadLayout()
 {
-    if (bDemoModeActive) {
-        bw->stopDemoMode();
-    } else {
-        // we assume demo mode removes tiles so we can
-        // disable redo here.
-        bw->Game->allow_redo = false;
-        bw->startDemoMode();
+    if (!m_pBoardLayout->load(Prefs::layout())) {
+        qDebug() << "Error loading the layout. Try to load the default layout.";
+
+        m_pBoardLayout->loadDefault();
+    }
+}
+
+void KMahjongg::saveSettings()
+{
+    Prefs::setLayout(m_pBoardLayout->path());
+    Prefs::setTileSet(m_pGameView->getTilesetPath());
+    Prefs::setBackground(m_pGameView->getBackgroundPath());
+    Prefs::setAngle(m_pGameView->getAngle());
+    Prefs::self()->writeConfig();
+}
+
+void KMahjongg::loadSettings()
+{
+    // Set the blink-matching-tiles option.
+    m_pGameView->setMatch(Prefs::showMatchingTiles());
+
+    // Load the tileset.
+    if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
+        qDebug() << "An error occurred when loading the tileset " << Prefs::tileSet() <<
+                    " KMahjongg will continue with the default tileset.";
     }
 
+    // Load the background
+    if (!m_pGameView->setBackgroundPath(Prefs::background())) {
+        qDebug() << "An error occurred when loading the background " << Prefs::background() <<
+                    " KMahjongg will continue with the default background.";
+    }
+
+    // Maybe load a new layout and start a new game if the layout or random mode has changed.
+    if (m_pBoardLayout->path() != Prefs::layout() || m_bLastRandomSetting != Prefs::randomLayout()) {
+
+        // The boardlayout path will likely not be the same as the preference setting if
+        // random layouts are set. If they are and were last time we don't want to load
+        // a new layout or start a new game when the user may have just changed the
+        // tileset, background or other settings.
+        if (m_bLastRandomSetting && Prefs::randomLayout()) {
+
+            // Do nothing, just continue on and save the settings.
+
+        } else {
+
+            // The user has changed the layout, or the random setting.
+
+            // If random layouts are set a new layout will be loaded when we call
+            // startNewGame, so no need to do so here.
+            if (!Prefs::randomLayout()) {
+                loadLayout();
+
+                delete m_pGameData;
+                m_pGameData = new GameData(m_pBoardLayout->board());
+                m_pGameView->setGameData(m_pGameData);
+            }
+
+            // Track the last random setting.
+            m_bLastRandomSetting = Prefs::randomLayout();
+
+            startNewGame();
+        }
+    }
+
+    saveSettings();
+}
+
+void KMahjongg::demoMode()
+{
+    if (demoAction->isChecked()) {
+        loadSettings();		// In case loadGame() has changed the settings.
+        updateState(Demo);
+        gameTimer->setTime(0);
+        gameTimer->pause();
+        m_pGameView->startDemo();
+    } else {
+        startNewGame();
+    }
 }
 
 void KMahjongg::pause()
 {
-    if (is_paused) {
-        gameTimer->resume();
-    } else {
+    if (pauseAction->isChecked()) {
         gameTimer->pause();
+        updateState(Paused);
+        m_pGameView->pause(true);
+    } else {
+        gameTimer->resume();
+        updateState(Gameplay);
+        m_pGameView->pause(false);
     }
-
-    is_paused = !is_paused;
-    demoModeChanged(false);
-    bw->pause();
 }
 
 void KMahjongg::showHighscores()
 {
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(bw->getLayoutName());
+    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     ksdialog.exec();
 }
 
@@ -306,35 +388,69 @@ void KMahjongg::slotBoardEditor()
     boardEditor->setGeometry(Prefs::editorGeometry());
 }
 
-void KMahjongg::newGame()
+void KMahjongg::noMovesAvailable()
 {
-    startNewGame();
+    int answer = KMessageBox::questionYesNoCancel(
+                this,
+                i18n("Game Over: You have no moves left."),
+                i18n("Game Over"),
+                KGuiItem(i18n("New Game"), QIcon(
+                             actionCollection()->action(KStandardGameAction::name(
+                             KStandardGameAction::New))->icon())),
+                KGuiItem(i18n("Restart"), QIcon(
+                             actionCollection()->action(KStandardGameAction::name(
+                             KStandardGameAction::Restart))->icon())));
+    if (answer == KMessageBox::Yes) {
+        startNewGame();
+    } else if (answer == KMessageBox::No) {
+        restartGame();
+    }
 }
 
 void KMahjongg::startNewGame(int item)
 {
-    if (!bDemoModeActive) {
-        bw->calculateNewGame(item);
+    loadSettings();		// In case loadGame() has changed the settings.
 
-        // initialise button states
-        bw->Game->allow_redo = bw->Game->allow_undo = 0;
+    // Only load new layout in random mode if we are not given a game number.
+    // Use same layout if restarting game or starting a numbered game.
+    if (Prefs::randomLayout() && item == -1) {
+        QStringList availableLayouts = KGlobal::dirs()->findAllResources(
+                    "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
+        QString layout = availableLayouts.at(qrand() % availableLayouts.size());
 
-        timerReset();
+        if (m_pBoardLayout->path() != layout) {
+            // Try to load the random layout.
+            if (!m_pBoardLayout->load(layout)) {
+                // Or load the default.
+                m_pBoardLayout->loadDefault();
+            }
 
-        // update the initial enabled/disabled state for
-        // the menu and the tool bar.
-        mFinished = false;
-        demoModeChanged(false);
+            delete m_pGameData;
+            m_pGameData = new GameData(m_pBoardLayout->board());
+            m_pGameView->setGameData(m_pGameData);
+        }
+    }
+
+    m_pGameView->createNewGame(item);
+
+    gameTimer->restart();
+
+    if (m_pGameView->gameGenerated()) {
+        updateState(Gameplay);
+    } else {
+        updateState(Finished);
+        gameTimer->pause();
+        showItemNumber(0, 0, 0);
     }
 }
 
-void KMahjongg::timerReset()
+void KMahjongg::demoOrMoveListAnimationOver(bool bDemoGameLost)
 {
-    // initialise the scoring system
-    gameElapsedTime = 0;
+    if (bDemoGameLost) {
+        KMessageBox::information(this, i18n("Your computer has lost the game."));
+    }
 
-    // start the game timer
-    gameTimer->restart();
+    startNewGame();
 }
 
 void KMahjongg::changeEvent(QEvent *event)
@@ -343,40 +459,46 @@ void KMahjongg::changeEvent(QEvent *event)
         const QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
         const Qt::WindowStates oldMinimizedState  = stateEvent->oldState() & Qt::WindowMinimized;
 
-        if ((isMinimized() && oldMinimizedState != Qt::WindowMinimized)
-            || (!isMinimized() && oldMinimizedState == Qt::WindowMinimized)) {
-            pause();
+	// N.B. KMahjongg::pause() is not used here, because it is irrelevant to
+	// hide the tiles and change the Pause button's state when minimizing.
+        if (isMinimized() && oldMinimizedState != Qt::WindowMinimized &&
+            m_gameState == Gameplay) {
+            // If playing a game and not paused, stop the clock during minimise.
+            gameTimer->pause();
+        }
+        else if (!isMinimized() && oldMinimizedState == Qt::WindowMinimized &&
+                 m_gameState == Gameplay) {
+            // If playing a game, start the clock when restoring the window.
+            gameTimer->resume();
         }
     }
 }
 
-void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
+void KMahjongg::closeEvent(QCloseEvent *event)
 {
-    int time;
-    int score;
+    saveSettings();
 
+    event->accept();
+}
+
+void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
+{
     gameTimer->pause();
-    long gameNum = bw->getGameNum();
+
+    updateState(Finished);
 
     KMessageBox::information(this, i18n("You have won!"));
 
-    mFinished = true;
-    demoModeChanged(false);
-
-    int elapsed = gameTimer->seconds();
-
-    time = score = 0;
-
     // get the time in milli secs
     // subtract from 20 minutes to get bonus. if longer than 20 then ignore
-    time = (60 * 20) - gameTimer->seconds();
+    int time = (60 * 20) - gameTimer->seconds();
     if (time < 0) {
         time =0;
     }
     // conv back to  secs (max bonus = 60*20 = 1200
 
     // points per removed tile bonus (for deragon max = 144*10 = 1440
-    score += (numRemoved * 20);
+    int score = (numRemoved * 20);
     // time bonus one point per second under one hour
     score += time;
     // points per cheat penalty (max penalty = 1440 for dragon)
@@ -386,9 +508,11 @@ void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
     }
 
     //TODO: add gameNum as a Custom KScoreDialog field?
-//     theHighScores->checkHighScore(score, elapsed, gameNum, bw->getBoardName());
+    //int elapsed = gameTimer->seconds();
+    //long gameNum = m_pGameView->getGameNumber();
+    //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(bw->getLayoutName());
+    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
@@ -396,9 +520,7 @@ void KMahjongg::gameOver(unsigned short numRemoved,	unsigned short cheats)
         ksdialog.exec();
     }
 
-    bw->animateMoveList();
-
-    timerReset();
+    m_pGameView->startMoveListAnimation();
 }
 
 
@@ -409,65 +531,51 @@ void KMahjongg::showStatusText(const QString &msg, long board)
     gameNumLabel->setText(str);
 }
 
-void KMahjongg::showTileNumber(int iMaximum, int iCurrent, int iLeft)
+void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 {
-    // Hmm... seems iCurrent is the number of remaining tiles, not removed ...
-    //QString szBuffer = i18n("Removed: %1/%2").arg(iCurrent).arg(iMaximum);
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum-iCurrent, iMaximum,
-        iLeft);
+    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3",
+            iMaximum - iCurrent, iMaximum, iLeft);
     tilesLeftLabel->setText(szBuffer);
 
-    // Update here since undo allow is effected by demo mode
-    // removal. However we only change the enabled state of the
-    // items when not in demo mode
-    bw->Game->allow_undo = iMaximum != iCurrent;
-
-    // update undo menu item, if demomode is inactive
-    if (!bDemoModeActive && !is_paused && !mFinished) {
-        undoAction->setEnabled(bw->Game->allow_undo);
-    }
+    updateUndoAndRedoStates();
 }
 
-void KMahjongg::demoModeChanged(bool bActive)
+void KMahjongg::updateState(GameState state)
 {
-    bDemoModeActive = bActive;
-
-    pauseAction->setChecked(is_paused);
-    demoAction->setChecked(bActive || is_paused);
-
-    if (is_paused) {
-        stateChanged(QStringLiteral("paused"));
-    } else if (mFinished) {
-        stateChanged(QStringLiteral("finished"));
-    } else if (bActive) {
-        stateChanged(QStringLiteral("active"));
-    } else {
-        stateChanged(QStringLiteral("inactive"));
-        undoAction->setEnabled(bw->Game->allow_undo);
-        redoAction->setEnabled(bw->Game->allow_redo);
+    m_gameState = state;
+    // KXMLGUIClient::stateChanged() sets action-states def. by kmahjonggui.rc.
+    switch (state) {
+    case Demo:
+        stateChanged("demo_state");
+        break;
+    case Paused:
+        stateChanged("paused_state");
+        break;
+    case Finished:
+        stateChanged("finished_state");
+        break;
+    default:
+        stateChanged("gameplay_state");
+        updateUndoAndRedoStates();
+        break;
     }
+
+    demoAction->setChecked(state == Demo);
+    pauseAction->setChecked(state == Paused);
+}
+
+void KMahjongg::updateUndoAndRedoStates()
+{
+    undoAction->setEnabled(m_pGameView->checkUndoAllowed());
+    redoAction->setEnabled(m_pGameView->checkRedoAllowed());
 }
 
 void KMahjongg::restartGame()
 {
-    if (!bDemoModeActive) {
-        bw->calculateNewGame(bw->getGameNum());
-
-        // initialise button states
-        bw->Game->allow_redo = bw->Game->allow_undo = 0;
-
-        timerReset();
-
-        // update the initial enabled/disabled state for
-        // the menu and the tool bar.
-        mFinished = false;
-        demoModeChanged(false);
-
-        if (is_paused) {
-            pauseAction->setChecked(false);
-            is_paused = false;
-            bw->pause();
-        }
+    if (m_pGameView->gameGenerated()) {
+        m_pGameView->createNewGame(m_pGameView->getGameNumber());
+        gameTimer->restart();
+        updateState(Gameplay);
     }
 }
 
@@ -522,30 +630,29 @@ void KMahjongg::loadGame()
     QString theBackgroundName;
     QString theBoardLayoutName;
     in >> theTilesName;
-    bw->loadTileset(theTilesName);
+    m_pGameView->setTilesetPath(theTilesName);
     in >> theBackgroundName;
-    bw->loadBackground(theBackgroundName, false);
+    m_pGameView->setBackgroundPath(theBackgroundName);
     in >> theBoardLayoutName;
+    m_pBoardLayout->load(theBoardLayoutName);
 
     //GameTime
     uint seconds;
     in >> seconds;
     gameTimer->setTime(seconds);
 
-    delete bw->Game;
-    bw->loadBoardLayout(theBoardLayoutName);
-    bw->Game = new GameData(bw->theBoardLayout.board());
-    bw->Game->loadFromStream(in);
+    GameData *pGameDataOld = m_pGameData;
+    m_pGameData = new GameData(m_pBoardLayout->board());
+    m_pGameData->loadFromStream(in);
+    m_pGameView->setGameData(m_pGameData);
+
+    delete pGameDataOld;
 
     infile.close();
 
     KIO::NetAccess::removeTempFile(fname);
 
-    // refresh the board
-    bw->gameLoaded();
-
-    mFinished = false;
-    demoModeChanged(false);
+    updateState(Gameplay);
 }
 
 void KMahjongg::saveGame()
@@ -585,14 +692,15 @@ void KMahjongg::saveGame()
     out << (qint32) gameDataVersion;
     out.setVersion(QDataStream::Qt_4_0);
 
-    out << bw->theTiles.path();
-    out << bw->theBackground.path();
-    out << bw->theBoardLayout.path();
+    out << m_pGameView->getTilesetPath();
+    out << m_pGameView->getBackgroundPath();
+    out << m_pBoardLayout->path();
 
     //GameTime
     out << gameTimer->seconds();
+
     // Write the Game data
-    bw->Game->saveToStream(out);
+    m_pGameData->saveToStream(out);
 
     outfile.close();
     gameTimer->resume();

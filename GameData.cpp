@@ -17,16 +17,18 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
+#include "prefs.h"
 #include "GameData.h"
+#include "BoardLayout.h"
 
 #include <QDataStream>
 #include <QDebug>
 
 GameData::GameData(BoardLayout *boardlayout)
 {
-    m_width = boardlayout->m_width;
-    m_height = boardlayout->m_height;
-    m_depth = boardlayout->m_depth;
+    m_width = boardlayout->getWidth();
+    m_height = boardlayout->getHeight();
+    m_depth = boardlayout->getDepth();
     m_maxTiles = (m_width * m_height * m_depth) / 4;
 
     Highlight = QByteArray(m_width * m_height * m_depth, 0);
@@ -56,7 +58,7 @@ void GameData::putTile(short e, short y, short x, UCHAR f)
     setBoardData(e, y, x + 1, f);
 }
 
-bool GameData::tilePresent(int z, int y, int x)
+bool GameData::tilePresent(int z, int y, int x) const
 {
     if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
         || (z > m_depth - 1)) {
@@ -66,12 +68,7 @@ bool GameData::tilePresent(int z, int y, int x)
     return (BoardData(z, y, x) != 0 && MaskData(z, y, x) == '1');
 }
 
-bool GameData::partTile(int z, int y, int x)
-{
-    return (BoardData(z, y, x) != 0);
-}
-
-UCHAR GameData::MaskData(short z, short y, short x)
+UCHAR GameData::MaskData(short z, short y, short x) const
 {
     if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
         || (z > m_depth - 1)) {
@@ -81,7 +78,7 @@ UCHAR GameData::MaskData(short z, short y, short x)
     return Mask.at((z * m_width * m_height) + (y * m_width) + x);
 }
 
-UCHAR GameData::HighlightData(short z, short y, short x)
+UCHAR GameData::HighlightData(short z, short y, short x) const
 {
     if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
         || (z > m_depth - 1)) {
@@ -91,17 +88,7 @@ UCHAR GameData::HighlightData(short z, short y, short x)
     return Highlight.at((z * m_width * m_height) + (y * m_width) + x);
 }
 
-void GameData::setHighlightData(short z, short y, short x, UCHAR value)
-{
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
-        return;
-    }
-
-    Highlight[(z * m_width * m_height) + (y * m_width) + x] = value;
-}
-
-UCHAR GameData::BoardData(short z, short y, short x)
+UCHAR GameData::BoardData(short z, short y, short x) const
 {
     if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
         || (z > m_depth - 1)) {
@@ -230,7 +217,7 @@ void GameData::generatePositionDepends()
     }
 }
 
-int GameData::tileAt(int x, int y, int z)
+int GameData::tileAt(int x, int y, int z) const
 {
     // x, y, z are the coordinates of a *quarter* tile.  This returns the
     // index (in positions) of the tile at those coordinates or -1 if there
@@ -337,7 +324,7 @@ bool GameData::generateSolvableGame()
     return true;
 }
 
-bool GameData::onlyFreeInLine(int position)
+bool GameData::onlyFreeInLine(int position) const
 {
     // Determines whether it is ok to mark this position as "free" because
     // there are no other positions marked "free" in its apparent horizontal
@@ -363,12 +350,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].lhs_dep[0]) != -1) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].lhs_dep[1]) != -1 && i0 != i) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
     } while (lin > out);
@@ -386,12 +379,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].rhs_dep[0]) != -1) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].rhs_dep[1]) != -1 && i0 != i) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
     } while (rin > out);
@@ -568,16 +567,14 @@ bool GameData::generateStartPosition2()
     }
 
     // If solvable games should be generated,
-//     if (Prefs::solvableGames()) {
-
-    if (generateSolvableGame()) {
-        TileNum = MaxTileNum;
-        return true;
-    } else {
-        return false;
+    if (Prefs::solvableGames()) {
+        if (generateSolvableGame()) {
+            TileNum = MaxTileNum;
+            return true;
+        } else {
+            return false;
+        }
     }
-
-//     }
 
     // Initialise the faces to allocate. For the classic
     // dragon board there are 144 tiles. So we allocate and
@@ -720,7 +717,6 @@ void GameData::randomiseFaces()
         }
     }
 
-    tilesAllocated = numAlloced;
     tilesUsed = 0;
 }
 
@@ -759,12 +755,12 @@ bool isWind(UCHAR t)
     return (t >= TILE_WIND && t < TILE_WIND + 4);
 }
 
-bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2)
+bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2) const
 {
     // don't compare 'equal' positions
     if (memcmp(&Pos1, &Pos2, sizeof(POSITION))) {
-        UCHAR FA = Pos1.f;
-        UCHAR FB = Pos2.f;
+        UCHAR FA = BoardData(Pos1.e, Pos1.y, Pos1.x);
+        UCHAR FB = BoardData(Pos2.e, Pos2.y, Pos2.x);
 
         if ((FA == FB) || (isFlower(FA) && isFlower(FB)) || (isSeason(FA) && isSeason(FB))) {
             return true;
@@ -865,19 +861,6 @@ void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
         removedWind[a.f - TILE_WIND] -= 2;
 
         return;
-    }
-}
-
-void GameData::initialiseRemovedTiles()
-{
-    for (int pos = 0; pos < 9; pos++) {
-        removedCharacter[pos] = 0;
-        removedBamboo[pos] = 0;
-        removedRod[pos] = 0;
-        removedDragon[pos % 3] = 0;
-        removedFlower[pos % 4] = 0;
-        removedWind[pos % 4] = 0;
-        removedSeason[pos % 4] = 0;
     }
 }
 
@@ -1070,7 +1053,7 @@ bool GameData::loadFromStream(QDataStream &in)
     return true;
 }
 
-bool GameData::saveToStream(QDataStream &out)
+bool GameData::saveToStream(QDataStream &out) const
 {
     out << Board;
     out << Mask;

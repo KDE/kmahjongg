@@ -33,17 +33,21 @@ add_subdirectory( doc )
 
 ########### next target ###############
 
-set(kmahjongg_SRCS 
-   main.cpp 
-   kmahjongg.cpp 
-   boardwidget.cpp 
-   BoardLayout.cpp 
-   GameData.cpp 
-   kmahjongglayoutselector.cpp 
-   kmahjongglayout.cpp 
-   TileSprite.cpp
+set(kmahjongg_SRCS
+   main.cpp
+   kmahjongg.cpp
+   BoardLayout.cpp
+   GameData.cpp
+   kmahjongglayoutselector.cpp
+   kmahjongglayout.cpp
    Editor.cpp
-   FrameImage.cpp)
+   FrameImage.cpp
+   GameItem.cpp
+   GameView.cpp
+   GameScene.cpp
+   SelectionAnimation.cpp
+   DemoAnimation.cpp
+   MoveListAnimation.cpp)
 
 ki18n_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui )
 
