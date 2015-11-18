@@ -19,8 +19,7 @@
 
 #include "KmTypes.h"
 
-#define ANIMATION_SPEED 200
-
+static const int ANIMATION_SPEED = 200;
 
 // Forward declaration...
 class GameScene;
