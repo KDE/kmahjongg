@@ -15,9 +15,8 @@
 #include "DemoAnimation.h"
 #include "GameData.h"
 
+#include <QDebug>
 #include <QList>
-
-#include <KDebug>
 
 
 DemoAnimation::DemoAnimation(QObject * pParent)
@@ -63,7 +62,7 @@ void DemoAnimation::timeoutOccurred()
     case 0:
         // Test if we got a game data object.
         if (m_pGameData == NULL) {
-            kDebug() << "m_pGameData is null";
+            qDebug() << "m_pGameData is null";
 
             stop();
             return;

@@ -21,7 +21,6 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QList>
 
-#include <KDebug>
 #include <KRandom>
 
 

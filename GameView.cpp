@@ -24,10 +24,10 @@
 #include "kmahjonggbackground.h"
 #include "prefs.h"
 
+#include <QDebug>
 #include <QMouseEvent>
 #include <QResizeEvent>
 
-#include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
 #include <KRandom>
@@ -312,7 +312,7 @@ void GameView::removeItem(POSITION & stItemPos)
 
 void GameView::startDemo()
 {
-    kDebug() << "Starting demo mode";
+    qDebug() << "Starting demo mode";
 
     // Create a new game with the actual game number.
     createNewGame(m_lGameNumber);
@@ -328,7 +328,7 @@ void GameView::startDemo()
 
 void GameView::startMoveListAnimation()
 {
-    kDebug() << "Starting move list animation";
+    qDebug() << "Starting move list animation";
 
     // Stop any helping animation.
     checkHelpAnimationActive(true);
@@ -740,7 +740,7 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
 
 bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 {
-    kDebug() << "Set a new Background: " << rBackgroundPath;
+    qDebug() << "Set a new Background: " << rBackgroundPath;
 
     *m_pBackgroundPath = rBackgroundPath;
 
@@ -753,7 +753,7 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
         }
     }
 
-    kDebug() << "Loading the background failed. Try to load the default background.";
+    qDebug() << "Loading the background failed. Try to load the default background.";
 
     // Try default
     if (m_pBackground->loadDefault()) {
@@ -924,7 +924,7 @@ void GameView::setStatusText(QString const &rText)
 
 void GameView::updateBackground()
 {
-    kDebug() << "Update the background";
+    qDebug() << "Update the background";
 
     QBrush brush(m_pBackground->getBackground());
     setBackgroundBrush(brush);

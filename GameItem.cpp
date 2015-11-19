@@ -19,8 +19,6 @@
 #include <QPixmap>
 #include <QTimer>
 
-#include <KDebug>
-
 
 GameItem::GameItem(bool selected, QGraphicsObject *pItem)
     : QGraphicsObject(pItem),
