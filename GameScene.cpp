@@ -21,8 +21,6 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QList>
 
-#include <KRandom>
-
 
 GameScene::GameScene(QObject *pParent)
     : QGraphicsScene(pParent),
