@@ -152,7 +152,7 @@ void GameItem::fadeOut()
     }
 
     // keep fading
-    QTimer::singleShot(40, this, SLOT(fadeOut()));
+    QTimer::singleShot(40, this, &GameItem::fadeOut);
 }
 
 void GameItem::fadeIn()
@@ -169,7 +169,7 @@ void GameItem::fadeIn()
     }
 
     //keep fading
-    QTimer::singleShot(40, this, SLOT(fadeIn()));
+    QTimer::singleShot(40, this, &GameItem::fadeIn);
 }
 
 QRectF GameItem::boundingRect() const

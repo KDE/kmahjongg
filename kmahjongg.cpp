@@ -117,18 +117,14 @@ KMahjongg::KMahjongg(QWidget *parent)
 
     gameTimer = new KGameClock(this);
 
-    connect(gameTimer, SIGNAL(timeChanged(QString)), this, SLOT(displayTime(QString)));
-    connect(m_pGameView, SIGNAL(statusTextChanged(QString, long)),
-                SLOT(showStatusText(QString, long)));
-    connect(m_pGameView, SIGNAL(itemNumberChanged(int, int, int)),
-                SLOT(showItemNumber(int, int, int)));
-    connect(m_pGameView, SIGNAL(gameOver(unsigned short, unsigned short)), this,
-                SLOT(gameOver(unsigned short, unsigned short)));
-    connect(m_pGameView, SIGNAL(demoOrMoveListAnimationOver(bool)),
-            this, SLOT(demoOrMoveListAnimationOver(bool)));
-    connect(m_pGameView, SIGNAL(noMovesAvailable()), this, SLOT(noMovesAvailable()));
-    connect(m_pGameScene, SIGNAL(rotateCW()), m_pGameView, SLOT(angleSwitchCW()));
-    connect(m_pGameScene, SIGNAL(rotateCCW()), m_pGameView, SLOT(angleSwitchCCW()));
+    connect(gameTimer, &KGameClock::timeChanged, this, &KMahjongg::displayTime);
+    connect(m_pGameView, &GameView::statusTextChanged, this, &KMahjongg::showStatusText);
+    connect(m_pGameView, &GameView::itemNumberChanged, this, &KMahjongg::showItemNumber);
+    connect(m_pGameView, &GameView::gameOver, this, &KMahjongg::gameOver);
+    connect(m_pGameView, &GameView::demoOrMoveListAnimationOver, this, &KMahjongg::demoOrMoveListAnimationOver);
+    connect(m_pGameView, &GameView::noMovesAvailable, this, &KMahjongg::noMovesAvailable);
+    connect(m_pGameScene, &GameScene::rotateCW, m_pGameView, &GameView::angleSwitchCW);
+    connect(m_pGameScene, &GameScene::rotateCCW, m_pGameView, &GameView::angleSwitchCCW);
 
     m_bLastRandomSetting = Prefs::randomLayout();
 
@@ -271,8 +267,8 @@ void KMahjongg::showSettings()
 #pragma message("PORT TO FRAMEWORKS")
     //dialog->setHelp(QString(),"kmahjongg");
 
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(loadSettings()));
-    connect(dialog, SIGNAL(settingsChanged(QString)), boardEditor, SLOT(setTilesetFromSettings()));
+    connect(dialog, &KMahjonggConfigDialog::settingsChanged, this, &KMahjongg::loadSettings);
+    connect(dialog, &KMahjonggConfigDialog::settingsChanged, boardEditor, &Editor::setTilesetFromSettings);
 
     dialog->show();
 }

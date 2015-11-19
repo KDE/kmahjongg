@@ -66,18 +66,15 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     m_pMoveListAnimation->setAnimationSpeed(ANIMATION_SPEED);
 
     // Connections
-    connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
+    connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 
-    connect(m_pDemoAnimation, SIGNAL(changeItemSelectedState(POSITION &, bool)), this,
-        SLOT(changeItemSelectedState(POSITION &, bool)));
-    connect(m_pDemoAnimation, SIGNAL(removeItem(POSITION &)), this, SLOT(removeItem(POSITION &)));
-    connect(m_pDemoAnimation, SIGNAL(gameOver(bool)), this, SLOT(demoGameOver(bool)));
+    connect(m_pDemoAnimation, &DemoAnimation::changeItemSelectedState, this, &GameView::changeItemSelectedState);
+    connect(m_pDemoAnimation, &DemoAnimation::removeItem, this, &GameView::removeItem);
+    connect(m_pDemoAnimation, &DemoAnimation::gameOver, this, &GameView::demoGameOver);
 
-    connect(m_pMoveListAnimation, SIGNAL(removeItem(POSITION &)), this,
-        SLOT(removeItem(POSITION &)));
-    connect(m_pMoveListAnimation, SIGNAL(addItem(POSITION &)), this,
-        SLOT(addItemAndUpdate(POSITION &)));
-    connect(scene(), SIGNAL(clearSelectedTile()), this, SLOT(clearSelectedTile()));
+    connect(m_pMoveListAnimation, &MoveListAnimation::removeItem, this, &GameView::removeItem);
+    connect(m_pMoveListAnimation, &MoveListAnimation::addItem, this, &GameView::addItemAndUpdate);
+    connect(scene(), &GameScene::clearSelectedTile, this, &GameView::clearSelectedTile);
 }
 
 GameView::~GameView()
@@ -518,7 +515,7 @@ void GameView::addItemsFromBoardLayout()
     // items, so disconnect from this signal to prevent our selectionChanged() slot being
     // triggered and trying to access those items when we clear the scene.
     // The signal is reconnected at the end of the function.
-    disconnect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
+    disconnect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 
     // Remove all existing items.
     scene()->clear();
@@ -548,7 +545,7 @@ void GameView::addItemsFromBoardLayout()
     updateItemsOrder();
 
     // Reconnect our selectionChanged() slot.
-    connect(scene(), SIGNAL(selectionChanged()), this, SLOT(selectionChanged()));
+    connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 }
 
 void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrder,

@@ -26,7 +26,7 @@ SelectionAnimation::SelectionAnimation(QObject * pParent)
     m_bItemsSelected(false),
     m_pGameItems(new QList<GameItem *>())
 {
-    connect(this, SIGNAL(timeout()), this, SLOT(timeoutOccurred()));
+    connect(this, &SelectionAnimation::timeout, this, &SelectionAnimation::timeoutOccurred);
 }
 
 SelectionAnimation::~SelectionAnimation()

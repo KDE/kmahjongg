@@ -26,7 +26,7 @@ MoveListAnimation::MoveListAnimation(QObject * pParent)
     m_iAnimationSpeed(0),
     m_pGameData(NULL)
 {
-    connect(this, SIGNAL(timeout()), this, SLOT(timeoutOccurred()));
+    connect(this, &MoveListAnimation::timeout, this, &MoveListAnimation::timeoutOccurred);
 }
 
 MoveListAnimation::~MoveListAnimation()
