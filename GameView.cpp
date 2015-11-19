@@ -631,12 +631,12 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
 void GameView::updateItemsOrder()
 {
     int iZCount = 0;
-    int iXStart;
-    int iXEnd;
-    int iXCounter;
-    int iYStart;
-    int iYEnd;
-    int iYCounter;
+    int iXStart = 0;
+    int iXEnd = 0;
+    int iXCounter = 0;
+    int iYStart = 0;
+    int iYEnd = 0;
+    int iYCounter = 0;
 
     switch (m_angle) {
     case NW:
