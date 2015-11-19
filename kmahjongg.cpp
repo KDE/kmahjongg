@@ -688,7 +688,7 @@ void KMahjongg::saveGame()
 
     // Write a header with a "magic number" and a version
     out << QString(gameMagic);
-    out << (qint32) gameDataVersion;
+    out << static_cast<qint32>(gameDataVersion);
     out.setVersion(QDataStream::Qt_4_0);
 
     out << m_pGameView->getTilesetPath();
@@ -703,7 +703,7 @@ void KMahjongg::saveGame()
 
     // GameNumber
     // write game number after game data to obtain backwards compatibility
-    out << (qint64) m_pGameView->getGameNumber();
+    out << static_cast<qint64>(m_pGameView->getGameNumber());
 
     outfile.close();
     gameTimer->resume();

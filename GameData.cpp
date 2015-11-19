@@ -247,7 +247,7 @@ bool GameData::generateSolvableGame()
         int position, cnt = 0;
 
         do {
-            position = (int) random.getLong(numTilesToGenerate);
+            position = static_cast<int>(random.getLong(numTilesToGenerate));
 
             if (cnt++ > (numTilesToGenerate*numTilesToGenerate)) {
                 return false; // bail
