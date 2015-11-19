@@ -28,8 +28,6 @@
 #include <ktoolbar.h>
 #include "KmTypes.h"
 
-#include <KDialog>
-
 class FrameImage;
 class QLabel;
 class KToolBar;
