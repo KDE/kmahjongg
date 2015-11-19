@@ -19,18 +19,19 @@
 #include "FrameImage.h"
 #include "prefs.h"
 
+#include <KActionCollection>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KStandardAction>
+#include <KToggleAction>
+
+#include <QAction>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QGridLayout>
+#include <QIcon>
 #include <QLabel>
 #include <QResizeEvent>
-#include <QGridLayout>
-#include <QFileInfo>
-#include <QFileDialog>
-#include <kmessagebox.h>
-#include <KLocalizedString>
-#include <qaction.h>
-#include <kactioncollection.h>
-#include <ktoggleaction.h>
-#include <kstandardaction.h>
-#include <QIcon>
 
 
 Editor::Editor(QWidget *parent)

@@ -16,7 +16,6 @@
  * 02110-1301, USA. */
 
 #include "kmahjongg.h"
-
 #include "prefs.h"
 #include "kmahjongglayoutselector.h"
 #include "ui_settings.h"
@@ -25,41 +24,37 @@
 #include "GameScene.h"
 #include "GameData.h"
 #include "kmahjongglayout.h"
-
 #include <kmahjonggconfigdialog.h>
-#include <QFileDialog>
-#include <limits.h>
 
-#include <QPixmapCache>
-#include <QLabel>
+#include <KAboutData>
+#include <KActionCollection>
+#include <KConfigDialog>
+#include <KIO/NetAccess>
+#include <KGameClock>
+#include <KGlobal>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KScoreDialog>
+#include <KStandardAction>
+#include <KStandardDirs>
+#include <KStandardGameAction>
+#include <KStatusBar>
+#include <KToggleAction>
+
+#include <QAction>
 #include <QDesktopWidget>
+#include <QFileDialog>
+#include <QIcon>
+#include <QInputDialog>
 #include <QKeySequence>
+#include <QLabel>
+#include <QMenuBar>
+#include <QPixmapCache>
 #include <QShortcut>
 #include <QStatusBar>
 #include <QWindowStateChangeEvent>
 
-#include <KAboutData>
-#include <QAction>
-#include <KConfigDialog>
-#include <QInputDialog>
-#include <QMenuBar>
-#include <KMessageBox>
-#include <KActionCollection>
-#include <KStandardGameAction>
-#include <KStandardAction>
-#include <QIcon>
-#include <KScoreDialog>
-#include <KGameClock>
-#include <KStandardDirs>
-#include <KStatusBar>
-#include <KToggleAction>
-#include <KIO/NetAccess>
-#include <KGlobal>
-
-#include <kio/netaccess.h>
-#include <KLocalizedString>
-#include <ktoggleaction.h>
-#include <kactioncollection.h>
+#include <limits.h>
 
 const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
 const int KMahjongg::gameDataVersion = 1;

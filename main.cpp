@@ -15,14 +15,13 @@
 #include "kmahjongg.h"
 #include "version.h"
 
-
+#include <KAboutData>
+#include <KDBusService>
+#include <Kdelibs4ConfigMigrator>
+#include <KLocalizedString>
 
 #include <QApplication>
-#include <KAboutData>
-#include <KLocalizedString>
 #include <QCommandLineParser>
-#include <Kdelibs4ConfigMigrator>
-#include <KDBusService>
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 

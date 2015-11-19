@@ -18,11 +18,11 @@
 #include "GameItem.h"
 #include "kmahjongglayout.h"
 
-#include <KRandom>
-#include <KDebug>
-
 #include <QGraphicsSceneMouseEvent>
 #include <QList>
+
+#include <KDebug>
+#include <KRandom>
 
 
 GameScene::GameScene(QObject *pParent)

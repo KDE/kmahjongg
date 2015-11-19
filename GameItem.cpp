@@ -14,12 +14,12 @@
 
 #include "GameItem.h"
 
-#include <KDebug>
-
-#include <QPixmap>
-#include <QPainter>
-#include <QTimer>
 #include <QGraphicsSceneMouseEvent>
+#include <QPainter>
+#include <QPixmap>
+#include <QTimer>
+
+#include <KDebug>
 
 
 GameItem::GameItem(bool selected, QGraphicsObject *pItem)

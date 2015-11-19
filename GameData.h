@@ -22,9 +22,9 @@
 
 #include "KmTypes.h"
 
-#include <QVector>
-
 #include <KRandomSequence>
+
+#include <QVector>
 
 class BoardLayout;
 

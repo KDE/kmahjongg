@@ -15,9 +15,9 @@
 #include "MoveListAnimation.h"
 #include "GameData.h"
 
-#include <QList>
-
 #include <KDebug>
+
+#include <QList>
 
 
 MoveListAnimation::MoveListAnimation(QObject * pParent)

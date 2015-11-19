@@ -18,16 +18,15 @@
 #include "FrameImage.h"
 #include "prefs.h"
 
-#include <qevent.h>
-#include <qimage.h>
-#include <qpainter.h>
-#include <qtextstream.h>
+#include <QEvent>
+#include <QImage>
+#include <QPainter>
+#include <QPaintEvent>
+#include <QTextStream>
 
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <KStandardGuiItem>
-
-#include <QPaintEvent>
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
   : KGameCanvasWidget(parent),

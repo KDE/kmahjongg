@@ -15,8 +15,8 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#ifndef _KMAHJONGG_H
-#define _KMAHJONGG_H
+#ifndef KMAHJONGG_H
+#define KMAHJONGG_H
 
 #include <kxmlguiwindow.h>
 

@@ -15,10 +15,9 @@
 #ifndef MOVELISTANIMATION_H
 #define MOVELISTANIMATION_H
 
-#include <QTimer>
-
 #include "KmTypes.h"
 
+#include <QTimer>
 
 // Forward declarations...
 class GameData;

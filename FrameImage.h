@@ -21,11 +21,11 @@
 #define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
 #include <libkdegamesprivate/kgamecanvas.h>
 
+#include "BoardLayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
-#include "BoardLayout.h"
 
-#include <qframe.h>
+#include <QFrame>
 
 
 class QComboBox;

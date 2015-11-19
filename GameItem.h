@@ -15,10 +15,10 @@
 #ifndef GAMEITEM_H
 #define GAMEITEM_H
 
-#include <QObject>
-#include <QGraphicsObject>
-
 #include "KmTypes.h"
+
+#include <QGraphicsObject>
+#include <QObject>
 
 
 /**

@@ -15,9 +15,9 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
-#include <QGraphicsView>
-
 #include "KmTypes.h"
+
+#include <QGraphicsView>
 
 static const int ANIMATION_SPEED = 200;
 

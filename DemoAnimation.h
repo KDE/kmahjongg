@@ -15,9 +15,9 @@
 #ifndef DEMOANIMATION_H
 #define DEMOANIMATION_H
 
-#include <QTimer>
-
 #include "KmTypes.h"
+
+#include <QTimer>
 
 
 // Forward declarations...

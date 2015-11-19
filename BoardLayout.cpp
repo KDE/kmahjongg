@@ -18,9 +18,10 @@
 */
 
 #include "BoardLayout.h"
+
 #include <QFile>
-#include <QTextStream>
 #include <QTextCodec>
+#include <QTextStream>
 
 const QString BoardLayout::layoutMagic1_0 = "kmahjongg-layout-v1.0";
 const QString BoardLayout::layoutMagic1_1 = "kmahjongg-layout-v1.1";

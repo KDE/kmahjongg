@@ -24,13 +24,13 @@
 #include "kmahjonggbackground.h"
 #include "prefs.h"
 
-#include <KLocale>
-#include <KRandom>
-#include <KDebug>
-#include <KMessageBox>
-
-#include <QResizeEvent>
 #include <QMouseEvent>
+#include <QResizeEvent>
+
+#include <KDebug>
+#include <KLocale>
+#include <KMessageBox>
+#include <KRandom>
 
 
 GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)

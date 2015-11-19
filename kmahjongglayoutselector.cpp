@@ -21,19 +21,18 @@
 */
 
 #include "kmahjongglayoutselector.h"
-
-#include "prefs.h"
-
-#include <KLocalizedString>
-#include <QPainter>
-#include <QDir>
-
 #include "kmahjongglayout.h"
 #include "GameView.h"
 #include "GameScene.h"
 #include "GameData.h"
+#include "prefs.h"
 
+#include <KLocalizedString>
 #include <KStandardDirs>
+
+#include <QDir>
+#include <QPainter>
+
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
         : QWidget( parent ),

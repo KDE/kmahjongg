@@ -19,13 +19,15 @@
 
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
+
+#include <KConfigGroup>
+#include <KGlobal>
 #include <KLocalizedString>
+#include <KStandardDirs>
+
+#include <QDebug>
 #include <QFile>
 #include <QMap>
-#include <QDebug>
-#include <KStandardDirs>
-#include <KGlobal>
-#include <KConfigGroup>
 #include <QStandardPaths>
 
 const int KMahjonggLayout::kLayoutVersionFormat = 1;

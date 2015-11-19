@@ -16,11 +16,12 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef BOARD_LAYOUT_H
-#define BOARD_LAYOUT_H
+#ifndef BOARDLAYOUT_H
+#define BOARDLAYOUT_H
+
+#include "KmTypes.h"
 
 #include <QString>
-#include "KmTypes.h"
 
 const QString layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
 const QString layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
