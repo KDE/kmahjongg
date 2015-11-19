@@ -118,7 +118,7 @@ private slots:
     void noMovesAvailable();
 
 private:
-    enum GameState { Gameplay, Demo, Paused, Finished };
+    enum class GameState { Gameplay, Demo, Paused, Finished };
     GameState m_gameState;
 
     void updateState(GameState state);

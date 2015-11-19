@@ -175,17 +175,17 @@ protected:
 private:
     /**
      * @short Describe enum */
-    enum {
+    enum class EditMode {
         remove = 98,
         insert = 99,
         move = 100
     };
+    EditMode mode;
 
     QString mTileset;
 
     int borderLeft;
     int borderTop;
-    int mode;
     int numTiles;
     bool clean;
 

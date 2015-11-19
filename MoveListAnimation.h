@@ -22,7 +22,7 @@
 // Forward declarations...
 class GameData;
 
-enum AnimationDirection {Forward, Backward};
+enum class AnimationDirection {Forward, Backward};
 
 /**
  * A class for a demo animation with the help of selection.

@@ -79,7 +79,7 @@ public:
 
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
-    m_gameState(Gameplay),
+    m_gameState(GameState::Gameplay),
     m_pGameView(NULL),
     m_pGameData(NULL),
     m_pBoardLayout(new KMahjonggLayout())
@@ -342,7 +342,7 @@ void KMahjongg::demoMode()
 {
     if (demoAction->isChecked()) {
         loadSettings(); // In case loadGame() has changed the settings.
-        updateState(Demo);
+        updateState(GameState::Demo);
         gameTimer->setTime(0);
         gameTimer->pause();
         m_pGameView->startDemo();
@@ -355,11 +355,11 @@ void KMahjongg::pause()
 {
     if (pauseAction->isChecked()) {
         gameTimer->pause();
-        updateState(Paused);
+        updateState(GameState::Paused);
         m_pGameView->pause(true);
     } else {
         gameTimer->resume();
-        updateState(Gameplay);
+        updateState(GameState::Gameplay);
         m_pGameView->pause(false);
     }
 }
@@ -427,9 +427,9 @@ void KMahjongg::startNewGame(int item)
     gameTimer->restart();
 
     if (m_pGameView->gameGenerated()) {
-        updateState(Gameplay);
+        updateState(GameState::Gameplay);
     } else {
-        updateState(Finished);
+        updateState(GameState::Finished);
         gameTimer->pause();
         showItemNumber(0, 0, 0);
     }
@@ -453,12 +453,12 @@ void KMahjongg::changeEvent(QEvent *event)
         // N.B. KMahjongg::pause() is not used here, because it is irrelevant to
         // hide the tiles and change the Pause button's state when minimizing.
         if (isMinimized() && oldMinimizedState != Qt::WindowMinimized &&
-            m_gameState == Gameplay) {
+            m_gameState == GameState::Gameplay) {
             // If playing a game and not paused, stop the clock during minimise.
             gameTimer->pause();
         }
         else if (!isMinimized() && oldMinimizedState == Qt::WindowMinimized &&
-                 m_gameState == Gameplay) {
+                 m_gameState == GameState::Gameplay) {
             // If playing a game, start the clock when restoring the window.
             gameTimer->resume();
         }
@@ -476,7 +476,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 {
     gameTimer->pause();
 
-    updateState(Finished);
+    updateState(GameState::Finished);
 
     KMessageBox::information(this, i18n("You have won!"));
 
@@ -536,13 +536,13 @@ void KMahjongg::updateState(GameState state)
     m_gameState = state;
     // KXMLGUIClient::stateChanged() sets action-states def. by kmahjonggui.rc.
     switch (state) {
-    case Demo:
+    case GameState::Demo:
         stateChanged("demo_state");
         break;
-    case Paused:
+    case GameState::Paused:
         stateChanged("paused_state");
         break;
-    case Finished:
+    case GameState::Finished:
         stateChanged("finished_state");
         break;
     default:
@@ -551,8 +551,8 @@ void KMahjongg::updateState(GameState state)
         break;
     }
 
-    demoAction->setChecked(state == Demo);
-    pauseAction->setChecked(state == Paused);
+    demoAction->setChecked(state == GameState::Demo);
+    pauseAction->setChecked(state == GameState::Paused);
 }
 
 void KMahjongg::updateUndoAndRedoStates()
@@ -566,7 +566,7 @@ void KMahjongg::restartGame()
     if (m_pGameView->gameGenerated()) {
         m_pGameView->createNewGame(m_pGameView->getGameNumber());
         gameTimer->restart();
-        updateState(Gameplay);
+        updateState(GameState::Gameplay);
     }
 }
 
@@ -651,7 +651,7 @@ void KMahjongg::loadGame()
         m_pGameView->setGameNumber(gameNum);
     }
 
-    updateState(Gameplay);
+    updateState(GameState::Gameplay);
 }
 
 void KMahjongg::saveGame()

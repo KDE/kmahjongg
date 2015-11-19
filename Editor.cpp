@@ -36,7 +36,7 @@
 
 Editor::Editor(QWidget *parent)
     : QDialog( parent ),
-    mode(insert),
+    mode(EditMode::insert),
     numTiles(0),
     clean(true),
     tiles()
@@ -279,11 +279,11 @@ void Editor::slotShiftDown()
 void Editor::slotModeChanged(QAction *act)
 {
     if (act == actionCollection->action(QStringLiteral("move_tiles"))) {
-        mode = move;
+        mode = EditMode::move;
     } else if (act == actionCollection->action(QStringLiteral("del_tiles"))) {
-        mode = remove;
+        mode = EditMode::remove;
     } else if (act == actionCollection->action(QStringLiteral("add_tiles"))) {
-        mode = insert;
+        mode = EditMode::insert;
     }
 }
 
@@ -605,10 +605,10 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
     // we swallow the draw frames mouse clicks and process here
 
     POSITION mPos;
-    transformPointToPosition(e->pos(), mPos, (mode == remove));
+    transformPointToPosition(e->pos(), mPos, (mode == EditMode::remove));
 
     switch (mode) {
-    case remove:
+    case EditMode::remove:
         if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.getDepth() && theBoard.isTileAt(mPos)) {
             theBoard.deleteTile(mPos);
             numTiles--;
@@ -618,7 +618,7 @@ void Editor::drawFrameMousePressEvent( QMouseEvent* e )
         }
 
         break;
-    case insert: {
+    case EditMode::insert: {
         POSITION n = mPos;
 
         if (n.e == 100) {
@@ -653,7 +653,7 @@ void Editor::drawCursor(POSITION &p, bool visible)
         x = -1;
     }
 
-    drawFrame->setRect(x, y, w, h, tiles.levelOffsetX(), mode-remove);
+    drawFrame->setRect(x, y, w, h, tiles.levelOffsetX(), static_cast<int>(mode) - static_cast<int>(EditMode::remove));
     drawFrame->update();
 }
 
@@ -662,7 +662,7 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
     // we swallow the draw frames mouse moves and process here
 
     POSITION mPos;
-    transformPointToPosition(e->pos(), mPos, (mode == remove));
+    transformPointToPosition(e->pos(), mPos, (mode == EditMode::remove));
 
     if ((mPos.x==currPos.x) && (mPos.y==currPos.y) && (mPos.e==currPos.e)) {
         return;
@@ -673,7 +673,7 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
     statusChanged();
 
     switch(mode) {
-    case insert: {
+    case EditMode::insert: {
         POSITION next;
         next = currPos;
 
@@ -687,11 +687,11 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
 
         break;
     }
-    case remove:
+    case EditMode::remove:
             drawCursor(currPos, 1);
 
         break;
-    case move:
+    case EditMode::move:
         break;
     }
 }
