@@ -94,7 +94,7 @@ public:
      * @return @c false if title not abowe
      * @see tileAbove
      */
-    bool tileAbove(POSITION &p) { return(tileAbove(p.e, p.y, p.x));	}
+    bool tileAbove(POSITION &p) { return(tileAbove(p.e, p.y, p.x)); }
 
     /**
      * Description

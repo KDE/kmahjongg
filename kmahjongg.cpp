@@ -341,7 +341,7 @@ void KMahjongg::loadSettings()
 void KMahjongg::demoMode()
 {
     if (demoAction->isChecked()) {
-        loadSettings();		// In case loadGame() has changed the settings.
+        loadSettings(); // In case loadGame() has changed the settings.
         updateState(Demo);
         gameTimer->setTime(0);
         gameTimer->pause();
@@ -400,7 +400,7 @@ void KMahjongg::noMovesAvailable()
 
 void KMahjongg::startNewGame(int item)
 {
-    loadSettings();		// In case loadGame() has changed the settings.
+    loadSettings(); // In case loadGame() has changed the settings.
 
     // Only load new layout in random mode if we are not given a game number.
     // Use same layout if restarting game or starting a numbered game.
@@ -450,8 +450,8 @@ void KMahjongg::changeEvent(QEvent *event)
         const QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
         const Qt::WindowStates oldMinimizedState  = stateEvent->oldState() & Qt::WindowMinimized;
 
-	// N.B. KMahjongg::pause() is not used here, because it is irrelevant to
-	// hide the tiles and change the Pause button's state when minimizing.
+        // N.B. KMahjongg::pause() is not used here, because it is irrelevant to
+        // hide the tiles and change the Pause button's state when minimizing.
         if (isMinimized() && oldMinimizedState != Qt::WindowMinimized &&
             m_gameState == Gameplay) {
             // If playing a game and not paused, stop the clock during minimise.
