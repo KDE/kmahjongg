@@ -283,7 +283,7 @@ void KMahjongg::saveSettings()
     Prefs::setTileSet(m_pGameView->getTilesetPath());
     Prefs::setBackground(m_pGameView->getBackgroundPath());
     Prefs::setAngle(m_pGameView->getAngle());
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 }
 
 void KMahjongg::loadSettings()
