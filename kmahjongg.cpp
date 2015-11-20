@@ -303,12 +303,7 @@ void KMahjongg::loadSettings()
         // random layouts are set. If they are and were last time we don't want to load
         // a new layout or start a new game when the user may have just changed the
         // tileset, background or other settings.
-        if (m_bLastRandomSetting && Prefs::randomLayout()) {
-
-            // Do nothing, just continue on and save the settings.
-
-        } else {
-
+        if (!m_bLastRandomSetting || !Prefs::randomLayout()) {
             // The user has changed the layout, or the random setting.
 
             // If random layouts are set a new layout will be loaded when we call
