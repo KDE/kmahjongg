@@ -535,7 +535,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
         }
 
         switch (theBoard.getBoardData(z, y, x)) {
-        case (UCHAR) '3':
+        case static_cast<UCHAR>('3'):
             if (align) {
                 x--;
                 y--;
@@ -543,21 +543,21 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
 
             break;
 
-        case (UCHAR) '2':
+        case static_cast<UCHAR>('2'):
             if (align) {
                 x--;
             }
 
             break;
 
-        case (UCHAR) '4':
+        case static_cast<UCHAR>('4'):
             if (align) {
                 y--;
             }
 
             break;
 
-        case (UCHAR) '1':
+        case static_cast<UCHAR>('1'):
             break;
 
         default:
