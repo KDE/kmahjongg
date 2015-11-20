@@ -65,8 +65,7 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     // Init MoveListAnimation
     m_pMoveListAnimation->setAnimationSpeed(ANIMATION_SPEED);
 
-    // Connections
-    connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
+    m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 
     connect(m_pDemoAnimation, &DemoAnimation::changeItemSelectedState, this, &GameView::changeItemSelectedState);
     connect(m_pDemoAnimation, &DemoAnimation::removeItem, this, &GameView::removeItem);
@@ -513,7 +512,7 @@ void GameView::addItemsFromBoardLayout()
     // items, so disconnect from this signal to prevent our selectionChanged() slot being
     // triggered and trying to access those items when we clear the scene.
     // The signal is reconnected at the end of the function.
-    disconnect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
+    disconnect(m_selectionChangedConnect);
 
     // Remove all existing items.
     scene()->clear();

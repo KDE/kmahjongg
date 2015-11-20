@@ -410,6 +410,9 @@ private:
     KMahjonggBackground *m_pBackground;
 
     TileViewAngle m_angle;
+
+    // Needed for disconnecting connection
+    QMetaObject::Connection m_selectionChangedConnect;
 };
 
 #endif // GAMEVIEW_H
