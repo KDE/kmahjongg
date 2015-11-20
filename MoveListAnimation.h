@@ -33,12 +33,7 @@ class MoveListAnimation : public QTimer
     Q_OBJECT
 
 public:
-    /**
-     * Constructor */
     MoveListAnimation(QObject *pParent = 0);
-
-    /**
-     * Destructor */
     ~MoveListAnimation();
 
     /**
@@ -88,6 +83,4 @@ private:
     GameData * m_pGameData;
 };
 
-
 #endif // MOVELISTANIMATION_H
-

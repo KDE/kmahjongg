@@ -29,82 +29,25 @@
 class BoardLayout;
 
 /**
- * @short This class implements
- *
- * longer description
- *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
 class GameData
 {
 public:
-    /**
-     * Constructor
-     *
-     * @param boardlayout
-     * @see BoardLayout */
     explicit GameData(BoardLayout *boardlayout);
-
-    /**
-     * Default Destructor */
     ~GameData();
 
-    /**
-     * Method Description
-     *
-     * @param e
-     * @param y
-     * @param x
-     * @param f */
     void putTile(short e, short y, short x, UCHAR f);
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return @c true if ...
-     * @return @c false if ... */
     bool tilePresent(int z, int y, int x) const;
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
     UCHAR BoardData(short z, short y, short x) const;
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
     UCHAR HighlightData(short z, short y, short x) const;
 
-    /**
-     * Method Description
-     *
-     * @param i
-     * @return POSITION
-     * @ref pos */
     POSITION& MoveListData(short i);
 
-    /**
-     * Method Description
-     *
-     * @param i
-     * @param value
-     * @ref pos */
     void setMoveListData(short i, POSITION &value);
 
-    /**
-     * Method Description
-     *
-     * @return *char blah blah */
     char* getMaskBytes() {return Mask.data();}
 
     bool saveToStream(QDataStream &out) const;
@@ -139,29 +82,8 @@ public:
     KRandomSequence random;
 
 private:
-    /**
-     * Method Description
-     *
-     * @param pos
-     * @ref pos */
     void putTile(POSITION &pos) {putTile(pos.e, pos.y, pos.x, pos.f);}
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @param value */
     void setBoardData(short z, short y, short x, UCHAR value);
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
     UCHAR MaskData(short z, short y, short x) const;
 
     int tileAt(int x, int y, int z) const;
@@ -202,6 +124,5 @@ private:
     //PosTable, scratch storage used for highlighting matching tiles
     QVector<POSITION> PosTable;
 };
-
 
 #endif // GAMEDATA_H

@@ -332,8 +332,6 @@ bool GameData::onlyFreeInLine(int position) const
 
     int i, i0, w;
     int lin, rin, out;
-    //static int nextLeft[m_maxTiles];
-    //static int nextRight[m_maxTiles];
 
     QVector<int> nextLeft = QVector<int>(m_maxTiles, 0);
     QVector<int> nextRight = QVector<int>(m_maxTiles, 0);
@@ -446,9 +444,6 @@ void GameData::placeTile(int position, int tile)
     // Install the tile in the specified position
     tilePositions[position].f = tile;
     putTile(tilePositions[position]);
-
-    //added highlight?
-    //setHighlightData(E,Y,X,0);
 
     // Update position dependency data
     positionDepends[position].filled = true;
@@ -866,7 +861,7 @@ void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
 
 bool GameData::findMove(POSITION &posA, POSITION &posB)
 {
-    short Pos_Ende = MaxTileNum;  // Ende der PosTable
+    short Pos_Ende = MaxTileNum;  // End of PosTable
 
     for (short E = 0; E < m_depth; E++) {
         for (short Y = 0; Y < m_height - 1; Y++) {
@@ -900,7 +895,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
         }
     }
 
-    short iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
+    short iPosCount = 0;  // store number of pairs found
 
     // The new tile layout with non-contiguos horizantle spans
     // can lead to huge numbers of matching pairs being exposed.
@@ -921,7 +916,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
 
     if (iPosCount >= 2) {
         random.setSeed(0); // WABA: Why is the seed reset?
-        short Pos = random.getLong(iPosCount) & -2;  // Gerader Wert
+        short Pos = random.getLong(iPosCount) & -2;  // Even value
         posA = PosTable[Pos];
         posB = PosTable[Pos + 1];
 
@@ -933,7 +928,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
 
 int GameData::moveCount()
 {
-    short Pos_Ende = MaxTileNum;  // end of PosTable
+    short Pos_Ende = MaxTileNum;  // End of PosTable
 
     for (short E = 0; E < m_depth; E++) {
         for (short Y = 0; Y < m_height - 1; Y++) {

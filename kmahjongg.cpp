@@ -60,16 +60,10 @@ const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
 const int KMahjongg::gameDataVersion = 1;
 
 /**
- * This class implements
- *
- * longer description
- *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
 class Settings : public QWidget, public Ui::Settings
 {
 public:
-    /**
-     * Constructor */
     Settings(QWidget *parent)
         : QWidget(parent)
     {
@@ -93,7 +87,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     // init board widget
     m_pGameScene = new GameScene();
 
-    // load the layout
     loadLayout();
 
     // init game data
@@ -103,7 +96,6 @@ KMahjongg::KMahjongg(QWidget *parent)
     m_pGameView = new GameView(m_pGameScene, m_pGameData, this);
     setCentralWidget(m_pGameView);
 
-    // Initialize boardEditor
     boardEditor = new Editor();
     boardEditor->setModal(false);
 
@@ -708,6 +700,3 @@ void KMahjongg::saveGame()
     outfile.close();
     gameTimer->resume();
 }
-
-
-

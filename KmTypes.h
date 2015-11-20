@@ -29,7 +29,7 @@ typedef unsigned long  ULONG;
 
 
 /**
- * @short struct pos  POSITION
+ * @short struct pos POSITION
  */
 typedef struct pos {
     pos() : e(0), y(0), x(0), f(0) { }

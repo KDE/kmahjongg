@@ -39,14 +39,7 @@ class GameScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    /**
-     * Constructor
-     *
-     * @param pParent The parent object. */
     GameScene(QObject *pParent = 0);
-
-    /**
-     * Destructor */
     ~GameScene();
 
     /**
@@ -139,6 +132,5 @@ private:
     GameItem *m_pFirstSelectedItem;
     GameItem *m_pSecondSelectedItem;
 };
-
 
 #endif // GAMESCENE_H

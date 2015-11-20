@@ -228,7 +228,7 @@ void BoardLayout::initialiseBoard()
     }
 
     int idx = 0;
-    // loop will be left by break or return
+
     while( true )
     {
         BYTE c = loadedBoard.at(idx++);
@@ -357,7 +357,6 @@ void BoardLayout::shiftDown()
 }
 
 
-// is there a tile anywhere above here (top left to bot right quarter)
 bool BoardLayout::tileAbove(short z, short y, short x) const
 {
     if (z >= m_depth -1) {

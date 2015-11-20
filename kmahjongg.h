@@ -30,55 +30,26 @@ class GameData;
 class KMahjonggLayout;
 
 /**
- * @short  Class Description
- *
  * @author Mathias */
 class KMahjongg : public KXmlGuiWindow
 {
     Q_OBJECT
 
 public:
-    /**
-     * Constructor
-     *
-     * @param parent */
     explicit KMahjongg(QWidget *parent = 0);
-
-    /**
-     * Default Destructor */
     ~KMahjongg();
 
 public slots:
-    /**
-     * Slot Description
-     *
-     * @param num */
     void startNewGame(int num = -1);
 
     /**
      * Load the settings... */
     void loadSettings();
 
-    /**
-     * Slot Description
-     *
-     * @param msg
-     * @param board */
     void showStatusText(const QString &msg, long board);
 
-    /**
-     * Slot Description
-     *
-     * @param iMaximum
-     * @param iCurrent
-     * @param iLeft */
     void showItemNumber(int iMaximum, int iCurrent, int iLeft);
 
-    /**
-     * Slot Description
-     *
-     * @param removed
-     * @param cheats */
     void gameOver(unsigned short removed, unsigned short cheats);
 
     /**
@@ -86,20 +57,9 @@ public slots:
     void demoOrMoveListAnimationOver(bool bDemoGameLost);
 
 protected:
-    /**
-     * Method Description */
     void setupKAction();
-
-    /**
-     * Method Description */
     void setupStatusBar();
-
-    /**
-     * Method Override */
     void changeEvent(QEvent *event);
-
-    /**
-     * Method Override. */
     void closeEvent(QCloseEvent *event);
 
 private slots:
@@ -152,6 +112,5 @@ private:
     static const QString gameMagic;
     static const int gameDataVersion;
 };
-
 
 #endif

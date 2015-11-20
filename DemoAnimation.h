@@ -32,12 +32,7 @@ class DemoAnimation : public QTimer
     Q_OBJECT
 
 public:
-    /**
-     * Constructor */
     DemoAnimation(QObject *pParent = 0);
-
-    /**
-     * Destructor */
     ~DemoAnimation();
 
     /**
@@ -83,8 +78,6 @@ signals:
     void changeItemSelectedState(POSITION & stItem, bool bSelected);
 
 private slots:
-    /**
-     * The timeout occurred. */
     void timeoutOccurred();
 
 private:
@@ -97,6 +90,4 @@ private:
     GameData * m_pGameData;
 };
 
-
 #endif // DEMOANIMATION_H
-

@@ -53,7 +53,6 @@ Editor::Editor(QWidget *parent)
     QGridLayout *gridLayout = new QGridLayout(mainWidget);
     QVBoxLayout *layout = new QVBoxLayout();
 
-    // setup the tool bar
     setupToolbar();
     layout->addWidget(topToolbar);
 
@@ -125,8 +124,6 @@ void Editor::setupToolbar()
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
     topToolbar->addAction(saveBoard);
-    // NOTE dimsuz: how to port this? is it even needed?
-    //topToolbar->setButtonIconSet(ID_TOOL_SAVE,loader->loadIconSet("document-save", KIconLoader::Toolbar));
 
     topToolbar->addSeparator();
 
@@ -140,7 +137,6 @@ void Editor::setupToolbar()
     select->setText(i18n("Select"));
     topToolbar->addAction(select);
 
-    // NOTE: use kstandarddactions?
     QAction *cut = actionCollection->addAction(QLatin1String("edit_cut"));
     cut->setIcon(QIcon::fromTheme(QLatin1String("edit-cut")));
     cut->setText(i18n("Cut"));
@@ -230,7 +226,6 @@ void Editor::setupToolbar()
     topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
-
     QWidget *hbox = new QWidget(topToolbar);
     QHBoxLayout *layout = new QHBoxLayout(hbox);
     layout->setMargin(0);
@@ -486,11 +481,7 @@ void Editor::drawTiles(QPixmap *dest)
 
                 QPixmap t;
                 tile = (z * depth) + (y * height) + (x * width);
-                //if (mode==remove && currPos.x==x && currPos.y==y && currPos.e==z) {
-                //    t = tiles.selectedPixmaps(44));
-                //} else {
                 t = tiles.unselectedTile(0);
-                //}
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:
@@ -499,12 +490,6 @@ void Editor::drawTiles(QPixmap *dest)
                 // we simply split the tile draw so the top half is drawn
                 // minus border
                 if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
-                //    p.drawPixmap( sx+tiles.levelOffsetX(), sy, t, tiles.levelOffsetX() , 0,
-                //            t.width() - tiles.levelOffsetX(), t.height() / 2);
-
-                //    p.drawPixmap(sx, sy + t.height() / 2, t, 0, t.height() / 2, t.width(),
-                //            t.height() / 2);
-
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
 
                     p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t,
@@ -531,7 +516,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
     // different to the one in kmahjongg.cpp since if we hit ground
     // we return a result too.
 
-    short z = 0; // shut the compiler up about maybe uninitialised errors
+    short z = 0;
     short y = 0;
     short x = 0;
     MouseClickPos.e = 100;
@@ -770,6 +755,3 @@ void Editor::setTilesetFromSettings()
 
     updateTileSize(size());
 }
-
-
-

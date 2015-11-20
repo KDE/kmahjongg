@@ -114,6 +114,3 @@ void FrameImage::mouseMoveEvent(QMouseEvent *e)
 {
     emit mouseMoved(e);
 }
-
-
-

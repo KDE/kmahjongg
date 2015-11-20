@@ -47,9 +47,6 @@ public:
      * @param pParent The parent widget.
      * @param pGameScene The related GameScene object. */
     GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent = 0);
-
-    /**
-     * Destructor */
     ~GameView();
 
     /**
@@ -414,6 +411,5 @@ private:
 
     TileViewAngle m_angle;
 };
-
 
 #endif // GAMEVIEW_H

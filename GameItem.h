@@ -33,12 +33,9 @@ public:
     /**
      * Constructor
      *
-     * @param pItem The parent item
-     * @param selected Should the item be selected */
+     * @param selected Should the item be selected
+     * @param pItem The parent item */
     GameItem(bool selected, QGraphicsObject *pItem = 0);
-
-    /**
-     * Destructor */
     ~GameItem();
 
     /**
@@ -166,6 +163,5 @@ private:
 
     QPointF m_faceOffset;
 };
-
 
 #endif // GAMEITEM_H

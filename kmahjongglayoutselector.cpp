@@ -148,5 +148,3 @@ void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active)
 {
     widgetNoRandom->setEnabled(!active);
 }
-
-

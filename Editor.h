@@ -35,10 +35,6 @@ class KToolBar;
 class KActionCollection;
 
 /**
- * @short This class implements
- *
- * longer description
- *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
 class Editor: public QDialog
@@ -46,14 +42,7 @@ class Editor: public QDialog
     Q_OBJECT
 
 public:
-    /**
-     * Constructor Description
-     *
-     * @param parent */
     explicit Editor (QWidget *parent = 0);
-
-    /**
-     * Default Destructor */
     virtual ~Editor();
 
 public slots:
@@ -62,110 +51,36 @@ public slots:
     void setTilesetFromSettings();
 
 protected slots:
-    /**
-     * Slot Description */
     void drawFrameMousePressEvent ( QMouseEvent* );
-
-    /**
-     * Slot Description */
     void drawFrameMouseMovedEvent ( QMouseEvent *);
-
-    /**
-     * Slot Description */
     void loadBoard();
-
-    /**
-     * Slot Description
-     *
-     * @return @c true if ...
-     * @return @c false if ... */
     bool saveBoard();
-
-    /**
-     * Slot Description */
     void newBoard();
-
-    /**
-     * Slot Description */
     void slotShiftLeft();
-
-    /**
-     * Slot Description */
     void slotShiftRight();
-
-    /**
-     * Slot Description */
     void slotShiftUp();
-
-    /**
-    * Slot Description */
     void slotShiftDown();
-
-    /**
-     * Slot Description */
     void slotModeChanged(QAction*);
 
 protected:
-    /**
-     * Method Description */
     void resizeEvent(QResizeEvent *event);
-
-    /**
-     * Method Description */
     void paintEvent(QPaintEvent *pa);
-
-    /**
-     * Method Description */
     void setupToolbar();
-
-    /**
-     * Method Description */
     void drawBackground(QPixmap *to) const;
 
     /**
-     * Method Description
-     *
      * @param to destination QPixmap to draw to */
     void drawTiles(QPixmap *to);
 
-    /**
-     * Method Description
-     *
-     * @return @c true if
-     * @return @c false if */
     bool testSave();
-
-    /**
-     * Method Description */
     void transformPointToPosition(const QPoint&, POSITION&, bool align) const;
-
-    /**
-     * Method Description
-     *
-     * @param p @ref pos
-     * @param visible */
     void drawCursor(POSITION &p, bool visible);
-
-    /**
-     * Method Description
-     *
-     * @param p @ref pos
-     * @return @c true if
-     * @return @c false if */
     bool canInsert(POSITION &p) const;
-
-    /**
-     * Method Description */
     void statusChanged() const;
-
-    /**
-     * Method Description
-     *
-     * @return status description */
     QString statusText() const;
 
     /**
-     * Override the closeEvent(...) method of kdialog..qdialog. */
+     * Override the closeEvent(...) method of qdialog. */
     void closeEvent(QCloseEvent *e);
 
     /**
@@ -173,8 +88,6 @@ protected:
     void updateTileSize(const QSize size);
 
 private:
-    /**
-     * @short Describe enum */
     enum class EditMode {
         remove = 98,
         insert = 99,
@@ -199,6 +112,5 @@ private:
     KToolBar *topToolbar;
     KActionCollection *actionCollection;
 };
-
 
 #endif

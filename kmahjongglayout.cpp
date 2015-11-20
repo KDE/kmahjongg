@@ -80,10 +80,10 @@ bool KMahjonggLayout::loadDefault()
 }
 
 bool KMahjonggLayout::load(const QString &file) {
-    //qDebug() << "Layout loading";
+    qDebug() << "Layout loading";
 
     QString layoutPath;
-    //qDebug() << "Attempting to load .desktop at" << file;
+    qDebug() << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -129,7 +129,7 @@ bool KMahjonggLayout::load(const QString &file) {
 
 BoardLayout * KMahjonggLayout::board() const
 {
-  return d->board;
+    return d->board;
 }
 
 QString KMahjonggLayout::path() const

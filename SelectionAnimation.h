@@ -31,12 +31,7 @@ class SelectionAnimation : public QTimer
     Q_OBJECT
 
 public:
-    /**
-     * Constructor */
     SelectionAnimation(QObject *pParent = 0);
-
-    /**
-     * Destructor */
     ~SelectionAnimation();
 
     /**
@@ -113,6 +108,4 @@ private:
     QList<GameItem *> * m_pGameItems;
 };
 
-
 #endif // SELECTIONANIMATION_H
-
