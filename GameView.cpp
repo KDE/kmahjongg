@@ -548,12 +548,12 @@ void GameView::addItemsFromBoardLayout()
 void GameView::addItem(GameItem * pGameItem, bool bUpdateImage, bool bUpdateOrder,
     bool bUpdatePosition)
 {
-    // Add the itme to the scene.
+    // Add the item to the scene.
     scene()->addItem(pGameItem);
 
     // If TileNum is % 2 then update the number in the status bar.
     if (!(m_pGameData->TileNum % 2)) {
-        // The item numbers changed, so we need to populate the new informations.
+        // The item numbers changed, so we need to populate the new information.
         populateItemNumber();
     }
 
