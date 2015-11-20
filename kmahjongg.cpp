@@ -24,6 +24,7 @@
 #include "GameScene.h"
 #include "GameData.h"
 #include "kmahjongglayout.h"
+#include "kmahjongg_debug.h"
 #include <kmahjonggconfigdialog.h>
 
 #include <KAboutData>
@@ -263,7 +264,7 @@ void KMahjongg::showSettings()
 void KMahjongg::loadLayout()
 {
     if (!m_pBoardLayout->load(Prefs::layout())) {
-        qDebug() << "Error loading the layout. Try to load the default layout.";
+        qCDebug(KMAHJONGG_LOG) << "Error loading the layout. Try to load the default layout.";
 
         m_pBoardLayout->loadDefault();
     }
@@ -285,13 +286,13 @@ void KMahjongg::loadSettings()
 
     // Load the tileset.
     if (!m_pGameView->setTilesetPath(Prefs::tileSet())) {
-        qDebug() << "An error occurred when loading the tileset " << Prefs::tileSet() <<
+        qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the tileset " << Prefs::tileSet() <<
                     " KMahjongg will continue with the default tileset.";
     }
 
     // Load the background
     if (!m_pGameView->setBackgroundPath(Prefs::background())) {
-        qDebug() << "An error occurred when loading the background " << Prefs::background() <<
+        qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the background " << Prefs::background() <<
                     " KMahjongg will continue with the default background.";
     }
 

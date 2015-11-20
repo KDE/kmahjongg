@@ -14,8 +14,8 @@
 
 #include "DemoAnimation.h"
 #include "GameData.h"
+#include "kmahjongg_debug.h"
 
-#include <QDebug>
 #include <QList>
 
 
@@ -62,7 +62,7 @@ void DemoAnimation::timeoutOccurred()
     case 0:
         // Test if we got a game data object.
         if (m_pGameData == NULL) {
-            qDebug() << "m_pGameData is null";
+            qCDebug(KMAHJONGG_LOG) << "m_pGameData is null";
 
             stop();
             return;

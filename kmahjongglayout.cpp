@@ -19,13 +19,13 @@
 
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
+#include "kmahjongg_debug.h"
 
 #include <KConfigGroup>
 #include <KGlobal>
 #include <KLocalizedString>
 #include <KStandardDirs>
 
-#include <QDebug>
 #include <QFile>
 #include <QMap>
 #include <QStandardPaths>
@@ -72,7 +72,7 @@ bool KMahjonggLayout::loadDefault()
     QString idx = QStringLiteral("default.desktop");
 
     QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
-    qDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
+    qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
         return false;
     }
@@ -80,10 +80,10 @@ bool KMahjonggLayout::loadDefault()
 }
 
 bool KMahjonggLayout::load(const QString &file) {
-    qDebug() << "Layout loading";
+    //qCDebug(KMAHJONGG_LOG) << "Layout loading";
 
     QString layoutPath;
-    qDebug() << "Attempting to load .desktop at" << file;
+    //qCDebug(KMAHJONGG_LOG) << "Attempting to load .desktop at" << file;
 
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
@@ -111,7 +111,7 @@ bool KMahjonggLayout::load(const QString &file) {
     QString layoutName = group.readEntry("FileName");
 
     layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
-    qDebug() << "Using layout at" << layoutPath;
+    qCDebug(KMAHJONGG_LOG) << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 
     if (layoutPath.isEmpty()) {

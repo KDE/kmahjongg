@@ -35,6 +35,7 @@ add_subdirectory( doc )
 
 set(kmahjongg_SRCS
    main.cpp
+   kmahjongg_debug.cpp
    kmahjongg.cpp
    BoardLayout.cpp
    GameData.cpp

@@ -15,8 +15,6 @@
 #include "MoveListAnimation.h"
 #include "GameData.h"
 
-#include <KDebug>
-
 #include <QList>
 
 

@@ -20,9 +20,10 @@
 #include "prefs.h"
 #include "GameData.h"
 #include "BoardLayout.h"
+#include "kmahjongg_debug.h"
 
 #include <QDataStream>
-#include <QDebug>
+
 
 GameData::GameData(BoardLayout *boardlayout)
 {
@@ -111,7 +112,7 @@ void GameData::setBoardData(short z, short y, short x, UCHAR value)
 POSITION& GameData::MoveListData(short i)
 {
     if ((i >= MoveList.size()) || (i < 0)) {
-        qDebug() << "Attempt to access GameData::MoveListData with invalid index";
+        qCDebug(KMAHJONGG_LOG) << "Attempt to access GameData::MoveListData with invalid index";
         i = 0 ;
     }
 

@@ -22,15 +22,15 @@
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
+#include "kmahjongg_debug.h"
 #include "prefs.h"
-
-#include <QDebug>
-#include <QMouseEvent>
-#include <QResizeEvent>
 
 #include <KLocale>
 #include <KMessageBox>
 #include <KRandom>
+
+#include <QMouseEvent>
+#include <QResizeEvent>
 
 
 GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
@@ -311,7 +311,7 @@ void GameView::removeItem(POSITION & stItemPos)
 
 void GameView::startDemo()
 {
-    qDebug() << "Starting demo mode";
+    qCDebug(KMAHJONGG_LOG) << "Starting demo mode";
 
     // Create a new game with the actual game number.
     createNewGame(m_lGameNumber);
@@ -327,7 +327,7 @@ void GameView::startDemo()
 
 void GameView::startMoveListAnimation()
 {
-    qDebug() << "Starting move list animation";
+    qCDebug(KMAHJONGG_LOG) << "Starting move list animation";
 
     // Stop any helping animation.
     checkHelpAnimationActive(true);
@@ -737,7 +737,7 @@ bool GameView::setTilesetPath(QString const &rTilesetPath)
 
 bool GameView::setBackgroundPath(QString const &rBackgroundPath)
 {
-    qDebug() << "Set a new Background: " << rBackgroundPath;
+    qCDebug(KMAHJONGG_LOG) << "Set a new Background: " << rBackgroundPath;
 
     *m_pBackgroundPath = rBackgroundPath;
 
@@ -750,7 +750,7 @@ bool GameView::setBackgroundPath(QString const &rBackgroundPath)
         }
     }
 
-    qDebug() << "Loading the background failed. Try to load the default background.";
+    qCDebug(KMAHJONGG_LOG) << "Loading the background failed. Try to load the default background.";
 
     // Try default
     if (m_pBackground->loadDefault()) {
@@ -921,7 +921,7 @@ void GameView::setStatusText(QString const &rText)
 
 void GameView::updateBackground()
 {
-    qDebug() << "Update the background";
+    qCDebug(KMAHJONGG_LOG) << "Update the background";
 
     QBrush brush(m_pBackground->getBackground());
     setBackgroundBrush(brush);
