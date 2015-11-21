@@ -355,7 +355,8 @@ void KMahjongg::pause()
 void KMahjongg::showHighscores()
 {
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
+    const QString layoutName = m_pBoardLayout->authorProperty("Name");
+    ksdialog.setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     ksdialog.exec();
 }
 
@@ -491,7 +492,8 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    ksdialog.setConfigGroup(m_pBoardLayout->authorProperty("Name"));
+    const QString layoutName = m_pBoardLayout->authorProperty("Name");
+    ksdialog.setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
