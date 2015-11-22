@@ -61,11 +61,8 @@ int main(int argc, char** argv)
     aboutData.processCommandLine(&parser);
 
     // Migrate pre-existing (4.x) configuration
-    QStringList configFiles;
-    configFiles.append(QStringLiteral("kmahjonggrc"));
-
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kmahjongg"));
-    migrate.setConfigFiles(configFiles);
+    migrate.setConfigFiles(QStringList() << QStringLiteral("kmahjonggrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kmahjonggui.rc"));
     migrate.migrate();
 
