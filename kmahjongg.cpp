@@ -418,6 +418,7 @@ void KMahjongg::startNewGame(int item)
 
     if (m_pGameView->gameGenerated()) {
         updateState(GameState::Gameplay);
+        setCaption(m_pBoardLayout->layoutName());
     } else {
         updateState(GameState::Finished);
         gameTimer->pause();

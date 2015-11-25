@@ -124,6 +124,8 @@ bool KMahjonggLayout::load(const QString &file) {
 
     filename = file;
 
+    m_layoutName = group.readEntry("Name");
+
     return true;
 }
 
@@ -140,4 +142,9 @@ QString KMahjonggLayout::path() const
 QString KMahjonggLayout::authorProperty(const QString &key) const
 {
     return d->authorproperties[key];
+}
+
+QString KMahjonggLayout::layoutName() const
+{
+    return m_layoutName;
 }
