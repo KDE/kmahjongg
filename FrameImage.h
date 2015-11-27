@@ -18,8 +18,9 @@
 #ifndef FRAMEIMAGE_H
 #define FRAMEIMAGE_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <QWidget>
+
+class QPixmap;
 
 #include "BoardLayout.h"
 #include "kmahjonggtileset.h"
@@ -33,7 +34,7 @@ class QPixmap;
 
 /**
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
-class FrameImage: public KGameCanvasWidget
+class FrameImage: public QWidget
 {
     Q_OBJECT
 

@@ -23,6 +23,7 @@
 #include <QImage>
 #include <QPainter>
 #include <QPaintEvent>
+#include <QPixmap>
 #include <QTextStream>
 
 #include <KLocalizedString>
@@ -30,7 +31,7 @@
 #include <KStandardGuiItem>
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
-  : KGameCanvasWidget(parent),
+  : QWidget(parent),
     rx(-1),
     thePixmap(new QPixmap(initialImageSize))
 {

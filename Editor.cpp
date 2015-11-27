@@ -32,6 +32,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QResizeEvent>
+#include <QPainter>
 
 
 Editor::Editor(QWidget *parent)
