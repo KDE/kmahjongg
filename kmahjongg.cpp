@@ -32,12 +32,10 @@
 #include <KConfigDialog>
 #include <KIO/NetAccess>
 #include <KGameClock>
-#include <KGlobal>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KScoreDialog>
 #include <KStandardAction>
-#include <KStandardDirs>
 #include <KStandardGameAction>
 #include <KStatusBar>
 #include <KToggleAction>
@@ -395,8 +393,14 @@ void KMahjongg::startNewGame(int item)
     // Only load new layout in random mode if we are not given a game number.
     // Use same layout if restarting game or starting a numbered game.
     if (Prefs::randomLayout() && item == -1) {
-        QStringList availableLayouts = KGlobal::dirs()->findAllResources(
-                    "kmahjongglayout", QString("*.desktop"), KStandardDirs::Recursive);
+        QStringList availableLayouts;
+        const QStringList layoutDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongg/layouts/"), QStandardPaths::LocateDirectory);
+        Q_FOREACH (const QString& dir, layoutDirs) {
+            const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+            Q_FOREACH (const QString& file, fileNames) {
+                availableLayouts.append(dir + '/' + file);
+            }
+        }
         QString layout = availableLayouts.at(qrand() % availableLayouts.size());
 
         if (m_pBoardLayout->path() != layout) {

@@ -21,10 +21,9 @@
 #include "BoardLayout.h"
 #include "kmahjongg_debug.h"
 
+#include <KConfig>
 #include <KConfigGroup>
-#include <KGlobal>
 #include <KLocalizedString>
-#include <KStandardDirs>
 
 #include <QFile>
 #include <QMap>
@@ -56,8 +55,6 @@ KMahjonggLayout::KMahjonggLayout()
     if (_inited) {
         return;
     }
-    KGlobal::dirs()->addResourceType("kmahjongglayout", "data",
-            QString::fromLatin1("kmahjongg/layouts/"));
 
     _inited = true;
 }

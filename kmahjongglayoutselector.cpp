@@ -28,7 +28,6 @@
 #include "prefs.h"
 
 #include <KLocalizedString>
-#include <KStandardDirs>
 
 #include <QDir>
 #include <QPainter>
