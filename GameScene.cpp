@@ -191,7 +191,7 @@ bool GameScene::isSelectable(const GameItem * const pGameItem) const
 void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 {
     GameItem * pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x(),
-        pMouseEvent->scenePos().y()));
+        pMouseEvent->scenePos().y(), QTransform()));
 
     // No item was clicked.
     if (pGameItem != NULL) {
@@ -200,7 +200,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
         if (pGameItem->isShadow(pMouseEvent->scenePos() - pGameItem->pos())) {
             pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x() +
                 pGameItem->getShadowDeltaX(), pMouseEvent->scenePos().y() +
-                pGameItem->getShadowDeltaY()));
+                pGameItem->getShadowDeltaY(), QTransform()));
         }
     }
 
