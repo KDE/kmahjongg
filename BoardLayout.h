@@ -35,7 +35,7 @@ class BoardLayout {
 
 public:
     BoardLayout();
-    BoardLayout(const BoardLayout &boardLayout);
+    explicit BoardLayout(const BoardLayout &boardLayout);
     ~BoardLayout();
 
     void copyBoardLayout(UCHAR *to , unsigned short &numTiles) const;

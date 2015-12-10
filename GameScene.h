@@ -39,7 +39,7 @@ class GameScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    GameScene(QObject *pParent = 0);
+    explicit GameScene(QObject *pParent = 0);
     ~GameScene();
 
     /**

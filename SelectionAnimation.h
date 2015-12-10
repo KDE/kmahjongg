@@ -31,7 +31,7 @@ class SelectionAnimation : public QTimer
     Q_OBJECT
 
 public:
-    SelectionAnimation(QObject *pParent = 0);
+    explicit SelectionAnimation(QObject *pParent = 0);
     ~SelectionAnimation();
 
     /**
