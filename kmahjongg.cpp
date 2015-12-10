@@ -628,12 +628,9 @@ void KMahjongg::loadGame()
     in >> seconds;
     gameTimer->setTime(seconds);
 
-    GameData *pGameDataOld = m_pGameData;
     m_pGameData = new GameData(m_pBoardLayout->board());
     m_pGameData->loadFromStream(in);
     m_pGameView->setGameData(m_pGameData);
-
-    delete pGameDataOld;
 
     //GameNumber
     qint64 gameNum = 0;
