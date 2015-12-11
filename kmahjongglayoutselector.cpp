@@ -120,11 +120,8 @@ void KMahjonggLayoutSelector::layoutChanged()
     }
 
     //Now load the boardLayout temporarily
-    GameData *pGameDataOld = m_pGameData;
     m_pGameData = new GameData(selLayout->board());
     m_pGameView->setGameData(m_pGameData);
-
-    delete pGameDataOld;
 
     m_pGameView->createNewGame();
 
