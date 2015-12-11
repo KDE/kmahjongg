@@ -66,9 +66,9 @@ KMahjonggLayout::~KMahjonggLayout()
 
 bool KMahjonggLayout::loadDefault()
 {
-    QString idx = QStringLiteral("default.desktop");
+    const QString idx = QStringLiteral("default.desktop");
 
-    QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
     qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
         return false;
@@ -77,11 +77,6 @@ bool KMahjonggLayout::loadDefault()
 }
 
 bool KMahjonggLayout::load(const QString &file) {
-    //qCDebug(KMAHJONGG_LOG) << "Layout loading";
-
-    QString layoutPath;
-    //qCDebug(KMAHJONGG_LOG) << "Attempting to load .desktop at" << file;
-
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
@@ -98,16 +93,16 @@ bool KMahjonggLayout::load(const QString &file) {
     d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
 
     // Version control
-    int bgversion = group.readEntry("VersionFormat",0);
+    const int bgversion = group.readEntry("VersionFormat",0);
     // Format is increased when we have incompatible changes, meaning that older clients
     // are not able to use the remaining information safely
     if (bgversion > kLayoutVersionFormat) {
         return false;
     }
 
-    QString layoutName = group.readEntry("FileName");
+    const QString layoutName = group.readEntry("FileName");
 
-    layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
     qCDebug(KMAHJONGG_LOG) << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 

@@ -240,7 +240,7 @@ void Editor::setupToolbar()
 
 void Editor::statusChanged() const
 {
-    bool canSave = ((numTiles != 0) && ((numTiles & 1) == 0));
+    const bool canSave = ((numTiles != 0) && ((numTiles & 1) == 0));
     theLabel->setText(statusText());
     actionCollection->action(QStringLiteral("save_board"))->setEnabled(canSave);
 }

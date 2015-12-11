@@ -398,7 +398,7 @@ void KMahjongg::startNewGame(int item)
                 availableLayouts.append(dir + '/' + file);
             }
         }
-        QString layout = availableLayouts.at(qrand() % availableLayouts.size());
+        const QString layout = availableLayouts.at(qrand() % availableLayouts.size());
 
         if (m_pBoardLayout->path() != layout) {
             // Try to load the random layout.
