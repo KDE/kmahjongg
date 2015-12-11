@@ -25,7 +25,7 @@
 #include "kmahjongg_debug.h"
 #include "prefs.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KRandom>
 

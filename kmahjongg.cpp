@@ -30,14 +30,12 @@
 #include <KAboutData>
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <KIO/NetAccess>
 #include <KGameClock>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KScoreDialog>
 #include <KStandardAction>
 #include <KStandardGameAction>
-#include <KStatusBar>
 #include <KToggleAction>
 
 #include <QAction>
@@ -568,21 +566,17 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    QString fname;
-
     // Get the name of the file to load
-    QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Load Game" ), QUrl(), i18n("KMahjongg Game (*.kmgame)"));
+    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game" ), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
-    if (url.isEmpty()) {
+    if (filename.isEmpty()) {
         return;
     }
 
-    KIO::NetAccess::download(url, fname, this);
-
     // open the file for reading
-    QFile infile(fname);
+    QFile infile(filename);
 
-    if (!infile.open(QIODevice::ReadOnly)) {
+    if (!infile.open(QFile::ReadOnly | QFile::Text)) {
         KMessageBox::sorry(this, i18n("Could not read from file. Aborting."));
         return;
     }
@@ -638,8 +632,6 @@ void KMahjongg::loadGame()
 
     infile.close();
 
-    KIO::NetAccess::removeTempFile(fname);
-
     if(gameNum > 0) {
         m_pGameView->setGameNumber(gameNum);
     }
@@ -653,27 +645,18 @@ void KMahjongg::saveGame()
     gameTimer->pause();
 
     // Get the name of the file to save
-    QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Game"), QUrl(), i18n("KMahjongg Game (*.kmgame)"));
+    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
-    if (url.isEmpty()) {
+    if (filename.isEmpty()) {
         gameTimer->resume();
-
         return;
     }
 
-    if (!url.isLocalFile()) {
-        KMessageBox::sorry(this, i18n("Only saving to local files currently supported."));
+    QFile outfile(filename);
+
+    if (!outfile.open(QFile::WriteOnly | QFile::Text)) {
+        KMessageBox::sorry(this, i18n("Could not open file for saving."));
         gameTimer->resume();
-
-        return;
-    }
-
-    QFile outfile(url.path());
-
-    if (!outfile.open(QIODevice::WriteOnly)) {
-        KMessageBox::sorry(this, i18n("Could not write saved game."));
-        gameTimer->resume();
-
         return;
     }
 
