@@ -244,8 +244,7 @@ void KMahjongg::showSettings()
 
     //The Settings class is ours
     dialog->addPage(new Settings(0), i18n("General"), QStringLiteral("games-config-options"));
-    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), QStringLiteral("games-con"
-        "fig-board"));
+    dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), QStringLiteral("games-config-board"));
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
 #pragma message("PORT TO FRAMEWORKS")
@@ -518,8 +517,7 @@ void KMahjongg::showStatusText(const QString &msg, long board)
 
 void KMahjongg::showItemNumber(int iMaximum, int iCurrent, int iLeft)
 {
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3",
-            iMaximum - iCurrent, iMaximum, iLeft);
+    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", iMaximum - iCurrent, iMaximum, iLeft);
     tilesLeftLabel->setText(szBuffer);
 
     updateUndoAndRedoStates();
