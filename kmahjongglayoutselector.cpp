@@ -119,25 +119,11 @@ void KMahjonggLayoutSelector::layoutChanged()
         m_pGameView->setBackgroundPath(Prefs::background());
     }
 
-    //Now load the boardLayout temporarily
+    //Now load the boardLayout
     m_pGameData = new GameData(selLayout->board());
     m_pGameView->setGameData(m_pGameData);
 
     m_pGameView->createNewGame();
-
-    /* //Let the tileset calculate its ideal size for the preview area, but reduce the margins a bit (pass oversized drawing area)
-    QSize tilesize = selTileset->preferredTileSize(tilesetPreview->size()*1.3, 1, 1);
-    selTileset->reloadTileset(tilesize);
-    //Draw the preview
-    QImage qiRend(tilesetPreview->size(),QImage::Format_ARGB32_Premultiplied);
-    qiRend.fill(0);
-    QPainter p(&qiRend);
-    //Calculate the margins to center the tile
-    QSize margin = tilesetPreview->size() - tilesize;
-    //Draw unselected tile and first tileface
-    p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->unselectedTile(1));
-    p.drawPixmap(margin.width()/2, margin.height()/2, selTileset->tileface(0));
-    tilesetPreview->setPixmap(QPixmap::fromImage(qiRend)); */
 }
 
 void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active)
