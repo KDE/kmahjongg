@@ -566,14 +566,12 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    // Get the name of the file to load
     QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game" ), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         return;
     }
 
-    // open the file for reading
     QFile infile(filename);
 
     if (!infile.open(QFile::ReadOnly | QFile::Text)) {
@@ -583,7 +581,7 @@ void KMahjongg::loadGame()
 
     QDataStream in(&infile);
 
-    // verify the magic
+    // verify that it is a kmahjongg game file
     QString magic;
     in >> magic;
 
@@ -594,7 +592,7 @@ void KMahjongg::loadGame()
         return;
     }
 
-    // Read the version
+    // verify data version of saved data
     qint32 version;
     in >> version;
 
@@ -641,10 +639,8 @@ void KMahjongg::loadGame()
 
 void KMahjongg::saveGame()
 {
-    //Pause timer
     gameTimer->pause();
 
-    // Get the name of the file to save
     QString filename = QFileDialog::getSaveFileName(this, i18n("Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
@@ -671,10 +667,10 @@ void KMahjongg::saveGame()
     out << m_pGameView->getBackgroundPath();
     out << m_pBoardLayout->path();
 
-    //GameTime
+    // GameTime
     out << gameTimer->seconds();
 
-    // Write the Game data
+    // GameData
     m_pGameData->saveToStream(out);
 
     // GameNumber
