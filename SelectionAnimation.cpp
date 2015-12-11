@@ -56,7 +56,7 @@ int SelectionAnimation::getRepetitions() const
 
 void SelectionAnimation::addGameItems(QList<GameItem *> gameItems)
 {
-    while(gameItems.size() > 0) {
+    while (gameItems.size() > 0) {
         m_pGameItems->append(gameItems.takeFirst());
     }
 }

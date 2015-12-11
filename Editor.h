@@ -51,8 +51,8 @@ public slots:
     void setTilesetFromSettings();
 
 protected slots:
-    void drawFrameMousePressEvent ( QMouseEvent* );
-    void drawFrameMouseMovedEvent ( QMouseEvent *);
+    void drawFrameMousePressEvent(QMouseEvent *);
+    void drawFrameMouseMovedEvent(QMouseEvent *);
     void loadBoard();
     bool saveBoard();
     void newBoard();

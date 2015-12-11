@@ -151,13 +151,13 @@ void KMahjongg::setupKAction()
     QAction *angleccw = actionCollection()->addAction(QStringLiteral("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-left")));
-    angleccw->setShortcut( Qt::Key_F );
+    angleccw->setShortcut(Qt::Key_F);
     connect(angleccw, &QAction::triggered, m_pGameView, &GameView::angleSwitchCCW);
 
     QAction *anglecw = actionCollection()->addAction(QStringLiteral("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-right")));
-    anglecw->setShortcut( Qt::Key_G );
+    anglecw->setShortcut(Qt::Key_G);
     connect(anglecw, &QAction::triggered, m_pGameView, &GameView::angleSwitchCW);
 
     demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
@@ -477,7 +477,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     // subtract from 20 minutes to get bonus. if longer than 20 then ignore
     int time = (60 * 20) - gameTimer->seconds();
     if (time < 0) {
-        time =0;
+        time = 0;
     }
     // conv back to  secs (max bonus = 60*20 = 1200
 
@@ -501,7 +501,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = gameTimer->timeString();
-    if(ksdialog.addScore(scoreInfo, KScoreDialog::AskName)) {
+    if (ksdialog.addScore(scoreInfo, KScoreDialog::AskName)) {
         ksdialog.exec();
     }
 
@@ -566,7 +566,7 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game" ), QString(), i18n("KMahjongg Game (*.kmgame)"));
+    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         return;
@@ -630,7 +630,7 @@ void KMahjongg::loadGame()
 
     infile.close();
 
-    if(gameNum > 0) {
+    if (gameNum > 0) {
         m_pGameView->setGameNumber(gameNum);
     }
 

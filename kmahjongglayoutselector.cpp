@@ -33,8 +33,8 @@
 #include <QPainter>
 
 
-KMahjonggLayoutSelector::KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * aconfig )
-        : QWidget( parent ),
+KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * aconfig)
+        : QWidget(parent),
         m_pGameData(NULL)
 {
     setupUi(this);

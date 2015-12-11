@@ -84,17 +84,17 @@ bool BoardLayout::saveBoardLayout(const QString &where) const {
     }
 
     for (int z=0; z<m_depth; z++) {
-        for(int y=0; y<m_height; y++) {
-            if(!f.putChar('\n')) {
+        for (int y=0; y<m_height; y++) {
+            if (!f.putChar('\n')) {
                 return false;
             }
 
             for (int x=0; x<m_width; x++) {
                 if (getBoardData(z,y,x)) {
-                    if(!f.putChar(getBoardData(z,y,x))) {
+                    if (!f.putChar(getBoardData(z,y,x))) {
                         return false;
                     }
-                } else if(!f.putChar('.')) {
+                } else if (!f.putChar('.')) {
                     return false;
                 }
             }
@@ -112,8 +112,8 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
     QFile f(from);
     QString all = QLatin1String("");
 
-    if ( f.open(QIODevice::ReadOnly) ) {
-        QTextStream t( &f );
+    if (f.open(QIODevice::ReadOnly)) {
+        QTextStream t(&f);
         t.setCodec(QTextCodec::codecForName("UTF-8"));
         QString s(t.readLine());
 
@@ -129,7 +129,7 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
         int lines = 0;
         QString all("");
 
-        while ( !t.atEnd() ) {
+        while (!t.atEnd()) {
             s = t.readLine();
             if (s[0] == '#') {
                 continue;
@@ -160,8 +160,8 @@ bool BoardLayout::loadBoardLayout(const QString &from)
     }
 
     QFile f(from);
-    if ( f.open(QIODevice::ReadOnly) ) {
-        QTextStream t( &f );
+    if (f.open(QIODevice::ReadOnly)) {
+        QTextStream t(&f);
         t.setCodec(QTextCodec::codecForName("UTF-8"));
         QString s(t.readLine());
 
@@ -175,7 +175,7 @@ bool BoardLayout::loadBoardLayout(const QString &from)
         m_width = m_height = m_depth = 0;
         QString all("");
 
-        while ( !t.atEnd() ) {
+        while (!t.atEnd()) {
             s = t.readLine();
             if (s[0] == '#') {
                 continue;
@@ -229,10 +229,9 @@ void BoardLayout::initialiseBoard()
 
     int idx = 0;
 
-    while( true )
-    {
+    while (true) {
         BYTE c = loadedBoard.at(idx++);
-        switch( c )
+        switch (c)
         {
         case (UCHAR)'1': maxTileNum++;
         case (UCHAR)'2':
@@ -243,15 +242,15 @@ void BoardLayout::initialiseBoard()
         default: setBoardData(z,y,x,0);
             break;
         }
-        if( ++x == m_width) {
+        if (++x == m_width) {
             x=0;
 
-            if( ++y == m_height) {
+            if (++y == m_height) {
                 y=0;
 
-                if( ++z == m_depth) {
+                if (++z == m_depth) {
                     // number of tiles have to be even
-                    if( maxTileNum & 1 ) {
+                    if (maxTileNum & 1) {
                         break;
                     }
 
@@ -363,8 +362,8 @@ bool BoardLayout::tileAbove(short z, short y, short x) const
         return false;
     }
 
-    if( getBoardData(z+1,y,x)   || getBoardData(z+1,y+1,x) ||
-            getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1) ) {
+    if (getBoardData(z+1,y,x) || getBoardData(z+1,y+1,x) ||
+            getBoardData(z+1,y,x+1) || getBoardData(z+1,y+1,x+1)) {
         return true;
     }
 
@@ -373,7 +372,7 @@ bool BoardLayout::tileAbove(short z, short y, short x) const
 
 void BoardLayout::deleteTile(POSITION &p)
 {
-    if ( p.e <m_depth && getBoardData(p.e,p.y,p.x) == '1') {
+    if (p.e <m_depth && getBoardData(p.e,p.y,p.x) == '1') {
         setBoardData(p.e,p.y,p.x,0);
         setBoardData(p.e,p.y,p.x+1,0);
         setBoardData(p.e,p.y+1,p.x,0);

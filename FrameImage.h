@@ -53,7 +53,7 @@ protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
     void resizeEvent(QResizeEvent *e);
-    void paintEvent( QPaintEvent* pa );
+    void paintEvent(QPaintEvent *pa);
 
 private:
     int rx;

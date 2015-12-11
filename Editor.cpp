@@ -36,7 +36,7 @@
 
 
 Editor::Editor(QWidget *parent)
-    : QDialog( parent ),
+    : QDialog(parent),
     mode(EditMode::insert),
     numTiles(0),
     clean(true),
@@ -169,7 +169,7 @@ void Editor::setupToolbar()
     actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
     topToolbar->addAction(addTiles);
     KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove t"
-        "iles" ), this);
+        "iles"), this);
     actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
     topToolbar->addAction(delTiles);
 
@@ -341,7 +341,7 @@ void Editor::newBoard()
 bool Editor::saveBoard()
 {
     if (!((numTiles != 0) && ((numTiles & 1) == 0))) {
-        KMessageBox::sorry(this, i18n( "You can only save with a even number of tiles."));
+        KMessageBox::sorry(this, i18n("You can only save with a even number of tiles."));
 
         return false;
     }
@@ -365,7 +365,7 @@ bool Editor::saveBoard()
         // if it already exists, querie the user for replacement
         int res = KMessageBox::warningContinueCancel(this,
                 i18n("A file with that name already exists. Do you wish to overwrite it?"),
-                i18n("Save Board Layout" ), KStandardGuiItem::save());
+                i18n("Save Board Layout"), KStandardGuiItem::save());
 
         if (res != KMessageBox::Continue) {
             return false;
@@ -586,7 +586,7 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
     }
 }
 
-void Editor::drawFrameMousePressEvent( QMouseEvent* e )
+void Editor::drawFrameMousePressEvent(QMouseEvent* e)
 {
     // we swallow the draw frames mouse clicks and process here
 
@@ -658,7 +658,7 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
 
     statusChanged();
 
-    switch(mode) {
+    switch (mode) {
     case EditMode::insert: {
         POSITION next;
         next = currPos;
