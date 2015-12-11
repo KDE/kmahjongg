@@ -306,14 +306,14 @@ void Editor::loadBoard()
         return;
     }
 
-    const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Open Board Layout"), QUrl(),
+    const QString filename = QFileDialog::getOpenFileName(this, i18n("Open Board Layout"), QString(),
                                            i18n("Board Layout (*.layout);;All Files (*)"));
 
-    if (url.isEmpty()) {
+    if (filename.isEmpty()) {
         return;
     }
 
-    theBoard.loadBoardLayout(url.path());
+    theBoard.loadBoardLayout(filename);
     update();
 }
 
@@ -344,20 +344,14 @@ bool Editor::saveBoard()
     }
 
     // get a save file name
-    const QUrl url = QFileDialog::getSaveFileUrl(this, i18n("Save Board Layout"), QUrl(),
+    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Board Layout"), QString(),
                                            i18n("Board Layout (*.layout);;All Files (*)"));
 
-    if (url.isEmpty()) {
+    if (filename.isEmpty()) {
         return false;
     }
 
-    if (!url.isLocalFile()) {
-        KMessageBox::sorry(this, i18n("Only saving to local files currently supported."));
-
-        return false;
-    }
-
-    const QFileInfo f(url.path());
+    const QFileInfo f(filename);
     if (f.exists()) {
         // if it already exists, querie the user for replacement
         int res = KMessageBox::warningContinueCancel(this,
@@ -369,7 +363,7 @@ bool Editor::saveBoard()
         }
     }
 
-    bool result = theBoard.saveBoardLayout(url.path());
+    bool result = theBoard.saveBoardLayout(filename);
 
     if (result == true) {
         clean = true;
