@@ -164,12 +164,10 @@ void Editor::setupToolbar()
 #endif
 
 
-    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add ti"
-        "les"), this);
+    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
     actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
     topToolbar->addAction(addTiles);
-    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove t"
-        "iles"), this);
+    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove tiles"), this);
     actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
     topToolbar->addAction(delTiles);
 
@@ -222,8 +220,7 @@ void Editor::setupToolbar()
     topToolbar->addAction(shiftRight);
 
     topToolbar->addSeparator();
-    QAction *quit = actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this,
-        SLOT(close()));
+    QAction *quit = actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
     topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
