@@ -296,7 +296,7 @@ QString Editor::statusText() const
         x = y = z = 0;
     }
 
-    return QString(i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z));
+    return i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
 }
 
 
