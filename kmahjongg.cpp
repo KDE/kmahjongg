@@ -564,7 +564,7 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
+    const QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         return;
@@ -639,7 +639,7 @@ void KMahjongg::saveGame()
 {
     gameTimer->pause();
 
-    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
+    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         gameTimer->resume();
