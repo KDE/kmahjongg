@@ -188,12 +188,22 @@ bool GameScene::isSelectable(const GameItem * const pGameItem) const
     return false;
 }
 
+void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * pMouseEvent)
+{
+    // Swallow this event.  A double-click causes a mousePressEvent() AND a
+    // mouseDoubleClickEvent().  The second event could cause a tile that is
+    // NOT removable to become selected (by default), allowing it to be removed
+    // illegally (ie. it has a tile on each side or is half under another tile).
+    pMouseEvent->accept(); // Double-click ==> single-click in KMahjongg.
+}
+
 void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
 {
+    // N.B. Event occurs when there is a click OR double-click with ANY button.
     GameItem * pGameItem = dynamic_cast <GameItem *>(itemAt(pMouseEvent->scenePos().x(),
         pMouseEvent->scenePos().y(), QTransform()));
 
-    // No item was clicked.
+    // An item was clicked.
     if (pGameItem != NULL) {
         // If we click on a shadow of the actual item, we have to correct the clicking position, in
         // order to simulate a transparent shadow.

@@ -98,6 +98,10 @@ public:
 
     /**
      * Override from QGraphicsScene. */
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *pMouseEvent);
+
+    /**
+     * Override from QGraphicsScene. */
     void mousePressEvent(QGraphicsSceneMouseEvent *pMouseEvent);
 
     /**

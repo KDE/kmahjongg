@@ -60,9 +60,6 @@ int main(int argc, char** argv)
 
     KDBusService service;
 
-    // We don't use double-clicks. Set the interval to 0ms to prevent them being triggered.
-    app.setDoubleClickInterval(0);
-
     if (app.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
