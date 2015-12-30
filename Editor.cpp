@@ -431,12 +431,12 @@ void Editor::drawBackground(QPixmap *pixmap) const
     p.fillRect(0, 0, pixmap->width(), pixmap->height(), Qt::white);
 
     // now put in a grid of tile quater width squares
-    for (int y = 0; y <= height; y++) {
+    for (int y = 0; y <= height; ++y) {
         int nextY = borderTop + (y * tiles.qHeight());
         p.drawLine(borderLeft, nextY, borderLeft + (width * tiles.qWidth()), nextY);
     }
 
-    for (int x = 0; x <= width; x++) {
+    for (int x = 0; x <= width; ++x) {
         int nextX = borderLeft + (x * tiles.qWidth());
         p.drawLine(nextX, borderTop, nextX, borderTop + (height * tiles.qHeight()));
     }
@@ -459,11 +459,11 @@ void Editor::drawTiles(QPixmap *dest)
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
     // of the 3d relief on the tile left (tile shadow width)
-    for (int z = 0; z < depth; z++) {
+    for (int z = 0; z < depth; ++z) {
         // we draw down the board so the tile below over rights our border
-        for (int y = 0; y < height; y++) {
+        for (int y = 0; y < height; ++y) {
             // drawing right to left to prevent border overwrite
-            for (int x = width - 1; x >= 0; x--) {
+            for (int x = width - 1; x >= 0; --x) {
                 int sx = x * tiles.qWidth() + xOffset + borderLeft;
                 int sy = y * tiles.qHeight() + yOffset + borderTop;
 
@@ -492,7 +492,7 @@ void Editor::drawTiles(QPixmap *dest)
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
 
-                tile++;
+                ++tile;
                 tile = tile % 143;
             }
         }
@@ -529,22 +529,22 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
         switch (theBoard.getBoardData(z, y, x)) {
         case static_cast<UCHAR>('3'):
             if (align) {
-                x--;
-                y--;
+                --x;
+                --y;
             }
 
             break;
 
         case static_cast<UCHAR>('2'):
             if (align) {
-                x--;
+                --x;
             }
 
             break;
 
         case static_cast<UCHAR>('4'):
             if (align) {
-                y--;
+                --y;
             }
 
             break;
@@ -588,7 +588,7 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
     case EditMode::remove:
         if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.getDepth() && theBoard.isTileAt(mPos)) {
             theBoard.deleteTile(mPos);
-            numTiles--;
+            --numTiles;
             statusChanged();
             drawFrameMouseMovedEvent(e);
             update();
@@ -607,7 +607,7 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
         if (canInsert(n)) {
             theBoard.insertTile(n);
             clean = false;
-            numTiles++;
+            ++numTiles;
             statusChanged();
             update();
         }

@@ -83,13 +83,13 @@ bool BoardLayout::saveBoardLayout(const QString &where) const {
         return false;
     }
 
-    for (int z=0; z<m_depth; z++) {
-        for (int y=0; y<m_height; y++) {
+    for (int z=0; z<m_depth; ++z) {
+        for (int y=0; y<m_height; ++y) {
             if (!f.putChar('\n')) {
                 return false;
             }
 
-            for (int x=0; x<m_width; x++) {
+            for (int x=0; x<m_width; ++x) {
                 if (getBoardData(z,y,x)) {
                     if (!f.putChar(getBoardData(z,y,x))) {
                         return false;
@@ -135,7 +135,7 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
                 continue;
             }
             all += s;
-            lines++;
+            ++lines;
         }
         f.close();
 
@@ -193,7 +193,7 @@ bool BoardLayout::loadBoardLayout(const QString &from)
                 continue;
             }
             all += s;
-            lines++;
+            ++lines;
         }
         f.close();
 
@@ -233,7 +233,7 @@ void BoardLayout::initialiseBoard()
         BYTE c = loadedBoard.at(idx++);
         switch (c)
         {
-        case (UCHAR)'1': maxTileNum++;
+        case (UCHAR)'1': ++maxTileNum;
         case (UCHAR)'2':
         case (UCHAR)'3':
         case (UCHAR)'4': setBoardData(z,y,x,c);
@@ -377,7 +377,7 @@ void BoardLayout::deleteTile(POSITION &p)
         setBoardData(p.e,p.y,p.x+1,0);
         setBoardData(p.e,p.y+1,p.x,0);
         setBoardData(p.e,p.y+1,p.x+1,0);
-        maxTileNum--;
+        --maxTileNum;
     }
 }
 

@@ -46,9 +46,9 @@ void GameScene::clear()
 void GameScene::initializeGameItemsArray()
 {
     // initialize all array pointers with nullptr.
-    for (int i = 0; i < BOARD_WIDTH; i++) {
-        for (int j = 0; j < BOARD_HEIGHT; j++) {
-            for (int k = 0; k < BOARD_DEPTH; k++) {
+    for (int i = 0; i < BOARD_WIDTH; ++i) {
+        for (int j = 0; j < BOARD_HEIGHT; ++j) {
+            for (int k = 0; k < BOARD_DEPTH; ++k) {
                 m_pGameItemsArray[i][j][k] = nullptr;
             }
         }
@@ -127,7 +127,7 @@ QList<GameItem *> GameScene::selectedItems() const
     QList<QGraphicsItem *> originalList = QGraphicsScene::selectedItems();
     QList<GameItem *> tmpList;
 
-    for (int i = 0; i < originalList.size(); i++) {
+    for (int i = 0; i < originalList.size(); ++i) {
         tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
     }
 
@@ -139,7 +139,7 @@ QList<GameItem *> GameScene::items() const
     QList<QGraphicsItem *> originalList = QGraphicsScene::items();
     QList<GameItem *> tmpList;
 
-    for (int i = 0; i < originalList.size(); i++) {
+    for (int i = 0; i < originalList.size(); ++i) {
         tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
     }
 
@@ -155,10 +155,10 @@ bool GameScene::isSelectable(const GameItem * const pGameItem) const
     // Test for items above...
 
     // We need one layer above.
-    iZ++;
+    ++iZ;
 
-    for (int i = iX - 1; i <= iX + 1; i++) {
-        for (int j = iY - 1; j <= iY + 1; j++) {
+    for (int i = iX - 1; i <= iX + 1; ++i) {
+        for (int j = iY - 1; j <= iY + 1; ++j) {
             // If there is a stone on the position, the item is not selectable.
             if (isItemOnGridPos(i, j, iZ)) {
                 return false;
@@ -169,11 +169,11 @@ bool GameScene::isSelectable(const GameItem * const pGameItem) const
     // Test for items beside...
 
     // Go back to the layer of the item.
-    iZ--;
+    --iZ;
 
     bool bSideFree = true;
     for (int i = iX - 2; i <= iX + 2; i += 4) {
-        for (int j = iY - 1; j <= iY + 1; j++) {
+        for (int j = iY - 1; j <= iY + 1; ++j) {
             // If there is one item on the side, it is no longer free.
             if (isItemOnGridPos(i, j, iZ)) {
                 bSideFree = false;

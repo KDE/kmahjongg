@@ -122,12 +122,12 @@ bool GameView::undo()
         m_pGameData->clearRemovedTilePair(m_pGameData->MoveListData(m_pGameData->TileNum + 1),
             m_pGameData->MoveListData(m_pGameData->TileNum + 2));
 
-        m_pGameData->TileNum++;
+        ++m_pGameData->TileNum;
         addItemAndUpdate(m_pGameData->MoveListData(m_pGameData->TileNum));
-        m_pGameData->TileNum++;
+        ++m_pGameData->TileNum;
         addItemAndUpdate(m_pGameData->MoveListData(m_pGameData->TileNum));
 
-        m_pGameData->allow_redo++;
+        ++m_pGameData->allow_redo;
 
         setStatusText(i18n("Undo operation done successfully."));
 
@@ -148,7 +148,7 @@ bool GameView::redo()
         removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
         removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
 
-        m_pGameData->allow_redo--;
+        --m_pGameData->allow_redo;
 
         return true;
     }
@@ -196,7 +196,7 @@ void GameView::createNewGame(long lGameNumber)
 
     // TODO: This is really bad... the generatedStartPosition2-function should never fail!!!!
     // Now try to position tiles on the board, 64 tries max.
-    for (short sNr = 0; sNr < 64; sNr++) {
+    for (short sNr = 0; sNr < 64; ++sNr) {
         if (m_pGameData->generateStartPosition2()) {
 
             m_bGameGenerated = true;
@@ -367,7 +367,7 @@ void GameView::helpMove()
         m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(stItem2));
 
         // Increase the cheat variable.
-        m_usCheatsUsed++;
+        ++m_usCheatsUsed;
 
         m_pHelpAnimation->start();
     }
@@ -385,7 +385,7 @@ void GameView::helpMatch(GameItem const * const pGameItem)
     if ((iMatchCount = m_pGameData->findAllMatchingTiles(stGameItemPos))) {
 
         // ...add them to the animation object...
-        for (int i = 0; i < iMatchCount; i++) {
+        for (int i = 0; i < iMatchCount; ++i) {
             if (scene()->getItemOnGridPos(m_pGameData->getFromPosTable(i)) != pGameItem) {
                 m_pHelpAnimation->addGameItem(scene()->getItemOnGridPos(
                     m_pGameData->getFromPosTable(i)));
@@ -393,7 +393,7 @@ void GameView::helpMatch(GameItem const * const pGameItem)
         }
 
         // Increase the cheat variable.
-        m_usCheatsUsed++;
+        ++m_usCheatsUsed;
 
         // ...and start the animation.
         m_pHelpAnimation->start();
@@ -518,9 +518,9 @@ void GameView::addItemsFromBoardLayout()
     scene()->clear();
 
     // Create the items and add them to the scene.
-    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
-        for (int iY = m_pGameData->m_height - 1; iY >= 0; iY--) {
-            for (int iX = m_pGameData->m_width - 1; iX >= 0; iX--) {
+    for (int iZ = 0; iZ < m_pGameData->m_depth; ++iZ) {
+        for (int iY = m_pGameData->m_height - 1; iY >= 0; --iY) {
+            for (int iX = m_pGameData->m_width - 1; iX >= 0; --iX) {
 
                 // Skip if no tile should be displayed on this position.
                 if (!m_pGameData->tilePresent(iZ, iY, iX)) {
@@ -610,7 +610,7 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
     int iXFrame = (width() / 2 - iTilesWidth) / 2 + (m_pTiles->levelOffsetX());
     int iYFrame = (height() / 2 - iTilesHeight) / 2 + (m_pTiles->levelOffsetY());
 
-    for (int iI = 0; iI < gameItems.size(); iI++) {
+    for (int iI = 0; iI < gameItems.size(); ++iI) {
         GameItem *pGameItem = gameItems.at(iI);
 
         // Get rasterized positions of the item.
@@ -676,7 +676,7 @@ void GameView::updateItemsOrder()
 
     GameScene *pGameScene = scene();
 
-    for (int iZ = 0; iZ < m_pGameData->m_depth; iZ++) {
+    for (int iZ = 0; iZ < m_pGameData->m_depth; ++iZ) {
         for (int iY = iYStart; iY != iYEnd; iY = iY + iYCounter) {
             orderLine(pGameScene->getItemOnGridPos(iXStart, iY, iZ), iXStart, iXEnd, iXCounter, iY,
                 iYCounter, iZ, iZCount);
@@ -700,7 +700,7 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
         }
 
         pGameItem->setZValue(iZCount);
-        iZCount++;
+        ++iZCount;
 
         pGameItem = pGameScene->getItemOnGridPos(i + 2 * iXCounter, iY - 1 * iYCounter, iZ);
         if (pGameItem != nullptr) {
@@ -824,7 +824,7 @@ QList<GameItem *> GameView::items() const
     QList<QGraphicsItem *> originalList = QGraphicsView::items();
     QList<GameItem *> tmpList;
 
-    for (int i = 0; i < originalList.size(); i++) {
+    for (int i = 0; i < originalList.size(); ++i) {
         tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
     }
 
@@ -886,7 +886,7 @@ void GameView::resizeTileset(const QSize &size)
 
 void GameView::updateItemsImages(QList<GameItem *> gameItems)
 {
-    for (int i = 0; i < gameItems.size(); i++) {
+    for (int i = 0; i < gameItems.size(); ++i) {
         GameItem *pGameItem = gameItems.at(i);
 
         QPixmap selPix;

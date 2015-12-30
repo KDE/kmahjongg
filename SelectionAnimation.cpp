@@ -97,7 +97,7 @@ void SelectionAnimation::timeoutOccurred()
         if (m_iRepetitions > m_iFinishedRepetitions) {
             setSelectedGameItems(true);
             m_bItemsSelected = true;
-            m_iFinishedRepetitions++;
+            ++m_iFinishedRepetitions;
             start();
         } else {
             stop();
@@ -107,7 +107,7 @@ void SelectionAnimation::timeoutOccurred()
 
 void SelectionAnimation::setSelectedGameItems(bool bSelected)
 {
-    for (int i = 0; i < m_pGameItems->size(); i++) {
+    for (int i = 0; i < m_pGameItems->size(); ++i) {
         m_pGameItems->at(i)->setSelected(bSelected);
     }
 }

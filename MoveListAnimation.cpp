@@ -77,9 +77,9 @@ void MoveListAnimation::timeoutOccurred()
             m_direction = AnimationDirection::Backward;
         }
     } else {
-        m_pGameData->TileNum++;
+        ++m_pGameData->TileNum;
         emit addItem(m_pGameData->MoveListData(m_pGameData->TileNum));
-        m_pGameData->TileNum++;
+        ++m_pGameData->TileNum;
         emit addItem(m_pGameData->MoveListData(m_pGameData->TileNum));
 
         if (m_pGameData->TileNum == m_pGameData->MaxTileNum) {
