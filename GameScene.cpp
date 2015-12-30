@@ -65,8 +65,10 @@ void GameScene::addItem(GameItem * pGameItem)
 
 void GameScene::removeItem(GameItem * pGameItem)
 {
-    m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
-        [pGameItem->getGridPosZ()] = NULL;
+    USHORT iX = pGameItem->getGridPosX();
+    USHORT iY = pGameItem->getGridPosY();
+    USHORT iZ = pGameItem->getGridPosZ();
+    m_pGameItemsArray[iX][iY][iZ] = NULL;
 
     QGraphicsScene::removeItem(pGameItem);
 }
@@ -83,10 +85,11 @@ void GameScene::removeItem(POSITION const &stItemPos)
 void GameScene::addItemToPositionArray(GameItem * const pGameItem)
 {
     // Take a look, if the place is already taken.
-    if (m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
-        [pGameItem->getGridPosZ()] == NULL) {
-        m_pGameItemsArray[pGameItem->getGridPosX()][pGameItem->getGridPosY()]
-        [pGameItem->getGridPosZ()] = pGameItem;
+    USHORT iX = pGameItem->getGridPosX();
+    USHORT iY = pGameItem->getGridPosY();
+    USHORT iZ = pGameItem->getGridPosZ();
+    if (m_pGameItemsArray[iX][iY][iZ] == NULL) {
+        m_pGameItemsArray[iX][iY][iZ] = pGameItem;
     }
 }
 
@@ -145,9 +148,9 @@ QList<GameItem *> GameScene::items() const
 
 bool GameScene::isSelectable(const GameItem * const pGameItem) const
 {
-    int iX = pGameItem->getGridPosX();
-    int iY = pGameItem->getGridPosY();
-    int iZ = pGameItem->getGridPosZ();
+    USHORT iX = pGameItem->getGridPosX();
+    USHORT iY = pGameItem->getGridPosY();
+    USHORT iZ = pGameItem->getGridPosZ();
 
     // Test for items above...
 
