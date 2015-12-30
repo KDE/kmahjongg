@@ -35,11 +35,11 @@
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * aconfig)
         : QWidget(parent),
-        m_pGameData(NULL)
+        m_pGameData(nullptr)
 {
     setupUi(this);
     m_pGameScene = new GameScene();
-    m_pGameView = new GameView(m_pGameScene, NULL, layoutPreview);
+    m_pGameView = new GameView(m_pGameScene, nullptr, layoutPreview);
     m_pGameView->resize(layoutPreview->size());
     m_pGameView->setInteractive(false);
     setupData(aconfig);

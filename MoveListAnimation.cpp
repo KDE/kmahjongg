@@ -22,7 +22,7 @@ MoveListAnimation::MoveListAnimation(QObject * pParent)
     : QTimer(pParent),
     m_iStep(0),
     m_iAnimationSpeed(0),
-    m_pGameData(NULL)
+    m_pGameData(nullptr)
 {
     connect(this, &MoveListAnimation::timeout, this, &MoveListAnimation::timeoutOccurred);
 }
@@ -64,7 +64,7 @@ void MoveListAnimation::stop()
 
 void MoveListAnimation::timeoutOccurred()
 {
-    if (m_pGameData == NULL) {
+    if (m_pGameData == nullptr) {
         return;
     }
 

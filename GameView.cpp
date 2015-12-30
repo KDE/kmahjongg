@@ -38,7 +38,7 @@ GameView::GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent)
     m_bMatch(false),
     m_bGameGenerated(false),
     m_pGameData(pGameData),
-    m_pSelectedItem(NULL),
+    m_pSelectedItem(nullptr),
     m_pTilesetPath(new QString()),
     m_pBackgroundPath(new QString()),
     m_pHelpAnimation(new SelectionAnimation(this)),
@@ -233,7 +233,7 @@ void GameView::selectionChanged()
     }
 
     // If no item was already selected...
-    if (m_pSelectedItem == NULL) {
+    if (m_pSelectedItem == nullptr) {
         // ...set the selected item.
         m_pSelectedItem = selectedGameItems.at(0);
 
@@ -267,7 +267,7 @@ void GameView::selectionChanged()
             removeItem(stSecondPos);
 
             // Reset the selected item variable.
-            m_pSelectedItem = NULL;
+            m_pSelectedItem = nullptr;
 
             // Test whether the game is over or not.
             if (m_pGameData->TileNum == 0) {
@@ -341,14 +341,14 @@ void GameView::startMoveListAnimation()
 void GameView::clearSelectedTile()
 {
     scene()->clearSelection();
-    m_pSelectedItem = NULL;
+    m_pSelectedItem = nullptr;
 }
 
 void GameView::changeItemSelectedState(POSITION &stItemPos, bool bSelected)
 {
     GameItem *pGameItem = scene()->getItemOnGridPos(stItemPos);
 
-    if (pGameItem != NULL) {
+    if (pGameItem != nullptr) {
         pGameItem->setSelected(bSelected);
     }
 }
@@ -693,8 +693,8 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
     GameItem * pGameItem = pStartItem;
 
     for (int i = iXStart; i != iXEnd; i = i + iXCounter) {
-        if (pGameItem == NULL) {
-            if ((pGameItem = pGameScene->getItemOnGridPos(i, iY, iZ)) == NULL) {
+        if (pGameItem == nullptr) {
+            if ((pGameItem = pGameScene->getItemOnGridPos(i, iY, iZ)) == nullptr) {
                 continue;
             }
         }
@@ -703,10 +703,10 @@ void GameView::orderLine(GameItem * pStartItem, int iXStart, int iXEnd, int iXCo
         iZCount++;
 
         pGameItem = pGameScene->getItemOnGridPos(i + 2 * iXCounter, iY - 1 * iYCounter, iZ);
-        if (pGameItem != NULL) {
+        if (pGameItem != nullptr) {
             orderLine(pGameItem, i + 2 * iXCounter, iXEnd, iXCounter, iY - 1 * iYCounter, iYCounter,
                 iZ, iZCount);
-            pGameItem = NULL;
+            pGameItem = nullptr;
         }
     }
 }

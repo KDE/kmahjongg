@@ -24,8 +24,8 @@
 
 GameScene::GameScene(QObject *pParent)
     : QGraphicsScene(pParent),
-    m_pFirstSelectedItem(NULL),
-    m_pSecondSelectedItem(NULL)
+    m_pFirstSelectedItem(nullptr),
+    m_pSecondSelectedItem(nullptr)
 {
     initializeGameItemsArray();
 }
@@ -39,17 +39,17 @@ void GameScene::clear()
     QGraphicsScene::clear();
     initializeGameItemsArray();
 
-    m_pFirstSelectedItem = NULL;
-    m_pSecondSelectedItem = NULL;
+    m_pFirstSelectedItem = nullptr;
+    m_pSecondSelectedItem = nullptr;
 }
 
 void GameScene::initializeGameItemsArray()
 {
-    // initialize all array pointers with NULL.
+    // initialize all array pointers with nullptr.
     for (int i = 0; i < BOARD_WIDTH; i++) {
         for (int j = 0; j < BOARD_HEIGHT; j++) {
             for (int k = 0; k < BOARD_DEPTH; k++) {
-                m_pGameItemsArray[i][j][k] = NULL;
+                m_pGameItemsArray[i][j][k] = nullptr;
             }
         }
     }
@@ -68,7 +68,7 @@ void GameScene::removeItem(GameItem * pGameItem)
     USHORT iX = pGameItem->getGridPosX();
     USHORT iY = pGameItem->getGridPosY();
     USHORT iZ = pGameItem->getGridPosZ();
-    m_pGameItemsArray[iX][iY][iZ] = NULL;
+    m_pGameItemsArray[iX][iY][iZ] = nullptr;
 
     QGraphicsScene::removeItem(pGameItem);
 }
@@ -77,7 +77,7 @@ void GameScene::removeItem(POSITION const &stItemPos)
 {
     GameItem *pGameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.e];
 
-    if (pGameItem != NULL) {
+    if (pGameItem != nullptr) {
         removeItem(pGameItem);
     }
 }
@@ -88,7 +88,7 @@ void GameScene::addItemToPositionArray(GameItem * const pGameItem)
     USHORT iX = pGameItem->getGridPosX();
     USHORT iY = pGameItem->getGridPosY();
     USHORT iZ = pGameItem->getGridPosZ();
-    if (m_pGameItemsArray[iX][iY][iZ] == NULL) {
+    if (m_pGameItemsArray[iX][iY][iZ] == nullptr) {
         m_pGameItemsArray[iX][iY][iZ] = pGameItem;
     }
 }
@@ -99,7 +99,7 @@ GameItem * GameScene::getItemOnGridPos(int iX, int iY, int iZ)
     if ((iX < 0 || iX > BOARD_WIDTH - 1) ||
         (iY < 0 || iY > BOARD_HEIGHT - 1) ||
         (iZ < 0 || iZ > BOARD_DEPTH - 1)) {
-        return NULL;
+        return nullptr;
     }
 
     return m_pGameItemsArray[iX][iY][iZ];
@@ -119,7 +119,7 @@ bool GameScene::isItemOnGridPos(int iX, int iY, int iZ) const
         return false;
     }
 
-    return !(m_pGameItemsArray[iX][iY][iZ] == NULL);
+    return !(m_pGameItemsArray[iX][iY][iZ] == nullptr);
 }
 
 QList<GameItem *> GameScene::selectedItems() const
@@ -207,7 +207,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
         pMouseEvent->scenePos().y(), QTransform()));
 
     // An item was clicked.
-    if (pGameItem != NULL) {
+    if (pGameItem != nullptr) {
         // If we click on a shadow of the actual item, we have to correct the clicking position, in
         // order to simulate a transparent shadow.
         if (pGameItem->isShadow(pMouseEvent->scenePos() - pGameItem->pos())) {
@@ -218,7 +218,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * pMouseEvent)
     }
 
     // No item was clicked.
-    if (pGameItem == NULL) {
+    if (pGameItem == nullptr) {
         emit clearSelectedTile();
         pMouseEvent->ignore();
         return;

@@ -23,7 +23,7 @@ DemoAnimation::DemoAnimation(QObject * pParent)
     : QTimer(pParent),
     m_iStep(0),
     m_iAnimationSpeed(0),
-    m_pGameData(NULL)
+    m_pGameData(nullptr)
 {
     connect(this, &DemoAnimation::timeout, this, &DemoAnimation::timeoutOccurred);
 }
@@ -61,7 +61,7 @@ void DemoAnimation::timeoutOccurred()
     switch (m_iStep++ % 5) {
     case 0:
         // Test if we got a game data object.
-        if (m_pGameData == NULL) {
+        if (m_pGameData == nullptr) {
             qCDebug(KMAHJONGG_LOG) << "m_pGameData is null";
 
             stop();

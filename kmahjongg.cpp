@@ -71,8 +71,8 @@ public:
 KMahjongg::KMahjongg(QWidget *parent)
     : KXmlGuiWindow(parent),
     m_gameState(GameState::Gameplay),
-    m_pGameView(NULL),
-    m_pGameData(NULL),
+    m_pGameView(nullptr),
+    m_pGameData(nullptr),
     m_pBoardLayout(new KMahjonggLayout())
 {
     //Use up to 3MB for global application pixmap cache
