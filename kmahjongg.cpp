@@ -248,8 +248,6 @@ void KMahjongg::showSettings()
     dialog->addPage(new KMahjonggLayoutSelector(0, Prefs::self()), i18n("Board Layout"), QStringLiteral("games-config-board"));
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
-#pragma message("PORT TO FRAMEWORKS")
-    //dialog->setHelp(QString(),"kmahjongg");
 
     connect(dialog, &KMahjonggConfigDialog::settingsChanged, this, &KMahjongg::loadSettings);
     connect(dialog, &KMahjonggConfigDialog::settingsChanged, boardEditor, &Editor::setTilesetFromSettings);
