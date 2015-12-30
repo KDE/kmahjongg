@@ -79,14 +79,6 @@ void DemoAnimation::timeoutOccurred()
                 // The computer lost the game.
                 // setStatusText(i18n("Your computer has lost the game."));
                 emit gameOver(false);
-
-                // while (Game->TileNum < Game->MaxTileNum) {
-                //     putTileInBoard(Game->MoveListData(Game->TileNum), false);
-                //     Game->TileNum++;
-                //     putTileInBoard(Game->MoveListData(Game->TileNum));
-                //     Game->TileNum++;
-                //     drawTileNumber();
-                // }
             }
         }
 

@@ -61,8 +61,7 @@ void GameData::putTile(short e, short y, short x, UCHAR f)
 
 bool GameData::tilePresent(int z, int y, int x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return false;
     }
 
@@ -71,8 +70,7 @@ bool GameData::tilePresent(int z, int y, int x) const
 
 UCHAR GameData::MaskData(short z, short y, short x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
@@ -81,8 +79,7 @@ UCHAR GameData::MaskData(short z, short y, short x) const
 
 UCHAR GameData::HighlightData(short z, short y, short x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
@@ -91,8 +88,7 @@ UCHAR GameData::HighlightData(short z, short y, short x) const
 
 UCHAR GameData::BoardData(short z, short y, short x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
@@ -235,7 +231,6 @@ int GameData::tileAt(int x, int y, int z) const
             }
         }
     }
-
     return -1;
 }
 
@@ -436,7 +431,6 @@ int GameData::selectPosition(int lastPosition)
             }
         }
     }
-
     return position;
 }
 
@@ -484,7 +478,7 @@ void GameData::updateDepend(int position)
         for (int i = 0; i < 4; ++i) {
             if ((depend = positionDepends[position].place_dep[i]) != -1) {
                 if (!positionDepends[depend].filled) {
-                    return ;
+                    return;
                 }
             }
         }
@@ -493,7 +487,6 @@ void GameData::updateDepend(int position)
         // now free to be filled.
         if (onlyFreeInLine(position)) {
             positionDepends[position].free = true;
-
             return;
         }
 
@@ -762,7 +755,6 @@ bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2) const
             return true;
         }
     }
-
     return false;
 }
 
@@ -911,7 +903,6 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
                 }
             }
         }
-
         ++Pos_Ende;
     }
 
@@ -1019,7 +1010,6 @@ short GameData::findAllMatchingTiles(POSITION &posA)
             }
         }
     }
-
     return Pos;
 }
 
@@ -1070,7 +1060,6 @@ bool GameData::saveToStream(QDataStream &out) const
         out << (quint16) thispos.x;
         out << (quint16) thispos.f;
     }
-
     return true;
 }
 

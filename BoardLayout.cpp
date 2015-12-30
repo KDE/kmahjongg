@@ -253,7 +253,6 @@ void BoardLayout::initialiseBoard()
                     if (maxTileNum & 1) {
                         break;
                     }
-
                     return;
                 }
             }

@@ -128,10 +128,7 @@ void Editor::setupToolbar()
 
     topToolbar->addSeparator();
 
-
 #ifdef FUTURE_OPTIONS
-
-
     // Select
     QAction *select = actionCollection->addAction(QLatin1String("select"));
     select->setIcon(QIcon::fromTheme(QLatin1String("rectangle_select")));
@@ -159,10 +156,7 @@ void Editor::setupToolbar()
     moveTiles->setIcon(QIcon::fromTheme(QLatin1String("move")));
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
-
-
 #endif
-
 
     KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
     actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
@@ -176,15 +170,9 @@ void Editor::setupToolbar()
     radioGrp->addAction(addTiles);
     addTiles->setChecked(true);
 
-
 #ifdef FUTURE_OPTIONS
-
-
     radioGrp->addAction(moveTiles);
-
-
 #endif
-
 
     radioGrp->addAction(delTiles);
     connect(radioGrp, &QActionGroup::triggered, this, &Editor::slotModeChanged);
@@ -299,7 +287,6 @@ QString Editor::statusText() const
     return i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
 }
 
-
 void Editor::loadBoard()
 {
     if (!testSave()) {
@@ -399,7 +386,6 @@ bool Editor::testSave()
     } else {
         return (res != KMessageBox::Cancel);
     }
-
     return true;
 }
 

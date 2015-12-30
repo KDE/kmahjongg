@@ -51,8 +51,7 @@ TileViewAngle GameItem::getAngle() const
     return m_angle;
 }
 
-void GameItem::setAngle(TileViewAngle angle, QPixmap * pSelPix, QPixmap * pUnselPix,
-    int iShadowWidth, int iShadowHeight)
+void GameItem::setAngle(TileViewAngle angle, QPixmap * pSelPix, QPixmap * pUnselPix, int iShadowWidth, int iShadowHeight)
 {
     m_angle = angle;
 
@@ -76,8 +75,7 @@ bool GameItem::isShadow(QPointF const position) const
     int iNewPosX = mappedPosition.x() + getShadowDeltaX();
     int iNewPosY = mappedPosition.y() + getShadowDeltaY();
 
-    if ((iNewPosX < 0 || iNewPosX > m_pSelPix->width()) ||
-        (iNewPosY < 0 || iNewPosY > m_pSelPix->height())) {
+    if ((iNewPosX < 0 || iNewPosX > m_pSelPix->width()) || (iNewPosY < 0 || iNewPosY > m_pSelPix->height())) {
         return true;
     }
 

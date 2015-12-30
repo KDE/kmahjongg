@@ -57,7 +57,8 @@ const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
 const int KMahjongg::gameDataVersion = 1;
 
 /**
- * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
+ * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
+ */
 class Settings : public QWidget, public Ui::Settings
 {
 public:
@@ -367,15 +368,11 @@ void KMahjongg::slotBoardEditor()
 void KMahjongg::noMovesAvailable()
 {
     int answer = KMessageBox::questionYesNoCancel(
-                this,
-                i18n("Game Over: You have no moves left."),
-                i18n("Game Over"),
-                KGuiItem(i18n("New Game"), QIcon(
-                             actionCollection()->action(KStandardGameAction::name(
-                             KStandardGameAction::New))->icon())),
-                KGuiItem(i18n("Restart"), QIcon(
-                             actionCollection()->action(KStandardGameAction::name(
-                             KStandardGameAction::Restart))->icon())));
+                 this,
+                 i18n("Game Over: You have no moves left."),
+                 i18n("Game Over"),
+                 KGuiItem(i18n("New Game"), QIcon(actionCollection()->action(KStandardGameAction::name(KStandardGameAction::New))->icon())),
+                 KGuiItem(i18n("Restart"), QIcon(actionCollection()->action(KStandardGameAction::name(KStandardGameAction::Restart))->icon())));
     if (answer == KMessageBox::Yes) {
         startNewGame();
     } else if (answer == KMessageBox::No) {
@@ -444,13 +441,11 @@ void KMahjongg::changeEvent(QEvent *event)
 
         // N.B. KMahjongg::pause() is not used here, because it is irrelevant to
         // hide the tiles and change the Pause button's state when minimizing.
-        if (isMinimized() && oldMinimizedState != Qt::WindowMinimized &&
-            m_gameState == GameState::Gameplay) {
+        if (isMinimized() && oldMinimizedState != Qt::WindowMinimized && m_gameState == GameState::Gameplay) {
             // If playing a game and not paused, stop the clock during minimise.
             gameTimer->pause();
         }
-        else if (!isMinimized() && oldMinimizedState == Qt::WindowMinimized &&
-                 m_gameState == GameState::Gameplay) {
+        else if (!isMinimized() && oldMinimizedState == Qt::WindowMinimized && m_gameState == GameState::Gameplay) {
             // If playing a game, start the clock when restoring the window.
             gameTimer->resume();
         }
@@ -460,7 +455,6 @@ void KMahjongg::changeEvent(QEvent *event)
 void KMahjongg::closeEvent(QCloseEvent *event)
 {
     saveSettings();
-
     event->accept();
 }
 
