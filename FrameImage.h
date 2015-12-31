@@ -18,85 +18,42 @@
 #ifndef FRAMEIMAGE_H
 #define FRAMEIMAGE_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <QWidget>
 
+class QPixmap;
+
+#include "BoardLayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
-#include "BoardLayout.h"
 
-#include <qframe.h>
-
-#include <kdialog.h>
+#include <QFrame>
 
 
 class QComboBox;
 class QPixmap;
 
 /**
- * @short This class implements
- * 
- * longer description
- *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
-class FrameImage: public KGameCanvasWidget
+class FrameImage: public QWidget
 {
     Q_OBJECT
 
 public:
-    /**
-     * Constructor
-     *
-     * @param parent
-     * @param initialImageSize */
     FrameImage(QWidget *parent, const QSize &initialImageSize);
-
-    /**
-     * Default Destructor */
     ~FrameImage();
 
-    /**
-     * Method Description
-     * 
-     * @return QPixmap */
     QPixmap* getPreviewPixmap() {return thePixmap;}
-
-    /**
-     * Method Description 
-     *
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @param ss
-     * @param type */
     void setRect(int x, int y, int w, int h, int ss, int type);
 
 signals:
-    /**
-     * Signal Description */
     void mousePressed(QMouseEvent *e);
-
-    /**
-     * Signal Description */
     void mouseMoved(QMouseEvent *e);
 
 protected:
-    /**
-     * Event Description */
     void mousePressEvent(QMouseEvent *e);
-
-    /**
-     * Event Description */
     void mouseMoveEvent(QMouseEvent *e);
-
-    /**
-     * Event Description */
     void resizeEvent(QResizeEvent *e);
-
-    /**
-     * Event Description */
-    void paintEvent( QPaintEvent* pa );
+    void paintEvent(QPaintEvent *pa);
 
 private:
     int rx;
@@ -108,6 +65,5 @@ private:
 
     QPixmap *thePixmap;
 };
-
 
 #endif

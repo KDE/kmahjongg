@@ -20,30 +20,34 @@
 
 */
 
-#ifndef _KMAHJONGGLAYOUTSELECTOR_H
-#define _KMAHJONGGLAYOUTSELECTOR_H
+#ifndef KMAHJONGGLAYOUTSELECTOR_H
+#define KMAHJONGGLAYOUTSELECTOR_H
 
-#include <QMap>
-#include <KConfigSkeleton>
 #include "ui_gametype.h"
 
+#include <KConfigSkeleton>
+
+class GameView;
+class GameData;
+class GameScene;
 class KMahjonggLayout;
-class BoardWidget;
 
 class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelector
 {
     Q_OBJECT
-  public:
-    explicit KMahjonggLayoutSelector( QWidget* parent, KConfigSkeleton * config );
+public:
+    explicit KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * config);
 
+public slots:
+    void layoutChanged();
+    void useRandomLayoutToggled(bool);
+private:
     void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggLayout *> layoutMap;
-  public slots:
-    void layoutChanged();
-    void useRandomLayoutToggled(bool);
-  private:
-    BoardWidget * bw;
+    GameScene *m_pGameScene;
+    GameData *m_pGameData;
+    GameView *m_pGameView;
 };
 
 #endif

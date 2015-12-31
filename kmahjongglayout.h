@@ -17,17 +17,17 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _KMAHJONGGLAYOUT_H_
-#define _KMAHJONGGLAYOUT_H_
+#ifndef KMAHJONGGLAYOUT_H
+#define KMAHJONGGLAYOUT_H
 
-#include <QtGui/QBrush>
+#include <QString>
 
 class BoardLayout;
 class KMahjonggLayoutPrivate;
 
 class KMahjonggLayout
 {
-  public:
+public:
     KMahjonggLayout();
     ~KMahjonggLayout();
 
@@ -35,12 +35,15 @@ class KMahjonggLayout
     bool loadDefault();
     QString path() const;
     QString authorProperty(const QString &key) const;
-    BoardLayout * board() ;
+    BoardLayout * board() const;
+    QString layoutName() const;
 
- private:
+private:
    friend class KMahjonggLayoutPrivate;
    KMahjonggLayoutPrivate *const d;
    QString filename;
+   QString m_layoutName;
+   static const int kLayoutVersionFormat;
 
    Q_DISABLE_COPY(KMahjonggLayout)
 };

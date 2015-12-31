@@ -15,51 +15,59 @@
 #include "kmahjongg.h"
 #include "version.h"
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <kimageio.h>
-#include <klocale.h>
-#include <kglobal.h>
+#include <KAboutData>
+#include <KDBusService>
+#include <Kdelibs4ConfigMigrator>
+#include <KLocalizedString>
 
+#include <QApplication>
+#include <QCommandLineParser>
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 
 int main(int argc, char** argv)
 {
-    KAboutData aboutData("kmahjongg", 0, ki18n("KMahjongg"), KMAHJONGG_VERSION, ki18n(description),
-        KAboutData::License_GPL, ki18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n("
-        "c) 2011, Christian Krippendorf"), KLocalizedString(), "http://games.kde.org/kmahjongg");
-    aboutData.addAuthor(ki18n("Mathias Mueller"), ki18n("Original Author"), "in5y158@public.uni-ham"
-        "burg.de");
-    aboutData.addAuthor(ki18n("Christian Krippendorf"), ki18n("Current maintainer"), "Coding@Christ"
-        "ian-Krippendorf.de");
-    aboutData.addAuthor(ki18n("Albert Astals Cid"), ki18n("Bug fixes"), "aacid@kde.org");
-    aboutData.addAuthor(ki18n("David Black"), ki18n("KDE 3 rewrite and Extension"), "david.black@lu"
-        "tris.com");
-    aboutData.addAuthor(ki18n("Michael Haertjens"), ki18n("Solvable game generation\nbased on algor"
-        "ithm by Michael Meeks in GNOME mahjongg"), "mhaertjens@modusoperandi.com");
-    aboutData.addCredit(ki18n("Raquel Ravanini"), ki18n("SVG Tileset for KDE4"), "raquel@tabuleiro."
-        "com");
-    aboutData.addCredit(ki18n("Richard Lohman"), ki18n("Tile set contributor and current web page m"
-        "aintainer"),"richardjlohman@yahoo.com");
-    aboutData.addCredit(ki18n("Osvaldo Stark"), ki18n("Tile set contributor and original web page m"
-        "aintainer"), "starko@dnet.it");
-    aboutData.addCredit(ki18n("Benjamin Meyer"), ki18n("Code cleanup"), "ben+kmahjongg@meyerhome.ne"
-        "t");
+    QApplication app(argc, argv);
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    KLocalizedString::setApplicationDomain("kmahjongg");
+    KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"),
+                         KMAHJONGG_VERSION, i18n(description), KAboutLicense::GPL,
+                         i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"));
+    aboutData.setHomepage(QStringLiteral("http://games.kde.org/kmahjongg"));
+    aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), QStringLiteral("in5y158@public.uni-hamburg.de"));
+    aboutData.addAuthor(i18n("Christian Krippendorf"), i18n("Current maintainer"), QStringLiteral("Coding@Christian-Krippendorf.de"));
+    aboutData.addAuthor(i18n("Albert Astals Cid"), i18n("Bug fixes"), QStringLiteral("aacid@kde.org"));
+    aboutData.addAuthor(i18n("David Black"), i18n("KDE 3 rewrite and Extension"), QStringLiteral("david.black@lutris.com"));
+    aboutData.addAuthor(i18n("Michael Haertjens"), i18n("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), QStringLiteral("mhaertjens@modusoperandi.com"));
+    aboutData.addCredit(i18n("Raquel Ravanini"), i18n("SVG Tileset for KDE4"), QStringLiteral("raquel@tabuleiro.com"));
+    aboutData.addCredit(i18n("Richard Lohman"), i18n("Tile set contributor and current web page maintainer"),QStringLiteral("richardjlohman@yahoo.com"));
+    aboutData.addCredit(i18n("Osvaldo Stark"), i18n("Tile set contributor and original web page maintainer"), QStringLiteral("starko@dnet.it"));
+    aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), QStringLiteral("ben+kmahjongg@meyerhome.net"));
 
-    KApplication application;
-    KGlobal::locale()->insertCatalog(QLatin1String("libkdegames"));
-    KGlobal::locale()->insertCatalog(QLatin1String("libkmahjongg"));
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-    if (application.isSessionRestored()) {
+    // Migrate pre-existing (4.x) configuration
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("kmahjongg"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("kmahjonggrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("kmahjonggui.rc"));
+    migrate.migrate();
+
+    KDBusService service;
+
+    if (app.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
         KMahjongg *window = new KMahjongg();
         window->show();
     }
 
-    return application.exec();
+    app.setWindowIcon(QIcon::fromTheme(QLatin1String("kmahjongg")));
+
+    return app.exec();
 }

@@ -17,16 +17,19 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
+#include "prefs.h"
 #include "GameData.h"
+#include "BoardLayout.h"
+#include "kmahjongg_debug.h"
 
-#include <KDebug>
+#include <QDataStream>
 
 
 GameData::GameData(BoardLayout *boardlayout)
 {
-    m_width = boardlayout->m_width;
-    m_height = boardlayout->m_height;
-    m_depth = boardlayout->m_depth;
+    m_width = boardlayout->getWidth();
+    m_height = boardlayout->getHeight();
+    m_depth = boardlayout->getDepth();
     m_maxTiles = (m_width * m_height * m_depth) / 4;
 
     Highlight = QByteArray(m_width * m_height * m_depth, 0);
@@ -56,55 +59,36 @@ void GameData::putTile(short e, short y, short x, UCHAR f)
     setBoardData(e, y, x + 1, f);
 }
 
-bool GameData::tilePresent(int z, int y, int x)
+bool GameData::tilePresent(int z, int y, int x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return false;
     }
 
     return (BoardData(z, y, x) != 0 && MaskData(z, y, x) == '1');
 }
 
-bool GameData::partTile(int z, int y, int x)
+UCHAR GameData::MaskData(short z, short y, short x) const
 {
-    return (BoardData(z, y, x) != 0);
-}
-
-UCHAR GameData::MaskData(short z, short y, short x)
-{
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
     return Mask.at((z * m_width * m_height) + (y * m_width) + x);
 }
 
-UCHAR GameData::HighlightData(short z, short y, short x)
+UCHAR GameData::HighlightData(short z, short y, short x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
     return Highlight.at((z * m_width * m_height) + (y * m_width) + x);
 }
 
-void GameData::setHighlightData(short z, short y, short x, UCHAR value)
+UCHAR GameData::BoardData(short z, short y, short x) const
 {
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
-        return;
-    }
-
-    Highlight[(z * m_width * m_height) + (y * m_width) + x] = value;
-}
-
-UCHAR GameData::BoardData(short z, short y, short x)
-{
-    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1)
-        || (z > m_depth - 1)) {
+    if ((y < 0) || (x < 0) || (z < 0) || (y > m_height - 1) || (x > m_width - 1) || (z > m_depth - 1)) {
         return 0;
     }
 
@@ -124,7 +108,7 @@ void GameData::setBoardData(short z, short y, short x, UCHAR value)
 POSITION& GameData::MoveListData(short i)
 {
     if ((i >= MoveList.size()) || (i < 0)) {
-        qDebug() << "Attempt to access GameData::MoveListData with invalid index";
+        qCDebug(KMAHJONGG_LOG) << "Attempt to access GameData::MoveListData with invalid index";
         i = 0 ;
     }
 
@@ -146,16 +130,16 @@ void GameData::generateTilePositions()
 
     numTilesToGenerate = 0;
 
-    for (int z = 0; z < m_depth; z++) {
-        for (int y = 0; y < m_height; y++) {
-            for (int x = 0; x < m_width; x++) {
+    for (int z = 0; z < m_depth; ++z) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = 0; x < m_width; ++x) {
                 setBoardData(z, y, x, 0);
                 if (MaskData(z,y,x) == '1') {
                     tilePositions[numTilesToGenerate].x = x;
                     tilePositions[numTilesToGenerate].y = y;
                     tilePositions[numTilesToGenerate].e = z;
                     tilePositions[numTilesToGenerate].f = 254;
-                    numTilesToGenerate++;
+                    ++numTilesToGenerate;
                 }
             }
         }
@@ -169,7 +153,7 @@ void GameData::generatePositionDepends()
     // the upper left quarter of the tile.
 
     // For each tile,
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
 
         // Get its basic position data
         int x = tilePositions[i].x;
@@ -201,8 +185,8 @@ void GameData::generatePositionDepends()
         positionDepends[i].turn_dep[3] = tileAt(x, y + 1, z + 1);
 
         // Make them unique
-        for (int j = 0; j < 3; j++) {
-            for (int k = j + 1; k < 4; k++) {
+        for (int j = 0; j < 3; ++j) {
+            for (int k = j + 1; k < 4; ++k) {
                 if (positionDepends[i].turn_dep[j] == positionDepends[i].turn_dep[k]) {
                     positionDepends[i].turn_dep[k] = -1;
                 }
@@ -216,8 +200,8 @@ void GameData::generatePositionDepends()
         positionDepends[i].place_dep[3] = tileAt(x, y + 1, z - 1);
 
         // Make them unique
-        for (int j = 0; j < 3; j++) {
-            for (int k = j + 1; k < 4; k++) {
+        for (int j = 0; j < 3; ++j) {
+            for (int k = j + 1; k < 4; ++k) {
                 if (positionDepends[i].place_dep[j] == positionDepends[i].place_dep[k]) {
                     positionDepends[i].place_dep[k] = -1;
                 }
@@ -230,14 +214,14 @@ void GameData::generatePositionDepends()
     }
 }
 
-int GameData::tileAt(int x, int y, int z)
+int GameData::tileAt(int x, int y, int z) const
 {
     // x, y, z are the coordinates of a *quarter* tile.  This returns the
     // index (in positions) of the tile at those coordinates or -1 if there
     // is no tile at those coordinates.  Note that the coordinates of each
     // tile in positions are those of the upper left quarter of the tile.
 
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
         if (tilePositions[i].e == z) {
             if ((tilePositions[i].x == x && tilePositions[i].y == y)
                 || (tilePositions[i].x == x - 1 && tilePositions[i].y == y)
@@ -247,7 +231,6 @@ int GameData::tileAt(int x, int y, int z)
             }
         }
     }
-
     return -1;
 }
 
@@ -255,12 +238,12 @@ bool GameData::generateSolvableGame()
 {
     // Initially we want to mark positions on layer 0 so that we have only
     // one free position per apparent horizontal line.
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
         // Pick a random tile on layer 0
         int position, cnt = 0;
 
         do {
-            position = (int) random.getLong(numTilesToGenerate);
+            position = static_cast<int>(random.getLong(numTilesToGenerate));
 
             if (cnt++ > (numTilesToGenerate*numTilesToGenerate)) {
                 return false; // bail
@@ -276,7 +259,7 @@ bool GameData::generateSolvableGame()
 
     // Check to make sure we really got them all.  Very important for
     // this algorithm.
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
         if (tilePositions[i].e == 0 && onlyFreeInLine(i)) {
             positionDepends[i].free = true;
         }
@@ -288,7 +271,7 @@ bool GameData::generateSolvableGame()
     int position2 = -1;
 
     // For each position,
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
 
         // If this is the first tile in a 144 tile set,
         if ((i % 144) == 0) {
@@ -337,7 +320,7 @@ bool GameData::generateSolvableGame()
     return true;
 }
 
-bool GameData::onlyFreeInLine(int position)
+bool GameData::onlyFreeInLine(int position) const
 {
     // Determines whether it is ok to mark this position as "free" because
     // there are no other positions marked "free" in its apparent horizontal
@@ -345,8 +328,6 @@ bool GameData::onlyFreeInLine(int position)
 
     int i, i0, w;
     int lin, rin, out;
-    //static int nextLeft[m_maxTiles];
-    //static int nextRight[m_maxTiles];
 
     QVector<int> nextLeft = QVector<int>(m_maxTiles, 0);
     QVector<int> nextRight = QVector<int>(m_maxTiles, 0);
@@ -363,12 +344,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].lhs_dep[0]) != -1) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].lhs_dep[1]) != -1 && i0 != i) {
+            if (lin == m_maxTiles) {
+                return false;
+            }
             nextLeft[lin++] = i;
         }
     } while (lin > out);
@@ -386,12 +373,18 @@ bool GameData::onlyFreeInLine(int position)
         }
 
         if ((i = positionDepends[w].rhs_dep[0]) != -1) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
 
         i0 = i;
 
         if ((i = positionDepends[w].rhs_dep[1]) != -1 && i0 != i) {
+            if (rin == m_maxTiles) {
+                return false;
+            }
             nextRight[rin++] = i;
         }
     } while (rin > out);
@@ -424,13 +417,13 @@ int GameData::selectPosition(int lastPosition)
         if (lastPosition != -1) {
 
             // Check the new position against the last one.
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; ++i) {
                 if (positionDepends[position].place_dep[i] == lastPosition) {
                     goodPosition = false;  // not such a good position
                 }
             }
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; ++i) {
                 if ((positionDepends[position].lhs_dep[i] == lastPosition)
                     || (positionDepends[position].rhs_dep[i] == lastPosition)) {
                     goodPosition = false;  // not such a good position
@@ -438,7 +431,6 @@ int GameData::selectPosition(int lastPosition)
             }
         }
     }
-
     return position;
 }
 
@@ -448,9 +440,6 @@ void GameData::placeTile(int position, int tile)
     tilePositions[position].f = tile;
     putTile(tilePositions[position]);
 
-    //added highlight?
-    //setHighlightData(E,Y,X,0);
-
     // Update position dependency data
     positionDepends[position].filled = true;
     positionDepends[position].free = false;
@@ -458,13 +447,13 @@ void GameData::placeTile(int position, int tile)
     // Now examine the tiles near this to see if this makes them "free".
     int depend;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if ((depend = positionDepends[position].turn_dep[i]) != -1) {
             updateDepend(depend);
         }
     }
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 2; ++i) {
         if ((depend = positionDepends[position].lhs_dep[i]) != -1) {
             updateDepend(depend);
         }
@@ -486,10 +475,10 @@ void GameData::updateDepend(int position)
         // Check placement depends.  If they are not filled, the
         // position cannot become free.
         int depend;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; ++i) {
             if ((depend = positionDepends[position].place_dep[i]) != -1) {
                 if (!positionDepends[depend].filled) {
-                    return ;
+                    return;
                 }
             }
         }
@@ -498,7 +487,6 @@ void GameData::updateDepend(int position)
         // now free to be filled.
         if (onlyFreeInLine(position)) {
             positionDepends[position].free = true;
-
             return;
         }
 
@@ -512,7 +500,7 @@ void GameData::updateDepend(int position)
             // Assume LHS positions filled
             lfilled = true;
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; ++i) {
                 if ((depend = positionDepends[position].lhs_dep[i]) != -1) {
                     if (!positionDepends[depend].filled) {
                          lfilled = false;
@@ -531,7 +519,7 @@ void GameData::updateDepend(int position)
             // Assume LHS positions filled
             rfilled = true;
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; ++i) {
                 if ((depend = positionDepends[position].rhs_dep[i]) != -1) {
                     if (!positionDepends[depend].filled) {
                         rfilled = false;
@@ -549,7 +537,7 @@ void GameData::updateDepend(int position)
 bool GameData::generateStartPosition2()
 {
     // For each tile,
-    for (int i = 0; i < numTilesToGenerate; i++) {
+    for (int i = 0; i < numTilesToGenerate; ++i) {
 
         // Get its basic position data
         int x = tilePositions[i].x;
@@ -568,16 +556,14 @@ bool GameData::generateStartPosition2()
     }
 
     // If solvable games should be generated,
-//     if (Prefs::solvableGames()) {
-
-    if (generateSolvableGame()) {
-        TileNum = MaxTileNum;
-        return true;
-    } else {
-        return false;
+    if (Prefs::solvableGames()) {
+        if (generateSolvableGame()) {
+            TileNum = MaxTileNum;
+            return true;
+        } else {
+            return false;
+        }
     }
-
-//     }
 
     // Initialise the faces to allocate. For the classic
     // dragon board there are 144 tiles. So we allocate and
@@ -612,7 +598,7 @@ bool GameData::generateStartPosition2()
                 if ((tilePositions[p1].y == tilePositions[p2].y)
                     && (tilePositions[p1].e == tilePositions[p2].e)) {
                     // skip if on same y line
-                    bail++;
+                    ++bail;
                     p2=p1;
 
                     continue;
@@ -694,14 +680,14 @@ void GameData::randomiseFaces()
 
     int at = 0;
     int to = 0;
-    for (int r = 0; r < 200; r++) {
+    for (int r = 0; r < 200; ++r) {
         to = at;
 
         while (to==at) {
             to = random.getLong(144);
 
             if ((to & 1) != 0) {
-                to--;
+                --to;
             }
 
         }
@@ -720,7 +706,6 @@ void GameData::randomiseFaces()
         }
     }
 
-    tilesAllocated = numAlloced;
     tilesUsed = 0;
 }
 
@@ -759,33 +744,32 @@ bool isWind(UCHAR t)
     return (t >= TILE_WIND && t < TILE_WIND + 4);
 }
 
-bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2)
+bool GameData::isMatchingTile(POSITION &Pos1, POSITION &Pos2) const
 {
     // don't compare 'equal' positions
     if (memcmp(&Pos1, &Pos2, sizeof(POSITION))) {
-        UCHAR FA = Pos1.f;
-        UCHAR FB = Pos2.f;
+        UCHAR FA = BoardData(Pos1.e, Pos1.y, Pos1.x);
+        UCHAR FB = BoardData(Pos2.e, Pos2.y, Pos2.x);
 
         if ((FA == FB) || (isFlower(FA) && isFlower(FB)) || (isSeason(FA) && isSeason(FB))) {
             return true;
         }
     }
-
     return false;
 }
 
 void GameData::setRemovedTilePair(POSITION &a, POSITION &b)
 {
     if (isFlower(a.f)) {
-        removedFlower[a.f - TILE_FLOWER]++;
-        removedFlower[b.f - TILE_FLOWER]++;
+        ++removedFlower[a.f - TILE_FLOWER];
+        ++removedFlower[b.f - TILE_FLOWER];
 
         return;
     }
 
     if (isSeason(a.f)) {
-        removedSeason[a.f - TILE_SEASON]++;
-        removedSeason[b.f - TILE_SEASON]++;
+        ++removedSeason[a.f - TILE_SEASON];
+        ++removedSeason[b.f - TILE_SEASON];
 
         return;
     }
@@ -824,15 +808,15 @@ void GameData::setRemovedTilePair(POSITION &a, POSITION &b)
 void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
 {
     if (isFlower(a.f)) {
-        removedFlower[a.f - TILE_FLOWER]--;
-        removedFlower[b.f - TILE_FLOWER]--;
+        --removedFlower[a.f - TILE_FLOWER];
+        --removedFlower[b.f - TILE_FLOWER];
 
         return;
     }
 
     if (isSeason(a.f)) {
-        removedSeason[a.f - TILE_SEASON]--;
-        removedSeason[b.f - TILE_SEASON]--;
+        --removedSeason[a.f - TILE_SEASON];
+        --removedSeason[b.f - TILE_SEASON];
 
         return;
     }
@@ -868,26 +852,13 @@ void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
     }
 }
 
-void GameData::initialiseRemovedTiles()
-{
-    for (int pos = 0; pos < 9; pos++) {
-        removedCharacter[pos] = 0;
-        removedBamboo[pos] = 0;
-        removedRod[pos] = 0;
-        removedDragon[pos % 3] = 0;
-        removedFlower[pos % 4] = 0;
-        removedWind[pos % 4] = 0;
-        removedSeason[pos % 4] = 0;
-    }
-}
-
 bool GameData::findMove(POSITION &posA, POSITION &posB)
 {
-    short Pos_Ende = MaxTileNum;  // Ende der PosTable
+    short Pos_Ende = MaxTileNum;  // End of PosTable
 
-    for (short E = 0; E < m_depth; E++) {
-        for (short Y = 0; Y < m_height - 1; Y++) {
-            for (short X = 0; X < m_width - 1; X++) {
+    for (short E = 0; E < m_depth; ++E) {
+        for (short Y = 0; Y < m_height - 1; ++Y) {
+            for (short X = 0; X < m_width - 1; ++X) {
                 if (MaskData(E, Y, X) != (UCHAR) '1') {
                     continue;
                 }
@@ -908,7 +879,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
                     continue;
                 }
 
-                Pos_Ende--;
+                --Pos_Ende;
                 PosTable[Pos_Ende].e = E;
                 PosTable[Pos_Ende].y = Y;
                 PosTable[Pos_Ende].x = X;
@@ -917,14 +888,14 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
         }
     }
 
-    short iPosCount = 0;  // Hier Anzahl der gefunden Paare merken
+    short iPosCount = 0;  // store number of pairs found
 
     // The new tile layout with non-contiguos horizantle spans
     // can lead to huge numbers of matching pairs being exposed.
     // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
     // (or less);
     while (Pos_Ende < MaxTileNum - 1 && iPosCount < m_maxTiles - 2) {
-        for (short Pos = Pos_Ende + 1; Pos < MaxTileNum; Pos++) {
+        for (short Pos = Pos_Ende + 1; Pos < MaxTileNum; ++Pos) {
             if (isMatchingTile(PosTable[Pos], PosTable[Pos_Ende])) {
                 if (iPosCount < m_maxTiles - 2) {
                     PosTable[iPosCount++] = PosTable[Pos_Ende];
@@ -932,13 +903,12 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
                 }
             }
         }
-
-        Pos_Ende++;
+        ++Pos_Ende;
     }
 
     if (iPosCount >= 2) {
         random.setSeed(0); // WABA: Why is the seed reset?
-        short Pos = random.getLong(iPosCount) & -2;  // Gerader Wert
+        short Pos = random.getLong(iPosCount) & -2;  // Even value
         posA = PosTable[Pos];
         posB = PosTable[Pos + 1];
 
@@ -950,11 +920,11 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
 
 int GameData::moveCount()
 {
-    short Pos_Ende = MaxTileNum;  // end of PosTable
+    short Pos_Ende = MaxTileNum;  // End of PosTable
 
-    for (short E = 0; E < m_depth; E++) {
-        for (short Y = 0; Y < m_height - 1; Y++) {
-            for (short X = 0; X < m_width - 1; X++) {
+    for (short E = 0; E < m_depth; ++E) {
+        for (short Y = 0; Y < m_height - 1; ++Y) {
+            for (short X = 0; X < m_width - 1; ++X) {
                 if (MaskData(E, Y, X) != (UCHAR) '1') {
                     continue;
                 }
@@ -975,7 +945,7 @@ int GameData::moveCount()
                     continue;
                 }
 
-                Pos_Ende--;
+                --Pos_Ende;
                 PosTable[Pos_Ende].e = E;
                 PosTable[Pos_Ende].y = Y;
                 PosTable[Pos_Ende].x = X;
@@ -987,7 +957,7 @@ int GameData::moveCount()
     short iPosCount = 0;  // store number of pairs found
 
     while (Pos_Ende < MaxTileNum - 1 && iPosCount < m_maxTiles - 2) {
-        for (short Pos = Pos_Ende + 1; Pos < MaxTileNum; Pos++) {
+        for (short Pos = Pos_Ende + 1; Pos < MaxTileNum; ++Pos) {
             if (isMatchingTile(PosTable[Pos], PosTable[Pos_Ende])) {
                 if (iPosCount < m_maxTiles - 2) {
                     PosTable[iPosCount++] = PosTable[Pos_Ende];
@@ -996,7 +966,7 @@ int GameData::moveCount()
             }
         }
 
-        Pos_Ende++;
+        ++Pos_Ende;
     }
 
     return iPosCount / 2;
@@ -1006,9 +976,9 @@ short GameData::findAllMatchingTiles(POSITION &posA)
 {
     short Pos = 0;
 
-    for (short E = 0; E < m_depth; E++) {
-        for (short Y = 0; Y < m_height - 1; Y++) {
-            for (short X = 0; X < m_width - 1; X++) {
+    for (short E = 0; E < m_depth; ++E) {
+        for (short Y = 0; Y < m_height - 1; ++Y) {
+            for (short X = 0; X < m_width - 1; ++X) {
                 if (MaskData(E, Y, X) != (UCHAR) '1') {
                     continue;
                 }
@@ -1035,12 +1005,11 @@ short GameData::findAllMatchingTiles(POSITION &posA)
                 PosTable[Pos].f = BoardData(E, Y, X);
 
                 if (isMatchingTile(posA, PosTable[Pos])) {
-                    Pos++;
+                    ++Pos;
                 }
             }
         }
     }
-
     return Pos;
 }
 
@@ -1070,7 +1039,7 @@ bool GameData::loadFromStream(QDataStream &in)
     return true;
 }
 
-bool GameData::saveToStream(QDataStream &out)
+bool GameData::saveToStream(QDataStream &out) const
 {
     out << Board;
     out << Mask;
@@ -1091,7 +1060,6 @@ bool GameData::saveToStream(QDataStream &out)
         out << (quint16) thispos.x;
         out << (quint16) thispos.f;
     }
-
     return true;
 }
 
@@ -1101,15 +1069,15 @@ void GameData::shuffle()
 
     // copy positions and faces of the remaining tiles into
     // the pos table
-    for (int e = 0; e < m_depth; e++) {
-        for (int y = 0; y < m_height; y++) {
-            for (int x = 0; x < m_width; x++) {
+    for (int e = 0; e < m_depth; ++e) {
+        for (int y = 0; y < m_height; ++y) {
+            for (int x = 0; x < m_width; ++x) {
                 if (BoardData(e, y, x) && MaskData(e, y, x) == '1') {
                     PosTable[count].e = e;
                     PosTable[count].y = y;
                     PosTable[count].x = x;
                     PosTable[count].f = BoardData(e, y, x);
-                    count++;
+                    ++count;
                 }
             }
         }
@@ -1117,7 +1085,7 @@ void GameData::shuffle()
 
     // now lets randomise the faces, selecting 400 pairs at random and
     // swapping the faces.
-    for (int ran = 0; ran < 400; ran++) {
+    for (int ran = 0; ran < 400; ++ran) {
         int pos1 = random.getLong(count);
         int pos2 = random.getLong(count);
 
@@ -1131,7 +1099,7 @@ void GameData::shuffle()
     }
 
     // put the rearranged tiles back.
-    for (int p = 0; p < count; p++) {
+    for (int p = 0; p < count; ++p) {
         putTile(PosTable[p]);
     }
 }

@@ -16,8 +16,8 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#ifndef _KM_TYPES_
-#define _KM_TYPES_
+#ifndef KMTYPES_H
+#define KMTYPES_H
 
 //----------------------------------------------------------
 // TYPEDEFS
@@ -29,7 +29,7 @@ typedef unsigned long  ULONG;
 
 
 /**
- * @short struct pos  POSITION
+ * @short struct pos POSITION
  */
 typedef struct pos {
     pos() : e(0), y(0), x(0), f(0) { }

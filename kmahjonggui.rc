@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="kmahjongg"
-     version="4"
+     version="5"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
@@ -30,7 +30,7 @@
   <Action name="move_hint" />
 </ToolBar>
 
-<State name="inactive">
+<State name="gameplay_state">
   <enable>
     <Action name="game_new"/>
     <Action name="game_new_numeric"/>
@@ -46,7 +46,7 @@
   </disable>
 </State>
 
-<State name="active">
+<State name="demo_state">
   <enable>
     <Action name="move_demo"/>
   </enable>
@@ -64,7 +64,7 @@
   </disable>
 </State>
 
-<State name="paused">
+<State name="paused_state">
   <enable>
     <Action name="game_pause"/>
   </enable>
@@ -82,19 +82,20 @@
   </disable>
 </State>
 
-<State name="finished">
+<State name="finished_state">
     <disable>
         <Action name="move_undo"/>
         <Action name="move_redo"/>
         <Action name="move_demo"/>
+        <Action name="move_hint"/>
         <Action name="game_save"/>
         <Action name="game_pause"/>
+        <Action name="game_load"/>
         <Action name="view_angle"/>
     </disable>
     <enable>
         <Action name="game_new"/>
         <Action name="game_new_numeric"/>
-        <Action name="game_load"/>
         <Action name="game_highscores"/>
     </enable>
 </State>

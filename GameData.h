@@ -20,152 +20,37 @@
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
-
 #include "KmTypes.h"
-#include "BoardLayout.h"
 
-#include <QByteArray>
+#include <KRandomSequence>
+
 #include <QVector>
 
-#include <krandomsequence.h>
-
-
-// tiles symbol names:
-/*#define TILE_OFFSET      2
-
-#define TILE_CHARACTER  ( 0 + TILE_OFFSET)
-#define TILE_BAMBOO     ( 9 + TILE_OFFSET)
-#define TILE_ROD        (18 + TILE_OFFSET)
-#define TILE_SEASON     (27 + TILE_OFFSET)
-#define TILE_WIND       (31 + TILE_OFFSET)
-#define TILE_DRAGON     (36 + TILE_OFFSET)
-#define TILE_FLOWER     (39 + TILE_OFFSET)*/
-
+class BoardLayout;
 
 /**
- * @short This class implements
- * 
- * longer description
- *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
 class GameData
 {
 public:
-    /**
-     * Constructor
-     * 
-     * @param boardlayout 
-     * @see BoardLayout */
     explicit GameData(BoardLayout *boardlayout);
-
-    /**
-     * Default Destructor */
     ~GameData();
 
-    /**
-     * Method Description
-     *
-     * @param e
-     * @param y
-     * @param x
-     * @param f */
     void putTile(short e, short y, short x, UCHAR f);
 
-    /**
-     * Method Description
-     *
-     * @param pos
-     * @ref pos */
-    void putTile(POSITION &pos) {putTile(pos.e, pos.y, pos.x, pos.f);}
+    bool tilePresent(int z, int y, int x) const;
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return @c true if ...
-     * @return @c false if ... */
-    bool tilePresent(int z, int y, int x);
+    UCHAR BoardData(short z, short y, short x) const;
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return @c true if ...
-     * @return @c false if ... */
-    bool partTile(int z, int y, int x);
+    UCHAR HighlightData(short z, short y, short x) const;
 
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
-    UCHAR BoardData(short z, short y, short x);
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @param value */
-    void setBoardData(short z, short y, short x, UCHAR value);
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
-    UCHAR MaskData(short z, short y, short x);
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @return UCHAR */
-    UCHAR HighlightData(short z, short y, short x);
-
-    /**
-     * Method Description
-     *
-     * @param z
-     * @param y
-     * @param x
-     * @param value */
-    void setHighlightData(short z, short y, short x, UCHAR value);
-
-    /**
-     * Method Description
-     *
-     * @param i
-     * @return POSITION
-     * @ref pos */
     POSITION& MoveListData(short i);
 
-    /**
-     * Method Description
-     *
-     * @param i 
-     * @param value
-     * @ref pos */
     void setMoveListData(short i, POSITION &value);
 
-    /**
-     * Method Description
-     *
-     * @return *char blah blah */
     char* getMaskBytes() {return Mask.data();}
 
-    bool saveToStream(QDataStream &out);
+    bool saveToStream(QDataStream &out) const;
     bool loadFromStream(QDataStream &in);
 
     void generatePositionDepends();
@@ -176,10 +61,9 @@ public:
     bool findMove(POSITION &posA, POSITION &posB);
     int moveCount();
     short findAllMatchingTiles(POSITION &posA);
-    void initialiseRemovedTiles();
     void setRemovedTilePair(POSITION &a, POSITION &b);
     void clearRemovedTilePair(POSITION &a, POSITION &b);
-    bool isMatchingTile(POSITION &Pos1, POSITION &Pos2);
+    bool isMatchingTile(POSITION &Pos1, POSITION &Pos2) const;
     void shuffle();
     POSITION& getFromPosTable(int index) {return PosTable[index];}
 
@@ -198,9 +82,13 @@ public:
     KRandomSequence random;
 
 private:
-    int tileAt(int x, int y, int z);
+    void putTile(POSITION &pos) {putTile(pos.e, pos.y, pos.x, pos.f);}
+    void setBoardData(short z, short y, short x, UCHAR value);
+    UCHAR MaskData(short z, short y, short x) const;
+
+    int tileAt(int x, int y, int z) const;
     bool generateSolvableGame();
-    bool onlyFreeInLine(int position);
+    bool onlyFreeInLine(int position) const;
     int selectPosition(int lastPosition);
     void placeTile(int position, int tile);
     void updateDepend(int position);
@@ -209,7 +97,6 @@ private:
     void randomiseFaces();
     void getFaces(POSITION &a, POSITION &b);
 
-    int tilesAllocated;
     int tilesUsed;
 
     UCHAR tilePair[144];
@@ -237,6 +124,5 @@ private:
     //PosTable, scratch storage used for highlighting matching tiles
     QVector<POSITION> PosTable;
 };
-
 
 #endif // GAMEDATA_H

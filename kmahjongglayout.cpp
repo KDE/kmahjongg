@@ -19,24 +19,28 @@
 
 #include "kmahjongglayout.h"
 #include "BoardLayout.h"
-#include <kstandarddirs.h>
-#include <klocale.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include "kmahjongg_debug.h"
+
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
+
 #include <QFile>
 #include <QMap>
-#include <KDebug>
+#include <QStandardPaths>
+
+const int KMahjonggLayout::kLayoutVersionFormat = 1;
 
 class KMahjonggLayoutPrivate
 {
 public:
     KMahjonggLayoutPrivate()
     {
-      board = new BoardLayout();
+        board = new BoardLayout();
     }
     ~KMahjonggLayoutPrivate()
     {
-      delete board;
+        delete board;
     }
 
     BoardLayout * board;
@@ -48,82 +52,91 @@ KMahjonggLayout::KMahjonggLayout()
     : d(new KMahjonggLayoutPrivate)
 {
     static bool _inited = false;
-    if (_inited)
+    if (_inited) {
         return;
-    KGlobal::dirs()->addResourceType("kmahjongglayout", "data", QString::fromLatin1("kmahjongg/layouts/"));
+    }
 
     _inited = true;
 }
 
-KMahjonggLayout::~KMahjonggLayout() {
+KMahjonggLayout::~KMahjonggLayout()
+{
     delete d;
 }
 
 bool KMahjonggLayout::loadDefault()
 {
-    QString idx = "default.desktop";
+    const QString idx = QStringLiteral("default.desktop");
 
-    QString layoutPath = KStandardDirs::locate("kmahjongglayout", idx);
-    kDebug() << "Inside LoadDefault(), located layout at" << layoutPath;
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
+    qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
-		return false;
+        return false;
     }
     return load(layoutPath);
 }
 
-#define kLayoutVersionFormat 1
-
 bool KMahjonggLayout::load(const QString &file) {
-    kDebug() << "Layout loading";
-
-    QString layoutPath;
-    kDebug() << "Attempting to load .desktop at" << file;
-
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
-      return (false);
+        return false;
     }
     bgfile.close();
 
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggLayout");
 
-    d->authorproperties.insert("Name", group.readEntry("Name"));// Returns translated data
-    d->authorproperties.insert("Author", group.readEntry("Author"));
-    d->authorproperties.insert("Description", group.readEntry("Description"));
-    d->authorproperties.insert("AuthorEmail", group.readEntry("AuthorEmail"));
+    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
+    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
+    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
 
-    //Version control
-    int bgversion = group.readEntry("VersionFormat",0);
-    //Format is increased when we have incompatible changes, meaning that older clients are not able to use the remaining information safely
+    // Version control
+    const int bgversion = group.readEntry("VersionFormat",0);
+    // Format is increased when we have incompatible changes, meaning that older clients
+    // are not able to use the remaining information safely
     if (bgversion > kLayoutVersionFormat) {
         return false;
     }
 
-    QString layoutName = group.readEntry("FileName");
+    const QString layoutName = group.readEntry("FileName");
 
-    layoutPath = KStandardDirs::locate("kmahjongglayout", layoutName);
-    kDebug() << "Using layout at" << layoutPath;
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
+    qCDebug(KMAHJONGG_LOG) << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 
-    if (layoutPath.isEmpty()) return (false);
-    
-    if (!d->board->loadBoardLayout(d->filename)) return (false);
-    
+    if (layoutPath.isEmpty()) {
+        return false;
+    }
+
+    if (!d->board->loadBoardLayout(d->filename)) {
+        return false;
+    }
+
     filename = file;
 
-   return true;
+    m_layoutName = group.readEntry("Name");
+
+    return true;
 }
 
-BoardLayout * KMahjonggLayout::board() { 
-  return d->board; 
+BoardLayout * KMahjonggLayout::board() const
+{
+    return d->board;
 }
 
-QString KMahjonggLayout::path() const {
+QString KMahjonggLayout::path() const
+{
     return filename;
 }
 
-QString KMahjonggLayout::authorProperty(const QString &key) const {
+QString KMahjonggLayout::authorProperty(const QString &key) const
+{
     return d->authorproperties[key];
+}
+
+QString KMahjonggLayout::layoutName() const
+{
+    return m_layoutName;
 }
