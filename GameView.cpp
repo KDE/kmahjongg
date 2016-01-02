@@ -585,35 +585,47 @@ void GameView::addItemAndUpdate(POSITION & stItemPos)
 
 void GameView::updateItemsPosition(QList<GameItem *> gameItems)
 {
-    // These factor are needed for the different angles. So we simply can calculate to move the
-    // items to the left or right (eg up or down).
+    // These factor are needed for the different angles. So we simply can
+    // calculate to move the items to the left or right and up or down.
     int iAngleXFactor = (m_angle == NE || m_angle == SE) ? -1 : 1;
     int iAngleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
 
-    // Get the item width and height.
-    int iTileWidth = m_pTiles->qWidth();
-    int iTileHeight = m_pTiles->qHeight();
+    // Get half width and height of tile faces: minimum spacing = 1 pixel.
+    qreal iTileWidth  = m_pTiles->qWidth() + 0.5;
+    qreal iTileHeight = m_pTiles->qHeight() + 0.5;
 
-    // Get the items height and width.
-    int iTilesWidth = iTileWidth * (m_pGameData->m_width / 2);
-    int iTilesHeight = iTileHeight * (m_pGameData->m_height / 2);
+    // Get half height and width of tile-layout: ((n - 1) faces + full tile)/2.
+    qreal iTilesWidth  = iTileWidth * (m_pGameData->m_width - 2) / 2
+                             + m_pTiles->width() / 2;
+    qreal iTilesHeight = iTileHeight * (m_pGameData->m_height - 2) / 2
+                             + m_pTiles->height() / 2;
 
-    // The frame of the window to center the items in the view.
-    int iXFrame = (width() / 2 - iTilesWidth) / 2 + (m_pTiles->levelOffsetX());
-    int iYFrame = (height() / 2 - iTilesHeight) / 2 + (m_pTiles->levelOffsetY());
+    // Get the top-left offset required to center the items in the view.
+    qreal iXFrame = (width() / 2  - iTilesWidth) / 2;
+    qreal iYFrame = (height() / 2 - iTilesHeight) / 2;
+
+    // TODO - The last /2 makes it HALF what it should be, but it gets doubled
+    //        somehow before the view is painted. Why? Apparently it is because
+    //        the background is painted independently by the VIEW, rather than
+    //        being an item in the scene and filling the scene completely. So
+    //        the whole scene is just the rectangle that contains the tiles.
+    // NOTE - scene()->itemsBoundingRect() returns the correct doubled offset.
 
     for (int iI = 0; iI < gameItems.size(); ++iI) {
         GameItem *pGameItem = gameItems.at(iI);
 
         // Get rasterized positions of the item.
-        int iX = pGameItem->getGridPosX() - 1;
-        int iY = pGameItem->getGridPosY() - 1;
+        int iX = pGameItem->getGridPosX();
+        int iY = pGameItem->getGridPosY();
         int iZ = pGameItem->getGridPosZ();
 
-        // Set the position of the item on the view.
-        pGameItem->setPos(iTileWidth / 2 * iX + iXFrame + iZ * iAngleXFactor *
-            (m_pTiles->levelOffsetX() / 2), iTileHeight / 2 * iY + iYFrame + iZ *
-            iAngleYFactor * (m_pTiles->levelOffsetY() / 2));
+
+        // Set the position of the item on the scene.
+        pGameItem->setPos(
+                iXFrame + iTileWidth * iX / 2
+                    + iZ * iAngleXFactor * (m_pTiles->levelOffsetX() / 2),
+                iYFrame + iTileHeight * iY / 2
+                    + iZ * iAngleYFactor * (m_pTiles->levelOffsetY() / 2));
     }
 }
 
@@ -909,7 +921,8 @@ void GameView::setStatusText(QString const &rText)
 
 void GameView::updateBackground()
 {
-    qCDebug(KMAHJONGG_LOG) << "Update the background";
+    // qCDebug(KMAHJONGG_LOG) << "Update the background";
+    // TODO - The background should be a scene-item? See updateItemsPosition().
 
     QBrush brush(m_pBackground->getBackground());
     setBackgroundBrush(brush);
