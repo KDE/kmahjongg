@@ -185,8 +185,8 @@ public:
     /**
      * Set the game number.
      *
-     * @param gameNumber Game number. */
-    void setGameNumber(long gameNumber);
+     * @param lGameNumber Game number. */
+    void setGameNumber(long lGameNumber);
 
     /**
      * Search for a valid move silently or with an information text.

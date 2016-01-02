@@ -595,15 +595,17 @@ void KMahjongg::loadGame()
         return;
     }
 
-    QString theTilesName;
-    QString theBackgroundName;
-    QString theBoardLayoutName;
-    in >> theTilesName;
-    m_pGameView->setTilesetPath(theTilesName);
-    in >> theBackgroundName;
-    m_pGameView->setBackgroundPath(theBackgroundName);
-    in >> theBoardLayoutName;
-    m_pBoardLayout->load(theBoardLayoutName);
+    QString tileSetName;
+    in >> tileSetName;
+    m_pGameView->setTilesetPath(tileSetName);
+
+    QString backgroundName;
+    in >> backgroundName;
+    m_pGameView->setBackgroundPath(backgroundName);
+
+    QString boardLayoutName;
+    in >> boardLayoutName;
+    m_pBoardLayout->load(boardLayoutName);
 
     //GameTime
     uint seconds;
@@ -614,7 +616,7 @@ void KMahjongg::loadGame()
     m_pGameData->loadFromStream(in);
     m_pGameView->setGameData(m_pGameData);
 
-    //GameNumber
+    // Get GameNumber (used not to be saved, so might evaluate to zero).
     qint64 gameNum = 0;
     in >> gameNum;
 

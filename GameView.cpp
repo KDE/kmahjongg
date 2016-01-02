@@ -105,9 +105,9 @@ long GameView::getGameNumber() const
     return m_lGameNumber;
 }
 
-void GameView::setGameNumber(long gameNumber)
+void GameView::setGameNumber(long lGameNumber)
 {
-    m_lGameNumber = gameNumber;
+    m_lGameNumber = lGameNumber;
     setStatusText(i18n("Ready. Now it is your turn."));
 }
 
