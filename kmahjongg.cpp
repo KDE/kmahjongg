@@ -499,7 +499,6 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     m_pGameView->startMoveListAnimation();
 }
 
-
 void KMahjongg::showStatusText(const QString &msg, long board)
 {
     statusLabel->setText(msg);
@@ -564,7 +563,7 @@ void KMahjongg::loadGame()
 
     QFile infile(filename);
 
-    if (!infile.open(QFile::ReadOnly | QFile::Text)) {
+    if (!infile.open(QFile::ReadOnly)) {
         KMessageBox::sorry(this, i18n("Could not read from file. Aborting."));
         return;
     }
@@ -591,7 +590,6 @@ void KMahjongg::loadGame()
     } else {
         KMessageBox::sorry(this, i18n("File format not recognized."));
         infile.close();
-
         return;
     }
 
@@ -642,7 +640,7 @@ void KMahjongg::saveGame()
 
     QFile outfile(filename);
 
-    if (!outfile.open(QFile::WriteOnly | QFile::Text)) {
+    if (!outfile.open(QFile::WriteOnly)) {
         KMessageBox::sorry(this, i18n("Could not open file for saving."));
         gameTimer->resume();
         return;
