@@ -610,6 +610,7 @@ void KMahjongg::loadGame()
     in >> seconds;
     gameTimer->setTime(seconds);
 
+    delete m_pGameData;
     m_pGameData = new GameData(m_pBoardLayout->board());
     m_pGameData->loadFromStream(in);
     m_pGameView->setGameData(m_pGameData);
