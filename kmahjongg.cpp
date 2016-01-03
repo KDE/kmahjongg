@@ -618,13 +618,11 @@ void KMahjongg::loadGame()
     // Get GameNumber (used not to be saved, so might evaluate to zero).
     qint64 gameNum = 0;
     in >> gameNum;
-
-    infile.close();
-
     if (gameNum > 0) {
         m_pGameView->setGameNumber(gameNum);
     }
 
+    infile.close();
     updateState(GameState::Gameplay);
 }
 
