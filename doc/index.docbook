@@ -2,7 +2,7 @@
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kmahjongg;"> 
-  <!ENTITY kappversion "0.8"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "0.9"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
@@ -30,7 +30,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
  
-<date>2013-05-06</date><!-- Date of (re)writing, or update.-->
+<date>2016-01-04</date><!-- Date of (re)writing, or update.-->
 <releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
  
 <!--Short description of this document. Do not change unless necessary!-->
@@ -59,7 +59,7 @@
 	<note><title>Gametype:</title><para>Board, Arcade</para></note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 	<para>
-		&kmahjongg; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kmahjongg; is a tile matching game for one or two players, a variation usually known as Mahjong Solitaire.
+		&kmahjongg; is a fun board game created after the famous oriental game of Mahjong (from Chinese <foreignphrase lang="zh">麻將</foreignphrase>). Unlike the original however, &kmahjongg; is a tile matching game for one player, a variation usually known as Mahjong Solitaire.
 	</para>
 	<para>
 		In &kmahjongg; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile's matching pair.
@@ -71,8 +71,7 @@
 	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile's matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		&kappname; will load a default layout automatically once
-		you start the game and you can start playing right away.		
+		&kappname; will load a default layout automatically once you start the game and you can start playing right away.
 	</para>
 	<note><title>Note:</title><para>The game timer will start immediately if the game is started.</para></note>
 	<para>
@@ -81,11 +80,10 @@
 	<note><title>Note:</title>
 		<para>Bear in mind that you can only select the tiles which are <quote>Open</quote>. 
 			Tiles are considered <quote>Blocked</quote> when they
-			are positioned behind other tiles, and when both the
+			are positioned behind other tiles, or when both the
 			right and left sides of the tile are filled by others.
 			If at least one of the lateral sides is empty then the
-			tile is considered 'Open', and can be
-			removed.
+			tile is considered 'Open', and can be removed.
 	</para></note>
 	<para>
 		Once you have selected the right pair of tiles they will vanish off the game board, thus revealing the tiles previously located underneath, and opening the tiles adjacent to them.
@@ -121,7 +119,7 @@
 		<varlistentry>
 			<term>Statusbar</term>
 			<listitem><para>
-				The Status bar is located at the bottom of the screen, and contains four panes. The first pane lists the removed/total tiles and the number of matching tiles that have free sides. The second pane gives the sequence number of the game you are playing. The third pane lets the player know when the game is ready, and the last pane displays the game timer, which keeps track of the elapsed time from the start of the game until the game is finished.
+				The status bar is located at the bottom of the screen, and contains four panes. The first pane displays the game timer, which keeps track of the elapsed time from the start of the game until the game is finished. The second pane lists the removed/total tiles and the number of matching tiles that have free sides. The third pane gives the sequence number of the game you are playing and the last pane lets the player know when the game is ready.
 			</para></listitem>
 		</varlistentry>
 	</variablelist>
@@ -188,15 +186,16 @@
 			</informaltable>
 		</para>
 		<itemizedlist>
+			<listitem><para>The number of tiles on a KMahjongg board layout can differ from the number of tiles in the standard Mahjong tile set. That means that the number of occurences of tiles of the same type can also differ from the number stated in the table above.</para></listitem>
 			<listitem><para>Only the <quote>open</quote> tiles can be selected.</para></listitem>
 			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile's lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only when matching, open tiles can be removed from the game board.</para></listitem>
 			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
-		</itemizedlist>			
+		</itemizedlist>
 		<note><title>Note:</title><para>There are exceptions to this rule! In the traditional game of Mahjong each tile has a matching one except for the <quote>Flowers</quote> and <quote>Seasons</quote> tiles. </para></note>
 		<itemizedlist>
-			<listitem><para>The <quote>Flowers</quote> tiles have no doubles in the set and can be matched directly to each-other.</para></listitem>
-			<listitem><para>The <quote>Seasons</quote> tiles have no doubles in the set and can be matched directly to each-other.  </para></listitem>
+			<listitem><para>The <quote>Flowers</quote> tiles have no doubles in the set and can be matched directly to each other.</para></listitem>
+			<listitem><para>The <quote>Seasons</quote> tiles have no doubles in the set and can be matched directly to each other.</para></listitem>
 			<listitem><para>Not every &kmahjongg; game can be finished. Sometimes the tiles are mixed in such a way that it may not be possible to find all the matches. This problem can be avoided. Please refer to <link linkend="general-options">this section</link> of the configuration dialog.</para></listitem>
 			<listitem><para>To be eligible for a place amongst the high scores the player has to complete a game instance within the shortest period of time possible.</para></listitem>
 		</itemizedlist>
