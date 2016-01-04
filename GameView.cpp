@@ -491,6 +491,9 @@ void GameView::shuffle()
 
     // Test if any moves are available
     validMovesAvailable();
+
+    // Clear any tile selection done proir to the shuffle.
+    clearSelectedTile();
 }
 
 void GameView::populateItemNumber()

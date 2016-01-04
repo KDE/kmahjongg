@@ -1035,7 +1035,6 @@ bool GameData::loadFromStream(QDataStream &in)
         in >> thispos.f;
         setMoveListData(i, thispos);
     }
-
     return true;
 }
 
