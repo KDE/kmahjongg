@@ -232,10 +232,10 @@ void BoardLayout::initialiseBoard()
         BYTE c = m_loadedBoard.at(idx++);
         switch (c)
         {
-        case (UCHAR)'1': ++m_maxTileNum;
-        case (UCHAR)'2':
-        case (UCHAR)'3':
-        case (UCHAR)'4': setBoardData(z,y,x,c);
+        case static_cast<UCHAR>('1'): ++m_maxTileNum;
+        case static_cast<UCHAR>('2'):
+        case static_cast<UCHAR>('3'):
+        case static_cast<UCHAR>('4'): setBoardData(z,y,x,c);
             break;
 
         default: setBoardData(z,y,x,0);

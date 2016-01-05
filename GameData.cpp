@@ -44,7 +44,7 @@ GameData::GameData(BoardLayout *boardlayout)
     m_positionDepends = QVector<DEPENDENCY>(m_maxTiles);
 
     //Copy board layout over
-    boardlayout->copyBoardLayout((UCHAR *) getMaskBytes(), m_maxTileNum);
+    boardlayout->copyBoardLayout((UCHAR *) getMaskBytes(), m_maxTileNum); //FIXME: is this cast safe?
 }
 
 GameData::~GameData()
@@ -859,7 +859,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
     for (short z = 0; z < m_depth; ++z) {
         for (short y = 0; y < m_height - 1; ++y) {
             for (short x = 0; x < m_width - 1; ++x) {
-                if (MaskData(z, y, x) != (UCHAR) '1') {
+                if (MaskData(z, y, x) != static_cast<UCHAR>('1')) {
                     continue;
                 }
 
@@ -925,7 +925,7 @@ int GameData::moveCount()
     for (short z = 0; z < m_depth; ++z) {
         for (short y = 0; y < m_height - 1; ++y) {
             for (short x = 0; x < m_width - 1; ++x) {
-                if (MaskData(z, y, x) != (UCHAR) '1') {
+                if (MaskData(z, y, x) != static_cast<UCHAR>('1')) {
                     continue;
                 }
 
@@ -979,7 +979,7 @@ short GameData::findAllMatchingTiles(POSITION &posA)
     for (short z = 0; z < m_depth; ++z) {
         for (short y = 0; y < m_height - 1; ++y) {
             for (short x = 0; x < m_width - 1; ++x) {
-                if (MaskData(z, y, x) != (UCHAR) '1') {
+                if (MaskData(z, y, x) != static_cast<UCHAR>('1')) {
                     continue;
                 }
 
