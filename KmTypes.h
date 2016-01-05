@@ -25,8 +25,6 @@
 typedef unsigned char  UCHAR;
 typedef unsigned char  BYTE;
 typedef unsigned short USHORT;
-typedef unsigned long  ULONG;
-
 
 /**
  * @short struct pos POSITION
