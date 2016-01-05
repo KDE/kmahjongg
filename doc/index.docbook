@@ -186,7 +186,7 @@
 			</informaltable>
 		</para>
 		<itemizedlist>
-			<listitem><para>The number of tiles on a KMahjongg board layout can differ from the number of tiles in the standard Mahjong tile set. That means that the number of occurences of tiles of the same type can also differ from the number stated in the table above.</para></listitem>
+			<listitem><para>The number of tiles on a KMahjongg board layout can differ from the number of tiles in the standard Mahjong tile set. That means that the number of occurrences of tiles of the same type can also differ from the number stated in the table above.</para></listitem>
 			<listitem><para>Only the <quote>open</quote> tiles can be selected.</para></listitem>
 			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile's lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only when matching, open tiles can be removed from the game board.</para></listitem>
