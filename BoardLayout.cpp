@@ -28,7 +28,7 @@ const QString BoardLayout::layoutMagic1_1 = "kmahjongg-layout-v1.1";
 
 BoardLayout::BoardLayout()
 {
-    m_filename=QLatin1String("");
+    m_filename.clear();
     m_width = 32;
     m_height = 16;
     m_depth = 5;
@@ -53,7 +53,7 @@ BoardLayout::~BoardLayout()
 }
 
 void BoardLayout::clearBoardLayout() {
-    m_loadedBoard="";
+    m_loadedBoard.clear();
     initialiseBoard();
 }
 
@@ -126,7 +126,7 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
         m_height = 16;
         m_depth = 5;
         int lines = 0;
-        QString all("");
+        QString all;
 
         while (!t.atEnd()) {
             s = t.readLine();
@@ -172,7 +172,7 @@ bool BoardLayout::loadBoardLayout(const QString &from)
 
         int lines = 0;
         m_width = m_height = m_depth = 0;
-        QString all("");
+        QString all;
 
         while (!t.atEnd()) {
             s = t.readLine();
