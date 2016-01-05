@@ -120,6 +120,7 @@ void KMahjonggLayoutSelector::layoutChanged()
     }
 
     //Now load the boardLayout
+    delete m_gameData;
     m_gameData = new GameData(selLayout->board());
     m_gameView->setGameData(m_gameData);
 
