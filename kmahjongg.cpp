@@ -224,6 +224,11 @@ void KMahjongg::startNewNumeric()
 
 void KMahjongg::undo()
 {
+    // If the game got stuck (no more matching tiles), the game timer is paused.
+    // So resume timer if the player decides to undo moves from that state.
+    if (m_gameState == GameState::Stuck) {
+        gameTimer->resume();
+    }
     m_pGameView->undo();
     updateUndoAndRedoStates();
 }
@@ -366,6 +371,8 @@ void KMahjongg::slotBoardEditor()
 void KMahjongg::noMovesAvailable()
 {
     gameTimer->pause();
+    updateState(GameState::Stuck);
+
     int answer = KMessageBox::questionYesNoCancel(
                  this,
                  i18n("Game Over: You have no moves left."),
@@ -460,7 +467,6 @@ void KMahjongg::closeEvent(QCloseEvent *event)
 void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 {
     gameTimer->pause();
-
     updateState(GameState::Finished);
 
     KMessageBox::information(this, i18n("You have won!"));
@@ -528,6 +534,9 @@ void KMahjongg::updateState(GameState state)
         break;
     case GameState::Finished:
         stateChanged("finished_state");
+        break;
+    case GameState::Stuck:
+        stateChanged("stuck_state");
         break;
     default:
         stateChanged("gameplay_state");
