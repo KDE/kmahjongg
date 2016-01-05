@@ -33,6 +33,11 @@
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
   : QWidget(parent),
     m_rx(-1),
+    m_ry(0),
+    m_rw(0),
+    m_rh(0),
+    m_rs(0),
+    m_rt(0),
     m_thePixmap(new QPixmap(initialImageSize))
 {
 }

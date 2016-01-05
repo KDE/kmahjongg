@@ -38,9 +38,15 @@
 Editor::Editor(QWidget *parent)
     : QDialog(parent),
     m_mode(EditMode::insert),
+    m_borderLeft(0),
+    m_borderTop(0),
     m_numTiles(0),
     m_clean(true),
-    m_tiles()
+    m_drawFrame(nullptr),
+    m_tiles(),
+    m_theLabel(nullptr),
+    m_topToolbar(nullptr),
+    m_actionCollection(nullptr)
 {
     setModal(true);
 

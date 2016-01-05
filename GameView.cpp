@@ -35,6 +35,9 @@
 
 GameView::GameView(GameScene *gameScene, GameData *gameData, QWidget *parent)
     : QGraphicsView(gameScene, parent),
+    m_cheatsUsed(0),
+    m_gameNumber(0),
+    m_gamePaused(false),
     m_match(false),
     m_gameGenerated(false),
     m_gameData(gameData),
