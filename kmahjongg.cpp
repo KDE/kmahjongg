@@ -365,6 +365,7 @@ void KMahjongg::slotBoardEditor()
 
 void KMahjongg::noMovesAvailable()
 {
+    gameTimer->pause();
     int answer = KMessageBox::questionYesNoCancel(
                  this,
                  i18n("Game Over: You have no moves left."),
