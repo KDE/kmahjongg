@@ -31,10 +31,10 @@ typedef unsigned short USHORT;
  */
 typedef struct pos {
     pos() : z(0), y(0), x(0), f(0) { }
-    USHORT z; /**< Member Description */
-    USHORT y; /**< Member Description */
-    USHORT x; /**< Member Description */
-    USHORT f; /**< Member Description */
+    USHORT z;
+    USHORT y;
+    USHORT x;
+    USHORT f; /**< face id of the tile */
 } POSITION;
 
 /**
