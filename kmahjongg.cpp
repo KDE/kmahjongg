@@ -442,7 +442,7 @@ void KMahjongg::demoOrMoveListAnimationOver(bool demoGameLost)
 void KMahjongg::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::WindowStateChange) {
-        const QWindowStateChangeEvent *stateEvent = (QWindowStateChangeEvent *) event;
+        const QWindowStateChangeEvent *stateEvent = static_cast<QWindowStateChangeEvent *>(event);
         const Qt::WindowStates oldMinimizedState  = stateEvent->oldState() & Qt::WindowMinimized;
 
         // N.B. KMahjongg::pause() is not used here, because it is irrelevant to

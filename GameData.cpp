@@ -1054,10 +1054,10 @@ bool GameData::saveToStream(QDataStream &out) const
     //and then write all position components for the MoveList
     for (int i = 0; i < m_maxTiles; ++i) {
         POSITION thispos = m_moveList.at(i);
-        out << (quint16) thispos.z;
-        out << (quint16) thispos.y;
-        out << (quint16) thispos.x;
-        out << (quint16) thispos.f;
+        out << static_cast<quint16>(thispos.z);
+        out << static_cast<quint16>(thispos.y);
+        out << static_cast<quint16>(thispos.x);
+        out << static_cast<quint16>(thispos.f);
     }
     return true;
 }

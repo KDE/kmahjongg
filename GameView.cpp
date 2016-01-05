@@ -53,7 +53,7 @@ GameView::GameView(GameScene *gameScene, GameData *gameData, QWidget *parent)
     setAutoFillBackground(true);
 
     // Read in some settings.
-    m_angle = (TileViewAngle) Prefs::angle();
+    m_angle = static_cast<TileViewAngle>(Prefs::angle());
 
     // Init HelpAnimation
     m_helpAnimation->setAnimationSpeed(ANIMATION_SPEED);
