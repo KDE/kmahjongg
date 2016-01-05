@@ -110,7 +110,6 @@ bool BoardLayout::loadBoardLayout_10(const QString &from)
     }
 
     QFile f(from);
-    QString all = QLatin1String("");
 
     if (f.open(QIODevice::ReadOnly)) {
         QTextStream t(&f);
