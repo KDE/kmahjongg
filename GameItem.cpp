@@ -20,19 +20,19 @@
 #include <QTimer>
 
 
-GameItem::GameItem(bool selected, QGraphicsObject *pItem)
-    : QGraphicsObject(pItem),
+GameItem::GameItem(bool selected, QGraphicsObject *item)
+    : QGraphicsObject(item),
     m_dying(false),
-    m_iShadowWidth(0),
-    m_iShadowHeight(0),
-    m_pSelPix(new QPixmap()),
-    m_pUnselPix(new QPixmap()),
-    m_pFacePix(new QPixmap())
+    m_shadowWidth(0),
+    m_shadowHeight(0),
+    m_selPix(new QPixmap()),
+    m_unselPix(new QPixmap()),
+    m_facePix(new QPixmap())
 {
     // Init POSITION
     m_stPos.y = 0;
     m_stPos.x = 0;
-    m_stPos.e = 0;
+    m_stPos.z = 0;
     m_stPos.f = 0;
 
     setSelected(selected);
@@ -41,9 +41,9 @@ GameItem::GameItem(bool selected, QGraphicsObject *pItem)
 
 GameItem::~GameItem()
 {
-    delete m_pUnselPix;
-    delete m_pSelPix;
-    delete m_pFacePix;
+    delete m_unselPix;
+    delete m_selPix;
+    delete m_facePix;
 }
 
 TileViewAngle GameItem::getAngle() const
@@ -51,17 +51,17 @@ TileViewAngle GameItem::getAngle() const
     return m_angle;
 }
 
-void GameItem::setAngle(TileViewAngle angle, QPixmap * pSelPix, QPixmap * pUnselPix, int iShadowWidth, int iShadowHeight)
+void GameItem::setAngle(TileViewAngle angle, QPixmap * selPix, QPixmap * unselPix, int shadowWidth, int shadowHeight)
 {
     m_angle = angle;
 
     // Set the new pictures realted to the new angle.
-    *m_pSelPix = *pSelPix;
-    *m_pUnselPix = *pUnselPix;
+    *m_selPix = *selPix;
+    *m_unselPix = *unselPix;
 
     // Set the new shadow width and height.
-    m_iShadowWidth = iShadowWidth;
-    m_iShadowHeight = iShadowHeight;
+    m_shadowWidth = shadowWidth;
+    m_shadowHeight = shadowHeight;
 
     // Update the face offset.
     updateFaceOffset();
@@ -72,10 +72,10 @@ bool GameItem::isShadow(QPointF const position) const
     // Get the realated point.
     QPointF mappedPosition = mapFromParent(position);
 
-    int iNewPosX = mappedPosition.x() + getShadowDeltaX();
-    int iNewPosY = mappedPosition.y() + getShadowDeltaY();
+    int newPosX = mappedPosition.x() + getShadowDeltaX();
+    int newPosY = mappedPosition.y() + getShadowDeltaY();
 
-    if ((iNewPosX < 0 || iNewPosX > m_pSelPix->width()) || (iNewPosY < 0 || iNewPosY > m_pSelPix->height())) {
+    if ((newPosX < 0 || newPosX > m_selPix->width()) || (newPosY < 0 || newPosY > m_selPix->height())) {
         return true;
     }
 
@@ -84,12 +84,12 @@ bool GameItem::isShadow(QPointF const position) const
 
 int GameItem::getShadowDeltaX() const
 {
-    return (m_angle == NE || m_angle == SE) ? 1 * m_iShadowWidth: -1 * m_iShadowWidth;
+    return (m_angle == NE || m_angle == SE) ? 1 * m_shadowWidth: -1 * m_shadowWidth;
 }
 
 int GameItem::getShadowDeltaY() const
 {
-    return (m_angle == NW || m_angle == NE) ? 1 * m_iShadowHeight: -1 * m_iShadowHeight;
+    return (m_angle == NW || m_angle == NE) ? 1 * m_shadowHeight: -1 * m_shadowHeight;
 }
 
 void GameItem::prepareForGeometryChange()
@@ -99,21 +99,21 @@ void GameItem::prepareForGeometryChange()
 
 void GameItem::updateFaceOffset()
 {
-    int iHorizontalOffset = m_pSelPix->width() - m_pFacePix->width();
-    int iVerticalOffset = m_pSelPix->height() - m_pFacePix->height();
+    int horizontalOffset = m_selPix->width() - m_facePix->width();
+    int verticalOffset = m_selPix->height() - m_facePix->height();
 
     switch (m_angle) {
     case NW:
-        m_faceOffset = QPointF(iHorizontalOffset, 0);
+        m_faceOffset = QPointF(horizontalOffset, 0);
         break;
     case NE:
         m_faceOffset = QPointF(0, 0);
         break;
     case SE:
-        m_faceOffset = QPointF(0, iVerticalOffset);
+        m_faceOffset = QPointF(0, verticalOffset);
         break;
     case SW:
-        m_faceOffset = QPointF(iHorizontalOffset, iVerticalOffset);
+        m_faceOffset = QPointF(horizontalOffset, verticalOffset);
         break;
     }
 }
@@ -121,17 +121,17 @@ void GameItem::updateFaceOffset()
 void GameItem::paint(QPainter * pPainter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if (isSelected()) {
-        pPainter->drawPixmap(pos(), *m_pSelPix);
-        pPainter->drawPixmap(pos() + m_faceOffset, *m_pFacePix);
+        pPainter->drawPixmap(pos(), *m_selPix);
+        pPainter->drawPixmap(pos() + m_faceOffset, *m_facePix);
     } else {
-        pPainter->drawPixmap(pos(), *m_pUnselPix);
-        pPainter->drawPixmap(pos() + m_faceOffset, *m_pFacePix);
+        pPainter->drawPixmap(pos(), *m_unselPix);
+        pPainter->drawPixmap(pos() + m_faceOffset, *m_facePix);
     }
 }
 
-void GameItem::setFace(QPixmap * pFacePix)
+void GameItem::setFace(QPixmap * facePix)
 {
-    *m_pFacePix = *pFacePix;
+    *m_facePix = *facePix;
     updateFaceOffset();
 }
 
@@ -170,7 +170,7 @@ void GameItem::fadeIn()
 
 QRectF GameItem::boundingRect() const
 {
-    return QRectF(pos(), m_pSelPix->size());
+    return QRectF(pos(), m_selPix->size());
 }
 
 QRectF GameItem::rect() const
@@ -178,11 +178,11 @@ QRectF GameItem::rect() const
     return boundingRect();
 }
 
-void GameItem::setGridPos(USHORT usX, USHORT usY, USHORT usZ)
+void GameItem::setGridPos(USHORT x, USHORT y, USHORT z)
 {
-    m_stPos.e = usZ;
-    m_stPos.y = usY;
-    m_stPos.x = usX;
+    m_stPos.z = z;
+    m_stPos.y = y;
+    m_stPos.x = x;
 }
 
 void GameItem::setGridPos(POSITION & stPos)
@@ -195,9 +195,9 @@ POSITION GameItem::getGridPos() const
     return m_stPos;
 }
 
-void GameItem::setFaceId(USHORT usFaceId)
+void GameItem::setFaceId(USHORT faceId)
 {
-    m_stPos.f = usFaceId;
+    m_stPos.f = faceId;
 }
 
 USHORT GameItem::getFaceId() const
@@ -217,5 +217,5 @@ USHORT GameItem::getGridPosY() const
 
 USHORT GameItem::getGridPosZ() const
 {
-    return m_stPos.e;
+    return m_stPos.z;
 }

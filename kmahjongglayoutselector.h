@@ -45,9 +45,9 @@ private:
     void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggLayout *> layoutMap;
-    GameScene *m_pGameScene;
-    GameData *m_pGameData;
-    GameView *m_pGameView;
+    GameScene *m_gameScene;
+    GameData *m_gameData;
+    GameView *m_gameView;
 };
 
 #endif

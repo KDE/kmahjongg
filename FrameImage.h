@@ -42,7 +42,7 @@ public:
     FrameImage(QWidget *parent, const QSize &initialImageSize);
     ~FrameImage();
 
-    QPixmap* getPreviewPixmap() {return thePixmap;}
+    QPixmap* getPreviewPixmap() {return m_thePixmap;}
     void setRect(int x, int y, int w, int h, int ss, int type);
 
 signals:
@@ -56,14 +56,14 @@ protected:
     void paintEvent(QPaintEvent *pa);
 
 private:
-    int rx;
-    int ry;
-    int rw;
-    int rh;
-    int rs;
-    int rt;
+    int m_rx;
+    int m_ry;
+    int m_rw;
+    int m_rh;
+    int m_rs;
+    int m_rt;
 
-    QPixmap *thePixmap;
+    QPixmap *m_thePixmap;
 };
 
 #endif

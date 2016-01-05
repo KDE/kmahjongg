@@ -31,20 +31,20 @@ class SelectionAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit SelectionAnimation(QObject *pParent = 0);
+    explicit SelectionAnimation(QObject *parent = 0);
     ~SelectionAnimation();
 
     /**
      * Set the count of repetitions.
      *
-     * @param iRepetitions The number of repetitions. */
-    void setRepetitions(int iRepetitions);
+     * @param repetitions The number of repetitions. */
+    void setRepetitions(int repetitions);
 
     /**
      * Set the animation speed in milliseconds.
      *
-     * @param iAnimationSpeed The animation speed in milliseconds. */
-    void setAnimationSpeed(int iAnimationSpeed);
+     * @param animationSpeed The animation speed in milliseconds. */
+    void setAnimationSpeed(int animationSpeed);
 
     /**
      * Get the animation speed in milliseconds.
@@ -61,8 +61,8 @@ public:
     /**
      * Add the GameItems that should be selected.
      *
-     * @param pGameItem The game item that should be selected. */
-    void addGameItem(GameItem * pGameItem);
+     * @param gameItem The game item that should be selected. */
+    void addGameItem(GameItem * gameItem);
 
     /**
      * Add the GameItems that should be selected.
@@ -97,15 +97,15 @@ private:
     /**
      * Set the selection state of all game items.
      *
-     * @param bSelected True if all items should be selected and false for deselecting all items. */
-    void setSelectedGameItems(bool bSelected);
+     * @param selected True if all items should be selected and false for deselecting all items. */
+    void setSelectedGameItems(bool selected);
 
-    int m_iAnimationSpeed;
-    int m_iRepetitions;
-    int m_iFinishedRepetitions;
-    bool m_bItemsSelected;
+    int m_animationSpeed;
+    int m_repetitions;
+    int m_finishedRepetitions;
+    bool m_itemsSelected;
 
-    QList<GameItem *> * m_pGameItems;
+    QList<GameItem *> * m_gameItems;
 };
 
 #endif // SELECTIONANIMATION_H

@@ -18,11 +18,11 @@
 #include <QList>
 
 
-MoveListAnimation::MoveListAnimation(QObject * pParent)
-    : QTimer(pParent),
-    m_iStep(0),
-    m_iAnimationSpeed(0),
-    m_pGameData(nullptr)
+MoveListAnimation::MoveListAnimation(QObject * parent)
+    : QTimer(parent),
+    m_step(0),
+    m_animationSpeed(0),
+    m_gameData(nullptr)
 {
     connect(this, &MoveListAnimation::timeout, this, &MoveListAnimation::timeoutOccurred);
 }
@@ -31,58 +31,58 @@ MoveListAnimation::~MoveListAnimation()
 {
 }
 
-void MoveListAnimation::setAnimationSpeed(int iAnimationSpeed)
+void MoveListAnimation::setAnimationSpeed(int animationSpeed)
 {
-    m_iAnimationSpeed = iAnimationSpeed;
+    m_animationSpeed = animationSpeed;
 }
 
 int MoveListAnimation::getAnimationSpeed() const
 {
-    return m_iAnimationSpeed;
+    return m_animationSpeed;
 }
 
-void MoveListAnimation::start(GameData * pGameData)
+void MoveListAnimation::start(GameData * gameData)
 {
-    m_pGameData = pGameData;
+    m_gameData = gameData;
 
     // Test whether the tileNum is max or 0.
-    if (m_pGameData->TileNum == m_pGameData->MaxTileNum) {
+    if (m_gameData->m_tileNum == m_gameData->m_maxTileNum) {
         m_direction = AnimationDirection::Forward;
     } else {
         m_direction = AnimationDirection::Backward;
     }
 
-    QTimer::start(m_iAnimationSpeed);
+    QTimer::start(m_animationSpeed);
 }
 
 void MoveListAnimation::stop()
 {
     QTimer::stop();
 
-    m_iStep = 0;
+    m_step = 0;
 }
 
 void MoveListAnimation::timeoutOccurred()
 {
-    if (m_pGameData == nullptr) {
+    if (m_gameData == nullptr) {
         return;
     }
 
     if (m_direction == AnimationDirection::Forward) {
         // Remove items...
-        emit removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
-        emit removeItem(m_pGameData->MoveListData(m_pGameData->TileNum));
+        emit removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        emit removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
 
-        if (m_pGameData->TileNum == 0) {
+        if (m_gameData->m_tileNum == 0) {
             m_direction = AnimationDirection::Backward;
         }
     } else {
-        ++m_pGameData->TileNum;
-        emit addItem(m_pGameData->MoveListData(m_pGameData->TileNum));
-        ++m_pGameData->TileNum;
-        emit addItem(m_pGameData->MoveListData(m_pGameData->TileNum));
+        ++m_gameData->m_tileNum;
+        emit addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        ++m_gameData->m_tileNum;
+        emit addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
 
-        if (m_pGameData->TileNum == m_pGameData->MaxTileNum) {
+        if (m_gameData->m_tileNum == m_gameData->m_maxTileNum) {
             m_direction = AnimationDirection::Forward;
         }
     }

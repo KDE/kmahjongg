@@ -39,18 +39,18 @@ class GameScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    explicit GameScene(QObject *pParent = 0);
+    explicit GameScene(QObject *parent = 0);
     ~GameScene();
 
     /**
      * Return the GameItem on the given grid position.
      *
-     * @param iX The x position of the item.
-     * @param iY The y position of the item.
-     * @param iZ The z position of the item.
+     * @param x The x position of the item.
+     * @param y The y position of the item.
+     * @param z The z position of the item.
      *
      * @return The GameItem object or null if no one was found. */
-    GameItem * getItemOnGridPos(int iX, int iY, int iZ);
+    GameItem * getItemOnGridPos(int x, int y, int z);
 
     /**
      * Return the GameItem on the given grid position.
@@ -63,12 +63,12 @@ public:
     /**
      * Test whether a item exist on the given position or not.
      *
-     * @param iX The x position of the item.
-     * @param iY The y position of the item.
-     * @param iZ The z position of the item.
+     * @param x The x position of the item.
+     * @param y The y position of the item.
+     * @param z The z position of the item.
      *
      * @return True if GameItem object was found, else false. */
-    bool isItemOnGridPos(int iX, int iY, int iZ) const;
+    bool isItemOnGridPos(int x, int y, int z) const;
 
     /**
      * Override from QGraphicsScene. */
@@ -76,11 +76,11 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void addItem(GameItem *pGameItem);
+    void addItem(GameItem *gameItem);
 
     /**
      * Override from QGraphicsScene. */
-    void removeItem(GameItem *pGameItem);
+    void removeItem(GameItem *gameItem);
 
     /**
      * Override from QGraphicsScene with POSITION parameter.
@@ -98,23 +98,23 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *pMouseEvent);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *mouseEvent);
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent *pMouseEvent);
+    void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
 
     /**
      * Override from QGraphicsScene.
      * Mouse wheel rotates view. */
-    void wheelEvent(QGraphicsSceneWheelEvent *pMouseEvent);
+    void wheelEvent(QGraphicsSceneWheelEvent *mouseEvent);
 
     /**
      * Test if the item is selectable or not.
      *
-     * @param pGameItem The game item to test.
+     * @param pameItem The game item to test.
      * @return True if selectable else false. */
-    bool isSelectable(const GameItem * const pGameItem) const;
+    bool isSelectable(const GameItem * const pameItem) const;
 
 signals:
     void rotateCW();
@@ -129,8 +129,8 @@ private:
     /**
      * Adds an item to the positions array.
      *
-     * @param pGameItem THe game item to add to array. */
-    void addItemToPositionArray(GameItem * const pGameItem);
+     * @param pameItem THe game item to add to array. */
+    void addItemToPositionArray(GameItem * const pameItem);
 
     GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPTH];
     GameItem *m_pFirstSelectedItem;

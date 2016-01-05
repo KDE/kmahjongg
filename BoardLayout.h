@@ -42,12 +42,12 @@ public:
     bool loadBoardLayout(const QString &from);
     bool saveBoardLayout(const QString &where) const;
     UCHAR getBoardData(short z, short y, short x) const;
-    bool tileAbove(POSITION &p) { return(tileAbove(p.e, p.y, p.x)); }
+    bool tileAbove(POSITION &p) { return(tileAbove(p.z, p.y, p.x)); }
     void deleteTile(POSITION &p);
     bool anyFilled(POSITION &p) const;
     bool allFilled(POSITION &p) const;
     void insertTile(POSITION &p);
-    bool isTileAt(POSITION &p) { return getBoardData(p.e, p.y, p.x) == '1'; }
+    bool isTileAt(POSITION &p) { return getBoardData(p.z, p.y, p.x) == '1'; }
 
     void clearBoardLayout();
     void shiftLeft();
@@ -68,7 +68,7 @@ private:
      */
     bool tileAbove(short z, short y, short x) const;
 
-    QByteArray getBoard() const { return board; }
+    QByteArray getBoard() const { return m_board; }
 
     void initialiseBoard();
 
@@ -77,10 +77,10 @@ private:
     int m_depth;
     int m_maxTiles;
 
-    QString filename;
-    QByteArray loadedBoard;
-    QByteArray board;
-    unsigned short maxTileNum;
+    QString m_filename;
+    QByteArray m_loadedBoard;
+    QByteArray m_board;
+    unsigned short m_maxTileNum;
 
     static const QString layoutMagic1_0;
     static const QString layoutMagic1_1;

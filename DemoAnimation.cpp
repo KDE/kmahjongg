@@ -19,11 +19,11 @@
 #include <QList>
 
 
-DemoAnimation::DemoAnimation(QObject * pParent)
-    : QTimer(pParent),
-    m_iStep(0),
-    m_iAnimationSpeed(0),
-    m_pGameData(nullptr)
+DemoAnimation::DemoAnimation(QObject * parent)
+    : QTimer(parent),
+    m_step(0),
+    m_animationSpeed(0),
+    m_gameData(nullptr)
 {
     connect(this, &DemoAnimation::timeout, this, &DemoAnimation::timeoutOccurred);
 }
@@ -32,47 +32,47 @@ DemoAnimation::~DemoAnimation()
 {
 }
 
-void DemoAnimation::setAnimationSpeed(int iAnimationSpeed)
+void DemoAnimation::setAnimationSpeed(int animationSpeed)
 {
-    m_iAnimationSpeed = iAnimationSpeed;
+    m_animationSpeed = animationSpeed;
 }
 
 int DemoAnimation::getAnimationSpeed() const
 {
-    return m_iAnimationSpeed;
+    return m_animationSpeed;
 }
 
-void DemoAnimation::start(GameData * pGameData)
+void DemoAnimation::start(GameData * gameData)
 {
-    m_pGameData = pGameData;
+    m_gameData = gameData;
 
-    QTimer::start(m_iAnimationSpeed);
+    QTimer::start(m_animationSpeed);
 }
 
 void DemoAnimation::stop()
 {
     QTimer::stop();
 
-    m_iStep = 0;
+    m_step = 0;
 }
 
 void DemoAnimation::timeoutOccurred()
 {
-    switch (m_iStep++ % 5) {
+    switch (m_step++ % 5) {
     case 0:
         // Test if we got a game data object.
-        if (m_pGameData == nullptr) {
+        if (m_gameData == nullptr) {
             qCDebug(KMAHJONGG_LOG) << "m_pGameData is null";
 
             stop();
             return;
         }
 
-        if (!m_pGameData->findMove(m_stFirst, m_stSecond)) {
+        if (!m_gameData->findMove(m_stFirst, m_stSecond)) {
             // First stop the animation.
             stop();
 
-            if (m_pGameData->TileNum == 0) {
+            if (m_gameData->m_tileNum == 0) {
                 // The computer has won the game.
                 emit gameOver(true);
             } else {

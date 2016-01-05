@@ -48,7 +48,7 @@ public:
 
     void setMoveListData(short i, POSITION &value);
 
-    char* getMaskBytes() {return Mask.data();}
+    char* getMaskBytes() {return m_mask.data();}
 
     bool saveToStream(QDataStream &out) const;
     bool loadFromStream(QDataStream &in);
@@ -63,15 +63,15 @@ public:
     short findAllMatchingTiles(POSITION &posA);
     void setRemovedTilePair(POSITION &a, POSITION &b);
     void clearRemovedTilePair(POSITION &a, POSITION &b);
-    bool isMatchingTile(POSITION &Pos1, POSITION &Pos2) const;
+    bool isMatchingTile(POSITION &pos1, POSITION &pos2) const;
     void shuffle();
-    POSITION& getFromPosTable(int index) {return PosTable[index];}
+    POSITION& getFromPosTable(int index) {return m_posTable[index];}
 
-    int allow_undo;
-    int allow_redo;
+    int m_allowUndo;
+    int m_allowRedo;
 
-    USHORT TileNum;
-    USHORT MaxTileNum;
+    USHORT m_tileNum;
+    USHORT m_maxTileNum;
 
     //Board Layout dimensions
     short m_width;
@@ -82,7 +82,7 @@ public:
     KRandomSequence random;
 
 private:
-    void putTile(POSITION &pos) {putTile(pos.e, pos.y, pos.x, pos.f);}
+    void putTile(POSITION &pos) {putTile(pos.z, pos.y, pos.x, pos.f);}
     void setBoardData(short z, short y, short x, UCHAR value);
     UCHAR MaskData(short z, short y, short x) const;
 
@@ -97,32 +97,32 @@ private:
     void randomiseFaces();
     void getFaces(POSITION &a, POSITION &b);
 
-    int tilesUsed;
+    int m_tilesUsed;
 
-    UCHAR tilePair[144];
+    UCHAR m_tilePair[144];
 
     // storage to keep track of removed tiles
-    unsigned char removedCharacter[9];
-    unsigned char removedBamboo[9];
-    unsigned char removedRod[9];
-    unsigned char removedDragon[3];
-    unsigned char removedWind[9];
-    unsigned char removedFlower[4];
-    unsigned char removedSeason[4];
+    unsigned char m_removedCharacter[9];
+    unsigned char m_removedBamboo[9];
+    unsigned char m_removedRod[9];
+    unsigned char m_removedDragon[3];
+    unsigned char m_removedWind[9];
+    unsigned char m_removedFlower[4];
+    unsigned char m_removedSeason[4];
 
     // new bits for new game generation, with solvability. Scratch storage
-    int numTilesToGenerate;
+    int m_numTilesToGenerate;
 
-    QByteArray Board;
-    QByteArray Mask;
-    QByteArray Highlight;
-    QVector<POSITION> MoveList;
+    QByteArray m_board;
+    QByteArray m_mask;
+    QByteArray m_highlight;
+    QVector<POSITION> m_moveList;
 
-    QVector<POSITION> tilePositions;
-    QVector<DEPENDENCY> positionDepends;
+    QVector<POSITION> m_tilePositions;
+    QVector<DEPENDENCY> m_positionDepends;
 
     //PosTable, scratch storage used for highlighting matching tiles
-    QVector<POSITION> PosTable;
+    QVector<POSITION> m_posTable;
 };
 
 #endif // GAMEDATA_H

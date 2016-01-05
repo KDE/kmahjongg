@@ -35,13 +35,13 @@
 
 KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * aconfig)
         : QWidget(parent),
-        m_pGameData(nullptr)
+        m_gameData(nullptr)
 {
     setupUi(this);
-    m_pGameScene = new GameScene();
-    m_pGameView = new GameView(m_pGameScene, nullptr, layoutPreview);
-    m_pGameView->resize(layoutPreview->size());
-    m_pGameView->setInteractive(false);
+    m_gameScene = new GameScene();
+    m_gameView = new GameView(m_gameScene, nullptr, layoutPreview);
+    m_gameView->resize(layoutPreview->size());
+    m_gameView->setInteractive(false);
     setupData(aconfig);
 }
 
@@ -112,18 +112,18 @@ void KMahjonggLayoutSelector::layoutChanged()
     layoutDescription->setText(selLayout->authorProperty("Description"));
 
     //If settings for tiles/background have been applied, update our preview
-    if (m_pGameView->getTilesetPath() != Prefs::tileSet()) {
-        m_pGameView->setTilesetPath(Prefs::tileSet());
+    if (m_gameView->getTilesetPath() != Prefs::tileSet()) {
+        m_gameView->setTilesetPath(Prefs::tileSet());
     }
-    if (m_pGameView->getBackgroundPath() != Prefs::background()) {
-        m_pGameView->setBackgroundPath(Prefs::background());
+    if (m_gameView->getBackgroundPath() != Prefs::background()) {
+        m_gameView->setBackgroundPath(Prefs::background());
     }
 
     //Now load the boardLayout
-    m_pGameData = new GameData(selLayout->board());
-    m_pGameView->setGameData(m_pGameData);
+    m_gameData = new GameData(selLayout->board());
+    m_gameView->setGameData(m_gameData);
 
-    m_pGameView->createNewGame();
+    m_gameView->createNewGame();
 }
 
 void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active)

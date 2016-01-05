@@ -33,14 +33,14 @@ class MoveListAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit MoveListAnimation(QObject *pParent = 0);
+    explicit MoveListAnimation(QObject *parent = 0);
     ~MoveListAnimation();
 
     /**
      * Set the animation speed in milliseconds.
      *
-     * @param iAnimationSpeed The animation speed in milliseconds. */
-    void setAnimationSpeed(int iAnimationSpeed);
+     * @param animationSpeed The animation speed in milliseconds. */
+    void setAnimationSpeed(int animationSpeed);
 
     /**
      * Get the animation speed in milliseconds.
@@ -51,8 +51,8 @@ public:
     /**
      * Override of QTimer.
      *
-     * @param pGameData The data object to handle with for this animation process. */
-    void start(GameData * pGameData);
+     * @param gameData The data object to handle with for this animation process. */
+    void start(GameData * gameData);
 
     /**
      * Override of QTimer. */
@@ -75,12 +75,12 @@ private slots:
     void timeoutOccurred();
 
 private:
-    int m_iStep;
-    int m_iAnimationSpeed;
+    int m_step;
+    int m_animationSpeed;
 
     AnimationDirection m_direction;
 
-    GameData * m_pGameData;
+    GameData * m_gameData;
 };
 
 #endif // MOVELISTANIMATION_H

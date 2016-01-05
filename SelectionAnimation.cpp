@@ -18,86 +18,86 @@
 #include <QList>
 
 
-SelectionAnimation::SelectionAnimation(QObject * pParent)
-    : QTimer(pParent),
-    m_iAnimationSpeed(0),
-    m_iRepetitions(0),
-    m_iFinishedRepetitions(0),
-    m_bItemsSelected(false),
-    m_pGameItems(new QList<GameItem *>())
+SelectionAnimation::SelectionAnimation(QObject * parent)
+    : QTimer(parent),
+    m_animationSpeed(0),
+    m_repetitions(0),
+    m_finishedRepetitions(0),
+    m_itemsSelected(false),
+    m_gameItems(new QList<GameItem *>())
 {
     connect(this, &SelectionAnimation::timeout, this, &SelectionAnimation::timeoutOccurred);
 }
 
 SelectionAnimation::~SelectionAnimation()
 {
-    delete m_pGameItems;
+    delete m_gameItems;
 }
 
-void SelectionAnimation::setRepetitions(int iRepetitions)
+void SelectionAnimation::setRepetitions(int repetitions)
 {
-    m_iRepetitions = iRepetitions;
+    m_repetitions = repetitions;
 }
 
-void SelectionAnimation::setAnimationSpeed(int iAnimationSpeed)
+void SelectionAnimation::setAnimationSpeed(int animationSpeed)
 {
-    m_iAnimationSpeed = iAnimationSpeed;
+    m_animationSpeed = animationSpeed;
 }
 
 int SelectionAnimation::getAnimationSpeed() const
 {
-    return m_iAnimationSpeed;
+    return m_animationSpeed;
 }
 
 int SelectionAnimation::getRepetitions() const
 {
-    return m_iRepetitions;
+    return m_repetitions;
 }
 
 void SelectionAnimation::addGameItems(QList<GameItem *> gameItems)
 {
     while (gameItems.size() > 0) {
-        m_pGameItems->append(gameItems.takeFirst());
+        m_gameItems->append(gameItems.takeFirst());
     }
 }
 
-void SelectionAnimation::addGameItem(GameItem * pGameItem)
+void SelectionAnimation::addGameItem(GameItem * gameItem)
 {
-    m_pGameItems->append(pGameItem);
+    m_gameItems->append(gameItem);
 }
 
 QList<GameItem *> SelectionAnimation::getGameItems() const
 {
-    return *m_pGameItems;
+    return *m_gameItems;
 }
 
 void SelectionAnimation::start()
 {
-    QTimer::start(m_iAnimationSpeed);
+    QTimer::start(m_animationSpeed);
 }
 
 void SelectionAnimation::stop()
 {
-    m_pGameItems->clear();
-    m_iFinishedRepetitions = 8;
+    m_gameItems->clear();
+    m_finishedRepetitions = 8;
     QTimer::stop();
-    m_iFinishedRepetitions = 0;
+    m_finishedRepetitions = 0;
     setSelectedGameItems(false);
-    m_bItemsSelected = false;
+    m_itemsSelected = false;
 }
 
 void SelectionAnimation::timeoutOccurred()
 {
-    if (m_bItemsSelected) {
+    if (m_itemsSelected) {
         // Items are selected, so deselect them.
         setSelectedGameItems(false);
-        m_bItemsSelected = false;
+        m_itemsSelected = false;
     } else {
         // Any animation repetitions left?
-        if (m_iRepetitions > m_iFinishedRepetitions) {
+        if (m_repetitions > m_finishedRepetitions) {
             setSelectedGameItems(true);
-            m_bItemsSelected = true;
-            ++m_iFinishedRepetitions;
+            m_itemsSelected = true;
+            ++m_finishedRepetitions;
             start();
         } else {
             stop();
@@ -105,9 +105,9 @@ void SelectionAnimation::timeoutOccurred()
     }
 }
 
-void SelectionAnimation::setSelectedGameItems(bool bSelected)
+void SelectionAnimation::setSelectedGameItems(bool selected)
 {
-    for (int i = 0; i < m_pGameItems->size(); ++i) {
-        m_pGameItems->at(i)->setSelected(bSelected);
+    for (int i = 0; i < m_gameItems->size(); ++i) {
+        m_gameItems->at(i)->setSelected(selected);
     }
 }

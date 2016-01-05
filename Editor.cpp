@@ -37,10 +37,10 @@
 
 Editor::Editor(QWidget *parent)
     : QDialog(parent),
-    mode(EditMode::insert),
-    numTiles(0),
-    clean(true),
-    tiles()
+    m_mode(EditMode::insert),
+    m_numTiles(0),
+    m_clean(true),
+    m_tiles()
 {
     setModal(true);
 
@@ -55,13 +55,13 @@ Editor::Editor(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout();
 
     setupToolbar();
-    layout->addWidget(topToolbar);
+    layout->addWidget(m_topToolbar);
 
-    drawFrame = new FrameImage(this, QSize(0, 0));
-    drawFrame->setFocusPolicy(Qt::NoFocus);
-    drawFrame->setMouseTracking(true);
+    m_drawFrame = new FrameImage(this, QSize(0, 0));
+    m_drawFrame->setFocusPolicy(Qt::NoFocus);
+    m_drawFrame->setMouseTracking(true);
 
-    layout->addWidget(drawFrame);
+    layout->addWidget(m_drawFrame);
     gridLayout->addLayout(layout, 0, 0, 1, 1);
 
     //toolbar will set our minimum height
@@ -70,8 +70,8 @@ Editor::Editor(QWidget *parent)
     // tell the user what we do
     setWindowTitle(i18n("Edit Board Layout"));
 
-    connect(drawFrame, &FrameImage::mousePressed, this, &Editor::drawFrameMousePressEvent);
-    connect(drawFrame, &FrameImage::mouseMoved, this, &Editor::drawFrameMouseMovedEvent);
+    connect(m_drawFrame, &FrameImage::mousePressed, this, &Editor::drawFrameMousePressEvent);
+    connect(m_drawFrame, &FrameImage::mouseMoved, this, &Editor::drawFrameMouseMovedEvent);
 
     statusChanged();
 
@@ -84,13 +84,13 @@ Editor::~Editor()
 
 void Editor::updateTileSize(const QSize size)
 {
-    const int width = theBoard.getWidth();
-    const int height = theBoard.getHeight();
-    const QSize tileSize = tiles.preferredTileSize(size, width / 2, height / 2);
+    const int width = m_theBoard.getWidth();
+    const int height = m_theBoard.getHeight();
+    const QSize tileSize = m_tiles.preferredTileSize(size, width / 2, height / 2);
 
-    tiles.reloadTileset(tileSize);
-    borderLeft = (drawFrame->size().width() - (width * tiles.qWidth())) / 2;
-    borderTop = (drawFrame->size().height() - (height * tiles.qHeight())) / 2;
+    m_tiles.reloadTileset(tileSize);
+    m_borderLeft = (m_drawFrame->size().width() - (width * m_tiles.qWidth())) / 2;
+    m_borderTop = (m_drawFrame->size().height() - (height * m_tiles.qHeight())) / 2;
 }
 
 void Editor::resizeEvent(QResizeEvent *event)
@@ -100,33 +100,33 @@ void Editor::resizeEvent(QResizeEvent *event)
 
 void Editor::setupToolbar()
 {
-    topToolbar = new KToolBar(this, "editToolBar");
-    topToolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    m_topToolbar = new KToolBar(this, "editToolBar");
+    m_topToolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
-    actionCollection = new KActionCollection(this);
+    m_actionCollection = new KActionCollection(this);
 
     // new game
-    QAction *newBoard = actionCollection->addAction(QStringLiteral("new_board"));
+    QAction *newBoard = m_actionCollection->addAction(QStringLiteral("new_board"));
     newBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     newBoard->setText(i18n("New board"));
     connect(newBoard, &QAction::triggered, this, &Editor::newBoard);
-    topToolbar->addAction(newBoard);
+    m_topToolbar->addAction(newBoard);
 
     // open game
-    QAction *openBoard = actionCollection->addAction(QStringLiteral("open_board"));
+    QAction *openBoard = m_actionCollection->addAction(QStringLiteral("open_board"));
     openBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, &QAction::triggered, this, &Editor::loadBoard);
-    topToolbar->addAction(openBoard);
+    m_topToolbar->addAction(openBoard);
 
     // save game
-    QAction *saveBoard = actionCollection->addAction(QStringLiteral("save_board"));
+    QAction *saveBoard = m_actionCollection->addAction(QStringLiteral("save_board"));
     saveBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
-    topToolbar->addAction(saveBoard);
+    m_topToolbar->addAction(saveBoard);
 
-    topToolbar->addSeparator();
+    m_topToolbar->addSeparator();
 
 #ifdef FUTURE_OPTIONS
     // Select
@@ -159,11 +159,11 @@ void Editor::setupToolbar()
 #endif
 
     KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
-    actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
-    topToolbar->addAction(addTiles);
+    m_actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
+    m_topToolbar->addAction(addTiles);
     KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove tiles"), this);
-    actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
-    topToolbar->addAction(delTiles);
+    m_actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
+    m_topToolbar->addAction(delTiles);
 
     QActionGroup *radioGrp = new QActionGroup(this);
     radioGrp->setExclusive(true);
@@ -179,100 +179,100 @@ void Editor::setupToolbar()
 
     // board shift
 
-    topToolbar->addSeparator();
+    m_topToolbar->addSeparator();
 
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
-    QAction *shiftLeft = actionCollection->addAction(QStringLiteral("shift_left"));
+    QAction *shiftLeft = m_actionCollection->addAction(QStringLiteral("shift_left"));
     shiftLeft->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, &QAction::triggered, this, &Editor::slotShiftLeft);
-    topToolbar->addAction(shiftLeft);
+    m_topToolbar->addAction(shiftLeft);
 
-    QAction *shiftUp = actionCollection->addAction(QStringLiteral("shift_up"));
+    QAction *shiftUp = m_actionCollection->addAction(QStringLiteral("shift_up"));
     shiftUp->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, &QAction::triggered, this, &Editor::slotShiftUp);
-    topToolbar->addAction(shiftUp);
+    m_topToolbar->addAction(shiftUp);
 
-    QAction *shiftDown = actionCollection->addAction(QStringLiteral("shift_down"));
+    QAction *shiftDown = m_actionCollection->addAction(QStringLiteral("shift_down"));
     shiftDown->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, &QAction::triggered, this, &Editor::slotShiftDown);
-    topToolbar->addAction(shiftDown);
+    m_topToolbar->addAction(shiftDown);
 
-    QAction *shiftRight = actionCollection->addAction(QStringLiteral("shift_right"));
+    QAction *shiftRight = m_actionCollection->addAction(QStringLiteral("shift_right"));
     shiftRight->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, &QAction::triggered, this, &Editor::slotShiftRight);
-    topToolbar->addAction(shiftRight);
+    m_topToolbar->addAction(shiftRight);
 
-    topToolbar->addSeparator();
-    QAction *quit = actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
-    topToolbar->addAction(quit);
+    m_topToolbar->addSeparator();
+    QAction *quit = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
+    m_topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
-    QWidget *hbox = new QWidget(topToolbar);
+    QWidget *hbox = new QWidget(m_topToolbar);
     QHBoxLayout *layout = new QHBoxLayout(hbox);
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addStretch();
 
-    theLabel = new QLabel(statusText(), hbox);
-    layout->addWidget(theLabel);
-    topToolbar->addWidget(hbox);
+    m_theLabel = new QLabel(statusText(), hbox);
+    layout->addWidget(m_theLabel);
+    m_topToolbar->addWidget(hbox);
 
-    topToolbar->adjustSize();
-    setMinimumWidth(topToolbar->width());
+    m_topToolbar->adjustSize();
+    setMinimumWidth(m_topToolbar->width());
 }
 
 void Editor::statusChanged() const
 {
-    const bool canSave = ((numTiles != 0) && ((numTiles & 1) == 0));
-    theLabel->setText(statusText());
-    actionCollection->action(QStringLiteral("save_board"))->setEnabled(canSave);
+    const bool canSave = ((m_numTiles != 0) && ((m_numTiles & 1) == 0));
+    m_theLabel->setText(statusText());
+    m_actionCollection->action(QStringLiteral("save_board"))->setEnabled(canSave);
 }
 
 void Editor::slotShiftLeft()
 {
-    theBoard.shiftLeft();
+    m_theBoard.shiftLeft();
     update();
 }
 
 void Editor::slotShiftRight()
 {
-    theBoard.shiftRight();
+    m_theBoard.shiftRight();
     update();
 }
 
 void Editor::slotShiftUp()
 {
-    theBoard.shiftUp();
+    m_theBoard.shiftUp();
     update();
 }
 
 void Editor::slotShiftDown()
 {
-    theBoard.shiftDown();
+    m_theBoard.shiftDown();
     update();
 }
 
 void Editor::slotModeChanged(QAction *act)
 {
-    if (act == actionCollection->action(QStringLiteral("move_tiles"))) {
-        mode = EditMode::move;
-    } else if (act == actionCollection->action(QStringLiteral("del_tiles"))) {
-        mode = EditMode::remove;
-    } else if (act == actionCollection->action(QStringLiteral("add_tiles"))) {
-        mode = EditMode::insert;
+    if (act == m_actionCollection->action(QStringLiteral("move_tiles"))) {
+        m_mode = EditMode::move;
+    } else if (act == m_actionCollection->action(QStringLiteral("del_tiles"))) {
+        m_mode = EditMode::remove;
+    } else if (act == m_actionCollection->action(QStringLiteral("add_tiles"))) {
+        m_mode = EditMode::insert;
     }
 }
 
 QString Editor::statusText() const
 {
-    int x = currPos.x;
-    int y = currPos.y;
-    int z = currPos.e;
+    int x = m_curPos.x;
+    int y = m_curPos.y;
+    int z = m_curPos.z;
 
     if (z == 100) {
         z = 0;
@@ -280,11 +280,11 @@ QString Editor::statusText() const
         z = z + 1;
     }
 
-    if (x >= theBoard.getWidth() || x < 0 || y >= theBoard.getHeight() || y < 0) {
+    if (x >= m_theBoard.getWidth() || x < 0 || y >= m_theBoard.getHeight() || y < 0) {
         x = y = z = 0;
     }
 
-    return i18n("Tiles: %1 Pos: %2,%3,%4", numTiles, x, y, z);
+    return i18n("Tiles: %1 Pos: %2,%3,%4", m_numTiles, x, y, z);
 }
 
 void Editor::loadBoard()
@@ -300,7 +300,7 @@ void Editor::loadBoard()
         return;
     }
 
-    theBoard.loadBoardLayout(filename);
+    m_theBoard.loadBoardLayout(filename);
     update();
 }
 
@@ -313,10 +313,10 @@ void Editor::newBoard()
         return;
     }
 
-    theBoard.clearBoardLayout();
+    m_theBoard.clearBoardLayout();
 
-    clean = true;
-    numTiles = 0;
+    m_clean = true;
+    m_numTiles = 0;
 
     statusChanged();
     update();
@@ -324,7 +324,7 @@ void Editor::newBoard()
 
 bool Editor::saveBoard()
 {
-    if (!((numTiles != 0) && ((numTiles & 1) == 0))) {
+    if (!((m_numTiles != 0) && ((m_numTiles & 1) == 0))) {
         KMessageBox::sorry(this, i18n("You can only save with a even number of tiles."));
 
         return false;
@@ -350,10 +350,10 @@ bool Editor::saveBoard()
         }
     }
 
-    bool result = theBoard.saveBoardLayout(filename);
+    bool result = m_theBoard.saveBoardLayout(filename);
 
     if (result == true) {
-        clean = true;
+        m_clean = true;
 
         return true;
     } else {
@@ -366,7 +366,7 @@ bool Editor::testSave()
     // test if a save is required and return true if the app is to continue
     // false if cancel is selected. (if ok then call out to save the board
 
-    if (clean) {
+    if (m_clean) {
         return true;
     }
 
@@ -396,7 +396,7 @@ void Editor::paintEvent(QPaintEvent*)
 
     // first we layer on a background grid
     QPixmap buff;
-    QPixmap *dest = drawFrame->getPreviewPixmap();
+    QPixmap *dest = m_drawFrame->getPreviewPixmap();
     buff = QPixmap(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
@@ -404,13 +404,13 @@ void Editor::paintEvent(QPaintEvent*)
     p.drawPixmap(0, 0, buff);
     p.end();
 
-    drawFrame->update();
+    m_drawFrame->update();
 }
 
 void Editor::drawBackground(QPixmap *pixmap) const
 {
-    const int width = theBoard.getWidth();
-    const int height = theBoard.getHeight();
+    const int width = m_theBoard.getWidth();
+    const int height = m_theBoard.getHeight();
     QPainter p(pixmap);
 
     // blast in a white background
@@ -418,13 +418,13 @@ void Editor::drawBackground(QPixmap *pixmap) const
 
     // now put in a grid of tile quater width squares
     for (int y = 0; y <= height; ++y) {
-        int nextY = borderTop + (y * tiles.qHeight());
-        p.drawLine(borderLeft, nextY, borderLeft + (width * tiles.qWidth()), nextY);
+        int nextY = m_borderTop + (y * m_tiles.qHeight());
+        p.drawLine(m_borderLeft, nextY, m_borderLeft + (width * m_tiles.qWidth()), nextY);
     }
 
     for (int x = 0; x <= width; ++x) {
-        int nextX = borderLeft + (x * tiles.qWidth());
-        p.drawLine(nextX, borderTop, nextX, borderTop + (height * tiles.qHeight()));
+        int nextX = m_borderLeft + (x * m_tiles.qWidth());
+        p.drawLine(nextX, m_borderTop, nextX, m_borderTop + (height * m_tiles.qHeight()));
     }
 }
 
@@ -432,15 +432,15 @@ void Editor::drawTiles(QPixmap *dest)
 {
     QPainter p(dest);
 
-    const int width = theBoard.getWidth();
-    const int height = theBoard.getHeight();
-    const int depth = theBoard.getDepth();
-    const int shadowX = tiles.width() - tiles.qWidth() * 2 - tiles.levelOffsetX();
-    const int shadowY = tiles.height() - tiles.qHeight() * 2 - tiles.levelOffsetY();
+    const int width = m_theBoard.getWidth();
+    const int height = m_theBoard.getHeight();
+    const int depth = m_theBoard.getDepth();
+    const int shadowX = m_tiles.width() - m_tiles.qWidth() * 2 - m_tiles.levelOffsetX();
+    const int shadowY = m_tiles.height() - m_tiles.qHeight() * 2 - m_tiles.levelOffsetY();
     short tile = 0;
 
     int xOffset = -shadowX;
-    int yOffset = -tiles.levelOffsetY();
+    int yOffset = -m_tiles.levelOffsetY();
 
     // we iterate over the depth stacking order. Each successive level is
     // drawn one indent up and to the right. The indent is the width
@@ -450,16 +450,16 @@ void Editor::drawTiles(QPixmap *dest)
         for (int y = 0; y < height; ++y) {
             // drawing right to left to prevent border overwrite
             for (int x = width - 1; x >= 0; --x) {
-                int sx = x * tiles.qWidth() + xOffset + borderLeft;
-                int sy = y * tiles.qHeight() + yOffset + borderTop;
+                int sx = x * m_tiles.qWidth() + xOffset + m_borderLeft;
+                int sy = y * m_tiles.qHeight() + yOffset + m_borderTop;
 
-                if (theBoard.getBoardData(z, y, x) != '1') {
+                if (m_theBoard.getBoardData(z, y, x) != '1') {
                     continue;
                 }
 
                 QPixmap t;
                 tile = (z * depth) + (y * height) + (x * width);
-                t = tiles.unselectedTile(0);
+                t = m_tiles.unselectedTile(0);
 
                 // Only one compilcation. Since we render top to bottom , left
                 // to right situations arise where...:
@@ -467,13 +467,13 @@ void Editor::drawTiles(QPixmap *dest)
                 // in this situation we would draw our top left border over it
                 // we simply split the tile draw so the top half is drawn
                 // minus border
-                if ((x > 1) && (y > 0) && theBoard.getBoardData(z, y - 1, x - 2) == '1') {
+                if ((x > 1) && (y > 0) && m_theBoard.getBoardData(z, y - 1, x - 2) == '1') {
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
 
-                    p.drawPixmap(sx - tiles.qWidth() + shadowX + tiles.levelOffsetX(), sy, t,
-                            t.width() - tiles.qWidth(),
-                            t.height() - tiles.qHeight() - tiles.levelOffsetX() - shadowY,
-                            tiles.qWidth(), tiles.qHeight() + tiles.levelOffsetX());
+                    p.drawPixmap(sx - m_tiles.qWidth() + shadowX + m_tiles.levelOffsetX(), sy, t,
+                            t.width() - m_tiles.qWidth(),
+                            t.height() - m_tiles.qHeight() - m_tiles.levelOffsetX() - shadowY,
+                            m_tiles.qWidth(), m_tiles.qHeight() + m_tiles.levelOffsetX());
                 } else {
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
@@ -483,12 +483,12 @@ void Editor::drawTiles(QPixmap *dest)
             }
         }
 
-        xOffset += tiles.levelOffsetX();
-        yOffset -= tiles.levelOffsetY();
+        xOffset += m_tiles.levelOffsetX();
+        yOffset -= m_tiles.levelOffsetY();
     }
 }
 
-void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickPos, bool align) const
+void Editor::transformPointToPosition(const QPoint &point, POSITION &mouseClickPos, bool align) const
 {
     // convert mouse position on screen to a tile z y x coord
     // different to the one in kmahjongg.cpp since if we hit ground
@@ -497,22 +497,22 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
     short z = 0;
     short y = 0;
     short x = 0;
-    MouseClickPos.e = 100;
+    mouseClickPos.z = 100;
 
     // iterate over z coordinate from top to bottom
-    for (z = theBoard.getDepth() - 1; z >= 0; --z) {
+    for (z = m_theBoard.getDepth() - 1; z >= 0; --z) {
         // calculate mouse coordiantes --> position in game board
         // the factor -theTiles.width()/2 must keep track with the
         // offset for blitting in the print zvent (FIX ME)
-        x = ((point.x() - borderLeft) - (z + 1) * tiles.levelOffsetX()) / tiles.qWidth();
-        y = ((point.y() - borderTop) + z * tiles.levelOffsetX()) / tiles.qHeight();
+        x = ((point.x() - m_borderLeft) - (z + 1) * m_tiles.levelOffsetX()) / m_tiles.qWidth();
+        y = ((point.y() - m_borderTop) + z * m_tiles.levelOffsetX()) / m_tiles.qHeight();
 
         // skip when position is illegal
-        if (x < 0 || x >= theBoard.getWidth() || y < 0 || y >= theBoard.getHeight()) {
+        if (x < 0 || x >= m_theBoard.getWidth() || y < 0 || y >= m_theBoard.getHeight()) {
             continue;
         }
 
-        switch (theBoard.getBoardData(z, y, x)) {
+        switch (m_theBoard.getBoardData(z, y, x)) {
         case static_cast<UCHAR>('3'):
             if (align) {
                 --x;
@@ -543,23 +543,23 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &MouseClickP
         }
 
         // if gameboard is empty, skip
-        if (!theBoard.getBoardData(z, y, x)) {
+        if (!m_theBoard.getBoardData(z, y, x)) {
             continue;
         }
 
         // here, position is legal
-        MouseClickPos.e = z;
-        MouseClickPos.y = y;
-        MouseClickPos.x = x;
-        MouseClickPos.f = theBoard.getBoardData(z, y, x);
+        mouseClickPos.z = z;
+        mouseClickPos.y = y;
+        mouseClickPos.x = x;
+        mouseClickPos.f = m_theBoard.getBoardData(z, y, x);
 
         break;
     }
 
-    if (MouseClickPos.e == 100) {
-        MouseClickPos.x = x;
-        MouseClickPos.y = y;
-        MouseClickPos.f=0;
+    if (mouseClickPos.z == 100) {
+        mouseClickPos.x = x;
+        mouseClickPos.y = y;
+        mouseClickPos.f=0;
     }
 }
 
@@ -567,14 +567,14 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
 {
     // we swallow the draw frames mouse clicks and process here
 
-    POSITION mPos;
-    transformPointToPosition(e->pos(), mPos, (mode == EditMode::remove));
+    POSITION mousePos;
+    transformPointToPosition(e->pos(), mousePos, (m_mode == EditMode::remove));
 
-    switch (mode) {
+    switch (m_mode) {
     case EditMode::remove:
-        if (!theBoard.tileAbove(mPos) && mPos.e < theBoard.getDepth() && theBoard.isTileAt(mPos)) {
-            theBoard.deleteTile(mPos);
-            --numTiles;
+        if (!m_theBoard.tileAbove(mousePos) && mousePos.z < m_theBoard.getDepth() && m_theBoard.isTileAt(mousePos)) {
+            m_theBoard.deleteTile(mousePos);
+            --m_numTiles;
             statusChanged();
             drawFrameMouseMovedEvent(e);
             update();
@@ -582,18 +582,18 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
 
         break;
     case EditMode::insert: {
-        POSITION n = mPos;
+        POSITION n = mousePos;
 
-        if (n.e == 100) {
-            n.e = 0;
+        if (n.z == 100) {
+            n.z = 0;
         } else {
-            n.e += 1;
+            n.z += 1;
         }
 
         if (canInsert(n)) {
-            theBoard.insertTile(n);
-            clean = false;
-            ++numTiles;
+            m_theBoard.insertTile(n);
+            m_clean = false;
+            ++m_numTiles;
             statusChanged();
             update();
         }
@@ -607,43 +607,43 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
 
 void Editor::drawCursor(POSITION &p, bool visible)
 {
-    int x = borderLeft + (p.e * tiles.levelOffsetX()) + (p.x * tiles.qWidth());
-    const int y = borderTop - ((p.e + 1) * tiles.levelOffsetY()) + (p.y * tiles.qHeight());
-    const int w = (tiles.qWidth() * 2) + tiles.levelOffsetX();
-    const int h = (tiles.qHeight() * 2) + tiles.levelOffsetY();
+    int x = m_borderLeft + (p.z * m_tiles.levelOffsetX()) + (p.x * m_tiles.qWidth());
+    const int y = m_borderTop - ((p.z + 1) * m_tiles.levelOffsetY()) + (p.y * m_tiles.qHeight());
+    const int w = (m_tiles.qWidth() * 2) + m_tiles.levelOffsetX();
+    const int h = (m_tiles.qHeight() * 2) + m_tiles.levelOffsetY();
 
-    if (p.e == 100 || !visible) {
+    if (p.z == 100 || !visible) {
         x = -1;
     }
 
-    drawFrame->setRect(x, y, w, h, tiles.levelOffsetX(), static_cast<int>(mode) - static_cast<int>(EditMode::remove));
-    drawFrame->update();
+    m_drawFrame->setRect(x, y, w, h, m_tiles.levelOffsetX(), static_cast<int>(m_mode) - static_cast<int>(EditMode::remove));
+    m_drawFrame->update();
 }
 
 void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
 {
     // we swallow the draw frames mouse moves and process here
 
-    POSITION mPos;
-    transformPointToPosition(e->pos(), mPos, (mode == EditMode::remove));
+    POSITION mousePos;
+    transformPointToPosition(e->pos(), mousePos, (m_mode == EditMode::remove));
 
-    if ((mPos.x==currPos.x) && (mPos.y==currPos.y) && (mPos.e==currPos.e)) {
+    if ((mousePos.x==m_curPos.x) && (mousePos.y==m_curPos.y) && (mousePos.z==m_curPos.z)) {
         return;
     }
 
-    currPos = mPos;
+    m_curPos = mousePos;
 
     statusChanged();
 
-    switch (mode) {
+    switch (m_mode) {
     case EditMode::insert: {
         POSITION next;
-        next = currPos;
+        next = m_curPos;
 
-        if (next.e == 100) {
-            next.e = 0;
+        if (next.z == 100) {
+            next.z = 0;
         } else {
-            next.e += 1;
+            next.z += 1;
         }
 
         drawCursor(next, canInsert(next));
@@ -651,7 +651,7 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
         break;
     }
     case EditMode::remove:
-            drawCursor(currPos, 1);
+            drawCursor(m_curPos, 1);
 
         break;
     case EditMode::move:
@@ -665,36 +665,36 @@ bool Editor::canInsert(POSITION &p) const
     // there are tiles in all positions below us (or we are a ground level)
     // there are no tiles intersecting with us on this level
 
-    if (p.e >= theBoard.getDepth()) {
+    if (p.z >= m_theBoard.getDepth()) {
         return false;
     }
 
-    if (p.y > theBoard.getHeight() - 2) {
+    if (p.y > m_theBoard.getHeight() - 2) {
         return false;
     }
 
-    if (p.x > theBoard.getWidth() - 2) {
+    if (p.x > m_theBoard.getWidth() - 2) {
         return false;
     }
 
     POSITION n = p;
 
-    if (p.e != 0) {
-        n.e -= 1;
-        if (!theBoard.allFilled(n)) {
+    if (p.z != 0) {
+        n.z -= 1;
+        if (!m_theBoard.allFilled(n)) {
             return false;
         }
     }
 
-    return !theBoard.anyFilled(p);
+    return !m_theBoard.anyFilled(p);
 }
 
 void Editor::closeEvent(QCloseEvent *e)
 {
     if (testSave()) {
-        theBoard.clearBoardLayout();
-        clean = true;
-        numTiles = 0;
+        m_theBoard.clearBoardLayout();
+        m_clean = true;
+        m_numTiles = 0;
         statusChanged();
         update();
 
@@ -713,23 +713,23 @@ void Editor::setTilesetFromSettings()
     const QString tileset(Prefs::tileSet());
 
     // Exit if the tileset is already set.
-    if (tileset == mTileset) {
+    if (tileset == m_tileset) {
         return;
     }
 
     // Try to load the new tileset.
-    if (!tiles.loadTileset(tileset)) {
+    if (!m_tiles.loadTileset(tileset)) {
         // Try to load the old one.
-        if (!tiles.loadTileset(mTileset)) {
-            tiles.loadDefault();
+        if (!m_tiles.loadTileset(m_tileset)) {
+            m_tiles.loadDefault();
         }
     } else {
         // If loading the new tileset was ok, set the new tileset name.
-        mTileset = tileset;
+        m_tileset = tileset;
     }
 
     // Must be called to load the graphics and its informations.
-    tiles.loadGraphics();
+    m_tiles.loadGraphics();
 
     updateTileSize(size());
 }

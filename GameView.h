@@ -44,22 +44,22 @@ public:
     /**
      * Constructor
      *
-     * @param pParent The parent widget.
-     * @param pGameScene The related GameScene object. */
-    GameView(GameScene *pGameScene, GameData *pGameData, QWidget *pParent = 0);
+     * @param parent The parent widget.
+     * @param gameScene The related GameScene object. */
+    GameView(GameScene *gameScene, GameData *gameData, QWidget *parent = 0);
     ~GameView();
 
     /**
      * Items where added to the scene and should now be layouted.
      *
-     * @param pGameItem The items of which the positions should be updated. */
+     * @param gameItem The items of which the positions should be updated. */
     void updateItemsPosition(QList<GameItem *> gameItems);
 
     /**
      * Updates the whole widget.
      *
-     * @param bShowTiles True if the tiles should be displayed, else false. */
-    void updateWidget(bool bShowTiles);
+     * @param showTiles True if the tiles should be displayed, else false. */
+    void updateWidget(bool showTiles);
 
     /**
      * Override from QGraphcisView. */
@@ -72,8 +72,8 @@ public:
     /**
      * Set the GameData object.
      *
-     * @param pGameData The game data object. */
-    void setGameData(GameData *pGameData);
+     * @param gameData The game data object. */
+    void setGameData(GameData *gameData);
 
     /**
      * Get the GameData object that is actually set.
@@ -96,29 +96,29 @@ public:
     /**
      * Test for active help animation and maybe close.
      *
-     * @param bStop Stop the help animation if running.
+     * @param stop Stop the help animation if running.
      * @return Return true if the help animation was running else false. */
-    bool checkHelpAnimationActive(bool bStop = false);
+    bool checkHelpAnimationActive(bool stop = false);
 
     /**
      * Test for active demo animation and maybe close.
      *
-     * @param bStop Stop the demo animation if running.
+     * @param stop Stop the demo animation if running.
      * @return Return true if the demo animation was running else false. */
-    bool checkDemoAnimationActive(bool bStop = false);
+    bool checkDemoAnimationActive(bool stop = false);
 
     /**
      * Test for active move list animation and maybe close.
      *
-     * @param bStop Stop the move list animation if running.
+     * @param stop Stop the move list animation if running.
      * @return Return true if the move list animation was running else false. */
-    bool checkMoveListAnimationActive(bool bStop = false);
+    bool checkMoveListAnimationActive(bool stop = false);
 
     /**
      * Set the match variable. If set to true, the matching items to the selected will be animated.
      *
-     * @param bMatch The match value to set up. */
-    void setMatch(bool bMatch);
+     * @param match The match value to set up. */
+    void setMatch(bool match);
 
     /**
      * Get the match value.
@@ -141,16 +141,16 @@ public:
     /**
      * Sets the tileset path and tries to load it.
      *
-     * @param rTilesetPath The path to the tileset.
+     * @param tilesetPath The path to the tileset.
      * @return True if setting and therfore loading success, else false. */
-    bool setTilesetPath(QString const &rTilesetPath);
+    bool setTilesetPath(QString const &tilesetPath);
 
     /**
      * Sets the background path and tries to load it.
      *
-     * @param rBackgroundPath The path to the background.
+     * @param backgroundPath The path to the background.
      * @return True if setting and therfore loading success, else false. */
-    bool setBackgroundPath(QString const &rBackgroundPath);
+    bool setBackgroundPath(QString const &backgroundPath);
 
     /**
      * Undo the last move.
@@ -185,16 +185,16 @@ public:
     /**
      * Set the game number.
      *
-     * @param lGameNumber Game number. */
-    void setGameNumber(long lGameNumber);
+     * @param gameNumber Game number. */
+    void setGameNumber(long gameNumber);
 
     /**
      * Search for a valid move silently or with an information text.
      *
-     * @param bSilent False if a message should appears when no legal moves exist, else true.
+     * @param silent False if a message should appears when no legal moves exist, else true.
      *        Default ist false!
      * @return True if a legal move exist, else false. */
-    bool validMovesAvailable(bool bSilent = false);
+    bool validMovesAvailable(bool silent = false);
 
     /**
      * Hide/show tiles when game is paused/unpaused. */
@@ -208,9 +208,7 @@ public:
 
 public slots:
     /**
-     * Add a new item with teh given position and update imgages, position and order.
-     *
-     * @param pGameItem The new game item object. */
+     * Add a new item with teh given position and update imgages, position and order. */
     void addItemAndUpdate(POSITION &stItemPos);
 
     /**
@@ -234,8 +232,8 @@ public slots:
     /**
      * Create a new game.
      *
-     * @param iGameNumber The game number to create or -1 for a random number. */
-    void createNewGame(long iGameNumber = -1);
+     * @param gameNumber The game number to create or -1 for a random number. */
+    void createNewGame(long gameNumber = -1);
 
     /**
      * Shuffle the position of items. */
@@ -248,8 +246,8 @@ public slots:
     /**
      * Give a hint to the matching tiles.
      *
-     * @param pGameItem The item we search matching tiles for. */
-    void helpMatch(const GameItem * const pGameItem);
+     * @param gameItem The item we search matching tiles for. */
+    void helpMatch(const GameItem * const gameItem);
 
     /**
      * Start the move list animation. */
@@ -262,11 +260,11 @@ public slots:
 protected:
     /**
      * Override from QGraphicsView. */
-    virtual void resizeEvent(QResizeEvent *pEvent);
+    virtual void resizeEvent(QResizeEvent *event);
 
     /**
      * Override from QGraphicsView. */
-    virtual void mousePressEvent(QMouseEvent * pMouseEvent);
+    virtual void mousePressEvent(QMouseEvent * mouseEvent);
 
 signals:
     /**
@@ -276,31 +274,31 @@ signals:
     /**
      * Emits when the status text changed.
      *
-     * @param rText The new status text.
-     * @param lGameNumber The actual game number. */
-    void statusTextChanged(const QString &text, long lGameNumber);
+     * @param text The new status text.
+     * @param gameNumber The actual game number. */
+    void statusTextChanged(const QString &text, long gameNumber);
 
     /**
      * Emits when the number of the items changed or could change.
      *
-     * @param iMaxItemNum The max tile number.
-     * @param iItemNum The item number that are still there.
-     * @param iMoveCount Number of moves. */
-    void itemNumberChanged(int iMaxItemNum, int iItemNum, int iMoveCount);
+     * @param maxItemNum The max tile number.
+     * @param itemNum The item number that are still there.
+     * @param moveCount Number of moves. */
+    void itemNumberChanged(int maxItemNum, int itemNum, int moveCount);
 
     /**
      * Emits when the game is over.
      *
-     * @param usRemovedItems The number of the removed items.
-     * @param usCheatsUsed The number of the cheats that are used. */
-    void gameOver(unsigned short usRemovedItems, unsigned short usCheatsUsed);
+     * @param removedItems The number of the removed items.
+     * @param cheatsUsed The number of the cheats that are used. */
+    void gameOver(unsigned short removedItems, unsigned short cheatsUsed);
 
     /**
      * Emits when demo is played out and lost or stopped by a mouse click, or
      * the MoveListAnimation is stopped by a mouse click.
      *
-     * @param bDemoGameLost True if demo game is played out and lost. */
-    void demoOrMoveListAnimationOver(bool bDemoGameLost);
+     * @param demoGameLost True if demo game is played out and lost. */
+    void demoOrMoveListAnimationOver(bool demoGameLost);
 
     /**
      * Emits when no more moves are available. */
@@ -311,34 +309,34 @@ private slots:
      * Add a new item with the given position.
      *
      * @param stItemPos The position for the new item.
-     * @param bUpdateImage True for updating the images else false.
-     * @param bUpdateOrder True for updating the order else false.
-     * @param bUpdatePosition True for updating the position else false. */
-    void addItem(POSITION &stItemPos, bool bUpdateImage = false, bool bUpdateOrder = false,
-        bool bUpdatePosition = false);
+     * @param updateImage True for updating the images else false.
+     * @param updateOrder True for updating the order else false.
+     * @param updatePosition True for updating the position else false. */
+    void addItem(POSITION &stItemPos, bool updateImage = false, bool updateOrder = false,
+        bool updatePosition = false);
 
     /**
      * Add a new item.
      *
-     * @param pGameItem The new game item object.
-     * @param bUpdateImage True for updating the images else false.
-     * @param bUpdateOrder True for updating the order else false.
-     * @param bUpdatePosition True for updating the position else false. */
-    void addItem(GameItem *pGameItem, bool bUpdateImage = false, bool bUpdateOrder = false,
-        bool bUpdatePosition = false);
+     * @param gameItem The new game item object.
+     * @param updateImage True for updating the images else false.
+     * @param updateOrder True for updating the order else false.
+     * @param updatePosition True for updating the position else false. */
+    void addItem(GameItem *gameItem, bool updateImage = false, bool updateOrder = false,
+        bool updatePosition = false);
 
     /**
      * When the game is over by the demo mode.
      *
-     * @param bWon True if the computer won in demo mode, else false. */
-    void demoGameOver(bool bWon);
+     * @param won True if the computer won in demo mode, else false. */
+    void demoGameOver(bool won);
 
     /**
      * Change the selected state of the given item.
      *
      * @param stItemPos The position of the item.
-     * @param bSelected The selection state to set. */
-    void changeItemSelectedState(POSITION &stItemPos, bool bSelected);
+     * @param selected The selection state to set. */
+    void changeItemSelectedState(POSITION &stItemPos, bool selected);
 
     /**
      * Gets called when a pair was selected. */
@@ -348,7 +346,7 @@ private:
     /**
      * Updates the images of the items.
      *
-     * @param pGameItem The items of which the images should be updated. */
+     * @param gameItem The items of which the images should be updated. */
     void updateItemsImages(QList<GameItem *> gameItems);
 
     /**
@@ -362,13 +360,13 @@ private:
     /**
      * Sets the status text.
      *
-     * @param rText The new status text. */
+     * @param text The new status text. */
     void setStatusText(const QString &text);
 
     /**
      * Resize the tileset to the given size.
      *
-     * @param rSize The new size of the tileset. */
+     * @param size The new size of the tileset. */
     void resizeTileset(const QSize &size);
 
     /**
@@ -382,32 +380,32 @@ private:
     /**
      * Order the line starting by the item.
      *
-     * @param pStartItem The item where the line starts.
-     * @param iXStart The x position of the item.
-     * @param iY The y position of the item.
-     * @param iZ The z position of the item.
-     * @param iZCount The z count variable for ther order. */
-    void orderLine(GameItem *pStartItem, int iXStart, int iXEnd, int iXCounter, int iY,
-        int iYCounter, int iZ, int &iZCount);
+     * @param startItem The item where the line starts.
+     * @param xStart The x position of the item.
+     * @param y The y position of the item.
+     * @param z The z position of the item.
+     * @param zCount The z count variable for ther order. */
+    void orderLine(GameItem *startItem, int xStart, int xEnd, int xCounter, int y,
+        int yCounter, int z, int &zCount);
 
-    unsigned short m_usCheatsUsed;
-    long m_lGameNumber;
-    bool m_bGamePaused;
-    bool m_bMatch;
-    bool m_bGameGenerated;
+    unsigned short m_cheatsUsed;
+    long m_gameNumber;
+    bool m_gamePaused;
+    bool m_match;
+    bool m_gameGenerated;
 
-    GameData *m_pGameData;
-    GameItem *m_pSelectedItem;
+    GameData *m_gameData;
+    GameItem *m_selectedItem;
 
-    QString *m_pTilesetPath;
-    QString *m_pBackgroundPath;
+    QString *m_tilesetPath;
+    QString *m_backgroundPath;
 
-    SelectionAnimation *m_pHelpAnimation;
-    MoveListAnimation *m_pMoveListAnimation;
-    DemoAnimation *m_pDemoAnimation;
+    SelectionAnimation *m_helpAnimation;
+    MoveListAnimation *m_moveListAnimation;
+    DemoAnimation *m_demoAnimation;
 
-    KMahjonggTileset *m_pTiles;
-    KMahjonggBackground *m_pBackground;
+    KMahjonggTileset *m_tiles;
+    KMahjonggBackground *m_background;
 
     TileViewAngle m_angle;
 

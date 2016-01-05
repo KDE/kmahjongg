@@ -93,24 +93,24 @@ private:
         insert = 99,
         move = 100
     };
-    EditMode mode;
+    EditMode m_mode;
 
-    QString mTileset;
+    QString m_tileset;
 
-    int borderLeft;
-    int borderTop;
-    int numTiles;
-    bool clean;
+    int m_borderLeft;
+    int m_borderTop;
+    int m_numTiles;
+    bool m_clean;
 
-    FrameImage *drawFrame;
-    KMahjonggTileset tiles;
-    BoardLayout theBoard;
-    POSITION currPos;
+    FrameImage *m_drawFrame;
+    KMahjonggTileset m_tiles;
+    BoardLayout m_theBoard;
+    POSITION m_curPos;
 
-    QLabel *theLabel;
+    QLabel *m_theLabel;
 
-    KToolBar *topToolbar;
-    KActionCollection *actionCollection;
+    KToolBar *m_topToolbar;
+    KActionCollection *m_actionCollection;
 };
 
 #endif

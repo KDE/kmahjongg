@@ -32,14 +32,14 @@ class DemoAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit DemoAnimation(QObject *pParent = 0);
+    explicit DemoAnimation(QObject *parent = 0);
     ~DemoAnimation();
 
     /**
      * Set the animation speed in milliseconds.
      *
-     * @param iAnimationSpeed The animation speed in milliseconds. */
-    void setAnimationSpeed(int iAnimationSpeed);
+     * @param animationSpeed The animation speed in milliseconds. */
+    void setAnimationSpeed(int animationSpeed);
 
     /**
      * Get the animation speed in milliseconds.
@@ -50,8 +50,8 @@ public:
     /**
      * Override of QTimer.
      *
-     * @param pGameData The data object to handle with for this animation process. */
-    void start(GameData * pGameData);
+     * @param gameData The data object to handle with for this animation process. */
+    void start(GameData * gameData);
 
     /**
      * Override of QTimer. */
@@ -63,8 +63,8 @@ signals:
     /**
      * Emits when the game is over.
      *
-     * @param bWon True if computer won the game, else false. */
-    void gameOver(bool bWon);
+     * @param won True if computer won the game, else false. */
+    void gameOver(bool won);
 
     /**
      * Emit to remove the given item. */
@@ -74,20 +74,20 @@ signals:
      * Emit to set the selected state of the given item.
      *
      * @param stItem The position of the item to change the selected state.
-     * @param bSelected THe item should be selected on true, else deselected. */
-    void changeItemSelectedState(POSITION & stItem, bool bSelected);
+     * @param selected THe item should be selected on true, else deselected. */
+    void changeItemSelectedState(POSITION & stItem, bool selected);
 
 private slots:
     void timeoutOccurred();
 
 private:
-    int m_iStep;
-    int m_iAnimationSpeed;
+    int m_step;
+    int m_animationSpeed;
 
     POSITION m_stFirst;
     POSITION m_stSecond;
 
-    GameData * m_pGameData;
+    GameData * m_gameData;
 };
 
 #endif // DEMOANIMATION_H

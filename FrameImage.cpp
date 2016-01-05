@@ -32,19 +32,19 @@
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
   : QWidget(parent),
-    rx(-1),
-    thePixmap(new QPixmap(initialImageSize))
+    m_rx(-1),
+    m_thePixmap(new QPixmap(initialImageSize))
 {
 }
 
 FrameImage::~FrameImage()
 {
-    delete thePixmap;
+    delete m_thePixmap;
 }
 
 void FrameImage::resizeEvent(QResizeEvent *ev)
 {
-    *thePixmap = QPixmap(ev->size());
+    *m_thePixmap = QPixmap(ev->size());
 }
 
 void FrameImage::paintEvent(QPaintEvent *pa)
@@ -63,33 +63,33 @@ void FrameImage::paintEvent(QPaintEvent *pa)
     int h = pa->rect().height();
     int w  = pa->rect().width();
 
-    p.drawPixmap(x, y, *thePixmap, x, y, w - 2, h - 2);
-    if (rx >=0) {
-        p.drawRect(rx + rs, ry, rw - rs, rh - rs);
-        p.drawLine(rx, ry + rs, rx, ry + rh);
-        p.drawLine(rx, ry + rs, rx + rs, ry);
-        p.drawLine(rx, ry + rh, rx + rs, ry + rh - rs);
-        p.drawLine(rx, ry + rh, rx + rw - rs, ry + rh);
-        p.drawLine(rx + rw - rs, ry + rh, rx + rw, ry + rh - rs);
+    p.drawPixmap(x, y, *m_thePixmap, x, y, w - 2, h - 2);
+    if (m_rx >=0) {
+        p.drawRect(m_rx + m_rs, m_ry, m_rw - m_rs, m_rh - m_rs);
+        p.drawLine(m_rx, m_ry + m_rs, m_rx, m_ry + m_rh);
+        p.drawLine(m_rx, m_ry + m_rs, m_rx + m_rs, m_ry);
+        p.drawLine(m_rx, m_ry + m_rh, m_rx + m_rs, m_ry + m_rh - m_rs);
+        p.drawLine(m_rx, m_ry + m_rh, m_rx + m_rw - m_rs, m_ry + m_rh);
+        p.drawLine(m_rx + m_rw - m_rs, m_ry + m_rh, m_rx + m_rw, m_ry + m_rh - m_rs);
 
-        int midX = rx + rs + ((rw - rs) / 2);
-        int midY = ry + ((rh - rs) / 2);
-        switch (rt) {
+        int midX = m_rx + m_rs + ((m_rw - m_rs) / 2);
+        int midY = m_ry + ((m_rh - m_rs) / 2);
+        switch (m_rt) {
         case 0:  // delete mode cursor
-            p.drawLine(rx + rs, ry, rx + rw, ry + rh - rs);
-            p.drawLine(rx + rw, ry, rx + rs, ry + rh - rs);
+            p.drawLine(m_rx + m_rs, m_ry, m_rx + m_rw, m_ry + m_rh - m_rs);
+            p.drawLine(m_rx + m_rw, m_ry, m_rx + m_rs, m_ry + m_rh - m_rs);
 
             break;
         case 1: // insert cursor
-            p.drawLine(midX, ry, midX, ry + rh - rs);
-            p.drawLine(rx + rs, midY, rx + rw, midY);
+            p.drawLine(midX, m_ry, midX, m_ry + m_rh - m_rs);
+            p.drawLine(m_rx + m_rs, midY, m_rx + m_rw, midY);
 
             break;
         case 2: // move mode cursor
-            p.drawLine(midX, ry, rx + rw, midY);
-            p.drawLine(rx + rw, midY, midX, ry + rh - rs);
-            p.drawLine(midX, ry + rh - rs, rx + rs, midY);
-            p.drawLine(rx + rs, midY, midX, ry);
+            p.drawLine(midX, m_ry, m_rx + m_rw, midY);
+            p.drawLine(m_rx + m_rw, midY, midX, m_ry + m_rh - m_rs);
+            p.drawLine(midX, m_ry + m_rh - m_rs, m_rx + m_rs, midY);
+            p.drawLine(m_rx + m_rs, midY, midX, m_ry);
 
             break;
         }
@@ -98,12 +98,12 @@ void FrameImage::paintEvent(QPaintEvent *pa)
 
 void FrameImage::setRect(int x, int y, int w, int h, int s, int t)
 {
-    rx = x;
-    ry = y;
-    rw = w;
-    rh = h;
-    rt = t;
-    rs = s;
+    m_rx = x;
+    m_ry = y;
+    m_rw = w;
+    m_rh = h;
+    m_rt = t;
+    m_rs = s;
 }
 
 void FrameImage::mousePressEvent(QMouseEvent *m)

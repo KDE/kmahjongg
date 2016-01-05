@@ -32,8 +32,8 @@ typedef unsigned long  ULONG;
  * @short struct pos POSITION
  */
 typedef struct pos {
-    pos() : e(0), y(0), x(0), f(0) { }
-    USHORT e; /**< Member Description */
+    pos() : z(0), y(0), x(0), f(0) { }
+    USHORT z; /**< Member Description */
     USHORT y; /**< Member Description */
     USHORT x; /**< Member Description */
     USHORT f; /**< Member Description */

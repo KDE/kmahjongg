@@ -48,13 +48,13 @@ public slots:
 
     void showStatusText(const QString &msg, long board);
 
-    void showItemNumber(int iMaximum, int iCurrent, int iLeft);
+    void showItemNumber(int maximum, int current, int left);
 
-    void gameOver(unsigned short removed, unsigned short cheats);
+    void gameOver(unsigned short numRemoved, unsigned short cheats);
 
     /**
      * Connected to GameView::demoOrMoveListAnimationOver(bool) signal. */
-    void demoOrMoveListAnimationOver(bool bDemoGameLost);
+    void demoOrMoveListAnimationOver(bool demoGameLost);
 
 protected:
     void setupKAction();
@@ -88,26 +88,26 @@ private:
 
     bool m_bLastRandomSetting;
 
-    GameView *m_pGameView;
-    GameData *m_pGameData;
-    GameScene *m_pGameScene;
+    GameView *m_gameView;
+    GameData *m_gameData;
+    GameScene *m_gameScene;
 
-    KMahjonggLayout *m_pBoardLayout;
+    KMahjonggLayout *m_boardLayout;
 
-    Editor *boardEditor;
+    Editor *m_boardEditor;
 
-    QLabel *gameNumLabel;
-    QLabel *tilesLeftLabel;
-    QLabel *statusLabel;
-    QLabel *gameTimerLabel;
+    QLabel *m_gameNumLabel;
+    QLabel *m_tilesLeftLabel;
+    QLabel *m_statusLabel;
+    QLabel *m_gameTimerLabel;
 
-    QAction *undoAction;
-    QAction *redoAction;
+    QAction *m_undoAction;
+    QAction *m_redoAction;
 
-    KGameClock *gameTimer;
+    KGameClock *m_gameTimer;
 
-    KToggleAction *pauseAction;
-    KToggleAction *demoAction;
+    KToggleAction *m_pauseAction;
+    KToggleAction *m_demoAction;
 
     static const QString gameMagic;
     static const int gameDataVersion;

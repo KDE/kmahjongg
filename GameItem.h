@@ -34,8 +34,8 @@ public:
      * Constructor
      *
      * @param selected Should the item be selected
-     * @param pItem The parent item */
-    GameItem(bool selected, QGraphicsObject *pItem = 0);
+     * @param item The parent item */
+    GameItem(bool selected, QGraphicsObject *item = 0);
     ~GameItem();
 
     /**
@@ -47,10 +47,10 @@ public:
     /**
      * Set the items grid position.
      *
-     * @param usX The x position.
-     * @param usY The y position.
-     * @param usZ The z position. */
-    void setGridPos(USHORT usX, USHORT usY, USHORT usZ);
+     * @param x The x position.
+     * @param y The y position.
+     * @param z The z position. */
+    void setGridPos(USHORT x, USHORT y, USHORT z);
 
     /**
      * Set the item grid position with the POSITION struct.
@@ -61,8 +61,8 @@ public:
     /**
      * Set the face id of the pixmap.
      *
-     * @param usFaceId The face id to set up. */
-    void setFaceId(USHORT usFaceId);
+     * @param faceId The face id to set up. */
+    void setFaceId(USHORT faceId);
 
     /**
      * Get the face id.
@@ -88,23 +88,23 @@ public:
      * Set the actual angle and therefore all pixmaps related to the angle.
      *
      * @param angle The angle of the item
-     * @param pUnselPix The pixmap for a unselected item
-     * @param pSelPix The pixmap for a selected item
-     * @param iShadowWidth The width of the shadow
-     * @param iShadowHeight The height of the shadow */
-    void setAngle(TileViewAngle angle, QPixmap *pSelPix, QPixmap *pUnselPix, int iShadowWidth,
-        int iShadowHeight);
+     * @param unselPix The pixmap for a unselected item
+     * @param selPix The pixmap for a selected item
+     * @param shadowWidth The width of the shadow
+     * @param shadowHeight The height of the shadow */
+    void setAngle(TileViewAngle angle, QPixmap *selPix, QPixmap *unselPix, int shadowWidth,
+        int shadowHeight);
 
     /**
      * Set the face of the stone.
      *
-     * @param pFacePix The pixmap of the face. */
-    void setFace(QPixmap *pFacePix);
+     * @param facePix The pixmap of the face. */
+    void setFace(QPixmap *facePix);
 
     /**
      * Overrides the paint method of QGraphicsItem. */
-    virtual void paint(QPainter *pPainter, const QStyleOptionGraphicsItem * pOption,
-        QWidget *pWidget);
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem * option,
+        QWidget *widget);
 
     /**
      * Overrides the boundingRect method of QGraphicsItem. */
@@ -150,16 +150,16 @@ private:
     void updateFaceOffset();
 
     bool m_dying;
-    int m_iShadowWidth;
-    int m_iShadowHeight;
+    int m_shadowWidth;
+    int m_shadowHeight;
 
     POSITION m_stPos;
 
     TileViewAngle m_angle;
 
-    QPixmap *m_pSelPix;
-    QPixmap *m_pUnselPix;
-    QPixmap *m_pFacePix;
+    QPixmap *m_selPix;
+    QPixmap *m_unselPix;
+    QPixmap *m_facePix;
 
     QPointF m_faceOffset;
 };
