@@ -4,10 +4,24 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KMahjongg</name>
+  <name xml:lang="ca">KMahjongg</name>
+  <name xml:lang="nl">KMahjongg</name>
+  <name xml:lang="pt">KMahjongg</name>
+  <name xml:lang="pt-BR">KMahjongg</name>
+  <name xml:lang="sv">Mahjongg</name>
+  <name xml:lang="uk">KMahjongg</name>
+  <name xml:lang="x-test">xxKMahjonggxx</name>
   <description>
     <p>
       KMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).
     </p>
+    <p xml:lang="ca">El KMahjongg és un joc de tauler divertit creat a partir del famós jocs oriental Mahjong (del xinès 麻將).</p>
+    <p xml:lang="nl">KMahjongg is een bordspel naar het voorbeeld van het bekende oosterse spel Mahjongg (van het Chinese 麻將)</p>
+    <p xml:lang="pt">O KMahjongg é um divertido jogo de tabuleiro, criado com base no antigo jogo oriental Mahjong (do Chinês 麻將).</p>
+    <p xml:lang="pt-BR">KMahjongg é um divertido jogo de tabuleiro criado com base no famoso jogo oriental que é o Mahjong (do chinês 麻將).</p>
+    <p xml:lang="sv">Mahjongg är ett roligt brädspel som är skapat baserat på det berömda orientaliska spelet Mahjong (från kinesiskans 麻將).</p>
+    <p xml:lang="uk">KMahjongg — це захоплива гра на дошці, створена на основі відомої східної гри у маджонґ (китайською 麻將).</p>
+    <p xml:lang="x-test">xxKMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).xx</p>
   </description>
   <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
