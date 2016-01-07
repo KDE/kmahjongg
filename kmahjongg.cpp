@@ -493,14 +493,14 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //int elapsed = gameTimer->seconds();
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
-    KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    QPointer<KScoreDialog> ksdialog = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     const QString layoutName = m_boardLayout->authorProperty("Name");
-    ksdialog.setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
+    ksdialog->setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Time] = m_gameTimer->timeString();
-    if (ksdialog.addScore(scoreInfo, KScoreDialog::AskName)) {
-        ksdialog.exec();
+    if (ksdialog->addScore(scoreInfo, KScoreDialog::AskName)) {
+        ksdialog->exec();
     }
 
     m_gameView->startMoveListAnimation();
