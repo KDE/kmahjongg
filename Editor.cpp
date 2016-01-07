@@ -734,7 +734,7 @@ void Editor::setTilesetFromSettings()
         m_tileset = tileset;
     }
 
-    // Must be called to load the graphics and its informations.
+    // Must be called to load the graphics and its information.
     m_tiles.loadGraphics();
 
     updateTileSize(size());

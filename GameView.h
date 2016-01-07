@@ -155,13 +155,13 @@ public:
     /**
      * Undo the last move.
      *
-     * @return True if successfull, else false. */
+     * @return True if successful, else false. */
     bool undo();
 
     /**
      * Redo the last undo.
      *
-     * @return True if successfull, else false. */
+     * @return True if successful, else false. */
     bool redo();
 
     /**

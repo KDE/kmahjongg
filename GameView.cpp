@@ -304,7 +304,7 @@ void GameView::removeItem(POSITION & stItemPos)
 
     // If TileNum is % 2 then update the number in the status bar.
     if (!(m_gameData->m_tileNum % 2)) {
-        // The item numbers changed, so we need to populate the new informations.
+        // The item numbers changed, so we need to populate the new information.
         populateItemNumber();
     }
 }
