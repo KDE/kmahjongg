@@ -509,13 +509,13 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
 void KMahjongg::showStatusText(const QString &msg, long board)
 {
     m_statusLabel->setText(msg);
-    QString str = i18n("Game number: %1", board);
+    const QString str = i18n("Game number: %1", board);
     m_gameNumLabel->setText(str);
 }
 
 void KMahjongg::showItemNumber(int maximum, int current, int left)
 {
-    QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", maximum - current, maximum, left);
+    const QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", maximum - current, maximum, left);
     m_tilesLeftLabel->setText(szBuffer);
 
     updateUndoAndRedoStates();
