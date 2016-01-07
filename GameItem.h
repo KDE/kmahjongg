@@ -35,7 +35,7 @@ public:
      *
      * @param selected Should the item be selected
      * @param item The parent item */
-    GameItem(bool selected, QGraphicsObject *item = 0);
+    explicit GameItem(bool selected, QGraphicsObject *item = 0);
     ~GameItem();
 
     /**
