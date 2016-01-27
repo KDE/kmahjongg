@@ -1,15 +1,24 @@
 project(kmahjongg)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-
 set(QT_MIN_VERSION "5.2.0")
+set(KF5_MIN_VERSION "5.15.0")
 
 find_package(ECM 1.2.0 REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg)
-find_package(KF5 REQUIRED COMPONENTS CoreAddons XmlGui Config NewStuff Declarative DocTools DBusAddons)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Config
+    CoreAddons
+    Crash
+    DBusAddons
+    Declarative
+    DocTools
+    NewStuff
+    XmlGui
+)
 
 include(FeatureSummary)
 include(GenerateExportHeader)
@@ -47,7 +56,8 @@ set(kmahjongg_SRCS
    GameScene.cpp
    SelectionAnimation.cpp
    DemoAnimation.cpp
-   MoveListAnimation.cpp)
+   MoveListAnimation.cpp
+)
 
 ki18n_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui)
 
@@ -60,9 +70,11 @@ target_link_libraries(kmahjongg
     KF5::CoreAddons
     KF5::XmlGui
     KF5::DBusAddons
+    KF5::Crash
     KF5KDEGames
     KF5KDEGamesPrivate
-    KF5KMahjongglib)
+    KF5KMahjongglib
+)
 
 install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -74,18 +86,16 @@ install(FILES kmahjongg.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
 install(FILES kmahjonggui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kmahjongg)
 
 ecm_install_icons(ICONS
-                  128-apps-kmahjongg.png
-                  64-apps-kmahjongg.png
-                  48-apps-kmahjongg.png
-                  32-apps-kmahjongg.png
-                  22-apps-kmahjongg.png
-                  16-apps-kmahjongg.png
-                  sc-apps-kmahjongg.svgz
-                  DESTINATION  ${KDE_INSTALL_ICONDIR}
-                  THEME hicolor)
+    128-apps-kmahjongg.png
+    64-apps-kmahjongg.png
+    48-apps-kmahjongg.png
+    32-apps-kmahjongg.png
+    22-apps-kmahjongg.png
+    16-apps-kmahjongg.png
+    sc-apps-kmahjongg.svgz
+    DESTINATION  ${KDE_INSTALL_ICONDIR}
+    THEME hicolor)
 
 ########### Display Summary ###############
-feature_summary(WHAT ALL
-                INCLUDE_QUIET_PACKAGES
-                FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
