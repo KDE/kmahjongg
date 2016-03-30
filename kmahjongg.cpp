@@ -152,13 +152,13 @@ void KMahjongg::setupKAction()
     QAction *angleccw = actionCollection()->addAction(QStringLiteral("view_angleccw"));
     angleccw->setText(i18n("Rotate View Counterclockwise"));
     angleccw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-left")));
-    angleccw->setShortcut(Qt::Key_F);
+    actionCollection()->setDefaultShortcut(angleccw, Qt::Key_F);
     connect(angleccw, &QAction::triggered, m_gameView, &GameView::angleSwitchCCW);
 
     QAction *anglecw = actionCollection()->addAction(QStringLiteral("view_anglecw"));
     anglecw->setText(i18n("Rotate View Clockwise"));
     anglecw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-right")));
-    anglecw->setShortcut(Qt::Key_G);
+    actionCollection()->setDefaultShortcut(anglecw, Qt::Key_G);
     connect(anglecw, &QAction::triggered, m_gameView, &GameView::angleSwitchCW);
 
     m_demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
