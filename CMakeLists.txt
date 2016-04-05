@@ -28,7 +28,7 @@ include(ECMGenerateHeaders)
 include(ECMMarkNonGuiExecutable)
 include(KDEInstallDirs)
 include(ECMInstallIcons)
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 find_package(KF5KMahjongglib REQUIRED)
