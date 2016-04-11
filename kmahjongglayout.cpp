@@ -87,13 +87,13 @@ bool KMahjonggLayout::load(const QString &file) {
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggLayout");
 
-    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name"));// Returns translated data
+    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
     d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
     d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
     d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
 
     // Version control
-    const int bgversion = group.readEntry("VersionFormat",0);
+    const int bgversion = group.readEntry("VersionFormat", 0);
     // Format is increased when we have incompatible changes, meaning that older clients
     // are not able to use the remaining information safely
     if (bgversion > kLayoutVersionFormat) {
