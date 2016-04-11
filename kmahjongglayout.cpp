@@ -66,9 +66,10 @@ KMahjonggLayout::~KMahjonggLayout()
 
 bool KMahjonggLayout::loadDefault()
 {
-    const QString idx = QStringLiteral("default.desktop");
+    const QString subdir = QStringLiteral("/layouts/");
+    const QString layoutFileName = QStringLiteral("default.desktop");
 
-    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + idx);
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, subdir + layoutFileName);
     qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at" << layoutPath;
     if (layoutPath.isEmpty()) {
         return false;
@@ -100,9 +101,10 @@ bool KMahjonggLayout::load(const QString &file) {
         return false;
     }
 
-    const QString layoutName = group.readEntry("FileName");
+    const QString subdir = QStringLiteral("/layouts/");
+    const QString layoutFileName = group.readEntry("FileName");
 
-    const QString layoutPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kmahjongg/layouts/" + layoutName);
+    const QString layoutPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, subdir + layoutFileName);
     qCDebug(KMAHJONGG_LOG) << "Using layout at" << layoutPath;
     d->filename = layoutPath;
 

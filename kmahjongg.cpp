@@ -394,7 +394,7 @@ void KMahjongg::startNewGame(int item)
     // Use same layout if restarting game or starting a numbered game.
     if (Prefs::randomLayout() && item == -1) {
         QStringList availableLayouts;
-        const QStringList layoutDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("kmahjongg/layouts/"), QStandardPaths::LocateDirectory);
+        const QStringList layoutDirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
         Q_FOREACH (const QString& dir, layoutDirs) {
             const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
             Q_FOREACH (const QString& file, fileNames) {
