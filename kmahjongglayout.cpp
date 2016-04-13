@@ -51,12 +51,12 @@ public:
 KMahjonggLayout::KMahjonggLayout()
     : d(new KMahjonggLayoutPrivate)
 {
-    static bool _inited = false;
-    if (_inited) {
+    static bool s_inited = false;
+    if (s_inited) {
         return;
     }
 
-    _inited = true;
+    s_inited = true;
 }
 
 KMahjonggLayout::~KMahjonggLayout()
