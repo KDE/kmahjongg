@@ -70,7 +70,7 @@ bool KMahjonggLayout::loadDefault()
     const QString layoutFileName = QStringLiteral("default.desktop");
 
     const QString layoutPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, subdir + layoutFileName);
-    qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at" << layoutPath;
+    qCDebug(KMAHJONGG_LOG) << "Inside LoadDefault(), located layout at " << layoutPath;
     if (layoutPath.isEmpty()) {
         return false;
     }
