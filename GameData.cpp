@@ -679,9 +679,8 @@ void GameData::randomiseFaces()
     //odd numbers (n,x) and swap n, n+1 with x, x+1
 
     int at = 0;
-    int to = 0;
     for (int r = 0; r < 200; ++r) {
-        to = at;
+        int to = at;
 
         while (to==at) {
             to = random.getLong(144);
