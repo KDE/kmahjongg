@@ -62,7 +62,7 @@ const int KMahjongg::gameDataVersion = 1;
 class Settings : public QWidget, public Ui::Settings
 {
 public:
-    Settings(QWidget *parent)
+    explicit Settings(QWidget *parent)
         : QWidget(parent)
     {
         setupUi(this);
