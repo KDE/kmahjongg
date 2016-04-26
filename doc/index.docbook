@@ -3,7 +3,6 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kmahjongg;"> 
   <!ENTITY kappversion "0.9"><!--Application version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames">  <!-- do not change this! -->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
 ]>
@@ -31,7 +30,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
  
 <date>2016-01-04</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<releaseinfo>&kappversion; (Applications 16.04)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
  
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -403,7 +402,7 @@ of the &kde; Fundamentals.
 
 <para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> opens the <guilabel>Configure - &kappname;</guilabel> dialog.</para>
 
-<sect1 id="general-options"><title><guilabel>General</guilabel> options</title>
+<sect1 id="general-options"><title>General options</title>
 	<variablelist>
 		<varlistentry>
 			<term><guilabel>Blink matching tiles when first one is selected</guilabel></term>
@@ -420,7 +419,7 @@ of the &kde; Fundamentals.
 	</variablelist>
 </sect1>
 
-<sect1 id="layout-options"><title><guilabel>Board layout</guilabel> options</title>
+<sect1 id="layout-options"><title>Board layout options</title>
 	<variablelist>
 		<varlistentry>
 			<term><guilabel>Random Layout</guilabel></term>
@@ -446,7 +445,7 @@ of the &kde; Fundamentals.
 	</variablelist>
 </sect1>
 
-<sect1 id="tiles-options"><title><guilabel>Tiles</guilabel> options</title>
+<sect1 id="tiles-options"><title>Tiles options</title>
 	<variablelist>
 		<varlistentry>
 			<term><guilabel>Tiles</guilabel> selector</term>
@@ -467,7 +466,7 @@ of the &kde; Fundamentals.
 	</variablelist>
 </sect1>
 
-<sect1 id="background-options"><title><guilabel>Background</guilabel> options</title>
+<sect1 id="background-options"><title>Background options</title>
 	<variablelist>
 		<varlistentry>
 			<term><guilabel>Background</guilabel> selector</term>
@@ -558,21 +557,6 @@ The default kebindings are as follows:
 &underGPL;
  
 </chapter>
- 
- 
-<appendix id="installation">
-<title>Installation</title>
- 
-&install.intro.documentation;
- 
- 
-<sect1 id="Compilation">
-<title>Compilation and Installation</title>
- 
-&install.compile.documentation;
- 
-</sect1>
-</appendix>
  
 &documentation.index; 
 </book>
