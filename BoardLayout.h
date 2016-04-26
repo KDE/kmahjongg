@@ -42,12 +42,12 @@ public:
     bool loadBoardLayout(const QString &from);
     bool saveBoardLayout(const QString &where) const;
     UCHAR getBoardData(short z, short y, short x) const;
-    bool tileAbove(POSITION &p) { return(tileAbove(p.z, p.y, p.x)); }
+    bool tileAbove(POSITION &p) const { return(tileAbove(p.z, p.y, p.x)); }
     void deleteTile(POSITION &p);
     bool anyFilled(POSITION &p) const;
     bool allFilled(POSITION &p) const;
     void insertTile(POSITION &p);
-    bool isTileAt(POSITION &p) { return getBoardData(p.z, p.y, p.x) == '1'; }
+    bool isTileAt(POSITION &p) const { return getBoardData(p.z, p.y, p.x) == '1'; }
 
     void clearBoardLayout();
     void shiftLeft();
