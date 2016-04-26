@@ -68,8 +68,6 @@ private:
      */
     bool tileAbove(short z, short y, short x) const;
 
-    QByteArray getBoard() const { return m_board; }
-
     void initialiseBoard();
 
     int m_width;
