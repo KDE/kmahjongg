@@ -52,7 +52,7 @@ typedef struct dep {
 /**
  * @short Tile angles for face composition
  */
-enum TileViewAngle { 
+enum TileViewAngle {
         NW, /**< North West */
         NE, /**< North East */
         SE, /**< South East */

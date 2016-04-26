@@ -25,6 +25,7 @@ GameItem::GameItem(bool selected, QGraphicsObject *item)
     m_dying(false),
     m_shadowWidth(0),
     m_shadowHeight(0),
+    m_angle(),
     m_selPix(new QPixmap()),
     m_unselPix(new QPixmap()),
     m_facePix(new QPixmap())
