@@ -12,15 +12,18 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "gamescene.h"
+
+// Qt
+#include <QGraphicsSceneMouseEvent>
+#include <QList>
+
+// KMahjongg
 #include "gamedata.h"
 #include "gameview.h"
 #include "gameitem.h"
 #include "kmahjongglayout.h"
-
-#include <QGraphicsSceneMouseEvent>
-#include <QList>
-
 
 GameScene::GameScene(QObject *parent)
     : QGraphicsScene(parent),

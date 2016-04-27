@@ -15,9 +15,11 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
 
-#include "kmtypes.h"
-
+// Qt
 #include <QGraphicsScene>
+
+// KMahjongg
+#include "kmtypes.h"
 
 #define BOARD_WIDTH 36
 #define BOARD_HEIGHT 16

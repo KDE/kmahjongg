@@ -20,6 +20,7 @@
 #ifndef KMAHJONGG_DEBUG_H
 #define KMAHJONGG_DEBUG_H
 
+// Qt
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KMAHJONGG_LOG)
 

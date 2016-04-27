@@ -12,11 +12,14 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "movelistanimation.h"
-#include "gamedata.h"
 
+// Qt
 #include <QList>
 
+// KMahjongg
+#include "gamedata.h"
 
 MoveListAnimation::MoveListAnimation(QObject * parent)
     : QTimer(parent),

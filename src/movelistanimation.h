@@ -15,9 +15,11 @@
 #ifndef MOVELISTANIMATION_H
 #define MOVELISTANIMATION_H
 
-#include "kmtypes.h"
-
+// Qt
 #include <QTimer>
+
+// KMahjongg
+#include "kmtypes.h"
 
 // Forward declarations...
 class GameData;

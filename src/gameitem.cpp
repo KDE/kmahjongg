@@ -12,13 +12,14 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "gameitem.h"
 
+// Qt
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QPixmap>
 #include <QTimer>
-
 
 GameItem::GameItem(bool selected, QGraphicsObject *item)
     : QGraphicsObject(item),

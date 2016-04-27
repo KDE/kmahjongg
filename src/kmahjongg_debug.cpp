@@ -17,6 +17,7 @@
     Boston, MA 02110-1301, USA.
 */
 
+// own
 #include "kmahjongg_debug.h"
 Q_LOGGING_CATEGORY(KMAHJONGG_LOG, "log_kmahjongg")
 

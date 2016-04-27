@@ -15,11 +15,12 @@
 #ifndef GAMEITEM_H
 #define GAMEITEM_H
 
-#include "kmtypes.h"
-
+// Qt
 #include <QGraphicsObject>
 #include <QObject>
 
+// KMahjongg
+#include "kmtypes.h"
 
 /**
  * The tile of a mahjongg board.

@@ -12,17 +12,20 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#include "kmahjongg.h"
-#include "version.h"
+// Qt
+#include <QApplication>
+#include <QCommandLineParser>
 
+// KDE
 #include <KAboutData>
 #include <KCrash>
 #include <KDBusService>
 #include <Kdelibs4ConfigMigrator>
 #include <KLocalizedString>
 
-#include <QApplication>
-#include <QCommandLineParser>
+// KMahjongg
+#include "kmahjongg.h"
+#include "version.h"
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 

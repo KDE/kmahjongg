@@ -15,16 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
+// own
 #include "editor.h"
-#include "frameimage.h"
-#include "prefs.h"
 
-#include <KActionCollection>
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KStandardAction>
-#include <KToggleAction>
-
+// Qt
 #include <QAction>
 #include <QFileDialog>
 #include <QFileInfo>
@@ -34,6 +28,16 @@
 #include <QResizeEvent>
 #include <QPainter>
 
+// KDE
+#include <KActionCollection>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KStandardAction>
+#include <KToggleAction>
+
+// KMahjongg
+#include "frameimage.h"
+#include "prefs.h"
 
 Editor::Editor(QWidget *parent)
     : QDialog(parent),

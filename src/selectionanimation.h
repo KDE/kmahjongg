@@ -15,8 +15,8 @@
 #ifndef SELECTIONANIMATION_H
 #define SELECTIONANIMATION_H
 
+// Qt
 #include <QTimer>
-
 
 // Forward declarations...
 template <class T> class QList;

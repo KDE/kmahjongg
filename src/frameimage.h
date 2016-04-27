@@ -18,17 +18,16 @@
 #ifndef FRAMEIMAGE_H
 #define FRAMEIMAGE_H
 
+// Qt
 #include <QWidget>
+#include <QFrame>
 
-class QPixmap;
-
+// KMahjongg
 #include "boardlayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
 
-#include <QFrame>
-
-
+class QPixmap;
 class QComboBox;
 class QPixmap;
 

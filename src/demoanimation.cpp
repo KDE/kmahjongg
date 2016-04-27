@@ -12,12 +12,15 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "demoanimation.h"
-#include "gamedata.h"
-#include "kmahjongg_debug.h"
 
+// Qt
 #include <QList>
 
+// KMahjongg
+#include "gamedata.h"
+#include "kmahjongg_debug.h"
 
 DemoAnimation::DemoAnimation(QObject * parent)
     : QTimer(parent),

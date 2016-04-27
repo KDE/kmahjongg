@@ -12,11 +12,14 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "selectionanimation.h"
-#include "gameitem.h"
 
+// Qt
 #include <QList>
 
+// KMahjongg
+#include "gameitem.h"
 
 SelectionAnimation::SelectionAnimation(QObject * parent)
     : QTimer(parent),

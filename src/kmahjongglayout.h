@@ -20,6 +20,7 @@
 #ifndef KMAHJONGGLAYOUT_H
 #define KMAHJONGGLAYOUT_H
 
+// Qt
 #include <QString>
 
 class BoardLayout;

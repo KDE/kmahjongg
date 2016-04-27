@@ -23,9 +23,11 @@
 #ifndef KMAHJONGGLAYOUTSELECTOR_H
 #define KMAHJONGGLAYOUTSELECTOR_H
 
-#include "ui_gametype.h"
-
+// KDE
 #include <KConfigSkeleton>
+
+// KMahjongg
+#include "ui_gametype.h"
 
 class GameView;
 class GameData;

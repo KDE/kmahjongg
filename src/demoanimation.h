@@ -15,10 +15,11 @@
 #ifndef DEMOANIMATION_H
 #define DEMOANIMATION_H
 
-#include "kmtypes.h"
-
+// Qt
 #include <QTimer>
 
+// KMahjongg
+#include "kmtypes.h"
 
 // Forward declarations...
 class GameData;

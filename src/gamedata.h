@@ -20,11 +20,14 @@
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
-#include "kmtypes.h"
+// Qt
+#include <QVector>
 
+// KDE
 #include <KRandomSequence>
 
-#include <QVector>
+// KMahjongg
+#include "kmtypes.h"
 
 class BoardLayout;
 

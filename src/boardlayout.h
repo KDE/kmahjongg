@@ -19,9 +19,11 @@
 #ifndef BOARDLAYOUT_H
 #define BOARDLAYOUT_H
 
-#include "kmtypes.h"
-
+// Qt
 #include <QString>
+
+// KMahjongg
+#include "kmtypes.h"
 
 const QString layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
 const QString layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");

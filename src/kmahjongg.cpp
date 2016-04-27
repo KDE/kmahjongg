@@ -15,29 +15,13 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "kmahjongg.h"
-#include "prefs.h"
-#include "kmahjongglayoutselector.h"
-#include "ui_settings.h"
-#include "editor.h"
-#include "gameview.h"
-#include "gamescene.h"
-#include "gamedata.h"
-#include "kmahjongglayout.h"
-#include "kmahjongg_debug.h"
-#include <kmahjonggconfigdialog.h>
 
-#include <KAboutData>
-#include <KActionCollection>
-#include <KConfigDialog>
-#include <KGameClock>
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KScoreDialog>
-#include <KStandardAction>
-#include <KStandardGameAction>
-#include <KToggleAction>
+// STL
+#include <limits.h>
 
+// Qt
 #include <QAction>
 #include <QDesktopWidget>
 #include <QFileDialog>
@@ -51,7 +35,31 @@
 #include <QStatusBar>
 #include <QWindowStateChangeEvent>
 
-#include <limits.h>
+// KDE
+#include <KAboutData>
+#include <KActionCollection>
+#include <KConfigDialog>
+#include <KGameClock>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KScoreDialog>
+#include <KStandardAction>
+#include <KStandardGameAction>
+#include <KToggleAction>
+
+// LibKMahjongg
+#include <kmahjonggconfigdialog.h>
+
+// KMahjongg
+#include "prefs.h"
+#include "kmahjongglayoutselector.h"
+#include "ui_settings.h"
+#include "editor.h"
+#include "gameview.h"
+#include "gamescene.h"
+#include "gamedata.h"
+#include "kmahjongglayout.h"
+#include "kmahjongg_debug.h"
 
 const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
 const int KMahjongg::gameDataVersion = 1;

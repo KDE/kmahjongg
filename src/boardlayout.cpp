@@ -17,8 +17,10 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+// own
 #include "boardlayout.h"
 
+// Qt
 #include <QFile>
 #include <QTextCodec>
 #include <QTextStream>

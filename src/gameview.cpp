@@ -12,7 +12,19 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
+// own
 #include "gameview.h"
+
+// Qt
+#include <QMouseEvent>
+#include <QResizeEvent>
+
+// KDE
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KRandom>
+
+// KMahjongg
 #include "gamedata.h"
 #include "gamescene.h"
 #include "gameitem.h"
@@ -24,14 +36,6 @@
 #include "kmahjonggbackground.h"
 #include "kmahjongg_debug.h"
 #include "prefs.h"
-
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KRandom>
-
-#include <QMouseEvent>
-#include <QResizeEvent>
-
 
 GameView::GameView(GameScene *gameScene, GameData *gameData, QWidget *parent)
     : QGraphicsView(gameScene, parent),

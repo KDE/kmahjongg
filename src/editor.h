@@ -18,16 +18,18 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
+// Qt
+#include <QDialog>
+#include <QFrame>
+
+// KDE
+#include <KToolBar>
+
+// KMahjongg
 #include "boardlayout.h"
 #include "frameimage.h"
 #include "kmahjonggtileset.h"
 #include "kmtypes.h"
-
-#include <KToolBar>
-
-#include <QDialog>
-#include <QFrame>
-
 
 class FrameImage;
 class QLabel;

@@ -17,17 +17,22 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+// own
 #include "kmahjongglayout.h"
-#include "boardlayout.h"
-#include "kmahjongg_debug.h"
 
+// Qt
+#include <QFile>
+#include <QMap>
+#include <QStandardPaths>
+
+// KDE
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <QFile>
-#include <QMap>
-#include <QStandardPaths>
+// KMahjongg
+#include "boardlayout.h"
+#include "kmahjongg_debug.h"
 
 const int KMahjonggLayout::kLayoutVersionFormat = 1;
 

@@ -15,10 +15,10 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. */
 
+// own
 #include "frameimage.h"
-#include "editor.h"
-#include "prefs.h"
 
+// Qt
 #include <QEvent>
 #include <QImage>
 #include <QPainter>
@@ -26,9 +26,14 @@
 #include <QPixmap>
 #include <QTextStream>
 
+// KDE
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardGuiItem>
+
+// KMahjongg
+#include "editor.h"
+#include "prefs.h"
 
 FrameImage::FrameImage(QWidget *parent, const QSize &initialImageSize)
   : QWidget(parent),

@@ -18,7 +18,8 @@
 #ifndef KMAHJONGG_H
 #define KMAHJONGG_H
 
-#include <kxmlguiwindow.h>
+// KDE
+#include <KXmlGuiWindow>
 
 class KToggleAction;
 class QLabel;
