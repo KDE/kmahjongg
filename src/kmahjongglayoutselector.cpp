@@ -31,15 +31,15 @@
 #include <KLocalizedString>
 
 // KMahjongg
-#include "kmahjongglayout.h"
-#include "gameview.h"
-#include "gamescene.h"
 #include "gamedata.h"
+#include "gamescene.h"
+#include "gameview.h"
+#include "kmahjongglayout.h"
 #include "prefs.h"
 
-KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * aconfig)
-        : QWidget(parent),
-        m_gameData(nullptr)
+KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget * parent, KConfigSkeleton * aconfig)
+    : QWidget(parent)
+    , m_gameData(nullptr)
 {
     setupUi(this);
     m_gameScene = new GameScene();
@@ -66,24 +66,23 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     QStringList tilesAvailable;
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString& dir, dirs) {
+    Q_FOREACH (const QString & dir, dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString& file, fileNames) {
+        Q_FOREACH (const QString & file, fileNames) {
             tilesAvailable.append(dir + '/' + file);
         }
     }
     tilesAvailable.sort();
     QString namestr(QStringLiteral("Name"));
     int numvalidentries = 0;
-    for (int i = 0; i < tilesAvailable.size(); ++i)
-    {
+    for (int i = 0; i < tilesAvailable.size(); ++i) {
         KMahjonggLayout * aset = new KMahjonggLayout();
         QString atileset = tilesAvailable.at(i);
         if (aset->load(atileset)) {
             layoutMap.insert(aset->authorProperty(namestr), aset);
             layoutList->addItem(aset->authorProperty(namestr));
             //Find if this is our currently configured Tileset
-            if (atileset==initialGroup) {
+            if (atileset == initialGroup) {
                 //Select current entry
                 layoutList->setCurrentRow(numvalidentries);
                 layoutChanged();
@@ -100,11 +99,11 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
 void KMahjonggLayoutSelector::layoutChanged()
 {
     KMahjonggLayout * selLayout = layoutMap.value(layoutList->currentItem()->text());
-        //Sanity checkings. Should not happen.
+    //Sanity checkings. Should not happen.
     if (!selLayout) {
         return;
     }
-    if (selLayout->path()==kcfg_Layout->text()) {
+    if (selLayout->path() == kcfg_Layout->text()) {
         return;
     }
 

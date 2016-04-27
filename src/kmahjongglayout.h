@@ -32,21 +32,21 @@ public:
     KMahjonggLayout();
     ~KMahjonggLayout();
 
-    bool load(const QString &file);
+    bool load(const QString & file);
     bool loadDefault();
     QString path() const;
-    QString authorProperty(const QString &key) const;
+    QString authorProperty(const QString & key) const;
     BoardLayout * board() const;
     QString layoutName() const;
 
 private:
-   friend class KMahjonggLayoutPrivate;
-   KMahjonggLayoutPrivate *const d;
-   QString filename;
-   QString m_layoutName;
-   static const int kLayoutVersionFormat;
+    friend class KMahjonggLayoutPrivate;
+    KMahjonggLayoutPrivate * const d;
+    QString filename;
+    QString m_layoutName;
+    static const int kLayoutVersionFormat;
 
-   Q_DISABLE_COPY(KMahjonggLayout)
+    Q_DISABLE_COPY(KMahjonggLayout)
 };
 
 #endif

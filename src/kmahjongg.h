@@ -37,7 +37,7 @@ class KMahjongg : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit KMahjongg(QWidget *parent = 0);
+    explicit KMahjongg(QWidget * parent = 0);
     ~KMahjongg();
 
 public slots:
@@ -47,7 +47,7 @@ public slots:
      * Load the settings... */
     void loadSettings();
 
-    void showStatusText(const QString &msg, long board);
+    void showStatusText(const QString & msg, long board);
 
     void showItemNumber(int maximum, int current, int left);
 
@@ -60,8 +60,8 @@ public slots:
 protected:
     void setupKAction();
     void setupStatusBar();
-    void changeEvent(QEvent *event);
-    void closeEvent(QCloseEvent *event);
+    void changeEvent(QEvent * event);
+    void closeEvent(QCloseEvent * event);
 
 private slots:
     void showSettings();
@@ -73,13 +73,17 @@ private slots:
     void redo();
     void pause();
     void demoMode();
-    void displayTime(const QString& timestring);
+    void displayTime(const QString & timestring);
     void showHighscores();
     void slotBoardEditor();
     void noMovesAvailable();
 
 private:
-    enum class GameState { Gameplay, Demo, Paused, Finished, Stuck };
+    enum class GameState { Gameplay,
+                           Demo,
+                           Paused,
+                           Finished,
+                           Stuck };
     GameState m_gameState;
 
     void updateState(GameState state);
@@ -89,26 +93,26 @@ private:
 
     bool m_bLastRandomSetting;
 
-    GameView *m_gameView;
-    GameData *m_gameData;
-    GameScene *m_gameScene;
+    GameView * m_gameView;
+    GameData * m_gameData;
+    GameScene * m_gameScene;
 
-    KMahjonggLayout *m_boardLayout;
+    KMahjonggLayout * m_boardLayout;
 
-    Editor *m_boardEditor;
+    Editor * m_boardEditor;
 
-    QLabel *m_gameNumLabel;
-    QLabel *m_tilesLeftLabel;
-    QLabel *m_statusLabel;
-    QLabel *m_gameTimerLabel;
+    QLabel * m_gameNumLabel;
+    QLabel * m_tilesLeftLabel;
+    QLabel * m_statusLabel;
+    QLabel * m_gameTimerLabel;
 
-    QAction *m_undoAction;
-    QAction *m_redoAction;
+    QAction * m_undoAction;
+    QAction * m_redoAction;
 
-    KGameClock *m_gameTimer;
+    KGameClock * m_gameTimer;
 
-    KToggleAction *m_pauseAction;
-    KToggleAction *m_demoAction;
+    KToggleAction * m_pauseAction;
+    KToggleAction * m_demoAction;
 
     static const QString gameMagic;
     static const int gameDataVersion;

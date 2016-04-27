@@ -25,8 +25,8 @@
 #include <QGridLayout>
 #include <QIcon>
 #include <QLabel>
-#include <QResizeEvent>
 #include <QPainter>
+#include <QResizeEvent>
 
 // KDE
 #include <KActionCollection>
@@ -39,30 +39,30 @@
 #include "frameimage.h"
 #include "prefs.h"
 
-Editor::Editor(QWidget *parent)
-    : QDialog(parent),
-    m_mode(EditMode::insert),
-    m_borderLeft(0),
-    m_borderTop(0),
-    m_numTiles(0),
-    m_clean(true),
-    m_drawFrame(nullptr),
-    m_tiles(),
-    m_theLabel(nullptr),
-    m_topToolbar(nullptr),
-    m_actionCollection(nullptr)
+Editor::Editor(QWidget * parent)
+    : QDialog(parent)
+    , m_mode(EditMode::insert)
+    , m_borderLeft(0)
+    , m_borderTop(0)
+    , m_numTiles(0)
+    , m_clean(true)
+    , m_drawFrame(nullptr)
+    , m_tiles()
+    , m_theLabel(nullptr)
+    , m_topToolbar(nullptr)
+    , m_actionCollection(nullptr)
 {
     setModal(true);
 
-    QWidget *mainWidget = new QWidget(this);
+    QWidget * mainWidget = new QWidget(this);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QVBoxLayout * mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(mainWidget);
 
     resize(QSize(800, 400));
 
-    QGridLayout *gridLayout = new QGridLayout(mainWidget);
-    QVBoxLayout *layout = new QVBoxLayout();
+    QGridLayout * gridLayout = new QGridLayout(mainWidget);
+    QVBoxLayout * layout = new QVBoxLayout();
 
     setupToolbar();
     layout->addWidget(m_topToolbar);
@@ -103,7 +103,7 @@ void Editor::updateTileSize(const QSize size)
     m_borderTop = (m_drawFrame->size().height() - (height * m_tiles.qHeight())) / 2;
 }
 
-void Editor::resizeEvent(QResizeEvent *event)
+void Editor::resizeEvent(QResizeEvent * event)
 {
     updateTileSize(event->size());
 }
@@ -116,21 +116,21 @@ void Editor::setupToolbar()
     m_actionCollection = new KActionCollection(this);
 
     // new game
-    QAction *newBoard = m_actionCollection->addAction(QStringLiteral("new_board"));
+    QAction * newBoard = m_actionCollection->addAction(QStringLiteral("new_board"));
     newBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     newBoard->setText(i18n("New board"));
     connect(newBoard, &QAction::triggered, this, &Editor::newBoard);
     m_topToolbar->addAction(newBoard);
 
     // open game
-    QAction *openBoard = m_actionCollection->addAction(QStringLiteral("open_board"));
+    QAction * openBoard = m_actionCollection->addAction(QStringLiteral("open_board"));
     openBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     openBoard->setText(i18n("Open board"));
     connect(openBoard, &QAction::triggered, this, &Editor::loadBoard);
     m_topToolbar->addAction(openBoard);
 
     // save game
-    QAction *saveBoard = m_actionCollection->addAction(QStringLiteral("save_board"));
+    QAction * saveBoard = m_actionCollection->addAction(QStringLiteral("save_board"));
     saveBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
     saveBoard->setText(i18n("Save board"));
     connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
@@ -140,42 +140,42 @@ void Editor::setupToolbar()
 
 #ifdef FUTURE_OPTIONS
     // Select
-    QAction *select = actionCollection->addAction(QLatin1String("select"));
+    QAction * select = actionCollection->addAction(QLatin1String("select"));
     select->setIcon(QIcon::fromTheme(QLatin1String("rectangle_select")));
     select->setText(i18n("Select"));
     topToolbar->addAction(select);
 
-    QAction *cut = actionCollection->addAction(QLatin1String("edit_cut"));
+    QAction * cut = actionCollection->addAction(QLatin1String("edit_cut"));
     cut->setIcon(QIcon::fromTheme(QLatin1String("edit-cut")));
     cut->setText(i18n("Cut"));
     topToolbar->addAction(cut);
 
-    QAction *copy = actionCollection->addAction(QLatin1String("edit_copy"));
+    QAction * copy = actionCollection->addAction(QLatin1String("edit_copy"));
     copy->setIcon(QIcon::fromTheme(QLatin1String("edit-copy")));
     copy->setText(i18n("Copy"));
     topToolbar->addAction(copy);
 
-    QAction *paste = actionCollection->addAction(QLatin1String("edit_paste"));
+    QAction * paste = actionCollection->addAction(QLatin1String("edit_paste"));
     paste->setIcon(QIcon::fromTheme(QLatin1String("edit-paste")));
     paste->setText(i18n("Paste"));
     topToolbar->addAction(paste);
 
     topToolbar->addSeparator();
 
-    QAction *moveTiles = actionCollection->addAction(QLatin1String("move_tiles"));
+    QAction * moveTiles = actionCollection->addAction(QLatin1String("move_tiles"));
     moveTiles->setIcon(QIcon::fromTheme(QLatin1String("move")));
     moveTiles->setText(i18n("Move tiles"));
     topToolbar->addAction(moveTiles);
 #endif
 
-    KToggleAction *addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
+    KToggleAction * addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
     m_actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
     m_topToolbar->addAction(addTiles);
-    KToggleAction *delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove tiles"), this);
+    KToggleAction * delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove tiles"), this);
     m_actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
     m_topToolbar->addAction(delTiles);
 
-    QActionGroup *radioGrp = new QActionGroup(this);
+    QActionGroup * radioGrp = new QActionGroup(this);
     radioGrp->setExclusive(true);
     radioGrp->addAction(addTiles);
     addTiles->setChecked(true);
@@ -193,37 +193,37 @@ void Editor::setupToolbar()
 
     // NOTE: maybe join shiftActions in QActionGroup and create one slot(QAction*) instead of 4 slots? ;)
     // Does this makes sense? dimsuz
-    QAction *shiftLeft = m_actionCollection->addAction(QStringLiteral("shift_left"));
+    QAction * shiftLeft = m_actionCollection->addAction(QStringLiteral("shift_left"));
     shiftLeft->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
     shiftLeft->setText(i18n("Shift left"));
     connect(shiftLeft, &QAction::triggered, this, &Editor::slotShiftLeft);
     m_topToolbar->addAction(shiftLeft);
 
-    QAction *shiftUp = m_actionCollection->addAction(QStringLiteral("shift_up"));
+    QAction * shiftUp = m_actionCollection->addAction(QStringLiteral("shift_up"));
     shiftUp->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
     shiftUp->setText(i18n("Shift up"));
     connect(shiftUp, &QAction::triggered, this, &Editor::slotShiftUp);
     m_topToolbar->addAction(shiftUp);
 
-    QAction *shiftDown = m_actionCollection->addAction(QStringLiteral("shift_down"));
+    QAction * shiftDown = m_actionCollection->addAction(QStringLiteral("shift_down"));
     shiftDown->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
     shiftDown->setText(i18n("Shift down"));
     connect(shiftDown, &QAction::triggered, this, &Editor::slotShiftDown);
     m_topToolbar->addAction(shiftDown);
 
-    QAction *shiftRight = m_actionCollection->addAction(QStringLiteral("shift_right"));
+    QAction * shiftRight = m_actionCollection->addAction(QStringLiteral("shift_right"));
     shiftRight->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
     shiftRight->setText(i18n("Shift right"));
     connect(shiftRight, &QAction::triggered, this, &Editor::slotShiftRight);
     m_topToolbar->addAction(shiftRight);
 
     m_topToolbar->addSeparator();
-    QAction *quit = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
+    QAction * quit = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
     m_topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
-    QWidget *hbox = new QWidget(m_topToolbar);
-    QHBoxLayout *layout = new QHBoxLayout(hbox);
+    QWidget * hbox = new QWidget(m_topToolbar);
+    QHBoxLayout * layout = new QHBoxLayout(hbox);
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addStretch();
@@ -267,7 +267,7 @@ void Editor::slotShiftDown()
     update();
 }
 
-void Editor::slotModeChanged(QAction *act)
+void Editor::slotModeChanged(QAction * act)
 {
     if (act == m_actionCollection->action(QStringLiteral("move_tiles"))) {
         m_mode = EditMode::move;
@@ -304,7 +304,7 @@ void Editor::loadBoard()
     }
 
     const QString filename = QFileDialog::getOpenFileName(this, i18n("Open Board Layout"), QString(),
-                                           i18n("Board Layout (*.layout);;All Files (*)"));
+                                                          i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (filename.isEmpty()) {
         return;
@@ -342,7 +342,7 @@ bool Editor::saveBoard()
 
     // get a save file name
     const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Board Layout"), QString(),
-                                           i18n("Board Layout (*.layout);;All Files (*)"));
+                                                          i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (filename.isEmpty()) {
         return false;
@@ -352,8 +352,8 @@ bool Editor::saveBoard()
     if (f.exists()) {
         // if it already exists, querie the user for replacement
         int res = KMessageBox::warningContinueCancel(this,
-                i18n("A file with that name already exists. Do you wish to overwrite it?"),
-                i18n("Save Board Layout"), KStandardGuiItem::save());
+                                                     i18n("A file with that name already exists. Do you wish to overwrite it?"),
+                                                     i18n("Save Board Layout"), KStandardGuiItem::save());
 
         if (res != KMessageBox::Continue) {
             return false;
@@ -381,8 +381,8 @@ bool Editor::testSave()
     }
 
     const int res = KMessageBox::warningYesNoCancel(this,
-            i18n("The board has been modified. Would you like to save the changes?"),
-            QString(), KStandardGuiItem::save(),KStandardGuiItem::dontSave());
+                                                    i18n("The board has been modified. Would you like to save the changes?"),
+                                                    QString(), KStandardGuiItem::save(), KStandardGuiItem::dontSave());
 
     if (res == KMessageBox::Yes) {
         // yes to save
@@ -399,14 +399,14 @@ bool Editor::testSave()
     return true;
 }
 
-void Editor::paintEvent(QPaintEvent*)
+void Editor::paintEvent(QPaintEvent *)
 {
     // The main paint event, draw in the grid and blit in
     // the tiles as specified by the layout.
 
     // first we layer on a background grid
     QPixmap buff;
-    QPixmap *dest = m_drawFrame->getPreviewPixmap();
+    QPixmap * dest = m_drawFrame->getPreviewPixmap();
     buff = QPixmap(dest->width(), dest->height());
     drawBackground(&buff);
     drawTiles(&buff);
@@ -417,7 +417,7 @@ void Editor::paintEvent(QPaintEvent*)
     m_drawFrame->update();
 }
 
-void Editor::drawBackground(QPixmap *pixmap) const
+void Editor::drawBackground(QPixmap * pixmap) const
 {
     const int width = m_theBoard.getWidth();
     const int height = m_theBoard.getHeight();
@@ -438,7 +438,7 @@ void Editor::drawBackground(QPixmap *pixmap) const
     }
 }
 
-void Editor::drawTiles(QPixmap *dest)
+void Editor::drawTiles(QPixmap * dest)
 {
     QPainter p(dest);
 
@@ -481,9 +481,9 @@ void Editor::drawTiles(QPixmap *dest)
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
 
                     p.drawPixmap(sx - m_tiles.qWidth() + shadowX + m_tiles.levelOffsetX(), sy, t,
-                            t.width() - m_tiles.qWidth(),
-                            t.height() - m_tiles.qHeight() - m_tiles.levelOffsetX() - shadowY,
-                            m_tiles.qWidth(), m_tiles.qHeight() + m_tiles.levelOffsetX());
+                                 t.width() - m_tiles.qWidth(),
+                                 t.height() - m_tiles.qHeight() - m_tiles.levelOffsetX() - shadowY,
+                                 m_tiles.qWidth(), m_tiles.qHeight() + m_tiles.levelOffsetX());
                 } else {
                     p.drawPixmap(sx, sy, t, 0, 0, t.width(), t.height());
                 }
@@ -498,7 +498,7 @@ void Editor::drawTiles(QPixmap *dest)
     }
 }
 
-void Editor::transformPointToPosition(const QPoint &point, POSITION &mouseClickPos, bool align) const
+void Editor::transformPointToPosition(const QPoint & point, POSITION & mouseClickPos, bool align) const
 {
     // convert mouse position on screen to a tile z y x coord
     // different to the one in kmahjongg.cpp since if we hit ground
@@ -523,33 +523,33 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &mouseClickP
         }
 
         switch (m_theBoard.getBoardData(z, y, x)) {
-        case static_cast<UCHAR>('3'):
-            if (align) {
-                --x;
-                --y;
-            }
+            case static_cast<UCHAR>('3'):
+                if (align) {
+                    --x;
+                    --y;
+                }
 
-            break;
+                break;
 
-        case static_cast<UCHAR>('2'):
-            if (align) {
-                --x;
-            }
+            case static_cast<UCHAR>('2'):
+                if (align) {
+                    --x;
+                }
 
-            break;
+                break;
 
-        case static_cast<UCHAR>('4'):
-            if (align) {
-                --y;
-            }
+            case static_cast<UCHAR>('4'):
+                if (align) {
+                    --y;
+                }
 
-            break;
+                break;
 
-        case static_cast<UCHAR>('1'):
-            break;
+            case static_cast<UCHAR>('1'):
+                break;
 
-        default:
-            continue;
+            default:
+                continue;
         }
 
         // if gameboard is empty, skip
@@ -569,11 +569,11 @@ void Editor::transformPointToPosition(const QPoint &point, POSITION &mouseClickP
     if (mouseClickPos.z == 100) {
         mouseClickPos.x = x;
         mouseClickPos.y = y;
-        mouseClickPos.f=0;
+        mouseClickPos.f = 0;
     }
 }
 
-void Editor::drawFrameMousePressEvent(QMouseEvent* e)
+void Editor::drawFrameMousePressEvent(QMouseEvent * e)
 {
     // we swallow the draw frames mouse clicks and process here
 
@@ -581,41 +581,41 @@ void Editor::drawFrameMousePressEvent(QMouseEvent* e)
     transformPointToPosition(e->pos(), mousePos, (m_mode == EditMode::remove));
 
     switch (m_mode) {
-    case EditMode::remove:
-        if (!m_theBoard.tileAbove(mousePos) && mousePos.z < m_theBoard.getDepth() && m_theBoard.isTileAt(mousePos)) {
-            m_theBoard.deleteTile(mousePos);
-            --m_numTiles;
-            statusChanged();
-            drawFrameMouseMovedEvent(e);
-            update();
+        case EditMode::remove:
+            if (!m_theBoard.tileAbove(mousePos) && mousePos.z < m_theBoard.getDepth() && m_theBoard.isTileAt(mousePos)) {
+                m_theBoard.deleteTile(mousePos);
+                --m_numTiles;
+                statusChanged();
+                drawFrameMouseMovedEvent(e);
+                update();
+            }
+
+            break;
+        case EditMode::insert: {
+            POSITION n = mousePos;
+
+            if (n.z == 100) {
+                n.z = 0;
+            } else {
+                n.z += 1;
+            }
+
+            if (canInsert(n)) {
+                m_theBoard.insertTile(n);
+                m_clean = false;
+                ++m_numTiles;
+                statusChanged();
+                update();
+            }
+
+            break;
         }
-
-        break;
-    case EditMode::insert: {
-        POSITION n = mousePos;
-
-        if (n.z == 100) {
-            n.z = 0;
-        } else {
-            n.z += 1;
-        }
-
-        if (canInsert(n)) {
-            m_theBoard.insertTile(n);
-            m_clean = false;
-            ++m_numTiles;
-            statusChanged();
-            update();
-        }
-
-        break;
-    }
-    default:
-        break;
+        default:
+            break;
     }
 }
 
-void Editor::drawCursor(POSITION &p, bool visible)
+void Editor::drawCursor(POSITION & p, bool visible)
 {
     int x = m_borderLeft + (p.z * m_tiles.levelOffsetX()) + (p.x * m_tiles.qWidth());
     const int y = m_borderTop - ((p.z + 1) * m_tiles.levelOffsetY()) + (p.y * m_tiles.qHeight());
@@ -630,14 +630,14 @@ void Editor::drawCursor(POSITION &p, bool visible)
     m_drawFrame->update();
 }
 
-void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
+void Editor::drawFrameMouseMovedEvent(QMouseEvent * e)
 {
     // we swallow the draw frames mouse moves and process here
 
     POSITION mousePos;
     transformPointToPosition(e->pos(), mousePos, (m_mode == EditMode::remove));
 
-    if ((mousePos.x==m_curPos.x) && (mousePos.y==m_curPos.y) && (mousePos.z==m_curPos.z)) {
+    if ((mousePos.x == m_curPos.x) && (mousePos.y == m_curPos.y) && (mousePos.z == m_curPos.z)) {
         return;
     }
 
@@ -646,30 +646,30 @@ void Editor::drawFrameMouseMovedEvent(QMouseEvent *e)
     statusChanged();
 
     switch (m_mode) {
-    case EditMode::insert: {
-        POSITION next;
-        next = m_curPos;
+        case EditMode::insert: {
+            POSITION next;
+            next = m_curPos;
 
-        if (next.z == 100) {
-            next.z = 0;
-        } else {
-            next.z += 1;
+            if (next.z == 100) {
+                next.z = 0;
+            } else {
+                next.z += 1;
+            }
+
+            drawCursor(next, canInsert(next));
+
+            break;
         }
-
-        drawCursor(next, canInsert(next));
-
-        break;
-    }
-    case EditMode::remove:
+        case EditMode::remove:
             drawCursor(m_curPos, 1);
 
-        break;
-    case EditMode::move:
-        break;
+            break;
+        case EditMode::move:
+            break;
     }
 }
 
-bool Editor::canInsert(POSITION &p) const
+bool Editor::canInsert(POSITION & p) const
 {
     // can we inser a tile here. We can iff
     // there are tiles in all positions below us (or we are a ground level)
@@ -699,7 +699,7 @@ bool Editor::canInsert(POSITION &p) const
     return !m_theBoard.anyFilled(p);
 }
 
-void Editor::closeEvent(QCloseEvent *e)
+void Editor::closeEvent(QCloseEvent * e)
 {
     if (testSave()) {
         m_theBoard.clearBoardLayout();

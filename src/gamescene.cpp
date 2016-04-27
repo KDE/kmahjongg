@@ -21,14 +21,14 @@
 
 // KMahjongg
 #include "gamedata.h"
-#include "gameview.h"
 #include "gameitem.h"
+#include "gameview.h"
 #include "kmahjongglayout.h"
 
-GameScene::GameScene(QObject *parent)
-    : QGraphicsScene(parent),
-    m_pFirstSelectedItem(nullptr),
-    m_pSecondSelectedItem(nullptr)
+GameScene::GameScene(QObject * parent)
+    : QGraphicsScene(parent)
+    , m_pFirstSelectedItem(nullptr)
+    , m_pSecondSelectedItem(nullptr)
 {
     initializeGameItemsArray();
 }
@@ -76,9 +76,9 @@ void GameScene::removeItem(GameItem * gameItem)
     QGraphicsScene::removeItem(gameItem);
 }
 
-void GameScene::removeItem(POSITION const &stItemPos)
+void GameScene::removeItem(POSITION const & stItemPos)
 {
-    GameItem *gameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.z];
+    GameItem * gameItem = m_pGameItemsArray[stItemPos.x][stItemPos.y][stItemPos.z];
 
     if (gameItem != nullptr) {
         removeItem(gameItem);
@@ -99,26 +99,22 @@ void GameScene::addItemToPositionArray(GameItem * const gameItem)
 GameItem * GameScene::getItemOnGridPos(int x, int y, int z)
 {
     // Test for range
-    if ((x < 0 || x > BOARD_WIDTH - 1) ||
-        (y < 0 || y > BOARD_HEIGHT - 1) ||
-        (z < 0 || z > BOARD_DEPTH - 1)) {
+    if ((x < 0 || x > BOARD_WIDTH - 1) || (y < 0 || y > BOARD_HEIGHT - 1) || (z < 0 || z > BOARD_DEPTH - 1)) {
         return nullptr;
     }
 
     return m_pGameItemsArray[x][y][z];
 }
 
-GameItem * GameScene::getItemOnGridPos(POSITION &stItemPos)
+GameItem * GameScene::getItemOnGridPos(POSITION & stItemPos)
 {
     return getItemOnGridPos(stItemPos.x, stItemPos.y, stItemPos.z);
 }
 
 bool GameScene::isItemOnGridPos(int x, int y, int z) const
 {
-        // Test for range
-    if ((x < 0 || x > BOARD_WIDTH - 1) ||
-        (y < 0 || y > BOARD_HEIGHT - 1) ||
-        (z < 0 || z > BOARD_DEPTH - 1)) {
+    // Test for range
+    if ((x < 0 || x > BOARD_WIDTH - 1) || (y < 0 || y > BOARD_HEIGHT - 1) || (z < 0 || z > BOARD_DEPTH - 1)) {
         return false;
     }
 
@@ -206,17 +202,15 @@ void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
 void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     // N.B. Event occurs when there is a click OR double-click with ANY button.
-    GameItem * gameItem = dynamic_cast <GameItem *>(itemAt(mouseEvent->scenePos().x(),
-        mouseEvent->scenePos().y(), QTransform()));
+    GameItem * gameItem = dynamic_cast<GameItem *>(itemAt(mouseEvent->scenePos().x(),
+                                                          mouseEvent->scenePos().y(), QTransform()));
 
     // An item was clicked.
     if (gameItem != nullptr) {
         // If we click on a shadow of the actual item, we have to correct the clicking position, in
         // order to simulate a transparent shadow.
         if (gameItem->isShadow(mouseEvent->scenePos() - gameItem->pos())) {
-            gameItem = dynamic_cast <GameItem *>(itemAt(mouseEvent->scenePos().x() +
-                gameItem->getShadowDeltaX(), mouseEvent->scenePos().y() +
-                gameItem->getShadowDeltaY(), QTransform()));
+            gameItem = dynamic_cast<GameItem *>(itemAt(mouseEvent->scenePos().x() + gameItem->getShadowDeltaX(), mouseEvent->scenePos().y() + gameItem->getShadowDeltaY(), QTransform()));
         }
     }
 
@@ -237,7 +231,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
     }
 }
 
-void GameScene::wheelEvent(QGraphicsSceneWheelEvent* mouseEvent)
+void GameScene::wheelEvent(QGraphicsSceneWheelEvent * mouseEvent)
 {
     if (mouseEvent->delta() < 0) {
         emit rotateCW();

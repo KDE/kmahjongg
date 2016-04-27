@@ -33,23 +33,29 @@ const QString layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
  *
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
-class BoardLayout {
-
+class BoardLayout
+{
 public:
     BoardLayout();
-    explicit BoardLayout(const BoardLayout &boardLayout);
+    explicit BoardLayout(const BoardLayout & boardLayout);
     ~BoardLayout();
 
-    void copyBoardLayout(UCHAR *to , unsigned short &numTiles) const;
-    bool loadBoardLayout(const QString &from);
-    bool saveBoardLayout(const QString &where) const;
+    void copyBoardLayout(UCHAR * to, unsigned short & numTiles) const;
+    bool loadBoardLayout(const QString & from);
+    bool saveBoardLayout(const QString & where) const;
     UCHAR getBoardData(short z, short y, short x) const;
-    bool tileAbove(POSITION &p) const { return(tileAbove(p.z, p.y, p.x)); }
-    void deleteTile(POSITION &p);
-    bool anyFilled(POSITION &p) const;
-    bool allFilled(POSITION &p) const;
-    void insertTile(POSITION &p);
-    bool isTileAt(POSITION &p) const { return getBoardData(p.z, p.y, p.x) == '1'; }
+    bool tileAbove(POSITION & p) const
+    {
+        return (tileAbove(p.z, p.y, p.x));
+    }
+    void deleteTile(POSITION & p);
+    bool anyFilled(POSITION & p) const;
+    bool allFilled(POSITION & p) const;
+    void insertTile(POSITION & p);
+    bool isTileAt(POSITION & p) const
+    {
+        return getBoardData(p.z, p.y, p.x) == '1';
+    }
 
     void clearBoardLayout();
     void shiftLeft();
@@ -57,12 +63,21 @@ public:
     void shiftUp();
     void shiftDown();
 
-    int getWidth() const { return m_width; }
-    int getHeight() const { return m_height; }
-    int getDepth() const { return m_depth; }
+    int getWidth() const
+    {
+        return m_width;
+    }
+    int getHeight() const
+    {
+        return m_height;
+    }
+    int getDepth() const
+    {
+        return m_depth;
+    }
 
 private:
-    bool loadBoardLayout_10(const QString &from);
+    bool loadBoardLayout_10(const QString & from);
     void setBoardData(short z, short y, short x, UCHAR value);
 
     /**

@@ -20,8 +20,8 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KDBusService>
-#include <Kdelibs4ConfigMigrator>
 #include <KLocalizedString>
+#include <Kdelibs4ConfigMigrator>
 
 // KMahjongg
 #include "kmahjongg.h"
@@ -29,7 +29,7 @@
 
 static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
 
-int main(int argc, char** argv)
+int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     aboutData.addAuthor(i18n("David Black"), i18n("KDE 3 rewrite and Extension"), QStringLiteral("david.black@lutris.com"));
     aboutData.addAuthor(i18n("Michael Haertjens"), i18n("Solvable game generation\nbased on algorithm by Michael Meeks in GNOME mahjongg"), QStringLiteral("mhaertjens@modusoperandi.com"));
     aboutData.addCredit(i18n("Raquel Ravanini"), i18n("SVG Tileset for KDE4"), QStringLiteral("raquel@tabuleiro.com"));
-    aboutData.addCredit(i18n("Richard Lohman"), i18n("Tile set contributor and current web page maintainer"),QStringLiteral("richardjlohman@yahoo.com"));
+    aboutData.addCredit(i18n("Richard Lohman"), i18n("Tile set contributor and current web page maintainer"), QStringLiteral("richardjlohman@yahoo.com"));
     aboutData.addCredit(i18n("Osvaldo Stark"), i18n("Tile set contributor and original web page maintainer"), QStringLiteral("starko@dnet.it"));
     aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), QStringLiteral("ben+kmahjongg@meyerhome.net"));
 
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
     if (app.isSessionRestored()) {
         RESTORE(KMahjongg)
     } else {
-        KMahjongg *window = new KMahjongg();
+        KMahjongg * window = new KMahjongg();
         window->show();
     }
 

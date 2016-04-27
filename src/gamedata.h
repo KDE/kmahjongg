@@ -36,7 +36,7 @@ class BoardLayout;
 class GameData
 {
 public:
-    explicit GameData(BoardLayout *boardlayout);
+    explicit GameData(BoardLayout * boardlayout);
     ~GameData();
 
     void putTile(short e, short y, short x, UCHAR f);
@@ -47,28 +47,34 @@ public:
 
     UCHAR HighlightData(short z, short y, short x) const;
 
-    POSITION& MoveListData(short i);
+    POSITION & MoveListData(short i);
 
-    void setMoveListData(short i, POSITION &value);
+    void setMoveListData(short i, POSITION & value);
 
-    char* getMaskBytes() {return m_mask.data();}
+    char * getMaskBytes()
+    {
+        return m_mask.data();
+    }
 
-    bool saveToStream(QDataStream &out) const;
-    bool loadFromStream(QDataStream &in);
+    bool saveToStream(QDataStream & out) const;
+    bool loadFromStream(QDataStream & in);
 
     void generatePositionDepends();
     void generateTilePositions();
 
     bool generateStartPosition2();
 
-    bool findMove(POSITION &posA, POSITION &posB);
+    bool findMove(POSITION & posA, POSITION & posB);
     int moveCount();
-    short findAllMatchingTiles(POSITION &posA);
-    void setRemovedTilePair(POSITION &a, POSITION &b);
-    void clearRemovedTilePair(POSITION &a, POSITION &b);
-    bool isMatchingTile(POSITION &pos1, POSITION &pos2) const;
+    short findAllMatchingTiles(POSITION & posA);
+    void setRemovedTilePair(POSITION & a, POSITION & b);
+    void clearRemovedTilePair(POSITION & a, POSITION & b);
+    bool isMatchingTile(POSITION & pos1, POSITION & pos2) const;
     void shuffle();
-    POSITION& getFromPosTable(int index) {return m_posTable[index];}
+    POSITION & getFromPosTable(int index)
+    {
+        return m_posTable[index];
+    }
 
     int m_allowUndo;
     int m_allowRedo;
@@ -85,7 +91,10 @@ public:
     KRandomSequence random;
 
 private:
-    void putTile(POSITION &pos) {putTile(pos.z, pos.y, pos.x, pos.f);}
+    void putTile(POSITION & pos)
+    {
+        putTile(pos.z, pos.y, pos.x, pos.f);
+    }
     void setBoardData(short z, short y, short x, UCHAR value);
     UCHAR MaskData(short z, short y, short x) const;
 
@@ -98,7 +107,7 @@ private:
 
     //other generation bits
     void randomiseFaces();
-    void getFaces(POSITION &a, POSITION &b);
+    void getFaces(POSITION & a, POSITION & b);
 
     int m_tilesUsed;
 

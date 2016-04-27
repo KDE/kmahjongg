@@ -38,18 +38,19 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
 {
     Q_OBJECT
 public:
-    explicit KMahjonggLayoutSelector(QWidget* parent, KConfigSkeleton * config);
+    explicit KMahjonggLayoutSelector(QWidget * parent, KConfigSkeleton * config);
 
 public slots:
     void layoutChanged();
     void useRandomLayoutToggled(bool);
+
 private:
     void setupData(KConfigSkeleton * config);
 
     QMap<QString, KMahjonggLayout *> layoutMap;
-    GameScene *m_gameScene;
-    GameData *m_gameData;
-    GameView *m_gameView;
+    GameScene * m_gameScene;
+    GameData * m_gameData;
+    GameView * m_gameView;
 };
 
 #endif

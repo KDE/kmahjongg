@@ -22,10 +22,10 @@
 #include "gamedata.h"
 
 MoveListAnimation::MoveListAnimation(QObject * parent)
-    : QTimer(parent),
-    m_step(0),
-    m_animationSpeed(0),
-    m_gameData(nullptr)
+    : QTimer(parent)
+    , m_step(0)
+    , m_animationSpeed(0)
+    , m_gameData(nullptr)
 {
     connect(this, &MoveListAnimation::timeout, this, &MoveListAnimation::timeoutOccurred);
 }

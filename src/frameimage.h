@@ -19,13 +19,13 @@
 #define FRAMEIMAGE_H
 
 // Qt
-#include <QWidget>
 #include <QFrame>
+#include <QWidget>
 
 // KMahjongg
 #include "boardlayout.h"
-#include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
+#include "kmahjonggtileset.h"
 
 class QPixmap;
 class QComboBox;
@@ -33,26 +33,29 @@ class QPixmap;
 
 /**
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com> */
-class FrameImage: public QWidget
+class FrameImage : public QWidget
 {
     Q_OBJECT
 
 public:
-    FrameImage(QWidget *parent, const QSize &initialImageSize);
+    FrameImage(QWidget * parent, const QSize & initialImageSize);
     ~FrameImage();
 
-    QPixmap* getPreviewPixmap() {return m_thePixmap;}
+    QPixmap * getPreviewPixmap()
+    {
+        return m_thePixmap;
+    }
     void setRect(int x, int y, int w, int h, int ss, int type);
 
 signals:
-    void mousePressed(QMouseEvent *e);
-    void mouseMoved(QMouseEvent *e);
+    void mousePressed(QMouseEvent * e);
+    void mouseMoved(QMouseEvent * e);
 
 protected:
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void resizeEvent(QResizeEvent *e);
-    void paintEvent(QPaintEvent *pa);
+    void mousePressEvent(QMouseEvent * e);
+    void mouseMoveEvent(QMouseEvent * e);
+    void resizeEvent(QResizeEvent * e);
+    void paintEvent(QPaintEvent * pa);
 
 private:
     int m_rx;
@@ -62,7 +65,7 @@ private:
     int m_rs;
     int m_rt;
 
-    QPixmap *m_thePixmap;
+    QPixmap * m_thePixmap;
 };
 
 #endif

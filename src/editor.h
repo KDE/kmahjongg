@@ -39,12 +39,12 @@ class KActionCollection;
 /**
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
-class Editor: public QDialog
+class Editor : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Editor (QWidget *parent = 0);
+    explicit Editor(QWidget * parent = 0);
     virtual ~Editor();
 
 public slots:
@@ -62,28 +62,28 @@ protected slots:
     void slotShiftRight();
     void slotShiftUp();
     void slotShiftDown();
-    void slotModeChanged(QAction*);
+    void slotModeChanged(QAction *);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
-    void paintEvent(QPaintEvent *pa);
+    void resizeEvent(QResizeEvent * event);
+    void paintEvent(QPaintEvent * pa);
     void setupToolbar();
-    void drawBackground(QPixmap *to) const;
+    void drawBackground(QPixmap * to) const;
 
     /**
      * @param to destination QPixmap to draw to */
-    void drawTiles(QPixmap *to);
+    void drawTiles(QPixmap * to);
 
     bool testSave();
-    void transformPointToPosition(const QPoint&, POSITION&, bool align) const;
-    void drawCursor(POSITION &p, bool visible);
-    bool canInsert(POSITION &p) const;
+    void transformPointToPosition(const QPoint &, POSITION &, bool align) const;
+    void drawCursor(POSITION & p, bool visible);
+    bool canInsert(POSITION & p) const;
     void statusChanged() const;
     QString statusText() const;
 
     /**
      * Override the closeEvent(...) method of qdialog. */
-    void closeEvent(QCloseEvent *e);
+    void closeEvent(QCloseEvent * e);
 
     /**
      * Update the tile size. */
@@ -104,15 +104,15 @@ private:
     int m_numTiles;
     bool m_clean;
 
-    FrameImage *m_drawFrame;
+    FrameImage * m_drawFrame;
     KMahjonggTileset m_tiles;
     BoardLayout m_theBoard;
     POSITION m_curPos;
 
-    QLabel *m_theLabel;
+    QLabel * m_theLabel;
 
-    KToolBar *m_topToolbar;
-    KActionCollection *m_actionCollection;
+    KToolBar * m_topToolbar;
+    KActionCollection * m_actionCollection;
 };
 
 #endif

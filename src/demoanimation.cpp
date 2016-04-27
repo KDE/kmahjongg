@@ -23,10 +23,10 @@
 #include "kmahjongg_debug.h"
 
 DemoAnimation::DemoAnimation(QObject * parent)
-    : QTimer(parent),
-    m_step(0),
-    m_animationSpeed(0),
-    m_gameData(nullptr)
+    : QTimer(parent)
+    , m_step(0)
+    , m_animationSpeed(0)
+    , m_gameData(nullptr)
 {
     connect(this, &DemoAnimation::timeout, this, &DemoAnimation::timeoutOccurred);
 }
@@ -62,47 +62,47 @@ void DemoAnimation::stop()
 void DemoAnimation::timeoutOccurred()
 {
     switch (m_step++ % 5) {
-    case 0:
-        // Test if we got a game data object.
-        if (m_gameData == nullptr) {
-            qCDebug(KMAHJONGG_LOG) << "m_pGameData is null";
+        case 0:
+            // Test if we got a game data object.
+            if (m_gameData == nullptr) {
+                qCDebug(KMAHJONGG_LOG) << "m_pGameData is null";
 
-            stop();
-            return;
-        }
-
-        if (!m_gameData->findMove(m_stFirst, m_stSecond)) {
-            // First stop the animation.
-            stop();
-
-            if (m_gameData->m_tileNum == 0) {
-                // The computer has won the game.
-                emit gameOver(true);
-            } else {
-                // The computer lost the game.
-                // setStatusText(i18n("Your computer has lost the game."));
-                emit gameOver(false);
+                stop();
+                return;
             }
-        }
 
-        break;
-    case 1:
-    case 3:
-        emit changeItemSelectedState(m_stFirst, true);
-        emit changeItemSelectedState(m_stSecond, true);
+            if (!m_gameData->findMove(m_stFirst, m_stSecond)) {
+                // First stop the animation.
+                stop();
 
-        break;
-    case 2:
-        emit changeItemSelectedState(m_stFirst, false);
-        emit changeItemSelectedState(m_stSecond, false);
+                if (m_gameData->m_tileNum == 0) {
+                    // The computer has won the game.
+                    emit gameOver(true);
+                } else {
+                    // The computer lost the game.
+                    // setStatusText(i18n("Your computer has lost the game."));
+                    emit gameOver(false);
+                }
+            }
 
-        break;
-    case 4:
-        m_stFirst.f -= TILE_OFFSET;
-        emit removeItem(m_stFirst);
-        m_stSecond.f -= TILE_OFFSET;
-        emit removeItem(m_stSecond);
+            break;
+        case 1:
+        case 3:
+            emit changeItemSelectedState(m_stFirst, true);
+            emit changeItemSelectedState(m_stSecond, true);
 
-        break;
+            break;
+        case 2:
+            emit changeItemSelectedState(m_stFirst, false);
+            emit changeItemSelectedState(m_stSecond, false);
+
+            break;
+        case 4:
+            m_stFirst.f -= TILE_OFFSET;
+            emit removeItem(m_stFirst);
+            m_stSecond.f -= TILE_OFFSET;
+            emit removeItem(m_stSecond);
+
+            break;
     }
 }

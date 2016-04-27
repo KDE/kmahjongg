@@ -25,34 +25,34 @@
 #include <KRandom>
 
 // KMahjongg
-#include "gamedata.h"
-#include "gamescene.h"
-#include "gameitem.h"
-#include "selectionanimation.h"
-#include "movelistanimation.h"
 #include "demoanimation.h"
+#include "gamedata.h"
+#include "gameitem.h"
+#include "gamescene.h"
+#include "kmahjongg_debug.h"
+#include "kmahjonggbackground.h"
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
-#include "kmahjonggbackground.h"
-#include "kmahjongg_debug.h"
+#include "movelistanimation.h"
 #include "prefs.h"
+#include "selectionanimation.h"
 
-GameView::GameView(GameScene *gameScene, GameData *gameData, QWidget *parent)
-    : QGraphicsView(gameScene, parent),
-    m_cheatsUsed(0),
-    m_gameNumber(0),
-    m_gamePaused(false),
-    m_match(false),
-    m_gameGenerated(false),
-    m_gameData(gameData),
-    m_selectedItem(nullptr),
-    m_tilesetPath(new QString()),
-    m_backgroundPath(new QString()),
-    m_helpAnimation(new SelectionAnimation(this)),
-    m_moveListAnimation(new MoveListAnimation(this)),
-    m_demoAnimation(new DemoAnimation(this)),
-    m_tiles(new KMahjonggTileset()),
-    m_background(new KMahjonggBackground())
+GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
+    : QGraphicsView(gameScene, parent)
+    , m_cheatsUsed(0)
+    , m_gameNumber(0)
+    , m_gamePaused(false)
+    , m_match(false)
+    , m_gameGenerated(false)
+    , m_gameData(gameData)
+    , m_selectedItem(nullptr)
+    , m_tilesetPath(new QString())
+    , m_backgroundPath(new QString())
+    , m_helpAnimation(new SelectionAnimation(this))
+    , m_moveListAnimation(new MoveListAnimation(this))
+    , m_demoAnimation(new DemoAnimation(this))
+    , m_tiles(new KMahjonggTileset())
+    , m_background(new KMahjonggBackground())
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
@@ -125,7 +125,7 @@ bool GameView::undo()
 
     if (m_gameData->m_tileNum < m_gameData->m_maxTileNum) {
         m_gameData->clearRemovedTilePair(m_gameData->MoveListData(m_gameData->m_tileNum + 1),
-            m_gameData->MoveListData(m_gameData->m_tileNum + 2));
+                                         m_gameData->MoveListData(m_gameData->m_tileNum + 2));
 
         ++m_gameData->m_tileNum;
         addItemAndUpdate(m_gameData->MoveListData(m_gameData->m_tileNum));
@@ -148,7 +148,7 @@ bool GameView::redo()
 {
     if (m_gameData->m_allowRedo > 0) {
         m_gameData->setRemovedTilePair(m_gameData->MoveListData(m_gameData->m_tileNum),
-            m_gameData->MoveListData(m_gameData->m_tileNum - 1));
+                                       m_gameData->MoveListData(m_gameData->m_tileNum - 1));
 
         removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
         removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
@@ -202,7 +202,6 @@ void GameView::createNewGame(long gameNumber)
     // Now try to position tiles on the board, 64 tries max.
     for (short sNr = 0; sNr < 64; ++sNr) {
         if (m_gameData->generateStartPosition2()) {
-
             m_gameGenerated = true;
 
             // No cheats are used until now.
@@ -220,7 +219,7 @@ void GameView::createNewGame(long gameNumber)
     m_gameGenerated = false;
 
     // Hide all generated tiles.
-    foreach (GameItem *item, items()) {
+    foreach (GameItem * item, items()) {
         item->hide();
     }
 
@@ -348,9 +347,9 @@ void GameView::clearSelectedTile()
     m_selectedItem = nullptr;
 }
 
-void GameView::changeItemSelectedState(POSITION &stItemPos, bool selected)
+void GameView::changeItemSelectedState(POSITION & stItemPos, bool selected)
 {
-    GameItem *gameItem = scene()->getItemOnGridPos(stItemPos);
+    GameItem * gameItem = scene()->getItemOnGridPos(stItemPos);
 
     if (gameItem != nullptr) {
         gameItem->setSelected(selected);
@@ -387,7 +386,6 @@ void GameView::helpMatch(GameItem const * const gameItem)
 
     // Find matching items...
     if ((matchCount = m_gameData->findAllMatchingTiles(stGameItemPos))) {
-
         // ...add them to the animation object...
         for (int i = 0; i < matchCount; ++i) {
             if (scene()->getItemOnGridPos(m_gameData->getFromPosTable(i)) != gameItem) {
@@ -457,11 +455,11 @@ bool GameView::validMovesAvailable(bool silent)
 void GameView::pause(bool isPaused)
 {
     if (isPaused) {
-        foreach (GameItem *item, items()) {
+        foreach (GameItem * item, items()) {
             item->hide();
         }
     } else {
-        foreach (GameItem *item, items()) {
+        foreach (GameItem * item, items()) {
             item->show();
         }
     }
@@ -526,7 +524,6 @@ void GameView::addItemsFromBoardLayout()
     for (int iZ = 0; iZ < m_gameData->m_depth; ++iZ) {
         for (int iY = m_gameData->m_height - 1; iY >= 0; --iY) {
             for (int iX = m_gameData->m_width - 1; iX >= 0; --iX) {
-
                 // Skip if no tile should be displayed on this position.
                 if (!m_gameData->tilePresent(iZ, iY, iX)) {
                     continue;
@@ -601,17 +598,17 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
     int angleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
 
     // Get half width and height of tile faces: minimum spacing = 1 pixel.
-    qreal tileWidth  = m_tiles->qWidth() + 0.5;
+    qreal tileWidth = m_tiles->qWidth() + 0.5;
     qreal tileHeight = m_tiles->qHeight() + 0.5;
 
     // Get half height and width of tile-layout: ((n - 1) faces + full tile)/2.
-    qreal tilesWidth  = tileWidth * (m_gameData->m_width - 2) / 2
-                             + m_tiles->width() / 2;
+    qreal tilesWidth = tileWidth * (m_gameData->m_width - 2) / 2
+        + m_tiles->width() / 2;
     qreal tilesHeight = tileHeight * (m_gameData->m_height - 2) / 2
-                             + m_tiles->height() / 2;
+        + m_tiles->height() / 2;
 
     // Get the top-left offset required to center the items in the view.
-    qreal xFrame = (width() / 2  - tilesWidth) / 2;
+    qreal xFrame = (width() / 2 - tilesWidth) / 2;
     qreal yFrame = (height() / 2 - tilesHeight) / 2;
 
     // TODO - The last /2 makes it HALF what it should be, but it gets doubled
@@ -622,7 +619,7 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
     // NOTE - scene()->itemsBoundingRect() returns the correct doubled offset.
 
     for (int i = 0; i < gameItems.size(); ++i) {
-        GameItem *gameItem = gameItems.at(i);
+        GameItem * gameItem = gameItems.at(i);
 
         // Get rasterized positions of the item.
         int x = gameItem->getGridPosX();
@@ -632,10 +629,10 @@ void GameView::updateItemsPosition(QList<GameItem *> gameItems)
 
         // Set the position of the item on the scene.
         gameItem->setPos(
-                xFrame + tileWidth * x / 2
-                    + z * angleXFactor * (m_tiles->levelOffsetX() / 2),
-                yFrame + tileHeight * y / 2
-                    + z * angleYFactor * (m_tiles->levelOffsetY() / 2));
+            xFrame + tileWidth * x / 2
+                + z * angleXFactor * (m_tiles->levelOffsetX() / 2),
+            yFrame + tileHeight * y / 2
+                + z * angleYFactor * (m_tiles->levelOffsetY() / 2));
     }
 }
 
@@ -650,45 +647,45 @@ void GameView::updateItemsOrder()
     int yCounter = 0;
 
     switch (m_angle) {
-    case NW:
-        xStart = m_gameData->m_width - 1;
-        xEnd = -1;
-        xCounter = -1;
+        case NW:
+            xStart = m_gameData->m_width - 1;
+            xEnd = -1;
+            xCounter = -1;
 
-        yStart = 0;
-        yEnd = m_gameData->m_height;
-        yCounter = 1;
-        break;
-    case NE:
-        xStart = 0;
-        xEnd = m_gameData->m_width;
-        xCounter = 1;
+            yStart = 0;
+            yEnd = m_gameData->m_height;
+            yCounter = 1;
+            break;
+        case NE:
+            xStart = 0;
+            xEnd = m_gameData->m_width;
+            xCounter = 1;
 
-        yStart = 0;
-        yEnd = m_gameData->m_height;
-        yCounter = 1;
-        break;
-    case SE:
-        xStart = 0;
-        xEnd = m_gameData->m_width;
-        xCounter = 1;
+            yStart = 0;
+            yEnd = m_gameData->m_height;
+            yCounter = 1;
+            break;
+        case SE:
+            xStart = 0;
+            xEnd = m_gameData->m_width;
+            xCounter = 1;
 
-        yStart = m_gameData->m_height - 1;
-        yEnd = -1;
-        yCounter = -1;
-        break;
-    case SW:
-        xStart = m_gameData->m_width - 1;
-        xEnd = -1;
-        xCounter = -1;
+            yStart = m_gameData->m_height - 1;
+            yEnd = -1;
+            yCounter = -1;
+            break;
+        case SW:
+            xStart = m_gameData->m_width - 1;
+            xEnd = -1;
+            xCounter = -1;
 
-        yStart = m_gameData->m_height - 1;
-        yEnd = -1;
-        yCounter = -1;
-        break;
+            yStart = m_gameData->m_height - 1;
+            yEnd = -1;
+            yCounter = -1;
+            break;
     }
 
-    GameScene *gameScene = scene();
+    GameScene * gameScene = scene();
 
     for (int z = 0; z < m_gameData->m_depth; ++z) {
         for (int y = yStart; y != yEnd; y = y + yCounter) {
@@ -699,7 +696,7 @@ void GameView::updateItemsOrder()
     updateItemsPosition(items());
 }
 
-void GameView::orderLine(GameItem * startItem, int xStart, int xEnd, int xCounter, int y, int yCounter, int z, int &zCount)
+void GameView::orderLine(GameItem * startItem, int xStart, int xEnd, int xCounter, int y, int yCounter, int z, int & zCount)
 {
     GameScene * gameScene = scene();
     GameItem * gameItem = startItem;
@@ -722,7 +719,7 @@ void GameView::orderLine(GameItem * startItem, int xStart, int xEnd, int xCounte
     }
 }
 
-bool GameView::setTilesetPath(QString const &tilesetPath)
+bool GameView::setTilesetPath(QString const & tilesetPath)
 {
     *m_tilesetPath = tilesetPath;
 
@@ -746,7 +743,7 @@ bool GameView::setTilesetPath(QString const &tilesetPath)
     return false;
 }
 
-bool GameView::setBackgroundPath(QString const &backgroundPath)
+bool GameView::setBackgroundPath(QString const & backgroundPath)
 {
     qCDebug(KMAHJONGG_LOG) << "Set a new Background: " << backgroundPath;
 
@@ -791,18 +788,18 @@ TileViewAngle GameView::getAngle() const
 void GameView::angleSwitchCCW()
 {
     switch (m_angle) {
-    case SW:
-        m_angle = NW;
-        break;
-    case NW:
-        m_angle = NE;
-        break;
-    case NE:
-        m_angle = SE;
-        break;
-    case SE:
-        m_angle = SW;
-        break;
+        case SW:
+            m_angle = NW;
+            break;
+        case NW:
+            m_angle = NE;
+            break;
+        case NE:
+            m_angle = SE;
+            break;
+        case SE:
+            m_angle = SW;
+            break;
     }
 
     updateItemsImages(items());
@@ -812,18 +809,18 @@ void GameView::angleSwitchCCW()
 void GameView::angleSwitchCW()
 {
     switch (m_angle) {
-    case SW:
-        m_angle = SE;
-        break;
-    case SE:
-        m_angle = NE;
-        break;
-    case NE:
-        m_angle = NW;
-        break;
-    case NW:
-        m_angle = SW;
-        break;
+        case SW:
+            m_angle = SE;
+            break;
+        case SE:
+            m_angle = NE;
+            break;
+        case NE:
+            m_angle = NW;
+            break;
+        case NW:
+            m_angle = SW;
+            break;
     }
 
     updateItemsImages(items());
@@ -863,7 +860,7 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
     QGraphicsView::mousePressEvent(pMouseEvent);
 }
 
-void GameView::resizeEvent(QResizeEvent *event)
+void GameView::resizeEvent(QResizeEvent * event)
 {
     if (event->spontaneous() || m_gameData == 0) {
         return;
@@ -877,7 +874,7 @@ void GameView::resizeEvent(QResizeEvent *event)
     setSceneRect(0, 0, width(), height());
 }
 
-void GameView::resizeTileset(const QSize &size)
+void GameView::resizeTileset(const QSize & size)
 {
     if (m_gameData == 0) {
         return;
@@ -885,7 +882,7 @@ void GameView::resizeTileset(const QSize &size)
 
     QSize newtiles = m_tiles->preferredTileSize(size, m_gameData->m_width / 2, m_gameData->m_height / 2);
 
-    foreach (GameItem *item, items()) {
+    foreach (GameItem * item, items()) {
         item->prepareForGeometryChange();
     }
 
@@ -898,7 +895,7 @@ void GameView::resizeTileset(const QSize &size)
 void GameView::updateItemsImages(QList<GameItem *> gameItems)
 {
     for (int i = 0; i < gameItems.size(); ++i) {
-        GameItem *gameItem = gameItems.at(i);
+        GameItem * gameItem = gameItems.at(i);
 
         QPixmap selPix;
         QPixmap unselPix;
@@ -924,7 +921,7 @@ void GameView::updateItemsImages(QList<GameItem *> gameItems)
     update();
 }
 
-void GameView::setStatusText(QString const &text)
+void GameView::setStatusText(QString const & text)
 {
     emit statusTextChanged(text, m_gameNumber);
 }
@@ -938,7 +935,7 @@ void GameView::updateBackground()
     setBackgroundBrush(brush);
 }
 
-void GameView::setGameData(GameData *gameData)
+void GameView::setGameData(GameData * gameData)
 {
     m_gameData = gameData;
 

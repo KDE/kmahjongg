@@ -24,11 +24,11 @@
 #include <QDataStream>
 
 // KMahjongg
-#include "prefs.h"
 #include "boardlayout.h"
 #include "kmahjongg_debug.h"
+#include "prefs.h"
 
-GameData::GameData(BoardLayout *boardlayout)
+GameData::GameData(BoardLayout * boardlayout)
 {
     m_width = boardlayout->getWidth();
     m_height = boardlayout->getHeight();
@@ -47,7 +47,7 @@ GameData::GameData(BoardLayout *boardlayout)
     m_positionDepends = QVector<DEPENDENCY>(m_maxTiles);
 
     //Copy board layout over
-    boardlayout->copyBoardLayout((UCHAR *) getMaskBytes(), m_maxTileNum); //FIXME: is this cast safe?
+    boardlayout->copyBoardLayout((UCHAR *)getMaskBytes(), m_maxTileNum); //FIXME: is this cast safe?
 }
 
 GameData::~GameData()
@@ -108,20 +108,20 @@ void GameData::setBoardData(short z, short y, short x, UCHAR value)
     m_board[(z * m_width * m_height) + (y * m_width) + x] = value;
 }
 
-POSITION& GameData::MoveListData(short i)
+POSITION & GameData::MoveListData(short i)
 {
     if ((i >= m_moveList.size()) || (i < 0)) {
         qCDebug(KMAHJONGG_LOG) << "Attempt to access GameData::MoveListData with invalid index";
-        i = 0 ;
+        i = 0;
     }
 
     return m_moveList[i];
 }
 
-void GameData::setMoveListData(short i, POSITION &value)
+void GameData::setMoveListData(short i, POSITION & value)
 {
     if ((i >= m_moveList.size()) || (i < 0)) {
-        return ;
+        return;
     }
 
     m_moveList[i] = value;
@@ -137,7 +137,7 @@ void GameData::generateTilePositions()
         for (int y = 0; y < m_height; ++y) {
             for (int x = 0; x < m_width; ++x) {
                 setBoardData(z, y, x, 0);
-                if (MaskData(z,y,x) == '1') {
+                if (MaskData(z, y, x) == '1') {
                     m_tilePositions[m_numTilesToGenerate].x = x;
                     m_tilePositions[m_numTilesToGenerate].y = y;
                     m_tilePositions[m_numTilesToGenerate].z = z;
@@ -157,7 +157,6 @@ void GameData::generatePositionDepends()
 
     // For each tile,
     for (int i = 0; i < m_numTilesToGenerate; ++i) {
-
         // Get its basic position data
         int x = m_tilePositions[i].x;
         int y = m_tilePositions[i].y;
@@ -248,7 +247,7 @@ bool GameData::generateSolvableGame()
         do {
             position = static_cast<int>(random.getLong(m_numTilesToGenerate));
 
-            if (cnt++ > (m_numTilesToGenerate*m_numTilesToGenerate)) {
+            if (cnt++ > (m_numTilesToGenerate * m_numTilesToGenerate)) {
                 return false; // bail
             }
         } while (m_tilePositions[position].z != 0);
@@ -275,10 +274,8 @@ bool GameData::generateSolvableGame()
 
     // For each position,
     for (int i = 0; i < m_numTilesToGenerate; ++i) {
-
         // If this is the first tile in a 144 tile set,
         if ((i % 144) == 0) {
-
             // Initialise the faces to allocate. For the classic
             // dragon board there are 144 tiles. So we allocate and
             // randomise the assignment of 144 tiles. If there are > 144
@@ -308,7 +305,7 @@ bool GameData::generateSolvableGame()
                 return false; // bail
             }
             if (m_tilePositions[position2].z > m_tilePositions[position].z) {
-                position = position2;  // higher is better
+                position = position2; // higher is better
             }
         }
 
@@ -403,12 +400,11 @@ int GameData::selectPosition(int lastPosition)
 
     // while a good position has not been found,
     while (!goodPosition) {
-
         // Select a random, but free, position.
         do {
             position = random.getLong(m_numTilesToGenerate);
 
-            if (cnt++ > (m_numTilesToGenerate*m_numTilesToGenerate)) {
+            if (cnt++ > (m_numTilesToGenerate * m_numTilesToGenerate)) {
                 return -1; // bail
             }
         } while (!m_positionDepends[position].free);
@@ -418,18 +414,17 @@ int GameData::selectPosition(int lastPosition)
 
         // If there is a previous position to take into account,
         if (lastPosition != -1) {
-
             // Check the new position against the last one.
             for (int i = 0; i < 4; ++i) {
                 if (m_positionDepends[position].place_dep[i] == lastPosition) {
-                    goodPosition = false;  // not such a good position
+                    goodPosition = false; // not such a good position
                 }
             }
 
             for (int i = 0; i < 2; ++i) {
                 if ((m_positionDepends[position].lhs_dep[i] == lastPosition)
                     || (m_positionDepends[position].rhs_dep[i] == lastPosition)) {
-                    goodPosition = false;  // not such a good position
+                    goodPosition = false; // not such a good position
                 }
             }
         }
@@ -474,7 +469,6 @@ void GameData::updateDepend(int position)
 
     // If the position is valid and not filled
     if (position >= 0 && !m_positionDepends[position].filled) {
-
         // Check placement depends.  If they are not filled, the
         // position cannot become free.
         int depend;
@@ -496,17 +490,16 @@ void GameData::updateDepend(int position)
         // Assume no LHS positions to fill
         bool lfilled = false;
 
-          // If positions to LHS
+        // If positions to LHS
         if ((m_positionDepends[position].lhs_dep[0] != -1)
             || (m_positionDepends[position].lhs_dep[1] != -1)) {
-
             // Assume LHS positions filled
             lfilled = true;
 
             for (int i = 0; i < 2; ++i) {
                 if ((depend = m_positionDepends[position].lhs_dep[i]) != -1) {
                     if (!m_positionDepends[depend].filled) {
-                         lfilled = false;
+                        lfilled = false;
                     }
                 }
             }
@@ -515,10 +508,9 @@ void GameData::updateDepend(int position)
         // Assume no RHS positions to fill
         bool rfilled = false;
 
-          // If positions to RHS
+        // If positions to RHS
         if ((m_positionDepends[position].rhs_dep[0] != -1)
             || (m_positionDepends[position].rhs_dep[1] != -1)) {
-
             // Assume LHS positions filled
             rfilled = true;
 
@@ -541,7 +533,6 @@ bool GameData::generateStartPosition2()
 {
     // For each tile,
     for (int i = 0; i < m_numTilesToGenerate; ++i) {
-
         // Get its basic position data
         int x = m_tilePositions[i].x;
         int y = m_tilePositions[i].y;
@@ -602,7 +593,7 @@ bool GameData::generateStartPosition2()
                     && (m_tilePositions[p1].z == m_tilePositions[p2].z)) {
                     // skip if on same y line
                     ++bail;
-                    p2=p1;
+                    p2 = p1;
 
                     continue;
                 }
@@ -633,7 +624,7 @@ bool GameData::generateStartPosition2()
     return 1;
 }
 
-void GameData::getFaces(POSITION &a, POSITION &b)
+void GameData::getFaces(POSITION & a, POSITION & b)
 {
     a.f = m_tilePair[m_tilesUsed];
     b.f = m_tilePair[m_tilesUsed + 1];
@@ -685,13 +676,12 @@ void GameData::randomiseFaces()
     for (int r = 0; r < 200; ++r) {
         int to = at;
 
-        while (to==at) {
+        while (to == at) {
             to = random.getLong(144);
 
             if ((to & 1) != 0) {
                 --to;
             }
-
         }
 
         UCHAR tmp = m_tilePair[at];
@@ -713,12 +703,12 @@ void GameData::randomiseFaces()
 
 bool isFlower(UCHAR tile)
 {
-    return (tile >= TILE_FLOWER  &&  tile <=TILE_FLOWER + 3);
+    return (tile >= TILE_FLOWER && tile <= TILE_FLOWER + 3);
 }
 
 bool isSeason(UCHAR tile)
 {
-    return (tile >= TILE_SEASON  &&  tile <= TILE_SEASON + 3);
+    return (tile >= TILE_SEASON && tile <= TILE_SEASON + 3);
 }
 
 bool isBamboo(UCHAR tile)
@@ -746,7 +736,7 @@ bool isWind(UCHAR tile)
     return (tile >= TILE_WIND && tile < TILE_WIND + 4);
 }
 
-bool GameData::isMatchingTile(POSITION &pos1, POSITION &pos2) const
+bool GameData::isMatchingTile(POSITION & pos1, POSITION & pos2) const
 {
     // don't compare 'equal' positions
     if (memcmp(&pos1, &pos2, sizeof(POSITION))) {
@@ -760,7 +750,7 @@ bool GameData::isMatchingTile(POSITION &pos1, POSITION &pos2) const
     return false;
 }
 
-void GameData::setRemovedTilePair(POSITION &a, POSITION &b)
+void GameData::setRemovedTilePair(POSITION & a, POSITION & b)
 {
     if (isFlower(a.f)) {
         ++m_removedFlower[a.f - TILE_FLOWER];
@@ -794,20 +784,20 @@ void GameData::setRemovedTilePair(POSITION &a, POSITION &b)
         return;
     }
 
-    if (isDragon(a.f)){
+    if (isDragon(a.f)) {
         m_removedDragon[a.f - TILE_DRAGON] += 2;
 
         return;
     }
 
-    if (isWind(a.f)){
+    if (isWind(a.f)) {
         m_removedWind[a.f - TILE_WIND] += 2;
 
         return;
     }
 }
 
-void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
+void GameData::clearRemovedTilePair(POSITION & a, POSITION & b)
 {
     if (isFlower(a.f)) {
         --m_removedFlower[a.f - TILE_FLOWER];
@@ -854,9 +844,9 @@ void GameData::clearRemovedTilePair(POSITION &a, POSITION &b)
     }
 }
 
-bool GameData::findMove(POSITION &posA, POSITION &posB)
+bool GameData::findMove(POSITION & posA, POSITION & posB)
 {
-    short posEnde = m_maxTileNum;  // End of PosTable
+    short posEnde = m_maxTileNum; // End of PosTable
 
     for (short z = 0; z < m_depth; ++z) {
         for (short y = 0; y < m_height - 1; ++y) {
@@ -890,7 +880,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
         }
     }
 
-    short posCount = 0;  // store number of pairs found
+    short posCount = 0; // store number of pairs found
 
     // The new tile layout with non-contiguos horizantle spans
     // can lead to huge numbers of matching pairs being exposed.
@@ -910,7 +900,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
 
     if (posCount >= 2) {
         random.setSeed(0); // WABA: Why is the seed reset?
-        short pos = random.getLong(posCount) & -2;  // Even value
+        short pos = random.getLong(posCount) & -2; // Even value
         posA = m_posTable[pos];
         posB = m_posTable[pos + 1];
 
@@ -922,7 +912,7 @@ bool GameData::findMove(POSITION &posA, POSITION &posB)
 
 int GameData::moveCount()
 {
-    short posEnde = m_maxTileNum;  // End of PosTable
+    short posEnde = m_maxTileNum; // End of PosTable
 
     for (short z = 0; z < m_depth; ++z) {
         for (short y = 0; y < m_height - 1; ++y) {
@@ -936,7 +926,7 @@ int GameData::moveCount()
                 }
 
                 if (z < m_depth - 1) {
-                    if (BoardData(z + 1, y, x) || BoardData(z + 1, y + 1,x)
+                    if (BoardData(z + 1, y, x) || BoardData(z + 1, y + 1, x)
                         || BoardData(z + 1, y, x + 1) || BoardData(z + 1, y + 1, x + 1)) {
                         continue;
                     }
@@ -956,7 +946,7 @@ int GameData::moveCount()
         }
     }
 
-    short posCount = 0;  // store number of pairs found
+    short posCount = 0; // store number of pairs found
 
     while (posEnde < m_maxTileNum - 1 && posCount < m_maxTiles - 2) {
         for (short Pos = posEnde + 1; Pos < m_maxTileNum; ++Pos) {
@@ -974,7 +964,7 @@ int GameData::moveCount()
     return posCount / 2;
 }
 
-short GameData::findAllMatchingTiles(POSITION &posA)
+short GameData::findAllMatchingTiles(POSITION & posA)
 {
     short pos = 0;
 
@@ -1015,7 +1005,7 @@ short GameData::findAllMatchingTiles(POSITION &posA)
     return pos;
 }
 
-bool GameData::loadFromStream(QDataStream &in)
+bool GameData::loadFromStream(QDataStream & in)
 {
     in >> m_board;
     in >> m_mask;
@@ -1040,7 +1030,7 @@ bool GameData::loadFromStream(QDataStream &in)
     return true;
 }
 
-bool GameData::saveToStream(QDataStream &out) const
+bool GameData::saveToStream(QDataStream & out) const
 {
     out << m_board;
     out << m_mask;

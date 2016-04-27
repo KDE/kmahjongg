@@ -22,12 +22,12 @@
 #include "gameitem.h"
 
 SelectionAnimation::SelectionAnimation(QObject * parent)
-    : QTimer(parent),
-    m_animationSpeed(0),
-    m_repetitions(0),
-    m_finishedRepetitions(0),
-    m_itemsSelected(false),
-    m_gameItems(new QList<GameItem *>())
+    : QTimer(parent)
+    , m_animationSpeed(0)
+    , m_repetitions(0)
+    , m_finishedRepetitions(0)
+    , m_itemsSelected(false)
+    , m_gameItems(new QList<GameItem *>())
 {
     connect(this, &SelectionAnimation::timeout, this, &SelectionAnimation::timeoutOccurred);
 }

@@ -20,4 +20,3 @@
 // own
 #include "kmahjongg_debug.h"
 Q_LOGGING_CATEGORY(KMAHJONGG_LOG, "log_kmahjongg")
-

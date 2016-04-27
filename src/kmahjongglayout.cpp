@@ -82,7 +82,8 @@ bool KMahjonggLayout::loadDefault()
     return load(layoutPath);
 }
 
-bool KMahjonggLayout::load(const QString &file) {
+bool KMahjonggLayout::load(const QString & file)
+{
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
@@ -138,7 +139,7 @@ QString KMahjonggLayout::path() const
     return filename;
 }
 
-QString KMahjonggLayout::authorProperty(const QString &key) const
+QString KMahjonggLayout::authorProperty(const QString & key) const
 {
     return d->authorproperties[key];
 }

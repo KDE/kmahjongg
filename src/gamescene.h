@@ -41,7 +41,7 @@ class GameScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    explicit GameScene(QObject *parent = 0);
+    explicit GameScene(QObject * parent = 0);
     ~GameScene();
 
     /**
@@ -60,7 +60,7 @@ public:
      * @param stItemPos The position struct.
      *
      * @return The GameItem object or null if no one was found. */
-    GameItem * getItemOnGridPos(POSITION &stItemPos);
+    GameItem * getItemOnGridPos(POSITION & stItemPos);
 
     /**
      * Test whether a item exist on the given position or not.
@@ -78,17 +78,17 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void addItem(GameItem *gameItem);
+    void addItem(GameItem * gameItem);
 
     /**
      * Override from QGraphicsScene. */
-    void removeItem(GameItem *gameItem);
+    void removeItem(GameItem * gameItem);
 
     /**
      * Override from QGraphicsScene with POSITION parameter.
      *
      * @param stItemPos The item position. */
-    void removeItem(POSITION const &stItemPos);
+    void removeItem(POSITION const & stItemPos);
 
     /**
      * Override from QGraphicsScene. */
@@ -100,16 +100,16 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *mouseEvent);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent);
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
+    void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent);
 
     /**
      * Override from QGraphicsScene.
      * Mouse wheel rotates view. */
-    void wheelEvent(QGraphicsSceneWheelEvent *mouseEvent);
+    void wheelEvent(QGraphicsSceneWheelEvent * mouseEvent);
 
     /**
      * Test if the item is selectable or not.
@@ -134,9 +134,9 @@ private:
      * @param pameItem THe game item to add to array. */
     void addItemToPositionArray(GameItem * const pameItem);
 
-    GameItem *m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPTH];
-    GameItem *m_pFirstSelectedItem;
-    GameItem *m_pSecondSelectedItem;
+    GameItem * m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPTH];
+    GameItem * m_pFirstSelectedItem;
+    GameItem * m_pSecondSelectedItem;
 };
 
 #endif // GAMESCENE_H

@@ -24,7 +24,8 @@
 // Forward declarations...
 class GameData;
 
-enum class AnimationDirection {Forward, Backward};
+enum class AnimationDirection { Forward,
+                                Backward };
 
 /**
  * A class for a demo animation with the help of selection.
@@ -35,7 +36,7 @@ class MoveListAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit MoveListAnimation(QObject *parent = 0);
+    explicit MoveListAnimation(QObject * parent = 0);
     ~MoveListAnimation();
 
     /**

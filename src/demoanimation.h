@@ -33,7 +33,7 @@ class DemoAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit DemoAnimation(QObject *parent = 0);
+    explicit DemoAnimation(QObject * parent = 0);
     ~DemoAnimation();
 
     /**

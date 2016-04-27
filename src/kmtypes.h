@@ -22,15 +22,22 @@
 //----------------------------------------------------------
 // TYPEDEFS
 //----------------------------------------------------------
-typedef unsigned char  UCHAR;
-typedef unsigned char  BYTE;
+typedef unsigned char UCHAR;
+typedef unsigned char BYTE;
 typedef unsigned short USHORT;
 
 /**
  * @short struct pos POSITION
  */
-typedef struct pos {
-    pos() : z(0), y(0), x(0), f(0) { }
+typedef struct pos
+{
+    pos()
+        : z(0)
+        , y(0)
+        , x(0)
+        , f(0)
+    {
+    }
     USHORT z;
     USHORT y;
     USHORT x;
@@ -40,32 +47,33 @@ typedef struct pos {
 /**
  * @short struct dep DEPENDENCY
  */
-typedef struct dep {
-    int turn_dep[4];   /**< Turn dependencies */
-    int place_dep[4];  /**< Placing dependencies */
-    int lhs_dep[2];    /**< Left side dependencies, same level */
-    int rhs_dep[2];    /**< Right side dependencies, same level */
-    bool filled;       /**< True if this tile has been placed. */
-    bool free;         /**< True if this tile can be removed? */
+typedef struct dep
+{
+    int turn_dep[4]; /**< Turn dependencies */
+    int place_dep[4]; /**< Placing dependencies */
+    int lhs_dep[2]; /**< Left side dependencies, same level */
+    int rhs_dep[2]; /**< Right side dependencies, same level */
+    bool filled; /**< True if this tile has been placed. */
+    bool free; /**< True if this tile can be removed? */
 } DEPENDENCY;
 
 /**
  * @short Tile angles for face composition
  */
 enum TileViewAngle {
-        NW, /**< North West */
-        NE, /**< North East */
-        SE, /**< South East */
-        SW  /**< South West */
+    NW, /**< North West */
+    NE, /**< North East */
+    SE, /**< South East */
+    SW /**< South West */
 };
 
-#define TILE_OFFSET      2
-#define TILE_CHARACTER   (0+TILE_OFFSET)
-#define TILE_BAMBOO      (9+TILE_OFFSET)
-#define TILE_ROD         (18+TILE_OFFSET)
-#define TILE_SEASON      (27+TILE_OFFSET)
-#define TILE_WIND        (31+TILE_OFFSET)
-#define TILE_DRAGON      (35+TILE_OFFSET)
-#define TILE_FLOWER      (38+TILE_OFFSET)
+#define TILE_OFFSET 2
+#define TILE_CHARACTER (0 + TILE_OFFSET)
+#define TILE_BAMBOO (9 + TILE_OFFSET)
+#define TILE_ROD (18 + TILE_OFFSET)
+#define TILE_SEASON (27 + TILE_OFFSET)
+#define TILE_WIND (31 + TILE_OFFSET)
+#define TILE_DRAGON (35 + TILE_OFFSET)
+#define TILE_FLOWER (38 + TILE_OFFSET)
 
 #endif

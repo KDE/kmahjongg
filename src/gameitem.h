@@ -36,7 +36,7 @@ public:
      *
      * @param selected Should the item be selected
      * @param item The parent item */
-    explicit GameItem(bool selected, QGraphicsObject *item = 0);
+    explicit GameItem(bool selected, QGraphicsObject * item = 0);
     ~GameItem();
 
     /**
@@ -93,19 +93,19 @@ public:
      * @param selPix The pixmap for a selected item
      * @param shadowWidth The width of the shadow
      * @param shadowHeight The height of the shadow */
-    void setAngle(TileViewAngle angle, QPixmap *selPix, QPixmap *unselPix, int shadowWidth,
-        int shadowHeight);
+    void setAngle(TileViewAngle angle, QPixmap * selPix, QPixmap * unselPix, int shadowWidth,
+                  int shadowHeight);
 
     /**
      * Set the face of the stone.
      *
      * @param facePix The pixmap of the face. */
-    void setFace(QPixmap *facePix);
+    void setFace(QPixmap * facePix);
 
     /**
      * Overrides the paint method of QGraphicsItem. */
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem * option,
-        QWidget *widget);
+    virtual void paint(QPainter * painter, const QStyleOptionGraphicsItem * option,
+                       QWidget * widget);
 
     /**
      * Overrides the boundingRect method of QGraphicsItem. */
@@ -158,9 +158,9 @@ private:
 
     TileViewAngle m_angle;
 
-    QPixmap *m_selPix;
-    QPixmap *m_unselPix;
-    QPixmap *m_facePix;
+    QPixmap * m_selPix;
+    QPixmap * m_unselPix;
+    QPixmap * m_facePix;
 
     QPointF m_faceOffset;
 };

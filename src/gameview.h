@@ -48,7 +48,7 @@ public:
      *
      * @param parent The parent widget.
      * @param gameScene The related GameScene object. */
-    GameView(GameScene *gameScene, GameData *gameData, QWidget *parent = 0);
+    GameView(GameScene * gameScene, GameData * gameData, QWidget * parent = 0);
     ~GameView();
 
     /**
@@ -75,7 +75,7 @@ public:
      * Set the GameData object.
      *
      * @param gameData The game data object. */
-    void setGameData(GameData *gameData);
+    void setGameData(GameData * gameData);
 
     /**
      * Get the GameData object that is actually set.
@@ -145,14 +145,14 @@ public:
      *
      * @param tilesetPath The path to the tileset.
      * @return True if setting and therfore loading success, else false. */
-    bool setTilesetPath(QString const &tilesetPath);
+    bool setTilesetPath(QString const & tilesetPath);
 
     /**
      * Sets the background path and tries to load it.
      *
      * @param backgroundPath The path to the background.
      * @return True if setting and therfore loading success, else false. */
-    bool setBackgroundPath(QString const &backgroundPath);
+    bool setBackgroundPath(QString const & backgroundPath);
 
     /**
      * Undo the last move.
@@ -211,13 +211,13 @@ public:
 public slots:
     /**
      * Add a new item with teh given position and update imgages, position and order. */
-    void addItemAndUpdate(POSITION &stItemPos);
+    void addItemAndUpdate(POSITION & stItemPos);
 
     /**
      * Remove the given item.
      *
      * @param stItemPos The item position. */
-    void removeItem(POSITION &stItemPos);
+    void removeItem(POSITION & stItemPos);
 
     /**
      * Starts the demo animation. */
@@ -262,7 +262,7 @@ public slots:
 protected:
     /**
      * Override from QGraphicsView. */
-    virtual void resizeEvent(QResizeEvent *event);
+    virtual void resizeEvent(QResizeEvent * event);
 
     /**
      * Override from QGraphicsView. */
@@ -278,7 +278,7 @@ signals:
      *
      * @param text The new status text.
      * @param gameNumber The actual game number. */
-    void statusTextChanged(const QString &text, long gameNumber);
+    void statusTextChanged(const QString & text, long gameNumber);
 
     /**
      * Emits when the number of the items changed or could change.
@@ -314,8 +314,8 @@ private slots:
      * @param updateImage True for updating the images else false.
      * @param updateOrder True for updating the order else false.
      * @param updatePosition True for updating the position else false. */
-    void addItem(POSITION &stItemPos, bool updateImage = false, bool updateOrder = false,
-        bool updatePosition = false);
+    void addItem(POSITION & stItemPos, bool updateImage = false, bool updateOrder = false,
+                 bool updatePosition = false);
 
     /**
      * Add a new item.
@@ -324,8 +324,8 @@ private slots:
      * @param updateImage True for updating the images else false.
      * @param updateOrder True for updating the order else false.
      * @param updatePosition True for updating the position else false. */
-    void addItem(GameItem *gameItem, bool updateImage = false, bool updateOrder = false,
-        bool updatePosition = false);
+    void addItem(GameItem * gameItem, bool updateImage = false, bool updateOrder = false,
+                 bool updatePosition = false);
 
     /**
      * When the game is over by the demo mode.
@@ -338,7 +338,7 @@ private slots:
      *
      * @param stItemPos The position of the item.
      * @param selected The selection state to set. */
-    void changeItemSelectedState(POSITION &stItemPos, bool selected);
+    void changeItemSelectedState(POSITION & stItemPos, bool selected);
 
     /**
      * Gets called when a pair was selected. */
@@ -363,13 +363,13 @@ private:
      * Sets the status text.
      *
      * @param text The new status text. */
-    void setStatusText(const QString &text);
+    void setStatusText(const QString & text);
 
     /**
      * Resize the tileset to the given size.
      *
      * @param size The new size of the tileset. */
-    void resizeTileset(const QSize &size);
+    void resizeTileset(const QSize & size);
 
     /**
      * Updates the background by creating a new QPalette object. */
@@ -387,8 +387,8 @@ private:
      * @param y The y position of the item.
      * @param z The z position of the item.
      * @param zCount The z count variable for ther order. */
-    void orderLine(GameItem *startItem, int xStart, int xEnd, int xCounter, int y,
-        int yCounter, int z, int &zCount);
+    void orderLine(GameItem * startItem, int xStart, int xEnd, int xCounter, int y,
+                   int yCounter, int z, int & zCount);
 
     unsigned short m_cheatsUsed;
     long m_gameNumber;
@@ -396,18 +396,18 @@ private:
     bool m_match;
     bool m_gameGenerated;
 
-    GameData *m_gameData;
-    GameItem *m_selectedItem;
+    GameData * m_gameData;
+    GameItem * m_selectedItem;
 
-    QString *m_tilesetPath;
-    QString *m_backgroundPath;
+    QString * m_tilesetPath;
+    QString * m_backgroundPath;
 
-    SelectionAnimation *m_helpAnimation;
-    MoveListAnimation *m_moveListAnimation;
-    DemoAnimation *m_demoAnimation;
+    SelectionAnimation * m_helpAnimation;
+    MoveListAnimation * m_moveListAnimation;
+    DemoAnimation * m_demoAnimation;
 
-    KMahjonggTileset *m_tiles;
-    KMahjonggBackground *m_background;
+    KMahjonggTileset * m_tiles;
+    KMahjonggBackground * m_background;
 
     TileViewAngle m_angle;
 

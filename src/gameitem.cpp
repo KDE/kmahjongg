@@ -21,15 +21,15 @@
 #include <QPixmap>
 #include <QTimer>
 
-GameItem::GameItem(bool selected, QGraphicsObject *item)
-    : QGraphicsObject(item),
-    m_dying(false),
-    m_shadowWidth(0),
-    m_shadowHeight(0),
-    m_angle(),
-    m_selPix(new QPixmap()),
-    m_unselPix(new QPixmap()),
-    m_facePix(new QPixmap())
+GameItem::GameItem(bool selected, QGraphicsObject * item)
+    : QGraphicsObject(item)
+    , m_dying(false)
+    , m_shadowWidth(0)
+    , m_shadowHeight(0)
+    , m_angle()
+    , m_selPix(new QPixmap())
+    , m_unselPix(new QPixmap())
+    , m_facePix(new QPixmap())
 {
     // Init POSITION
     m_stPos.y = 0;
@@ -86,12 +86,12 @@ bool GameItem::isShadow(QPointF const position) const
 
 int GameItem::getShadowDeltaX() const
 {
-    return (m_angle == NE || m_angle == SE) ? 1 * m_shadowWidth: -1 * m_shadowWidth;
+    return (m_angle == NE || m_angle == SE) ? 1 * m_shadowWidth : -1 * m_shadowWidth;
 }
 
 int GameItem::getShadowDeltaY() const
 {
-    return (m_angle == NW || m_angle == NE) ? 1 * m_shadowHeight: -1 * m_shadowHeight;
+    return (m_angle == NW || m_angle == NE) ? 1 * m_shadowHeight : -1 * m_shadowHeight;
 }
 
 void GameItem::prepareForGeometryChange()
@@ -105,18 +105,18 @@ void GameItem::updateFaceOffset()
     int verticalOffset = m_selPix->height() - m_facePix->height();
 
     switch (m_angle) {
-    case NW:
-        m_faceOffset = QPointF(horizontalOffset, 0);
-        break;
-    case NE:
-        m_faceOffset = QPointF(0, 0);
-        break;
-    case SE:
-        m_faceOffset = QPointF(0, verticalOffset);
-        break;
-    case SW:
-        m_faceOffset = QPointF(horizontalOffset, verticalOffset);
-        break;
+        case NW:
+            m_faceOffset = QPointF(horizontalOffset, 0);
+            break;
+        case NE:
+            m_faceOffset = QPointF(0, 0);
+            break;
+        case SE:
+            m_faceOffset = QPointF(0, verticalOffset);
+            break;
+        case SW:
+            m_faceOffset = QPointF(horizontalOffset, verticalOffset);
+            break;
     }
 }
 
