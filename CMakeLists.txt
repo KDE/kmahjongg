@@ -40,6 +40,7 @@ find_package(KF5KDEGames 4.9.0 REQUIRED)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
+add_subdirectory(icons)
 add_subdirectory(layouts)
 add_subdirectory(doc)
 
@@ -88,17 +89,6 @@ install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kmahjongg.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES kmahjongg.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR})
 install(FILES kmahjonggui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kmahjongg)
-
-ecm_install_icons(ICONS
-    128-apps-kmahjongg.png
-    64-apps-kmahjongg.png
-    48-apps-kmahjongg.png
-    32-apps-kmahjongg.png
-    22-apps-kmahjongg.png
-    16-apps-kmahjongg.png
-    sc-apps-kmahjongg.svgz
-    DESTINATION  ${KDE_INSTALL_ICONDIR}
-    THEME hicolor)
 
 ########### Display Summary ###############
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
