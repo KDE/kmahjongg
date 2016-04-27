@@ -180,15 +180,15 @@ bool BoardLayout::loadBoardLayout(const QString &from)
                 continue;
             }
             if (s[0] == 'w') {
-                m_width = s.mid(1).toInt();
+                m_width = s.midRef(1).toInt();
                 continue;
             }
             if (s[0] == 'h') {
-                m_height = s.mid(1).toInt();
+                m_height = s.midRef(1).toInt();
                 continue;
             }
             if (s[0] == 'd') {
-                m_depth = s.mid(1).toInt();
+                m_depth = s.midRef(1).toInt();
                 continue;
             }
             all += s;
