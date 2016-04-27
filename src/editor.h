@@ -18,10 +18,10 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
-#include "BoardLayout.h"
-#include "FrameImage.h"
+#include "boardlayout.h"
+#include "frameimage.h"
 #include "kmahjonggtileset.h"
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <KToolBar>
 

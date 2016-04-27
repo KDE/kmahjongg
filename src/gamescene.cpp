@@ -12,10 +12,10 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#include "GameScene.h"
-#include "GameData.h"
-#include "GameView.h"
-#include "GameItem.h"
+#include "gamescene.h"
+#include "gamedata.h"
+#include "gameview.h"
+#include "gameitem.h"
 #include "kmahjongglayout.h"
 
 #include <QGraphicsSceneMouseEvent>

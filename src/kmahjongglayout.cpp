@@ -18,7 +18,7 @@
 */
 
 #include "kmahjongglayout.h"
-#include "BoardLayout.h"
+#include "boardlayout.h"
 #include "kmahjongg_debug.h"
 
 #include <KConfig>

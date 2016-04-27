@@ -19,7 +19,7 @@
 #ifndef BOARDLAYOUT_H
 #define BOARDLAYOUT_H
 
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <QString>
 

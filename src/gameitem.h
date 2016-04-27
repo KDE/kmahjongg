@@ -15,7 +15,7 @@
 #ifndef GAMEITEM_H
 #define GAMEITEM_H
 
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <QGraphicsObject>
 #include <QObject>

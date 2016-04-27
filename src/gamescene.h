@@ -15,7 +15,7 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
 
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <QGraphicsScene>
 

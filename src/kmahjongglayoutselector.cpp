@@ -22,9 +22,9 @@
 
 #include "kmahjongglayoutselector.h"
 #include "kmahjongglayout.h"
-#include "GameView.h"
-#include "GameScene.h"
-#include "GameData.h"
+#include "gameview.h"
+#include "gamescene.h"
+#include "gamedata.h"
 #include "prefs.h"
 
 #include <KLocalizedString>

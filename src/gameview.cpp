@@ -12,13 +12,13 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#include "GameView.h"
-#include "GameData.h"
-#include "GameScene.h"
-#include "GameItem.h"
-#include "SelectionAnimation.h"
-#include "MoveListAnimation.h"
-#include "DemoAnimation.h"
+#include "gameview.h"
+#include "gamedata.h"
+#include "gamescene.h"
+#include "gameitem.h"
+#include "selectionanimation.h"
+#include "movelistanimation.h"
+#include "demoanimation.h"
 #include "kmahjongglayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"

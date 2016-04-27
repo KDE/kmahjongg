@@ -2,18 +2,18 @@ set(kmahjongg_SRCS
    main.cpp
    kmahjongg_debug.cpp
    kmahjongg.cpp
-   BoardLayout.cpp
-   GameData.cpp
+   boardlayout.cpp
+   gamedata.cpp
    kmahjongglayoutselector.cpp
    kmahjongglayout.cpp
-   Editor.cpp
-   FrameImage.cpp
-   GameItem.cpp
-   GameView.cpp
-   GameScene.cpp
-   SelectionAnimation.cpp
-   DemoAnimation.cpp
-   MoveListAnimation.cpp
+   editor.cpp
+   frameimage.cpp
+   gameitem.cpp
+   gameview.cpp
+   gamescene.cpp
+   selectionanimation.cpp
+   demoanimation.cpp
+   movelistanimation.cpp
 )
 
 ki18n_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui)

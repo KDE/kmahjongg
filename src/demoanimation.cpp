@@ -12,8 +12,8 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#include "DemoAnimation.h"
-#include "GameData.h"
+#include "demoanimation.h"
+#include "gamedata.h"
 #include "kmahjongg_debug.h"
 
 #include <QList>

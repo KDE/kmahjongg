@@ -15,7 +15,7 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <QGraphicsView>
 

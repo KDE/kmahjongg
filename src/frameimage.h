@@ -22,7 +22,7 @@
 
 class QPixmap;
 
-#include "BoardLayout.h"
+#include "boardlayout.h"
 #include "kmahjonggtileset.h"
 #include "kmahjonggbackground.h"
 

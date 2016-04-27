@@ -12,29 +12,28 @@
  * not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA. */
 
-#ifndef MOVELISTANIMATION_H
-#define MOVELISTANIMATION_H
+#ifndef DEMOANIMATION_H
+#define DEMOANIMATION_H
 
-#include "KmTypes.h"
+#include "kmtypes.h"
 
 #include <QTimer>
 
+
 // Forward declarations...
 class GameData;
-
-enum class AnimationDirection {Forward, Backward};
 
 /**
  * A class for a demo animation with the help of selection.
  *
  * @author Christian Krippendorf */
-class MoveListAnimation : public QTimer
+class DemoAnimation : public QTimer
 {
     Q_OBJECT
 
 public:
-    explicit MoveListAnimation(QObject *parent = 0);
-    ~MoveListAnimation();
+    explicit DemoAnimation(QObject *parent = 0);
+    ~DemoAnimation();
 
     /**
      * Set the animation speed in milliseconds.
@@ -62,25 +61,33 @@ public slots:
 
 signals:
     /**
+     * Emits when the game is over.
+     *
+     * @param won True if computer won the game, else false. */
+    void gameOver(bool won);
+
+    /**
      * Emit to remove the given item. */
     void removeItem(POSITION & stItem);
 
     /**
-     * Emit to add the given item. */
-    void addItem(POSITION & stItem);
+     * Emit to set the selected state of the given item.
+     *
+     * @param stItem The position of the item to change the selected state.
+     * @param selected THe item should be selected on true, else deselected. */
+    void changeItemSelectedState(POSITION & stItem, bool selected);
 
 private slots:
-    /**
-     * The timeout occurred. */
     void timeoutOccurred();
 
 private:
     int m_step;
     int m_animationSpeed;
 
-    AnimationDirection m_direction;
+    POSITION m_stFirst;
+    POSITION m_stSecond;
 
     GameData * m_gameData;
 };
 
-#endif // MOVELISTANIMATION_H
+#endif // DEMOANIMATION_H
