@@ -103,9 +103,7 @@ void KMahjonggLayoutSelector::layoutChanged()
     if (selLayout->path()==kcfg_Layout->text()) {
         return;
     }
-    QString authstr(QStringLiteral("Author"));
-    QString contactstr(QStringLiteral("AuthorEmail"));
-    QString descstr(QStringLiteral("Description"));
+
     kcfg_Layout->setText(selLayout->path());
     layoutAuthor->setText(selLayout->authorProperty("Author"));
     layoutContact->setText(selLayout->authorProperty("AuthorEmail"));
