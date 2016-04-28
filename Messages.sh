@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
-$EXTRACTRC *.rc *.ui *.kcfg >> rc.cpp
-$XGETTEXT *.cpp -o $podir/kmahjongg.pot
+$EXTRACTRC $(find . -name '*.rc' -o -name '*.ui' -o -name '*.kcfg') >> rc.cpp
+$XGETTEXT $(find . -name '*.cpp') -o $podir/kmahjongg.pot
