@@ -1,15 +1,13 @@
 <?xml version="1.0" ?>
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kmahjongg;"> 
-  <!ENTITY kappversion "0.9"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"> <!-- do not change this! -->
 ]>
 
 <book id="kmahjongg" lang="&language;"> <!-- do not change this! -->
 <bookinfo>
-	<title>The &kappname; Handbook</title> <!-- This is the title of this docbook. -->
+	<title>The &kmahjongg; Handbook</title> <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
 <authorgroup>
@@ -28,15 +26,15 @@
 </authorgroup>
 
 <legalnotice>&FDLNotice;</legalnotice>
- 
+
 <date>2016-01-04</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion; (Applications 16.04)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
- 
+<releaseinfo>0.9 (Applications 16.04)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
-	<para>This documentation describes the game of &kappname; version &kappversion;</para>
+	<para>This documentation describes the game of &kmahjongg; version 0.9</para>
 </abstract>
- 
+
 <!--List of relevan keywords-->
 <keywordset>
 	<keyword>KDE</keyword> <!-- do not change this! -->
@@ -64,20 +62,20 @@
 		In &kmahjongg; the tiles are scrambled and stacked on top of each other to resemble a certain shape. The player is then expected to remove all the tiles off the game board by locating each tile's matching pair.
 	</para>
 </chapter>
- 
+
 <chapter id="howto"><title>How to play</title> <!-- do not change this! -->
 <!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
 	<note><title>Objective:</title><para>Remove all tiles from the game board by locating each tile's matching pair as fast as possible.</para></note><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para>
-		&kappname; will load a default layout automatically once you start the game and you can start playing right away.
+		&kmahjongg; will load a default layout automatically once you start the game and you can start playing right away.
 	</para>
 	<note><title>Note:</title><para>The game timer will start immediately if the game is started.</para></note>
 	<para>
 		You should carefully study the stack of tiles laid out on the game board and find two tiles matching exactly. When you have found such a pair use your mouse to select these.
 	</para>
 	<note><title>Note:</title>
-		<para>Bear in mind that you can only select the tiles which are <quote>Open</quote>. 
+		<para>Bear in mind that you can only select the tiles which are <quote>Open</quote>.
 			Tiles are considered <quote>Blocked</quote> when they
 			are positioned behind other tiles, or when both the
 			right and left sides of the tile are filled by others.
@@ -91,7 +89,7 @@
 		Find as many matches as possible to remove all the tiles from the game board.
 	</para>
 </chapter>
- 
+
 <chapter id="rules_and_tips"><title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
 	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
 	<sect1 id="game-screen">
@@ -202,11 +200,11 @@
 
 	</sect1>
 </chapter>
- 
- 
+
+
 <chapter id="interface"><title>Interface Overview</title> <!-- do not change this! -->
 <!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist> and <varlistentry>. Split the chapter into sections using <sect1(2,3)> for better viewing.-->
- 
+
 <sect1 id="menu">
 <title>Menu Items</title>
 
@@ -298,7 +296,7 @@
 					<guimenu>Game</guimenu>
 					<guimenuitem>Quit</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Quits</action> &kappname;.</para></listitem>
+				<listitem><para><action>Quits</action> &kmahjongg;.</para></listitem>
 			</varlistentry>
 
 			<varlistentry id="move-menu-undo">
@@ -359,7 +357,7 @@
 			</varlistentry>
 		</variablelist>
 <para>
-Additionally &kappname; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+Additionally &kmahjongg; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
 menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
 >Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
 of the &kde; Fundamentals.
@@ -367,25 +365,25 @@ of the &kde; Fundamentals.
 
 </sect1>
 </chapter>
- 
- 
+
+
 <chapter id="faq"><title>Frequently asked questions</title> <!-- do not change this! -->
 <!--This chapter is for frequently asked questions. Please use <qandaset> <qandaentry> only!-->
 <qandaset>
 <!--Following is a standard list of FAQ questions.-->
 	<qandaentry>
 		 <question><para>I want to change the way this game looks. Can I? </para></question>
-		 <answer><para>Yes. To change the way &kappname; looks use the <link linkend="menu">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
+		 <answer><para>Yes. To change the way &kmahjongg; looks use the <link linkend="menu">menubar</link> to open the <link linkend="configuration">configuration utility</link>.</para></answer>
 	</qandaentry>
 	<qandaentry>
 		 <question><para>Can I use the keyboard to play the game?</para></question>
 		 <answer><para>No. This game does not feature a keyboard play mode yet.</para></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
- 
+
 </qandaset>
 </chapter>
- 
+
 <chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
 <!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
 <screenshot>
@@ -400,7 +398,7 @@ of the &kde; Fundamentals.
 	</mediaobject>
 </screenshot>
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> opens the <guilabel>Configure - &kappname;</guilabel> dialog.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;...</guimenuitem></menuchoice> opens the <guilabel>Configure - &kmahjongg;</guilabel> dialog.</para>
 
 <sect1 id="general-options"><title>General options</title>
 	<variablelist>
@@ -523,11 +521,11 @@ The default kebindings are as follows:
 
 </sect1>
 </chapter>
- 
+
 <chapter id="credits"><title>Credits and License</title> <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
 	<para>
-		&kappname; for &kde;
+		&kmahjongg; by &kde;
 	</para>
 
 	<para>
@@ -550,15 +548,15 @@ The default kebindings are as follows:
 	<para>
 		Documentation Copyright &copy; 2005 <personname><firstname>John</firstname><surname>Hayes</surname></personname> <email>justlinux@bellsouth.net</email>
 	</para>
- 
+
 <!-- !!!do not change ANYTHING after this line!!!! -->
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
 &underGPL;
- 
+
 </chapter>
- 
-&documentation.index; 
+
+&documentation.index;
 </book>
 <!--
 Local Variables:
