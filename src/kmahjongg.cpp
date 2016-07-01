@@ -274,6 +274,7 @@ void KMahjongg::loadLayout()
         qCDebug(KMAHJONGG_LOG) << "Error loading the layout. Try to load the default layout.";
 
         m_boardLayout->loadDefault();
+        Prefs::setLayout(m_boardLayout->path());
     }
 }
 
