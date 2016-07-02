@@ -29,7 +29,6 @@
   <name xml:lang="uk">KMahjongg</name>
   <name xml:lang="x-test">xxKMahjonggxx</name>
   <name xml:lang="zh-CN">KMahjongg</name>
-  <name xml:lang="zh-TW">KMahjongg</name>
   <description>
     <p>
       KMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).
@@ -57,7 +56,6 @@
     <p xml:lang="uk">KMahjongg — це захоплива гра на дошці, створена на основі відомої східної гри у маджонґ (китайською 麻將).</p>
     <p xml:lang="x-test">xxKMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).xx</p>
     <p xml:lang="zh-CN">KMahjongg 是一个来源于东方游戏“麻将”的有趣棋牌游戏。</p>
-    <p xml:lang="zh-TW">KMahjongg 是中國麻將變化出來的一種遊戲。</p>
   </description>
   <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
