@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Bug
-Name[ast]=Bichu
 Name[bs]=Buba
 Name[ca]=Cuca
 Name[ca@valencia]=Cuca
@@ -48,7 +47,6 @@ Name[x-test]=xxBugxx
 Name[zh_CN]=臭虫
 Name[zh_TW]=蟲
 Description=The bug. Let us take it apart!
-Description[ast]=El bichu. ¡Vamos desmontalu!
 Description[bs]=Greška. Pustite nam da rastavimo djelove!
 Description[ca]=La cuca. Deixa-la a banda!
 Description[ca@valencia]=La cuca. Deixa-la a banda!

@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Pyramid
-Name[ast]=Pirámide
 Name[be]=Піраміда
 Name[bs]=Piramida
 Name[ca]=Piràmide
@@ -58,7 +57,6 @@ Name[x-test]=xxPyramidxx
 Name[zh_CN]=金字塔
 Name[zh_TW]=金字塔
 Description=Can you tear the pyramid apart?
-Description[ast]=¿Quies llorar apartáu na pirámide?
 Description[bs]=Možeš li rastaviti piramidu na djelove?
 Description[ca]=Podeu arrencar la piràmide?
 Description[ca@valencia]=Podeu arrencar la piràmide?

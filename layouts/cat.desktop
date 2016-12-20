@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Cat
-Name[ast]=Gatu
 Name[bs]=Mačka
 Name[ca]=Gat
 Name[ca@valencia]=Gat
@@ -49,7 +48,6 @@ Name[x-test]=xxCatxx
 Name[zh_CN]=猫
 Name[zh_TW]=貓
 Description=Vista-styled cat layout
-Description[ast]=Un diseñu en forma de gatu
 Description[bs]=Vista-izgled mačke sa stilom
 Description[ca]=Disposició amb la forma d'un gat
 Description[ca@valencia]=Disposició amb la forma d'un gat

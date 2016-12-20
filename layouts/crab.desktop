@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Crab
-Name[ast]=Cámbaru
 Name[bs]=Kraba
 Name[ca]=Cranc
 Name[ca@valencia]=Cranc
@@ -49,7 +48,6 @@ Name[x-test]=xxCrabxx
 Name[zh_CN]=螃蟹
 Name[zh_TW]=螃蟹
 Description=Vista-styled crab layout
-Description[ast]=Un diseñu en forma de cámbaru
 Description[bs]=Vista-izgled rakova sa stilom
 Description[ca]=Disposició amb la forma d'un cranc
 Description[ca@valencia]=Disposició amb la forma d'un cranc

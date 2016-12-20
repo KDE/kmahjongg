@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Star
-Name[ast]=Estrella
 Name[bs]=Zvijezda
 Name[ca]=Estrella
 Name[ca@valencia]=Estrella
@@ -51,7 +50,6 @@ Name[x-test]=xxStarxx
 Name[zh_CN]=群星
 Name[zh_TW]=星星
 Description=An asterisk-shaped embossed layout
-Description[ast]=Un diseñu con forma d'asteriscu en relieve
 Description[bs]=Zvjezdica-oblikovanog reljefnog izgleda
 Description[ca]=Una disposició amb forma d'asterisc amb relleu
 Description[ca@valencia]=Una disposició amb forma d'asterisc amb relleu

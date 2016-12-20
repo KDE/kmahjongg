@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Default
-Name[ast]=Predetermináu
 Name[be]=Прадвызначаны
 Name[br]=Dre ziouer
 Name[bs]=Podrazumijevani
@@ -61,7 +60,6 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=Default KMahjongg game layout
-Description[ast]=Distribución de xuegu predeterminada de KMahjongg
 Description[bs]=Igra KMahjongg zadanog izgleda
 Description[ca]=Disposició predeterminada de KMahjongg
 Description[ca@valencia]=Disposició predeterminada de KMahjongg

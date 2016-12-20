@@ -1,6 +1,5 @@
 [KMahjonggLayout]
 Name=Castle View
-Name[ast]=Vista de castiellu
 Name[bs]=Prikaz dvorca
 Name[ca]=Vista del castell
 Name[ca@valencia]=Vista del castell
@@ -45,7 +44,6 @@ Name[x-test]=xxCastle Viewxx
 Name[zh_CN]=城堡外景
 Name[zh_TW]=城堡景觀
 Description=A castle as viewed from one side
-Description[ast]=Un castiellu vistu per un llau
 Description[bs]=Dvorac je prikazan sa jedne strane
 Description[ca]=Un castell vist des d'una cara
 Description[ca@valencia]=Un castell vist des d'una cara

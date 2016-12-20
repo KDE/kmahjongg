@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=KMahjongg
 Name[af]=Kmahjong
-Name[ast]=KMahjongg
 Name[be]=Маджонг
 Name[bn]=কে-মাহজং
 Name[br]=KMahjongg
@@ -71,7 +70,6 @@ Name[zh_TW]=KMahjongg 上海麻將
 Exec=kmahjongg -qwindowtitle %c
 Type=Application
 GenericName=Mahjongg Solitaire
-GenericName[ast]=Solitariu Mahjongg
 GenericName[bs]=Mahjongg soliter
 GenericName[ca]=Solitari Mahjongg
 GenericName[ca@valencia]=Solitari Mahjongg
