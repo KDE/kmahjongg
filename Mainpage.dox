@@ -1,6 +1,6 @@
 /** @mainpage KMahjongg API Reference
 
- KMahjongg is an open-source implementation of the popular Mahjongg game written specifically for KDE.
+ KMahjongg is an open-source implementation of the popular Mahjongg game written using KDE technologies.
  Game depends on libkmahjongg.
 
 

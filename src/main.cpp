@@ -27,7 +27,7 @@
 #include "kmahjongg.h"
 #include "version.h"
 
-static const char description[] = I18N_NOOP("Mahjongg Solitaire for KDE");
+static const char description[] = I18N_NOOP("Mahjongg Solitaire by KDE");
 
 int main(int argc, char ** argv)
 {
