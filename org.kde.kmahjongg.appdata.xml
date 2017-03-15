@@ -32,6 +32,7 @@
   <name xml:lang="x-test">xxKMahjonggxx</name>
   <name xml:lang="zh-CN">KMahjongg</name>
   <name xml:lang="zh-TW">KMahjongg</name>
+  <summary>Mahjong Solitaire</summary>
   <description>
     <p>
       KMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).
@@ -65,7 +66,7 @@
   </description>
   <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
-  <url type="help">http://docs.kde.org/stable/en/kdegames/kmahjongg/index.html</url>
+  <url type="help">https://docs.kde.org/?application=kmahjongg&amp;branch=stable</url>
   <screenshots>
     <screenshot type="default">
       <image>http://kde.org/images/screenshots/kmahjongg.png</image>
