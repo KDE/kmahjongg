@@ -262,11 +262,11 @@ public slots:
 protected:
     /**
      * Override from QGraphicsView. */
-    virtual void resizeEvent(QResizeEvent * event);
+    void resizeEvent(QResizeEvent * event) Q_DECL_OVERRIDE;
 
     /**
      * Override from QGraphicsView. */
-    virtual void mousePressEvent(QMouseEvent * mouseEvent);
+    void mousePressEvent(QMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
 
 signals:
     /**

@@ -65,8 +65,8 @@ protected slots:
     void slotModeChanged(QAction *);
 
 protected:
-    void resizeEvent(QResizeEvent * event);
-    void paintEvent(QPaintEvent * pa);
+    void resizeEvent(QResizeEvent * event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent * pa) Q_DECL_OVERRIDE;
     void setupToolbar();
     void drawBackground(QPixmap * to) const;
 
@@ -83,7 +83,7 @@ protected:
 
     /**
      * Override the closeEvent(...) method of qdialog. */
-    void closeEvent(QCloseEvent * e);
+    void closeEvent(QCloseEvent * e) Q_DECL_OVERRIDE;
 
     /**
      * Update the tile size. */

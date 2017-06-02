@@ -100,16 +100,16 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent);
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent);
+    void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
 
     /**
      * Override from QGraphicsScene.
      * Mouse wheel rotates view. */
-    void wheelEvent(QGraphicsSceneWheelEvent * mouseEvent);
+    void wheelEvent(QGraphicsSceneWheelEvent * mouseEvent) Q_DECL_OVERRIDE;
 
     /**
      * Test if the item is selectable or not.

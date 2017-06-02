@@ -60,8 +60,8 @@ public slots:
 protected:
     void setupKAction();
     void setupStatusBar();
-    void changeEvent(QEvent * event);
-    void closeEvent(QCloseEvent * event);
+    void changeEvent(QEvent * event) Q_DECL_OVERRIDE;
+    void closeEvent(QCloseEvent * event) Q_DECL_OVERRIDE;
 
 private slots:
     void showSettings();

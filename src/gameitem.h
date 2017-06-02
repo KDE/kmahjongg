@@ -104,12 +104,12 @@ public:
 
     /**
      * Overrides the paint method of QGraphicsItem. */
-    virtual void paint(QPainter * painter, const QStyleOptionGraphicsItem * option,
-                       QWidget * widget);
+    void paint(QPainter * painter, const QStyleOptionGraphicsItem * option,
+                       QWidget * widget) Q_DECL_OVERRIDE;
 
     /**
      * Overrides the boundingRect method of QGraphicsItem. */
-    virtual QRectF boundingRect() const;
+    QRectF boundingRect() const Q_DECL_OVERRIDE;
 
     /**
      * Returns the rect of the item.

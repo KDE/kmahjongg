@@ -52,10 +52,10 @@ signals:
     void mouseMoved(QMouseEvent * e);
 
 protected:
-    void mousePressEvent(QMouseEvent * e);
-    void mouseMoveEvent(QMouseEvent * e);
-    void resizeEvent(QResizeEvent * e);
-    void paintEvent(QPaintEvent * pa);
+    void mousePressEvent(QMouseEvent * e) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent * e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent * e) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent * pa) Q_DECL_OVERRIDE;
 
 private:
     int m_rx;
