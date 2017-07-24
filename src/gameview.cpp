@@ -121,7 +121,7 @@ void GameView::setGameNumber(long gameNumber)
 bool GameView::undo()
 {
     // Clear user selections.
-    scene()->clearSelection();
+    clearSelectedTile();
 
     if (m_gameData->m_tileNum < m_gameData->m_maxTileNum) {
         m_gameData->clearRemovedTilePair(m_gameData->MoveListData(m_gameData->m_tileNum + 1),
