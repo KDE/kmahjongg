@@ -155,6 +155,14 @@ bool GameView::redo()
 
         --m_gameData->m_allowRedo;
 
+        // Test whether the game is over or not.
+        if (m_gameData->m_tileNum == 0) {
+            emit gameOver(m_gameData->m_maxTileNum, m_cheatsUsed);
+        } else {
+            // The game is not over, so test if there are any valid moves.
+            validMovesAvailable();
+        }
+
         return true;
     }
     return false;

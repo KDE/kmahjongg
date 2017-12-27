@@ -238,6 +238,7 @@ void KMahjongg::undo()
         m_gameTimer->resume();
     }
     m_gameView->undo();
+    updateState(GameState::Gameplay);
     updateUndoAndRedoStates();
 }
 
