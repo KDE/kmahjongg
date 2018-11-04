@@ -104,6 +104,7 @@
   <url type="help">https://docs.kde.org/?application=kmahjongg&amp;branch=stable</url>
   <screenshots>
     <screenshot type="default">
+      <caption>Playing KMahjongg</caption>
       <image>http://kde.org/images/screenshots/kmahjongg.png</image>
     </screenshot>
   </screenshots>
