@@ -46,15 +46,17 @@ public:
     /**
      * Constructor
      *
+     * @param gameScene The related GameScene object.
+     * @param gameData The related GameData object.
      * @param parent The parent widget.
-     * @param gameScene The related GameScene object. */
+     */
     GameView(GameScene * gameScene, GameData * gameData, QWidget * parent = 0);
     ~GameView();
 
     /**
      * Items where added to the scene and should now be layouted.
      *
-     * @param gameItem The items of which the positions should be updated. */
+     * @param gameItems The items of which the positions should be updated. */
     void updateItemsPosition(QList<GameItem *> gameItems);
 
     /**
