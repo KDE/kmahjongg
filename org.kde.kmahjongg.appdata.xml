@@ -102,6 +102,7 @@
   <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
   <url type="help">https://docs.kde.org/?application=kmahjongg&amp;branch=stable</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kmahjongg&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
       <caption>Playing KMahjongg</caption>
