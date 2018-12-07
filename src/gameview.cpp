@@ -89,6 +89,8 @@ GameView::~GameView()
     delete m_demoAnimation;
     delete m_moveListAnimation;
     delete m_background;
+    delete m_backgroundPath;
+    delete m_tilesetPath;
     delete m_tiles;
 }
 

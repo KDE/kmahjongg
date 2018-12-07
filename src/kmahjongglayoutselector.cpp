@@ -42,11 +42,16 @@ KMahjonggLayoutSelector::KMahjonggLayoutSelector(QWidget * parent, KConfigSkelet
     , m_gameData(nullptr)
 {
     setupUi(this);
-    m_gameScene = new GameScene();
+    m_gameScene = new GameScene(this);
     m_gameView = new GameView(m_gameScene, nullptr, layoutPreview);
     m_gameView->resize(layoutPreview->size());
     m_gameView->setInteractive(false);
     setupData(aconfig);
+}
+
+KMahjonggLayoutSelector::~KMahjonggLayoutSelector()
+{
+    qDeleteAll(layoutMap);
 }
 
 void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
