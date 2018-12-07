@@ -39,6 +39,7 @@ class KMahjonggLayoutSelector : public QWidget, public Ui::KMahjonggLayoutSelect
     Q_OBJECT
 public:
     explicit KMahjonggLayoutSelector(QWidget * parent, KConfigSkeleton * config);
+    ~KMahjonggLayoutSelector();
 
 public slots:
     void layoutChanged();
