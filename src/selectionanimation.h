@@ -32,7 +32,7 @@ class SelectionAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit SelectionAnimation(QObject * parent = 0);
+    explicit SelectionAnimation(QObject * parent = nullptr);
     ~SelectionAnimation();
 
     /**

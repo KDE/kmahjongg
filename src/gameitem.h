@@ -37,7 +37,7 @@ public:
      * @param selected Should the item be selected
      * @param item The parent item */
     explicit GameItem(bool selected, QGraphicsObject * item = 0);
-    ~GameItem();
+    ~GameItem() override;
 
     /**
      * Get the actual angle.
@@ -105,11 +105,11 @@ public:
     /**
      * Overrides the paint method of QGraphicsItem. */
     void paint(QPainter * painter, const QStyleOptionGraphicsItem * option,
-                       QWidget * widget) Q_DECL_OVERRIDE;
+                       QWidget * widget) override;
 
     /**
      * Overrides the boundingRect method of QGraphicsItem. */
-    QRectF boundingRect() const Q_DECL_OVERRIDE;
+    QRectF boundingRect() const override;
 
     /**
      * Returns the rect of the item.

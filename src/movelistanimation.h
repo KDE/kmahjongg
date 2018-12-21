@@ -36,7 +36,7 @@ class MoveListAnimation : public QTimer
     Q_OBJECT
 
 public:
-    explicit MoveListAnimation(QObject * parent = 0);
+    explicit MoveListAnimation(QObject * parent = nullptr);
     ~MoveListAnimation();
 
     /**

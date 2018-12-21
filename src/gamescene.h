@@ -41,8 +41,8 @@ class GameScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    explicit GameScene(QObject * parent = 0);
-    ~GameScene();
+    explicit GameScene(QObject * parent = nullptr);
+    ~GameScene() override;
 
     /**
      * Return the GameItem on the given grid position.
@@ -100,16 +100,16 @@ public:
 
     /**
      * Override from QGraphicsScene. */
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent) override;
 
     /**
      * Override from QGraphicsScene. */
-    void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
+    void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent) override;
 
     /**
      * Override from QGraphicsScene.
      * Mouse wheel rotates view. */
-    void wheelEvent(QGraphicsSceneWheelEvent * mouseEvent) Q_DECL_OVERRIDE;
+    void wheelEvent(QGraphicsSceneWheelEvent * mouseEvent) override;
 
     /**
      * Test if the item is selectable or not.

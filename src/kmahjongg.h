@@ -37,8 +37,8 @@ class KMahjongg : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit KMahjongg(QWidget * parent = 0);
-    ~KMahjongg();
+    explicit KMahjongg(QWidget * parent = nullptr);
+    ~KMahjongg() override;
 
 public slots:
     void startNewGame(int num = -1);
@@ -60,8 +60,8 @@ public slots:
 protected:
     void setupKAction();
     void setupStatusBar();
-    void changeEvent(QEvent * event) Q_DECL_OVERRIDE;
-    void closeEvent(QCloseEvent * event) Q_DECL_OVERRIDE;
+    void changeEvent(QEvent * event) override;
+    void closeEvent(QCloseEvent * event) override;
 
 private slots:
     void showSettings();

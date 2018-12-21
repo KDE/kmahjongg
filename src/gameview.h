@@ -50,8 +50,8 @@ public:
      * @param gameData The related GameData object.
      * @param parent The parent widget.
      */
-    GameView(GameScene * gameScene, GameData * gameData, QWidget * parent = 0);
-    ~GameView();
+    GameView(GameScene * gameScene, GameData * gameData, QWidget * parent = nullptr);
+    ~GameView() override;
 
     /**
      * Items where added to the scene and should now be layouted.
@@ -264,11 +264,11 @@ public slots:
 protected:
     /**
      * Override from QGraphicsView. */
-    void resizeEvent(QResizeEvent * event) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent * event) override;
 
     /**
      * Override from QGraphicsView. */
-    void mousePressEvent(QMouseEvent * mouseEvent) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent * mouseEvent) override;
 
 signals:
     /**

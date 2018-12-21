@@ -38,8 +38,8 @@ class FrameImage : public QWidget
     Q_OBJECT
 
 public:
-    FrameImage(QWidget * parent, const QSize & initialImageSize);
-    ~FrameImage();
+    explicit FrameImage(QWidget * parent, const QSize & initialImageSize);
+    ~FrameImage() override;
 
     QPixmap * getPreviewPixmap()
     {
@@ -52,10 +52,10 @@ signals:
     void mouseMoved(QMouseEvent * e);
 
 protected:
-    void mousePressEvent(QMouseEvent * e) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent * e) Q_DECL_OVERRIDE;
-    void resizeEvent(QResizeEvent * e) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent * pa) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent * e) override;
+    void mouseMoveEvent(QMouseEvent * e) override;
+    void resizeEvent(QResizeEvent * e) override;
+    void paintEvent(QPaintEvent * pa) override;
 
 private:
     int m_rx;

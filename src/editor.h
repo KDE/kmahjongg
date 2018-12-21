@@ -44,8 +44,8 @@ class Editor : public QDialog
     Q_OBJECT
 
 public:
-    explicit Editor(QWidget * parent = 0);
-    virtual ~Editor();
+    explicit Editor(QWidget * parent = nullptr);
+    ~Editor() override;
 
 public slots:
     /**
@@ -65,8 +65,8 @@ protected slots:
     void slotModeChanged(QAction *);
 
 protected:
-    void resizeEvent(QResizeEvent * event) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent * pa) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent * event) override;
+    void paintEvent(QPaintEvent * pa) override;
     void setupToolbar();
     void drawBackground(QPixmap * to) const;
 
@@ -83,7 +83,7 @@ protected:
 
     /**
      * Override the closeEvent(...) method of qdialog. */
-    void closeEvent(QCloseEvent * e) Q_DECL_OVERRIDE;
+    void closeEvent(QCloseEvent * e) override;
 
     /**
      * Update the tile size. */
