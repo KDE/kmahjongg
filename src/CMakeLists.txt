@@ -18,6 +18,8 @@ set(kmahjongg_SRCS
 
 ki18n_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui)
 
+ecm_qt_declare_logging_category(kmahjongg_SRCS HEADER kmahjongg_debug.h IDENTIFIER KMAHJONGG_LOG CATEGORY_NAME log_kmahjongg)
+
 kconfig_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc)
 
 add_executable(kmahjongg ${kmahjongg_SRCS})
