@@ -57,7 +57,7 @@ public:
      * Items where added to the scene and should now be layouted.
      *
      * @param gameItems The items of which the positions should be updated. */
-    void updateItemsPosition(QList<GameItem *> gameItems);
+    void updateItemsPosition(const QList<GameItem *> &gameItems);
 
     /**
      * Updates the whole widget.
@@ -351,7 +351,7 @@ private:
      * Updates the images of the items.
      *
      * @param gameItem The items of which the images should be updated. */
-    void updateItemsImages(QList<GameItem *> gameItems);
+    void updateItemsImages(const QList<GameItem *> &gameItems);
 
     /**
      * Updates the order of the items. */

@@ -600,7 +600,7 @@ void GameView::addItemAndUpdate(POSITION & stItemPos)
     addItem(stItemPos, true, true, true);
 }
 
-void GameView::updateItemsPosition(QList<GameItem *> gameItems)
+void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
 {
     // These factor are needed for the different angles. So we simply can
     // calculate to move the items to the left or right and up or down.
@@ -902,7 +902,7 @@ void GameView::resizeTileset(const QSize & size)
     updateItemsPosition(items());
 }
 
-void GameView::updateItemsImages(QList<GameItem *> gameItems)
+void GameView::updateItemsImages(const QList<GameItem *> &gameItems)
 {
     for (int i = 0; i < gameItems.size(); ++i) {
         GameItem * gameItem = gameItems.at(i);
