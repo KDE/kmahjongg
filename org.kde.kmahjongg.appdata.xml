@@ -71,6 +71,7 @@
     </p>
     <p xml:lang="ca">El KMahjongg és un joc de tauler divertit creat a partir del famós jocs oriental Mahjong (del xinès 麻將).</p>
     <p xml:lang="ca-valencia">El KMahjongg és un joc de tauler divertit creat a partir del famós jocs oriental Mahjong (del xinés 麻將).</p>
+    <p xml:lang="cs">KMahjongg je zábavná desková hra vytvořená podle proslulé orientální hry Mahjong (z čínského 麻將).</p>
     <p xml:lang="de">KMahjongg ist ein Brettspiel, das an das berühmte orientalische Spiel Mahjong (Chinesisch: 麻將) angelehnt ist.</p>
     <p xml:lang="el">Το KMahjongg είναι ένα ευχάριστο επιτραπέζιο παιχνίδι με βάση το περίφημο ασιατικό Mahjong (στα Κινεζικά 麻將).</p>
     <p xml:lang="en-GB">KMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).</p>
@@ -109,6 +110,7 @@
       <caption>Playing KMahjongg</caption>
       <caption xml:lang="ca">Jugant al KMahjongg</caption>
       <caption xml:lang="ca-valencia">Jugant al KMahjongg</caption>
+      <caption xml:lang="cs">Hraní KMahjongg</caption>
       <caption xml:lang="de">KMahjongg spielen</caption>
       <caption xml:lang="en-GB">Playing KMahjongg</caption>
       <caption xml:lang="es">Jugando KMahjongg</caption>
