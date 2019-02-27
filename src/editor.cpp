@@ -224,7 +224,7 @@ void Editor::setupToolbar()
     // status in the toolbar for now (ick)
     QWidget * hbox = new QWidget(m_topToolbar);
     QHBoxLayout * layout = new QHBoxLayout(hbox);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     layout->addStretch();
 
