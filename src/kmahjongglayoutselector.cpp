@@ -136,4 +136,5 @@ void KMahjonggLayoutSelector::layoutChanged()
 void KMahjonggLayoutSelector::useRandomLayoutToggled(bool active)
 {
     widgetNoRandom->setEnabled(!active);
+    m_gameView->setVisible(!active);
 }
