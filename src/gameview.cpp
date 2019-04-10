@@ -48,7 +48,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     , m_gameGenerated(false)
     , m_gameData(gameData)
     , m_selectedItem(nullptr)
-    , m_gameBackground(nullptr)
+    , m_gameBackground(new GameBackground())
     , m_tilesetPath(new QString())
     , m_backgroundPath(new QString())
     , m_helpAnimation(new SelectionAnimation(this))
@@ -59,8 +59,12 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
+<<<<<<< HEAD
     setStyleSheet(QStringLiteral("QGraphicsView { border-style: none; }"));
     setAutoFillBackground(true);
+=======
+    setStyleSheet("QGraphicsView { border-style: none; }");
+>>>>>>> Change background painting to a own GameBackround - QGraphicsItem
 
     // Read in some settings.
     m_angle = static_cast<TileViewAngle>(Prefs::angle());
@@ -74,6 +78,9 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 
     // Init MoveListAnimation
     m_moveListAnimation->setAnimationSpeed(ANIMATION_SPEED);
+
+    // Add the fix background item to the scene
+    scene()->setBackgroundItem(m_gameBackground);
 
     m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 
@@ -91,6 +98,7 @@ GameView::~GameView()
     delete m_helpAnimation;
     delete m_demoAnimation;
     delete m_moveListAnimation;
+    delete m_gameBackground;
     delete m_background;
     delete m_backgroundPath;
     delete m_tilesetPath;
@@ -232,7 +240,7 @@ void GameView::createNewGame(long gameNumber)
     m_gameGenerated = false;
 
     // Hide all generated tiles.
-    foreach (GameItem * item, items()) {
+    foreach (GameItem * item, getGameItems()) {
         item->hide();
     }
 
@@ -468,11 +476,11 @@ bool GameView::validMovesAvailable(bool silent)
 void GameView::pause(bool isPaused)
 {
     if (isPaused) {
-        foreach (GameItem * item, items()) {
+        foreach (GameItem * item, getGameItems()) {
             item->hide();
         }
     } else {
-        foreach (GameItem * item, items()) {
+        foreach (GameItem * item, getGameItems()) {
             item->show();
         }
     }
@@ -499,7 +507,7 @@ void GameView::shuffle()
     m_gameData->shuffle();
 
     // Update the item images.
-    updateItemsImages(items());
+    updateItemsImages(getGameItems());
 
     // Cause of using the shuffle function... increase the cheat used variable.
     m_cheatsUsed += 15;
@@ -530,8 +538,8 @@ void GameView::addItemsFromBoardLayout()
     // The signal is reconnected at the end of the function.
     disconnect(m_selectionChangedConnect);
 
-    // Remove all existing items.
-    scene()->clear();
+    // Remove all GameItem objects
+    scene()->clearGameItems();
 
     // Create the items and add them to the scene.
     for (int iZ = 0; iZ < m_gameData->m_depth; ++iZ) {
@@ -553,7 +561,7 @@ void GameView::addItemsFromBoardLayout()
         }
     }
 
-    updateItemsImages(items());
+    updateItemsImages(getGameItems());
     updateItemsOrder();
 
     // Reconnect our selectionChanged() slot.
@@ -706,7 +714,7 @@ void GameView::updateItemsOrder()
         }
     }
 
-    updateItemsPosition(items());
+    updateItemsPosition(getGameItems());
 }
 
 void GameView::orderLine(GameItem * startItem, int xStart, int xEnd, int xCounter, int y, int yCounter, int z, int & zCount)
@@ -789,7 +797,7 @@ bool GameView::setBackgroundPath(QString const & backgroundPath)
 void GameView::setAngle(TileViewAngle angle)
 {
     m_angle = angle;
-    updateItemsImages(items());
+    updateItemsImages(getGameItems());
     updateItemsOrder();
 }
 
@@ -815,7 +823,7 @@ void GameView::angleSwitchCCW()
             break;
     }
 
-    updateItemsImages(items());
+    updateItemsImages(getGameItems());
     updateItemsOrder();
 }
 
@@ -836,17 +844,20 @@ void GameView::angleSwitchCW()
             break;
     }
 
-    updateItemsImages(items());
+    updateItemsImages(getGameItems());
     updateItemsOrder();
 }
 
-QList<GameItem *> GameView::items() const
+QList<GameItem *> GameView::getGameItems() const
 {
-    QList<QGraphicsItem *> originalList = QGraphicsView::items();
+    QList<QGraphicsItem *> items = QGraphicsView::items();
     QList<GameItem *> tmpList;
 
-    for (int i = 0; i < originalList.size(); ++i) {
-        tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
+    for (int i = 0; i < items.size(); ++i) {
+        GameItem *gameItem = dynamic_cast<GameItem *>(items.at(i));
+        if (nullptr != gameItem) {
+            tmpList.append(gameItem);
+        }
     }
 
     return tmpList;
@@ -895,14 +906,14 @@ void GameView::resizeTileset(const QSize & size)
 
     QSize newtiles = m_tiles->preferredTileSize(size, m_gameData->m_width / 2, m_gameData->m_height / 2);
 
-    foreach (GameItem * item, items()) {
+    foreach (GameItem * item, getGameItems()) {
         item->prepareForGeometryChange();
     }
 
     m_tiles->reloadTileset(newtiles);
 
-    updateItemsImages(items());
-    updateItemsPosition(items());
+    updateItemsImages(getGameItems());
+    updateItemsPosition(getGameItems());
 }
 
 void GameView::updateItemsImages(const QList<GameItem *> &gameItems)
@@ -941,11 +952,8 @@ void GameView::setStatusText(QString const & text)
 
 void GameView::updateBackground()
 {
-    // qCDebug(KMAHJONGG_LOG) << "Update the background";
-    // TODO - The background should be a scene-item? See updateItemsPosition().
-
-    QBrush brush(m_background->getBackground());
-    setBackgroundBrush(brush);
+    m_gameBackground->setBackground(m_background->getBackground());
+    m_gameBackground->setSize(width(), height());
 }
 
 void GameView::setGameData(GameData * gameData)

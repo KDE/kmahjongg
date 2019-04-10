@@ -68,7 +68,7 @@ public:
 
     /**
      * Override from QGraphcisView. */
-    virtual QList<GameItem *> items() const;
+    virtual QList<GameItem *> getGameItems() const;
 
     /**
      * Override from QGraphicsView. */

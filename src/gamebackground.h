@@ -45,13 +45,7 @@ public:
      * Set the background
      * @param facePix The pixmap of the face
      */
-    void setBackground(QPixmap *background);
-
-    /**
-     * Get the current background
-     * @return Background image as pixmap
-     */
-    QPixmap getBackground() const;
+    void setBackground(QBrush &background);
 
     /**
      * Overrides the paint method of QGraphicsItem
@@ -59,6 +53,13 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
             QWidget *widget) override;
 
+    /**
+     * Set size of element
+     * @param width Width of element in pixels
+     * @param height Height of element in pixels
+     */
+    void setSize(qreal width, qreal height);
+    
     /**
      * Overrides the boundingRect method of QGraphicsItem
      */
@@ -76,7 +77,10 @@ public:
     void prepareForGeometryChange();
 
 private:
-    QPixmap *m_background;
+    QBrush *m_background;
+
+    qreal m_width;
+    qreal m_height;
 };
 
 #endif // GAMEBACKGROUND_H

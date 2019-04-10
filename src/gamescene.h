@@ -31,6 +31,7 @@ class GameItem;
 class GameData;
 class GameWidget;
 class KMahjonggLayout;
+class GameBackground;
 
 /**
  * Holds and manages all GameItems.
@@ -77,6 +78,11 @@ public:
     void clear();
 
     /**
+     * Clear only the GameItem objects
+     */
+    void clearGameItems();
+
+    /**
      * Override from QGraphicsScene. */
     void addItem(GameItem * gameItem);
 
@@ -118,6 +124,12 @@ public:
      * @return True if selectable else false. */
     bool isSelectable(const GameItem * const pameItem) const;
 
+    /**
+     * Set a background
+     * @param gameBackground The background object
+     */
+    void setBackgroundItem(GameBackground *gameBackground);
+
 signals:
     void rotateCW();
     void rotateCCW();
@@ -137,6 +149,8 @@ private:
     GameItem * m_pGameItemsArray[BOARD_WIDTH][BOARD_HEIGHT][BOARD_DEPTH];
     GameItem * m_pFirstSelectedItem;
     GameItem * m_pSecondSelectedItem;
+
+    GameBackground *m_gameBackground;
 };
 
 #endif // GAMESCENE_H

@@ -24,17 +24,36 @@
 #include "gameitem.h"
 #include "gameview.h"
 #include "kmahjongglayout.h"
+#include "gamebackground.h"
+
 
 GameScene::GameScene(QObject * parent)
     : QGraphicsScene(parent)
     , m_pFirstSelectedItem(nullptr)
     , m_pSecondSelectedItem(nullptr)
+    , m_gameBackground(nullptr)
 {
     initializeGameItemsArray();
 }
 
 GameScene::~GameScene()
 {
+}
+
+void GameScene::clearGameItems()
+{
+    // Remove all GameItem objects and DON'T remove GameBackground object.
+    QList<QGraphicsItem*> items = QGraphicsScene::items();
+    for (int i = 0; i < items.size(); i++) {
+        GameItem *gameItem = dynamic_cast<GameItem*>(items.at(i));
+        if (nullptr != gameItem) {
+            QGraphicsScene::removeItem(gameItem);
+        }
+    }
+    initializeGameItemsArray();
+
+    m_pFirstSelectedItem = nullptr;
+    m_pSecondSelectedItem = nullptr;
 }
 
 void GameScene::clear()
@@ -56,6 +75,17 @@ void GameScene::initializeGameItemsArray()
             }
         }
     }
+}
+
+void GameScene::setBackgroundItem(GameBackground *gameBackground)
+{
+    // If a background exist, delete it from scene
+    if (nullptr != m_gameBackground) {
+        QGraphicsScene::removeItem(m_gameBackground);
+    }
+
+    m_gameBackground = gameBackground;
+    QGraphicsScene::addItem(gameBackground);
 }
 
 void GameScene::addItem(GameItem * gameItem)

@@ -26,13 +26,21 @@
 
 GameBackground::GameBackground(QGraphicsObject * item)
     : QGraphicsObject(item)
-    , m_background(new QPixmap())
+    , m_background(new QBrush())
+    , m_width(100)
+    , m_height(100)
 {
 }
 
 GameBackground::~GameBackground()
 {
     delete m_background;
+}
+
+void GameBackground::setSize(qreal width, qreal height)
+{
+    m_width = width;
+    m_height = height;
 }
 
 void GameBackground::prepareForGeometryChange()
@@ -43,17 +51,18 @@ void GameBackground::prepareForGeometryChange()
 void GameBackground::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     QWidget *)
 {
-    painter->drawPixmap(pos(), *m_background);
+    //painter->setBackground(*m_background);
+    painter->fillRect(QRectF(0, 0, m_width, m_height), *m_background);
 }
 
-void GameBackground::setBackground(QPixmap *background)
+void GameBackground::setBackground(QBrush &background)
 {
-    *m_background = *background;
+    *m_background = background;
 }
 
 QRectF GameBackground::boundingRect() const
 {
-    return QRectF(pos(), m_background->size());
+    return QRectF(pos(), QSizeF(m_width, m_height));
 }
 
 QRectF GameBackground::rect() const
