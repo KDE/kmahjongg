@@ -9,6 +9,7 @@ set(kmahjongg_SRCS
    editor.cpp
    frameimage.cpp
    gameitem.cpp
+   gamebackground.cpp
    gameview.cpp
    gamescene.cpp
    selectionanimation.cpp

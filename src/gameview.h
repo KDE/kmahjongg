@@ -27,6 +27,7 @@ static const int ANIMATION_SPEED = 200;
 class GameScene;
 class GameData;
 class GameItem;
+class GameBackground;
 class SelectionAnimation;
 class MoveListAnimation;
 class DemoAnimation;
@@ -400,6 +401,7 @@ private:
 
     GameData * m_gameData;
     GameItem * m_selectedItem;
+    GameBackground *m_gameBackground;
 
     QString * m_tilesetPath;
     QString * m_backgroundPath;

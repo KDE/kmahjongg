@@ -36,6 +36,8 @@
 #include "movelistanimation.h"
 #include "prefs.h"
 #include "selectionanimation.h"
+#include "gamebackground.h"
+
 
 GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     : QGraphicsView(gameScene, parent)
@@ -46,6 +48,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     , m_gameGenerated(false)
     , m_gameData(gameData)
     , m_selectedItem(nullptr)
+    , m_gameBackground(nullptr)
     , m_tilesetPath(new QString())
     , m_backgroundPath(new QString())
     , m_helpAnimation(new SelectionAnimation(this))
