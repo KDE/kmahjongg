@@ -232,15 +232,21 @@ void GameScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
 void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     // N.B. Event occurs when there is a click OR double-click with ANY button.
-    GameItem * gameItem = dynamic_cast<GameItem *>(itemAt(mouseEvent->scenePos().x(),
-                                                          mouseEvent->scenePos().y(), QTransform()));
+    GameItem * gameItem = dynamic_cast<GameItem *>(
+        itemAt(mouseEvent->scenePos().x(),
+        mouseEvent->scenePos().y(), QTransform())
+    );
 
     // An item was clicked.
     if (gameItem != nullptr) {
-        // If we click on a shadow of the actual item, we have to correct the clicking position, in
-        // order to simulate a transparent shadow.
+        // If we click on a shadow of the actual item, we have to correct the 
+        // clicking position, in order to simulate a transparent shadow.
         if (gameItem->isShadow(mouseEvent->scenePos() - gameItem->pos())) {
-            gameItem = dynamic_cast<GameItem *>(itemAt(mouseEvent->scenePos().x() + gameItem->getShadowDeltaX(), mouseEvent->scenePos().y() + gameItem->getShadowDeltaY(), QTransform()));
+            gameItem = dynamic_cast<GameItem *>(
+                itemAt(mouseEvent->scenePos().x() + gameItem->getShadowDeltaX(),
+                mouseEvent->scenePos().y() + gameItem->getShadowDeltaY(), 
+                QTransform())
+            );
         }
     }
 

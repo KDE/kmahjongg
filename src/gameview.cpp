@@ -613,24 +613,36 @@ void GameView::addItemAndUpdate(POSITION & stItemPos)
 
 void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
 {
+    // TODO: Change!!!
+    // Make decision of painting the removed tiles.
+
     // These factor are needed for the different angles. So we simply can
     // calculate to move the items to the left or right and up or down.
     int angleXFactor = (m_angle == NE || m_angle == SE) ? -1 : 1;
     int angleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
 
     // Get half width and height of tile faces: minimum spacing = 1 pixel.
-    qreal tileWidth = m_tiles->qWidth() + 0.5;
-    qreal tileHeight = m_tiles->qHeight() + 0.5;
+    // NOTE - qWidth is devided by 2 in kmahjonggtileset.cpp. The reason is 
+    //        unknown for now. Please review this later.
+    qreal tileFaceWidth = m_tiles->qWidth() * 2 + 1;
+    qreal tileFaceHeight = m_tiles->qHeight() * 2 + 1;
 
     // Get half height and width of tile-layout: ((n - 1) faces + full tile)/2.
-    qreal tilesWidth = tileWidth * (m_gameData->m_width - 2) / 2
-        + m_tiles->width() / 2;
-    qreal tilesHeight = tileHeight * (m_gameData->m_height - 2) / 2
-        + m_tiles->height() / 2;
+    
+    // Because the positions of the tiles can be half-positioned, the width and
+    // height in GameData is two times higher. To get the maximum number of
+    // tiles in a row or column, the GameData-width and -height have to be
+    // devided by two.
+    qreal numTilesX = m_gameData->m_width / 2;
+    qreal numTilesY = m_gameData->m_height / 2;
+
+    // Calculate the total width and height of board layout with tiles.
+    qreal tilesWidth = tileFaceWidth * numTilesX + m_tiles->levelOffsetX();
+    qreal tilesHeight = tileFaceHeight * numTilesY + m_tiles->levelOffsetY();
 
     // Get the top-left offset required to center the items in the view.
-    qreal xFrame = (width() / 2 - tilesWidth) / 2;
-    qreal yFrame = (height() / 2 - tilesHeight) / 2;
+    qreal xFrame = (width() - tilesWidth) / 2;
+    qreal yFrame = (height() - tilesHeight) / 2;
 
     // TODO - The last /2 makes it HALF what it should be, but it gets doubled
     //        somehow before the view is painted. Why? Apparently it is because
@@ -638,8 +650,11 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     //        being an item in the scene and filling the scene completely. So
     //        the whole scene is just the rectangle that contains the tiles.
     // NOTE - scene()->itemsBoundingRect() returns the correct doubled offset.
-
-    for (int i = 0; i < gameItems.size(); ++i) {
+    // NOTE - insert game background object but problem persist
+    // SOLVED - Problem was in coordinate system in QGraphicsItem/GameItem.
+    //          Painting positions are relative, but were defined absolute to
+    //          scene coordinate system. Same with boundingRect().
+    for (int i = 0; i < gameItems.size(); i++) {
         GameItem * gameItem = gameItems.at(i);
 
         // Get rasterized positions of the item.
@@ -650,10 +665,10 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
 
         // Set the position of the item on the scene.
         gameItem->setPos(
-            xFrame + tileWidth * x / 2
-                + z * angleXFactor * (m_tiles->levelOffsetX() / 2),
-            yFrame + tileHeight * y / 2
-                + z * angleYFactor * (m_tiles->levelOffsetY() / 2));
+            xFrame + tileFaceWidth / 2 * x
+                + z * angleXFactor * (m_tiles->levelOffsetX()),
+            yFrame + tileFaceHeight / 2 * y
+                + z * angleYFactor * (m_tiles->levelOffsetY()));
     }
 }
 

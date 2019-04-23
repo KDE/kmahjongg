@@ -71,13 +71,11 @@ void GameItem::setAngle(TileViewAngle angle, QPixmap * selPix, QPixmap * unselPi
 
 bool GameItem::isShadow(QPointF const position) const
 {
-    // Get the realated point.
-    QPointF mappedPosition = mapFromParent(position);
+    int newPosX = position.x() + getShadowDeltaX();
+    int newPosY = position.y() + getShadowDeltaY();
 
-    int newPosX = mappedPosition.x() + getShadowDeltaX();
-    int newPosY = mappedPosition.y() + getShadowDeltaY();
-
-    if ((newPosX < 0 || newPosX > m_selPix->width()) || (newPosY < 0 || newPosY > m_selPix->height())) {
+    if ((newPosX < 0 || newPosX > m_selPix->width()) || 
+        (newPosY < 0 || newPosY > m_selPix->height())) {
         return true;
     }
 
@@ -123,11 +121,11 @@ void GameItem::updateFaceOffset()
 void GameItem::paint(QPainter * pPainter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if (isSelected()) {
-        pPainter->drawPixmap(pos(), *m_selPix);
-        pPainter->drawPixmap(pos() + m_faceOffset, *m_facePix);
+        pPainter->drawPixmap(QPointF(0.0, 0.0), *m_selPix);
+        pPainter->drawPixmap(QPointF(0.0, 0.0) + m_faceOffset, *m_facePix);
     } else {
-        pPainter->drawPixmap(pos(), *m_unselPix);
-        pPainter->drawPixmap(pos() + m_faceOffset, *m_facePix);
+        pPainter->drawPixmap(QPointF(0.0, 0.0), *m_unselPix);
+        pPainter->drawPixmap(QPointF(0.0, 0.0) + m_faceOffset, *m_facePix);
     }
 }
 
@@ -172,7 +170,7 @@ void GameItem::fadeIn()
 
 QRectF GameItem::boundingRect() const
 {
-    return QRectF(pos(), m_selPix->size());
+    return QRectF(QPointF(0.0, 0.0), m_selPix->size());
 }
 
 QRectF GameItem::rect() const
