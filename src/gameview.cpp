@@ -37,6 +37,7 @@
 #include "prefs.h"
 #include "selectionanimation.h"
 #include "gamebackground.h"
+#include "gameremovedtiles.h"
 
 
 GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
@@ -49,6 +50,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     , m_gameData(gameData)
     , m_selectedItem(nullptr)
     , m_gameBackground(new GameBackground())
+    , m_gameRemovedTiles(new GameRemovedTiles())
     , m_tilesetPath(new QString())
     , m_backgroundPath(new QString())
     , m_helpAnimation(new SelectionAnimation(this))
@@ -81,6 +83,9 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 
     // Add the fix background item to the scene
     scene()->setBackgroundItem(m_gameBackground);
+
+    // Add the fix removedtiles item to the scene
+    scene()->setRemovedTilesItem(m_gameRemovedTiles);
 
     m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
 

@@ -28,6 +28,7 @@ class GameScene;
 class GameData;
 class GameItem;
 class GameBackground;
+class GameRemovedTiles;
 class SelectionAnimation;
 class MoveListAnimation;
 class DemoAnimation;
@@ -401,7 +402,8 @@ private:
 
     GameData * m_gameData;
     GameItem * m_selectedItem;
-    GameBackground *m_gameBackground;
+    GameBackground * m_gameBackground;
+    GameRemovedTiles * m_gameRemovedTiles;
 
     QString * m_tilesetPath;
     QString * m_backgroundPath;

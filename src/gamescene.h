@@ -32,6 +32,7 @@ class GameData;
 class GameWidget;
 class KMahjonggLayout;
 class GameBackground;
+class GameRemovedTiles;
 
 /**
  * Holds and manages all GameItems.
@@ -128,7 +129,13 @@ public:
      * Set a background
      * @param gameBackground The background object
      */
-    void setBackgroundItem(GameBackground *gameBackground);
+    void setBackgroundItem(GameBackground * gameBackground);
+
+    /**
+     * Set a removedtiles item
+     * @param gameRemovedTiles The removedtiles object
+     */
+    void setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles);
 
 signals:
     void rotateCW();
@@ -150,7 +157,8 @@ private:
     GameItem * m_pFirstSelectedItem;
     GameItem * m_pSecondSelectedItem;
 
-    GameBackground *m_gameBackground;
+    GameBackground * m_gameBackground;
+    GameRemovedTiles * m_gameRemovedTiles;
 };
 
 #endif // GAMESCENE_H

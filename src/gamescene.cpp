@@ -25,6 +25,7 @@
 #include "gameview.h"
 #include "kmahjongglayout.h"
 #include "gamebackground.h"
+#include "gameremovedtiles.h"
 
 
 GameScene::GameScene(QObject * parent)
@@ -32,6 +33,7 @@ GameScene::GameScene(QObject * parent)
     , m_pFirstSelectedItem(nullptr)
     , m_pSecondSelectedItem(nullptr)
     , m_gameBackground(nullptr)
+    , m_gameRemovedTiles(nullptr)
 {
     initializeGameItemsArray();
 }
@@ -77,7 +79,18 @@ void GameScene::initializeGameItemsArray()
     }
 }
 
-void GameScene::setBackgroundItem(GameBackground *gameBackground)
+void GameScene::setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles)
+{
+    // If a removedtiles object already exist, delete it from scene
+    if (nullptr != m_gameRemovedTiles) {
+        QGraphicsScene::removeItem(m_gameRemovedTiles);
+    }
+
+    m_gameRemovedTiles = gameRemovedTiles;
+    QGraphicsScene::addItem(gameRemovedTiles);
+}
+
+void GameScene::setBackgroundItem(GameBackground * gameBackground)
 {
     // If a background exist, delete it from scene
     if (nullptr != m_gameBackground) {

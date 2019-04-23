@@ -10,6 +10,7 @@ set(kmahjongg_SRCS
    frameimage.cpp
    gameitem.cpp
    gamebackground.cpp
+   gameremovedtiles.cpp
    gameview.cpp
    gamescene.cpp
    selectionanimation.cpp
