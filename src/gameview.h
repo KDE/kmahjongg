@@ -399,6 +399,9 @@ private:
     bool m_gamePaused;
     bool m_match;
     bool m_gameGenerated;
+    bool m_showRemovedTiles;
+
+    qreal m_remTilesWidthFactor;
 
     GameData * m_gameData;
     GameItem * m_selectedItem;

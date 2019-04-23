@@ -47,6 +47,8 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     , m_gamePaused(false)
     , m_match(false)
     , m_gameGenerated(false)
+    , m_showRemovedTiles(true)
+    , m_remTilesWidthFactor(0.3)
     , m_gameData(gameData)
     , m_selectedItem(nullptr)
     , m_gameBackground(new GameBackground())
@@ -618,6 +620,12 @@ void GameView::addItemAndUpdate(POSITION & stItemPos)
 
 void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
 {
+    // The width and height need to be corrected, related to the removedtiles
+    // view and wether it is shown or not. For now the removed tiles field can
+    // only be placed to the right of the board.
+    qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor);
+    qreal boardHeight = height();
+
     // TODO: Change!!!
     // Make decision of painting the removed tiles.
 
@@ -646,8 +654,8 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     qreal tilesHeight = tileFaceHeight * numTilesY + m_tiles->levelOffsetY();
 
     // Get the top-left offset required to center the items in the view.
-    qreal xFrame = (width() - tilesWidth) / 2;
-    qreal yFrame = (height() - tilesHeight) / 2;
+    qreal xFrame = (boardWidth - tilesWidth) / 2;
+    qreal yFrame = (boardHeight - tilesHeight) / 2;
 
     // TODO - The last /2 makes it HALF what it should be, but it gets doubled
     //        somehow before the view is painted. Why? Apparently it is because
@@ -675,6 +683,12 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
             yFrame + tileFaceHeight / 2 * y
                 + z * angleYFactor * (m_tiles->levelOffsetY()));
     }
+
+    // Position the removedtiles object.
+    qreal removedTilesBorder = height() * 0.1 / 2;
+    m_gameRemovedTiles->setPos(
+        width() * (1 - m_remTilesWidthFactor), removedTilesBorder
+    );
 }
 
 void GameView::updateItemsOrder()
@@ -910,8 +924,22 @@ void GameView::resizeEvent(QResizeEvent * event)
         return;
     }
 
-    resizeTileset(event->size());
+    // The size need to be corrected, related to the removedtiles
+    // view and wether it is shown or not. For now the removed tiles field can
+    // only be placed to the right of the board.
+    QSize size(event->size());
+    resizeTileset(QSize(
+        size.width() * (1 - m_remTilesWidthFactor), size.height()
+    ));
 
+    // Update removed tiles
+    qreal removedTilesBorder = size.height() * 0.1 / 2;
+    m_gameRemovedTiles->setSize(
+        size.width() * m_remTilesWidthFactor - removedTilesBorder, 
+        size.height() * 0.9
+    );
+
+    // Update background
     m_background->sizeChanged(width(), height());
     updateBackground();
 
@@ -924,7 +952,9 @@ void GameView::resizeTileset(const QSize & size)
         return;
     }
 
-    QSize newtiles = m_tiles->preferredTileSize(size, m_gameData->m_width / 2, m_gameData->m_height / 2);
+    QSize newtiles = m_tiles->preferredTileSize(
+        size, m_gameData->m_width / 2, m_gameData->m_height / 2
+    );
 
     foreach (GameItem * item, getGameItems()) {
         item->prepareForGeometryChange();

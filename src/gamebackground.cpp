@@ -62,7 +62,7 @@ void GameBackground::setBackground(QBrush &background)
 
 QRectF GameBackground::boundingRect() const
 {
-    return QRectF(pos(), QSizeF(m_width, m_height));
+    return QRectF(QPointF(0.0, 0.0), QSizeF(m_width, m_height));
 }
 
 QRectF GameBackground::rect() const

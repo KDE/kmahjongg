@@ -49,9 +49,13 @@ void GameRemovedTiles::prepareForGeometryChange()
 void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     QWidget *)
 {
-    QBrush brush;
-    brush.setColor(Qt::black);
-    painter->fillRect(QRectF(0, 0, m_width, m_height), brush);
+    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setOpacity(0.5);
+    QPainterPath path;
+    path.addRoundedRect(QRectF(0, 0, m_width, m_height), 10, 10);
+    QPen pen(Qt::black, 10);
+    painter->setPen(pen);
+    painter->fillPath(path, Qt::black);
 }
 
 QRectF GameRemovedTiles::boundingRect() const
