@@ -25,8 +25,8 @@
 #include <QTextCodec>
 #include <QTextStream>
 
-const QString BoardLayout::layoutMagic1_0 = "kmahjongg-layout-v1.0";
-const QString BoardLayout::layoutMagic1_1 = "kmahjongg-layout-v1.1";
+const QString BoardLayout::layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
+const QString BoardLayout::layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
 
 BoardLayout::BoardLayout()
 {
@@ -72,17 +72,17 @@ bool BoardLayout::saveBoardLayout(const QString & where) const
         return false;
     }
 
-    tmp = QString("\nw%1").arg(m_width).toUtf8();
+    tmp = QStringLiteral("\nw%1").arg(m_width).toUtf8();
     if (f.write(tmp, tmp.length()) == -1) {
         return false;
     }
 
-    tmp = QString("\nh%1").arg(m_height).toUtf8();
+    tmp = QStringLiteral("\nh%1").arg(m_height).toUtf8();
     if (f.write(tmp, tmp.length()) == -1) {
         return false;
     }
 
-    tmp = QString("\nd%1").arg(m_depth).toUtf8();
+    tmp = QStringLiteral("\nd%1").arg(m_depth).toUtf8();
     if (f.write(tmp, tmp.length()) == -1) {
         return false;
     }

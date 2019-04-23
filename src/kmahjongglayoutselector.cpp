@@ -113,9 +113,9 @@ void KMahjonggLayoutSelector::layoutChanged()
     }
 
     kcfg_Layout->setText(selLayout->path());
-    layoutAuthor->setText(selLayout->authorProperty("Author"));
-    layoutContact->setText(selLayout->authorProperty("AuthorEmail"));
-    layoutDescription->setText(selLayout->authorProperty("Description"));
+    layoutAuthor->setText(selLayout->authorProperty(QStringLiteral("Author")));
+    layoutContact->setText(selLayout->authorProperty(QStringLiteral("AuthorEmail")));
+    layoutDescription->setText(selLayout->authorProperty(QStringLiteral("Description")));
 
     //If settings for tiles/background have been applied, update our preview
     if (m_gameView->getTilesetPath() != Prefs::tileSet()) {

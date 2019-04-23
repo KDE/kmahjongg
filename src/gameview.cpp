@@ -56,7 +56,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
-    setStyleSheet("QGraphicsView { border-style: none; }");
+    setStyleSheet(QStringLiteral("QGraphicsView { border-style: none; }"));
     setAutoFillBackground(true);
 
     // Read in some settings.

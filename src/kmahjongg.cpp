@@ -61,7 +61,7 @@
 #include "prefs.h"
 #include "ui_settings.h"
 
-const QString KMahjongg::gameMagic = "kmahjongg-gamedata";
+const QString KMahjongg::gameMagic = QStringLiteral("kmahjongg-gamedata");
 const int KMahjongg::gameDataVersion = 1;
 
 /**
@@ -362,7 +362,7 @@ void KMahjongg::pause()
 void KMahjongg::showHighscores()
 {
     KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    const QString layoutName = m_boardLayout->authorProperty("Name");
+    const QString layoutName = m_boardLayout->authorProperty(QStringLiteral("Name"));
     ksdialog.setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     ksdialog.exec();
 }
@@ -500,7 +500,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
     QPointer<KScoreDialog> ksdialog = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    const QString layoutName = m_boardLayout->authorProperty("Name");
+    const QString layoutName = m_boardLayout->authorProperty(QStringLiteral("Name"));
     ksdialog->setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
@@ -533,19 +533,19 @@ void KMahjongg::updateState(GameState state)
     // KXMLGUIClient::stateChanged() sets action-states def. by kmahjonggui.rc.
     switch (state) {
         case GameState::Demo:
-            stateChanged("demo_state");
+            stateChanged(QStringLiteral("demo_state"));
             break;
         case GameState::Paused:
-            stateChanged("paused_state");
+            stateChanged(QStringLiteral("paused_state"));
             break;
         case GameState::Finished:
-            stateChanged("finished_state");
+            stateChanged(QStringLiteral("finished_state"));
             break;
         case GameState::Stuck:
-            stateChanged("stuck_state");
+            stateChanged(QStringLiteral("stuck_state"));
             break;
         default:
-            stateChanged("gameplay_state");
+            stateChanged(QStringLiteral("gameplay_state"));
             updateUndoAndRedoStates();
             break;
     }
