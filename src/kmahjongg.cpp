@@ -303,6 +303,9 @@ void KMahjongg::loadSettings()
         qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the background " << Prefs::background() << " KMahjongg will continue with the default background.";
     }
 
+    // Set wether removed tiles should be shown.
+    m_gameView->showRemovedTiles(Prefs::removedTiles());
+
     // Maybe load a new layout and start a new game if the layout or random mode has changed.
     if (m_boardLayout->path() != Prefs::layout() || m_bLastRandomSetting != Prefs::randomLayout()) {
         // The boardlayout path will likely not be the same as the preference setting if

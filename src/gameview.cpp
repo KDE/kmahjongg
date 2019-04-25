@@ -73,6 +73,9 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     // Read in some settings.
     m_angle = static_cast<TileViewAngle>(Prefs::angle());
 
+    // Show removed tiles.
+    m_showRemovedTiles = Prefs::removedTiles();
+
     // Init HelpAnimation
     m_helpAnimation->setAnimationSpeed(ANIMATION_SPEED);
     m_helpAnimation->setRepetitions(3);
@@ -623,6 +626,18 @@ void GameView::addItem(POSITION & stItemPos, bool updateImage, bool updateOrder,
 void GameView::addItemAndUpdate(POSITION & stItemPos)
 {
     addItem(stItemPos, true, true, true);
+}
+
+void GameView::showRemovedTiles(const bool & show)
+{
+    m_showRemovedTiles = show;
+    m_gameRemovedTiles->setVisible(show);
+    updateItemsPosition();
+}
+
+void GameView::updateItemsPosition()
+{
+    updateItemsPosition(scene()->items());
 }
 
 void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)

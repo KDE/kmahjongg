@@ -182,7 +182,10 @@ QList<GameItem *> GameScene::items() const
     QList<GameItem *> tmpList;
 
     for (int i = 0; i < originalList.size(); ++i) {
-        tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
+        GameItem * gameItem = dynamic_cast<GameItem *>(originalList.at(i));
+        if (nullptr != gameItem) {
+            tmpList.append(gameItem);
+        }
     }
 
     return tmpList;

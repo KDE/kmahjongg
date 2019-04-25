@@ -62,6 +62,11 @@ public:
     void updateItemsPosition(const QList<GameItem *> &gameItems);
 
     /**
+     * Overloaded function of scene game item positioning.
+     */
+    void updateItemsPosition();
+
+    /**
      * Updates the whole widget.
      *
      * @param showTiles True if the tiles should be displayed, else false. */
@@ -70,6 +75,12 @@ public:
     /**
      * Override from QGraphcisView. */
     virtual QList<GameItem *> getGameItems() const;
+
+    /**
+     * Set wether removed tiles should be shown.
+     * @param show True if removed tiles should be shown.
+     */
+    void showRemovedTiles(const bool & show);
 
     /**
      * Override from QGraphicsView. */
