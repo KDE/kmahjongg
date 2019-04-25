@@ -214,6 +214,9 @@ void GameView::createNewGame(long gameNumber)
     checkDemoAnimationActive(true);
     checkMoveListAnimationActive(true);
 
+    // Reset the removed tile object.
+    m_gameRemovedTiles->reset();
+
     // Create a random game number, if no one was given.
     if (gameNumber == -1) {
         m_gameNumber = KRandom::random();
