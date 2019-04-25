@@ -145,7 +145,11 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
     unsigned int row = 0;
     unsigned int col = 0;
-    for (int i = 0; i < m_itemFaces->size() - 1; i+=2) {
+    int start = m_itemFaces->size() - (m_maxTilesCol * m_maxTilesRow * 2);
+    if (start < 0) {
+        start *= 0;
+    }
+    for (int pos = start; pos < m_itemFaces->size() - 1; pos+=2) {
         if (col >= m_maxTilesRow) {
             row++;
             col = 0;
@@ -153,7 +157,7 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
         // Get the pixmap of the face.
         QPixmap face;
-        face = m_tiles->tileface(m_itemFaces->at(i));
+        face = m_tiles->tileface(m_itemFaces->at(pos));
         face = face.scaledToHeight(
             m_tileFaceHeightScaled, Qt::SmoothTransformation
         );
@@ -167,11 +171,11 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
                 m_tileFaceWidth, m_tileFaceHeight
             ), 10, 10
         );
-        painter->setOpacity(0.7);
+        painter->setOpacity(1.0 - (m_itemFaces->size() - pos) / 100.0);
         painter->fillPath(pixPath, Qt::white);
 
         // Paint the pixmap of the face.
-        painter->setOpacity(1.0);
+        painter->setOpacity(1.0 - (m_itemFaces->size() - pos) / 100.0);
         painter->drawPixmap(
             QPointF(
                 m_borderWidthPixel + col * m_tileSpaceRow + col * m_tileFaceWidth,
@@ -180,6 +184,14 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
         );
 
         col++;
+    }
+}
+
+void GameRemovedTiles::undo()
+{
+    if (m_itemFaces->size() >= 2) {
+        m_itemFaces->removeLast();
+        m_itemFaces->removeLast();
     }
 }
 

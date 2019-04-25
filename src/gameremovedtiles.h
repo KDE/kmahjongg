@@ -108,6 +108,11 @@ public:
      */
     void reset();
 
+    /**
+     * Remove the last two added tiles.
+     */
+    void undo();
+
 private:
     qreal m_width;
     qreal m_height;

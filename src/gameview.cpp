@@ -161,6 +161,9 @@ bool GameView::undo()
 
         ++m_gameData->m_allowRedo;
 
+        // Undo removed tile object.
+        m_gameRemovedTiles->undo();
+
         setStatusText(i18n("Undo operation done successfully."));
 
         return true;
