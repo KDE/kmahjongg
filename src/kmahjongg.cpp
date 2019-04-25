@@ -80,6 +80,7 @@ public:
 KMahjongg::KMahjongg(QWidget * parent)
     : KXmlGuiWindow(parent)
     , m_gameState(GameState::Gameplay)
+    , m_fullscreen(false)
     , m_gameView(nullptr)
     , m_gameData(nullptr)
     , m_boardLayout(new KMahjonggLayout())
@@ -169,6 +170,12 @@ void KMahjongg::setupKAction()
     actionCollection()->setDefaultShortcut(anglecw, Qt::Key_G);
     connect(anglecw, &QAction::triggered, m_gameView, &GameView::angleSwitchCW);
 
+    QAction * fullscreen = actionCollection()->addAction(QStringLiteral("view_fullscreen"));
+    fullscreen->setText(i18n("Fullscreen"));
+    fullscreen->setIcon(QIcon::fromTheme(QStringLiteral("view-fullscreen")));
+    fullscreen->setCheckable(true);
+    connect(fullscreen, &QAction::triggered, this, &KMahjongg::toggleFullscreen);
+
     m_demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
     KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
@@ -186,6 +193,17 @@ void KMahjongg::setupKAction()
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
     setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
+}
+
+void KMahjongg::toggleFullscreen()
+{
+    if (!m_fullscreen) {
+        setWindowState(Qt::WindowState::WindowFullScreen);
+    } else {
+        setWindowState(Qt::WindowState::WindowNoState);
+    }
+
+    m_fullscreen = !m_fullscreen;
 }
 
 void KMahjongg::setupStatusBar()

@@ -77,6 +77,7 @@ private slots:
     void showHighscores();
     void slotBoardEditor();
     void noMovesAvailable();
+    void toggleFullscreen();
 
 private:
     enum class GameState { Gameplay,
@@ -92,6 +93,7 @@ private:
     void saveSettings();
 
     bool m_bLastRandomSetting;
+    bool m_fullscreen;
 
     GameView * m_gameView;
     GameData * m_gameData;
