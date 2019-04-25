@@ -103,6 +103,11 @@ public:
      */
     void updateTileCalculations();
 
+    /**
+     * Reset system for empty game.
+     */
+    void reset();
+
 private:
     qreal m_width;
     qreal m_height;

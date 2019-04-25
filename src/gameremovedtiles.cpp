@@ -32,14 +32,9 @@ GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)
     : QGraphicsObject(object)
     , m_width(100)
     , m_height(100)
-    , m_itemFaces(new QList<USHORT>())
-    , m_tiles(nullptr)
-    , m_gameData(nullptr)
     , m_borderWidthFrac(0.05)
     , m_tileScale(0.9)
     , m_titleHeightFrac(0.1)
-    , m_maxTilesRow(0)
-    , m_maxTilesCol(0)
     , m_borderWidthPixel(0)
     , m_titleHeightPixel(0)
     , m_tileSpaceRow(0)
@@ -49,6 +44,11 @@ GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)
     , m_faceScale(1.0)
     , m_tileFaceWidthScaled(0)
     , m_tileFaceHeightScaled(0)
+    , m_maxTilesRow(0)
+    , m_maxTilesCol(0)
+    , m_itemFaces(new QList<USHORT>())
+    , m_tiles(nullptr)
+    , m_gameData(nullptr)
 {
 }
 
@@ -116,9 +116,6 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 {
     updateTileCalculations();
 
-    int topSpace = 100; // in pixel
-    int itemSpace = 10; // in pixel
-
     // General painter settings.
     painter->setRenderHint(QPainter::Antialiasing);
 
@@ -131,10 +128,11 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     // Paint the title text.
     painter->setPen(Qt::white);
     QFont font(painter->font());
-    font.setPointSize(18);
+    font.setPointSize(m_titleHeightPixel * 0.15);
     painter->setFont(font);
     painter->drawText(
-        QRectF(10.0, 10.0, m_width, topSpace), i18n("Removed tiles")
+        QRectF(m_borderWidthPixel, m_borderWidthPixel, m_width, m_titleHeightPixel),
+        i18n("Removed tiles")
     );
 
     // Exit if no tileset has been set to this object.
@@ -145,8 +143,8 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     // Paint all the tiles.
     painter->setPen(QPen(Qt::white, 10));
 
-    int row = 0;
-    int col = 0;
+    unsigned int row = 0;
+    unsigned int col = 0;
     for (int i = 0; i < m_itemFaces->size() - 1; i+=2) {
         if (col >= m_maxTilesRow) {
             row++;
@@ -183,6 +181,11 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
         col++;
     }
+}
+
+void GameRemovedTiles::reset()
+{
+    m_itemFaces->clear();
 }
 
 QRectF GameRemovedTiles::boundingRect() const
