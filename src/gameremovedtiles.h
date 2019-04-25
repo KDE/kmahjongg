@@ -27,6 +27,7 @@
 
 // Forward declarations
 class KMahjonggTileset;
+class GameData;
 
 
 /**
@@ -81,6 +82,12 @@ public:
     void addItem(const POSITION & itemPos);
 
     /**
+     * Set the game data object.
+     * @param gameData the game data object.
+     */
+    void setGameData(GameData * gameData);
+
+    /**
      * Remove a tile.
      */
     void removeLastItem();
@@ -91,12 +98,32 @@ public:
      */
     void setTileset(KMahjonggTileset * tiles);
 
+    /**
+     * Calculate all values that neccessary to paint all tiles.
+     */
+    void updateTileCalculations();
+
 private:
     qreal m_width;
     qreal m_height;
+    qreal m_borderWidthFrac;
+    qreal m_tileScale;
+    qreal m_titleHeightFrac;
+    qreal m_borderWidthPixel;
+    qreal m_titleHeightPixel;
+    qreal m_tileSpaceRow;
+    qreal m_tileSpaceCol;
+    qreal m_tileFaceWidth;
+    qreal m_tileFaceHeight;
+    qreal m_faceScale;
+    qreal m_tileFaceWidthScaled;
+    qreal m_tileFaceHeightScaled;
+    unsigned int m_maxTilesRow;
+    unsigned int m_maxTilesCol;
 
     QList<USHORT> * m_itemFaces;
     KMahjonggTileset * m_tiles;
+    GameData * m_gameData;
 };
 
 #endif // GAMEREMOVEDTILES_H

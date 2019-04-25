@@ -17,6 +17,7 @@
 // own
 #include "gameremovedtiles.h"
 #include "kmahjonggtileset.h"
+#include "gamedata.h"
 
 // Qt
 #include <QGraphicsSceneMouseEvent>
@@ -33,6 +34,21 @@ GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)
     , m_height(100)
     , m_itemFaces(new QList<USHORT>())
     , m_tiles(nullptr)
+    , m_gameData(nullptr)
+    , m_borderWidthFrac(0.05)
+    , m_tileScale(0.9)
+    , m_titleHeightFrac(0.1)
+    , m_maxTilesRow(0)
+    , m_maxTilesCol(0)
+    , m_borderWidthPixel(0)
+    , m_titleHeightPixel(0)
+    , m_tileSpaceRow(0)
+    , m_tileSpaceCol(0)
+    , m_tileFaceWidth(0)
+    , m_tileFaceHeight(0)
+    , m_faceScale(1.0)
+    , m_tileFaceWidthScaled(0)
+    , m_tileFaceHeightScaled(0)
 {
 }
 
@@ -57,9 +73,49 @@ void GameRemovedTiles::prepareForGeometryChange()
     prepareGeometryChange();
 }
 
+void GameRemovedTiles::setGameData(GameData * gameData)
+{
+    m_gameData = gameData;
+}
+
+void GameRemovedTiles::updateTileCalculations()
+{
+    int maxTilesRow = 0;
+    int maxTilesCol = 0;
+
+    // Get the height and the width of the face tile. This has to be multiplied
+    // by two, cause the value is related to half tile. (half positioning)
+    m_tileFaceWidth = m_tiles->qWidth() * 2.0;
+    m_tileFaceHeight = m_tiles->qHeight() * 2.0;
+    m_tileFaceWidthScaled = m_tileFaceWidth * m_faceScale;
+    m_tileFaceHeightScaled = m_tileFaceHeight * m_faceScale;
+
+    m_borderWidthPixel = m_borderWidthFrac * m_width;
+    m_titleHeightPixel = m_titleHeightFrac * m_height;
+
+    maxTilesRow = static_cast<int>(
+        (m_width - 2 * m_borderWidthPixel) / m_tileFaceWidthScaled
+    );
+    maxTilesCol = static_cast<int>(
+        (m_height - 2 * m_borderWidthPixel - m_titleHeightPixel) /
+        m_tileFaceHeightScaled
+    );
+
+    m_tileSpaceRow = ((m_width - 2 * m_borderWidthPixel) - 
+        maxTilesRow * m_tileFaceWidthScaled) / (maxTilesRow - 1);
+    m_tileSpaceCol = ((m_height - 
+        2 * m_borderWidthPixel - m_titleHeightPixel) -
+        maxTilesCol * m_tileFaceHeightScaled) / (maxTilesCol - 1);
+
+    m_maxTilesRow = maxTilesRow;
+    m_maxTilesCol = maxTilesCol;
+}
+
 void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     QWidget *)
 {
+    updateTileCalculations();
+
     int topSpace = 100; // in pixel
     int itemSpace = 10; // in pixel
 
@@ -89,51 +145,43 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     // Paint all the tiles.
     painter->setPen(QPen(Qt::white, 10));
 
-    // Calculate the number of tiles in one line. Therefore we need a face and
-    // get the scaled width of it.
-    QPixmap face;
-    face = m_tiles->tileface(m_itemFaces->at(0));
-    face = face.scaledToHeight(
-        face.width() * 0.9, Qt::SmoothTransformation
-    );
-    int numTilesLine = (m_width - itemSpace) / (face.width() + itemSpace);
-
-    for (int i = 0; i < m_itemFaces->size(); i++) {
-        for (int j = 0; j < numTilesLine; j++) {
-            if (i >= m_itemFaces->size()) {
-                continue;
-            }
-
-            // Get the pixmap of the face.
-            QPixmap face;
-            face = m_tiles->tileface(m_itemFaces->at(i));
-            face = face.scaledToHeight(
-                face.width() * 0.9, Qt::SmoothTransformation
-            );
-
-            // Paint the background of the face.
-            QPainterPath pixPath;
-            pixPath.addRoundedRect(
-                QRectF(
-                    itemSpace + j * (itemSpace + face.width()), 
-                    topSpace, face.width(),
-                    face.height()
-                ), 10, 10
-            );
-            painter->setOpacity(0.7);
-            painter->fillPath(pixPath, Qt::white);
-
-            // Paint the pixmap of the face.
-            painter->setOpacity(1.0);
-            painter->drawPixmap(
-                QPointF(
-                    itemSpace + j * (itemSpace + face.width()), topSpace
-                ), face
-            );
-
-            // Only print every second item, cause they should be the same.
-            i++; i++;
+    int row = 0;
+    int col = 0;
+    for (int i = 0; i < m_itemFaces->size() - 1; i+=2) {
+        if (col >= m_maxTilesRow) {
+            row++;
+            col = 0;
         }
+
+        // Get the pixmap of the face.
+        QPixmap face;
+        face = m_tiles->tileface(m_itemFaces->at(i));
+        face = face.scaledToHeight(
+            m_tileFaceHeightScaled, Qt::SmoothTransformation
+        );
+
+        // Paint the background of the face.
+        QPainterPath pixPath;
+        pixPath.addRoundedRect(
+            QRectF(
+                m_borderWidthPixel + col * m_tileSpaceRow + col * m_tileFaceWidth, 
+                m_titleHeightPixel + row * m_tileSpaceCol + row * m_tileFaceHeight,
+                m_tileFaceWidth, m_tileFaceHeight
+            ), 10, 10
+        );
+        painter->setOpacity(0.7);
+        painter->fillPath(pixPath, Qt::white);
+
+        // Paint the pixmap of the face.
+        painter->setOpacity(1.0);
+        painter->drawPixmap(
+            QPointF(
+                m_borderWidthPixel + col * m_tileSpaceRow + col * m_tileFaceWidth,
+                m_titleHeightPixel + row * m_tileSpaceCol + row * m_tileFaceHeight
+            ), face
+        );
+
+        col++;
     }
 }
 
