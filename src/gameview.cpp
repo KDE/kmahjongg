@@ -63,12 +63,8 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 {
     // Some settings to the QGraphicsView.
     setFocusPolicy(Qt::NoFocus);
-<<<<<<< HEAD
     setStyleSheet(QStringLiteral("QGraphicsView { border-style: none; }"));
     setAutoFillBackground(true);
-=======
-    setStyleSheet("QGraphicsView { border-style: none; }");
->>>>>>> Change background painting to a own GameBackround - QGraphicsItem
 
     // Read in some settings.
     m_angle = static_cast<TileViewAngle>(Prefs::angle());
