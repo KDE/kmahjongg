@@ -16,6 +16,7 @@
 
 // own
 #include "gameremovedtiles.h"
+#include "kmahjonggtileset.h"
 
 // Qt
 #include <QGraphicsSceneMouseEvent>
@@ -23,22 +24,32 @@
 #include <QPixmap>
 #include <QTimer>
 
+#include <klocalizedstring.h>
+
 
 GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)
     : QGraphicsObject(object)
     , m_width(100)
     , m_height(100)
+    , m_itemFaces(new QList<USHORT>())
+    , m_tiles(nullptr)
 {
 }
 
 GameRemovedTiles::~GameRemovedTiles()
 {
+    delete m_itemFaces;
 }
 
 void GameRemovedTiles::setSize(qreal width, qreal height)
 {
     m_width = width;
     m_height = height;
+}
+
+void GameRemovedTiles::setTileset(KMahjonggTileset * tiles)
+{
+    m_tiles = tiles;
 }
 
 void GameRemovedTiles::prepareForGeometryChange()
@@ -49,13 +60,81 @@ void GameRemovedTiles::prepareForGeometryChange()
 void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     QWidget *)
 {
+    int topSpace = 100; // in pixel
+    int itemSpace = 10; // in pixel
+
+    // General painter settings.
     painter->setRenderHint(QPainter::Antialiasing);
+
+    // Paint the background.
     painter->setOpacity(0.5);
     QPainterPath path;
     path.addRoundedRect(QRectF(0, 0, m_width, m_height), 10, 10);
-    QPen pen(Qt::black, 10);
-    painter->setPen(pen);
     painter->fillPath(path, Qt::black);
+
+    // Paint the title text.
+    painter->setPen(Qt::white);
+    QFont font(painter->font());
+    font.setPointSize(18);
+    painter->setFont(font);
+    painter->drawText(
+        QRectF(10.0, 10.0, m_width, topSpace), i18n("Removed tiles")
+    );
+
+    // Exit if no tileset has been set to this object.
+    if (nullptr == m_tiles || m_itemFaces->size() <= 0) {
+        return;
+    }
+
+    // Paint all the tiles.
+    painter->setPen(QPen(Qt::white, 10));
+
+    // Calculate the number of tiles in one line. Therefore we need a face and
+    // get the scaled width of it.
+    QPixmap face;
+    face = m_tiles->tileface(m_itemFaces->at(0));
+    face = face.scaledToHeight(
+        face.width() * 0.9, Qt::SmoothTransformation
+    );
+    int numTilesLine = (m_width - itemSpace) / (face.width() + itemSpace);
+
+    for (int i = 0; i < m_itemFaces->size(); i++) {
+        for (int j = 0; j < numTilesLine; j++) {
+            if (i >= m_itemFaces->size()) {
+                continue;
+            }
+
+            // Get the pixmap of the face.
+            QPixmap face;
+            face = m_tiles->tileface(m_itemFaces->at(i));
+            face = face.scaledToHeight(
+                face.width() * 0.9, Qt::SmoothTransformation
+            );
+
+            // Paint the background of the face.
+            QPainterPath pixPath;
+            pixPath.addRoundedRect(
+                QRectF(
+                    itemSpace + j * (itemSpace + face.width()), 
+                    topSpace, face.width(),
+                    face.height()
+                ), 10, 10
+            );
+            painter->setOpacity(0.7);
+            painter->fillPath(pixPath, Qt::white);
+
+            // Paint the pixmap of the face.
+            painter->setOpacity(1.0);
+            painter->drawPixmap(
+                QPointF(
+                    itemSpace + j * (itemSpace + face.width()), topSpace
+                ), face
+            );
+
+            // Only print every second item, cause they should be the same.
+            i++; i++;
+        }
+    }
 }
 
 QRectF GameRemovedTiles::boundingRect() const
@@ -66,4 +145,14 @@ QRectF GameRemovedTiles::boundingRect() const
 QRectF GameRemovedTiles::rect() const
 {
     return boundingRect();
+}
+
+void GameRemovedTiles::addItem(const POSITION & itemPos) 
+{
+    m_itemFaces->append(itemPos.f);
+}
+
+void GameRemovedTiles::removeLastItem()
+{
+    m_itemFaces->removeLast();
 }

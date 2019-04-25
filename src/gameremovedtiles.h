@@ -20,9 +20,13 @@
 // Qt
 #include <QGraphicsObject>
 #include <QObject>
+#include <QList>
 
 // KMahjongg
 #include "kmtypes.h"
+
+// Forward declarations
+class KMahjonggTileset;
 
 
 /**
@@ -70,9 +74,29 @@ public:
      */
     void prepareForGeometryChange();
 
+    /**
+     * Add an removed tile.
+     * @param itemPos POSITION object of the item.
+     */
+    void addItem(const POSITION & itemPos);
+
+    /**
+     * Remove a tile.
+     */
+    void removeLastItem();
+
+    /**
+     * Set the tileset for the tile pixmaps.
+     * @param tiles KMahjonggTileset object.
+     */
+    void setTileset(KMahjonggTileset * tiles);
+
 private:
     qreal m_width;
     qreal m_height;
+
+    QList<USHORT> * m_itemFaces;
+    KMahjonggTileset * m_tiles;
 };
 
 #endif // GAMEREMOVEDTILES_H

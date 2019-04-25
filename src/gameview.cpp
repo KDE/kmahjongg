@@ -83,6 +83,9 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     // Init MoveListAnimation
     m_moveListAnimation->setAnimationSpeed(ANIMATION_SPEED);
 
+    // Set the tileset to the game removed tiles object.
+    m_gameRemovedTiles->setTileset(m_tiles);
+
     // Add the fix background item to the scene
     scene()->setBackgroundItem(m_gameBackground);
 
@@ -326,6 +329,10 @@ void GameView::removeItem(POSITION & stItemPos)
 
     // Put an empty item in the data object. (data part)
     m_gameData->putTile(stItemPos.z, stItemPos.y, stItemPos.x, 0);
+
+    // Add the tile to the removedtiles object.
+    m_gameRemovedTiles->addItem(stItemPos);
+    m_gameRemovedTiles->update();
 
     // Remove the item from the scene object. (graphic part)
     scene()->removeItem(stItemPos);
