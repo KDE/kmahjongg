@@ -246,6 +246,9 @@ void GameView::createNewGame(long gameNumber)
             addItemsFromBoardLayout();
             populateItemNumber();
 
+            QResizeEvent event(size(), size());
+            resizeEvent(&event);
+
             setStatusText(i18n("Ready. Now it is your turn."));
 
             return;
@@ -650,7 +653,7 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     // The width and height need to be corrected, related to the removedtiles
     // view and wether it is shown or not. For now the removed tiles field can
     // only be placed to the right of the board.
-    qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor);
+    qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor - 0.1);
     qreal boardHeight = height();
 
     // TODO: Change!!!
@@ -955,16 +958,22 @@ void GameView::resizeEvent(QResizeEvent * event)
     // view and wether it is shown or not. For now the removed tiles field can
     // only be placed to the right of the board.
     QSize size(event->size());
-    resizeTileset(QSize(
-        size.width() * (1 - m_remTilesWidthFactor), size.height()
-    ));
+    if (m_showRemovedTiles) {
+        resizeTileset(QSize(
+            size.width() * (1 - m_remTilesWidthFactor - 0.1), size.height()
+        ));
 
-    // Update removed tiles
-    qreal removedTilesBorder = size.height() * 0.1 / 2;
-    m_gameRemovedTiles->setSize(
-        size.width() * m_remTilesWidthFactor - removedTilesBorder, 
-        size.height() * 0.9
-    );
+        // Update removed tiles
+        qreal removedTilesBorder = size.height() * 0.1 / 2;
+        m_gameRemovedTiles->setSize(
+            size.width() * m_remTilesWidthFactor - removedTilesBorder, 
+            size.height() * 0.9
+        );
+    } else {
+        resizeTileset(QSize(
+            size.width(), size.height()
+        ));
+    }
 
     // Update background
     m_background->sizeChanged(width(), height());
