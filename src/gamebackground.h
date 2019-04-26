@@ -20,6 +20,7 @@
 // Qt
 #include <QGraphicsObject>
 #include <QObject>
+#include <QBrush>
 
 // KMahjongg
 #include "kmtypes.h"
@@ -45,7 +46,7 @@ public:
      * Set the background
      * @param facePix The pixmap of the face
      */
-    void setBackground(QBrush &background);
+    void setBackground(QBrush background);
 
     /**
      * Overrides the paint method of QGraphicsItem
@@ -77,7 +78,7 @@ public:
     void prepareForGeometryChange();
 
 private:
-    QBrush *m_background;
+    QBrush m_background;
 
     qreal m_width;
     qreal m_height;

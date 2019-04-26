@@ -656,7 +656,7 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     // The width and height need to be corrected, related to the removedtiles
     // view and wether it is shown or not. For now the removed tiles field can
     // only be placed to the right of the board.
-    qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor - 0.1);
+    qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor - 0.05);
     qreal boardHeight = height();
 
     // TODO: Change!!!
@@ -963,7 +963,7 @@ void GameView::resizeEvent(QResizeEvent * event)
     QSize size(event->size());
     if (m_showRemovedTiles) {
         resizeTileset(QSize(
-            size.width() * (1 - m_remTilesWidthFactor - 0.1), size.height()
+            size.width() * (1 - m_remTilesWidthFactor - 0.05), size.height()
         ));
 
         // Update removed tiles
