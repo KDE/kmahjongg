@@ -80,7 +80,7 @@ public:
      * Set wether removed tiles should be shown.
      * @param show True if removed tiles should be shown.
      */
-    void showRemovedTiles(const bool & show);
+    void showRemovedTiles(bool show);
 
     /**
      * Override from QGraphicsView. */
