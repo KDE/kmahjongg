@@ -48,7 +48,7 @@ void GameScene::clearGameItems()
     QList<QGraphicsItem*> items = QGraphicsScene::items();
     for (int i = 0; i < items.size(); i++) {
         GameItem *gameItem = dynamic_cast<GameItem*>(items.at(i));
-        if (nullptr != gameItem) {
+        if (gameItem != nullptr) {
             QGraphicsScene::removeItem(gameItem);
         }
     }
@@ -82,7 +82,7 @@ void GameScene::initializeGameItemsArray()
 void GameScene::setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles)
 {
     // If a removedtiles object already exist, delete it from scene
-    if (nullptr != m_gameRemovedTiles) {
+    if (m_gameRemovedTiles != nullptr) {
         QGraphicsScene::removeItem(m_gameRemovedTiles);
     }
 
@@ -93,7 +93,7 @@ void GameScene::setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles)
 void GameScene::setBackgroundItem(GameBackground * gameBackground)
 {
     // If a background exist, delete it from scene
-    if (nullptr != m_gameBackground) {
+    if (m_gameBackground != nullptr) {
         QGraphicsScene::removeItem(m_gameBackground);
     }
 
@@ -183,7 +183,7 @@ QList<GameItem *> GameScene::items() const
 
     for (int i = 0; i < originalList.size(); ++i) {
         GameItem * gameItem = dynamic_cast<GameItem *>(originalList.at(i));
-        if (nullptr != gameItem) {
+        if (gameItem != nullptr) {
             tmpList.append(gameItem);
         }
     }

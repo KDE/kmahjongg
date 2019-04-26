@@ -136,7 +136,7 @@ void GameRemovedTiles::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     );
 
     // Exit if no tileset has been set to this object.
-    if (nullptr == m_tiles || m_itemFaces->size() <= 0) {
+    if (m_tiles == nullptr || m_itemFaces->isEmpty()) {
         return;
     }
 
