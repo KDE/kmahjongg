@@ -639,6 +639,9 @@ void GameView::showRemovedTiles(bool show)
     if (m_showRemovedTiles != show) {
         m_showRemovedTiles = show;
         m_gameRemovedTiles->setVisible(show);
+
+        QResizeEvent event(size(), size());
+        resizeEvent(&event);
         updateItemsPosition();
     }
 }
