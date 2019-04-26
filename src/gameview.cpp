@@ -633,9 +633,11 @@ void GameView::addItemAndUpdate(POSITION & stItemPos)
 
 void GameView::showRemovedTiles(bool show)
 {
-    m_showRemovedTiles = show;
-    m_gameRemovedTiles->setVisible(show);
-    updateItemsPosition();
+    if (m_showRemovedTiles != show) {
+        m_showRemovedTiles = show;
+        m_gameRemovedTiles->setVisible(show);
+        updateItemsPosition();
+    }
 }
 
 void GameView::updateItemsPosition()
