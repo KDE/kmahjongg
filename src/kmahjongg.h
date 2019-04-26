@@ -93,7 +93,6 @@ private:
     void saveSettings();
 
     bool m_bLastRandomSetting;
-    bool m_fullscreen;
 
     GameView * m_gameView;
     GameData * m_gameData;
