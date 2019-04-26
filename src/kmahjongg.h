@@ -114,6 +114,7 @@ private:
     KGameClock * m_gameTimer;
 
     KToggleAction * m_pauseAction;
+    KToggleAction * m_fullscreenAction;
     KToggleAction * m_demoAction;
 
     static const QString gameMagic;

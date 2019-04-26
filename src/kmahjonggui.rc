@@ -17,8 +17,6 @@
   <Menu name="view"><text>&amp;View</text>
     <Action name="view_anglecw"/>
     <Action name="view_angleccw"/>
-    <Separator/>
-    <Action name="view_fullscreen"/>
   </Menu>
 </MenuBar>
 
@@ -29,7 +27,7 @@
   <Action name="move_undo"/>
   <Action name="move_redo"/>
   <Action name="game_pause"/>
-  <Action name="view_fullscreen"/>
+  <Action name="fullscreen"/>
   <Action name="move_hint"/>
 </ToolBar>
 
