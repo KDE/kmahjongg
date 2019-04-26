@@ -51,7 +51,6 @@ void GameBackground::prepareForGeometryChange()
 void GameBackground::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     QWidget *)
 {
-    //painter->setBackground(*m_background);
     painter->fillRect(QRectF(0, 0, m_width, m_height), *m_background);
 }
 
