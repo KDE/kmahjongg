@@ -170,7 +170,7 @@ void KMahjongg::setupKAction()
     connect(anglecw, &QAction::triggered, m_gameView, &GameView::angleSwitchCW);
 
     m_fullscreenAction = KStandardAction::fullScreen(
-        this, SLOT(toggleFullscreen()), this, actionCollection()
+        this, &KMahjongg::toggleFullscreen, this, actionCollection()
     );
 
     m_demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
