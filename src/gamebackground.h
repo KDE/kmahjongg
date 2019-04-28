@@ -46,7 +46,7 @@ public:
      * Set the background
      * @param facePix The pixmap of the face
      */
-    void setBackground(QBrush background);
+    void setBackground(const QBrush & background);
 
     /**
      * Overrides the paint method of QGraphicsItem

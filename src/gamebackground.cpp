@@ -52,7 +52,7 @@ void GameBackground::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     painter->fillRect(QRectF(0, 0, m_width, m_height), m_background);
 }
 
-void GameBackground::setBackground(QBrush background)
+void GameBackground::setBackground(const QBrush & background)
 {
     m_background = background;
 }
