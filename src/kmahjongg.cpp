@@ -192,9 +192,9 @@ void KMahjongg::setupKAction()
     setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
 }
 
-void KMahjongg::toggleFullscreen()
+void KMahjongg::toggleFullscreen(bool fullscreen)
 {
-    if (m_fullscreenAction->isChecked()) {
+    if (fullscreen) {
         setWindowState(Qt::WindowState::WindowFullScreen);
     } else {
         setWindowState(Qt::WindowState::WindowNoState);
