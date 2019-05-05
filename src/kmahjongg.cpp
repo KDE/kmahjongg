@@ -169,6 +169,10 @@ void KMahjongg::setupKAction()
     actionCollection()->setDefaultShortcut(anglecw, Qt::Key_G);
     connect(anglecw, &QAction::triggered, m_gameView, &GameView::angleSwitchCW);
 
+    m_fullscreenAction = KStandardAction::fullScreen(
+        this, &KMahjongg::toggleFullscreen, this, actionCollection()
+    );
+
     m_demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
 
     KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
@@ -186,6 +190,15 @@ void KMahjongg::setupKAction()
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
     setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
+}
+
+void KMahjongg::toggleFullscreen(bool fullscreen)
+{
+    if (fullscreen) {
+        setWindowState(Qt::WindowState::WindowFullScreen);
+    } else {
+        setWindowState(Qt::WindowState::WindowNoState);
+    }
 }
 
 void KMahjongg::setupStatusBar()

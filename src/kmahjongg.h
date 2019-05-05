@@ -77,6 +77,7 @@ private slots:
     void showHighscores();
     void slotBoardEditor();
     void noMovesAvailable();
+    void toggleFullscreen(bool fullscreen);
 
 private:
     enum class GameState { Gameplay,
@@ -112,6 +113,7 @@ private:
     KGameClock * m_gameTimer;
 
     KToggleAction * m_pauseAction;
+    KToggleAction * m_fullscreenAction;
     KToggleAction * m_demoAction;
 
     static const QString gameMagic;
