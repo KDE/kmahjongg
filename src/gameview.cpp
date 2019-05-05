@@ -85,6 +85,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     // Set the tileset to the game removed tiles object.
     m_gameRemovedTiles->setTileset(m_tiles);
     m_gameRemovedTiles->setGameData(m_gameData);
+    m_gameRemovedTiles->setVisible(m_showRemovedTiles);
 
     // Add the fix background item to the scene
     scene()->setBackgroundItem(m_gameBackground);
