@@ -27,8 +27,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-01-04</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>0.9 (Applications 16.04)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2019-05-06</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>0.9 (Applications 19.08)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -412,6 +412,12 @@ of the &kde; Fundamentals.
 			<term><guilabel>Generate solvable games</guilabel></term>
 			<listitem><para>
 				Selects only games that can be solved when you start a new game.
+			</para></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term><guilabel>Show removed tiles</guilabel></term>
+			<listitem><para>
+				If checked, this setting allows &kmahjongg; to show the removed tiles on the board.
 			</para></listitem>
 		</varlistentry>
 	</variablelist>
