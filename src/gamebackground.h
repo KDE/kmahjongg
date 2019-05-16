@@ -44,7 +44,7 @@ public:
 
     /**
      * Set the background
-     * @param facePix The pixmap of the face
+     * @param background The pixmap of the background
      */
     void setBackground(const QBrush & background);
 
