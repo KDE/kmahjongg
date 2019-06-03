@@ -28,7 +28,6 @@
 #include "kmahjonggtileset.h"
 
 class QPixmap;
-class QComboBox;
 class QPixmap;
 
 /**

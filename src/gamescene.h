@@ -28,9 +28,6 @@
 
 // Forward declarations...
 class GameItem;
-class GameData;
-class GameWidget;
-class KMahjonggLayout;
 class GameBackground;
 class GameRemovedTiles;
 
