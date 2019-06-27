@@ -28,7 +28,6 @@
 // KDE
 #include <KConfig>
 #include <KConfigGroup>
-#include <KLocalizedString>
 
 // KMahjongg
 #include "boardlayout.h"

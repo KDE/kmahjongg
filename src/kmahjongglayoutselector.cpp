@@ -25,10 +25,6 @@
 
 // Qt
 #include <QDir>
-#include <QPainter>
-
-// KDE
-#include <KLocalizedString>
 
 // KMahjongg
 #include "gamedata.h"

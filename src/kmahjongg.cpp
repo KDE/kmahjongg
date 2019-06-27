@@ -27,16 +27,13 @@
 #include <QFileDialog>
 #include <QIcon>
 #include <QInputDialog>
-#include <QKeySequence>
 #include <QLabel>
-#include <QMenuBar>
 #include <QPixmapCache>
 #include <QShortcut>
 #include <QStatusBar>
 #include <QWindowStateChangeEvent>
 
 // KDE
-#include <KAboutData>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KGameClock>
@@ -45,7 +42,6 @@
 #include <KScoreDialog>
 #include <KStandardAction>
 #include <KStandardGameAction>
-#include <KToggleAction>
 
 // LibKMahjongg
 #include <kmahjonggconfigdialog.h>

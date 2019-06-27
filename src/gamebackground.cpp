@@ -20,8 +20,6 @@
 // Qt
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
-#include <QPixmap>
-#include <QTimer>
 
 
 GameBackground::GameBackground(QGraphicsObject * item)

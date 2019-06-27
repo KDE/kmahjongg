@@ -21,7 +21,6 @@
 
 // KDE
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KRandom>
 
 // KMahjongg

@@ -17,7 +17,6 @@
 
 // Qt
 #include <QGraphicsObject>
-#include <QObject>
 
 // KMahjongg
 #include "kmtypes.h"

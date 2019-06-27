@@ -19,7 +19,6 @@
 #define FRAMEIMAGE_H
 
 // Qt
-#include <QFrame>
 #include <QWidget>
 
 // KMahjongg

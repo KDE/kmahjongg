@@ -15,9 +15,6 @@
 // own
 #include "demoanimation.h"
 
-// Qt
-#include <QList>
-
 // KMahjongg
 #include "gamedata.h"
 #include "kmahjongg_debug.h"

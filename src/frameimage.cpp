@@ -19,17 +19,11 @@
 #include "frameimage.h"
 
 // Qt
-#include <QEvent>
-#include <QImage>
 #include <QPaintEvent>
 #include <QPainter>
 #include <QPixmap>
-#include <QTextStream>
 
 // KDE
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KStandardGuiItem>
 
 // KMahjongg
 #include "editor.h"

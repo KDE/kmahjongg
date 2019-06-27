@@ -23,7 +23,6 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QPixmap>
-#include <QTimer>
 
 #include <klocalizedstring.h>
 

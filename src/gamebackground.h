@@ -19,7 +19,6 @@
 
 // Qt
 #include <QGraphicsObject>
-#include <QObject>
 #include <QBrush>
 
 // KMahjongg

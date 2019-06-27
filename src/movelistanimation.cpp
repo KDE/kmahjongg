@@ -15,9 +15,6 @@
 // own
 #include "movelistanimation.h"
 
-// Qt
-#include <QList>
-
 // KMahjongg
 #include "gamedata.h"
 

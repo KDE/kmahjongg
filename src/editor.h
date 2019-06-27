@@ -20,7 +20,6 @@
 
 // Qt
 #include <QDialog>
-#include <QFrame>
 
 // KDE
 #include <KToolBar>
