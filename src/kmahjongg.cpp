@@ -23,12 +23,12 @@
 
 // Qt
 #include <QAction>
-#include <QDesktopWidget>
 #include <QFileDialog>
 #include <QIcon>
 #include <QInputDialog>
 #include <QLabel>
 #include <QPixmapCache>
+#include <QScreen>
 #include <QShortcut>
 #include <QStatusBar>
 #include <QWindowStateChangeEvent>
@@ -185,7 +185,7 @@ void KMahjongg::setupKAction()
 
     // settings
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
-    setupGUI(qApp->desktop()->availableGeometry().size() * 0.7);
+    setupGUI(qApp->primaryScreen()->geometry().size() * 0.7);
 }
 
 void KMahjongg::toggleFullscreen(bool fullscreen)
