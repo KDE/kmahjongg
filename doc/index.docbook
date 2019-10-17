@@ -27,8 +27,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2019-05-06</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>0.9 (Applications 19.08)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2019-10-17</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>0.9 (Applications 19.12)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -288,7 +288,35 @@
 				<guimenu>Game</guimenu>
 				<guimenuitem>Board Editor</guimenuitem>
 				</menuchoice></term>
-				<listitem><para><action>Shows the board editor.</action></para></listitem>
+				<listitem><para><action>Shows the board editor.</action>
+				<screenshot>
+					<screeninfo>The board editor</screeninfo>
+					<mediaobject>
+						<imageobject><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject><phrase>The board editor</phrase></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para>
+						Procedure to edit layout:
+						<orderedlist>
+							<listitem><para>Use the board editor toolbar to create a new layout or to load and edit an existing one.</para></listitem>
+							<listitem><para>Save the layout in your user's local home folder in <filename>$<envar>XDG_DATA_HOME</envar>/kmahjongg/layouts</filename></para></listitem>
+							<listitem><para>Create the <filename><replaceable>name_of_your_layout</replaceable>.desktop</filename> file in the same folder.</para></listitem>
+							<listitem><para>Put the following lines in this file using your favorite text editor:
+									<programlisting>
+[KMahjonggLayout]
+Name=<replaceable>name_of_your_layout</replaceable>
+Description=<replaceable>description_of_your_layout</replaceable>
+VersionFormat=1
+Author=<replaceable>your_name</replaceable>
+AuthorEmail=<replaceable>your_email</replaceable>
+FileName=<replaceable>name_of_your_layout</replaceable>.layout
+</programlisting></para></listitem>
+							<listitem><para>Reload &kmahjongg; to use your new layout.</para></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><menuchoice>
