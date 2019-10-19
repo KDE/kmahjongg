@@ -57,7 +57,7 @@ void GameItem::setAngle(TileViewAngle angle, QPixmap * selPix, QPixmap * unselPi
 {
     m_angle = angle;
 
-    // Set the new pictures realted to the new angle.
+    // Set the new pictures tilted to the new angle.
     *m_selPix = *selPix;
     *m_unselPix = *unselPix;
 

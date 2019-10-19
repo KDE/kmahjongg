@@ -77,7 +77,7 @@ public:
     virtual QList<GameItem *> getGameItems() const;
 
     /**
-     * Set wether removed tiles should be shown.
+     * Set whether removed tiles should be shown.
      * @param show True if removed tiles should be shown.
      */
     void showRemovedTiles(bool show);
@@ -140,7 +140,7 @@ public:
     /**
      * Get the match value.
      *
-     * @return True when matching items of the eselected one will be displayed, else false. */
+     * @return True when matching items of the selected one will be displayed, else false. */
     bool getMatch() const;
 
     /**
@@ -159,14 +159,14 @@ public:
      * Sets the tileset path and tries to load it.
      *
      * @param tilesetPath The path to the tileset.
-     * @return True if setting and therfore loading success, else false. */
+     * @return True if setting and therefore loading success, else false. */
     bool setTilesetPath(QString const & tilesetPath);
 
     /**
      * Sets the background path and tries to load it.
      *
      * @param backgroundPath The path to the background.
-     * @return True if setting and therfore loading success, else false. */
+     * @return True if setting and therefore loading success, else false. */
     bool setBackgroundPath(QString const & backgroundPath);
 
     /**
@@ -225,7 +225,7 @@ public:
 
 public slots:
     /**
-     * Add a new item with teh given position and update imgages, position and order. */
+     * Add a new item with the given position and update images, position and order. */
     void addItemAndUpdate(POSITION & stItemPos);
 
     /**
@@ -401,7 +401,7 @@ private:
      * @param xStart The x position of the item.
      * @param y The y position of the item.
      * @param z The z position of the item.
-     * @param zCount The z count variable for ther order. */
+     * @param zCount The z count variable for the order. */
     void orderLine(GameItem * startItem, int xStart, int xEnd, int xCounter, int y,
                    int yCounter, int z, int & zCount);
 

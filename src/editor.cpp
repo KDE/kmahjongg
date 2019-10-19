@@ -350,7 +350,7 @@ bool Editor::saveBoard()
 
     const QFileInfo f(filename);
     if (f.exists()) {
-        // if it already exists, querie the user for replacement
+        // if it already exists, query the user for replacement
         int res = KMessageBox::warningContinueCancel(this,
                                                      i18n("A file with that name already exists. Do you wish to overwrite it?"),
                                                      i18n("Save Board Layout"), KStandardGuiItem::save());
@@ -426,7 +426,7 @@ void Editor::drawBackground(QPixmap * pixmap) const
     // blast in a white background
     p.fillRect(0, 0, pixmap->width(), pixmap->height(), Qt::white);
 
-    // now put in a grid of tile quater width squares
+    // now put in a grid of tile quarter width squares
     for (int y = 0; y <= height; ++y) {
         int nextY = m_borderTop + (y * m_tiles.qHeight());
         p.drawLine(m_borderLeft, nextY, m_borderLeft + (width * m_tiles.qWidth()), nextY);
@@ -471,7 +471,7 @@ void Editor::drawTiles(QPixmap * dest)
                 tile = (z * depth) + (y * height) + (x * width);
                 t = m_tiles.unselectedTile(0);
 
-                // Only one compilcation. Since we render top to bottom , left
+                // Only one complication. Since we render top to bottom , left
                 // to right situations arise where...:
                 // there exists a tile one q height above and to the left
                 // in this situation we would draw our top left border over it
@@ -511,9 +511,9 @@ void Editor::transformPointToPosition(const QPoint & point, POSITION & mouseClic
 
     // iterate over z coordinate from top to bottom
     for (z = m_theBoard.getDepth() - 1; z >= 0; --z) {
-        // calculate mouse coordiantes --> position in game board
+        // calculate mouse coordinates --> position in game board
         // the factor -theTiles.width()/2 must keep track with the
-        // offset for blitting in the print zvent (FIX ME)
+        // offset for blitting in the print event (FIX ME)
         x = ((point.x() - m_borderLeft) - (z + 1) * m_tiles.levelOffsetX()) / m_tiles.qWidth();
         y = ((point.y() - m_borderTop) + z * m_tiles.levelOffsetX()) / m_tiles.qHeight();
 

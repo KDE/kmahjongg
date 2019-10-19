@@ -333,7 +333,7 @@ void GameView::selectionChanged()
 
 void GameView::removeItem(POSITION & stItemPos)
 {
-    // Adding the data to the protocoll.
+    // Adding the data to the protocol.
     m_gameData->setMoveListData(m_gameData->m_tileNum, stItemPos);
 
     // Put an empty item in the data object. (data part)
@@ -541,7 +541,7 @@ void GameView::shuffle()
     // Test if any moves are available
     validMovesAvailable();
 
-    // Clear any tile selection done proir to the shuffle.
+    // Clear any tile selection done prior to the shuffle.
     clearSelectedTile();
 }
 
@@ -654,7 +654,7 @@ void GameView::updateItemsPosition()
 void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
 {
     // The width and height need to be corrected, related to the removedtiles
-    // view and wether it is shown or not. For now the removed tiles field can
+    // view and whether it is shown or not. For now the removed tiles field can
     // only be placed to the right of the board.
     qreal boardWidth = (!m_showRemovedTiles) ? width() : width() * (1 - m_remTilesWidthFactor - 0.05);
     qreal boardHeight = height();
@@ -668,7 +668,7 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     int angleYFactor = (m_angle == NW || m_angle == NE) ? -1 : 1;
 
     // Get half width and height of tile faces: minimum spacing = 1 pixel.
-    // NOTE - qWidth is devided by 2 in kmahjonggtileset.cpp. The reason is 
+    // NOTE - qWidth is divided by 2 in kmahjonggtileset.cpp. The reason is 
     //        unknown for now. Please review this later.
     qreal tileFaceWidth = m_tiles->qWidth() * 2 + 1;
     qreal tileFaceHeight = m_tiles->qHeight() * 2 + 1;
@@ -678,7 +678,7 @@ void GameView::updateItemsPosition(const QList<GameItem *> &gameItems)
     // Because the positions of the tiles can be half-positioned, the width and
     // height in GameData is two times higher. To get the maximum number of
     // tiles in a row or column, the GameData-width and -height have to be
-    // devided by two.
+    // divided by two.
     qreal numTilesX = m_gameData->m_width / 2;
     qreal numTilesY = m_gameData->m_height / 2;
 
@@ -958,7 +958,7 @@ void GameView::resizeEvent(QResizeEvent * event)
     }
 
     // The size need to be corrected, related to the removedtiles
-    // view and wether it is shown or not. For now the removed tiles field can
+    // view and whether it is shown or not. For now the removed tiles field can
     // only be placed to the right of the board.
     QSize size(event->size());
     if (m_showRemovedTiles) {

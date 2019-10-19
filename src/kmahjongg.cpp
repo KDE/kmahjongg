@@ -312,7 +312,7 @@ void KMahjongg::loadSettings()
         qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the background " << Prefs::background() << " KMahjongg will continue with the default background.";
     }
 
-    // Set wether removed tiles should be shown.
+    // Set whether removed tiles should be shown.
     m_gameView->showRemovedTiles(Prefs::removedTiles());
 
     // Maybe load a new layout and start a new game if the layout or random mode has changed.

@@ -882,7 +882,7 @@ bool GameData::findMove(POSITION & posA, POSITION & posB)
 
     short posCount = 0; // store number of pairs found
 
-    // The new tile layout with non-contiguos horizantle spans
+    // The new tile layout with non-continuous horizantal spans
     // can lead to huge numbers of matching pairs being exposed.
     // we alter the loop to bail out when BoardLayout::maxTiles/2 pairs are found
     // (or less);

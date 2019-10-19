@@ -98,7 +98,7 @@ public:
     void setTileset(KMahjonggTileset * tiles);
 
     /**
-     * Calculate all values that neccessary to paint all tiles.
+     * Calculate all values that necessary to paint all tiles.
      */
     void updateTileCalculations();
 
