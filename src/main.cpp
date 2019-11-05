@@ -64,7 +64,7 @@ int main(int argc, char ** argv)
     KDBusService service;
 
     if (app.isSessionRestored()) {
-        RESTORE(KMahjongg)
+        kRestoreMainWindows<KMahjongg>();
     } else {
         KMahjongg * window = new KMahjongg();
         window->show();
