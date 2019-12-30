@@ -32,6 +32,7 @@
 #include <QShortcut>
 #include <QStatusBar>
 #include <QWindowStateChangeEvent>
+#include <QRandomGenerator>
 
 // KDE
 #include <KActionCollection>
@@ -420,7 +421,7 @@ void KMahjongg::startNewGame(int item)
                 availableLayouts.append(dir + '/' + file);
             }
         }
-        const QString layout = availableLayouts.at(qrand() % availableLayouts.size());
+        const QString layout = availableLayouts.at(QRandomGenerator::global()->bounded(availableLayouts.size()));
 
         if (m_boardLayout->path() != layout) {
             // Try to load the random layout.
