@@ -104,9 +104,9 @@
     <p xml:lang="zh-CN">KMahjongg 是一个来源于东方游戏“麻将”的有趣棋牌游戏。</p>
     <p xml:lang="zh-TW">KMahjongg 是中國麻將變化出來的一種遊戲。</p>
   </description>
-  <url type="homepage">http://games.kde.org/game.php?game=kmahjongg</url>
+  <url type="homepage">https://games.kde.org/game.php?game=kmahjongg</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kmahjongg</url>
-  <url type="help">https://docs.kde.org/?application=kmahjongg&amp;branch=stable</url>
+  <url type="help">https://docs.kde.org/?application=kmahjongg</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kmahjongg&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
@@ -132,7 +132,7 @@
       <caption xml:lang="uk">Гра KMahjongg</caption>
       <caption xml:lang="x-test">xxPlaying KMahjonggxx</caption>
       <caption xml:lang="zh-TW">KMahjongg 遊玩畫面</caption>
-      <image>http://kde.org/images/screenshots/kmahjongg.png</image>
+      <image>https://cdn.kde.org/screenshots/kmahjongg/kmahjongg.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
