@@ -3,3 +3,4 @@
 *.kdev4
 CMakeLists.txt.user*
 .vscode
+.cmake/
