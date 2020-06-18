@@ -33,6 +33,7 @@
   <name xml:lang="sv">Mahjongg</name>
   <name xml:lang="tr">KMahjongg</name>
   <name xml:lang="uk">KMahjongg</name>
+  <name xml:lang="x-test">xxKMahjonggxx</name>
   <name xml:lang="zh-CN">KMahjongg</name>
   <name xml:lang="zh-TW">KMahjongg</name>
   <summary>Mahjong Solitaire</summary>
@@ -64,6 +65,7 @@
   <summary xml:lang="sv">Mahjongg-patiens</summary>
   <summary xml:lang="tr">Mahjongg Solitaire</summary>
   <summary xml:lang="uk">Пасьянс «Маджонґ»</summary>
+  <summary xml:lang="x-test">xxMahjong Solitairexx</summary>
   <summary xml:lang="zh-CN">麻将纸牌</summary>
   <summary xml:lang="zh-TW">麻將遊戲</summary>
   <description>
@@ -99,6 +101,7 @@
     <p xml:lang="sv">Mahjongg är ett roligt brädspel som är skapat baserat på det berömda orientaliska spelet Mahjong (från kinesiskans 麻將).</p>
     <p xml:lang="tr">KMahjongg, Mahjong'un ünlü doğu oyunu (Çin'den 麻將) sonrasında oluşturulmuş eğlenceli bir tahta oyunudur.</p>
     <p xml:lang="uk">KMahjongg — це захоплива гра на дошці, створена на основі відомої східної гри у маджонґ (китайською 麻將).</p>
+    <p xml:lang="x-test">xxKMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).xx</p>
     <p xml:lang="zh-CN">KMahjongg 是一个来源于东方游戏“麻将”的有趣棋牌游戏。</p>
     <p xml:lang="zh-TW">KMahjongg 是中國麻將變化出來的一種遊戲。</p>
   </description>
@@ -130,6 +133,7 @@
       <caption xml:lang="sl">Igra KMahjongg</caption>
       <caption xml:lang="sv">Spela Mahjongg</caption>
       <caption xml:lang="uk">Гра KMahjongg</caption>
+      <caption xml:lang="x-test">xxPlaying KMahjonggxx</caption>
       <caption xml:lang="zh-CN">正在进行麻将游戏</caption>
       <caption xml:lang="zh-TW">KMahjongg 遊玩畫面</caption>
       <image>https://cdn.kde.org/screenshots/kmahjongg/kmahjongg.png</image>
