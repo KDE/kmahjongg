@@ -24,7 +24,7 @@
 #include <QPainter>
 #include <QPixmap>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 
 GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)
