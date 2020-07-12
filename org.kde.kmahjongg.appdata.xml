@@ -93,7 +93,7 @@
     <p xml:lang="pt-BR">KMahjongg é um divertido jogo de tabuleiro criado com base no famoso jogo oriental que é o Mahjong (do chinês 麻將).</p>
     <p xml:lang="ru">KMahjongg — увлекательная настольная игра по мотивам знаменитой восточной игры маджонг (от китайского названия  麻將).</p>
     <p xml:lang="sk">KMahjongg je zábavná dosková hra vytvorená podľa známej orientálnej hry Mahjong (z čínštiny 麻將).</p>
-    <p xml:lang="sl">KMahjongg je zabavna namizna igra, ki je bila ustvarjena po vzoru slavne bližnjevzhodne igre imenovane Mahjong (iz kitajskega imena 麻將).</p>
+    <p xml:lang="sl">KMahjongg je zabavna namizna igra, ki je bila ustvarjena po vzoru slavne orientalske igre imenovane Mahjong (po kitajsko 麻將).</p>
     <p xml:lang="sr">К‑маџонг је забавна игра на табли заснована на чувеној оријенталној игри маџонг (од кинеског 麻將).</p>
     <p xml:lang="sr-Latn">K‑madžong je zabavna igra na tabli zasnovana na čuvenoj orijentalnoj igri madžong (od kineskog 麻將).</p>
     <p xml:lang="sr-ijekavian">К‑маџонг је забавна игра на табли заснована на чувеној оријенталној игри маџонг (од кинеског 麻將).</p>
@@ -131,6 +131,7 @@
       <caption xml:lang="pt">A jogar ao KMahjongg</caption>
       <caption xml:lang="pt-BR">Jogando o KMahjongg</caption>
       <caption xml:lang="sk">Hranie KMahjongg</caption>
+      <caption xml:lang="sl">Igra KMahjongg</caption>
       <caption xml:lang="sv">Spela Mahjongg</caption>
       <caption xml:lang="uk">Гра KMahjongg</caption>
       <caption xml:lang="x-test">xxPlaying KMahjonggxx</caption>
