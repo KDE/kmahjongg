@@ -406,7 +406,7 @@ private:
                    int yCounter, int z, int & zCount);
 
     unsigned short m_cheatsUsed;
-    long m_gameNumber;
+    quint32 m_gameNumber;
     bool m_gamePaused;
     bool m_match;
     bool m_gameGenerated;

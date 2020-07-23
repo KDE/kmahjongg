@@ -245,7 +245,7 @@ bool GameData::generateSolvableGame()
         int position, cnt = 0;
 
         do {
-            position = static_cast<int>(random.getLong(m_numTilesToGenerate));
+            position = random.bounded(m_numTilesToGenerate);
 
             if (cnt++ > (m_numTilesToGenerate * m_numTilesToGenerate)) {
                 return false; // bail
@@ -402,7 +402,7 @@ int GameData::selectPosition(int lastPosition)
     while (!goodPosition) {
         // Select a random, but free, position.
         do {
-            position = random.getLong(m_numTilesToGenerate);
+            position = random.bounded(m_numTilesToGenerate);
 
             if (cnt++ > (m_numTilesToGenerate * m_numTilesToGenerate)) {
                 return -1; // bail
@@ -577,11 +577,11 @@ bool GameData::generateStartPosition2()
         int p2;
 
         if (remaining > 2) {
-            p2 = p1 = random.getLong(remaining - 2);
+            p2 = p1 = random.bounded(remaining - 2);
             int bail = 0;
 
             while (p1 == p2) {
-                p2 = random.getLong(remaining - 2);
+                p2 = random.bounded(remaining - 2);
 
                 if (bail >= 100) {
                     if (p1 != p2) {
@@ -677,7 +677,7 @@ void GameData::randomiseFaces()
         int to = at;
 
         while (to == at) {
-            to = random.getLong(144);
+            to = random.bounded(144);
 
             if ((to & 1) != 0) {
                 --to;
@@ -899,8 +899,8 @@ bool GameData::findMove(POSITION & posA, POSITION & posB)
     }
 
     if (posCount >= 2) {
-        random.setSeed(0); // WABA: Why is the seed reset?
-        short pos = random.getLong(posCount) & -2; // Even value
+        random.seed(QRandomGenerator::global()->generate()); // WABA: Why is the seed reset?
+        short pos = random.bounded(posCount) & -2; // Even value
         posA = m_posTable[pos];
         posB = m_posTable[pos + 1];
 
@@ -1077,8 +1077,8 @@ void GameData::shuffle()
     // now lets randomise the faces, selecting 400 pairs at random and
     // swapping the faces.
     for (int ran = 0; ran < 400; ++ran) {
-        int pos1 = random.getLong(count);
-        int pos2 = random.getLong(count);
+        int pos1 = random.bounded(count);
+        int pos2 = random.bounded(count);
 
         if (pos1 == pos2) {
             continue;

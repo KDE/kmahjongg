@@ -21,10 +21,8 @@
 #define GAMEDATA_H
 
 // Qt
+#include <QRandomGenerator>
 #include <QVector>
-
-// KDE
-#include <KRandomSequence>
 
 // KMahjongg
 #include "kmtypes.h"
@@ -88,7 +86,7 @@ public:
     short m_depth;
     short m_maxTiles;
 
-    KRandomSequence random;
+    QRandomGenerator random;
 
 private:
     void putTile(POSITION & pos)

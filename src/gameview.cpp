@@ -17,11 +17,11 @@
 
 // Qt
 #include <QMouseEvent>
+#include <QRandomGenerator>
 #include <QResizeEvent>
 
 // KDE
 #include <KLocalizedString>
-#include <KRandom>
 
 // KMahjongg
 #include "demoanimation.h"
@@ -218,14 +218,14 @@ void GameView::createNewGame(long gameNumber)
 
     // Create a random game number, if no one was given.
     if (gameNumber == -1) {
-        m_gameNumber = KRandom::random();
+        m_gameNumber = QRandomGenerator::global()->generate();
     } else {
         m_gameNumber = gameNumber;
     }
 
     m_gameData->m_allowUndo = 0;
     m_gameData->m_allowRedo = 0;
-    m_gameData->random.setSeed(m_gameNumber);
+    m_gameData->random.seed(m_gameNumber);
 
     // Translate m_pGameData->Map to an array of POSITION data.  We only need to
     // do this once for each new game.

@@ -1,8 +1,8 @@
 project(kmahjongg)
 
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
-set(QT_MIN_VERSION "5.9.0")
-set(KF5_MIN_VERSION "5.46.0")
+set(QT_MIN_VERSION "5.10.0")
+set(KF5_MIN_VERSION "5.55.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
