@@ -900,7 +900,7 @@ bool GameData::findMove(POSITION & posA, POSITION & posB)
 
     if (posCount >= 2) {
         random.seed(QRandomGenerator::global()->generate()); // WABA: Why is the seed reset?
-        short pos = random.bounded(posCount) & -2; // Even value
+        const quint32 pos = random.bounded(posCount) & -2; // Even value
         posA = m_posTable[pos];
         posB = m_posTable[pos + 1];
 
