@@ -110,7 +110,7 @@ void Editor::resizeEvent(QResizeEvent * event)
 
 void Editor::setupToolbar()
 {
-    m_topToolbar = new KToolBar(this, "editToolBar");
+    m_topToolbar = new KToolBar(QStringLiteral("editToolBar"), this);
     m_topToolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
     m_actionCollection = new KActionCollection(this);
