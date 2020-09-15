@@ -74,31 +74,31 @@ void DemoAnimation::timeoutOccurred()
 
                 if (m_gameData->m_tileNum == 0) {
                     // The computer has won the game.
-                    emit gameOver(true);
+                    Q_EMIT gameOver(true);
                 } else {
                     // The computer lost the game.
                     // setStatusText(i18n("Your computer has lost the game."));
-                    emit gameOver(false);
+                    Q_EMIT gameOver(false);
                 }
             }
 
             break;
         case 1:
         case 3:
-            emit changeItemSelectedState(m_stFirst, true);
-            emit changeItemSelectedState(m_stSecond, true);
+            Q_EMIT changeItemSelectedState(m_stFirst, true);
+            Q_EMIT changeItemSelectedState(m_stSecond, true);
 
             break;
         case 2:
-            emit changeItemSelectedState(m_stFirst, false);
-            emit changeItemSelectedState(m_stSecond, false);
+            Q_EMIT changeItemSelectedState(m_stFirst, false);
+            Q_EMIT changeItemSelectedState(m_stSecond, false);
 
             break;
         case 4:
             m_stFirst.f -= TILE_OFFSET;
-            emit removeItem(m_stFirst);
+            Q_EMIT removeItem(m_stFirst);
             m_stSecond.f -= TILE_OFFSET;
-            emit removeItem(m_stSecond);
+            Q_EMIT removeItem(m_stSecond);
 
             break;
     }

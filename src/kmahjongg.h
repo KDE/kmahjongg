@@ -40,7 +40,7 @@ public:
     explicit KMahjongg(QWidget * parent = nullptr);
     ~KMahjongg() override;
 
-public slots:
+public Q_SLOTS:
     void startNewGame(int num = -1);
 
     /**
@@ -63,7 +63,7 @@ protected:
     void changeEvent(QEvent * event) override;
     void closeEvent(QCloseEvent * event) override;
 
-private slots:
+private Q_SLOTS:
     void showSettings();
     void startNewNumeric();
     void saveGame();

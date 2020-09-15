@@ -134,7 +134,7 @@ public:
      */
     void setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles);
 
-signals:
+Q_SIGNALS:
     void rotateCW();
     void rotateCCW();
     void clearSelectedTile();

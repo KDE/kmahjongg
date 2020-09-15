@@ -46,12 +46,12 @@ public:
     explicit Editor(QWidget * parent = nullptr);
     ~Editor() override;
 
-public slots:
+public Q_SLOTS:
     /**
      * Load the settings from prefs. */
     void setTilesetFromSettings();
 
-protected slots:
+protected Q_SLOTS:
     void drawFrameMousePressEvent(QMouseEvent *);
     void drawFrameMouseMovedEvent(QMouseEvent *);
     void loadBoard();

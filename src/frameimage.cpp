@@ -112,10 +112,10 @@ void FrameImage::setRect(int x, int y, int w, int h, int s, int t)
 
 void FrameImage::mousePressEvent(QMouseEvent * m)
 {
-    emit mousePressed(m);
+    Q_EMIT mousePressed(m);
 }
 
 void FrameImage::mouseMoveEvent(QMouseEvent * e)
 {
-    emit mouseMoved(e);
+    Q_EMIT mouseMoved(e);
 }

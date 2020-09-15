@@ -135,7 +135,7 @@ public:
      */
     void prepareForGeometryChange();
 
-public slots:
+public Q_SLOTS:
     /**
      * Fade in the item. */
     void fadeIn();

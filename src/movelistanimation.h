@@ -61,9 +61,9 @@ public:
      * Override of QTimer. */
     void stop();
 
-public slots:
+public Q_SLOTS:
 
-signals:
+Q_SIGNALS:
     /**
      * Emit to remove the given item. */
     void removeItem(POSITION & stItem);
@@ -72,7 +72,7 @@ signals:
      * Emit to add the given item. */
     void addItem(POSITION & stItem);
 
-private slots:
+private Q_SLOTS:
     /**
      * The timeout occurred. */
     void timeoutOccurred();

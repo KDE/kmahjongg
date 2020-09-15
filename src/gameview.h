@@ -223,7 +223,7 @@ public:
      * @return True if game was generated, or false. */
     bool gameGenerated();
 
-public slots:
+public Q_SLOTS:
     /**
      * Add a new item with the given position and update images, position and order. */
     void addItemAndUpdate(POSITION & stItemPos);
@@ -283,7 +283,7 @@ protected:
      * Override from QGraphicsView. */
     void mousePressEvent(QMouseEvent * mouseEvent) override;
 
-signals:
+Q_SIGNALS:
     /**
      * Emits when a new game was calculated. */
     void newGameCalculated();
@@ -321,7 +321,7 @@ signals:
      * Emits when no more moves are available. */
     void noMovesAvailable();
 
-private slots:
+private Q_SLOTS:
     /**
      * Add a new item with the given position.
      *

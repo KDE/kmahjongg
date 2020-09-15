@@ -183,7 +183,7 @@ bool GameView::redo()
 
         // Test whether the game is over or not.
         if (m_gameData->m_tileNum == 0) {
-            emit gameOver(m_gameData->m_maxTileNum, m_cheatsUsed);
+            Q_EMIT gameOver(m_gameData->m_maxTileNum, m_cheatsUsed);
         } else {
             // The game is not over, so test if there are any valid moves.
             validMovesAvailable();
@@ -200,7 +200,7 @@ void GameView::demoGameOver(bool won)
         startMoveListAnimation();
     } else {
         setStatusText(i18n("Your computer has lost the game."));
-        emit demoOrMoveListAnimationOver(true);
+        Q_EMIT demoOrMoveListAnimationOver(true);
     }
 }
 
@@ -315,7 +315,7 @@ void GameView::selectionChanged()
 
             // Test whether the game is over or not.
             if (m_gameData->m_tileNum == 0) {
-                emit gameOver(m_gameData->m_maxTileNum, m_cheatsUsed);
+                Q_EMIT gameOver(m_gameData->m_maxTileNum, m_cheatsUsed);
             } else {
                 // The game is not over, so test if there are any valid moves.
                 validMovesAvailable();
@@ -490,7 +490,7 @@ bool GameView::validMovesAvailable(bool silent)
 
     if (!m_gameData->findMove(stItem1, stItem2)) {
         if (!silent) {
-            emit noMovesAvailable();
+            Q_EMIT noMovesAvailable();
         }
         return false;
     }
@@ -552,7 +552,7 @@ void GameView::populateItemNumber()
     // Update the allow_undo variable, cause the item number changes.
     m_gameData->m_allowUndo = (m_gameData->m_maxTileNum != m_gameData->m_tileNum);
 
-    emit itemNumberChanged(m_gameData->m_maxTileNum, m_gameData->m_tileNum, m_gameData->moveCount());
+    Q_EMIT itemNumberChanged(m_gameData->m_maxTileNum, m_gameData->m_tileNum, m_gameData->moveCount());
 }
 
 void GameView::addItemsFromBoardLayout()
@@ -936,13 +936,13 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 {
     // If a move list animation is running start a new game.
     if (checkMoveListAnimationActive(true)) {
-        emit demoOrMoveListAnimationOver(false);
+        Q_EMIT demoOrMoveListAnimationOver(false);
         return;
     }
 
     // No mouse events when the demo mode is active.
     if (checkDemoAnimationActive(true)) {
-        emit demoOrMoveListAnimationOver(false);
+        Q_EMIT demoOrMoveListAnimationOver(false);
         return;
     }
 
@@ -1039,7 +1039,7 @@ void GameView::updateItemsImages(const QList<GameItem *> &gameItems)
 
 void GameView::setStatusText(QString const & text)
 {
-    emit statusTextChanged(text, m_gameNumber);
+    Q_EMIT statusTextChanged(text, m_gameNumber);
 }
 
 void GameView::updateBackground()

@@ -268,7 +268,7 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 
     // No item was clicked.
     if (gameItem == nullptr) {
-        emit clearSelectedTile();
+        Q_EMIT clearSelectedTile();
         mouseEvent->ignore();
         return;
     }
@@ -279,15 +279,15 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
         gameItem->setSelected(true);
         mouseEvent->accept();
     } else {
-        emit clearSelectedTile();
+        Q_EMIT clearSelectedTile();
     }
 }
 
 void GameScene::wheelEvent(QGraphicsSceneWheelEvent * mouseEvent)
 {
     if (mouseEvent->delta() < 0) {
-        emit rotateCW();
+        Q_EMIT rotateCW();
     } else {
-        emit rotateCCW();
+        Q_EMIT rotateCCW();
     }
 }

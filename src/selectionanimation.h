@@ -85,11 +85,11 @@ public:
      * Override of QTimer. */
     void stop();
 
-public slots:
+public Q_SLOTS:
 
-signals:
+Q_SIGNALS:
 
-private slots:
+private Q_SLOTS:
     /**
      * The timeout occurred. */
     void timeoutOccurred();

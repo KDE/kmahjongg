@@ -41,7 +41,7 @@ public:
     explicit KMahjonggLayoutSelector(QWidget * parent, KConfigSkeleton * config);
     ~KMahjonggLayoutSelector();
 
-public slots:
+public Q_SLOTS:
     void layoutChanged();
     void useRandomLayoutToggled(bool);
 

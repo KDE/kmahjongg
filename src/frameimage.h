@@ -45,7 +45,7 @@ public:
     }
     void setRect(int x, int y, int w, int h, int ss, int type);
 
-signals:
+Q_SIGNALS:
     void mousePressed(QMouseEvent * e);
     void mouseMoved(QMouseEvent * e);
 

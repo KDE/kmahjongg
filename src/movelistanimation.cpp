@@ -70,17 +70,17 @@ void MoveListAnimation::timeoutOccurred()
 
     if (m_direction == AnimationDirection::Forward) {
         // Remove items...
-        emit removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
-        emit removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        Q_EMIT removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        Q_EMIT removeItem(m_gameData->MoveListData(m_gameData->m_tileNum));
 
         if (m_gameData->m_tileNum == 0) {
             m_direction = AnimationDirection::Backward;
         }
     } else {
         ++m_gameData->m_tileNum;
-        emit addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        Q_EMIT addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
         ++m_gameData->m_tileNum;
-        emit addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
+        Q_EMIT addItem(m_gameData->MoveListData(m_gameData->m_tileNum));
 
         if (m_gameData->m_tileNum == m_gameData->m_maxTileNum) {
             m_direction = AnimationDirection::Forward;

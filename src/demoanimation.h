@@ -58,9 +58,9 @@ public:
      * Override of QTimer. */
     void stop();
 
-public slots:
+public Q_SLOTS:
 
-signals:
+Q_SIGNALS:
     /**
      * Emits when the game is over.
      *
@@ -78,7 +78,7 @@ signals:
      * @param selected THe item should be selected on true, else deselected. */
     void changeItemSelectedState(POSITION & stItem, bool selected);
 
-private slots:
+private Q_SLOTS:
     void timeoutOccurred();
 
 private:
