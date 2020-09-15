@@ -37,7 +37,7 @@ int main(int argc, char ** argv)
 
     KLocalizedString::setApplicationDomain("kmahjongg");
     KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"),
-                         KMAHJONGG_VERSION, i18n(description), KAboutLicense::GPL,
+                         QStringLiteral(KMAHJONGG_VERSION), i18n(description), KAboutLicense::GPL,
                          i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"));
     aboutData.setHomepage(QStringLiteral("https://kde.org/applications/games/org.kde.kmahjongg"));
     aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), QStringLiteral("in5y158@public.uni-hamburg.de"));

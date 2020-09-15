@@ -134,7 +134,7 @@ bool BoardLayout::loadBoardLayout_10(const QString & from)
 
         while (!t.atEnd()) {
             s = t.readLine();
-            if (s[0] == '#') {
+            if (s[0] == QLatin1Char('#')) {
                 continue;
             }
             all += s;
@@ -180,18 +180,18 @@ bool BoardLayout::loadBoardLayout(const QString & from)
 
         while (!t.atEnd()) {
             s = t.readLine();
-            if (s[0] == '#') {
+            if (s[0] == QLatin1Char('#')) {
                 continue;
             }
-            if (s[0] == 'w') {
+            if (s[0] == QLatin1Char('w')) {
                 m_width = s.midRef(1).toInt();
                 continue;
             }
-            if (s[0] == 'h') {
+            if (s[0] == QLatin1Char('h')) {
                 m_height = s.midRef(1).toInt();
                 continue;
             }
-            if (s[0] == 'd') {
+            if (s[0] == QLatin1Char('d')) {
                 m_depth = s.midRef(1).toInt();
                 continue;
             }

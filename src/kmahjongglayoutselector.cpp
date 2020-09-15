@@ -70,7 +70,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     for (const QString & dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         for (const QString & file : fileNames) {
-            tilesAvailable.append(dir + '/' + file);
+            tilesAvailable.append(dir + QLatin1Char('/') + file);
         }
     }
     tilesAvailable.sort();

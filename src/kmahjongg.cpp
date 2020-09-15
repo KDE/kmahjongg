@@ -393,12 +393,14 @@ void KMahjongg::noMovesAvailable()
     m_gameTimer->pause();
     updateState(GameState::Stuck);
 
+    const QIcon newGameIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::New)))->icon();
+    const QIcon restartIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::Restart)))->icon();
     int answer = KMessageBox::questionYesNoCancel(
         this,
         i18n("Game Over: You have no moves left."),
         i18n("Game Over"),
-        KGuiItem(i18n("New Game"), QIcon(actionCollection()->action(KStandardGameAction::name(KStandardGameAction::New))->icon())),
-        KGuiItem(i18n("Restart"), QIcon(actionCollection()->action(KStandardGameAction::name(KStandardGameAction::Restart))->icon())));
+        KGuiItem(i18n("New Game"), newGameIcon),
+        KGuiItem(i18n("Restart"), restartIcon));
     if (answer == KMessageBox::Yes) {
         startNewGame();
     } else if (answer == KMessageBox::No) {
@@ -418,7 +420,7 @@ void KMahjongg::startNewGame(int item)
         for (const QString & dir : layoutDirs) {
             const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
             for (const QString & file : fileNames) {
-                availableLayouts.append(dir + '/' + file);
+                availableLayouts.append(dir + QLatin1Char('/') + file);
             }
         }
         const QString layout = availableLayouts.at(QRandomGenerator::global()->bounded(availableLayouts.size()));
