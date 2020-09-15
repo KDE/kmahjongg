@@ -955,7 +955,7 @@ void GameView::mousePressEvent(QMouseEvent * pMouseEvent)
 
 void GameView::resizeEvent(QResizeEvent * event)
 {
-    if (event->spontaneous() || m_gameData == 0) {
+    if (event->spontaneous() || m_gameData == nullptr) {
         return;
     }
 
@@ -989,7 +989,7 @@ void GameView::resizeEvent(QResizeEvent * event)
 
 void GameView::resizeTileset(const QSize & size)
 {
-    if (m_gameData == 0) {
+    if (m_gameData == nullptr) {
         return;
     }
 
