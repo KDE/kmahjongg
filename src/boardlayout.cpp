@@ -68,22 +68,22 @@ bool BoardLayout::saveBoardLayout(const QString & where) const
     }
 
     QByteArray tmp = layoutMagic1_1.toUtf8();
-    if (f.write(tmp, tmp.length()) == -1) {
+    if (f.write(tmp) == -1) {
         return false;
     }
 
     tmp = QStringLiteral("\nw%1").arg(m_width).toUtf8();
-    if (f.write(tmp, tmp.length()) == -1) {
+    if (f.write(tmp) == -1) {
         return false;
     }
 
     tmp = QStringLiteral("\nh%1").arg(m_height).toUtf8();
-    if (f.write(tmp, tmp.length()) == -1) {
+    if (f.write(tmp) == -1) {
         return false;
     }
 
     tmp = QStringLiteral("\nd%1").arg(m_depth).toUtf8();
-    if (f.write(tmp, tmp.length()) == -1) {
+    if (f.write(tmp) == -1) {
         return false;
     }
 
