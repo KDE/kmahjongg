@@ -67,9 +67,9 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     QStringList tilesAvailable;
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
-    Q_FOREACH (const QString & dir, dirs) {
+    for (const QString & dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-        Q_FOREACH (const QString & file, fileNames) {
+        for (const QString & file : fileNames) {
             tilesAvailable.append(dir + '/' + file);
         }
     }

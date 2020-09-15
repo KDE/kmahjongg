@@ -259,7 +259,8 @@ void GameView::createNewGame(long gameNumber)
     m_gameGenerated = false;
 
     // Hide all generated tiles.
-    foreach (GameItem * item, getGameItems()) {
+    const QList<GameItem *> gameItems = getGameItems();
+    for (GameItem * item : gameItems) {
         item->hide();
     }
 
@@ -498,12 +499,13 @@ bool GameView::validMovesAvailable(bool silent)
 
 void GameView::pause(bool isPaused)
 {
+    const QList<GameItem *> gameItems = getGameItems();
     if (isPaused) {
-        foreach (GameItem * item, getGameItems()) {
+        for (GameItem * item : gameItems) {
             item->hide();
         }
     } else {
-        foreach (GameItem * item, getGameItems()) {
+        for (GameItem * item : gameItems) {
             item->show();
         }
     }
@@ -995,7 +997,8 @@ void GameView::resizeTileset(const QSize & size)
         size, m_gameData->m_width / 2, m_gameData->m_height / 2
     );
 
-    foreach (GameItem * item, getGameItems()) {
+    const QList<GameItem *> gameItems = getGameItems();
+    for (GameItem * item : gameItems) {
         item->prepareForGeometryChange();
     }
 

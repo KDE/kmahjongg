@@ -415,9 +415,9 @@ void KMahjongg::startNewGame(int item)
     if (Prefs::randomLayout() && item == -1) {
         QStringList availableLayouts;
         const QStringList layoutDirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
-        Q_FOREACH (const QString & dir, layoutDirs) {
+        for (const QString & dir : layoutDirs) {
             const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
-            Q_FOREACH (const QString & file, fileNames) {
+            for (const QString & file : fileNames) {
                 availableLayouts.append(dir + '/' + file);
             }
         }
