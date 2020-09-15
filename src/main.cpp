@@ -27,8 +27,6 @@
 #include "kmahjongg.h"
 #include "version.h"
 
-static const char description[] = I18N_NOOP("Mahjongg Solitaire by KDE");
-
 int main(int argc, char ** argv)
 {
     // Fixes blurry icons with fractional scaling
@@ -37,7 +35,9 @@ int main(int argc, char ** argv)
 
     KLocalizedString::setApplicationDomain("kmahjongg");
     KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"),
-                         QStringLiteral(KMAHJONGG_VERSION), i18n(description), KAboutLicense::GPL,
+                         QStringLiteral(KMAHJONGG_VERSION),
+                         i18n("Mahjongg Solitaire by KDE"),
+                         KAboutLicense::GPL,
                          i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"));
     aboutData.setHomepage(QStringLiteral("https://kde.org/applications/games/org.kde.kmahjongg"));
     aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), QStringLiteral("in5y158@public.uni-hamburg.de"));
