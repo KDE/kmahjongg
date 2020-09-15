@@ -1,6 +1,7 @@
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+
 project(kmahjongg)
 
-cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 set(QT_MIN_VERSION "5.10.0")
 set(KF5_MIN_VERSION "5.55.0")
 
