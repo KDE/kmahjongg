@@ -18,6 +18,11 @@ set(kmahjongg_SRCS
    movelistanimation.cpp
 )
 
+ecm_setup_version(${KMAHJONGG_VERSION}
+    VARIABLE_PREFIX KMAHJONGG
+    VERSION_HEADER kmahjongg_version.h
+)
+
 ki18n_wrap_ui(kmahjongg_SRCS settings.ui gametype.ui)
 
 ecm_qt_declare_logging_category(kmahjongg_SRCS HEADER kmahjongg_debug.h IDENTIFIER KMAHJONGG_LOG CATEGORY_NAME log_kmahjongg)

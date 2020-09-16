@@ -25,7 +25,7 @@
 
 // KMahjongg
 #include "kmahjongg.h"
-#include "version.h"
+#include "kmahjongg_version.h"
 
 int main(int argc, char ** argv)
 {
@@ -35,7 +35,7 @@ int main(int argc, char ** argv)
 
     KLocalizedString::setApplicationDomain("kmahjongg");
     KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"),
-                         QStringLiteral(KMAHJONGG_VERSION),
+                         QStringLiteral(KMAHJONGG_VERSION_STRING),
                          i18n("Mahjongg Solitaire by KDE"),
                          KAboutLicense::GPL,
                          i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"));
