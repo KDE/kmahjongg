@@ -36,7 +36,6 @@
 #include <KToggleAction>
 
 // KMahjongg
-#include "frameimage.h"
 #include "prefs.h"
 
 Editor::Editor(QWidget * parent)
