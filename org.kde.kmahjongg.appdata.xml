@@ -147,4 +147,7 @@
   <provides>
     <binary>kmahjongg</binary>
   </provides>
+  <releases>
+    <release version="0.9.20120" date="2020-12-10"/>
+  </releases>
 </component>
