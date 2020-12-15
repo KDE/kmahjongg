@@ -136,17 +136,17 @@ KMahjongg::~KMahjongg()
 
 void KMahjongg::setupKAction()
 {
-    KStandardGameAction::gameNew(this, SLOT(startNewGame()), actionCollection());
-    KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
-    KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
-    KStandardGameAction::restart(this, SLOT(restartGame()), actionCollection());
+    KStandardGameAction::gameNew(this, &KMahjongg::startNewGame, actionCollection());
+    KStandardGameAction::load(this, &KMahjongg::loadGame, actionCollection());
+    KStandardGameAction::save(this, &KMahjongg::saveGame, actionCollection());
+    KStandardGameAction::quit(this, &KMahjongg::close, actionCollection());
+    KStandardGameAction::restart(this, &KMahjongg::restartGame, actionCollection());
 
     QAction * newNumGame = actionCollection()->addAction(QStringLiteral("game_new_numeric"));
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
-    QAction * action = KStandardGameAction::hint(m_gameView, SLOT(helpMove()), this);
+    QAction * action = KStandardGameAction::hint(m_gameView, &GameView::helpMove, this);
     actionCollection()->addAction(action->objectName(), action);
 
     QAction * shuffle = actionCollection()->addAction(QStringLiteral("move_shuffle"));
@@ -170,14 +170,14 @@ void KMahjongg::setupKAction()
         this, &KMahjongg::toggleFullscreen, this, actionCollection()
     );
 
-    m_demoAction = KStandardGameAction::demo(this, SLOT(demoMode()), actionCollection());
+    m_demoAction = KStandardGameAction::demo(this, &KMahjongg::demoMode, actionCollection());
 
-    KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-    m_pauseAction = KStandardGameAction::pause(this, SLOT(pause()), actionCollection());
+    KStandardGameAction::highscores(this, &KMahjongg::showHighscores, actionCollection());
+    m_pauseAction = KStandardGameAction::pause(this, &KMahjongg::pause, actionCollection());
 
     // move
-    m_undoAction = KStandardGameAction::undo(this, SLOT(undo()), actionCollection());
-    m_redoAction = KStandardGameAction::redo(this, SLOT(redo()), actionCollection());
+    m_undoAction = KStandardGameAction::undo(this, &KMahjongg::undo, actionCollection());
+    m_redoAction = KStandardGameAction::redo(this, &KMahjongg::redo, actionCollection());
 
     // edit
     QAction * boardEdit = actionCollection()->addAction(QStringLiteral("game_board_editor"));
@@ -185,7 +185,7 @@ void KMahjongg::setupKAction()
     connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
     // settings
-    KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
+    KStandardAction::preferences(this, &KMahjongg::showSettings, actionCollection());
     setupGUI(qApp->primaryScreen()->geometry().size() * 0.7);
 }
 

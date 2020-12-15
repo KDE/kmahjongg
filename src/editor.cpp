@@ -217,7 +217,8 @@ void Editor::setupToolbar()
     m_topToolbar->addAction(shiftRight);
 
     m_topToolbar->addSeparator();
-    QAction * quit = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"), this, SLOT(close()));
+    QAction * quit = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit"));
+    connect(quit, &QAction::triggered, this, &Editor::close);
     m_topToolbar->addAction(quit);
 
     // status in the toolbar for now (ick)
