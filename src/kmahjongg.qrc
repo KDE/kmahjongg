@@ -1,0 +1,6 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/kxmlgui5/kmahjongg">
+        <file>kmahjonggui.rc</file>
+    </qresource>
+</RCC>
