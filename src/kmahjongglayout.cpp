@@ -20,7 +20,9 @@
 #include "boardlayout.h"
 #include "kmahjongg_debug.h"
 
-const int KMahjonggLayout::kLayoutVersionFormat = 1;
+namespace {
+constexpr int kLayoutVersionFormat = 1;
+}
 
 class KMahjonggLayoutPrivate
 {

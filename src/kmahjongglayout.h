@@ -31,7 +31,6 @@ private:
     KMahjonggLayoutPrivate * const d;
     QString filename;
     QString m_layoutName;
-    static const int kLayoutVersionFormat;
 
     Q_DISABLE_COPY(KMahjonggLayout)
 };

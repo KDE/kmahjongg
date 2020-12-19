@@ -105,8 +105,6 @@ private:
     KToggleAction * m_pauseAction;
     KToggleAction * m_fullscreenAction;
     KToggleAction * m_demoAction;
-
-    static const int gameDataVersion;
 };
 
 #endif

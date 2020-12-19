@@ -13,7 +13,7 @@
 // KMahjongg
 #include "kmtypes.h"
 
-static const int ANIMATION_SPEED = 200;
+constexpr int ANIMATION_SPEED = 200;
 
 // Forward declaration...
 class GameScene;

@@ -52,8 +52,8 @@
 
 namespace {
 inline QString gameMagic() { return QStringLiteral("kmahjongg-gamedata"); }
+constexpr int gameDataVersion = 1;
 }
-const int KMahjongg::gameDataVersion = 1;
 
 /**
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
