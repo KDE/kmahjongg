@@ -21,7 +21,7 @@
 // Qt
 #include <QDialog>
 
-// KDE
+// KF
 #include <KToolBar>
 
 // KMahjongg

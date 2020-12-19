@@ -23,7 +23,7 @@
 #include <QPainter>
 #include <QPixmap>
 
-// KDE
+// KF
 
 // KMahjongg
 #include "editor.h"

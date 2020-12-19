@@ -23,7 +23,7 @@
 #ifndef KMAHJONGGLAYOUTSELECTOR_H
 #define KMAHJONGGLAYOUTSELECTOR_H
 
-// KDE
+// KF
 #include <KConfigSkeleton>
 
 // KMahjongg

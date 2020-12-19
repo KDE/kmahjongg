@@ -28,7 +28,7 @@
 #include <QPainter>
 #include <QResizeEvent>
 
-// KDE
+// KF
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KMessageBox>

@@ -20,7 +20,7 @@
 #include <QRandomGenerator>
 #include <QResizeEvent>
 
-// KDE
+// KF
 #include <KLocalizedString>
 
 // KMahjongg

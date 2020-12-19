@@ -16,7 +16,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
-// KDE
+// KF
 #include <KAboutData>
 #include <KCrash>
 #include <KDBusService>

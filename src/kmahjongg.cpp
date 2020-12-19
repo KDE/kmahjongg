@@ -34,14 +34,16 @@
 #include <QWindowStateChangeEvent>
 #include <QRandomGenerator>
 
-// KDE
+// KF
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <KGameClock>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KScoreDialog>
 #include <KStandardAction>
+
+// KDEGames
+#include <KGameClock>
+#include <KScoreDialog>
 #include <KStandardGameAction>
 
 // LibKMahjongg

@@ -25,7 +25,7 @@
 #include <QMap>
 #include <QStandardPaths>
 
-// KDE
+// KF
 #include <KConfig>
 #include <KConfigGroup>
 

@@ -18,7 +18,7 @@
 #ifndef KMAHJONGG_H
 #define KMAHJONGG_H
 
-// KDE
+// KF
 #include <KXmlGuiWindow>
 
 class KToggleAction;
