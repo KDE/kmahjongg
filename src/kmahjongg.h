@@ -106,7 +106,6 @@ private:
     KToggleAction * m_fullscreenAction;
     KToggleAction * m_demoAction;
 
-    static const QString gameMagic;
     static const int gameDataVersion;
 };
 

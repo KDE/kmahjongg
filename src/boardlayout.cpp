@@ -13,8 +13,10 @@
 #include <QTextCodec>
 #include <QTextStream>
 
-const QString BoardLayout::layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
-const QString BoardLayout::layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
+namespace {
+inline QString layoutMagic1_0() { return QStringLiteral("kmahjongg-layout-v1.0"); }
+inline QString layoutMagic1_1() { return QStringLiteral("kmahjongg-layout-v1.1"); }
+}
 
 BoardLayout::BoardLayout()
 {
@@ -55,7 +57,7 @@ bool BoardLayout::saveBoardLayout(const QString & where) const
         return false;
     }
 
-    QByteArray tmp = layoutMagic1_1.toUtf8();
+    QByteArray tmp = layoutMagic1_1().toUtf8();
     if (f.write(tmp) == -1) {
         return false;
     }
@@ -108,7 +110,7 @@ bool BoardLayout::loadBoardLayout_10(const QString & from)
         t.setCodec(QTextCodec::codecForName("UTF-8"));
         QString s(t.readLine());
 
-        if (s != layoutMagic1_0) {
+        if (s != layoutMagic1_0()) {
             f.close();
             return false;
         }
@@ -156,7 +158,7 @@ bool BoardLayout::loadBoardLayout(const QString & from)
         t.setCodec(QTextCodec::codecForName("UTF-8"));
         QString s(t.readLine());
 
-        if (s != layoutMagic1_1) {
+        if (s != layoutMagic1_1()) {
             f.close();
             //maybe a version 1_0 layout?
             return (loadBoardLayout_10(from));

@@ -13,9 +13,6 @@
 // KMahjongg
 #include "kmtypes.h"
 
-const QString layoutMagic1_0 = QStringLiteral("kmahjongg-layout-v1.0");
-const QString layoutMagic1_1 = QStringLiteral("kmahjongg-layout-v1.1");
-
 /**
  * @short This class implements methods for loading and manipulating board
  *
@@ -84,9 +81,6 @@ private:
     QByteArray m_loadedBoard;
     QByteArray m_board;
     unsigned short m_maxTileNum;
-
-    static const QString layoutMagic1_0;
-    static const QString layoutMagic1_1;
 };
 
 #endif

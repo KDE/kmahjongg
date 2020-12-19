@@ -50,7 +50,9 @@
 #include "prefs.h"
 #include "ui_settings.h"
 
-const QString KMahjongg::gameMagic = QStringLiteral("kmahjongg-gamedata");
+namespace {
+inline QString gameMagic() { return QStringLiteral("kmahjongg-gamedata"); }
+}
 const int KMahjongg::gameDataVersion = 1;
 
 /**
@@ -597,7 +599,7 @@ void KMahjongg::loadGame()
     QString magic;
     in >> magic;
 
-    if (QString::compare(magic, gameMagic, Qt::CaseSensitive) != 0) {
+    if (QString::compare(magic, gameMagic(), Qt::CaseSensitive) != 0) {
         KMessageBox::sorry(this, i18n("File is not a KMahjongg game."));
         infile.close();
 
@@ -671,7 +673,7 @@ void KMahjongg::saveGame()
     QDataStream out(&outfile);
 
     // Write a header with a "magic number" and a version
-    out << QString(gameMagic);
+    out << gameMagic();
     out << static_cast<qint32>(gameDataVersion);
     out.setVersion(QDataStream::Qt_4_0);
 
