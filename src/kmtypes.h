@@ -55,13 +55,13 @@ enum TileViewAngle {
     SW /**< South West */
 };
 
-#define TILE_OFFSET 2
-#define TILE_CHARACTER (0 + TILE_OFFSET)
-#define TILE_BAMBOO (9 + TILE_OFFSET)
-#define TILE_ROD (18 + TILE_OFFSET)
-#define TILE_SEASON (27 + TILE_OFFSET)
-#define TILE_WIND (31 + TILE_OFFSET)
-#define TILE_DRAGON (35 + TILE_OFFSET)
-#define TILE_FLOWER (38 + TILE_OFFSET)
+constexpr int TILE_OFFSET = 2;
+constexpr int TILE_CHARACTER = 0 + TILE_OFFSET;
+constexpr int TILE_BAMBOO = 9 + TILE_OFFSET;
+constexpr int TILE_ROD = 18 + TILE_OFFSET;
+constexpr int TILE_SEASON = 27 + TILE_OFFSET;
+constexpr int TILE_WIND = 31 + TILE_OFFSET;
+constexpr int TILE_DRAGON = 35 + TILE_OFFSET;
+constexpr int TILE_FLOWER = 38 + TILE_OFFSET;
 
 #endif

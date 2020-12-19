@@ -13,9 +13,9 @@
 // KMahjongg
 #include "kmtypes.h"
 
-#define BOARD_WIDTH 36
-#define BOARD_HEIGHT 16
-#define BOARD_DEPTH 5
+constexpr int BOARD_WIDTH = 36;
+constexpr int BOARD_HEIGHT = 16;
+constexpr int BOARD_DEPTH = 5;
 
 
 // Forward declarations...
