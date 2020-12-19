@@ -23,15 +23,17 @@
 // KF
 #include <KLocalizedString>
 
+// LibKMahjongg
+#include <KMahjonggTileset>
+#include <KMahjonggBackground>
+
 // KMahjongg
 #include "demoanimation.h"
 #include "gamedata.h"
 #include "gameitem.h"
 #include "gamescene.h"
 #include "kmahjongg_debug.h"
-#include "kmahjonggbackground.h"
 #include "kmahjongglayout.h"
-#include "kmahjonggtileset.h"
 #include "movelistanimation.h"
 #include "prefs.h"
 #include "selectionanimation.h"

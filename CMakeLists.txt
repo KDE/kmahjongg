@@ -12,8 +12,8 @@ set(KMAHJONGG_VERSION "${KMAHJONGG_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSI
 
 project(kmahjongg VERSION ${KMAHJONGG_VERSION})
 
-set(QT_MIN_VERSION "5.11.0")
-set(KF5_MIN_VERSION "5.64.0")
+set(QT_MIN_VERSION "5.12.0")
+set(KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -45,7 +45,7 @@ include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
 
-find_package(KF5KMahjongglib REQUIRED)
+find_package(KF5KMahjongglib 5.1.0 REQUIRED)
 find_package(KF5KDEGames 7.3.0 REQUIRED)
 
 add_definitions(

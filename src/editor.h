@@ -24,10 +24,12 @@
 // KF
 #include <KToolBar>
 
+// LibKMahjongg
+#include <KMahjonggTileset>
+
 // KMahjongg
 #include "boardlayout.h"
 #include "frameimage.h"
-#include "kmahjonggtileset.h"
 #include "kmtypes.h"
 
 class FrameImage;

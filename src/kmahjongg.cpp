@@ -47,7 +47,7 @@
 #include <KStandardGameAction>
 
 // LibKMahjongg
-#include <kmahjonggconfigdialog.h>
+#include <KMahjonggConfigDialog>
 
 // KMahjongg
 #include "editor.h"

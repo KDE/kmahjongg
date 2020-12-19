@@ -16,7 +16,6 @@
 
 // own
 #include "gameremovedtiles.h"
-#include "kmahjonggtileset.h"
 #include "gamedata.h"
 
 // Qt
@@ -24,7 +23,11 @@
 #include <QPainter>
 #include <QPixmap>
 
+// KF
 #include <KLocalizedString>
+
+// LibKMahjongg
+#include <KMahjonggTileset>
 
 
 GameRemovedTiles::GameRemovedTiles(QGraphicsObject * object)

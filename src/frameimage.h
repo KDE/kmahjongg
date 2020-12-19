@@ -21,10 +21,12 @@
 // Qt
 #include <QWidget>
 
+// LibKMahjongg
+#include <KMahjonggTileset>
+#include <KMahjonggBackground>
+
 // KMahjongg
 #include "boardlayout.h"
-#include "kmahjonggbackground.h"
-#include "kmahjonggtileset.h"
 
 class QPixmap;
 class QPixmap;
