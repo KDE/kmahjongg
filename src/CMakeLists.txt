@@ -16,6 +16,7 @@ set(kmahjongg_SRCS
    selectionanimation.cpp
    demoanimation.cpp
    movelistanimation.cpp
+   kmahjongg.qrc
 )
 
 ecm_setup_version(${KMAHJONGG_VERSION}
@@ -35,9 +36,6 @@ ecm_qt_declare_logging_category(kmahjongg_SRCS
 
 kconfig_add_kcfg_files(kmahjongg_SRCS prefs.kcfgc)
 
-qt5_add_resources(kmahjongg_SRCS
-    kmahjongg.qrc
-)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-kmahjongg.png")
 ecm_add_app_icon(kmahjongg_SRCS ICONS ${ICONS_SRCS})
