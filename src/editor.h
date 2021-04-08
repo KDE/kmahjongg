@@ -24,7 +24,6 @@
 
 class FrameImage;
 class QLabel;
-class KToolBar;
 class KActionCollection;
 
 /**
