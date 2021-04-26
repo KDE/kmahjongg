@@ -230,7 +230,7 @@ void KMahjongg::startNewNumeric()
     int s = QInputDialog::getInt(this, i18n("New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1, &ok);
 
     if (ok) {
-        startNewGame(s);
+        startNewGameWithNumber(s);
     }
 }
 
@@ -402,7 +402,12 @@ void KMahjongg::noMovesAvailable()
     }
 }
 
-void KMahjongg::startNewGame(int item)
+void KMahjongg::startNewGame()
+{
+    startNewGameWithNumber(-1);
+}
+
+void KMahjongg::startNewGameWithNumber(int item)
 {
     loadSettings(); // In case loadGame() has changed the settings.
 
