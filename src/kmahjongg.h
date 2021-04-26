@@ -31,7 +31,7 @@ public:
     ~KMahjongg() override;
 
 public Q_SLOTS:
-    void startNewGame(int num = -1);
+    void startNewGame();
 
     /**
      * Load the settings... */
@@ -50,6 +50,8 @@ public Q_SLOTS:
 protected:
     void setupKAction();
     void setupStatusBar();
+    void startNewGameWithNumber(int num);
+
     void changeEvent(QEvent * event) override;
     void closeEvent(QCloseEvent * event) override;
 
