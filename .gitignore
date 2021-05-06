@@ -4,3 +4,8 @@
 CMakeLists.txt.user*
 .vscode
 .cmake/
+/compile_commands.json
+.clangd
+.cache
+.idea
+/cmake-build*
