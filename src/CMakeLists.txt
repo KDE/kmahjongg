@@ -53,7 +53,7 @@ target_link_libraries(kmahjongg
     KF5::XmlGui
     KF5::DBusAddons
     KF5::Crash
-    Qt5::Gui
+    Qt::Gui
 )
 
 install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
