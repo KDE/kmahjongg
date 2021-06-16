@@ -227,7 +227,7 @@ void KMahjongg::displayTime(const QString & timestring)
 void KMahjongg::startNewNumeric()
 {
     bool ok;
-    int s = QInputDialog::getInt(this, i18n("New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1, &ok);
+    int s = QInputDialog::getInt(this, i18nc("@title:window", "New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1, &ok);
 
     if (ok) {
         startNewGameWithNumber(s);
@@ -585,7 +585,7 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    const QString filename = QFileDialog::getOpenFileName(this, i18n("Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
+    const QString filename = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         return;
@@ -660,7 +660,7 @@ void KMahjongg::saveGame()
 {
     m_gameTimer->pause();
 
-    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
+    const QString filename = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
         m_gameTimer->resume();

@@ -67,7 +67,7 @@ Editor::Editor(QWidget * parent)
     setMinimumHeight(120);
 
     // tell the user what we do
-    setWindowTitle(i18n("Edit Board Layout"));
+    setWindowTitle(i18nc("@title:window", "Edit Board Layout"));
 
     connect(m_drawFrame, &FrameImage::mousePressed, this, &Editor::drawFrameMousePressEvent);
     connect(m_drawFrame, &FrameImage::mouseMoved, this, &Editor::drawFrameMouseMovedEvent);
