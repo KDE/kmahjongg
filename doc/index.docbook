@@ -27,8 +27,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2019-10-17</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>0.9 (Applications 19.12)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2021-06-16</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>0.9 (KDE Gears 21.04)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
@@ -80,7 +80,7 @@
 			are positioned behind other tiles, or when both the
 			right and left sides of the tile are filled by others.
 			If at least one of the lateral sides is empty then the
-			tile is considered 'Open', and can be removed.
+			tile is considered <quote>Open</quote>, and can be removed.
 	</para></note>
 	<para>
 		Once you have selected the right pair of tiles they will vanish off the game board, thus revealing the tiles previously located underneath, and opening the tiles adjacent to them.
@@ -183,13 +183,13 @@
 			</informaltable>
 		</para>
 		<itemizedlist>
-			<listitem><para>The number of tiles on a KMahjongg board layout can differ from the number of tiles in the standard Mahjong tile set. That means that the number of occurrences of tiles of the same type can also differ from the number stated in the table above.</para></listitem>
+			<listitem><para>The number of tiles on a &kmahjongg; board layout can differ from the number of tiles in the standard Mahjong tile set. That means that the number of occurrences of tiles of the same type can also differ from the number stated in the table above.</para></listitem>
 			<listitem><para>Only the <quote>open</quote> tiles can be selected.</para></listitem>
 			<listitem><para><quote>Open</quote> tile is the tile which has one of the tile's lateral sides open, meaning that no other tiles are located immediately next to it.</para></listitem>
 			<listitem><para>Only when matching, open tiles can be removed from the game board.</para></listitem>
 			<listitem><para>Matching tiles are those where the face pictograms match.</para></listitem>
 		</itemizedlist>
-		<note><title>Note:</title><para>There are exceptions to this rule! In the traditional game of Mahjong each tile has a matching one except for the <quote>Flowers</quote> and <quote>Seasons</quote> tiles. </para></note>
+		<note><title>Note:</title><para>There are exceptions to this rule! In the traditional game of Mahjong each tile has a matching one except for the <quote>Flowers</quote> and <quote>Seasons</quote> tiles.</para></note>
 		<itemizedlist>
 			<listitem><para>The <quote>Flowers</quote> tiles have no doubles in the set and can be matched directly to each other.</para></listitem>
 			<listitem><para>The <quote>Seasons</quote> tiles have no doubles in the set and can be matched directly to each other.</para></listitem>
@@ -379,7 +379,7 @@ FileName=<replaceable>name_of_your_layout</replaceable>.layout
 				<term><menuchoice>
 					<shortcut><keycap>F</keycap></shortcut>
 					<guimenu>View</guimenu>
-					<guimenuitem>Rotate View Counter Clockwise</guimenuitem>
+					<guimenuitem>Rotate View Counterclockwise</guimenuitem>
 				</menuchoice></term>
 				<listitem><para><action>Rotates</action> the tile viewing angle counter clockwise.</para></listitem>
 			</varlistentry>
@@ -566,7 +566,7 @@ The default kebindings are as follows:
 		Program Copyright &copy; 1997 <personname><firstname>Mathias</firstname><surname>Mueller</surname></personname> <email>in5y158@public.uni-hamburg.de</email>
 	</para>
 	<para>
-		Program Copyright &copy; 2007 <personname><firstname>Mauricio</firstname><surname>Piacentini</surname></personname> <email>piacentini@kde.org</email>
+		Program Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail;
 	</para>
 	<para>
 		Contributors:
@@ -575,7 +575,7 @@ The default kebindings are as follows:
 			<listitem><para><personname><firstname>Michael</firstname><surname>Haertjens</surname></personname> <email>mhaertjens@modusoperandi.com</email></para></listitem>
 			<listitem><para><personname><firstname>Osvaldo</firstname><surname>Stark</surname></personname> <email>starko@dnet.it</email></para></listitem>
 			<listitem><para><personname><firstname>Benjamin</firstname><surname>Meyer</surname></personname> <email>ben+kmahjongg@meyerhome.net</email></para></listitem>
-			<listitem><para><personname><firstname>Albert</firstname><othername>Astals</othername><surname>Cid</surname></personname> &Albert.Astals.Cid.mail;</para></listitem>
+			<listitem><para>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para></listitem>
 			<listitem><para><personname><firstname>Raquel</firstname><surname>Ravanini</surname></personname> <email>raquel@tabuleiro.com</email></para></listitem>
 		</itemizedlist>
 	</para>
