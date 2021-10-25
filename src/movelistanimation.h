@@ -29,7 +29,7 @@ class MoveListAnimation : public QTimer
 
 public:
     explicit MoveListAnimation(QObject * parent = nullptr);
-    ~MoveListAnimation();
+    ~MoveListAnimation() override;
 
     /**
      * Set the animation speed in milliseconds.

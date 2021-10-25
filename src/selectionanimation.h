@@ -25,7 +25,7 @@ class SelectionAnimation : public QTimer
 
 public:
     explicit SelectionAnimation(QObject * parent = nullptr);
-    ~SelectionAnimation();
+    ~SelectionAnimation() override;
 
     /**
      * Set the count of repetitions.

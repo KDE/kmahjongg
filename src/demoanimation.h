@@ -26,7 +26,7 @@ class DemoAnimation : public QTimer
 
 public:
     explicit DemoAnimation(QObject * parent = nullptr);
-    ~DemoAnimation();
+    ~DemoAnimation() override;
 
     /**
      * Set the animation speed in milliseconds.
