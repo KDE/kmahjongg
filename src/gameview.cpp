@@ -212,7 +212,7 @@ void GameView::createNewGame(long gameNumber)
 
     // Create a random game number, if no one was given.
     if (gameNumber == -1) {
-        m_gameNumber = QRandomGenerator::global()->generate();
+        m_gameNumber = QRandomGenerator::global()->generate() % INT_MAX;
     } else {
         m_gameNumber = gameNumber;
     }
