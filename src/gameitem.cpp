@@ -9,6 +9,7 @@
 
 // Qt
 #include <QGraphicsSceneMouseEvent>
+#include <QGuiApplication>
 #include <QPainter>
 #include <QPixmap>
 #include <QTimer>
@@ -66,8 +67,9 @@ bool GameItem::isShadow(QPointF const position) const
     int newPosX = position.x() + getShadowDeltaX();
     int newPosY = position.y() + getShadowDeltaY();
 
-    if ((newPosX < 0 || newPosX > m_selPix->width()) || 
-        (newPosY < 0 || newPosY > m_selPix->height())) {
+    const qreal dpr = qApp->devicePixelRatio();
+    if ((newPosX < 0 || newPosX > m_selPix->width() / dpr) ||
+        (newPosY < 0 || newPosY > m_selPix->height() / dpr)) {
         return true;
     }
 
@@ -76,12 +78,14 @@ bool GameItem::isShadow(QPointF const position) const
 
 int GameItem::getShadowDeltaX() const
 {
-    return (m_angle == NE || m_angle == SE) ? 1 * m_shadowWidth : -1 * m_shadowWidth;
+    const qreal dpr = qApp->devicePixelRatio();
+    return ((m_angle == NE || m_angle == SE) ? 1 * m_shadowWidth : -1 * m_shadowWidth) / dpr;
 }
 
 int GameItem::getShadowDeltaY() const
 {
-    return (m_angle == NW || m_angle == NE) ? 1 * m_shadowHeight : -1 * m_shadowHeight;
+    const qreal dpr = qApp->devicePixelRatio();
+    return ((m_angle == NW || m_angle == NE) ? 1 * m_shadowHeight : -1 * m_shadowHeight) / dpr;
 }
 
 void GameItem::prepareForGeometryChange()
@@ -91,8 +95,9 @@ void GameItem::prepareForGeometryChange()
 
 void GameItem::updateFaceOffset()
 {
-    int horizontalOffset = m_selPix->width() - m_facePix->width();
-    int verticalOffset = m_selPix->height() - m_facePix->height();
+    const qreal dpr = qApp->devicePixelRatio();
+    int horizontalOffset = (m_selPix->width() - m_facePix->width()) / dpr;
+    int verticalOffset = (m_selPix->height() - m_facePix->height()) / dpr;
 
     switch (m_angle) {
         case NW:
@@ -162,7 +167,8 @@ void GameItem::fadeIn()
 
 QRectF GameItem::boundingRect() const
 {
-    return QRectF(QPointF(0.0, 0.0), m_selPix->size());
+    const qreal dpr = qApp->devicePixelRatio();
+    return QRectF(QPointF(0.0, 0.0), m_selPix->size() / dpr);
 }
 
 QRectF GameItem::rect() const
