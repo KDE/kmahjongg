@@ -26,6 +26,7 @@
   <name xml:lang="pl">KMahjongg</name>
   <name xml:lang="pt">KMahjongg</name>
   <name xml:lang="pt-BR">KMahjongg</name>
+  <name xml:lang="ro">KMahjongg</name>
   <name xml:lang="ru">KMahjongg</name>
   <name xml:lang="sk">KMahjongg</name>
   <name xml:lang="sl">KMahjongg</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="pl">Pasjans Mahjong</summary>
   <summary xml:lang="pt">Mahjong Solitário</summary>
   <summary xml:lang="pt-BR">Mahjong Solitário</summary>
+  <summary xml:lang="ro">Pasențe Mahjong</summary>
   <summary xml:lang="ru">Пасьянс маджонг</summary>
   <summary xml:lang="sk">Mahjong Solitaire</summary>
   <summary xml:lang="sl">Pasjansa Mahjongg</summary>
@@ -141,6 +143,7 @@
       <caption xml:lang="pl">Grane w KMahjongg</caption>
       <caption xml:lang="pt">A jogar ao KMahjongg</caption>
       <caption xml:lang="pt-BR">Jogando o KMahjongg</caption>
+      <caption xml:lang="ro">Joc KMahjongg</caption>
       <caption xml:lang="sk">Hranie KMahjongg</caption>
       <caption xml:lang="sl">Igra KMahjongg</caption>
       <caption xml:lang="sv">Spela Mahjongg</caption>
