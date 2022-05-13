@@ -17,6 +17,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QResizeEvent>
+#include <QActionGroup>
 
 // KF
 #include <KActionCollection>
