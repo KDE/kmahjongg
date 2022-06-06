@@ -585,6 +585,7 @@ void GameView::addItemsFromBoardLayout()
 
     // Reconnect our selectionChanged() slot.
     m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
+    m_selectedItem = nullptr;
 }
 
 void GameView::addItem(GameItem * gameItem, bool updateImage, bool updateOrder, bool updatePosition)
