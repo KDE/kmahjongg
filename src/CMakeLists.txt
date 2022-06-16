@@ -47,9 +47,9 @@ ecm_add_app_icon(kmahjongg ICONS ${ICONS_SRCS})
 
 target_link_libraries(kmahjongg
     KF5KDEGames
-    KF5KDEGamesPrivate
     KF5KMahjongglib
     KF5::CoreAddons
+    KF5::Completion
     KF5::XmlGui
     KF5::DBusAddons
     KF5::Crash
