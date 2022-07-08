@@ -84,6 +84,20 @@ private:
     void loadLayout();
     void saveSettings();
 
+    /**
+     * @brief Ask the user if the game should be saved.
+     * @return False if user cancel action. True does not mean, that the user has saved the game, but
+     * has taken a decision to save it or not and wants to go on.
+     */
+    bool askSaveGame();
+
+    /**
+     * @brief Test if game has changed and ask user for saving the game.
+     * @return False if user cancels action, else true. 
+     */
+    bool testForGameChangeSave();
+
+    bool m_gameChanged = false;
     bool m_bLastRandomSetting;
 
     GameView * m_gameView;

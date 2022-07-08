@@ -342,6 +342,15 @@ void KMahjongg::loadSettings()
 
 void KMahjongg::demoMode()
 {
+    // Test if a game is already running and whether the user wants to save the game.
+    if (m_gameChanged && m_demoAction->isChecked()) {
+        if (!askSaveGame()) {
+            // The user canceled the action, so don't go further with demo mode.
+            m_demoAction->setChecked(false);
+            return;
+        }
+    }
+
     if (m_demoAction->isChecked()) {
         loadSettings(); // In case loadGame() has changed the settings.
         updateState(GameState::Demo);
@@ -409,6 +418,10 @@ void KMahjongg::startNewGame()
 
 void KMahjongg::startNewGameWithNumber(int item)
 {
+    if (!testForGameChangeSave()) {
+        return;
+    }
+
     loadSettings(); // In case loadGame() has changed the settings.
 
     // Only load new layout in random mode if we are not given a game number.
@@ -449,6 +462,9 @@ void KMahjongg::startNewGameWithNumber(int item)
         m_gameTimer->pause();
         showItemNumber(0, 0, 0);
     }
+
+    // At the beginning, the game has not been changed.
+    m_gameChanged = false;
 }
 
 void KMahjongg::demoOrMoveListAnimationOver(bool demoGameLost)
@@ -535,6 +551,10 @@ void KMahjongg::showStatusText(const QString & msg, long board)
 
 void KMahjongg::showItemNumber(int maximum, int current, int left)
 {
+    // This method will be called, if the number of tiles change. If there is a lower number of tiles than the
+    // maximum, some tiles have been removed. If the game is not in demo mode, mark the game as changed.
+    m_gameChanged = current < maximum && !m_demoAction->isChecked();
+
     const QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", maximum - current, maximum, left);
     m_tilesLeftLabel->setText(szBuffer);
 
@@ -576,15 +596,26 @@ void KMahjongg::updateUndoAndRedoStates()
 
 void KMahjongg::restartGame()
 {
+    if (!testForGameChangeSave()) {
+        return;
+    }
+
     if (m_gameView->gameGenerated()) {
         m_gameView->createNewGame(m_gameView->getGameNumber());
         m_gameTimer->restart();
         updateState(GameState::Gameplay);
     }
+
+    // The game has not been changed at the beginning.
+    m_gameChanged = false;
 }
 
 void KMahjongg::loadGame()
 {
+    if (!testForGameChangeSave()) {
+        return;
+    }
+
     const QString filename = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Load Game"), QString(), i18n("KMahjongg Game (*.kmgame)"));
 
     if (filename.isEmpty()) {
@@ -698,4 +729,42 @@ void KMahjongg::saveGame()
 
     outfile.close();
     m_gameTimer->resume();
+
+    // If the game has been saved, there has been no changed done to ask for saving.
+    m_gameChanged = false;
+}
+
+bool KMahjongg::askSaveGame()
+{
+    const KMessageBox::ButtonCode ret = KMessageBox::questionYesNoCancel(this, 
+            i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
+            KStandardGuiItem::dontSave(), KStandardGuiItem::cancel());
+
+    switch (ret) {
+    case KMessageBox::ButtonCode::Yes:
+        saveGame();
+        break;
+    case KMessageBox::ButtonCode::No:
+        break;
+    case KMessageBox::ButtonCode::Cancel:
+        return false;
+    default:
+        return false;
+    }
+
+    return true;
+}
+
+bool KMahjongg::testForGameChangeSave() 
+{
+    // Ask to save the game when it has been changed. The question is also only relevant, if the user is in gameplay
+    // or the game has been paused.
+    if (m_gameChanged && (m_gameState == GameState::Gameplay || m_gameState == GameState::Paused)) {
+        if (!askSaveGame()) {
+            // The user wants to cancel the action.
+            return false;
+        }
+    }
+
+    return true;
 }
