@@ -35,6 +35,7 @@ include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Completion
     Config
     CoreAddons
     Crash
