@@ -326,7 +326,7 @@ void Editor::newBoard()
 bool Editor::saveBoard()
 {
     if (!((m_numTiles != 0) && ((m_numTiles & 1) == 0))) {
-        KMessageBox::sorry(this, i18n("You can only save with a even number of tiles."));
+        KMessageBox::error(this, i18n("You can only save with a even number of tiles."));
 
         return false;
     }
@@ -380,7 +380,7 @@ bool Editor::testSave()
         if (saveBoard()) {
             return true;
         } else {
-            KMessageBox::sorry(this, i18n("Save failed. Aborting operation."));
+            KMessageBox::error(this, i18n("Save failed. Aborting operation."));
 
             return false;
         }

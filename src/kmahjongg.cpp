@@ -625,7 +625,7 @@ void KMahjongg::loadGame()
     QFile infile(filename);
 
     if (!infile.open(QFile::ReadOnly)) {
-        KMessageBox::sorry(this, i18n("Could not read from file. Aborting."));
+        KMessageBox::error(this, i18n("Could not read from file. Aborting."));
         return;
     }
 
@@ -636,7 +636,7 @@ void KMahjongg::loadGame()
     in >> magic;
 
     if (QString::compare(magic, gameMagic(), Qt::CaseSensitive) != 0) {
-        KMessageBox::sorry(this, i18n("File is not a KMahjongg game."));
+        KMessageBox::error(this, i18n("File is not a KMahjongg game."));
         infile.close();
 
         return;
@@ -649,7 +649,7 @@ void KMahjongg::loadGame()
     if (version == gameDataVersion) {
         in.setVersion(QDataStream::Qt_4_0);
     } else {
-        KMessageBox::sorry(this, i18n("File format not recognized."));
+        KMessageBox::error(this, i18n("File format not recognized."));
         infile.close();
         return;
     }
@@ -701,7 +701,7 @@ void KMahjongg::saveGame()
     QFile outfile(filename);
 
     if (!outfile.open(QFile::WriteOnly)) {
-        KMessageBox::sorry(this, i18n("Could not open file for saving."));
+        KMessageBox::error(this, i18n("Could not open file for saving."));
         m_gameTimer->resume();
         return;
     }
