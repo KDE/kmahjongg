@@ -123,7 +123,6 @@ GenericName[wa]=Solitaire Magjongg
 GenericName[x-test]=xxMahjongg Solitairexx
 GenericName[zh_CN]=麻将纸牌
 GenericName[zh_TW]=上海麻將遊戲
-Terminal=false
 Icon=kmahjongg
 X-KDE-StartupNotify=true
 X-DBUS-StartupType=Multi
