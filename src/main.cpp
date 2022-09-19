@@ -31,8 +31,9 @@ int main(int argc, char ** argv)
                          QStringLiteral(KMAHJONGG_VERSION_STRING),
                          i18n("Mahjongg Solitaire by KDE"),
                          KAboutLicense::GPL,
-                         i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"));
-    aboutData.setHomepage(QStringLiteral("https://kde.org/applications/games/org.kde.kmahjongg"));
+                         i18n("(c) 1997, Mathias Mueller\n(c) 2006, Mauricio Piacentini\n(c) 2011, Christian Krippendorf"),
+                         QString(),
+                         QStringLiteral("https://apps.kde.org/kmahjongg"));
     aboutData.addAuthor(i18n("Mathias Mueller"), i18n("Original Author"), QStringLiteral("in5y158@public.uni-hamburg.de"));
     aboutData.addAuthor(i18n("Christian Krippendorf"), i18n("Current maintainer"), QStringLiteral("Coding@Christian-Krippendorf.de"));
     aboutData.addAuthor(i18n("Albert Astals Cid"), i18n("Bug fixes"), QStringLiteral("aacid@kde.org"));
