@@ -1,0 +1,764 @@
+# WEB-Translator generated file. UTF-8 test:äëïöü
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Frikkie Thirion <frix@expertron.co.za>, 2001,2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2002-11-07 11:32+0200\n"
+"Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
+"Language-Team: AFRIKAANS <AF@lia.org.za>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "WEB-Vertaler (http://kde.af.org.za)"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "frix@expertron.co.za"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Redigeer Bord Uitleg"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Nuwe bord"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Open bord"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Stoor bord"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Kies"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Beweeg teëls"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Voeg by teëls"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Verwyder teëls"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Verskuiwende links"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Verskuiwende begin"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Verskuiwende ondertoe"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Verskuiwende regterkant"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Teëls: %1 Pos: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Open Bord Uitleg"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+"*.uitleg|Bord uitleg (*.uitleg)\n"
+"*|Alle lêers"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Stoor Bord Uitleg"
+
+#: src/editor.cpp:346
+#, fuzzy, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "'n lêer met wat naam alreeds bestaan, doen jy wens na oorskryf dit?"
+
+#: src/editor.cpp:375
+#, fuzzy, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Die bord het al veranderde, sal jy daarvan hou na stoor Die verander?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Stoor gevaal. Gaan staak operasie."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "Verwyder teëls"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Random Layout"
+msgstr "Redigeer Bord Uitleg"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "frix@expertron.co.za"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, fuzzy, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Gereed. Nou dit is jou skakel."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Herstel operasie klaar suksesvol."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Wat doen jy wil hê na herstel? jy het klaar niks!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Jou rekenaar het verloor die speletjie."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Besig om te bereken nuwe speletjie..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Fout genereer nuwe speletjie!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Demo modus. Kliek muisknoppie na stop."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Nuwe Genommerde Speletjie..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "Skommel"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, fuzzy, kde-format
+msgid "&Board Editor"
+msgstr "Bord Redigeerder"
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Tyd"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Tyd"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Stoor Speletjie"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Invoer speletjie nommer:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr ""
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Board Layout"
+msgstr "Redigeer Bord Uitleg"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Speletjie bo: Jy het nee skuiwe links"
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Stoor Speletjie"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, fuzzy, kde-format
+msgid "You have won!"
+msgstr "Speletjie bo: Jy het wen!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Speletjie nommer: %1"
+
+#: src/kmahjongg.cpp:558
+#, fuzzy, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Verwyder: %1/%2"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Las Speletjie"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Kon nie lees van lêer. Gaan staak."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Lêer formaat nie herken."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Stoor Tema"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "Kon nie skryf na lêer. Gaan staak."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Stoor Tema"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr ""
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, fuzzy, kde-format
+msgid "The background to use."
+msgstr "Verander Agtergrond Beeld"
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr ""
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Vertoon verwyder teëls"
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr ""
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Naam"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "Kmahjong"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Kmahjong"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Oorspronklike Outeur"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Herskryf en Uitbreiding"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Teël stel bydraer en web bladsy onderhouer"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Teël stel bydraer en web bladsy onderhouer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Genereer oplosbaar speletjies"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Vertoon verwyder teëls"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Jammer, jy het verloor die speletjie."
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "Nou dit is jy weer."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Baie geluk. Jy het wen!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Fout omskakeling van bord informasie!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Slegs stooring na plaaslike lêers huidiglik ondersteunde."
+
+#, fuzzy
+#~| msgid "Could not write to file. Aborting."
+#~ msgid "Could not write saved game."
+#~ msgstr "Kon nie skryf na lêer. Gaan staak."
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Beïendig"
+
+#, fuzzy
+#~ msgid "Load..."
+#~ msgstr "Las"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Verander Agtergrond Beeld"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr ""
+#~ "*.bgnd|Agtergrond Beeld\n"
+#~ "*.bmp|Vensters biskaart lêer (*.bmp)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Verander Teël Stel"
+
+#, fuzzy
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.teëlstel|Teël stel lêer\n"
+
+#, fuzzy
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.uitleg|Bord uitleg lêer\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Verander Bord Uitleg"
+
+#, fuzzy
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.tema|Kmahjong tema\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Kies Tema"
+
+#, fuzzy
+#~ msgid "*|All Files"
+#~ msgstr "*|Alle lêers\n"
+
+#, fuzzy
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Dit is nie 'n geldige tema lêer."
+
+#~ msgid "Save Theme"
+#~ msgstr "Stoor Tema"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "'n fout voorgekom wanneer laaiïng van die bord uitleg %1\n"
+#~ "Kmahjong sal nou termineer"
+
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "Kmahjong kon nie opspoor die lêer: %1\n"
+#~ "van die verstek lêer van tipe: %2\n"
+#~ "Kmahjong sal nou termineer"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "Open Uitleg..."
+
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Vertoon Ooreenstemmende Teëls"
+
+#, fuzzy
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Vertoon Ooreenstemmende Teëls"
+
+#~ msgid "Pos"
+#~ msgstr "Pos"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgid "Board"
+#~ msgstr "Bord"
+
+#~ msgid "Score"
+#~ msgstr "Telling"
+
+#~ msgid "Time"
+#~ msgstr "Tyd"
+
+#~ msgid "Scores"
+#~ msgstr "Telling"
+
+#~ msgid "Anonymous"
+#~ msgstr "Anoniem"
+
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Herstel van die hoog telling sal verwyder alle hoog telling inskrywings "
+#~ "beide in geheue en op disket. Doen jy wens na gaan voort?"
+
+#, fuzzy
+#~ msgid "Reset High Scores"
+#~ msgstr "Herstel hoog telling"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr ""
+#~ "'n fout voorgekom wanneer laaiïng van die teëlstel lêer %1\n"
+#~ "Kmahjong sal nou termineer"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr "'n fout voorgekom wanneer laaiïng van die agtergrond beeld\n"
+
+#, fuzzy
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "Kmahjong sal nou termineer"
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Gevaal na las beeld:\n"
+#~ "%1"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "Open Tema..."
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "Open Teëlstel..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Open Agtergrond..."
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "Stoor Tema..."
+
+#~ msgid "Background"
+#~ msgstr "Agtergrond"
+
+#~ msgid "Scale"
+#~ msgstr "Skaal"
+
+#, fuzzy
+#~ msgid "Tiled"
+#~ msgstr "Teël"
+
+#~ msgid "Tiles"
+#~ msgstr "Teëls"
+
+#~ msgid "Draw shadows"
+#~ msgstr "Teken skaduwees"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "Gebruik mini-tiles"

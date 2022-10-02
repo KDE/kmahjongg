@@ -1,0 +1,1624 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>Het handboek van &kmahjongg;</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+&Jaap.Woldringh; 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-06-16</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>Deze documentatie beschrijft het spel &kmahjongg; versie 0.9</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>spel</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>bord</keyword>
+	<keyword
+>arcade</keyword>
+	<keyword
+>spel met stenen</keyword>
+	<keyword
+>stenen</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>één speler</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Inleiding</title
+> <!-- do not change this! -->
+	<note
+><title
+>Speltype:</title
+><para
+>Bord, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Aantal mogelijke spelers:</title
+><para
+>Eén</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>&kmahjongg; is een bordspel naar het voorbeeld van het bekende oosterse spel Mahjongg (van het Chinese <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). Maar anders dan het origineel is &kmahjongg; een spel voor één speler, waarin bij elkaar passende stenen moeten worden gezocht, een variatie die gewoonlijk bekend staat als Mahjong Solitaire. </para>
+	<para
+>In &kmahjongg; worden de stenen geschud en boven op en naast elkaar gestapeld, in een bepaald indeling. De speler moet daarna alle stenen van het bord verwijderen door bij elkaar behorende paren te zoeken. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Hoe te spelen</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Doel:</title
+><para
+>Het verwijderen van alle stenen van het bord door zo snel mogelijk bij elkaar passende stenen te zoeken.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>&kmahjongg; plaatst automatisch een standaard indeling op het bord wanneer u het spel start, waarna u direct met spelen kunt beginnen. </para>
+	<note
+><title
+>Let op:</title
+><para
+>De tijd begint direct te lopen nadat met het spel wordt begonnen.</para
+></note>
+	<para
+>U moet de stenen op het speelbord zorgvuldig bekijken en zoeken naar twee stenen die precies bij elkaar horen. Vind u die, dan kunt u ze met de muis selecteren. </para>
+	<note
+><title
+>Let op:</title>
+		<para
+>Denk erom dat u alleen stenen kunt selecteren die <quote
+>Vrij</quote
+> liggen.Stenen liggen <quote
+>Niet vrij</quote
+> als ze onder een of meer andere stenen liggen, of wanneer zowel rechts als links van de steen een andere steen er tegenaan ligt. Indien dit niet het geval is, wordt de steen als <quote
+>vrij liggend</quote
+> beschouwd, en kan die worden verwijderd. </para
+></note>
+	<para
+>Zodra u de juiste twee stenen selecteert, verdwijnen die van het bord, waardoor de eronder liggende stenen zichtbaar worden, en de ernaast liggende stenen vrij komen te liggen. </para>
+	<para
+>Zoek zo veel mogelijk bij elkaar passende stenen, die daarop van het bord worden verwijderd. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Spelregels, strategieën en aanwijzingen</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>Het speelveld</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>Een schermafbeelding van &kmahjongg;</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Schermafdruk</phrase
+></textobject>
+				</mediaobject>
+			</screenshot
+>Een korte uitleg van de onderdelen van het speelveld. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Speelveld</term>
+			<listitem
+><para
+>Het speelveld bevindt zich midden op het scherm, en beslaat het grootste deel van het venster. Op de achtergrond liggen de de stenen waarmee wordt gespeeld. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Statusbalk</term>
+			<listitem
+><para
+>De statusbalk bevindt zich onder in het scherm, en bevat vier panelen. In het eerste paneel wordt het verwijderde/totaal aantal stenen bijgehouden, en het aantal bij elkaar passende paren van stenen die vrij liggen. Het tweede paneel meldt het spelnummer van het spel dat nu wordt gespeeld. In het derde paneel kunt u zien wanneer het spel klaar is voor de volgende zet, en in het laatste paneel ziet u de klok lopen, waarmee wordt bijgehouden hoeveel tijd er is verlopen sinds het begin van het spel, totdat het spel is afgelopen. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Spelregels</title>
+		<para
+>Standaard bevat een stenenset van Mahjongg: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Groepsnaam</entry
+><entry
+>Naam van de steen</entry
+><entry
+>Aantal in een set</entry
+></row>
+					<row
+><entry
+>Ogen</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 Oog</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 Ogen</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bamboes</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 Bamboe</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 Bamboes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Karakters</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 1</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 2</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 3</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 4</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 5</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 6</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 7</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 8</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Karakter 9</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Winden</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Oostenwind</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Zuidenwind</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Westenwind</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Noordenwind</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Draken</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Rode draak</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Groene draak</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Witte draak</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bloemen</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Pruimenbloesem (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lelie (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Chrysant (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bamboe (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Jaargetijden</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lente (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Zomer (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Herfst (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Winter (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>Het aantal stenen op een &kmahjongg;-bord kan anders zijn dan het aantal stenen in de standaard set stenen van Mahjong. Dat betekent dat het aantal keren aanwezig zijn van stenen van hetzelfde type ook kan verschillen van het aantal aangegeven in de bovenstaande tabel.</para
+></listitem>
+			<listitem
+><para
+>Alleen de <quote
+>vrijliggende</quote
+> stenen kunnen worden geselecteerd.</para
+></listitem>
+			<listitem
+><para
+>Een steen ligt <quote
+>vrij</quote
+> indien tenminste een van de staande zijkanten vrij is, dus dat daar geen andere steen tegenaan ligt.</para
+></listitem>
+			<listitem
+><para
+>Alleen bij elkaar passende, vrij liggende stenen kunnen van het bord worden verwijderd.</para
+></listitem>
+			<listitem
+><para
+>Bij elkaar passende stenen zijn aan elkaar gelijk.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Let op:</title
+><para
+>Er zijn uitzonderingen op deze regel. In het traditionele Mahjongg is er bij elke steen een passende andere steen, behalve bij de stenen voor <quote
+>Bloemen</quote
+> en <quote
+>Jaargetijden</quote
+>.</para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>De <quote
+>Bloemen</quote
+> stenen hebben geen dubbelen in de set en kunnen direct overeenkomen met elkaar.</para
+></listitem>
+			<listitem
+><para
+>De <quote
+>Jaargetijde</quote
+> stenen hebben geen dubbelen in de set en kunnen direct overeenkomen met elkaar.</para
+></listitem>
+			<listitem
+><para
+>Een &kmahjongg;-spel komt niet altijd uit. Soms liggen de stenen zodanig, dat het vinden van alle passende paren onmogelijk kan zijn. Dit probleem kan worden omzeild. Lees hiervoor <link linkend="general-options"
+>dit onderdeel</link
+> van de instellingendialoog.</para
+></listitem>
+			<listitem
+><para
+>Om in de lijst van de topscores te kunnen komen, moet de speler een spel zo snel mogelijk uitspelen.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Let op:</title
+><para
+>Indien een speler gebruik maakt van een <quote
+>Hint</quote
+> wordt de uitslag niet in de lijst van topscores opgenomen.</para
+></note>
+
+	</sect1>
+</chapter>
+
+
+<chapter id="interface"
+><title
+>Overzicht van de interface</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+
+<sect1 id="menu">
+<title
+>Menu-onderdelen</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Een nieuw spel beginnen.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Laden...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Leest een opgeslagen spel in.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spel herstarten</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Start het huidige spel opnieuw.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw genummerd spel...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Start een opgegeven genummerd spel.</action>
+				<screenshot>
+					<screeninfo
+>Dialoog genummerd spel starten</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Dialoog genummerd spel starten</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Opslaan</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Het huidige spel wordt <action
+>Opgeslagen</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Pauze</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pauzeert of gaat verder met het spel. Wanneer het spel is gepauzeerd zijn de stenen onzichtbaar.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Topscores tonen</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Toont de lijst met de tien hoogste scores.</action>
+				<screenshot>
+					<screeninfo
+>Topscores tonen</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Topscores tonen</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Wanneer u een score behaalt die hoog genoeg is om in de lijst te worden opgenomen, wordt u gevraagd uw naam in te voeren. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Bordbewerker</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Opent de bewerker voor het bord.</action>
+				<screenshot>
+					<screeninfo
+>De bewerker van het bord</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>De bewerker van het bord</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Procedure om indeling te bewerken: <orderedlist>
+							<listitem
+><para
+>De werkbalk bewerker van het bord gebruiken om een nieuwe indeling te maken of een bestaande te laden of te bewerken.</para
+></listitem>
+							<listitem
+><para
+>De indeling in uw lokale persoonlijke gebruikersmap in <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
+> opslaan</para
+></listitem>
+							<listitem
+><para
+>Het bestand <filename
+><replaceable
+>naam_van_uw_indeling</replaceable
+>.desktop</filename
+> in dezelfde map aanmaken.</para
+></listitem>
+							<listitem
+><para
+>De volgende regels in dit bestand zetten met uw favoriete tekstbewerker: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>naam_van_uw_indeling</replaceable>
+Description=<replaceable
+>Beschrijving_van_uw_indeling</replaceable>
+VersionFormat=1
+Author=<replaceable
+>Uw_naam</replaceable>
+AuthorEmail=<replaceable
+>uw_e-mailadres</replaceable>
+FileName=<replaceable
+>naam_van_uw_indeling</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>&kmahjongg; opneiuw laden om uw nieuwe indeling te gebruiken.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Afsluiten</action
+> van &kmahjongg;.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Ongedaan maken</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Uw laatste zet wordt <action
+>ongedaan gemaakt</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Opnieuw</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Een ongedaan gemaakte zet wordt <action
+>opnieuw gedaan</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Hint</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Geeft een hint</action
+> door een paar bij elkaar passende en vrijliggende stenen te laten knipperen.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Zet</guimenu
+> <guimenuitem
+>Demo</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Start de demonstratie</action
+>-modus van het spel.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Schudden</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Schudt de stenen</action
+> op het bord.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Blik naar boven verplaatsen</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Verplaatst</action
+> het oogpunt waaruit naar de stenen wordt gekeken naar boven.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Blik naar beneden verplaatsen</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Verplaatst</action
+> het oogpunt waaruit naar de stenen wordt gekeken naar beneden.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>Bovendien heeft &kmahjongg; de gebruikelijke &kde;-menu's  <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>. Voor verdere informatie zie de secties over het  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Instellingen-menu</ulink
+> en het <ulink url="help:/fundamentals/menus.html#menus-help"
+>Helpmenu</ulink
+> in de Basisinformatie van &kde;. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq"
+><title
+>Veel voorkomende vragen</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Ik wil het uiterlijk van dit spel wijzigen. Kan dat? </para
+></question>
+		 <answer
+><para
+>Ja. U kunt het uiterlijk van &kmahjongg; wijzigen door in de <link linkend="menu"
+>menubalk</link
+> het <link linkend="configuration"
+>hulpmiddel voor de instellingen</link
+> te openen.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Kan ik het spel met het toetsenbord spelen?</para
+></question>
+		 <answer
+><para
+>Nee. Het is nog niet mogelijk dit spel met het toetsenbord te spelen.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Instellingen voor het spel</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Dialoog voor instellen</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Dialoog voor instellen</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Met <menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>&kmahjongg; instellen...</guimenuitem
+></menuchoice
+> wordt de dialoog voor het instellen van &kmahjongg; geopend.</para>
+
+<sect1 id="general-options"
+><title
+>Algemene opties</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Bij elkaar passende stenen laten knipperen als de eerste steen is geselecteerd</guilabel
+></term>
+			<listitem
+><para
+>Bij deze instelling zal een steen worden gemarkeerd als erop wordt geklikt, en ook elke andere vrijliggende steen die erbij past laten knipperen, indien aanwezig. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Oplosbare spellen genereren</guilabel
+></term>
+			<listitem
+><para
+>Bij het starten van een nieuw spel worden alleen oplosbare spellen gegenereerd. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Verwijderde stenen tonen</guilabel
+></term>
+			<listitem
+><para
+>Indien geactiveerd, biedt deze instelling &kmahjongg; om de verwijderde stenen op het bord te tonen. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Opties voor de bordopstelling</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Willekeurige indeling</guilabel
+></term>
+			<listitem
+><para
+>Bij elk spel wordt een willekeurige indeling uit de lijst gekozen. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Kiezen van de <guilabel
+>Bordopstelling</guilabel
+></term>
+			<listitem
+><para
+>U kunt een <guilabel
+>bordopstelling</guilabel
+> kiezen die u wilt spelen. Die opstellingen zijn niet allen even gemakkelijk, afhankelijk van het aantal stenen, en hoe die op het bord zijn geplaatst. </para>
+			<screenshot>
+				<screeninfo
+>Opstelling kiezen</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Opstelling kiezen</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Opties voor stenen</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Kiezen van de <guilabel
+>Stenen</guilabel
+></term>
+			<listitem
+><para
+>U kunt in <guilabel
+>Stenen</guilabel
+> de stenenset kiezen waarmee u wilt spelen. </para>
+			<screenshot>
+				<screeninfo
+>Stenen kiezen</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Stenen kiezen</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Opties voor de achtergrond</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>De <guilabel
+>Achtergrond</guilabel
+> kiezen</term>
+			<listitem
+><para
+>U kunt in <guilabel
+>Achtergrond</guilabel
+> een achtergrond kiezen voor uw spel. </para>
+			<screenshot>
+				<screeninfo
+>Achtergrond kiezen</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Achtergrond kiezen</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Standaard sneltoetsen</title>
+
+<para
+>Met <menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Sneltoetsen instellen...</guimenuitem
+></menuchoice
+> kunt u de standaard sneltoetsen wijzigen.</para>
+
+<para
+>De standaard sneltoetsen zijn als volgt ingesteld: </para>
+
+<table>
+<title
+>Sneltoetsen</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Toetscombinatie</entry
+><entry
+>Actie</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Een nieuw spel beginnen</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Een eerder opgeslagen spel weer inlezen.</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Het spel opnieuw beginnen</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Het spel opslaan</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Een spel onderbreken of voortzetten</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Topscores tonen</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Sluit het spel af</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Zet ongedaan maken</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Zet opnieuw doen</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Geeft u een hint: twee passende stenen knipperen</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Het spel in demonstratie-modus spelen</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Oogpunt waaruit naar de stenen wordt gekeken rechtsom verplaatsen</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Oogpunt waaruit naar de stenen wordt gekeken linksom verplaatsen</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Dit handboek openen</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Hulp: Wat is dit?</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+<chapter id="credits"
+><title
+>Dankbetuigingen en licentie</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kmahjongg; door &kde; </para>
+
+	<para
+>Programma Copyright &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Programma Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
+	<para
+>Bijdragen van: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Documentatie Copyright &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+
+<!-- !!!do not change ANYTHING after this line!!!! -->
+&meld.fouten;&vertaling.jaap;&nagelezen.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

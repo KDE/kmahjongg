@@ -1,0 +1,830 @@
+# translation of kmahjongg.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2007-10-28 14:02+0200\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Рэдагаваць дошку"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Стварыць дошку"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Адкрыць дошку"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Запісаць дошку"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Выбраць"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Выразаць"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Скапіраваць"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Уставіць"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Перамясціць пліткі"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Дадаць пліткі"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Прыбраць пліткі"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Зрушыць налева"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Зрушыць уверх"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Зрушыць уніз"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Зрушыць направа"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Пліткі: %1 Пазіцыя: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Адкрыць раскладку дошкі"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.layout|Board Layout (*.layout)\n"
+#| "*|All Files"
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+"*.layout|Файл дошкі (*.layout)\n"
+"*|Усе файлы"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Запісаць раскладку дошкі"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Файл з такім імем ужо існуе. Замяніць яго?"
+
+#: src/editor.cpp:375
+#, fuzzy, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Дошка змененая. Захаваць змены?"
+
+#: src/editor.cpp:383
+#, fuzzy, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Не атрымліваецца захаваць. Адмена."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "Прыбраць пліткі"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+msgid "Random Layout"
+msgstr "Рэдагаваць дошку"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "komzpa@licei2.com"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, fuzzy, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Гатова. Ваш ход."
+
+#: src/gameview.cpp:157
+#, fuzzy, kde-format
+msgid "Undo operation done successfully."
+msgstr "Папярэдні ход скасаваны."
+
+#: src/gameview.cpp:162
+#, fuzzy, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Што вы жадаеце адмяніць? Вы жа дагэтуль не хадзілі!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, fuzzy, kde-format
+msgid "Your computer has lost the game."
+msgstr "Кампутар прайграў."
+
+#: src/gameview.cpp:203
+#, fuzzy, kde-format
+msgid "Calculating new game..."
+msgstr "Пабудова новай гульні..."
+
+#: src/gameview.cpp:261
+#, fuzzy, kde-format
+msgid "Error generating new game!"
+msgstr "Памылка пры пабудове новай гульні!"
+
+#: src/gameview.cpp:366
+#, fuzzy, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Рэжым дэманстрацыі. Націсніце кнопку мышы для прыпынку."
+
+#: src/kmahjongg.cpp:140
+#, fuzzy, kde-format
+msgid "New Numbered Game..."
+msgstr "Новая гульня па нумары..."
+
+#: src/kmahjongg.cpp:147
+#, fuzzy, kde-format
+msgid "Shu&ffle"
+msgstr "Змяшаць"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, fuzzy, kde-format
+msgid "&Board Editor"
+msgstr "Рэдактар дошкі"
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Час: "
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Час: "
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Новая гульня"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgid "Enter game number:"
+msgstr "Увядзіце нумар гульні:"
+
+#: src/kmahjongg.cpp:265
+#, fuzzy, kde-format
+msgid "General"
+msgstr "Агульныя"
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+msgid "Board Layout"
+msgstr "Рэдагаваць дошку"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Гульня скончаная: больш хадоў няма."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Новая гульня"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, fuzzy, kde-format
+msgid "You have won!"
+msgstr "Вы выйгралі!"
+
+#: src/kmahjongg.cpp:548
+#, fuzzy, kde-format
+msgid "Game number: %1"
+msgstr "Нумар гульні: %1"
+
+#: src/kmahjongg.cpp:558
+#, fuzzy, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Знята: %1/%2  Засталося камбінацый: %3"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Загрузіць гульню"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, fuzzy, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Не атрымліваецца прачытаць з файла. Адмена."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, fuzzy, kde-format
+msgid "File format not recognized."
+msgstr "Невядомы фармат файла."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Захаваць схему"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+msgid "Could not open file for saving."
+msgstr "Не атрымліваецца запісаць файл. Адмена."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Захаваць схему"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, fuzzy, kde-format
+msgid "The tile-set to use."
+msgstr "Выкарыстаць паказаны набор плітак."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, fuzzy, kde-format
+msgid "The background to use."
+msgstr "Змяніць фонавы малюнак."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, fuzzy, kde-format
+msgid "The layout of the tiles."
+msgstr "Раскладка плітак."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Паказаць знятыя пліткі."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, fuzzy, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Пачынаць толькі развязальныя гульні."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, fuzzy, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "Паказваць прыдатныя пліткі."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "&Гульня"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, fuzzy, kde-format
+msgid "&Move"
+msgstr "&Перасунуць"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Выгляд"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Галоўная панель начыння"
+
+#: src/main.cpp:30
+#, fuzzy, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Маджонг для KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, fuzzy, kde-format
+msgid "Original Author"
+msgstr "Аўтар"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, fuzzy, kde-format
+msgid "Current maintainer"
+msgstr "Адказны за выпуск"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, fuzzy, kde-format
+msgid "Bug fixes"
+msgstr "выпраўленне памылак"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Перапісана і палепшана"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, fuzzy, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Генератар развязальных гульняў\n"
+"грунтуецца на алгарытме Майкла Мікса з GNOME mahjongg"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Укладальнік набору плітак і адміністратар вэб-старонкі"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Укладальнік набору плітак і адміністратар вэб-старонкі"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, fuzzy, kde-format
+msgid "Code cleanup"
+msgstr "Падчыстка кода"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Генераваць развязальныя гульні"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Паказаць знятыя пліткі"
+
+#, fuzzy
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Шкадую, але вы прайгралі..."
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "Зноў ваш ход."
+
+#, fuzzy
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Віншую. Вы выйгралі!"
+
+#, fuzzy
+#~ msgid "Error converting board information!"
+#~ msgstr "Памылка пры ператварэнні дошкі!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Пакуль можна захоўваць толькі ў лакальныя файлы."
+
+#, fuzzy
+#~ msgid "Could not write saved game."
+#~ msgstr "Не атрымліваецца запісаць файл. Адмена."
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "&Змяніць"
+
+#~ msgid "&Settings"
+#~ msgstr "&Настаўленні"
+
+#~ msgid "Load..."
+#~ msgstr "Загрузіць..."
+
+#~ msgid "Change Background Image"
+#~ msgstr "Змяніць фонавы малюнак"
+
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr "*.bgnd|Фонавы малюнак (*.bgnd)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Памяняць набор плітак"
+
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Набор плітак (*.tileset)\n"
+
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Раскладка дошкі (*.layout)\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Змяніць раскладку дошкі"
+
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Схема маджонга (*.theme)\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Вылучыце схему"
+
+#~ msgid "*|All Files"
+#~ msgstr "*|Усе файлы"
+
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Няслушны файл схемы."
+
+#~ msgid "Save Theme"
+#~ msgstr "Захаваць схему"
+
+#, fuzzy
+#~ msgid "Overwrite"
+#~ msgstr "Замяніць"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "Памылка пры загрузцы дошкі %1\n"
+#~ "Праца праграмы будзе завершаная."
+
+#, fuzzy
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "Не атрымліваецца знайсці файл: %1\n"
+#~ "або файл па змаўчанні тыпу: %2\n"
+#~ "Праца праграмы будзе завершаная."
+
+#, fuzzy
+#~ msgid "Open La&yout..."
+#~ msgstr "Адкрыць раскладку..."
+
+#, fuzzy
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Паказаць супадальныя пліткі"
+
+#, fuzzy
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Схаваць супадальныя пліткі"
+
+#, fuzzy
+#~ msgid "Form"
+#~ msgstr "Форма"
+
+#, fuzzy
+#~ msgid "Pos"
+#~ msgstr "Пастаў"
+
+#, fuzzy
+#~ msgid "Name"
+#~ msgstr "Назоў"
+
+#, fuzzy
+#~ msgid "Board"
+#~ msgstr "Дошка"
+
+#, fuzzy
+#~ msgid "Score"
+#~ msgstr "Ачкі"
+
+#, fuzzy
+#~ msgid "Time"
+#~ msgstr "Час"
+
+#, fuzzy
+#~ msgid "Scores"
+#~ msgstr "Ачкі"
+
+#, fuzzy
+#~ msgid "Anonymous"
+#~ msgstr "Безназоўны"
+
+#, fuzzy
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Скід табліцы рэкордаў прывядзе да страты ўсіх іх як у памяці, так і на "
+#~ "дыску. Працягнуць?"
+
+#, fuzzy
+#~ msgid "Reset High Scores"
+#~ msgstr "Скінуць табліцу рэкордаў"
+
+#, fuzzy
+#~ msgid "Reset"
+#~ msgstr "Скінуць"
+
+#, fuzzy
+#~ msgid ""
+#~ "_: NAME OF TRANSLATORS\n"
+#~ "Your names"
+#~ msgstr "Сяржук Лянцэвіч"
+
+#, fuzzy
+#~ msgid ""
+#~ "_: EMAIL OF TRANSLATORS\n"
+#~ "Your emails"
+#~ msgstr "serzh.by@gmail.com"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr ""
+#~ "Памылка загрузкі файла з пліткамі %1\n"
+#~ "Праца праграмы будзе завершаная. "
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Памылка пры загрузцы фонавага малюнка\n"
+#~ "%1"
+
+#, fuzzy
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "Праца праграмы будзе завершаная."
+
+#, fuzzy
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Не атрымліваецца загрузіць малюнак:\n"
+#~ "%1"
+
+#, fuzzy
+#~ msgid "Open Th&eme..."
+#~ msgstr "Адкрыць схему..."
+
+#, fuzzy
+#~ msgid "Open &Tileset..."
+#~ msgstr "Адкрыць набор плітак..."
+
+#, fuzzy
+#~ msgid "Open &Background..."
+#~ msgstr "Адкрыць фон..."
+
+#, fuzzy
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "Захаваць схему..."
+
+#, fuzzy
+#~ msgid "Play winning animation"
+#~ msgstr "Паказваць анімацыю пры выйгрышы"
+
+#, fuzzy
+#~ msgid "Background"
+#~ msgstr "Фон"
+
+#, fuzzy
+#~ msgid "Scale"
+#~ msgstr "Маштабаваць малюнак"
+
+#, fuzzy
+#~ msgid "Tiled"
+#~ msgstr "Паскладаць пліткай"
+
+#, fuzzy
+#~ msgid "Tiles"
+#~ msgstr "Пліткі"
+
+#, fuzzy
+#~ msgid "Draw shadows"
+#~ msgstr "Маляваць цені"
+
+#, fuzzy
+#~ msgid "Use mini-tiles"
+#~ msgstr "Выкарыстаць міні-пліткі"
+
+#, fuzzy
+#~ msgid "Whether to use miniature tiles."
+#~ msgstr "Выкарыстаць мініятурныя пліткі."
+
+#, fuzzy
+#~ msgid "Whether the tiles have shadows."
+#~ msgstr "Паказваць цень у плітак."
+
+#, fuzzy
+#~ msgid "Whether the background should be tiled instead of scaled."
+#~ msgstr "Размясціць фонавы малюнак пліткай замест яго расцягу."
+
+#, fuzzy
+#~ msgid "Whether an animation should be played on victory."
+#~ msgstr "Прайграваць анімацыю пры перамозе."

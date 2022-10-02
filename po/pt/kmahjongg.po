@@ -1,0 +1,575 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2022-07-09 12:52+0100\n"
+"Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
+"Language-Team: pt <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-SpellExtra: KMahjongg Mahjongg mahjongg Meeks\n"
+"X-POFile-SpellExtra: theme layout tileset bmp bgnd Pos web  bngd Mueller\n"
+"X-POFile-IgnoreConsistency: Tiles\n"
+"X-POFile-IgnoreConsistency: Reset\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: Mauricio Lohman Mathias Stark Piacentini Haertjens\n"
+"X-POFile-SpellExtra: Astals Black Ravanini Meyer Krippendorf kmgame\n"
+"X-POFile-IgnoreConsistency: Time: \n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Pedro Morais,José Nuno Pires"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "morais@kde.org,zepires@gmail.com"
+
+#: src/editor.cpp:71
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Editar a Disposição do Tabuleiro"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Novo tabuleiro"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Abrir um tabuleiro"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Gravar o tabuleiro"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Seleccionar"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Cortar"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Copiar"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Colar"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Mover as peças"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Adicionar peças"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Apagar peças"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Mover para a esquerda"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Mover para cima"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Mover para baixo"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Mover para a direita"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Peças: %1 Pos: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Abrir Disposição do Tabuleiro."
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "Disposições de tabuleiro (*.layout);;Todos os Ficheiros (*)"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr "Só poderá gravar com um número par de peças."
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Gravar a Disposição do Tabuleiro"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Já existe um ficheiro com esse nome. Deseja escrever por cima dele?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "O tabuleiro foi modificado. Deseja gravar as alterações?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "A gravação falhou. A cancelar a operação."
+
+#: src/gameremovedtiles.cpp:127
+#, kde-format
+msgid "Removed tiles"
+msgstr "Peças removidas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr "Disposição Aleatória"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr "O&bter Disposições Novas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Antevisão"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, kde-format
+msgid "Layout Details"
+msgstr "Detalhes da Disposição"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Autor:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Contacto:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Descrição:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Pronto. É agora a sua vez."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Operação de desfazer concluída."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "O que é que deseja desfazer? Não fez nada!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "O seu computador perdeu o jogo."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "A calcular um novo jogo..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Erro ao gerar um novo jogo!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Modo de demonstração. Carregue para parar."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Novo Jogo Numerado..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "&Baralhar"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr "Rodar no Sentido Anti-Horário"
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr "Rodar no Sentido Horário"
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "&Editor do Tabuleiro"
+
+#: src/kmahjongg.cpp:197
+#, kde-format
+msgid "Time: 0:00:00"
+msgstr "Tempo: 0:00:00"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr "Removido: 0000/0000"
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr "Jogo: 000000000000000000000"
+
+#: src/kmahjongg.cpp:224
+#, kde-format
+msgid "Time: "
+msgstr "Tempo: "
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Novo Jogo"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Indique o número do jogo:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Geral"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr "Disposição do Tabuleiro"
+
+#: src/kmahjongg.cpp:403
+#, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Fim do Jogo: Já não tem mais jogadas possíveis."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr "Fim do Jogo"
+
+#: src/kmahjongg.cpp:405
+#, kde-format
+msgid "New Game"
+msgstr "Novo Jogo"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Você ganhou!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Número do jogo: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Retiradas: %1/%2  Pares restantes: %3"
+
+#: src/kmahjongg.cpp:619
+#, kde-format
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Carregar um Jogo"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr "Jogo do KMahjongg (*.kmgame)"
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Não foi possível ler do ficheiro. A interromper."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr "O ficheiro não é um jogo do KMahjongg."
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "O formato do ficheiro não é reconhecido."
+
+#: src/kmahjongg.cpp:694
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Gravar o Jogo"
+
+#: src/kmahjongg.cpp:704
+#, kde-format
+msgid "Could not open file for saving."
+msgstr "Não foi possível aceder ao ficheiro para o gravar."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr "Deseja gravar o seu jogo?"
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Save game?"
+msgstr "Gravar o jogo?"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "O conjunto de peças a usar."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "O fundo a usar."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "A disposição das peças."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Se as peças removidas serão apresentadas no tabuleiro."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr "Se é escolhida uma disposição aleatória no arranque."
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Escolhe se os jogos devem ser todos resolúveis ou não."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "Se as peça que condizem são mostradas."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "Jo&go"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Mover"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Ver"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barra Principal"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Mahjongg Solitário do KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Autor Original"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr "Christian Krippendorf"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Manutenção actual"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Correcções de erros"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Alterações e extensões para o KDE 3"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Geração de jogos solúveis\n"
+"baseado no algoritmo por Michael Meeks no mahjongg do GNOME"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr "Conjuntos de Peças em SVG para o KDE4"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Contributo de peças e manutenção actual da página Web"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Contributo de peças e manutenção original da página Web"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Limpeza no código"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr "Piscar as peças correspondentes quando uma é seleccionada"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Gerar jogos solúveis"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Mostrar as peças removidas"

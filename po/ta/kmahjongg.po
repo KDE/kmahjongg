@@ -1,0 +1,779 @@
+# Copyright (C) 2021 Free Software Foundation, Inc.
+#
+# Kishore G <kishore96@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2021-01-18 19:16+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "மொழிபெயர்ப்பாளரின் பெயர்"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tamilpc@ambalam.com"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "உருவரை போர்டை திருத்து"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "புதிய போர்டு"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "போர்டை திற"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "போர்டுடை சேமி"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "தேர்வு"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "பின்னணியை நகர்த்து"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "பின்னணியை சேர்"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "பின்னணியை அகற்று"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "இடது பக்கம் நகர்த்து"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "மேல் ஏற்று"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "கீழ் இறக்கு"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "வலது பக்கம் நகற்று"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "பின்னணி:%1 இடம்:%2%3%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "உருவரை போர்டை திற"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.layout|Board Layout (*.layout)\n"
+#| "*|All Files"
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "உருவரை போர்டு"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "உருவரை போர்டை சேமி"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "இந்த பெயரில் கோப்பு உள்ளது. நீங்கள் மறுபடியும் எழுத விரும்புகிறீர்களா?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "பலகை புதுப்பிக்கப்பட்டது. நீங்கள் மாற்றங்களை சேமிக்க விரும்புகிறீர்களா?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "சேமிப்பு தடுக்கப்பட்டுள்ளது.தேர்வு தடுக்கப்பட்டுவிட்டது."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "பின்னணியை அகற்று"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Random Layout"
+msgstr "உருவரை போர்டை திருத்து"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "உங்கள் மின்னஞ்சல்"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "தயார்.இது உங்களுடைய நேரம்"
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "கைவிடப்பட்ட தேர்வு வெற்றிகரமாக முடிந்தது"
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "நீங்கள் எதை ரத்து செய்ய வேண்டும்? நீங்கள் எதுவுமே செய்யவில்லை!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "உங்கள் கனிணி விளையாட்டில் தோல்வி அடைந்தது"
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "புதிய விளையாட்டை கணக்கிடுகின்றது"
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "புதிய விளையாட்டை செயல்படுத்துவதில் பிழை"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "காட்சி வகை.சுட்டி பொத்தானை நிறுத்துவதற்கு அழுத்து"
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "புதிய எண்களுடன் விளையாட்டு"
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "கலைப்பு"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "&போர்டு திருத்தி"
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "நேரம்"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "நேரம்"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "விளையாட்டை சேமி"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "விளையாட்டு எண்களை உள்ளிடு:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "பொது"
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Board Layout"
+msgstr "உருவரை போர்டை திருத்து"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+#| msgid "Game over: You have no moves left."
+msgid "Game Over: You have no moves left."
+msgstr "விளையாட்டு முடிந்தது. உங்களுக்கு எதுவும் இல்லை"
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "விளையாட்டை சேமி"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "நீங்கள் வென்றுவிட்டீர்கள்!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "விளையாட்டு எண்:%1"
+
+#: src/kmahjongg.cpp:558
+#, fuzzy, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "அகற்றியவை: %1/%2  மீதமுள்ள : %3"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "விளையாட்டை ஏற்று"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "கோப்பிலிருந்து படிக்க முடியாது . நிறுத்தப்பட்டுள்ளது."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "கோப்பின் வடிவம் கண்டுபிடிக்கப்படவில்லை"
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "உருபொருளை சேமி"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "கோப்பில் எழுத முடியாது"
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "உருபொருளை சேமி"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "பயன்படுத்துவதற்கு பின்னணியின் தேர்வு"
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "பயன்படுத்தும் பின்னணி"
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "பின்னணியின் உருவரைகள்"
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+#| msgid "Whether to show removed tiles."
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "நீக்கப்பட்ட அடுக்கை காட்ட விரும்புகிறீர்களா"
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "எல்லா விளையாட்டுக்களும் தீர்க்கப்படுமா!"
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "பொருந்தக்கூடிய ஓடுகளைக் காட்ட"
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "பெயர்"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "நகர்த்து"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "பிரதான கருவிப்பட்டை"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "கேடியிக்கான KMahjongg"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "உண்மையான எழுத்தாளர்"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, fuzzy, kde-format
+msgid "Current maintainer"
+msgstr "தற்போதைய மேம்பாட்டாளர்"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "மறுபடியும் எழுதி தொடரு"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"தீர்க்கக்கூடிய விளையாட்டு தலைமுறை \n"
+"Michael Meeks in GNOME mahjongg னின் படிமுறையை அடிப்படையாக கொண்டது"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "வலை பக்கம் மேம்படுத்துபவர் மற்றும் டைல் அமைப்பை வழங்குபவர்"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "வலை பக்கம் மேம்படுத்துபவர் மற்றும் டைல் அமைப்பை வழங்குபவர்"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "மென்பொருளை சுத்தம் செய்"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "தீர்க்கப்படும் விளையாட்டுக்களை உருவாக்கு"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "அகற்றப்பட்ட பின்னணிகளை காட்டு"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "மன்னித்து விடுங்கள், நீங்கள் விளையாட்டில் தோற்றுவிட்டீர்கள்"
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "மறுபடியும் நீங்கள்."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "பாராட்டுக்கள். நீங்கள் வென்றுவிட்டீர்கள்!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "போர்டு செய்திகளை பகிர்ந்து கொள்வதில் பிழை"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "சேமிப்பு மட்டும்"
+
+#, fuzzy
+#~| msgid "Could not write to file. Aborting."
+#~ msgid "Could not write saved game."
+#~ msgstr "கோப்பில் எழுத முடியாது"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "வெளியேற்று"
+
+#, fuzzy
+#~ msgid "Load..."
+#~ msgstr "சுமை"
+
+#~ msgid "Change Background Image"
+#~ msgstr "பின்னணியின் பிம்பத்தை மாற்று"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr ""
+#~ "*.bgnd| பின்னணி பிம்பம்\n"
+#~ "*.bmp| சாளரங்கள்  bitmap கோப்பு (*.bmp)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "பின்னணி தேர்வை மாற்று"
+
+#, fuzzy
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.பின்னணி தேர்வு [கோப்பு பின்னணியின் தேர்வு\n"
+
+#, fuzzy
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.உருவரை[போர்டு உருவரை கோப்பு\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "உருவரை போர்டை மாற்று"
+
+#, fuzzy
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.உருபொருள்[KMahjongg உருபொருள்\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "உருபொருளை மாற்று"
+
+#, fuzzy
+#~ msgid "*|All Files"
+#~ msgstr "*அனைத்து கோப்புகளும்\n"
+
+#~ msgid "That is not a valid theme file."
+#~ msgstr "That is not a valid theme file."
+
+#~ msgid "Save Theme"
+#~ msgstr "உருபொருளை சேமி"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "பலகையின் உருவரையை %1  ஏற்றும் பொழுது பிழை ஏற்பட்டது\n"
+#~ "KMahjongg இப்பொழுது நீக்கப்படும்"
+
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "KMahjongg  கோப்பினை வைக்க முடியவில்லை : %1\n"
+#~ "அல்லது முன்னிருப்பு கோப்பின் வகை : %2\n"
+#~ "KMahjongg இப்பொழுது நீக்கப்படும்"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "உருவரையை திற"
+
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "பின்னணியின் பொருத்தங்களை காட்டு"
+
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "பின்னணியைப் பொருத்து & மறை"
+
+#~ msgid "Pos"
+#~ msgstr "Pos"
+
+#~ msgid "Name"
+#~ msgstr "பெயர்"
+
+#~ msgid "Board"
+#~ msgstr "போர்டு"
+
+#~ msgid "Score"
+#~ msgstr "மதிப்பெண்"
+
+#~ msgid "Time"
+#~ msgstr "நேரம்"
+
+#~ msgid "Scores"
+#~ msgstr "மதிப்பெண்கள்"
+
+#~ msgid "Anonymous"
+#~ msgstr "தேவையற்ற"
+
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "அதிக மதிப்பெண்களை மாற்றியமைக்கும் பொழுது அனைத்து அதிக மதிப்பெண் பதிவுகளும் "
+#~ "நினைவகத்திலிருந்தும் தகடிலிருந்தும் நீக்கப்படும். நீங்கள் தொடர விரும்புகிறீர்களா?"
+
+#~ msgid "Reset High Scores"
+#~ msgstr "அதிக மதிப்பெண்களுக்கு அமை"
+
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr ""
+#~ "டைல் அமைப்பு கோப்பு%1\n"
+#~ "ஏற்றும் பொழுது பிழை ஏற்பட்டது. KMahjongg இப்பொழுது நீக்கப்படும்"
+
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr ""
+#~ "பின்னணி பிம்பத்தை ஏற்றும் பொழுது பிழை ஏற்பட்டது\n"
+#~ "%1"
+
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "KMahjongg முடிய போகிறது."
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "பிம்பத்தை பதிவு செய்யவில்லை:\n"
+#~ "%1"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "உருபொருளை திற"
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "பின்னணியின் தேர்வை திற"
+
+#~ msgid "Open &Background..."
+#~ msgstr "பின்னணியை திற"
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "உருபொருளை சேமி"
+
+#~ msgid "Play winning animation"
+#~ msgstr "வெற்றியடைகின்ற அசைவூட்டதை விளையாடு "
+
+#~ msgid "Background"
+#~ msgstr "பின்னணி"
+
+#~ msgid "Scale"
+#~ msgstr "அளவு"
+
+#~ msgid "Tiled"
+#~ msgstr "அடுக்கப்பட்டவை"
+
+#~ msgid "Tiles"
+#~ msgstr "பின்னணிகள்"
+
+#~ msgid "Draw shadows"
+#~ msgstr "நிழல்களை வரை"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "சிறிய பின்னணிகளை பயன்படுத்து"
+
+#~ msgid "Whether to use miniature tiles."
+#~ msgstr "மிகச்சிறிய டைல்களை உபயோகப்படுத்த வேண்டுமா"
+
+#~ msgid "Whether the tiles have shadows."
+#~ msgstr "டைலுக்கு நிழல்கள் இருக்கிறதா."
+
+#~ msgid "Whether the background should be tiled instead of scaled."
+#~ msgstr "பின்னணியில் அளவுகோலுக்கு பதிலாக டைல் வேண்டுமா"
+
+#~ msgid "Whether an animation should be played on victory."
+#~ msgstr "அசைவூட்டதை வெற்றி பெறுவதற்காக விளையாட வேண்டுமா"

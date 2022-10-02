@@ -1,0 +1,1748 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kmahjongg;"
+> 
+  <!ENTITY kappversion "0.8.0"
+><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY package "kdegames"
+>  <!-- do not change this! -->
+  <!ENTITY % Lithuanian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>&kappname; vadovas</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Tomas</firstname
+><surname
+>Straupis</surname
+><affiliation
+><address
+><email
+>tomasstraupis@gmail.com</email
+></address
+></affiliation
+><contrib
+>Vertė</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+ 
+<date
+>2007-10-11</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>&kappversion;</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+ 
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>Čia aprašoma &kappname; &kappversion; versija</para>
+</abstract>
+ 
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>žaidimas</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>lenta</keyword>
+	<keyword
+>arkada</keyword>
+	<keyword
+>kaladėlių žaidimas</keyword>
+	<keyword
+>kaladėlės</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>vienas žaidėjas</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Įvadas</title
+> <!-- do not change this! -->
+	<note
+><title
+>Žaidimo tipas:</title
+><para
+>Lenta, arkada</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Galimų žaidėjų skaičius:</title
+><para
+>Vienas</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>&kmahjongg; yra linksmas stalo žaidimas, sukurtas pagal įžymųjį Azijos žaidimą Mahjong (kiniškai <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). Skirtingai nuo originalo, &kmahjongg; skirtas vienam ar dviems žaidėjams. Tokia žaidimo versija paprastai vadinama Mahjong pasijansu. </para>
+	<para
+>&kmahjongg; kaladėlės sumaišomos ir sudėliojamos viena ant kitos pagal iš anksto pasirinktą formą. Žaidėjas turi nuimti nuo lentos visas kaladėles, rasdamas porą kiekvienai iš jų. </para>
+</chapter>
+ 
+<chapter id="howto"
+><title
+>Žaidimo taisyklės</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Tikslas:</title
+><para
+>Kiek galima greičiau nuimkite visas kaladėlės nuo lentos rasdami porą kiekvienai likusiai kaladėlei.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>Paleidus žaidimą, &kappname; iš karto išdėlios kaladėles pagal standartinę formą. Taigi galite iš karto pradėti žaisti. </para>
+	<note
+><title
+>Pastaba:</title
+><para
+>Žaidimo laiko skaičiavimas prasidės iš karto, kai tik pradėsite žaisti.</para
+></note>
+	<para
+>Atidžiai peržiūrėkite visas išdėliotas kaladėles ir raskite dvi lygiai tokias pačias. Vienodas kaladėles pažymėkite pele. </para>
+	<note
+><title
+>Pastaba:</title>
+		<para
+>Turėkite omenyje, kad pažymėti galite tik <quote
+>atviras</quote
+> kaladėles. Kaladėlės vadinamos <quote
+>užblokuotomis</quote
+>, jei ant jų padėta kita kaladėlė, arba kai ir iš kairės, ir iš dešinės yra kitos kaladėles. Jei bent iš vienos pusės nieko nėra, kaladėlė vadinama atvira“ ir ją galima nuimti (radus porą). </para
+></note>
+	<para
+>Parinkus tinkamą kaladėlių porą jos dings nuo lentos, taip atverdamos kitas kaladėles, kurios prieš tai buvo užblokuotos. </para>
+	<para
+>Norėdami nuo lentos nuimti visas kaladėles, stenkitės surasti kiek galima daugiau porų. </para>
+</chapter>
+ 
+<chapter id="rules_and_tips"
+><title
+>Žaidimo taisyklės, strategija ir patarimai</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>Žaidimo laukas</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>&kmahjongg; vaizdo nuotrauka</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Nuotrauka</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+Trumpas ekrano dalių paaiškinimas </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Žaidimo ekranas</term>
+			<listitem
+><para
+>Žaidimo ekranas yra vidurinė ir didžiausia žaidimo lango dalis. Čia rasite išdėliotas žaidimo kaladėles. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Būsenos juosta</term>
+			<listitem
+><para
+>Būsenos juosta rasite žaidimo lango apačioje. Ji padalinta į keturias dalis. Pirmoje rasite nuimtų/visų kaladėlių skaičius bei atvirų kaladėlių kombinacijų skaičių. Sekančioje parašytas kaladėlių išdėliojimo numeris. Trečiojoje dalyje rodoma, kada galima žaisti – žymėti rastas kaladėlių poras. Paskutinėje tiksi žaidimo laikmatis, skaičiuojantis laiką nuo žaidimo pradžios iki pabaigos. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Taisyklės</title>
+		<para
+>Standartiniai Mahjong kaladėlių rinkiniai: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Grupės pavadinimas</entry
+><entry
+>Kaladėlės pavadinimas</entry
+><entry
+>Kiekis rinkinyje</entry
+></row>
+					<row
+><entry
+>Taškai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 taškas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 taškai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bambukai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 bambukas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 bambukai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Simboliai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 simbolis</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 simboliai</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Vėjai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Rytų vėjas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Pietų vėjas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vakarų vėjas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Šiaurės vėjas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Drakonai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Raudonasis drakonas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Žaliasis drakonas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Baltasis drakonas</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Gėlės</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Slyva (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lelija (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Chrizantema (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambukas (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Metų laikai</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Pavasaris (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vasara (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Ruduo (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Žiema (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>Žymėti galima tik <quote
+>atviras</quote
+> kaladėles.</para
+></listitem>
+			<listitem
+><para
+><quote
+>Atvira</quote
+> vadinama kaladėlė, kurios pilnai ar dalinai nedengia jokia kita kaladėlė, taipogi iš kairės arba dešinės pusės neturi būti kitos kaladėlės.</para
+></listitem>
+			<listitem
+><para
+>Tik sutampančios atviros kaladėlės gali būti nuimtos nuo žaidimo lentos.</para
+></listitem>
+			<listitem
+><para
+>Kaladėlės, turinčios vienodas piktogramas, vadinamos sutampančiomis.</para
+></listitem>
+		</itemizedlist
+>			
+		<note
+><title
+>Pastaba:</title
+><para
+>Ši taisyklė turi išimčių! Tradiciniame Mahjong žaidime, kiekviena kaladėlė turi sutampančią kaladėlę išskyrus <quote
+>gėlių</quote
+> ir <quote
+>metų laikų</quote
+> kaladėlės. </para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+><quote
+>Gėlių</quote
+> kaladėlės neturi savo poros. Jas galima poruoti su bet kokia kita gėle.</para
+></listitem>
+			<listitem
+><para
+><quote
+>Metų laikų</quote
+> kaladėlės irgi neturi savo poros. Jas irgi galima poruoti su bet kokia kita gėle. </para
+></listitem>
+			<listitem
+><para
+>Ne visus &kmahjongg; išdėliotus kaladėliu variantus galima pilnai nuimti nuo lentos. Kartais kaladėlės išdėliojamos taip, kad tiesiog neįmanoma nuimti jų visų. Šitą problemą galima išspręsti. Peržiūrėkite <link linkend="general-options"
+>šią nustatymų dialogo dalį</link
+>.</para
+></listitem>
+			<listitem
+><para
+>Tam, kad patektumėte tarp rezultatyviausių žaidėjų, turite nuimti visas kaladėles bei tai padaryti per trumpiausią įmanomą laiką.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Pastaba:</title
+><para
+>Jei žaidėjas naudoja <quote
+>patarimo</quote
+> mygtuką, tai jo rezultatas nebus įrašomas į geriausiųjų sąrašą.</para
+></note>
+
+	</sect1>
+</chapter>
+ 
+ 
+<chapter id="interface"
+><title
+>Naudotojo sąsajos aprašymas</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+ 
+ <sect1 id="game-menu">
+	<title
+>Meniu punktas <guimenu
+>Žaidimas</guimenu
+></title>
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Naujas</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pradeda naują žaidimą.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Įkelti...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Įkelia anksčiau išsaugotą žaidimą.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Pradėti iš naujo</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Iš naujo pradedamas tas pats žaidimas (lygiai taip pat išdėliojus kaladėles).</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Naujas žaidimas pagal numerį...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pradeda konkrečiu numeriu pažymėtą žaidimą (konkrečiu numeriu pažymėtą kaladėlių pradinį išdėliojimą).</action>
+				<screenshot>
+					<screeninfo
+>Numeriu pažymėto žaidimo paleidimas</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Numeriu pažymėto žaidimo paleidimo dialogas</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Įrašyti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Išsaugo</action
+> einamojo žaidimo būseną.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Pristabdyti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Laikinai pristabdo arba vėl tęsia žaidimą. Kai žaidimas pristabdomas, kaladėlės paslepiamos.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Rezultatai</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Rodo rezultatyviausių (greičiausiai nuėmusių visas kaladėles) žaidėjų sąrašą.</action>
+				<screenshot>
+					<screeninfo
+>Rezultatai</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Rodyti rezultatus</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Jei jūsų pasiektas rezultatas geresnis, nei paskutiniojo esančio sąraše – jūsų paprašys įvesti savo vardą. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Žaidimas</guimenu
+> <guimenuitem
+>Baigti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Išjungia</action
+> &kappname; žaidimą.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+</sect1>
+<sect1 id="move-menu">
+	<title
+>Meniu punktas <guimenu
+>Ėjimas</guimenu
+></title>
+		<variablelist>
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ėjimas</guimenu
+> <guimenuitem
+>Atstatyti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Atšaukia</action
+> paskutinį ėjimą.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ėjimas</guimenu
+> <guimenuitem
+>Pakartoti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pakartoti</action
+> prieš tai atstatytą ėjimą.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Ėjimas</guimenu
+> <guimenuitem
+>Patarimas</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pataria</action
+> kokias kaladėles galima būtų nuimti. Sutampančios kaladėlės pradeda mirksėti.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Ėjimas</guimenu
+> <guimenuitem
+>Demonstracija</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Paleidžia žaidimą demonstracijos</action
+> režime. T.y. kompiuteris žaidžia pats – randa sutampančias kaladėles ir jas nuiminėja.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Ėjimas</guimenu
+> <guimenuitem
+>Maišyti</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Sumaišo</action
+> lentoje esančias kaladėles.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+</sect1>
+<sect1 id="view-menu">
+	<title
+>Meniu <guimenu
+>Rodyti</guimenu
+></title>
+		<variablelist>
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Rodyti</guimenu
+> <guimenuitem
+>Rodinį pasukti pagal laikrodžio rodyklę</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pasuka</action
+> žiūrėjimo kampą pagal laikrodžio rodyklę. T.y. kaladėlės lieka savo vietose, tik į jas "žiūrima" kitu kampu.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Rodyti</guimenu
+> <guimenuitem
+>Pasukti rodinį prieš laikrodžio rodyklę</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Pasuka</action
+> žiūrėjimo kampą pagal laikrodžio rodyklę. T.y. kaladėlės lieka savo vietose, tik į jas "žiūrima" kitu kampu.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+</sect1>
+<sect1 id="settings-menu">
+	<title
+>Meniu <guimenu
+>Nustatymai</guimenu
+></title>
+		<variablelist>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+> <guimenuitem
+>Rodyti įrankių juostą</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Rodo arba slepia įrankių juostą.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="settings-menu-statusbar">
+				<term
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+> <guimenuitem
+>Rodyti būsenos juostą</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Rodo arba slepia būsenos juostą.</para
+></listitem>
+			</varlistentry>
+			<!--varlistentry id="settings-menu-hide-matching">
+				<term
+><menuchoice>
+					<guimenu
+>Settings</guimenu>
+					<guimenuitem
+>Show/Hide Matching Tiles</guimenuitem>
+				</menuchoice
+></term>
+				<listitem
+><para
+>Shows or hides matching tiles by not flashing the matching free tiles when a corresponding tile is selected.</para
+></listitem>
+			</varlistentry-->
+			<varlistentry id="settings-menu-shortcuts">
+				<term
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+> <guimenuitem
+>Konfigūruoti sparčiuosius klavišus...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Parodo standartinį &kde; sparčiųjų klavišų konfigūravimo dialogą</action
+>, leidžiantį jums pakeisti <link linkend="default-keybindings"
+>sparčiuosius klavišus</link
+>, skirtus &kappname; žaidimui.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="settings-menu-toolbar">
+				<term
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+> <guimenuitem
+>Konfigūruoti įrankines...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Parodo standartinį &kde; dialogą, kuriame galite pasirinkti, kokia piktogramas norite matyti &kappname; įrankinėje.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="settings-menu-settings">
+				<term
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+> <guimenuitem
+>Konfigūruoti &kappname;...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Atidaro dialogą, kuriame galite konfigūruoti &kappname;.</action
+> Daugiau informacijos rasite <link linkend="configuration"
+>čia</link
+>.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+</sect1>
+ <sect1 id="help"
+><!--This is a standard Help menubar entry. Only change if needed.-->
+<title
+>Meniu <guimenu
+>Pagalba</guimenu
+></title>
+&help.menu.documentation; </sect1>
+</chapter>
+ 
+ 
+<chapter id="faq"
+><title
+>Dažniausiai užduodami klausimai</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Noriu pakeisti šio žaidimo išvaizdą. Ar galima tai padaryti? </para
+></question>
+		 <answer
+><para
+>Taip. Galite pakeisti &kappname; išvaizdą . Naudodamiesi <link linkend="settings-menu-settings"
+>meniu juosta</link
+> parinkite <link linkend="configuration"
+>Konfigūruoti &kappname;</link
+>.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Ar galiu žaisti naudodamas tik klaviatūrą?</para
+></question>
+		 <answer
+><para
+>Ne. Kol kas dar neįdiegta žaidimo klaviatūra galimybė.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+ 
+</qandaset>
+</chapter>
+ 
+<chapter id="configuration"
+><title
+>Žaidimo konfigūracija</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Konfigūravimo dialogas</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Konfigūravimo dialogas</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+><guimenuitem
+>Konfigūruoti &kappname;...</guimenuitem
+></menuchoice
+> atidaro dialogą <guilabel
+>Konfigūruoti – &kappname;</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+><guilabel
+>Bendri</guilabel
+> nustatymai</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Pažymėjus kaladėlę, pastarąją ir panašias į ją paryškinti jas mirksint.</guilabel
+></term>
+			<listitem
+><para
+>Kai parinktas šis nustatymas, pele pažymėjus kokią nors atvirą kaladėlę į ją panašios atviros (neužblokuotos) kaladėlės pradės mirksėti. Jei nėra atvirų kaladėlių, panašių į pažymėtąją – niekas nemirksės. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Generuoti išsprendžiamus žaidimus.</guilabel
+></term>
+			<listitem
+><para
+>Kai pradedate naują žaidimą, parenkami tik tie žaidimai, kuriuos iš principo galima išspręsti. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+><guilabel
+>Išdėstymo varianto</guilabel
+> nustatymai</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Išdėstymo varianto</guilabel
+> pasirinkimas</term>
+			<listitem
+><para
+><guilabel
+>Čia</guilabel
+> galite pasirinkti, kokia figūra turi būti išdėstytos žaidimo kaladėlės. Nuo išdėstymo formos gali kisti žaidimo sudėtingumas, nes skirtinguose išdėstymuose ne tik kaladėlės bus kitokiose pozicijose, bet ir gali būti naudojamas skirtingas kaladėlių skaičius. </para>
+			<screenshot>
+				<screeninfo
+>Išdėstymo varianto pasirinkimas</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Išdėstymo varianto pasirinkimas</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+><guilabel
+>Kaladėlių</guilabel
+> nustatymai</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Kaladėlių</guilabel
+> pasirinkimas</term>
+			<listitem
+><para
+>Čia galite pasirinkti <guilabel
+>kaladėlių</guilabel
+> išvaizdą, t.y. kokio stiliaus bus naudojami piešinukai. </para>
+			<screenshot>
+				<screeninfo
+>Kaladėlių pasirinkimas</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Kaladėlių pasirinkimas</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+><guilabel
+>Fono</guilabel
+> nustatymai</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Fono</guilabel
+> pasirinkimas</term>
+			<listitem
+><para
+>Čia galite pasirinkti, ant kokio fono bus išdėliotos žaidimo kaladėlės. </para>
+			<screenshot>
+				<screeninfo
+>Fono pasirinkimas</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Fono pasirinkimas</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Numatytieji spartieji klavišai</title>
+
+<para
+><menuchoice
+><guimenu
+>Nustatymai</guimenu
+><guimenuitem
+>Konfigūruoti sparčiuosius klavišus...</guimenuitem
+></menuchoice
+> leidžia jums keisti įvairias funkcijas iškviečiančius spartiečiuosius klavišus.</para>
+
+<screenshot>
+<screeninfo
+>Sparčiųjų klavišų konfigūravimo dialogas</screeninfo>
+	<mediaobject>
+
+	  <imageobject>
+	    <imagedata fileref="shortcuts.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Sparčiųjų klavišų konfigūravimo dialogas</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Numatytieji spartieji klavišai: </para>
+
+<para>
+<variablelist>
+
+<varlistentry>
+<term
+><keycap
+>D</keycap
+></term>
+<listitem>
+<para
+>Paleidžia žaidimo demonstracinį variantą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>H</keycap
+></term>
+<listitem>
+<para
+>Duoda patarimą – dvi sutampančios kaladėlės pradeda mirksėti. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>F1</keycap
+></term>
+<listitem>
+<para
+>Parodo šį vadovą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Įkelia anksčiau įrašytą žaidimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Pradeda naują žaidimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>P</keycap
+></term>
+<listitem>
+<para
+>Pristabdo arba pratęsią pristabdytą žaidimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Baigia žaidimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Pakartoja anksčiau atstatytą ėjimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>F5</keycap
+></term>
+<listitem>
+<para
+>Iš naujo pradeda žaidimą (naudojant tą patį kaladėlių išdėliojimą). </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Įrašo dabartinį žaidimą, kad būtų galima vėliau jį įkelti ir pratęsti. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Parodyti geriausių rezultatų sąrašą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Atstatyti ėjimą. T.y. grąžinti kaladėlęs į būseną, buvusią prieš paskutinį ėjimą. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>F</keycap
+></term>
+<listitem>
+<para
+>Pasukto rodymo kampą pagal laikrodžio rodyklę. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycap
+>G</keycap
+></term>
+<listitem>
+<para
+>Pasukti rodymo kampą prieš laikrodžio rodyklę. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></term>
+<listitem>
+<para
+>Kas tai? Pagalba. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+
+</sect1>
+</chapter>
+ 
+<chapter id="credits"
+><title
+>Padėkos ir licencija</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kde; &kappname; </para>
+
+	<para
+>Program Copyright &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Program Copyright &copy; 2007 <personname
+><firstname
+>Mauricio</firstname
+><surname
+>Piacentini</surname
+></personname
+> <email
+>piacentini@kde.org</email
+> </para>
+	<para
+>Kiti bendradarbiai: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Albert</firstname
+><othername
+>Astals</othername
+><surname
+>Cid</surname
+></personname
+> <email
+>astals11@terra.es</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Documentation Copyright &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+ 
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Translation Tomas Straupis <email
+>tomasstraupis@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+ 
+ 
+<appendix id="installation">
+<title
+>Diegimas</title>
+ 
+&install.intro.documentation;
+ 
+ 
+<sect1 id="Compilation">
+<title
+>Kompiliavimas ir diegimas</title>
+&install.compile.documentation; </sect1>
+</appendix>
+ 
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

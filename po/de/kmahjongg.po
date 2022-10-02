@@ -1,0 +1,603 @@
+# Stefan Winter <swinter@kde.org>, 2003, 2004, 2005, 2007.
+# Stephan Johach <hunsum@gmx.de>, 2005.
+# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2007.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2009.
+# Panagiotis Papadopoulos <pano_90@gmx.net>, 2009.
+# Burkhard Lück <lueck@hube-lueck.de>, 2010, 2013, 2017, 2019, 2021.
+# Frederik Schwarzer <schwarzer@kde.org>, 2012, 2016, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2022-07-23 23:15+0200\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Winter"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "swinter@kde.org"
+
+#: src/editor.cpp:71
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Spielfeldaufbau bearbeiten"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Neues Spielfeld"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Spielfeld laden"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Spielfeld speichern"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Wählen"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Kopieren"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Einfügen"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Spielsteine bewegen"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Spielsteine hinzufügen"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Spielsteine entfernen"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Nach links schieben"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Nach oben schieben"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Nach unten schieben"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Nach rechts schieben"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Spielsteine: %1 Pos.: %2, %3, %4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Spielfeldaufbau laden"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "Spielfeldaufbau-Dateien (*.layout);;Alle Dateien (*)"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr "Sie können nur mit einer geraden Anzahl Steine abspeichern."
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Spielfeldaufbau speichern"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr ""
+"Eine Datei gleichen Namens existiert bereits. Möchten Sie sie überschreiben?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Das Spielfeld wurde verändert. Möchten Sie die Änderungen speichern?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Speichern fehlgeschlagen. Aktion wird abgebrochen."
+
+#: src/gameremovedtiles.cpp:127
+#, kde-format
+msgid "Removed tiles"
+msgstr "Entfernte Steine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr "Zufälliger Spielfeldaufbau"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr "Neue Spiel&felder abholen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Vorschau"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, kde-format
+msgid "Layout Details"
+msgstr "Spielfeld Details"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Autor:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Kontakt:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Beschreibung:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Fertig. Sie sind dran."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Zug wurde rückgängig gemacht."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr ""
+"Was möchten Sie rückgängig machen? Sie haben doch noch gar nichts getan!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Ihr Rechner hat das Spiel verloren."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Neues Spiel wird berechnet ..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Fehler beim Erstellen des Spiels!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Demomodus. Klicken Sie eine Maustaste, um die Demo anzuhalten."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Spiel aus der Liste ..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "&Mischen"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr "Ansicht gegen Uhrzeigersinn drehen"
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr "Ansicht im Uhrzeigersinn drehen"
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "&Spielfeld-Editor"
+
+#: src/kmahjongg.cpp:197
+#, kde-format
+msgid "Time: 0:00:00"
+msgstr "Zeit: 0:00:00"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr "Entfernt: 0000 / 0000"
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr "Spiel: 000000000000000000000"
+
+#: src/kmahjongg.cpp:224
+#, kde-format
+msgid "Time: "
+msgstr "Zeit: "
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Geben Sie die Spielnummer ein:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Allgemein"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr "Spielfeldaufbau"
+
+#: src/kmahjongg.cpp:403
+#, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Spiel beendet: Sie können nicht mehr ziehen."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr "Spiel beendet."
+
+#: src/kmahjongg.cpp:405
+#, kde-format
+msgid "New Game"
+msgstr "Neues Spiel"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr "Neu starten"
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Sie haben gewonnen!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Spielnummer: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Entfernt: %1 / %2 Restliche Paare: %3"
+
+#: src/kmahjongg.cpp:619
+#, kde-format
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Spiel laden"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr "KMahjongg-Spiel (*.kmgame)"
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Datei kann nicht gelesen werden. Abbruch."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr "Die Datei ist kein KMahjongg-Spiel."
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Unbekanntes Dateiformat."
+
+#: src/kmahjongg.cpp:694
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Spiel speichern"
+
+#: src/kmahjongg.cpp:704
+#, kde-format
+msgid "Could not open file for saving."
+msgstr "Datei kann nicht zum Speichern geöffnet werden."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr "Möchten Sie Ihr Spiel speichern?"
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Save game?"
+msgstr "Spiel speichern?"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "Das zu verwendende Spielstein-Design."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "Der zu verwendende Hintergrund."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "Design der Spielsteine."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Ob entfernte Steine auf dem Spielfeld angezeigt werden."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+"Ist diese Einstellung aktiviert, wird beim Start ein zufälliger "
+"Spielfeldaufbau gewählt."
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Ist diese Einstellung aktiviert, werden nur lösbare Spiele erzeugt."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr ""
+"Ist diese Einstellung aktiviert, werden zueinander passende Spielsteine "
+"hervorgehoben."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Spiel"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Zug"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Ansicht"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Haupt-Werkzeugleiste"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Mahjongg von KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+"© 1997, Mathias Mueller\n"
+"© 2006, Mauricio Piacentini\n"
+"© 2011, Christian Krippendorf"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Ursprünglicher Autor"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr "Christian Krippendorf"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Aktueller Betreuer"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Fehlerbereinigungen"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Für KDE 3 neu geschrieben und erweitert"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Erzeugen von lösbaren Ausgangspositionen\n"
+"basierend auf einem Algorithmus von Michael Meeks in GNOME-Mahjongg"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr "SVG-Spielsteine für KDE 4"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Mithilfe bei Spielsteinen und aktueller Betreuer der Webseite"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Mithilfe bei Spielsteinen und ursprünglicher Betreuer der Webseite"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Aufräumen des Programmcodes"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr "Passende Spielsteine aufblinken lassen, wenn ein Stein markiert ist"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Lösbare Ausgangspositionen erzeugen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Entfernte Steine anzeigen"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Sie haben das Spiel verloren."
+
+#~ msgid "Now it is you again."
+#~ msgstr "Jetzt sind Sie wieder dran."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Gratulation. Sie haben gewonnen!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Fehler beim Konvertieren der Spielfeldinformationen!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Im Moment wird nur das Speichern in lokale Dateien unterstützt."
+
+#~ msgid "Could not write saved game."
+#~ msgstr "In Datei kann nicht geschrieben werden."
+
+#~ msgid "Mauricio Piacentini"
+#~ msgstr "Mauricio Piacentini"

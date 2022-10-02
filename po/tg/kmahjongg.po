@@ -1,0 +1,632 @@
+# translation of kmahjongg.po to Tajik
+# translation of kmahjongg.po to Тоҷикӣ
+# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, KCT1, NGO
+# Victor Ibragimov <youth_opportunities@tajik.net>, 2004.
+# Victor Ibragimov <youth_opportunities@tajikngo.org>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2005-09-16 16:57+0500\n"
+"Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
+"Language-Team: Tajik\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"* НПО \"Имкониятҳои ҷавонон\" * Tajik Linux Users Group * Young Ladies Tajik "
+"Linux Users Group * http://www.khujand.org * http://www.tajikngo.org * "
+"http://www.yo-tj.org *,Роҷер Ковакс, Виктор Ибрагимов, Марина Колючева, "
+"Евгения Фатхеева, Акмал Ватаншоев, Абророва Хиромон, Акмал Саломов, Акбар "
+"Ватаншоев, Фарход Ахмедов, Эркин Пулатов, Гулшод Довуди, Гулноз Курбанова, "
+"Зарина Косымова, Шухрат Лоиқов, Сурайё Ҷурахонова *"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+",rkovacs@khujand.org,youth_opportunities@tajikngo.org,MarinaKL@tajikngo."
+"org,,,,,,,,,,,,"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Open La&yout..."
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Кушодани &Нақша..."
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr ""
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr ""
+
+#: src/editor.cpp:125
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save board"
+msgstr "Нигоҳдоштани Мавзӯъ"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Интихоб кунед"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr ""
+
+#: src/editor.cpp:161
+#, fuzzy, kde-format
+msgid "Add tiles"
+msgstr "*|Ҳама Файлҳо\n"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr ""
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr ""
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr ""
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr ""
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr ""
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr ""
+
+#: src/editor.cpp:297
+#, fuzzy, kde-format
+#| msgid "Open La&yout..."
+msgid "Open Board Layout"
+msgstr "Кушодани &Нақша..."
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr ""
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr ""
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr ""
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr ""
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+msgid "Removed tiles"
+msgstr "*|Ҳама Файлҳо\n"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr ""
+"rkovacs@khujand.org, youth_opportunities@tajikngo.org, MarinaKL@tajikngo.org"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr ""
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr ""
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr ""
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr ""
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr ""
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr ""
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr ""
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr ""
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr ""
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr ""
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Вақт"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Вақт"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Нигоҳдоштани Бозӣ"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr ""
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Умумӣ"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr ""
+
+#: src/kmahjongg.cpp:403
+#, kde-format
+msgid "Game Over: You have no moves left."
+msgstr ""
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Нигоҳдоштани Бозӣ"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr ""
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr ""
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr ""
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Нигоҳдоштани Мавзӯъ"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr ""
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr ""
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Нигоҳдоштани Мавзӯъ"
+
+#: src/kmahjongg.cpp:704
+#, kde-format
+msgid "Could not open file for saving."
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Нигоҳдоштани Мавзӯъ"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr ""
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, fuzzy, kde-format
+#| msgid "Change Background Image"
+msgid "The background to use."
+msgstr "Тасвири Замина Дигаргун Кунед"
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr ""
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr ""
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr ""
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Ном"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Ҳарақат кунед"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "Маҳҷонг"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Маҳҷонг"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Муаллифи ҳақиқӣ"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr ""
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr ""
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Баромадан"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr "Тасвири Замина Дигаргун Кунед"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Интихоби Мавзӯъ"
+
+#~ msgid "Save Theme"
+#~ msgstr "Нигоҳдоштани Мавзӯъ"
+
+#~ msgid "Name"
+#~ msgstr "Ном"
+
+#~ msgid "Time"
+#~ msgstr "Вақт"
+
+#~ msgid "Anonymous"
+#~ msgstr "Анонимӣ"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "Кушодани Мав&зӯъ..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Кушодани &Замина..."
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "&Нигоҳдоштани Мавзӯъ..."
+
+#~ msgid "Background"
+#~ msgstr "Замина"
+
+#~ msgid "Scale"
+#~ msgstr "Масштаб"
+
+#~ msgid "Tiles"
+#~ msgstr "Кошин"

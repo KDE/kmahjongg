@@ -1,0 +1,1644 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>Handbok Mahjongg</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-06-16</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>Denna dokumentation beskriver spelet Mahjongg, version 0.9</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>spel</keyword
+> <!-- do not change this! -->
+	<keyword
+>Mahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>bräde</keyword>
+	<keyword
+>spelhall</keyword>
+	<keyword
+>brickspel</keyword>
+	<keyword
+>brickor</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>en spelare</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Inledning</title
+> <!-- do not change this! -->
+	<note
+><title
+>Speltyp:</title
+><para
+>Brädspel, spelhall</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Antal möjliga spelare:</title
+><para
+>En</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>Mahjongg är ett roligt brädspel som är skapat baserat på det berömda orientaliska spelet Mahjong (från kinesiskans <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). I motsats till originalet är Mahjongg dock ett spel för att passa ihop brickor för en spelare, en variant som vanligtvis kallas Majong-patiens. </para>
+	<para
+>I Mahjongg blandas brickorna och staplas ovanpå varandra för att likna en viss form. Spelaren förväntas därefter ta bort alla brickor från spelbrädet genom att hitta varje brickas motsvarande par. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Hur man spelar</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Syfte:</title
+><para
+>Ta bort alla brickor från spelbrädet genom att lokalisera varje brickas motsvarande par så snabbt som möjligt.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>Mahjongg laddar automatiskt en standardlayout när spelet startas, och du kan direkt börja spela. </para>
+	<note
+><title
+>Observera:</title
+><para
+>Spelets tidtagning startar omedelbart när spelet startas.</para
+></note>
+	<para
+>Du ska noggrant studera högen med brickorna placerad på spelbrädet och hitta två brickor som exakt passar ihop. När du har hittat ett sådant par, använd musen för att välja det. </para>
+	<note
+><title
+>Observera:</title>
+		<para
+>Tänk på att du bara kan välja brickor som är <quote
+>tillgängliga</quote
+>. Brickor anses vara <quote
+>blockerade</quote
+> när de är placerade bakom andra brickor, eller när både högra och vänstra sidan av brickan är fyllda av andra. Om åtminstone en av de vertikala sidorna är tom anses brickan vara <quote
+>tillgänglig</quote
+>, och kan tas bort. </para
+></note>
+	<para
+>När du väl har valt ett riktigt par brickor försvinner de från spelbrädet, och på så sätt avtäcks brickorna som tidigare fanns under dem, och intilliggande brickor görs tillgängliga. </para>
+	<para
+>Hitta så många brickor som möjligt som passar ihop, för att ta bort alla brickor från brädet. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Spelets regler, strategi och tips</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>Spelskärmen</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>En skärmbild av Mahjongg</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Skärmbild</phrase
+></textobject>
+				</mediaobject>
+			</screenshot
+>En kort förklaring av spelplanens delar. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Spelplanen</term>
+			<listitem
+><para
+>Spelskärmen finns i mitten på skärmen och är den största delen av fönstret. Bakgrunden är fylld med spelbrickorna. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Statusrad</term>
+			<listitem
+><para
+>Statusraden är placerad längst ner på skärmen, och innehåller fyra rutor. Den första rutan speltiden, som håller reda på tidsåtgången från spelets början till det är klart. Den andra rutan anger borttagna och totalt antal brickor, samt antal brickor som passar ihop och har fria sidor. Den tredje rutan ger sekvensnumret för spelet du spelar, och den sista rutan talar om för spelaren när spelet är klart. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Regler</title>
+		<para
+>Den vanliga uppsättningen stenar i Mahjong omfattar: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Seriens namn</entry
+><entry
+>Stenens namn</entry
+><entry
+>Antal i en serie</entry
+></row>
+					<row
+><entry
+>Cirklar</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 1</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 2</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 3</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 4</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 5</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 6</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 7</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 8</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Cirkel 9</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bambu</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 1</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 2</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 3</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 4</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 5</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 6</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 7</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 8</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu 9</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Tecken</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 1</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 2</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 3</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 4</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 5</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 6</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 7</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 8</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tecken 9</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Vindar</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Östan</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Sunnan</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Västan</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Nordan</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Drakar</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Röd drake</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Grön drake</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vit drake</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Blommor</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Plommon (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lilja (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Krysantemum (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambu (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Årstider</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vår (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Sommar (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Höst (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vinter (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>Antal brickor på brädet i &kmahjongg; kan skilja sig från antal brickor i uppsättningen i vanligt Majong. Det betyder att antal förekomster av samma typ också kan skilja sig från det angivna antalet i tabellen ovan.</para
+></listitem>
+			<listitem
+><para
+>Bara <quote
+>tillgängliga</quote
+> brickor kan väljas.</para
+></listitem>
+			<listitem
+><para
+>En <quote
+>tillgänglig</quote
+> bricka är en som har någon av sina vertikala sidor tillgänglig, vilket betyder att ingen annan bricka är placerad omedelbart intill den.</para
+></listitem>
+			<listitem
+><para
+>Bara tillgängliga brickor som passar ihop kan tas bort från spelbrädet.</para
+></listitem>
+			<listitem
+><para
+>Brickor som passar ihop är sådana där framsidans ikoner är exakt likadana.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Observera:</title
+><para
+>Det finns undantag till den här regeln. I det traditionella Majong-spelet har varje bricka en motsvarighet, utom serierna <quote
+>Blommor</quote
+> och <quote
+>Årstider</quote
+>.</para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>Brickorna i serien <quote
+>Blommor</quote
+> har inga duplicerade brickor i uppsättningen, och kan direkt passas ihop med varandra.</para
+></listitem>
+			<listitem
+><para
+>Brickorna i serien <quote
+>Årstider</quote
+> har inga duplicerade brickor i uppsättningen, och kan direkt passas ihop med varandra.</para
+></listitem>
+			<listitem
+><para
+>Alla spel i Mahjongg kan inte göras färdiga. Ibland är brickorna blandade på ett sådant sätt att det kanske inte är möjligt att hitta alla likadana brickor. Problemet går att undvika. Titta i <link linkend="general-options"
+>följande avsnitt</link
+> om inställningsdialogrutan.</para
+></listitem>
+			<listitem
+><para
+>För att vara berättigad till en plats bland spelarna med bästa resultat måste en spelomgång göras färdig inom kortast möjliga tid.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Observera:</title
+><para
+>Om spelaren använder <quote
+>tipsfunktionen</quote
+> anses inte rekordet vara ett bästa resultat.</para
+></note>
+
+	</sect1>
+</chapter>
+
+
+<chapter id="interface"
+><title
+>Översikt av gränssnittet</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+
+<sect1 id="menu">
+<title
+>Menyalternativ</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Startar ett nytt spel.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ladda...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Laddar ett sparat spel.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Starta om spel</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Startar om pågående spel.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nytt numrerat spel...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Startar ett specifikt numrerat spel.</action>
+				<screenshot>
+					<screeninfo
+>Speldialogrutan för att starta ett numrerat spel</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Speldialogrutan för att starta ett numrerat spel</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spara</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Sparar</action
+> nuvarande spel.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Paus</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gör paus eller återupptar spelet. Medan spelet är pausat är alla brickor dolda.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Visa bästa resultat</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Visar listan med bästa resultat.</action>
+				<screenshot>
+					<screeninfo
+>Visa bästa resultat</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Visa bästa resultat</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>När ditt spelresultat överskrider de tio bästa resultaten som anges, blir du tillfrågad om att skriva in ditt namn. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Brädeseditor...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Visar brädeseditorn.</action>
+				<screenshot>
+					<screeninfo
+>Brädeditorn</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Brädeditorn</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Procedur för att redigera layout: <orderedlist>
+							<listitem
+><para
+>Använd brädeditorverktygsraden för att skapa en ny layout eller för att läsa in och redigera en befintlig layout.</para
+></listitem>
+							<listitem
+><para
+>Spara layouten i din användares lokala hemkatalog under <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
+></para
+></listitem>
+							<listitem
+><para
+>Skapa filen <filename
+><replaceable
+>namn_på_din_layout</replaceable
+>.desktop</filename
+> i samma katalog.</para
+></listitem>
+							<listitem
+><para
+>Skriv in följande rader i filen med din favorittexteditor: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>namn på din layout</replaceable>
+Description=<replaceable
+>beskrivning av din layout</replaceable>
+VersionFormat=1
+Author=<replaceable
+>ditt namn</replaceable>
+AuthorEmail=<replaceable
+>din e-postadress</replaceable>
+FileName=<replaceable
+>namn_på_din_layout</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Starta om &kmahjongg; för att använda din nya layout.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Avslutar</action
+> Mahjongg.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Ångra</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Ångra</action
+> ditt senaste drag.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Gör om</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gör om</action
+> ett drag som ångrats.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Tips</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Ger ett tips</action
+> genom att blinka ett par av brickor som passar ihop.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Demo</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Startar speldemonstrationsläget</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Blanda</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Blandar brickorna</action
+> på spelbordet.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Rotera vyn medurs</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Roterar</action
+> brickornas visningsvinkel medurs.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Rotera vyn moturs</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Roterar</action
+> brickornas visningsvinkel moturs.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>Dessutom har Mahjongg de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq"
+><title
+>Vanliga frågor</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Jag vill ändra hur spelet ser ut. Kan man göra det? </para
+></question>
+		 <answer
+><para
+>Ja. Använd <link linkend="menu"
+>menyraden</link
+> för att öppna <link linkend="configuration"
+>inställningsverktyget</link
+> för att ändra utseendet på Mahjongg.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Kan man använda tangentbordet för att spela?</para
+></question>
+		 <answer
+><para
+>Nej. Spelet har ännu inte någon funktion för att spela med tangentbordet.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Spelanpassning</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Inställningsdialogrutan</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Inställningsdialogrutan</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa Mahjongg...</guimenuitem
+></menuchoice
+> visar dialogrutan <guilabel
+>Anpassa - Mahjongg</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+>Allmänna alternativ</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Blinka brickor som passar ihop när den första väljes</guilabel
+></term>
+			<listitem
+><para
+>Inställningen gör att spelet markerar den valda brickan vid ett musklick och blinkar brickor som passar ihop om de har en fri sida för varje drag. Inga ytterligare brickor markeras om det inte finns några brickor som passar ihop med en fri sida. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Skapa lösbara spel</guilabel
+></term>
+			<listitem
+><para
+>Väljer bara spel som kan lösas när du startar ett nytt spel. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Visa borttagna brickor</guilabel
+></term>
+			<listitem
+><para
+>Om markerad, gör inställningen att &kmahjongg; visar de borttagna brickorna på brädet. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Brädlayoutalternativ</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Slumpmässig layout</guilabel
+></term>
+			<listitem
+><para
+>Varje nytt spel får en slumpmässig layout från de befintliga i listan. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Val av <guilabel
+>Brädlayout</guilabel
+></term>
+			<listitem
+><para
+>Använd <guilabel
+>Brädlayout</guilabel
+> för att välja ett spelbräde. Olika bräden ger skilda svårighetsgrader, beroende på antalet brickor och deras position. </para>
+			<screenshot>
+				<screeninfo
+>Val av brädlayout</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Val av brädlayout</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Brickalternativ</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Val av <guilabel
+>Brickor</guilabel
+></term>
+			<listitem
+><para
+>Använd val av <guilabel
+>Brickor</guilabel
+> för att välja brickornas grafik. </para>
+			<screenshot>
+				<screeninfo
+>Val av brickor</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Val av brickor</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Bakgrundsalternativ</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Val av <guilabel
+>Bakgrund</guilabel
+></term>
+			<listitem
+><para
+>Använd val av <guilabel
+>Bakgrund</guilabel
+> för att välja spelets bakgrundsgrafik. </para>
+			<screenshot>
+				<screeninfo
+>Val av bakgrund</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Val av bakgrund</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Förvalda tangentbindningar</title>
+
+<para
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenuitem
+>Anpassa genvägar...</guimenuitem
+></menuchoice
+> låter dig ändra de förvalda tangentbindningarna.</para>
+
+<para
+>De förvalda tangentbindningarna är följande: </para>
+
+<table>
+<title
+>Snabbtangenter</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Tangentkombination</entry
+><entry
+>Åtgärd</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Startar ett nytt spel</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Laddar ett tidigare sparat spel</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Starta om spelet</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Sparar spelet</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Gör paus eller återupptar ett spel</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Visar bästa resultat</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Avslutar spelet</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Ångrar drag</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Gör om drag</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Ger dig ett tips genom att blinka två brickor som hör ihop</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Spelar spelet i demonstrationsläge</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Rotera visningsvinkeln medurs</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Rotera visningsvinkeln moturs</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Visar den här handboken</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Vad är det här hjälp</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+<chapter id="credits"
+><title
+>Tack till och licens</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>Mahjongg av &kde; </para>
+
+	<para
+>Program Copyright &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Program Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
+	<para
+>Bidragsgivare: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Dokumentation Copyright &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

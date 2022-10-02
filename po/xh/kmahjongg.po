@@ -1,0 +1,773 @@
+# translation of kmahjongg.po to
+# translation of kmahjongg.po to
+# translation of kmahjongg.po to Xhosa
+# translation of kmahjongg.po to
+# K Desktop Environment - kdegames
+# Copyright (C) 2001 translate.org.za
+# Antoinette Dekeni <antoinette@transalate.org.za>, 2001,2002.
+# Thelma Lungcuzo <thelma@translate.org.za>, 2002
+# Lwandle Mgidlana <lwandle@translate.org.za>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2002-10-09 13:53SAST\n"
+"Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
+"Language-Team: Xhosa <xhosa@translate.org.za>\n"
+"Language: xh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0beta2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Thelma Lungcuzo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "thelma@translator.org.za"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Hlela Ubeko Lwebhodi"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Ibhodi entsha"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Vula ibhodi"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Gcina ibhodi"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Khetha"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Hambisa iithayile"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Dibanisa iithayile"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Susa iithayile"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Shenxela ekhohlo."
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Shenxela phezulu"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Shenxela phantsi"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Shenxela ekunene"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Iithayile: %1 Pos: %2,%3,%4 "
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Vula ubeko lwebhodi"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+"*.layout|Ubeko lwebhodi (*.layout)\n"
+"*|Zonke iifayile"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Gcina ubeko lwebhodi"
+
+#: src/editor.cpp:346
+#, fuzzy, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Ifayile enelo gama sele ikhona, unqwenela ukuyibhala ngaphezulu?"
+
+#: src/editor.cpp:375
+#, fuzzy, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Ibhodi iguqulwe kancinane, ungathanda ukugcina utshintsho?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Ugcino aluphumelelanga. Ilahla umsebenzi."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "Susa iithayile"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Random Layout"
+msgstr "Hlela Ubeko Lwebhodi"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "thelma@translator.org.za"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, fuzzy, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Ilungile. Ngoku lithuba lakho."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Sukwenza umsebenzi owenziwe ngempumelelo."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Ufuna ukungenzi ntoni? Awenzanga nto!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Icomputer yakho iwulahlile umdlalo."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Ibala umdlalo omtsha..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Imposiso ijikelezisa umdlalo omtsha!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Indlela yesiboniso. Nqakraza iqhosha lemouse ukumisa."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Umdlalo Onamanani Omtsha..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "Shu&kuma ngokutsala"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, fuzzy, kde-format
+msgid "&Board Editor"
+msgstr "&Umhleli Webhodi"
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Ixesha"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Ixesha"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Gcina Umdlalo"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Ngenisa inani lomdlalo:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr ""
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Board Layout"
+msgstr "Hlela Ubeko Lwebhodi"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Umdlalo uphelile: Awunazintshukumo ziseleyo"
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Gcina Umdlalo"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, fuzzy, kde-format
+msgid "You have won!"
+msgstr "Umdlalo uphelile : Uphumelele!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Inani lomdlalo: %1"
+
+#: src/kmahjongg.cpp:558
+#, fuzzy, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Isusiwe: %1/%2"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Layisha Umdlalo"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Ayinakufunda kwifayile. Iyalahla."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Isimo sefayile asaziwa."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Gcina Umxholo"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "Ayinakubhala kwifayile. Iyalahla."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Gcina Umxholo"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr ""
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, fuzzy, kde-format
+msgid "The background to use."
+msgstr "Tshintsha umfanekiso wesiqalo"
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr ""
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Bonisa iithayile ezisusiweyo"
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr ""
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Igama"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Umdlalo wesitshayina webhodi"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Umbhali wemveli"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Bhala kwakhona Nolwandiso"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Isizukulwana somdlalo ocombululekayo\n"
+"Isekelwe"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Isinikeli semfano-nye yethayile nomlondolozi wephepha le web "
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Isinikeli semfano-nye yethayile nomlondolozi wephepha le web "
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Dala imidlalo esembululekayo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Bonisa iithayile ezisusiweyo"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Uxolo, uwulahlile umdlalo."
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "Ngoku nguwe kwakhona."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Siyavuyisana. Uphumelele!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Imposiso iguqulela ulwazi lwebhodi!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Igcina kuphela kwiifayile zobulali ezixhaswayo ngoku."
+
+#, fuzzy
+#~| msgid "Could not write to file. Aborting."
+#~ msgid "Could not write saved game."
+#~ msgstr "Ayinakubhala kwifayile. Iyalahla."
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Phuma"
+
+#, fuzzy
+#~ msgid "Load..."
+#~ msgstr "Layisha"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Tshintsha umfanekiso wesiqalo"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr ""
+#~ "*.bgnd|Background Image\n"
+#~ "*.bmp|Windows bitmap file (*.bmp)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Tshintsha Iqela lethayile"
+
+#, fuzzy
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Ifayile yeqela lethayile\n"
+
+#, fuzzy
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Ifayile yobeko lwebhodi\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Tshintsha Ubeko lwebhodi"
+
+#, fuzzy
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Umxholo weKMahjongg\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Khetha Umxholo"
+
+#, fuzzy
+#~ msgid "*|All Files"
+#~ msgstr "*|All files\n"
+
+#, fuzzy
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Asiyofayile yomxholo osebenzayo."
+
+#~ msgid "Save Theme"
+#~ msgstr "Gcina Umxholo"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "Imposiso yenzekile xa kulayishwa ubeko lwebhodi %1\n"
+#~ "IKMahjongg izakupheliswa ngoku"
+
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "IKMahjongg ayikwazanga ukufumana ifayile: %1\n"
+#~ "okanye ifayile engagqibekanga yohlobo: %2\n"
+#~ "IKMahjongg izakuphela"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "Vula &Isandlalo saphantsi..."
+
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Bonisa &Iithayile ezithelekisekayo"
+
+#, fuzzy
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Bonisa &Iithayile ezithelekisekayo"
+
+#~ msgid "Pos"
+#~ msgstr "Pos"
+
+#~ msgid "Name"
+#~ msgstr "Igama"
+
+#~ msgid "Board"
+#~ msgstr "Ibhodi"
+
+#~ msgid "Score"
+#~ msgstr "Inqaku"
+
+#~ msgid "Time"
+#~ msgstr "Ixesha"
+
+#~ msgid "Scores"
+#~ msgstr "Amanqaku"
+
+#~ msgid "Anonymous"
+#~ msgstr "Ayaziwa"
+
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Ukucwangcisa kwakhona amanqaku aphezulu kuzakususa wonke amanqaku "
+#~ "aphezulu amangenoo omabini kwinkumbulo nakwidiski. Unqwenela ukuqhubeka?"
+
+#, fuzzy
+#~ msgid "Reset High Scores"
+#~ msgstr "Cwangcisa kwakhona amanqaku aphezulu"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr ""
+#~ "Imposiso yenzekile xa ubupakisha imfano-nye yethayile %1\n"
+#~ "IKMahjongg izakuphela ngoku"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr "Imposiso yenzekile xa kulayishwa umfanekiso okwindawo esemva\n"
+
+#, fuzzy
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "IKmahjongg izakuphela ngoku"
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Ayiphumelelanga ukulayisha umfanekiso:\n"
+#~ "%1"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "Vula Um&xholo..."
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "Vula &Iqela lethayile..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Vula &Isiqalo..."
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "&Gcina Umxholo..."
+
+#~ msgid "Background"
+#~ msgstr "Isiqalo"
+
+#~ msgid "Scale"
+#~ msgstr "Isikali"
+
+#, fuzzy
+#~ msgid "Tiled"
+#~ msgstr "Ithayile"
+
+#~ msgid "Tiles"
+#~ msgstr "Iithayile"
+
+#~ msgid "Draw shadows"
+#~ msgstr "Zoba izithunzi"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "Sebenzisa iithayile-ezincinane"

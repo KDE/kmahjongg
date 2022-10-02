@@ -1,0 +1,667 @@
+# translation of kmahjongg.po to Greek
+# kmahjongg - the one and only reason to install kde - gr translation.
+# Copyright (C) 1998, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+#
+# kde-team <obelix@ee.duth.gr>, 1998.
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2002-2004.
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2007, 2009.
+# Antonis Geralis <capoiosct@gmail.com>, 2011, 2012.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# Stelios <sstavra@gmail.com>, 2016, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2021-06-19 08:02+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org"
+
+#: src/editor.cpp:71
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Επεξεργασία διάταξης τραπεζιού"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Νέο τραπέζι"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Άνοιγμα τραπεζιού"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Αποθήκευση τραπεζιού"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Επιλογή"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Αποκοπή"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Μετακίνηση πιονιών"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Προσθήκη πιονιών"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Αφαίρεση πιονιών"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Μετακίνηση αριστερά"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Μετακίνηση πάνω"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Μετακίνηση κάτω"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Μετακίνηση δεξιά"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Πιόνια: %1 Θέση: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Άνοιγμα διάταξης τραπεζιού"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "*Διάταξη τραπεζιού (*.layout);;Όλα τα αρχεία (*)"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr "Μπορείτε μόνο να αποθηκεύσετε με έναν άρτιο αριθμό πιονιών."
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Αποθήκευση διάταξης τραπεζιού"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Υπάρχει ήδη ένα αρχείο με αυτό το όνομα. Θέλετε να αντικατασταθεί;"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Το τραπέζι έχει τροποποιηθεί. Θέλετε να αποθηκεύσετε τις αλλαγές;"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Η αποθήκευση απέτυχε. Διακοπή της λειτουργίας."
+
+#: src/gameremovedtiles.cpp:127
+#, kde-format
+msgid "Removed tiles"
+msgstr "Διγραμμένα πιόνια"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr "Τυχαία διάταξη"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr "&Λήψη νέων διατάξεων"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, kde-format
+msgid "Layout Details"
+msgstr "Λεπτομέρειες διάταξης"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Συγγραφέας:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Επικοινωνία:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Έτοιμο. Τώρα είναι η σειρά σας."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Η αναίρεση έγινε με επιτυχία."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Τι θέλετε να αναιρέσετε; Δεν έχετε κάνει τίποτα!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Ο υπολογιστής σας έχασε το παιχνίδι."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Υπολογισμός νέου παιχνιδιού..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Σφάλμα κατά τη δημιουργία νέου παιχνιδιού!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Λειτουργία παρουσίασης. Κάντε κλικ με το ποντίκι για να σταματήσει."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Νέο αριθμημένο παιχνίδι..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "Ανα&κάτεμα"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr "Περιστροφή προβολής αριστερόστροφα"
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr "Περιστροφή προβολής δεξιόστροφα"
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "Επεξεργαστής &ταμπλό"
+
+#: src/kmahjongg.cpp:197
+#, kde-format
+msgid "Time: 0:00:00"
+msgstr "Ώρα: 0:00:00"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr "Αφαιρέθηκαν: 0000/0000"
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr "Παιχνίδι: 000000000000000000000"
+
+#: src/kmahjongg.cpp:224
+#, kde-format
+msgid "Time: "
+msgstr "Ώρα: "
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Νέο παιχνίδι"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Δώστε τον αριθμό του παιχνιδιού:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Γενικά"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr "Διάταξη"
+
+#: src/kmahjongg.cpp:403
+#, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Τέλος παιχνιδιού: Δεν έχετε άλλες κινήσεις."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr "Τέλος παιχνιδιού"
+
+#: src/kmahjongg.cpp:405
+#, kde-format
+msgid "New Game"
+msgstr "Νέο παιχνίδι"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr "Επανεκκίνηση"
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Κερδίσατε!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Αριθμός παιχνιδιού: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Αφαιρέθηκαν: %1/%2  Συνδυασμοί που απομένουν: %3"
+
+#: src/kmahjongg.cpp:619
+#, kde-format
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Φόρτωση παιχνιδιού"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr "Παιχνίδι KMahjongg (*.kmgame)"
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Αδυναμία ανάγνωσης από το αρχείο. Εγκατάλειψη."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr "Το αρχείο δεν περιέχει ένα παιχνίδι KMahjongg."
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Μη αναγνωρίσιμη μορφή αρχείου."
+
+#: src/kmahjongg.cpp:694
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Αποθήκευση παιχνιδιού"
+
+#: src/kmahjongg.cpp:704
+#, kde-format
+msgid "Could not open file for saving."
+msgstr "Αδυναμία ανοίγματος αρχείου για αποθήκευση."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save Game"
+msgid "Save game?"
+msgstr "Αποθήκευση παιχνιδιού"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "Το σύνολο πιονιών που θα χρησιμοποιηθεί."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "Το φόντο που θα χρησιμοποιηθεί."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "Η διάταξη των πιονιών."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Αν τα διαγραμμένα πιόνια θα εμφανίζονται στο τραπέζι."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr "Αν θα επιλέγεται μία τυχαία διάταξη στην εκκίνηση."
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Αν όλα τα παιχνίδια θα έχουν λύση."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "Αν θα προβάλλονται οι τίτλοι που ταιριάζουν."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "Παιχ&νίδι"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Μετακίνηση"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "Π&ροβολή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "KMahjongg Solitaire από το KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Αρχικός συγγραφέας"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr "Christian Krippendorf"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Τρέχων συντηρητής"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Διόρθωση σφαλμάτων"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Επανεγγραφή για το KDE 3 και επέκταση"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Δημιουργία παιχνιδιών που έχουν λύση\n"
+"βασισμένο στον αλγόριθμο από τον Michael Meeks στο GNOME mahjongg"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr "Σύνολο πιονιών SVG για το KDE4"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Συνεισφορά συνόλων πιονιών και συντηρητής ιστοσελίδας"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Συνεισφορά συνόλων πιονιών και συντηρητής ιστοσελίδας"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Καθάρισμα κώδικα"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr "Αναβόσβημα ταιριαστών πιονιών μόλις επιλεγεί το ένα"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Δημιουργία παιχνιδιών που έχουν λύση"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Εμφάνιση διαγραμμένων πιονιών"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Λυπάμαι, χάσατε."
+
+#~ msgid "Now it is you again."
+#~ msgstr "Α, πάλι εσείς."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Συγχαρητήρια. Κερδίσατε!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Σφάλμα κατά τη μετατροπή των πληροφοριών τραπεζιού!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Για την ώρα υποστηρίζεται μόνο η αποθήκευση σε τοπικά αρχεία."
+
+#~ msgid "Could not write saved game."
+#~ msgstr "Αδυναμία εγγραφής αποθηκευμένου παιχνιδιού."
+
+#~ msgid "Mauricio Piacentini"
+#~ msgstr "Mauricio Piacentini"
+
+#~ msgid "&Edit"
+#~ msgstr "&Επεξεργασία"
+
+#~ msgid "&Settings"
+#~ msgstr "Ρ&υθμίσεις"
+
+#~ msgid "Load..."
+#~ msgstr "Φόρτωση..."
+
+#~ msgid "Change Background Image"
+#~ msgstr "Αλλαγή εικόνας φόντου"
+
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr "*.bgnd|Εικόνα φόντου (*.bgnd)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Αλλαγή συνόλου πιονιών"
+
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Αρχείο συνόλου πιονιών (*.tileset)\n"
+
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Αρχείο διάταξης τραπεζιού (*.layout)\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Αλλαγή διάταξης τραπεζιού"
+
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Θέμα KMahjongg\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Επιλέξτε θέμα"
+
+#~ msgid "*|All Files"
+#~ msgstr "*|Όλα τα αρχεία"
+
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Αυτό δεν είναι ένα έγκυρο αρχείο θέματος."
+
+#~ msgid "Save Theme"
+#~ msgstr "Αποθήκευση θέματος"
+
+#~ msgid "Overwrite"
+#~ msgstr "Αντικατάσταση"
+
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "Ένα σφάλμα συνέβη κατά τη φόρτωση της διάταξης τραπεζιού %1\n"
+#~ "Το KMahjongg θα συνεχίσει με την προκαθορισμένη διάταξη."
+
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "Το KMahjongg δεν ήταν δυνατό να εντοπίσει το αρχείο: %1\n"
+#~ "ή το προκαθορισμένο αρχείου του τύπου: %2\n"
+#~ "Το KMahjongg τώρα θα τερματίσει"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "Άνοιγμα &διάταξης..."

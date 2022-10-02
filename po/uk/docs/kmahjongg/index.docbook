@@ -1,0 +1,1642 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>Підручник з &kmahjongg;</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>16 червня 2021 року</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>У цій документації описано гру &kmahjongg; версії 0.9.</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>гра</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>дошка</keyword>
+	<keyword
+>аркада</keyword>
+	<keyword
+>гра з плитками</keyword>
+	<keyword
+>плитки</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>один гравець</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Вступ</title
+> <!-- do not change this! -->
+	<note
+><title
+>Тип гри:</title
+><para
+>Гра на дошці, аркада</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Можлива кількість гравців:</title
+><para
+>Один</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>&kmahjongg; — це захоплива гра на дошці, створена на основі відомої східної гри у маджонґ (китайською <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). На відміну від початкової гри, &kmahjongg; — це гра у знаходження відповідних плиток для одного гравця, різновид, який іноді називають пасьянсом «Маджонґ». </para>
+	<para
+>У &kmahjongg; плитки перемішано і складено одна на одну так, що загальна конструкція має певну форму. Гравцеві потрібно вилучити всі плитки з дошки, для цього слід знайти відповідник-пару кожної з плиток. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Як грати</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Мета:</title
+><para
+>Вилучити всі плитки з дошки знаходженням пари до кожної плитки за найкоротший час.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>Після запуску гри &kmahjongg; автоматично завантажить типове компонування, ви зможете одразу розпочати гру. </para>
+	<note
+><title
+>Примітка:</title
+><para
+>Таймер гри буде запущено негайно після того, як гру буде розпочато.</para
+></note>
+	<para
+>Вам слід уважно вивчити стос плиток, який лежить на ігровій дошці, і знайти абсолютно однакові плитки. Якщо ви знайшли таку пару, скористайтеся вказівником миші, щоб її виділити. </para>
+	<note
+><title
+>Примітка:</title>
+		<para
+>Пам’ятайте, що виділяти можна лише плитки, які <quote
+>відкриті</quote
+>. Плитки вважаються <quote
+>заблокованими</quote
+>, якщо вони розташовані під іншими плитками, і, якщо обидва, лівий і правий, боки плитки закрито іншими плитками. Якщо принаймні один з боків плитки не закрито, така плитка вважається «відкритою», її можна вилучати. </para
+></note>
+	<para
+>Після того, як ви виберете правильну пару плиток, ці плитки зникнуть з ігрової дошки, таким чином зробивши видимими плитки, які раніше були під ними, і відкривши сусідні зі зниклими плитки. </para>
+	<para
+>Знайдіть якомога більше плиток, які відповідають одна одній, щоб вилучити всі плитки з ігрового поля. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Правила гри, стратегія та поради</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>Вікно гри</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>Знімок вікна &kmahjongg;</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Знімок вікна</phrase
+></textobject>
+				</mediaobject>
+			</screenshot
+>Короткий опис частин вікна гри. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Вікно гри</term>
+			<listitem
+><para
+>Вікно гри знаходиться у центрі вікна програми і є його найбільшою частиною. У тлі вікна розташовано ігрові плитки. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Смужка стану</term>
+			<listitem
+><para
+>Смужку стану розташовано внизу вікна програми, на ній розташовано чотири панелі. На першій панелі буде показано таймер гри, тобто час, який минув з початку гри, аж доки її не буде завершено. На другій панелі ви побачите кількість вилучених плиток, загальну кількість плиток і кількість плиток-відповідників з вільними боками. На третій панелі буде показано послідовність чисел гри, у яку ви граєте. За допомогою останньої панелі гравець може дізнатися про те, коли гра буде готова до виконання його команд. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Правила</title>
+		<para
+>Стандартний набір плиток для гри у маджонґ складається з таких плиток: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Назва групи</entry
+><entry
+>Назва плитки</entry
+><entry
+>Кількість плиток у наборі</entry
+></row>
+					<row
+><entry
+>Крапки</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 Крапок</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Бамбуки</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3  Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 Бамбуків</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Символи</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 Символів</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Вітри</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Східний вітер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Південний вітер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Західний вітер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Північний вітер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Дракони</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Червоний дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Зелений дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Білий дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Квіти</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Слива (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Лілея (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Хризантема (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Бамбук (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Пори року</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Весна (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Літо (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Осінь (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Зима (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>Кількість плиток у композиції на дошці &kmahjongg; залежить від кількості плиток у стандартному наборі плиток маджонґ. Тобто, кількість однакових плиток також залежить від кількості, вказаної у таблиці, наведеній вище.</para
+></listitem>
+			<listitem
+><para
+>Вибирати можна лише <quote
+>відкриті</quote
+> плитки.</para
+></listitem>
+			<listitem
+><para
+><quote
+>Відкритою</quote
+> плиткою називається плитка, одна з бокових сторін якої є відкритою, тобто поряд з цією стороною немає інших сусідніх плиток.</para
+></listitem>
+			<listitem
+><para
+>Відкриту плитку можна вилучити з ігрового поля, лише якщо ви знайдете її відповідник на ігровій дошці.</para
+></listitem>
+			<listitem
+><para
+>Пара плиток називається відповідною, якщо піктограми, зображені на лицьовій стороні цих плиток, збігаються.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Примітка:</title
+><para
+>Існують і виключення з цього правила! У традиційній грі у маджонґ для кожної з плиток є відповідник, окрім плиток <quote
+>Квіток</quote
+> і <quote
+>Пір року</quote
+>.</para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>У плиток <quote
+>квіток</quote
+> немає двійників у наборі, тому кожна з них відповідає будь-якій іншій квітці.</para
+></listitem>
+			<listitem
+><para
+>У плиток <quote
+>пір року</quote
+> немає двійників у наборі, тому кожна з них відповідає будь-якій іншій порі року.</para
+></listitem>
+			<listitem
+><para
+>Не кожну гру у &kmahjongg; можна завершити успішно. Іноді випадають такі комбінації плиток, для яких може бути неможливим знаходження відповідників. Щоб уникнути цієї проблеми, будь ласка, зверніться до <link linkend="general-options"
+>цього розділу</link
+> діалогового вікна налаштування.</para
+></listitem>
+			<listitem
+><para
+>Щоб зайняти своє достойне місце у списку найкращих результатів, гравцеві слід зібрати гру у найкоротший можливий час.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Примітка:</title
+><para
+>Якщо під час гри гравець використовував функцію <quote
+>підказки</quote
+>, його результат не буде включено до таблиці найкращих результатів.</para
+></note>
+
+	</sect1>
+</chapter>
+
+
+<chapter id="interface"
+><title
+>Огляд інтерфейсу</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+
+<sect1 id="menu">
+<title
+>Пункти меню</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Створити</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Починає нову гру.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Завантажити...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Завантажує збережену гру.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Перезапустити гру</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Починає поточну гру з початку.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Нова пронумерована гра...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Починає нову особливо пронумеровану гру.</action>
+				<screenshot>
+					<screeninfo
+>Діалогове вікно початку пронумерованої гри</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Діалогове вікно початку пронумерованої гри</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Зберегти</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Зберігає</action
+> поточну гру.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Призупиняє або поновлює гру. Якщо гру буде призупинено, всі плитки буде приховано.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Показати найкращі результати</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Показує список найкращих результатів.</action>
+				<screenshot>
+					<screeninfo
+>Показ списку найкращих результатів</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Показ списку найкращих результатів</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Якщо ваш результат у грі потрапить до десятки найкращих результатів, програма запросить вас до введення вашого імені. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Редактор дошки</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Відкрити вікно редагування дошки.</action>
+				<screenshot>
+					<screeninfo
+>Редактор компонувань дошки</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Редактор компонувань дошки</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Процедура редагування компонування: <orderedlist>
+							<listitem
+><para
+>Скористайтеся панеллю інструментів редактора компонувань для створення компонування або завантаження і редагування наявного компонування.</para
+></listitem>
+							<listitem
+><para
+>Збережіть компонування у домашній теці користувача до теки <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
+></para
+></listitem>
+							<listitem
+><para
+>Створіть у тій самій теці файл із назвою <filename
+><replaceable
+>назва_вашого_компонування</replaceable
+>.desktop</filename
+>.</para
+></listitem>
+							<listitem
+><para
+>Вставте такі рядки до цього файла за допомогою вашого улюбленого текстового редактора: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>назва_вашого_компонування</replaceable>
+Description=<replaceable
+>опис_вашого_компонування</replaceable>
+VersionFormat=1
+Author=<replaceable
+>ваше_ім'я</replaceable>
+AuthorEmail=<replaceable
+>ваша_адреса_електронної_пошти</replaceable>
+FileName=<replaceable
+>назва_вашого_компонування</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Перезавантажте &kmahjongg;, щоб можна було скористатися новим компонуванням.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Завершує роботу</action
+> &kmahjongg;.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Вернути</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Скасовує</action
+> ваш останній хід.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Повторити</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Повторює</action
+> скасований раніше хід.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Підказка</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Надає підказку</action
+> підсвічуванням пари відповідних плиток.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Хід</guimenu
+> <guimenuitem
+>Демонстрація</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Вмикає демонстраційний режим гри</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Хід</guimenu
+> <guimenuitem
+>Перемішати</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Перемішує плитки</action
+> на ігровій дошці.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Обернути перегляд за годинниковою стрілкою</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Обертає</action
+> поле з плитками за годинниковою стрілкою.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Перегляд</guimenu
+> <guimenuitem
+>Обернути перегляд проти годинникової стрілки</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Обертає</action
+> поле з плитками проти годинникової стрілки.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>Крім того, у &kmahjongg; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq"
+><title
+>Часті запитання</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Я хочу змінити вигляд цієї гри. Як це зробити? </para
+></question>
+		 <answer
+><para
+>Так. Для того, щоб змінити вигляд &kmahjongg;, скористайтесь <link linkend="menu"
+>меню</link
+> для відкриття <link linkend="configuration"
+>інструменту налаштування</link
+>.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Чи можна використовувати для гри клавіатуру?</para
+></question>
+		 <answer
+><para
+>Ні. У цій грі ще немає можливості грати за допомогою клавіатури.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Налаштування гри</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Діалогове вікно налаштування</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Діалогове вікно налаштування</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Параметри</guimenu
+><guimenuitem
+>Налаштувати &kmahjongg;...</guimenuitem
+></menuchoice
+> відкриває діалогове вікно <guilabel
+>Налаштувати &kmahjongg;</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+>Загальні параметри</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Блимати плитками, що збігаються, коли обрано одну з них</guilabel
+></term>
+			<listitem
+><para
+>За допомогою цього параметра можна зробити так, щоб програма підсвічувала виділену плитку після наведення на неї вказівника миші і клацання лівою кнопкою миші, а плитки-відповідники виділеної плитки почали блимати. Якщо не буде виявлено плиток-відповідників з вільною стороною, додаткового підсвічування не відбуватиметься. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Створювати ігри, які мають вирішення</guilabel
+></term>
+			<listitem
+><para
+>Для нових сеансів гри обирати лише ігри, які напевне мають розв’язок. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Показувати прибрані плитки</guilabel
+></term>
+			<listitem
+><para
+>Якщо позначено, дозволяє &kmahjongg; показувати вилучені плитки на ігровій дошці. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Параметри компонування дошки</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Випадкове компонування</guilabel
+></term>
+			<listitem
+><para
+>Тип нової гри буде вибрано випадкового зі списку. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Засіб вибору <guilabel
+>Компонування дошки</guilabel
+></term>
+			<listitem
+><para
+>Скористайтеся засобом вибору <guilabel
+>Компонування дошки</guilabel
+>, щоб вибрати компонування ігрової дошки для гри. За допомогою вибору дошки можна змінювати складність гри, яка визначатиметься кількістю та розташуванням плиток. </para>
+			<screenshot>
+				<screeninfo
+>Засіб вибору компонування дошки</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Засіб вибору компонування дошки</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Параметри плиток</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Засіб вибору <guilabel
+>Плитки</guilabel
+></term>
+			<listitem
+><para
+>За допомогою засобу вибору <guilabel
+>Плитки</guilabel
+> можна обрати графічну тему для плиток. </para>
+			<screenshot>
+				<screeninfo
+>Засіб вибору плиток </screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Засіб вибору плиток</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Параметри тла</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Засіб вибору <guilabel
+>Тла</guilabel
+></term>
+			<listitem
+><para
+>Засобом вибору <guilabel
+>Тло</guilabel
+> можна скористатися для вибору фонової графіки гри. </para>
+			<screenshot>
+				<screeninfo
+>Засіб вибору тла</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Засіб вибору тла</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Типові клавіатурні скорочення</title>
+
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Параметри</guimenu
+><guimenuitem
+>Налаштувати скорочення...</guimenuitem
+></menuchoice
+> надає вам змогу змінити типові клавіатурні скорочення.</para>
+
+<para
+>Типовими клавіатурними скороченнями є такі: </para>
+
+<table>
+<title
+>Комбінації клавіш</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Комбінація клавіш</entry
+><entry
+>Дія</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Починає нову гру</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Завантажити збережену раніше гру</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Розпочати гру знову</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Зберігає гру</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Призупиняє або поновлює гру</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Показує список найкращих результатів</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Завершує гру</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Скасовує хід</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Повторює хід</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Надає вам підказку підсвічуванням двох відповідних плиток</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Перевести гру у демонстраційний режим</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Обертати дошку за годинниковою стрілкою</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Обертати дошку проти годинникової стрілки</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Показати цей підручник</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Довідка «Що це?»</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+<chapter id="credits"
+><title
+>Подяки і ліцензія</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kmahjongg; з &kde; </para>
+
+	<para
+>Авторські права на програму належать &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Авторські права на програму належать &copy; &Mauricio.Piacentini; &Mauricio.Piacentini.mail;, 2007 </para>
+	<para
+>Учасники розробки: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Авторські права на документацію належать <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+>, ©2005 </para>
+
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

@@ -1,0 +1,1656 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>Manual de &kmahjongg;</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Santiago</firstname
+> <surname
+>Fernández</surname
+> <affiliation
+><address
+><email
+>santi@kde-es.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Kira</firstname
+> <surname
+>J. Fernández</surname
+> <affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductora</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-06-16</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>Esta documentación describe el juego &kmahjongg; versión 0.9</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>juego</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>tablero</keyword>
+	<keyword
+>arcade</keyword>
+	<keyword
+>juego de fichas</keyword>
+	<keyword
+>fichas</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>un jugador</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Introducción</title
+> <!-- do not change this! -->
+	<note
+><title
+>Tipo de juego:</title
+><para
+>Tablero, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Número de posibles jugadores:</title
+><para
+>Uno</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>&kmahjongg; es un divertido juego de tablero creado a partir del famoso juego oriental Mahjong (del chino <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). A diferencia del juego original, &kmahjongg; es un juego de parejas de fichas para uno o dos jugadores, una variante del conocido solitario Mahjong. </para>
+	<para
+>En el &kmahjongg; las fichas se mezclan y apilan unas sobre otras para crear una determinada forma. El jugador debe eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Cómo jugar</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Objetivo:</title
+><para
+>Eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja tan pronto como sea posible.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>&kmahjongg; cargará automáticamente un diseño predeterminado de forma que pueda comenzar a jugar inmediatamente. </para>
+	<note
+><title
+>Nota:</title
+><para
+>El cronómetro del juego se iniciará inmediatamente si se comienza a jugar.</para
+></note>
+	<para
+>Debería estudiar con cuidado las fichas exteriores de las pilas del tablero de juego y encontrar dos fichas exactamente iguales. Cuando haya encontrado un par use el ratón para seleccionarlo. </para>
+	<note
+><title
+>Nota:</title>
+		<para
+>Tenga en cuenta que solo puede seleccionar las fichas que estén «abiertas». Las fichas se consideran «bloqueadas» cuando estén situadas detrás de otras o cuando los lados derecho e izquierdo de la ficha están ocupados por otras. Si al menos uno de estos lados está vacío, la ficha se considera «abierta» y se puede eliminar. </para
+></note>
+	<para
+>Una vez que haya seleccionado la ficha correcta la pareja de fichas desaparecerán del tablero de juego, de forma que se muestren fichas que estaban bajo ellas, y abriendo las fichas adyacentes. </para>
+	<para
+>Encuentre tantas coincidencias como sea posible para eliminar todas las fichas del tablero de juego. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Reglas del juego, estrategias y consejos</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>La pantalla de juego</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>Una captura de pantalla de &kmahjongg;</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Captura de pantalla</phrase
+></textobject>
+				</mediaobject>
+			</screenshot
+>Una explicación rápida de las partes de la pantalla de juego. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Pantalla de juego</term>
+			<listitem
+><para
+>La pantalla de juego está situada en el centro de la pantalla y es la sección más grande de la ventana. El fondo es el tradicional de los juegos de fichas. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Barra de estado</term>
+			<listitem
+><para
+>La barra de estado está situada en la parte inferior de la pantalla y contiene cuatro paneles. El primero muestra el cronómetro del juego, que sigue el tiempo transcurrido desde el inicio de la partida hasta que esta finalice. El segundo panel lista las fichas eliminadas/totales y el número de fichas emparejadas con lados libres. El tercer panel indica la secuencia numérica de la partida que está jugando. El último panel le permite saber si el juego está preparado. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Reglas</title>
+		<para
+>El conjunto de fichas estándar del Mahjong incluye: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Nombre del grupo</entry
+><entry
+>Nombre de la ficha</entry
+><entry
+>Cantidad en el conjunto</entry
+></row>
+					<row
+><entry
+>Puntos</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de puntos</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bambúes</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de bambúes</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Caracteres</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de caracteres</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Vientos</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Viento del este</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Viento del sur</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Viento del oeste</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Viento del norte</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Dragones</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Dragón rojo</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Dragón verde</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Dragón blanco</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Flores</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Ciruela (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lirio (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Crisantemo (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambú (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Estaciones</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Primavera (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Verano (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Otoño (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Invierno (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>El número de fichas del diseño de un tablero de &kmahjongg; puede diferir del número de fichas estándar del mahjongg. Esto significa que el número de fichas coincidentes del mismo tipo también puede diferir del número mostrado en la tabla anterior.</para
+></listitem>
+			<listitem
+><para
+>Solo se pueden seleccionar la fichas «abiertas».</para
+></listitem>
+			<listitem
+><para
+>Ficha «abierta» es aquella que tiene uno de los lados laterales abiertos, lo que significa que hay otras fichas situadas a su lado.</para
+></listitem>
+			<listitem
+><para
+>Las fichas abiertas solo se pueden eliminar del tablero de juego cuando coincidan con otra.</para
+></listitem>
+			<listitem
+><para
+>Las fichas que coinciden son aquellas en las que los pictogramas coinciden.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Nota:</title
+><para
+>Existen excepciones a esta regla. En el juego tradicional del Mahjong cada ficha tiene una igual, excepto las fichas de «Flores» y de «Estaciones».</para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>Las fichas de «Flores» no tienen dobles y puede casarse entre sí.</para
+></listitem>
+			<listitem
+><para
+>Las fichas de «Estaciones» no tienen dobles entre sí y pueden casarse entre sí.</para
+></listitem>
+			<listitem
+><para
+>No todas las partidas de &kmahjongg; se pueden terminar. Algunas veces las fichas se mezclan de tal forma que puede no ser posible hacer que todas las fichas coincidan. Este problema puede evitarse. Consulte <link linkend="general-options"
+>esta sección</link
+> del diálogo de configuración.</para
+></listitem>
+			<listitem
+><para
+>Para poder tener un lugar en las mejores puntuaciones, el jugador tiene que completar una partida en el periodo de tiempo más corto posible.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Nota:</title
+><para
+>Si el jugador usa la funcionalidad «Pista» la puntuación no se considerará como mejor puntuación.</para
+></note>
+
+	</sect1>
+</chapter>
+
+
+<chapter id="interface"
+><title
+>Vista general de la interfaz</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+
+<sect1 id="menu">
+<title
+>Opciones de menú</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nuevo</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Inicia una nueva partida.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Cargar...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Carga una partida guardada.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Game</guimenu
+> <guimenuitem
+>Reiniciar partida</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Reinicia la partida actual.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nueva partida numerada...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Inicia una partida numerada específicamente.</action>
+				<screenshot>
+					<screeninfo
+>Diálogo para iniciar una partida numerada</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Diálogo para iniciar una partida numerada</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Guardar</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Guarda</action
+> el juego actual.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Pausa</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Detiene o reinicia la partida. Mientras el juego está parado, las fichas se ocultan.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Mostrar mejores puntuaciones...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Muestra la lista con las mejores puntuaciones.</action>
+				<screenshot>
+					<screeninfo
+>Mostrar mejores puntuaciones</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Mostrar mejores puntuaciones</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Cuando su puntuación supere a las diez listadas en las puntuaciones se le pedirá que introduzca su nombre. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Juego</guimenu
+> <guimenuitem
+>Editor de tablero</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Muestra el editor de tablero.</action>
+				<screenshot>
+					<screeninfo
+>El editor del tablero</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>El editor del tablero</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Procedimiento para editar el diseño: <orderedlist>
+							<listitem
+><para
+>Use la barra de herramientas del editor del tablero para crear un nuevo diseño o para cargar y modificar uno existente.</para
+></listitem>
+							<listitem
+><para
+>Guarde el diseño en su carpeta personal local <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
+></para
+></listitem>
+							<listitem
+><para
+>Cree el archivo <filename
+><replaceable
+>nombre_del_diseño</replaceable
+>.desktop</filename
+> en la misma carpeta.</para
+></listitem>
+							<listitem
+><para
+>Escriba las siguientes líneas en dicho archivo usado su editor de texto favorito: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>nombre_del_diseño</replaceable>
+Description=<replaceable
+>descripción_del_diseño</replaceable>
+VersionFormat=1
+Author=<replaceable
+>su_nombre</replaceable>
+AuthorEmail=<replaceable
+>su_email</replaceable>
+FileName=<replaceable
+>nombre del diseño</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Vuelva a cargar &kmahjongg; para usar el nuevo diseño.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Sale</action
+> de &kmahjongg;.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Deshacer</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Deshacer</action
+> su último movimiento.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Rehacer</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Rehace</action
+> un movimiento deshecho.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Pista</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Le proporciona una pista</action
+> iluminando una pareja de fichas emparejables.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Mover</guimenu
+> <guimenuitem
+>Demostración</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Inicia el modo de demostración del juego</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Mover</guimenu
+> <guimenuitem
+>Barajar</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Baraja las fichas</action
+> del tablero.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Girar vista en el sentido de las agujas del reloj</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gira</action
+> el ángulo de vista de las fichas en el sentido de las agujas del reloj.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Ver</guimenu
+> <guimenuitem
+>Girar vista en sentido contrario a las agujas del reloj</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gira</action
+> el ángulo de la vista de las fichas en el sentido contrario al de las agujas del reloj.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>Además &kmahjongg; tiene las opciones de menú <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menú «Preferencias»</ulink
+> y <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú «Ayuda» </ulink
+> de «Aspectos básicos de &kde;». </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq"
+><title
+>Preguntas frecuentes</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Quiero cambiar el aspecto del juego ¿Puedo? </para
+></question>
+		 <answer
+><para
+>Sí. Para cambiar el aspecto de &kmahjongg; use la <link linkend="menu"
+>barra de menús</link
+> para abrir la <link linkend="configuration"
+>utilidad de configuración</link
+>.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>¿Puedo usar el teclado para jugar a este juego?</para
+></question>
+		 <answer
+><para
+>No. Este juego todavía no tiene una funcionalidad de jugar con el teclado.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Configuración del juego</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Diálogo de configuración</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Diálogo de configuración</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+><guimenuitem
+>Configurar &kmahjongg;...</guimenuitem
+></menuchoice
+> abre el diálogo <guilabel
+>Configurar &kmahjongg;</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+>Opciones generales</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Hacer parpadear las fichas coincidentes cuando se haya seleccionado uno</guilabel
+></term>
+			<listitem
+><para
+>Esta opción hace que se resalte la ficha seleccionada con el ratón, y que parpadee cualquier ficha que seleccione y que tenga una cara libre que se pueda usar. No se resaltarán las fichas que no tengan una ficha libre. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Generar juegos con solución</guilabel
+></term>
+			<listitem
+><para
+>Selecciona solo juegos que puedan ser resueltos cuando inicie una nueva partida. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Mostrar las fichas eliminadas</guilabel
+></term>
+			<listitem
+><para
+>Si está marcado, este ajuste permite que &kmahjongg; muestre las fichas eliminadas en el tablero. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Opciones de diseño del tablero</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Diseño aleatorio</guilabel
+></term>
+			<listitem
+><para
+>Cada nuevo juego mostrará un diseño aleatorio de los existentes en la lista. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Selector de <guilabel
+>Diseño del tablero</guilabel
+></term>
+			<listitem
+><para
+>Use el selector de <guilabel
+>Diseño del tablero</guilabel
+> para elegir un tablero de juego. Se incluyen tableros con diferentes niveles de dificultad, dependiendo del número de fichas y de su posición. </para>
+			<screenshot>
+				<screeninfo
+>Selector del diseño del tablero</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector del diseño del tablero</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Opciones de las fichas</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Selector de <guilabel
+>Fichas</guilabel
+></term>
+			<listitem
+><para
+>Use el selector de <guilabel
+>Fichas</guilabel
+> para elegir los gráficos para las fichas. </para>
+			<screenshot>
+				<screeninfo
+>Selector de ficha</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector de fichas</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Opciones del fondo</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Selector del <guilabel
+>Fondo</guilabel
+></term>
+			<listitem
+><para
+>Use el selector del <guilabel
+>Fondo</guilabel
+> para elegir el gráfico del fondo para el juego. </para>
+			<screenshot>
+				<screeninfo
+>Selector del fondo</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector del fondo</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Asociaciones de teclas predeterminadas</title>
+
+<para
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+><guimenuitem
+>Configurar accesos rápidos...</guimenuitem
+></menuchoice
+> le permite cambiar la asociación de teclas predeterminada.</para>
+
+<para
+>Las asociaciones de teclas predeterminadas son las siguientes: </para>
+
+<table>
+<title
+>Accesos rápidos de teclado</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Combinación de teclas</entry
+><entry
+>Acción</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Inicia una nueva partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Carga una partida guardada con anterioridad.</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Reiniciar la partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Guarda la partida.</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Pausa o reinicia una partida.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Muestra las mejores puntuaciones</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Sale de la partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Deshace el movimiento.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Rehace el movimiento.</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Le da una pista iluminando dos fichas que se pueden emparejar</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Juega la partida en modo «Demostración»</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Girar el ángulo de la vista en el sentido de las agujas del reloj</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Girar el ángulo de la vista en el sentido contrario a las agujas del reloj</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Muestra este manual</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Ayuda ¿Qué es esto?</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+<chapter id="credits"
+><title
+>Créditos y licencia</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kmahjongg; para &kde; </para>
+
+	<para
+>Derechos de autor del programa &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Copyright del programa &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
+	<para
+>Colaboradores: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Derechos de autor de la documentación &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Santiago Fernández Sancho <email
+>santi@kde-es.org</email
+> y Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

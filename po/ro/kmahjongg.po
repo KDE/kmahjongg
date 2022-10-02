@@ -1,0 +1,758 @@
+# Copyright (C).
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2022.
+# Ovidiu-Florin Bogdan <ovidiu.b13@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg-0.4.1\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2022-02-06 20:14+0000\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol,Ovidiu-Florin Bogdan"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md,ovidiu.b13@gmail.com"
+
+#: src/editor.cpp:71
+#, kde-format
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Modifică aranjamentul tablei"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Tablă nouă"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Deschide o tablă"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Salvează tabla"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Selecție"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Taie"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Copiază"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Lipește"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Mută dale"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Adaugă dale"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Elimină dale"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Mută la stînga"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Mută în sus"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Mută în jos"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Mută la dreapta"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Dale: %1 Poz.: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Deschide un aranjament de tablă"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "Aranjament tablă (*.layout);;Toate fișierele (*)"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr "Puteți salva numai cu un număr par de dale."
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Salvează aranjamentul tablei"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Există deja un fișier cu această denumire. Îl suprascrieți?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Tabla a fost modificată. Salvați schimbările?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Salvarea a eșuat. Abandonez operația."
+
+#: src/gameremovedtiles.cpp:127
+#, kde-format
+msgid "Removed tiles"
+msgstr "Dale eliminate"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr "Aranjament aleatoriu"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr "O&bține aranjamente noi"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Previzualizare"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, kde-format
+msgid "Layout Details"
+msgstr "Detalii aranjament"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Autor:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Contact:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Descriere:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Gata. Acum este rîndul dumneavoastră."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Am revenit la mutarea precedentă."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Nu aveți pentru ce să reveniți înapoi!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Calculatorul a pierdut jocul."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Calculez datele unui nou joc..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Eroare la generarea unui nou joc!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Mod demonstrativ. Dați un clic pentru a-l opri."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Joc numerotat nou..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "&Amestecă"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr "Rotește vizualizarea spre stînga"
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr "Rotește vizualizarea spre dreapta"
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "Redactor de &tablă"
+
+#: src/kmahjongg.cpp:197
+#, kde-format
+msgid "Time: 0:00:00"
+msgstr "Timp: 0:00:00"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr "Eliminate: 0000/0000"
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr "Joc: 000000000000000000000"
+
+#: src/kmahjongg.cpp:224
+#, kde-format
+msgid "Time: "
+msgstr "Timp: "
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Joc nou"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Introduceți numărul jocului:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "General"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr "Aranjament tablă"
+
+#: src/kmahjongg.cpp:403
+#, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Joc terminat: Nu mai puteți face mutări."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr "Joc încheiat"
+
+#: src/kmahjongg.cpp:405
+#, kde-format
+msgid "New Game"
+msgstr "Joc nou"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr "Repornește"
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Ați câștigat!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Număr joc: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Eliminate: %1/%2 Combinații rămase: %3"
+
+#: src/kmahjongg.cpp:619
+#, kde-format
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Încarcă joc"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr "Joc KMahjongg (*.kmgame)"
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Nu pot citi din fișier. Abandonez."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr "Fișierul nu este un joc KMahjongg"
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Format de fișier nerecunoscut."
+
+#: src/kmahjongg.cpp:694
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Salvează jocul"
+
+#: src/kmahjongg.cpp:704
+#, kde-format
+msgid "Could not open file for saving."
+msgstr "Nu s-a putut deschide fișierul pentru salvare."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save Game"
+msgid "Save game?"
+msgstr "Salvează jocul"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "Setul de dale de utilizat."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "Fundalul de utilizat."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "Aranjarea dalelor."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Dacă dalele eliminate să fie arătate pe tablă."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr "Dacă este ales un aranjament aleatoriu la pornire."
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Dacă toate jocurile să fie rezolvabile."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "Dacă sînt afișate dalele ce se potrivesc."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Joc"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Mutare"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Vizualizare"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bara de unelte principală"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Solitaire Mahjongg de la KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Autor original"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr "Christian Krippendorf"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Responsabil actual"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Corecții de erori"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Rescriere KDE 3 și extensie"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Generarea jocurilor rezolvabile\n"
+"bazat pe algoritmul lui Michael Meeks în mahjongg-ul Gnome"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr "Set de dale SVG pentru KDE4"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Contribuabil seturi de dale și responsabilul actual al paginii web"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Contribuabil seturi de dale și responsabilul original al paginii web"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Curățare cod"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr "Clipește dalele potrivite cînd prima este selectată"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Generează jocuri rezolvabile"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Afișează piesele eliminate"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Ați pierdut."
+
+#~ msgid "Now it is you again."
+#~ msgstr "Ești din nou tu însuți."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Felicitări. Ați cîștigat!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Eroare la convertirea informațiilor despre tablă!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Deocamdată se pot salva numai fișiere locale."
+
+#~ msgid "Could not write saved game."
+#~ msgstr "Jocul salvat nu poate fi scris."
+
+#~ msgid "Mauricio Piacentini"
+#~ msgstr "Mauricio Piacentini"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Ieșire"
+
+#, fuzzy
+#~ msgid "Load..."
+#~ msgstr "Încarcă"
+
+#, fuzzy
+#~ msgid "Change Background Image"
+#~ msgstr "Schimbă imaginea de fundal"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr ""
+#~ "*.bgnd|Imagine de fundal\n"
+#~ "*.bmp|Fișier bitmap Windows (*.bmp)\n"
+
+#, fuzzy
+#~ msgid "Change Tile Set"
+#~ msgstr "Schimbă setul de piese"
+
+#, fuzzy
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Fișier set de piese\n"
+
+#, fuzzy
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Fișier format tablă\n"
+
+#, fuzzy
+#~ msgid "Change Board Layout"
+#~ msgstr "Schimbă formatul tablei"
+
+#, fuzzy
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Tematică Kmahjongg\n"
+
+#, fuzzy
+#~ msgid "Choose Theme"
+#~ msgstr "Alege o tematică"
+
+#, fuzzy
+#~ msgid "*|All Files"
+#~ msgstr "*|Toate fișierele\n"
+
+#, fuzzy
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Acesta nu este un fișier de tematică valid."
+
+#, fuzzy
+#~ msgid "Save Theme"
+#~ msgstr "Salvează tematica"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr "A apărut o eroare la încărcarea tablei\n"
+
+#, fuzzy
+#~ msgid "Open La&yout..."
+#~ msgstr "Încarcă &format..."
+
+#, fuzzy
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Afișează pietrele p&otrivite"
+
+#, fuzzy
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Afișează pietrele p&otrivite"
+
+#~ msgid "Pos"
+#~ msgstr "Poz"
+
+#~ msgid "Name"
+#~ msgstr "Nume"
+
+#~ msgid "Board"
+#~ msgstr "Tablă"
+
+#~ msgid "Score"
+#~ msgstr "Scor"
+
+#~ msgid "Time"
+#~ msgstr "Timp"
+
+#~ msgid "Scores"
+#~ msgstr "Scoruri"
+
+#~ msgid "Anonymous"
+#~ msgstr "Anonim"
+
+#, fuzzy
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Resetarea scorurile maxime determină ștergerea lor\n"
+#~ "atît din memorie, cît și de pe disc. Doriți să continui?"
+
+#, fuzzy
+#~ msgid "Reset High Scores"
+#~ msgstr "Resetare scoruri maxime"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr "A apărut o eroare la încărcarea fișierului de piese\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr "A apărut o eroare la încărcarea imaginii de fundal\n"
+
+#, fuzzy
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "Kmahjongg se va termina"
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Eroare la încărcarea imaginii:\n"
+#~ "%1"
+
+#, fuzzy
+#~ msgid "Open Th&eme..."
+#~ msgstr "Încarcă te&matică..."
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "Încarcă &piese..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Încarcă imagine de f&undal..."
+
+#, fuzzy
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "Salvează t&ematica..."
+
+#~ msgid "Background"
+#~ msgstr "Fundal"
+
+#~ msgid "Scale"
+#~ msgstr "Scală"
+
+#, fuzzy
+#~ msgid "Tiled"
+#~ msgstr "Piesă"
+
+#~ msgid "Tiles"
+#~ msgstr "Piese"
+
+#~ msgid "Draw shadows"
+#~ msgstr "Afișează umbre"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "Utilizează mini-piese"

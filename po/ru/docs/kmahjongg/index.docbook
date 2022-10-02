@@ -1,0 +1,1633 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kmahjongg;"
+> 
+  <!ENTITY kappversion "0.8"
+><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY package "kdegames"
+>  <!-- do not change this! -->
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>Руководство пользователя &kappname;</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Евгений</firstname
+> <surname
+>Трунев</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Григорий</firstname
+> <surname
+>Мохин</surname
+> <affiliation
+><address
+><email
+>mok@kde.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский</contrib
+></othercredit
+> <othercredit role="translator"
+> <firstname
+>Стёпа</firstname
+> <surname
+>Семенуха</surname
+> <affiliation
+><address
+><email
+>semenukha@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+ 
+<date
+>6 мая 2013 г.</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>&kappversion; (&kde; 4.11)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+ 
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>В этом документе описывается игра &kappname; версии &kappversion;</para>
+</abstract>
+ 
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>игра</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>настольная</keyword>
+	<keyword
+>аркадная</keyword>
+	<keyword
+>игра с косточками</keyword>
+	<keyword
+>косточки</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>один игрок</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Введение</title
+> <!-- do not change this! -->
+	<note
+><title
+>Жанр игры:</title
+><para
+>Настольная, аркадная</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Количество игроков:</title
+><para
+>Один</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>&kmahjongg; — увлекательная настольная игра по мотивам знаменитой восточной игры маджонг (от китайского названия <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). Однако, в отличие от своего прототипа &kmahjongg; — игра на поиск одинаковых косточек для одного либо двух игроков. Этот вариант известен как «пасьянс маджонг». </para>
+	<para
+>В игре &kmahjongg; косточки тасуются и выкладываются друг на друга в форме определённой фигуры. Перед игроком ставится задача убрать все косточки с игровой доски путём нахождения пар одинаковых косточек. </para>
+</chapter>
+ 
+<chapter id="howto"
+><title
+>Как играть</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Цель:</title
+><para
+>Убрать все косточки с игровой доски, найдя к каждой косточке соответствующую пару, как можно скорее.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>&kappname; загружает раскладку по умолчанию автоматически, как только вы начнёте игру, и вы сразу можете начинать играть. </para>
+	<note
+><title
+>Примечание:</title
+><para
+>Счётчик игрового времени запускается сразу же после начала игры.</para
+></note>
+	<para
+>Следует тщательно изучить стопку косточек, разложенных на игровой доске, и находить пары абсолютно одинаковых косточек. Когда вы находите такую пару, щёлкните по ним мышью. </para>
+	<note
+><title
+>Примечание:</title>
+		<para
+>Имейте в виду, что можно выбрать только <quote
+>открытую</quote
+> косточку. <quote
+>Закрытой</quote
+> она считается, если находится за другой косточкой, а также если и справа, и слева от неё место занято другими косточками. Если хотя бы с одной стороны от косточки свободно, она считается открытой и может быть убрана. </para
+></note>
+	<para
+>Как только вы выделили правильную пару косточек, они исчезнут с игровой доски, показывая расположенные под ними косточки и открывая смежные. </para>
+	<para
+>Найдите как можно больше пар, чтобы убрать все косточки с игровой доски. </para>
+</chapter>
+ 
+<chapter id="rules_and_tips"
+><title
+>Правила игры, стратегия и советы</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>Игровой экран</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>Снимок экрана с игрой &kmahjongg;</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Снимок экрана</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+Краткое описание элементов игрового экрана. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Игровой экран</term>
+			<listitem
+><para
+>Игровой экран находится в центре и представляет собой самый большой участок окна. На его фоне раскладываются игровые косточки. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Строка состояния</term>
+			<listitem
+><para
+>Строка состояния находится внизу экрана и содержит четыре области. В первой области указывается количество убранных косточек по отношению к общему количеству. Вторая область показывает номер расклада, в который вы играете. В третьей области будет написано, что программа готова к игре. Наконец, в последней области выводится игровой таймер, показывающий время с начала игры, пока она не завершится. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Правила</title>
+		<para
+>Стандартный набор косточек для маджонга включает в себя: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Название группы</entry
+><entry
+>Название косточки</entry
+><entry
+>Количество в наборе</entry
+></row>
+					<row
+><entry
+>Точки</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Единица точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Двойка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Тройка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Четвёрка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Пятёрка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Шестёрка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Семёрка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Восьмёрка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Девятка точек</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Бамбук</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Единица бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Двойка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Тройка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Четвёрка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Пятёрка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Шестёрка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Семёрка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Восьмёрка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Девятка бамбука</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Буквы</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Единица букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Двойка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Тройка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Четвёрка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Пятёрка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Шестёрка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Семёрка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Восьмёрка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Девятка букв</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Ветра</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Восточный ветер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Южный ветер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Западный ветер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Северный ветер</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Драконы</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Красный дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Зелёный дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Белый дракон</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Цветы</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Слива (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Лилия (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Хризантема (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Бамбук (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Времена года</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Весна (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Лето (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Осень (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Зима (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>Можно выбрать только <quote
+>открытые</quote
+> косточки.</para
+></listitem>
+			<listitem
+><para
+><quote
+>Открытая</quote
+> косточка — та, сбоку от которой свободно, то есть нет смежных косточек.</para
+></listitem>
+			<listitem
+><para
+>Только совпадающие косточки можно убрать с игровой доски.</para
+></listitem>
+			<listitem
+><para
+>Совпадающие косточки — те, на лицевой стороне которых изображены одинаковые пиктограммы.</para
+></listitem>
+		</itemizedlist
+>			
+		<note
+><title
+>Примечание:</title
+><para
+>Из этого правила есть исключения! В традиционной игре маджонг для каждой косточки есть пара, за исключением мастей <quote
+>Цветов</quote
+> и <quote
+>Времён года</quote
+>. </para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>Косточки-<quote
+>цветы</quote
+> не имеют пар в наборе и соответствуют непосредственно друг другу.</para
+></listitem>
+			<listitem
+><para
+>Косточки <quote
+>времён года</quote
+> не имеют пар в наборе и соответствуют непосредственно друг другу. </para
+></listitem>
+			<listitem
+><para
+>Не каждая партия в игре &kmahjongg; может быть доведена до конца. Иногда косточки располагаются таким образом, что все пары выбрать невозможно. Этой проблемы можно избежать. Обратитесь <link linkend="general-options"
+>к этому разделу</link
+> диалога настройки.</para
+></listitem>
+			<listitem
+><para
+>Чтобы заслужить место в таблице рекордов, игрок должен завершить партию игры за минимально возможное время.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Примечание:</title
+><para
+>Если игрок пользуется механизмом <quote
+>подсказки</quote
+>, его рекорд не будет засчитан.</para
+></note>
+
+	</sect1>
+</chapter>
+ 
+ 
+<chapter id="interface"
+><title
+>Обзор интерфейса</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+ 
+<sect1 id="menu">
+<title
+>Команды меню</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Начать игру</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Начинает новую игру.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Загрузить…</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Загрузить сохранённую игру.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Начать заново</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Перезапустить текущую игру.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Новая игра по номеру…</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Начинает игру с заданным номером расклада.</action>
+				<screenshot>
+					<screeninfo
+>Диалог «Новая игра по номеру»</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Диалог «Новая игра по номеру»</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Сохранить</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Сохраняет</action
+> текущую игру.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Приостанавливает или возобновляет игру. Во время приостановки все косточки скрываются.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Показать лучшие результаты</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Показывает таблицу рекордов.</action>
+				<screenshot>
+					<screeninfo
+>Показать рекорды</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Показать рекорды</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Если ваш рекорд вошёл в десятку лучших, то вам будет предложено ввести своё имя. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Редактор раскладки</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Открывает редактор раскладки.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+>Осуществляет <action
+>выход</action
+> из &kappname;.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ход</guimenu
+> <guimenuitem
+>Отменить</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Отменить</action
+> ваш предыдущий ход.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ход</guimenu
+> <guimenuitem
+>Повторить</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Повторить</action
+> ранее отменённый ход.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Ход</guimenu
+> <guimenuitem
+>Подсказка</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Дать подсказку</action
+> миганием парных косточек.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Ход</guimenu
+> <guimenuitem
+>Демонстрация</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Включить демонстрационный режим</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Ход</guimenu
+> <guimenuitem
+>Перемешать</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Перетасовать косточки</action
+> на игровой доске.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Вид</guimenu
+> <guimenuitem
+>Повернуть по часовой стрелке</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Повернуть</action
+> угол обзора по часовой стрелке.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Вид</guimenu
+> <guimenuitem
+>Повернуть против часовой стрелки</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Повернуть</action
+> угол обзора против часовой стрелки.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>Кроме того &kappname; имеет стандартные для &kde; меню <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>, для большей информации о них обратитесь к разделам документации <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Меню Настройка</ulink
+> и <ulink url="help:/fundamentals/ui.html#menus-help"
+>Меню Справка</ulink
+>. </para>
+
+</sect1>
+</chapter>
+ 
+ 
+<chapter id="faq"
+><title
+>Вопросы и ответы</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Я хочу изменить оформление игры. Это возможно? </para
+></question>
+		 <answer
+><para
+>Да. Для изменения оформления &kappname; воспользуйтесь <link linkend="menu"
+>меню</link
+>, чтобы открыть <link linkend="configuration"
+>диалоговое окно настройки</link
+>.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Можно ли играть с помощью клавиатуры?</para
+></question>
+		 <answer
+><para
+>Нет. В этой игре пока не предусмотрен режим управления с клавиатуры.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+ 
+</qandaset>
+</chapter>
+ 
+<chapter id="configuration"
+><title
+>Настройка игры</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>Диалог настройки</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>Диалог настройки</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+>Команда <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Настроить &kappname;…</guimenuitem
+></menuchoice
+> открывает диалог <guilabel
+>Настройка &kappname;</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+><guilabel
+>Общие</guilabel
+> параметры</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Мигание парных косточек, когда выбрана одна из них.</guilabel
+></term>
+			<listitem
+><para
+>Выбор этого параметра заставляет игру при каждом ходе подсвечивать выделенную косточку при щелчке мыши и миганием отмечать парные косточки, открытые хотя бы с одной стороны. Если таких косточек нет, то ничего отмечаться не будет. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Создавать решаемые расклады</guilabel
+></term>
+			<listitem
+><para
+>При начале игры предлагает только те расклады, которые могут быть разгаданы. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Настройка <guilabel
+>раскладки доски</guilabel
+></title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Случайная раскладка</guilabel
+></term>
+			<listitem
+><para
+>Для каждой новой игры раскладка будет случайным образом выбрана из списка доступных. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Список <guilabel
+>раскладок доски</guilabel
+></term>
+			<listitem
+><para
+>Воспользуйтесь списком <guilabel
+>Раскладка доски</guilabel
+> для выбора желаемого типа игры. Разные раскладки досок предполагают различную сложность, в зависимости от количества косточек и их расположения. </para>
+			<screenshot>
+				<screeninfo
+>Список «Раскладки доски»</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Список «Раскладки доски»</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Настройка <guilabel
+>косточек</guilabel
+></title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Список <guilabel
+>Косточки</guilabel
+></term>
+			<listitem
+><para
+>При помощи списка <guilabel
+>Косточки</guilabel
+> выберите рисунки на лицевой стороне косточек. </para>
+			<screenshot>
+				<screeninfo
+>Список «Косточки»</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Список «Косточки»</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Раздел параметров <guilabel
+>Фон</guilabel
+></title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Список <guilabel
+>Фон</guilabel
+></term>
+			<listitem
+><para
+>Воспользуйтесь списком <guilabel
+>Фон</guilabel
+>, чтобы выбрать фоновый рисунок игры. </para>
+			<screenshot>
+				<screeninfo
+>Список фонов</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Список фонов</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Комбинации клавиш по умолчанию</title>
+
+<para
+>Команда <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Комбинации клавиш…</guimenuitem
+></menuchoice
+> позволяет изменить стандартные комбинации клавиш.</para>
+
+<para
+>По умолчанию действуют следующие комбинации клавиш: </para>
+
+<table>
+<title
+>Комбинации клавиш</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Комбинация клавиш</entry
+><entry
+>Действие</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Начинает новую игру.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Загружает ранее сохранённую игру.</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Перезапускает игру.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Сохраняет игру.</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Приостанавливает или возобновляет игру.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Показывает таблицу лучших результатов.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Выход из игры.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Отмена хода.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Отмена хода.</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Даёт подсказку миганием парных косточек.</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Включает демонстрационный режим игры.</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Повернуть угол обзора по часовой стрелке.</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Повернуть угол обзора против часовой стрелки.</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Открывает данное руководство.</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Контекстная справка «Что это?»</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+ 
+<chapter id="credits"
+><title
+>Авторы и лицензия</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kappname; для &kde; </para>
+
+	<para
+>Авторские права на программу &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Авторские права на программу &copy; 2007 <personname
+><firstname
+>Mauricio</firstname
+><surname
+>Piacentini</surname
+></personname
+> <email
+>piacentini@kde.org</email
+> </para>
+	<para
+>Участники: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Albert</firstname
+><othername
+>Astals</othername
+><surname
+>Cid</surname
+></personname
+> &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Авторские права на руководство &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+ 
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Перевод на русский язык: Григорий Мохин <email
+>mok@kde.ru</email
+></para
+><para
+>Перевод на русский язык: Стёпа Семенуха <email
+>semenukha@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+ 
+ 
+<appendix id="installation">
+<title
+>Установка</title>
+ 
+&install.intro.documentation;
+ 
+ 
+<sect1 id="Compilation">
+<title
+>Сборка и установка</title>
+&install.compile.documentation; </sect1>
+</appendix>
+ 
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

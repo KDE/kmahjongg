@@ -1,0 +1,766 @@
+# Esperantaj mesaĝoj por "kmahjongg"
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Wolfram Diestel <diestel@rzaix340.rz.uni-leipzig.de>, 1998.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg 1.0\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2002-03-09 21:16GMT\n"
+"Last-Translator: Wolfram Diestel <wolfram@steloj.de>\n"
+"Language-Team: Esperanto <eo@li.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9beta4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Axel Rousseau"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "axel@esperanto-jeunes.org"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Redaktu tabularanĝon"
+
+#: src/editor.cpp:111
+#, fuzzy, kde-format
+msgid "New board"
+msgstr "Nova tabulo."
+
+#: src/editor.cpp:118
+#, fuzzy, kde-format
+msgid "Open board"
+msgstr "Malfermu tabulon."
+
+#: src/editor.cpp:125
+#, fuzzy, kde-format
+msgid "Save board"
+msgstr " Konservu tabulon."
+
+#: src/editor.cpp:135
+#, fuzzy, kde-format
+msgid "Select"
+msgstr "Elektu."
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Eltondi"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Kopii"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Alglui"
+
+#: src/editor.cpp:157
+#, fuzzy, kde-format
+msgid "Move tiles"
+msgstr "Movu tegolojn."
+
+#: src/editor.cpp:161
+#, fuzzy, kde-format
+msgid "Add tiles"
+msgstr "Aldonu tegolojn."
+
+#: src/editor.cpp:164
+#, fuzzy, kde-format
+msgid "Remove tiles"
+msgstr "Forigu tegolojn."
+
+#: src/editor.cpp:188
+#, fuzzy, kde-format
+msgid "Shift left"
+msgstr "Ŝovu dekstren."
+
+#: src/editor.cpp:194
+#, fuzzy, kde-format
+msgid "Shift up"
+msgstr "Ŝovu supren."
+
+#: src/editor.cpp:200
+#, fuzzy, kde-format
+msgid "Shift down"
+msgstr "Ŝovu malsupren."
+
+#: src/editor.cpp:206
+#, fuzzy, kde-format
+msgid "Shift right"
+msgstr "Ŝovu dekstren."
+
+#: src/editor.cpp:288
+#, fuzzy, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Tegoloj: %3.3d Poz.: %2.2d, %2.2d %2.2d"
+
+#: src/editor.cpp:297
+#, fuzzy, kde-format
+msgid "Open Board Layout"
+msgstr "Malfermu tabularanĝon."
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr "*.layout|Tabularanĝodosiero\n"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, fuzzy, kde-format
+msgid "Save Board Layout"
+msgstr "Konservu tabularanĝon."
+
+#: src/editor.cpp:346
+#, fuzzy, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Dosiero kun tiu nomo jam ekzistas, ĉu vi volas anstataŭigi ĝin?"
+
+#: src/editor.cpp:375
+#, fuzzy, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "La tabulo estas ŝanĝita, ĉu vi volas sekurigi la ŝanĝojn?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Konservo malsukcesis. Finante la operacion."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+msgid "Removed tiles"
+msgstr "Forigu tegolojn."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Random Layout"
+msgstr "Redaktu tabularanĝon"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Antaŭrigardo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "axel@esperanto-jeunes.org"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Aŭtoro:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Kontakto:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Priskribo:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, fuzzy, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Preta. Nun estas via vico."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Malfaro sukcesis."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Kion vi volas malfari? Vi faris nenion!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Via komputilo malvenkis la ludon."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Elpensante novan ludon..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Eraro dum kreo de nova ludo!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Demonstro. Kliku musbutonon por fini."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Nova kalkulata ludo..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "&Miksu"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, fuzzy, kde-format
+msgid "&Board Editor"
+msgstr "&Tabulredaktilo..."
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Tempo"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Tempo"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Konservu ludon"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgid "Enter game number:"
+msgstr "Tajpu bildnumeron"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Ĝeneralo"
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Board Layout"
+msgstr "Redaktu tabularanĝon"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+msgid "Game Over: You have no moves left."
+msgstr "Ludo finita: Ne plu eblas movo"
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Konservu ludon"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, fuzzy, kde-format
+msgid "You have won!"
+msgstr "Ludo finita: Vi gajnis!"
+
+#: src/kmahjongg.cpp:548
+#, fuzzy, kde-format
+msgid "Game number: %1"
+msgstr "Ludo numero: %1"
+
+#: src/kmahjongg.cpp:558
+#, fuzzy, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Forigitaj: %1/%2"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Ŝargu ludon"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Ne eblis legi de dosiero. Ĉesante."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, fuzzy, kde-format
+msgid "File format not recognized."
+msgstr "Dosierformo ne rekonita."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Konservu etoson."
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "Ne eblis skribi al dosiero. Ĉesante."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Konservu etoson."
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr ""
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, fuzzy, kde-format
+msgid "The background to use."
+msgstr "Ŝanĝu fonbildon"
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr ""
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "Montru forigitajn tegolojn"
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr ""
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr ""
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Ludo"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Movi"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Rigardi"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Ĉefa ilobreto"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "Mahjongo"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Mahjongg"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Originala aŭtoro"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Nuna zorganto"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Cimokorektado"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr ""
+"\n"
+"\n"
+"Rerealigita kaj etendita de "
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr ""
+"\n"
+"\n"
+"Tegolar-kontribuanto kaj TTT-ejo-administranto: "
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr ""
+"\n"
+"\n"
+"Tegolar-kontribuanto kaj TTT-ejo-administranto: "
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Montru forigitajn tegolojn"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Pardonu, vi malvenkis la ludon."
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "Via vico denove."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Gratulon. Vi venkis!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Eraro dum konverto de la tabulinformoj!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Nur sekurigo al lokaj dosieroj subtenata ĝis nun."
+
+#, fuzzy
+#~| msgid "Could not write to file. Aborting."
+#~ msgid "Could not write saved game."
+#~ msgstr "Ne eblis skribi al dosiero. Ĉesante."
+
+#~ msgid "Mauricio Piacentini"
+#~ msgstr "Mauricio Piacentini"
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Finu."
+
+#, fuzzy
+#~ msgid "Load..."
+#~ msgstr "Ŝargu"
+
+#~ msgid "Change Background Image"
+#~ msgstr "Ŝanĝu fonbildon"
+
+#, fuzzy
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr ""
+#~ "*.bgnd|Fonbildo\n"
+#~ "*.bmp|Vindoza rastrobildo (*.bmp)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Ŝangu tegolaron"
+
+#, fuzzy
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Tegolardosiero\n"
+
+#, fuzzy
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Tabularanĝodosiero\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Ŝanĝu tabularanĝon"
+
+#, fuzzy
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Mahjonga etoso\n"
+
+#, fuzzy
+#~ msgid "Choose Theme"
+#~ msgstr "Elektu etoson"
+
+#, fuzzy
+#~ msgid "*|All Files"
+#~ msgstr "*|Ĉiuj dosieroj\n"
+
+#, fuzzy
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Jen ne valida etosdosiero."
+
+#~ msgid "Save Theme"
+#~ msgstr "Konservu etoson."
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr "Okazis eraro dum legado de la tabularanĝo\n"
+
+#, fuzzy
+#~ msgid "Open La&yout..."
+#~ msgstr "Malfermu &arangon..."
+
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Montru &parojn"
+
+#, fuzzy
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Montru &parojn"
+
+#~ msgid "Pos"
+#~ msgstr "Poz"
+
+#~ msgid "Name"
+#~ msgstr "Nomo"
+
+#~ msgid "Board"
+#~ msgstr "Tabulo"
+
+#~ msgid "Score"
+#~ msgstr "Poentoj"
+
+#~ msgid "Time"
+#~ msgstr "Tempo"
+
+#~ msgid "Scores"
+#~ msgstr "Poentoj"
+
+#~ msgid "Anonymous"
+#~ msgstr "Anonimulo"
+
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Renuligo de la rekordoj forigos ĉiujn rekordojn kaj el la memoro kaj de "
+#~ "la disko. Ĉu vi volas daŭrigi?"
+
+#, fuzzy
+#~ msgid "Reset High Scores"
+#~ msgstr "Renuligu rekordojn"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr "Okazis eraro dum legado de la tegolaro\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr "Okazis eraro dum legado de fonbildo\n"
+
+#, fuzzy
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "Majongo nun finos"
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Eraro dum legado de bildo:\n"
+#~ "%1"
+
+#, fuzzy
+#~ msgid "Open Th&eme..."
+#~ msgstr "Malfermu &etoson..."
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "Malfermu &tegolaron..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Malfermu f&onbildon..."
+
+#, fuzzy
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "&Konservu etoson..."
+
+#~ msgid "Background"
+#~ msgstr "Fono"
+
+#~ msgid "Scale"
+#~ msgstr "Etendite"
+
+#, fuzzy
+#~ msgid "Tiled"
+#~ msgstr "Kahele"
+
+#~ msgid "Tiles"
+#~ msgstr "Tegoloj"
+
+#~ msgid "Draw shadows"
+#~ msgstr "Pentru ombrojn"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "Malgrandaj"

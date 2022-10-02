@@ -1,0 +1,721 @@
+# Irish translation of kmahjongg
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kmahjongg package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames/kmahjongg.po\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2004-12-03 14:52-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "seoc@iolfree.ie,kscanne@gmail.com"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Cuir Leagan Amach an Chláir in Eagar"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Clár nua"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Oscail clár"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Sábháil clár"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Roghnaigh"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr "Gearr"
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr "Cóipeáil"
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr "Greamaigh"
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Bog tíleanna"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Cuir tíleanna leis"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Bain tíleanna"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Bog ar chlé"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Bog suas"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Bog síos"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Bog ar dheis"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Tíleanna: %1 Láthair: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Oscail Leagan Amach Cláir"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.layout|Board Layout (*.layout)\n"
+#| "*|All Files"
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+"*.layout|Leagan Amach Cláir (*.layout)\n"
+"*|Gach Comhad"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Sábháil Leagan Amach an Chláir"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr "Tá comhad darb ainm ann cheana. An bhfuil fonn ort scríobh air?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr ""
+"Athraíodh an clár.\n"
+"An bhfuil fonn ort é a shábháil?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Theip ar shábháil. Ag tobscor."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "Bain tíleanna"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, kde-format
+msgid "Random Layout"
+msgstr "Leagan Amach Randamach"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr "Fai&gh Leaganacha Amach Nua"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr "Réamhamharc"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, kde-format
+msgid "Layout Details"
+msgstr "Mionsonraí an Leagain Amach"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr "Údar:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr "Teagmháil:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr "Cur Síos:"
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Réidh. Is leatsa imirt anois."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "D'éirigh leis an gcealú."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Cad é is mian leat a chealú? Níor rinne tú faic go dtí seo!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Chaill do ríomhaire an cluiche."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Cluiche nua á áireamh..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Earráid agus cluiche nua á ghiniúint!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Mód taispeána. Cliceáil cnaipe na luiche chun é a stopadh."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Cluiche Nua Uimhrithe..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "&Suaitheadh"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr "Rothlaigh an tAmharc go Tuathalach"
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr "Rothlaigh an tAmharc go Deisealach"
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "&Eagarthóir Cláir"
+
+#: src/kmahjongg.cpp:197
+#, kde-format
+msgid "Time: 0:00:00"
+msgstr "Am: 0:00:00"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr "Bainte: 0000/0000"
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr "Cluiche: 000000000000000000000"
+
+#: src/kmahjongg.cpp:224
+#, kde-format
+msgid "Time: "
+msgstr "Am: "
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Cluiche Nua"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Iontráil uimhir an chluiche:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Ginearálta"
+
+#: src/kmahjongg.cpp:266
+#, kde-format
+msgid "Board Layout"
+msgstr "Leagan Amach an Chláir"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+#| msgid "Game over: You have no moves left."
+msgid "Game Over: You have no moves left."
+msgstr "Cluiche thart: Níl aon bheart fágtha agat."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, kde-format
+msgid "New Game"
+msgstr "Cluiche Nua"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Bhí an bua agat!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Uimhir an chluiche: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Bainte: %1/%2  Péirí fágtha: %3"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Luchtaigh Cluiche"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Níorbh fhéidir an comhad a léamh. Ag Tobscor."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr "Ní cluiche KMahjongg é an comhad seo."
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Ní aithnítear formáid an chomhaid."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Game"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Sábháil an Cluiche"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "Ní féidir scríobh sa chomhad. Ag Tobscor."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Game"
+msgid "Save game?"
+msgstr "Sábháil an Cluiche"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "Tacar tíleanna le húsáid."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "Cúlra le húsáid."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "Leagan amach na dtíleanna."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, kde-format
+msgid "Whether the removed tiles will be shown on the board."
+msgstr ""
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "Cé acu ba chóir gach cluiche a bheith inréitithe, nó nár chóir."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "Cé acu an dtaispeántar tíleanna comhoiriúnacha nó nach dtaispeántar."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Cluiche"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "&Bog"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr "&Amharc"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Príomhbharra Uirlisí"
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "Mahjongg Solitaire for KDE"
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Cluiche Aonair Mahjongg le haghaidh KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+"© 1997, Mathias Mueller\n"
+"© 2006, Mauricio Piacentini\n"
+"© 2011, Christian Krippendorf"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr "Mathias Mueller"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "An Chéad Údar"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr "Christian Krippendorf"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Cothaitheoir reatha"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr "Ceartúcháin"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr "David Black"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Athscríobh KDE 3 agus Feabhsú"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr "Michael Haertjens"
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Giniúint cluichí inréitithe\n"
+"bunaithe ar algartam le Michael Meeks i Mahjongg GNOME"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr "Raquel Ravanini"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr "Tacar Tíleanna SVG le haghaidh KDE4"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr "Richard Lohman"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr ""
+"Cruthaitheoir tacar tíleanna agus cothaitheoir an leathanaigh Ghréasáin faoi "
+"láthair"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr "Osvaldo Stark"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr ""
+"Cruthaitheoir tacar tíleanna agus chéad chothaitheoir an leathanaigh "
+"Ghréasáin"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Glanadh an chóid"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr "Preab tíleanna comhoiriúnacha nuair a roghnaítear an chéad cheann"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Gin cluichí inréitithe"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Taispeáin na tíleanna bainte"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Tá brón orm, chaill tú an cluiche."
+
+#~ msgid "Now it is you again."
+#~ msgstr "Is leatsa an imirt arís."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Comhghairdeas. Bhí an bua agat!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Earráid agus faisnéis an chláir á tiontú!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Is féidir sábháil i gcomhaid logánta amháin faoi láthair."
+
+#~ msgid "Could not write saved game."
+#~ msgstr "Níorbh fhéidir cluiche sábháilte a scríobh."
+
+#~ msgid "Mauricio Piacentini"
+#~ msgstr "Mauricio Piacentini"
+
+#~ msgid "&Edit"
+#~ msgstr "&Eagar"
+
+#~ msgid "&Settings"
+#~ msgstr "&Socruithe"
+
+#~ msgid "Load..."
+#~ msgstr "Luchtaigh..."
+
+#~ msgid "Change Background Image"
+#~ msgstr "Athraigh an Íomhá Chúlra"
+
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr "*.bgnd|Íomhá Chúlra (*.bgnd)\n"
+
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Comhad Leagain Amach (*.layout)\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Athraigh Leagan Amach an Chláir"
+
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Téama KMahjongg (*.theme)\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Roghnaigh Téama"
+
+#~ msgid "*|All Files"
+#~ msgstr "*|Gach Comhad"
+
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Ní comhad bailí téama é sin."
+
+#~ msgid "Save Theme"
+#~ msgstr "Sábháil an Téama"
+
+#~ msgid "Overwrite"
+#~ msgstr "Forscríobh"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "Oscail &Leagan Amach..."
+
+#~ msgid "Form"
+#~ msgstr "Foirm"
+
+#~ msgid "Pos"
+#~ msgstr "Láthair"
+
+#~ msgid "Name"
+#~ msgstr "Ainm"
+
+#~ msgid "Board"
+#~ msgstr "Clár"
+
+#~ msgid "Score"
+#~ msgstr "Scór"
+
+#~ msgid "Time"
+#~ msgstr "Am"
+
+#~ msgid "Scores"
+#~ msgstr "Scóir"
+
+#~ msgid "Anonymous"
+#~ msgstr "Gan ainm"
+
+#~ msgid "Reset High Scores"
+#~ msgstr "Glan Na Scóir Is Fearr"
+
+#~ msgid "Reset"
+#~ msgstr "Athshocraigh"
+
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Tharla earráid agus an íomhá chúlra á luchtú\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Ní féidir an íomhá a luchtú:\n"
+#~ "%1"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "Oscail &Téama..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Oscail &Cúlra..."
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "Sá&bháil Téama..."
+
+#~ msgid "Background"
+#~ msgstr "Cúlra"
+
+#~ msgid "Scale"
+#~ msgstr "Scála"
+
+#~ msgid "Tiled"
+#~ msgstr "Tílithe"
+
+#~ msgid "Tiles"
+#~ msgstr "Tíleanna"

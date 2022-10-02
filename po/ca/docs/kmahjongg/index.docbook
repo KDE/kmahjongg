@@ -1,0 +1,1628 @@
+<?xml version="1.0" ?>
+<!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE"
+> <!-- do not change this! -->
+]>
+
+<book id="kmahjongg" lang="&language;"
+> <!-- do not change this! -->
+<bookinfo>
+	<title
+>El manual del &kmahjongg;</title
+> <!-- This is the title of this docbook. -->
+<!-- List of immidiate authors begins here. -->
+<!--INPORTANT! - All other contributors: [to be determined] -->
+<authorgroup>
+<author
+><personname
+> <firstname
+>John</firstname
+> <surname
+>Hayes</surname
+> </personname
+> <email
+>justlinux@bellsouth.net</email
+> </author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>21 de juliol de 2021</date
+><!-- Date of (re)writing, or update.-->
+<releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+<!--Short description of this document. Do not change unless necessary!-->
+<abstract>
+	<para
+>Aquesta documentació descriu el joc &kmahjongg; versió 0.9</para>
+</abstract>
+
+<!--List of relevan keywords-->
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>joc</keyword
+> <!-- do not change this! -->
+	<keyword
+>KMahjongg</keyword
+><!--Application name goes here-->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>tauler</keyword>
+	<keyword
+>arcade</keyword>
+	<keyword
+>joc de fitxes</keyword>
+	<keyword
+>fitxes</keyword>
+<!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<keyword
+>un jugador</keyword>
+<!--All other relevant keywords-->
+</keywordset>
+</bookinfo>
+<!--Content begins here: -->
+<chapter id="introduction"
+><title
+>Introducció</title
+> <!-- do not change this! -->
+	<note
+><title
+>Tipus de joc:</title
+><para
+>Tauler, arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Nombre de possibles jugadors:</title
+><para
+>Un</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+	<para
+>El &kmahjongg; és un divertit joc de taula creat a partir del famós joc oriental de Mahjong (del xinès <foreignphrase lang="zh"
+>麻將</foreignphrase
+>). No obstant això, a diferència de l'original, el &kmahjongg; és un joc per a un jugador en el qual s'aparellen les fitxes, una variació generalment coneguda com el Solitari Mahjong. </para>
+	<para
+>En el &kmahjongg;, les fitxes es barregen i s'apilen una sobre l'altra perquè tinguin una forma determinada. S'espera que el jugador tregui totes les fitxes del tauler de joc localitzant la parella corresponent de cada fitxa. </para>
+</chapter>
+
+<chapter id="howto"
+><title
+>Com es juga</title
+> <!-- do not change this! -->
+<!--IMPORTANT: If the game has no defined objective, please remove the below line.-->
+	<note
+><title
+>Objectiu:</title
+><para
+>Treure totes les fitxes del tauler de joc localitzant la parella corresponent de cada fitxa el més ràpid possible.</para
+></note
+><!--Describe the objective of the game.-->
+<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+	<para
+>El &kmahjongg; carregarà una disposició predeterminada de forma automàtica una vegada inicieu la partida, podreu començar a jugar immediatament. </para>
+	<note
+><title
+>Nota:</title
+><para
+>El temporitzador de la partida s'iniciarà immediatament quan s'iniciï la partida.</para
+></note>
+	<para
+>Haureu d'estudiar acuradament la pila de fitxes disposades en el tauler de joc i trobar-ne dues que coincideixin exactament. Quan hàgiu trobat una parella d'aquest tipus, utilitzeu el ratolí per a seleccionar-les. </para>
+	<note
+><title
+>Nota:</title>
+		<para
+>Recordeu que només podeu seleccionar les fitxes que estan <quote
+>obertes</quote
+>. Les fitxes es consideraran <quote
+>bloquejades</quote
+> quan es col·loquen al darrere d'altres fitxes, o quan els costats dret i esquerre de la fitxa estan ocupats per una altra. Si almenys un dels costats laterals està buit, la fitxa es considerarà <quote
+>oberta</quote
+> i es podrà treure. </para
+></note>
+	<para
+>Una vegada hàgiu seleccionat la parella correcta de fitxes, desapareixeran del tauler de joc, revelant així les fitxes prèviament situades a sota i obrint les fitxes adjacents. </para>
+	<para
+>Trobeu tantes coincidències com pugueu per a treure totes les fitxes del tauler de joc. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Les regles del joc, estratègies i consells</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="game-screen">
+		<title
+>La pantalla de joc</title>
+		<para>
+			<screenshot>
+				<screeninfo
+>Una captura de pantalla del &kmahjongg;</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="gamescreen.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Captura de pantalla</phrase
+></textobject>
+				</mediaobject>
+			</screenshot
+>Una explicació ràpida de les parts de la pantalla de joc. </para>
+	<variablelist>
+		<varlistentry>
+			<term
+>Pantalla de joc</term>
+			<listitem
+><para
+>La pantalla de joc està al centre de la pantalla i és la secció més gran de la finestra. El fons està poblat amb les fitxes del joc. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Barra d'estat</term>
+			<listitem
+><para
+>La barra d'estat es troba a la part inferior de la pantalla i conté quatre subfinestres. La primera mostra el temporitzador del joc, el qual realitza un seguiment del temps transcorregut des de l'inici de la partida fins que finalitza. La segona llista les fitxes tretes/totals i el nombre de fitxes coincidents que tenen costats lliures. La tercera dona el número de seqüència de la partida que esteu jugant i l'última permet al jugador saber quan està llesta la partida. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+	</sect1>
+	<sect1 id="rules">
+		<title
+>Regles</title>
+		<para
+>El joc de fitxes estàndard de Mahjong inclou: <informaltable
+> <tgroup cols="3"
+> <tbody>
+					<row
+><entry
+>Nom del grup&nbsp;</entry
+><entry
+>Nom de la fitxa&nbsp;</entry
+><entry
+>Quantitat en un joc</entry
+></row>
+					<row
+><entry
+>Punts</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de Punts</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Bambús</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de Bambús</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Caràcters</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>1 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>2 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>3 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>4 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>5 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>6 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>7 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>8 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>9 de Caràcters</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Vents</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vent de l'est</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vent del sud</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vent de l'oest</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Vent del nord</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Dracs</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Drac vermell</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Drac verd</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Drac blanc</entry
+><entry
+>4</entry
+></row>
+					<row
+><entry
+>Flors</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lila (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Lliri (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Crisantem (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Bambú (4)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+>Estacions</entry
+><entry
+></entry
+><entry
+></entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Primavera (1)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Estiu (2)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Tardor (3)</entry
+><entry
+>1</entry
+></row>
+					<row
+><entry
+></entry
+><entry
+>Hivern (4)</entry
+><entry
+>1</entry
+></row>
+				</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+		<itemizedlist>
+			<listitem
+><para
+>El nombre de fitxes en una disposició de tauler del &kmahjongg; pot diferir del nombre de fitxes en el joc de fitxes estàndard de Mahjong. Això vol dir que el nombre d'aparicions de les fitxes del mateix tipus també pot diferir del nombre indicat a la taula anterior.</para
+></listitem>
+			<listitem
+><para
+>Només es poden seleccionar les fitxes <quote
+>obertes</quote
+>.</para
+></listitem>
+			<listitem
+><para
+>La fitxa <quote
+>oberta</quote
+> és la que té obert un dels costats laterals de la fitxa, el qual vol dir que no hi ha altres fitxes immediatament al seu costat.</para
+></listitem>
+			<listitem
+><para
+>Només quan coincideixin, les fitxes obertes es podran treure del tauler de joc.</para
+></listitem>
+			<listitem
+><para
+>Les fitxes coincidents són aquelles en què coincideixen els pictogrames de les cares.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Nota:</title
+><para
+>Hi ha excepcions a aquesta regla! En el joc tradicional de Mahjong, cada fitxa té una coincidència, excepte per a les fitxes <quote
+>Flors</quote
+> i <quote
+>Estacions</quote
+>.</para
+></note>
+		<itemizedlist>
+			<listitem
+><para
+>Les fitxes <quote
+>Flors</quote
+> no tenen dobles en el joc i es poden combinar directament entre si.</para
+></listitem>
+			<listitem
+><para
+>Les fitxes <quote
+>Estacions</quote
+> no tenen dobles en el joc i es poden combinar directament entre si.</para
+></listitem>
+			<listitem
+><para
+>No tots els jocs de &kmahjongg; es poden acabar. De vegades, les fitxes es barregen de tal manera que pot ser que no sigui possible trobar totes les coincidències. Aquest problema es pot evitar. Consulteu <link linkend="general-options"
+>aquesta secció</link
+> del diàleg de configuració.</para
+></listitem>
+			<listitem
+><para
+>Per a ser elegit per a un lloc entre les puntuacions més altes, el jugador haurà de completar una instància del joc en el menor període de temps possible.</para
+></listitem>
+		</itemizedlist>
+		<note
+><title
+>Nota:</title
+><para
+>Si el jugador utilitza la característica &nbsp;<quote
+>Consell</quote
+>, el rècord no es considerarà com una puntuació alta.</para
+></note>
+
+	</sect1>
+</chapter>
+
+
+<chapter id="interface"
+><title
+>Resum de la interfície</title
+> <!-- do not change this! -->
+<!-- This section has to do with menubar. Describe every single entry in order. Use <variablelist
+> and <varlistentry
+>. Split the chapter into sections using <sect1(2,3)
+> for better viewing.-->
+
+<sect1 id="menu">
+<title
+>Elements de menú</title>
+
+		<variablelist>
+			<varlistentry id="game-menu-new">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Comença una partida nova.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry  id="game-menu-load">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Carrega...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Carrega una partida desada.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-restart">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Reinicia la partida</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Torna a iniciar la partida actual.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><guimenu
+>Joc</guimenu
+> <guimenuitem
+>Partida nova numerada...</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Inicia una partida numerada específicament.</action>
+				<screenshot>
+					<screeninfo
+>Inicia el diàleg de Partida numerada</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="numbered.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Inicia el diàleg de Partida numerada</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-save">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Desa</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Desa</action
+> la partida actual.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-pause">
+				<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Pausa</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Posa en pausa o reprèn la partida. Mentre la partida està en pausa, totes les fitxes estaran ocultes.</action
+></para
+></listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-highscores">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Mostra les puntuacions</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Mostra la llista de les puntuacions màximes.</action>
+				<screenshot>
+					<screeninfo
+>Mostra les millors puntuacions</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="highscore.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Mostra les millors puntuacions</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+				<para
+>Quan la puntuació de la vostra partida superi les deu puntuacions principals llistades, se us demanarà que introduïu el vostre nom. </para
+>	</listitem>
+			</varlistentry>
+			<varlistentry id="game-menu-boardeditor">
+				<term
+><menuchoice
+><guimenu
+>Joc</guimenu
+> <guimenuitem
+>Editor de tauler</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Mostra l'editor del tauler.</action>
+				<screenshot>
+					<screeninfo
+>L'editor del tauler</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>L'editor del tauler</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Procediment per a editar la disposició: <orderedlist>
+							<listitem
+><para
+>Utilitzeu la barra d'eines de l'editor del tauler per a crear una disposició nova o per a carregar i editar una d'existent.</para
+></listitem>
+							<listitem
+><para
+>Deseu la disposició en la carpeta d'inici local del vostre usuari a &nbsp;<filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
+></para
+></listitem>
+							<listitem
+><para
+>Creeu el fitxer <filename
+><replaceable
+>nom_de_la_disposició</replaceable
+>.desktop</filename
+> en la mateixa carpeta.</para
+></listitem>
+							<listitem
+><para
+>Poseu les línies següents en aquest fitxer emprant el vostre editor de text preferit: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>nom_de_la_disposició</replaceable>
+Description=<replaceable
+>descripció_de_la_disposició</replaceable>
+VersionFormat=1
+Author=<replaceable
+>el_vostre_nom</replaceable>
+AuthorEmail=<replaceable
+>el_vostre_correu_electrònic</replaceable>
+FileName=<replaceable
+>nom_de_la_disposició</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Torneu a iniciar el &kmahjongg; perquè empri la disposició nova.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
+			</varlistentry>
+			<varlistentry>
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Surt</action
+> del &kmahjongg;.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="move-menu-undo">
+				<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Desfés</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Desfà</action
+> la vostra última jugada.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-redo">
+				<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Refés</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Torna a fer</action
+> una jugada que s'ha desfet.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-hint">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Consell</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Dona</action
+> una pista mostrant un parell de fitxes que coincideixen.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-demo">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>D</keycap
+></shortcut
+> <guimenu
+>Mou</guimenu
+> <guimenuitem
+>Demo</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Inicia el joc en el mode demostració</action
+>.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="move-menu-shuffle">
+				<term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Barreja</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Barreja les fitxes</action
+> en el tauler.</para
+></listitem>
+			</varlistentry>
+
+			<varlistentry id="view-menu-rotate-c">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>G</keycap
+></shortcut
+> <guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Gira la vista en el sentit de les agulles del rellotge</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gira</action
+> l'angle de visió de les fitxes en el sentit de les agulles del rellotge.</para
+></listitem>
+			</varlistentry>
+			<varlistentry id="view-menu-rotate-cc">
+				<term
+><menuchoice
+><shortcut
+><keycap
+>F</keycap
+></shortcut
+> <guimenu
+>Visualitza</guimenu
+> <guimenuitem
+>Gira l'angle de vista en el sentit invers de les agulles del rellotge</guimenuitem
+> </menuchoice
+></term>
+				<listitem
+><para
+><action
+>Gira</action
+> l'angle de visió de les fitxes en el sentit contrari de les agulles del rellotge.</para
+></listitem>
+			</varlistentry>
+		</variablelist>
+<para
+>De manera addicional, el &kmahjongg; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq"
+><title
+>Preguntes més freqüents</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+	<qandaentry>
+		 <question
+><para
+>Vull canviar l'aparença d'aquest joc. Puc fer-ho? </para
+></question>
+		 <answer
+><para
+>Sí. Per a canviar l'aparença del &kmahjongg;, empreu la <link linkend="menu"
+>barra de menús</link
+> per a obrir la &nbsp;<link linkend="configuration"
+>utilitat de configuració</link
+>.</para
+></answer>
+	</qandaentry>
+	<qandaentry>
+		 <question
+><para
+>Puc utilitzar el teclat per a jugar a aquest joc?</para
+></question>
+		 <answer
+><para
+>No. Aquest joc encara no compta amb un mode de joc amb el teclat.</para
+></answer>
+	</qandaentry>
+<!--Please add more Q&As if needed-->
+
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Configuració del joc</title
+> <!-- do not change this! -->
+<!--This section describes configuration &GUI;. If your game is configured using menubar exclusively, please remove this section.-->
+<screenshot>
+<screeninfo
+>El diàleg de configuració</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="config.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase
+>El diàleg de configuració</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Configura el &kmahjongg;...</guimenuitem
+></menuchoice
+> obre el diàleg <guilabel
+>Configuració - &kmahjongg;</guilabel
+>.</para>
+
+<sect1 id="general-options"
+><title
+>Opcions generals</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Marca les fitxes corresponents quan la primera està seleccionada</guilabel
+></term>
+			<listitem
+><para
+>Aquesta configuració farà que el joc ressalti la fitxa seleccionada en fer-hi clic amb el ratolí i en cada moviment mostrarà qualsevol fitxa que coincideixi que tingui un costat lliure. No es ressaltaran les fitxes addicionals si no hi ha fitxes coincidents amb un costat lliure. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Genera partides amb solució</guilabel
+></term>
+			<listitem
+><para
+>En iniciar una partida nova, només seleccionarà les partides que es poden resoldre. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Mostra les fitxes eliminades</guilabel
+></term>
+			<listitem
+><para
+>Si està marcada, aquesta configuració permet al &kmahjongg; mostrar les fitxes tretes del tauler. </para
+></listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="layout-options"
+><title
+>Opcions de la disposició del tauler</title>
+	<variablelist>
+		<varlistentry>
+			<term
+><guilabel
+>Disposició aleatòria</guilabel
+></term>
+			<listitem
+><para
+>Cada partida nova tindrà una disposició aleatòria de les existents a la llista. </para
+></listitem>
+		</varlistentry>
+		<varlistentry>
+			<term
+>Selector <guilabel
+>Disposició de tauler</guilabel
+></term>
+			<listitem
+><para
+>Utilitzeu el selector <guilabel
+>Disposició de tauler</guilabel
+> per a triar un tauler per a jugar. Els diferents taulers proporcionen una dificultat variable, depenent del nombre de fitxes i la seva posició. </para>
+			<screenshot>
+				<screeninfo
+>Selector Disposició del tauler</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_layout.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector Disposició del tauler</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="tiles-options"
+><title
+>Opcions de les fitxes</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Selector <guilabel
+>Fitxes</guilabel
+></term>
+			<listitem
+><para
+>Utilitzeu el selector <guilabel
+>Fitxes</guilabel
+> per a seleccionar els gràfics per a les fitxes. </para>
+			<screenshot>
+				<screeninfo
+>Selector de les fitxes</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_tiles.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector de les fitxes</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="background-options"
+><title
+>Opcions del fons</title>
+	<variablelist>
+		<varlistentry>
+			<term
+>Selector <guilabel
+>Fons</guilabel
+></term>
+			<listitem
+><para
+>Utilitzeu el selector <guilabel
+>Fons</guilabel
+> per a seleccionar un gràfic de fons per al joc. </para>
+			<screenshot>
+				<screeninfo
+>Selector del fons</screeninfo>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="config_background.png" format="PNG"/>
+					</imageobject>
+					<textobject
+><phrase
+>Selector del fons</phrase
+></textobject>
+				</mediaobject>
+			</screenshot>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+</sect1>
+
+<sect1 id="default-keybindings">
+<title
+>Dreceres predeterminades</title>
+
+<para
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Configura les dreceres de teclat...</guimenuitem
+></menuchoice
+> permet canviar les dreceres de teclat predeterminades.</para>
+
+<para
+>Les dreceres predeterminades són les següents: </para>
+
+<table>
+<title
+>Dreceres de teclat</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Combinació de tecles&nbsp;</entry
+><entry
+>Acció</entry
+></row
+></thead>
+<tbody>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Comença una partida nova</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></entry
+><entry
+>Carrega una partida desada anteriorment</entry
+></row>
+<row
+><entry
+><keycap
+>F5</keycap
+></entry
+><entry
+>Reinicia la partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry
+><entry
+>Desa la partida</entry
+></row>
+<row
+><entry
+><keycap
+>P</keycap
+></entry
+><entry
+>Posa en pausa o resumeix la partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+><entry
+>Mostra les puntuacions més altes</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Surt de la partida</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Desfà un moviment</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Torna a fer un moviment que s'ha desfet</entry
+></row>
+<row
+><entry
+><keycap
+>H</keycap
+></entry
+><entry
+>Dona una pista mostrant dues fitxes que coincideixen</entry
+></row>
+<row
+><entry
+><keycap
+>D</keycap
+></entry
+><entry
+>Executa el joc en el mode demostració</entry
+></row>
+<row
+><entry
+><keycap
+>G</keycap
+></entry
+><entry
+>Gira l'angle de vista en el sentit horari</entry
+></row>
+<row
+><entry
+><keycap
+>F</keycap
+></entry
+><entry
+>Gira l'angle de vista en el sentit antihorari</entry
+></row>
+<row
+><entry
+><keycap
+>F1</keycap
+></entry
+><entry
+>Mostra aquest manual</entry
+></row>
+<row
+><entry
+><keycombo action="simul"
+>&Maj;<keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>L'ajuda «Què és això?»</entry
+></row>
+
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+<chapter id="credits"
+><title
+>Crèdits i llicència</title
+> <!-- do not change this! -->
+<!--This chapter is for credits and licenses.-->
+	<para
+>&kmahjongg; per al &kde; </para>
+
+	<para
+>Copyright del programa &copy; 1997 <personname
+><firstname
+>Mathias</firstname
+><surname
+>Mueller</surname
+></personname
+> <email
+>in5y158@public.uni-hamburg.de</email
+> </para>
+	<para
+>Copyright del programa &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
+	<para
+>Col·laboradors: <itemizedlist>
+			<listitem
+><para
+><personname
+><firstname
+>David</firstname
+><surname
+>Black</surname
+></personname
+> <email
+>david.black@lutris.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Michael</firstname
+><surname
+>Haertjens</surname
+></personname
+> <email
+>mhaertjens@modusoperandi.com</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Osvaldo</firstname
+><surname
+>Stark</surname
+></personname
+> <email
+>starko@dnet.it</email
+></para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Benjamin</firstname
+><surname
+>Meyer</surname
+></personname
+> <email
+>ben+kmahjongg@meyerhome.net</email
+></para
+></listitem>
+			<listitem
+><para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
+></listitem>
+			<listitem
+><para
+><personname
+><firstname
+>Raquel</firstname
+><surname
+>Ravanini</surname
+></personname
+> <email
+>raquel@tabuleiro.com</email
+></para
+></listitem>
+		</itemizedlist>
+	</para>
+	<para
+>Copyright de la documentació &copy; 2005 <personname
+><firstname
+>John</firstname
+><surname
+>Hayes</surname
+></personname
+> <email
+>justlinux@bellsouth.net</email
+> </para>
+
+<!-- !!!do not change ANYTHING after this line!!!! -->
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->

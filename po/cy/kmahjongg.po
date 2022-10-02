@@ -1,0 +1,785 @@
+# translation of kmahjongg.po to Cymraeg
+# Penbwrdd yn Gymraeg.
+# Copyright (C) 2003, 2005 Free Software Foundation, Inc.
+# www.kyfieithu.co.uk<kyfieithu@dotmon.com>, www.gyfieithu.co.uk<kyfieithu@dotmon.com>, 2003.
+# Kevin Donnelly <kevin@dotmon.com>, 2005.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmahjongg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2005-09-21 09:16+0100\n"
+"Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
+"Language-Team: Cymraeg <cy@li.org>\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10\n"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kyfieithu: KD, jawz, Thierry Vignaud"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kyfieithu@dotmon.com,,"
+
+#: src/editor.cpp:71
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgctxt "@title:window"
+msgid "Edit Board Layout"
+msgstr "Golygu Haenlun y Bwrdd"
+
+#: src/editor.cpp:111
+#, kde-format
+msgid "New board"
+msgstr "Bwrdd newydd"
+
+#: src/editor.cpp:118
+#, kde-format
+msgid "Open board"
+msgstr "Agor bwrdd"
+
+#: src/editor.cpp:125
+#, kde-format
+msgid "Save board"
+msgstr "Cadw bwrdd"
+
+#: src/editor.cpp:135
+#, kde-format
+msgid "Select"
+msgstr "Dewis"
+
+#: src/editor.cpp:140
+#, kde-format
+msgid "Cut"
+msgstr ""
+
+#: src/editor.cpp:145
+#, kde-format
+msgid "Copy"
+msgstr ""
+
+#: src/editor.cpp:150
+#, kde-format
+msgid "Paste"
+msgstr ""
+
+#: src/editor.cpp:157
+#, kde-format
+msgid "Move tiles"
+msgstr "Symud teiliau"
+
+#: src/editor.cpp:161
+#, kde-format
+msgid "Add tiles"
+msgstr "Ychwanegu teiliau"
+
+#: src/editor.cpp:164
+#, kde-format
+msgid "Remove tiles"
+msgstr "Gwaredu teiliau"
+
+#: src/editor.cpp:188
+#, kde-format
+msgid "Shift left"
+msgstr "Symud i'r chwith"
+
+#: src/editor.cpp:194
+#, kde-format
+msgid "Shift up"
+msgstr "Symud i fyny"
+
+#: src/editor.cpp:200
+#, kde-format
+msgid "Shift down"
+msgstr "Symud i lawr"
+
+#: src/editor.cpp:206
+#, kde-format
+msgid "Shift right"
+msgstr "Symur i'r dde"
+
+#: src/editor.cpp:288
+#, kde-format
+msgid "Tiles: %1 Pos: %2,%3,%4"
+msgstr "Teiliau: %1 Lle: %2,%3,%4"
+
+#: src/editor.cpp:297
+#, kde-format
+msgid "Open Board Layout"
+msgstr "Agor Haenlun y Bwrdd"
+
+#: src/editor.cpp:298 src/editor.cpp:336
+#, fuzzy, kde-format
+#| msgid ""
+#| "*.layout|Board Layout (*.layout)\n"
+#| "*|All Files"
+msgid "Board Layout (*.layout);;All Files (*)"
+msgstr ""
+" *.layout|Haenlun y bwrdd (*.layout)\n"
+" *|Pob Ffeil"
+
+#: src/editor.cpp:329
+#, kde-format
+msgid "You can only save with a even number of tiles."
+msgstr ""
+
+#: src/editor.cpp:335 src/editor.cpp:347
+#, kde-format
+msgid "Save Board Layout"
+msgstr "Cadw Haenlun y Bwrdd"
+
+#: src/editor.cpp:346
+#, kde-format
+msgid "A file with that name already exists. Do you wish to overwrite it?"
+msgstr ""
+"Mae ffeil efo'r enw hwn mewn bod eisoes.  Ydych eisiau ei throsysgrifo?"
+
+#: src/editor.cpp:375
+#, kde-format
+msgid "The board has been modified. Would you like to save the changes?"
+msgstr "Mae'r bwrdd wedi'i addasu.  Ydych eisiau cadw'r newidiadau?"
+
+#: src/editor.cpp:383
+#, kde-format
+msgid "Save failed. Aborting operation."
+msgstr "Methwyd cadw.  Erthylu'r gweithrediad."
+
+#: src/gameremovedtiles.cpp:127
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgid "Removed tiles"
+msgstr "Gwaredu teiliau"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
+#: src/gametype.ui:25
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Random Layout"
+msgstr "Golygu Haenlun y Bwrdd"
+
+#. i18n: ectx: property (text), widget (QPushButton, getNewButton)
+#: src/gametype.ui:51
+#, kde-format
+msgid "&Get New Layouts"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/gametype.ui:60
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gametype.ui:93
+#, fuzzy, kde-format
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
+msgid "Layout Details"
+msgstr "kyfieithu@dotmon.com"
+
+#. i18n: ectx: property (text), widget (QLabel, labelAuthor)
+#: src/gametype.ui:113
+#, kde-format
+msgid "Author:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelContact)
+#: src/gametype.ui:123
+#, kde-format
+msgid "Contact:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelDescription)
+#: src/gametype.ui:133
+#, kde-format
+msgid "Description:"
+msgstr ""
+
+#: src/gameview.cpp:135 src/gameview.cpp:246
+#, kde-format
+msgid "Ready. Now it is your turn."
+msgstr "Parod.  Eich tro chi rwan."
+
+#: src/gameview.cpp:157
+#, kde-format
+msgid "Undo operation done successfully."
+msgstr "Llwyddodd y gweithrediad dadwneud."
+
+#: src/gameview.cpp:162
+#, kde-format
+msgid "What do you want to undo? You have done nothing!"
+msgstr "Beth ydych eisiau ei dadwneud?  Nid ydych wedi gwneud rhywbeth eto!"
+
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#, kde-format
+msgid "Your computer has lost the game."
+msgstr "Mae eich cyfrifiadur wedi colli'r gêm."
+
+#: src/gameview.cpp:203
+#, kde-format
+msgid "Calculating new game..."
+msgstr "Cyfrif gêm newydd..."
+
+#: src/gameview.cpp:261
+#, kde-format
+msgid "Error generating new game!"
+msgstr "Gwall wrth greu gêm newydd!"
+
+#: src/gameview.cpp:366
+#, kde-format
+msgid "Demo mode. Click mousebutton to stop."
+msgstr "Modd arddangos.  Cliciwch fotwm y llygoden i atal."
+
+#: src/kmahjongg.cpp:140
+#, kde-format
+msgid "New Numbered Game..."
+msgstr "Gêm Rhif Newydd..."
+
+#: src/kmahjongg.cpp:147
+#, kde-format
+msgid "Shu&ffle"
+msgstr "Cymys&gu"
+
+#: src/kmahjongg.cpp:152
+#, kde-format
+msgid "Rotate View Counterclockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:158
+#, kde-format
+msgid "Rotate View Clockwise"
+msgstr ""
+
+#: src/kmahjongg.cpp:178
+#, kde-format
+msgid "&Board Editor"
+msgstr "Golygydd &Bwrdd"
+
+#: src/kmahjongg.cpp:197
+#, fuzzy, kde-format
+msgid "Time: 0:00:00"
+msgstr "Amser"
+
+#: src/kmahjongg.cpp:204
+#, kde-format
+msgid "Removed: 0000/0000"
+msgstr ""
+
+#: src/kmahjongg.cpp:211
+#, kde-format
+msgid "Game: 000000000000000000000"
+msgstr ""
+
+#: src/kmahjongg.cpp:224
+#, fuzzy, kde-format
+msgid "Time: "
+msgstr "Amser"
+
+#: src/kmahjongg.cpp:230
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Cadw'r Gêm"
+
+#: src/kmahjongg.cpp:230
+#, kde-format
+msgid "Enter game number:"
+msgstr "Rhowch rhif i'r gêm:"
+
+#: src/kmahjongg.cpp:265
+#, kde-format
+msgid "General"
+msgstr "Cyffredinol"
+
+#: src/kmahjongg.cpp:266
+#, fuzzy, kde-format
+#| msgid "Edit Board Layout"
+msgid "Board Layout"
+msgstr "Golygu Haenlun y Bwrdd"
+
+#: src/kmahjongg.cpp:403
+#, fuzzy, kde-format
+#| msgid "Game over: You have no moves left."
+msgid "Game Over: You have no moves left."
+msgstr "Gêm drosodd: nid oes gennych symudiadau yn weddill."
+
+#: src/kmahjongg.cpp:404
+#, kde-format
+msgid "Game Over"
+msgstr ""
+
+#: src/kmahjongg.cpp:405
+#, fuzzy, kde-format
+msgid "New Game"
+msgstr "Cadw'r Gêm"
+
+#: src/kmahjongg.cpp:406
+#, kde-format
+msgid "Restart"
+msgstr ""
+
+#: src/kmahjongg.cpp:508
+#, kde-format
+msgid "You have won!"
+msgstr "Chi sydd wedi enill!"
+
+#: src/kmahjongg.cpp:548
+#, kde-format
+msgid "Game number: %1"
+msgstr "Gêm rhif: %1"
+
+#: src/kmahjongg.cpp:558
+#, kde-format
+msgid "Removed: %1/%2  Combinations left: %3"
+msgstr "Gwaredwyd: %1/%2  Cyfuniadau yn weddill: %3"
+
+#: src/kmahjongg.cpp:619
+#, fuzzy, kde-format
+#| msgid "Load Game"
+msgctxt "@title:window"
+msgid "Load Game"
+msgstr "Llwytho Gêm"
+
+#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#, kde-format
+msgid "KMahjongg Game (*.kmgame)"
+msgstr ""
+
+#: src/kmahjongg.cpp:628
+#, kde-format
+msgid "Could not read from file. Aborting."
+msgstr "Methu darllen o'r ffeil.  Erthylu."
+
+#: src/kmahjongg.cpp:639
+#, kde-format
+msgid "File is not a KMahjongg game."
+msgstr ""
+
+#: src/kmahjongg.cpp:652
+#, kde-format
+msgid "File format not recognized."
+msgstr "Ni adnabyddir ffurfwedd y ffeil."
+
+#: src/kmahjongg.cpp:694
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgctxt "@title:window"
+msgid "Save Game"
+msgstr "Cadw Thema"
+
+#: src/kmahjongg.cpp:704
+#, fuzzy, kde-format
+#| msgid "Could not write to file. Aborting."
+msgid "Could not open file for saving."
+msgstr "Methu ysgrifennu i'r ffeil.  Erthylu."
+
+#: src/kmahjongg.cpp:740
+#, kde-format
+msgid "Do you want to save your game?"
+msgstr ""
+
+#: src/kmahjongg.cpp:740
+#, fuzzy, kde-format
+#| msgid "Save Theme"
+msgid "Save game?"
+msgstr "Cadw Thema"
+
+#. i18n: ectx: label, entry (TileSet), group (General)
+#: src/kmahjongg.kcfg:9
+#, kde-format
+msgid "The tile-set to use."
+msgstr "Y set teiliau i'w ddefnyddio."
+
+#. i18n: ectx: label, entry (Background), group (General)
+#: src/kmahjongg.kcfg:12
+#, kde-format
+msgid "The background to use."
+msgstr "Y cefndir i'w ddefnyddio."
+
+#. i18n: ectx: label, entry (Layout), group (General)
+#: src/kmahjongg.kcfg:15
+#, kde-format
+msgid "The layout of the tiles."
+msgstr "Haenlun y teiliau."
+
+#. i18n: ectx: label, entry (RemovedTiles), group (General)
+#: src/kmahjongg.kcfg:21
+#, fuzzy, kde-format
+#| msgid "Whether to show removed tiles."
+msgid "Whether the removed tiles will be shown on the board."
+msgstr "A ddylid dangos teiliau a waredwyd."
+
+#. i18n: ectx: label, entry (RandomLayout), group (General)
+#: src/kmahjongg.kcfg:25
+#, kde-format
+msgid "Whether a random layout is chosen on startup."
+msgstr ""
+
+#. i18n: ectx: label, entry (SolvableGames), group (General)
+#: src/kmahjongg.kcfg:29
+#, kde-format
+msgid "Whether all games should be solvable."
+msgstr "A ddylid gallu datrys pob gêm."
+
+#. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
+#: src/kmahjongg.kcfg:33
+#, kde-format
+msgid "Whether matching tiles are shown."
+msgstr "A ddylid dangos teiliau cydweddol."
+
+#. i18n: ectx: Menu (game)
+#: src/kmahjonggui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Enw"
+
+#. i18n: ectx: Menu (move)
+#: src/kmahjonggui.rc:14
+#, kde-format
+msgid "&Move"
+msgstr "Sy&mud"
+
+#. i18n: ectx: Menu (view)
+#: src/kmahjonggui.rc:17
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/kmahjonggui.rc:23
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: src/main.cpp:30
+#, kde-format
+msgid "KMahjongg"
+msgstr "KMahjongg"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+msgid "Mahjongg Solitaire by KDE"
+msgstr "Mahjongg ar gyfer KDE"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Mathias Mueller"
+msgstr ""
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Awdur Gwreiddiol"
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Christian Krippendorf"
+msgstr ""
+
+#: src/main.cpp:38
+#, kde-format
+msgid "Current maintainer"
+msgstr "Cynhaliwr cyfredol"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Bug fixes"
+msgstr ""
+
+#: src/main.cpp:40
+#, kde-format
+msgid "David Black"
+msgstr ""
+
+#: src/main.cpp:40
+#, fuzzy, kde-format
+msgid "KDE 3 rewrite and Extension"
+msgstr "Ailysgrifennu ac Ymestyn"
+
+#: src/main.cpp:41
+#, kde-format
+msgid "Michael Haertjens"
+msgstr ""
+
+#: src/main.cpp:41
+#, kde-format
+msgid ""
+"Solvable game generation\n"
+"based on algorithm by Michael Meeks in GNOME mahjongg"
+msgstr ""
+"Seilir y côd i greu gemau a ellir eu datrys ar\n"
+"algorithm gan Michael Meeks yn mahjongg GNOME"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Raquel Ravanini"
+msgstr ""
+
+#: src/main.cpp:42
+#, kde-format
+msgid "SVG Tileset for KDE4"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Richard Lohman"
+msgstr ""
+
+#: src/main.cpp:43
+#, fuzzy, kde-format
+msgid "Tile set contributor and current web page maintainer"
+msgstr "Cyfrannwr set teiliau a cynhaliwr gwefan"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Osvaldo Stark"
+msgstr ""
+
+#: src/main.cpp:44
+#, fuzzy, kde-format
+msgid "Tile set contributor and original web page maintainer"
+msgstr "Cyfrannwr set teiliau a cynhaliwr gwefan"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Code cleanup"
+msgstr "Glanhau'r côd"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
+#: src/settings.ui:22
+#, kde-format
+msgid "Blink matching tiles when first one is selected"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
+#: src/settings.ui:29
+#, kde-format
+msgid "Generate solvable games"
+msgstr "Creu gemau a ellir eu datrys"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
+#: src/settings.ui:36
+#, kde-format
+msgid "Show removed tiles"
+msgstr "Dangos teiliau a waredwyd"
+
+#~ msgid "Sorry, you have lost the game."
+#~ msgstr "Sori, rydych wedi colli'r gêm."
+
+#, fuzzy
+#~ msgid "Now it is you again."
+#~ msgstr "Eich tro chi unwaith eto."
+
+#~ msgid "Congratulations. You have won!"
+#~ msgstr "Llongyfarchiadau.  Rydych wedi ennill!"
+
+#~ msgid "Error converting board information!"
+#~ msgstr "Gwall wrth drosi gwybodaeth y bwrdd!"
+
+#~ msgid "Only saving to local files currently supported."
+#~ msgstr "Cynhelir cadw i ffeiliau lleol yn unig ar hyn o bryd."
+
+#, fuzzy
+#~| msgid "Could not write to file. Aborting."
+#~ msgid "Could not write saved game."
+#~ msgstr "Methu ysgrifennu i'r ffeil.  Erthylu."
+
+#, fuzzy
+#~ msgid "&Edit"
+#~ msgstr "Terfynu"
+
+#~ msgid "Load..."
+#~ msgstr "Llwytho..."
+
+#~ msgid "Change Background Image"
+#~ msgstr "Newid Delwedd Gefndir"
+
+#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
+#~ msgstr " *.bgnd|Delwedd Gefndir (*.bgnd)\n"
+
+#~ msgid "Change Tile Set"
+#~ msgstr "Newid Set Teiliau"
+
+#~ msgid "*.tileset|Tile Set File (*.tileset)\n"
+#~ msgstr "*.tileset|Ffeil Set Teiliau\n"
+
+#~ msgid "*.layout|Board Layout File (*.layout)\n"
+#~ msgstr "*.layout|Ffeil Haenlun Bwrdd\n"
+
+#~ msgid "Change Board Layout"
+#~ msgstr "Newid Haenlun y Bwrdd"
+
+#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
+#~ msgstr "*.theme|Thema KMahjongg\n"
+
+#~ msgid "Choose Theme"
+#~ msgstr "Dewis Thema"
+
+#~ msgid "*|All Files"
+#~ msgstr "*|Pob Ffeil"
+
+#~ msgid "That is not a valid theme file."
+#~ msgstr "Nid ffeil thema ddilys yw hon."
+
+#~ msgid "Save Theme"
+#~ msgstr "Cadw Thema"
+
+#~ msgid "Overwrite"
+#~ msgstr "Trosysgrifo"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred when loading the board layout %1\n"
+#~ "KMahjongg will continue with the default layout."
+#~ msgstr ""
+#~ "Digwyddodd gwall wrth lwytho'r haenlun bwrdd %1\n"
+#~ "Bydd KMahjongg yn terfynu rwan."
+
+#~ msgid ""
+#~ "KMahjongg could not locate the file: %1\n"
+#~ "or the default file of type: %2\n"
+#~ "KMahjongg will now terminate"
+#~ msgstr ""
+#~ "Ni allodd KMahjongg leoli'r ffeil: %1\n"
+#~ "neu'r ffeil rhagosodol o fath: %2\n"
+#~ "Bydd KMahjongg yn terfynu rwan"
+
+#~ msgid "Open La&yout..."
+#~ msgstr "Agor &Haenlun..."
+
+#~ msgid "Show &Matching Tiles"
+#~ msgstr "Dangos Teiliau Cyd&weddol"
+
+#~ msgid "Hide &Matching Tiles"
+#~ msgstr "Cuddio Teili&au Cydweddol"
+
+#~ msgid "Pos"
+#~ msgstr "Lle"
+
+#~ msgid "Name"
+#~ msgstr "Enw"
+
+#~ msgid "Board"
+#~ msgstr "Bwrdd"
+
+#~ msgid "Score"
+#~ msgstr "Sgôr"
+
+#~ msgid "Time"
+#~ msgstr "Amser"
+
+#~ msgid "Scores"
+#~ msgstr "Sgoriau"
+
+#~ msgid "Anonymous"
+#~ msgstr "Dienw"
+
+#~ msgid ""
+#~ "Resetting the high scores will remove all high score entries both in "
+#~ "memory and on disk. Do you wish to proceed?"
+#~ msgstr ""
+#~ "Bydd ailosod y sgorau gorau yn gwaredu pob cofnod sgôr gorau yn y cof ac "
+#~ "ar y ddisg.  Ydych eisiau mynd ymlaen?"
+
+#~ msgid "Reset High Scores"
+#~ msgstr "Ailosod Sgoriau Gorau"
+
+#~ msgid "Reset"
+#~ msgstr "Ailosod"
+
+#~ msgid ""
+#~ "An error occurred when loading the tileset file %1\n"
+#~ "KMahjongg will now terminate."
+#~ msgstr ""
+#~ "Digwyddodd gwall wrth lwytho'r ffeil set teiliau %1\n"
+#~ "Bydd KMahjongg yn terfynu rwan."
+
+#~ msgid ""
+#~ "An error occurred when loading the background image\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Digwyddodd gwall wrth lwytho'r ddelwedd gefndir\n"
+#~ "%1"
+
+#~ msgid "KMahjongg will now terminate."
+#~ msgstr "Bydd KMahjongg yn terfynu rwan."
+
+#~ msgid ""
+#~ "Failed to load image:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Methwyd llwytho delwedd:\n"
+#~ " %1"
+
+#~ msgid "Open Th&eme..."
+#~ msgstr "Agor T&hema..."
+
+#~ msgid "Open &Tileset..."
+#~ msgstr "Agor Set &Teiliau..."
+
+#~ msgid "Open &Background..."
+#~ msgstr "Agor Ce&fndir..."
+
+#~ msgid "Sa&ve Theme..."
+#~ msgstr "Datr&ys Thema..."
+
+#~ msgid "Play winning animation"
+#~ msgstr "Chwarae byluniad wrth ennill"
+
+#~ msgid "Background"
+#~ msgstr "Cefndir"
+
+#~ msgid "Scale"
+#~ msgstr "Chwyddo"
+
+#~ msgid "Tiled"
+#~ msgstr "Wedi'i deilio"
+
+#~ msgid "Tiles"
+#~ msgstr "Teiliau"
+
+#~ msgid "Draw shadows"
+#~ msgstr "Darlunio cysgodion"
+
+#~ msgid "Use mini-tiles"
+#~ msgstr "Defnyddio teiliau bach"
+
+#~ msgid "Whether to use miniature tiles."
+#~ msgstr "A ddylid dangos teiliau bach."
+
+#~ msgid "Whether the tiles have shadows."
+#~ msgstr "A ddylid dangos cysgodion ar y teiliau."
+
+#~ msgid "Whether the background should be tiled instead of scaled."
+#~ msgstr "A ddylid teilio'r cefndir yn lle ei raddio."
+
+#~ msgid "Whether an animation should be played on victory."
+#~ msgstr "A ddylid chwarae bywluniad wrth ennill."
