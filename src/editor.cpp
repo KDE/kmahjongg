@@ -20,6 +20,7 @@
 #include <QActionGroup>
 
 // KF
+#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -371,11 +372,19 @@ bool Editor::testSave()
         return true;
     }
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    const int res = KMessageBox::warningTwoActionsCancel(this,
+#else
     const int res = KMessageBox::warningYesNoCancel(this,
+#endif
                                                     i18n("The board has been modified. Would you like to save the changes?"),
                                                     QString(), KStandardGuiItem::save(), KStandardGuiItem::dontSave());
 
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (res == KMessageBox::PrimaryAction) {
+#else
     if (res == KMessageBox::Yes) {
+#endif
         // yes to save
         if (saveBoard()) {
             return true;
