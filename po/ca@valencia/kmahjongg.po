@@ -362,7 +362,7 @@ msgstr "Format de fitxer no reconegut."
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "Guardada de la partida"
+msgstr "Guardeu la partida"
 
 #: src/kmahjongg.cpp:704
 #, kde-format
