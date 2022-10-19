@@ -20,6 +20,7 @@
   <name xml:lang="hu">KMahjongg</name>
   <name xml:lang="id">KMahjongg</name>
   <name xml:lang="it">KMahjongg</name>
+  <name xml:lang="ka">KMahjongg</name>
   <name xml:lang="ko">KMahjongg</name>
   <name xml:lang="nl">KMahjongg</name>
   <name xml:lang="nn">KMahjongg</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="hu">Majong kirakó</summary>
   <summary xml:lang="id">Mahjong Solitaire</summary>
   <summary xml:lang="it">Solitario Mahjong</summary>
+  <summary xml:lang="ka">Mahjong Solitaire</summary>
   <summary xml:lang="ko">마작 카드 게임</summary>
   <summary xml:lang="nl">Mahjong Solitaire</summary>
   <summary xml:lang="nn">Mahjongg-kabal</summary>
@@ -138,6 +140,7 @@
       <caption xml:lang="hu">Játék a KMahjonggal</caption>
       <caption xml:lang="id">Memainkan KMahjongg</caption>
       <caption xml:lang="it">Giocare con KMahjongg</caption>
+      <caption xml:lang="ka">KMahjongg-ის თამაში</caption>
       <caption xml:lang="ko">KMahjongg 플레이</caption>
       <caption xml:lang="nl">KMahjongg spelen</caption>
       <caption xml:lang="nn">Spelar KMahjongg</caption>
