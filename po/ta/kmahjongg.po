@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2021-01-18 19:16+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -26,94 +26,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tamilpc@ambalam.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:72
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "உருவரை போர்டை திருத்து"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:112
 #, kde-format
 msgid "New board"
 msgstr "புதிய போர்டு"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:119
 #, kde-format
 msgid "Open board"
 msgstr "போர்டை திற"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:126
 #, kde-format
 msgid "Save board"
 msgstr "போர்டுடை சேமி"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:136
 #, kde-format
 msgid "Select"
 msgstr "தேர்வு"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:141
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: src/editor.cpp:145
+#: src/editor.cpp:146
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: src/editor.cpp:150
+#: src/editor.cpp:151
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: src/editor.cpp:157
+#: src/editor.cpp:158
 #, kde-format
 msgid "Move tiles"
 msgstr "பின்னணியை நகர்த்து"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:162
 #, kde-format
 msgid "Add tiles"
 msgstr "பின்னணியை சேர்"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:165
 #, kde-format
 msgid "Remove tiles"
 msgstr "பின்னணியை அகற்று"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:189
 #, kde-format
 msgid "Shift left"
 msgstr "இடது பக்கம் நகர்த்து"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:195
 #, kde-format
 msgid "Shift up"
 msgstr "மேல் ஏற்று"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:201
 #, kde-format
 msgid "Shift down"
 msgstr "கீழ் இறக்கு"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:207
 #, kde-format
 msgid "Shift right"
 msgstr "வலது பக்கம் நகற்று"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:289
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "பின்னணி:%1 இடம்:%2%3%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:298
 #, kde-format
 msgid "Open Board Layout"
 msgstr "உருவரை போர்டை திற"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:299 src/editor.cpp:337
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -121,27 +121,27 @@ msgstr "உருவரை போர்டை திற"
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "உருவரை போர்டு"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:330
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:336 src/editor.cpp:348
 #, kde-format
 msgid "Save Board Layout"
 msgstr "உருவரை போர்டை சேமி"
 
-#: src/editor.cpp:346
+#: src/editor.cpp:347
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "இந்த பெயரில் கோப்பு உள்ளது. நீங்கள் மறுபடியும் எழுத விரும்புகிறீர்களா?"
 
-#: src/editor.cpp:375
+#: src/editor.cpp:380
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "பலகை புதுப்பிக்கப்பட்டது. நீங்கள் மாற்றங்களை சேமிக்க விரும்புகிறீர்களா?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:392
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "சேமிப்பு தடுக்கப்பட்டுள்ளது.தேர்வு தடுக்கப்பட்டுவிட்டது."
@@ -212,7 +212,7 @@ msgstr "கைவிடப்பட்ட தேர்வு வெற்றி�
 msgid "What do you want to undo? You have done nothing!"
 msgstr "நீங்கள் எதை ரத்து செய்ய வேண்டும்? நீங்கள் எதுவுமே செய்யவில்லை!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:486
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "உங்கள் கனிணி விளையாட்டில் தோல்வி அடைந்தது"
@@ -232,155 +232,155 @@ msgstr "புதிய விளையாட்டை செயல்படு�
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "காட்சி வகை.சுட்டி பொத்தானை நிறுத்துவதற்கு அழுத்து"
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "புதிய எண்களுடன் விளையாட்டு"
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "கலைப்பு"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "&போர்டு திருத்தி"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, fuzzy, kde-format
 msgid "Time: 0:00:00"
 msgstr "நேரம்"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr ""
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr ""
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, fuzzy, kde-format
 msgid "Time: "
 msgstr "நேரம்"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "விளையாட்டை சேமி"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "விளையாட்டு எண்களை உள்ளிடு:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "பொது"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgid "Board Layout"
 msgstr "உருவரை போர்டை திருத்து"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:408
 #, fuzzy, kde-format
 #| msgid "Game over: You have no moves left."
 msgid "Game Over: You have no moves left."
 msgstr "விளையாட்டு முடிந்தது. உங்களுக்கு எதுவும் இல்லை"
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:409
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:410
 #, fuzzy, kde-format
 msgid "New Game"
 msgstr "விளையாட்டை சேமி"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:411
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:508
+#: src/kmahjongg.cpp:521
 #, kde-format
 msgid "You have won!"
 msgstr "நீங்கள் வென்றுவிட்டீர்கள்!"
 
-#: src/kmahjongg.cpp:548
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Game number: %1"
 msgstr "விளையாட்டு எண்:%1"
 
-#: src/kmahjongg.cpp:558
+#: src/kmahjongg.cpp:571
 #, fuzzy, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "அகற்றியவை: %1/%2  மீதமுள்ள : %3"
 
-#: src/kmahjongg.cpp:619
+#: src/kmahjongg.cpp:632
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "விளையாட்டை ஏற்று"
 
-#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:628
+#: src/kmahjongg.cpp:641
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "கோப்பிலிருந்து படிக்க முடியாது . நிறுத்தப்பட்டுள்ளது."
 
-#: src/kmahjongg.cpp:639
+#: src/kmahjongg.cpp:652
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:665
 #, kde-format
 msgid "File format not recognized."
 msgstr "கோப்பின் வடிவம் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:707
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "உருபொருளை சேமி"
 
-#: src/kmahjongg.cpp:704
+#: src/kmahjongg.cpp:717
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "கோப்பில் எழுத முடியாது"
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2007-10-28 14:02+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -29,93 +29,93 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "komzpa@licei2.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:72
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Рэдагаваць дошку"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:112
 #, kde-format
 msgid "New board"
 msgstr "Стварыць дошку"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:119
 #, kde-format
 msgid "Open board"
 msgstr "Адкрыць дошку"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:126
 #, kde-format
 msgid "Save board"
 msgstr "Запісаць дошку"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:136
 #, kde-format
 msgid "Select"
 msgstr "Выбраць"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:141
 #, kde-format
 msgid "Cut"
 msgstr "Выразаць"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:146
 #, kde-format
 msgid "Copy"
 msgstr "Скапіраваць"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:151
 #, kde-format
 msgid "Paste"
 msgstr "Уставіць"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:158
 #, kde-format
 msgid "Move tiles"
 msgstr "Перамясціць пліткі"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:162
 #, kde-format
 msgid "Add tiles"
 msgstr "Дадаць пліткі"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:165
 #, kde-format
 msgid "Remove tiles"
 msgstr "Прыбраць пліткі"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:189
 #, kde-format
 msgid "Shift left"
 msgstr "Зрушыць налева"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:195
 #, kde-format
 msgid "Shift up"
 msgstr "Зрушыць уверх"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:201
 #, kde-format
 msgid "Shift down"
 msgstr "Зрушыць уніз"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:207
 #, kde-format
 msgid "Shift right"
 msgstr "Зрушыць направа"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:289
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Пліткі: %1 Пазіцыя: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:298
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Адкрыць раскладку дошкі"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:299 src/editor.cpp:337
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -125,27 +125,27 @@ msgstr ""
 "*.layout|Файл дошкі (*.layout)\n"
 "*|Усе файлы"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:330
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:336 src/editor.cpp:348
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Запісаць раскладку дошкі"
 
-#: src/editor.cpp:346
+#: src/editor.cpp:347
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "Файл з такім імем ужо існуе. Замяніць яго?"
 
-#: src/editor.cpp:375
+#: src/editor.cpp:380
 #, fuzzy, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Дошка змененая. Захаваць змены?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:392
 #, fuzzy, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Не атрымліваецца захаваць. Адмена."
@@ -215,7 +215,7 @@ msgstr "Папярэдні ход скасаваны."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Што вы жадаеце адмяніць? Вы жа дагэтуль не хадзілі!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:486
 #, fuzzy, kde-format
 msgid "Your computer has lost the game."
 msgstr "Кампутар прайграў."
@@ -235,151 +235,151 @@ msgstr "Памылка пры пабудове новай гульні!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Рэжым дэманстрацыі. Націсніце кнопку мышы для прыпынку."
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, fuzzy, kde-format
 msgid "New Numbered Game..."
 msgstr "Новая гульня па нумары..."
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, fuzzy, kde-format
 msgid "Shu&ffle"
 msgstr "Змяшаць"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, fuzzy, kde-format
 msgid "&Board Editor"
 msgstr "Рэдактар дошкі"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, fuzzy, kde-format
 msgid "Time: 0:00:00"
 msgstr "Час: "
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr ""
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr ""
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, fuzzy, kde-format
 msgid "Time: "
 msgstr "Час: "
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Новая гульня"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 msgid "Enter game number:"
 msgstr "Увядзіце нумар гульні:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, fuzzy, kde-format
 msgid "General"
 msgstr "Агульныя"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, fuzzy, kde-format
 msgid "Board Layout"
 msgstr "Рэдагаваць дошку"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:408
 #, fuzzy, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "Гульня скончаная: больш хадоў няма."
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:409
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:410
 #, fuzzy, kde-format
 msgid "New Game"
 msgstr "Новая гульня"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:411
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:508
+#: src/kmahjongg.cpp:521
 #, fuzzy, kde-format
 msgid "You have won!"
 msgstr "Вы выйгралі!"
 
-#: src/kmahjongg.cpp:548
+#: src/kmahjongg.cpp:561
 #, fuzzy, kde-format
 msgid "Game number: %1"
 msgstr "Нумар гульні: %1"
 
-#: src/kmahjongg.cpp:558
+#: src/kmahjongg.cpp:571
 #, fuzzy, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Знята: %1/%2  Засталося камбінацый: %3"
 
-#: src/kmahjongg.cpp:619
+#: src/kmahjongg.cpp:632
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Загрузіць гульню"
 
-#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:628
+#: src/kmahjongg.cpp:641
 #, fuzzy, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Не атрымліваецца прачытаць з файла. Адмена."
 
-#: src/kmahjongg.cpp:639
+#: src/kmahjongg.cpp:652
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:665
 #, fuzzy, kde-format
 msgid "File format not recognized."
 msgstr "Невядомы фармат файла."
 
-#: src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:707
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Захаваць схему"
 
-#: src/kmahjongg.cpp:704
+#: src/kmahjongg.cpp:717
 #, fuzzy, kde-format
 msgid "Could not open file for saving."
 msgstr "Не атрымліваецца запісаць файл. Адмена."
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"

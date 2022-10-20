@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2005-09-21 09:16+0100\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -31,94 +31,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kyfieithu@dotmon.com,,"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:72
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Golygu Haenlun y Bwrdd"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:112
 #, kde-format
 msgid "New board"
 msgstr "Bwrdd newydd"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:119
 #, kde-format
 msgid "Open board"
 msgstr "Agor bwrdd"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:126
 #, kde-format
 msgid "Save board"
 msgstr "Cadw bwrdd"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:136
 #, kde-format
 msgid "Select"
 msgstr "Dewis"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:141
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: src/editor.cpp:145
+#: src/editor.cpp:146
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: src/editor.cpp:150
+#: src/editor.cpp:151
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: src/editor.cpp:157
+#: src/editor.cpp:158
 #, kde-format
 msgid "Move tiles"
 msgstr "Symud teiliau"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:162
 #, kde-format
 msgid "Add tiles"
 msgstr "Ychwanegu teiliau"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:165
 #, kde-format
 msgid "Remove tiles"
 msgstr "Gwaredu teiliau"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:189
 #, kde-format
 msgid "Shift left"
 msgstr "Symud i'r chwith"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:195
 #, kde-format
 msgid "Shift up"
 msgstr "Symud i fyny"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:201
 #, kde-format
 msgid "Shift down"
 msgstr "Symud i lawr"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:207
 #, kde-format
 msgid "Shift right"
 msgstr "Symur i'r dde"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:289
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Teiliau: %1 Lle: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:298
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Agor Haenlun y Bwrdd"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:299 src/editor.cpp:337
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -128,28 +128,28 @@ msgstr ""
 " *.layout|Haenlun y bwrdd (*.layout)\n"
 " *|Pob Ffeil"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:330
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:336 src/editor.cpp:348
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Cadw Haenlun y Bwrdd"
 
-#: src/editor.cpp:346
+#: src/editor.cpp:347
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr ""
 "Mae ffeil efo'r enw hwn mewn bod eisoes.  Ydych eisiau ei throsysgrifo?"
 
-#: src/editor.cpp:375
+#: src/editor.cpp:380
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Mae'r bwrdd wedi'i addasu.  Ydych eisiau cadw'r newidiadau?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:392
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Methwyd cadw.  Erthylu'r gweithrediad."
@@ -220,7 +220,7 @@ msgstr "Llwyddodd y gweithrediad dadwneud."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Beth ydych eisiau ei dadwneud?  Nid ydych wedi gwneud rhywbeth eto!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:486
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Mae eich cyfrifiadur wedi colli'r gêm."
@@ -240,155 +240,155 @@ msgstr "Gwall wrth greu gêm newydd!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Modd arddangos.  Cliciwch fotwm y llygoden i atal."
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Gêm Rhif Newydd..."
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "Cymys&gu"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "Golygydd &Bwrdd"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, fuzzy, kde-format
 msgid "Time: 0:00:00"
 msgstr "Amser"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr ""
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr ""
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, fuzzy, kde-format
 msgid "Time: "
 msgstr "Amser"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Cadw'r Gêm"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "Rhowch rhif i'r gêm:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "Cyffredinol"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgid "Board Layout"
 msgstr "Golygu Haenlun y Bwrdd"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:408
 #, fuzzy, kde-format
 #| msgid "Game over: You have no moves left."
 msgid "Game Over: You have no moves left."
 msgstr "Gêm drosodd: nid oes gennych symudiadau yn weddill."
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:409
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:410
 #, fuzzy, kde-format
 msgid "New Game"
 msgstr "Cadw'r Gêm"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:411
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:508
+#: src/kmahjongg.cpp:521
 #, kde-format
 msgid "You have won!"
 msgstr "Chi sydd wedi enill!"
 
-#: src/kmahjongg.cpp:548
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Game number: %1"
 msgstr "Gêm rhif: %1"
 
-#: src/kmahjongg.cpp:558
+#: src/kmahjongg.cpp:571
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Gwaredwyd: %1/%2  Cyfuniadau yn weddill: %3"
 
-#: src/kmahjongg.cpp:619
+#: src/kmahjongg.cpp:632
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Llwytho Gêm"
 
-#: src/kmahjongg.cpp:619 src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:628
+#: src/kmahjongg.cpp:641
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Methu darllen o'r ffeil.  Erthylu."
 
-#: src/kmahjongg.cpp:639
+#: src/kmahjongg.cpp:652
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:665
 #, kde-format
 msgid "File format not recognized."
 msgstr "Ni adnabyddir ffurfwedd y ffeil."
 
-#: src/kmahjongg.cpp:694
+#: src/kmahjongg.cpp:707
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Cadw Thema"
 
-#: src/kmahjongg.cpp:704
+#: src/kmahjongg.cpp:717
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "Methu ysgrifennu i'r ffeil.  Erthylu."
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:740
+#: src/kmahjongg.cpp:757
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
