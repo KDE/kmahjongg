@@ -518,7 +518,7 @@ msgid ""
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
 "Generació de partides amb solució\n"
-"basada en l'algorisme d'en Michael Meeks del mahjongg del GNOME"
+"basada en l'algorisme d'en Michael Meeks del mahjongg de GNOME"
 
 #: src/main.cpp:42
 #, kde-format
