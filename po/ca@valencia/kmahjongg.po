@@ -37,7 +37,7 @@ msgstr "frandeve@hotmail.com,aacid@kde.org,aleixpol@gmail.com"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "Edició de la disposició del tauler"
+msgstr "Editeu la disposició del tauler"
 
 #: src/editor.cpp:112
 #, kde-format
@@ -367,7 +367,7 @@ msgstr "Guardeu la partida"
 #: src/kmahjongg.cpp:717
 #, kde-format
 msgid "Could not open file for saving."
-msgstr "No s'ha pogut obrir el fitxer per a guardar."
+msgstr "No s'ha pogut obrir el fitxer per que es guardarà."
 
 #: src/kmahjongg.cpp:757
 #, kde-format
