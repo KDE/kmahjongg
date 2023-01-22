@@ -18,6 +18,12 @@
     <Action name="view_anglecw"/>
     <Action name="view_angleccw"/>
   </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <Menu name="enable_messages"><text>Enable messages</text>
+        <Action name="ask_save_game"/>
+        <Action name="info_game_won"/>
+    </Menu>
+  </Menu>
 </MenuBar>
 
 <ToolBar name="mainToolBar" noMerge="1"><text>Main Toolbar</text>
