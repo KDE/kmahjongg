@@ -26,6 +26,7 @@ GameScene::GameScene(QObject * parent)
     , m_pSecondSelectedItem(nullptr)
     , m_gameBackground(nullptr)
     , m_gameRemovedTiles(nullptr)
+    , m_rightMouseClickExclusively(true)
 {
     initializeGameItemsArray();
 }
@@ -258,17 +259,26 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
         }
     }
 
+    // If you want the right mouse click use for some other action.
+    if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+        Q_EMIT rightMousePressed(gameItem);
+
+        if (m_rightMouseClickExclusively) {
+            return;
+        }
+    }
+
     // No item was clicked.
     if (gameItem == nullptr) {
-        Q_EMIT clearSelectedTile();
+        Q_EMIT clearSelectedTile(); // Clears the selection of only one tile visual.
         mouseEvent->ignore();
         return;
     }
 
     // If the item is selectable go on with selection.
     if (isSelectable(gameItem)) {
-        clearSelection();
-        gameItem->setSelected(true);
+        clearSelection(); // Clears the selection by attribute in the scene.
+        gameItem->setSelected(true); // Sets the selection by item attribute, not by visual.
         mouseEvent->accept();
     } else {
         Q_EMIT clearSelectedTile();
@@ -282,4 +292,14 @@ void GameScene::wheelEvent(QGraphicsSceneWheelEvent * mouseEvent)
     } else {
         Q_EMIT rotateCCW();
     }
+}
+
+void GameScene::setRightMouseClickExclusively(bool rightMouseClickExclusively)
+{
+    m_rightMouseClickExclusively = rightMouseClickExclusively;
+}
+
+bool GameScene::getRightMouseClickExclusively() const
+{
+    return m_rightMouseClickExclusively;
 }

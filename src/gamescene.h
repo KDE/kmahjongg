@@ -126,10 +126,28 @@ public:
      */
     void setRemovedTilesItem(GameRemovedTiles * gameRemovedTiles);
 
+    /**
+     * Use the right mouse exclusively and for emitting.
+     *
+     * @param rightMouseClickExclusively true if you want to use the right mouse click exclusively, else false
+     */
+    void setRightMouseClickExclusively(bool rightMouseClickExclusively);
+
+    /**
+     * @return true if the right mouse click is used exclusively
+     */
+    bool getRightMouseClickExclusively() const;
+
 Q_SIGNALS:
     void rotateCW();
     void rotateCCW();
     void clearSelectedTile();
+
+    /**
+     * Right mouse has been clicked on the scene.
+     * @param gameItem the game item object that has been clicked on. This is nullptr if nothing has been clicked on.
+     */
+    void rightMousePressed(GameItem * gameItem);
 
 private:
     /**
@@ -148,6 +166,8 @@ private:
 
     GameBackground * m_gameBackground;
     GameRemovedTiles * m_gameRemovedTiles;
+
+    bool m_rightMouseClickExclusively;
 };
 
 #endif // GAMESCENE_H

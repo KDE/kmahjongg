@@ -87,6 +87,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     scene()->setRemovedTilesItem(m_gameRemovedTiles);
 
     m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
+    connect(scene(), &GameScene::rightMousePressed, this, &GameView::rightMouseAction);
 
     connect(m_demoAnimation, &DemoAnimation::changeItemSelectedState, this, &GameView::changeItemSelectedState);
     connect(m_demoAnimation, &DemoAnimation::removeItem, this, &GameView::removeItem);
@@ -261,6 +262,18 @@ void GameView::createNewGame(long gameNumber)
     setStatusText(i18n("Error generating new game!"));
 }
 
+void GameView::rightMouseAction(GameItem * gameItem)
+{
+    if (gameItem == nullptr) {
+        return;
+    }
+
+    helpMatch(gameItem);
+    if (m_selectedItem != nullptr) {
+        m_selectedItem->setSelected(true);
+    }
+}
+
 void GameView::selectionChanged()
 {
     QList<GameItem *> selectedGameItems = scene()->selectedItems();
@@ -427,7 +440,8 @@ void GameView::helpMatch(GameItem const * const gameItem)
     if ((matchCount = m_gameData->findAllMatchingTiles(stGameItemPos))) {
         // ...add them to the animation object...
         for (int i = 0; i < matchCount; ++i) {
-            if (scene()->getItemOnGridPos(m_gameData->getFromPosTable(i)) != gameItem) {
+            if (scene()->getItemOnGridPos(m_gameData->getFromPosTable(i)) != gameItem &&
+                scene()->getItemOnGridPos(m_gameData->getFromPosTable(i)) != m_selectedItem) {
                 m_helpAnimation->addGameItem(scene()->getItemOnGridPos(
                     m_gameData->getFromPosTable(i)));
             }

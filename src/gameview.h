@@ -315,6 +315,13 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     /**
+     * When the right mouse is clicked, the given gameItem will be handled. This slot is connected to the game scene.
+     *
+     * @param gameItem the game item object. Don't delete the object. gameItem can be nullptr if no game item has been
+     * clicked. */
+    void rightMouseAction(GameItem * gameItem);
+
+    /**
      * Add a new item with the given position.
      *
      * @param stItemPos The position for the new item.
