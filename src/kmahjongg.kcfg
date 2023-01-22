@@ -33,6 +33,10 @@
       <label>Whether matching tiles are shown.</label>
       <default>false</default>
     </entry>
+    <entry name="ClearSelectionBackgroundClick" type="Bool">
+      <label>Clear selection when clicking on the background.</label>
+      <default>false</default>
+    </entry>
     <entry name="EditorGeometry" type="Rect">
     </entry>
   </group>

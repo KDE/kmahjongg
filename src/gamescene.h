@@ -95,6 +95,17 @@ public:
     QList<GameItem *> items() const;
 
     /**
+     * Do not clear selection on background click.
+     *
+     * @param clearSelectionBackground the value is true if selection should be cleared */
+    void setClearSelectionOnBackgroundClick(bool clearSelectionBackground);
+
+    /**
+     *
+     * @return true if selection should be cleared, else false */
+    bool getClearSelectionOnBackgroundClick() const;
+
+    /**
      * Override from QGraphicsScene. */
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent) override;
 
@@ -148,6 +159,8 @@ private:
 
     GameBackground * m_gameBackground;
     GameRemovedTiles * m_gameRemovedTiles;
+
+    bool m_clearSelectionBackground;
 };
 
 #endif // GAMESCENE_H

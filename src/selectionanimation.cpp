@@ -73,7 +73,10 @@ void SelectionAnimation::start()
 
 void SelectionAnimation::stop()
 {
-    m_gameItems->clear();
+    while (!m_gameItems->isEmpty()) {
+        m_gameItems->takeFirst()->setSelected(false);
+    }
+
     m_finishedRepetitions = 8;
     QTimer::stop();
     m_finishedRepetitions = 0;

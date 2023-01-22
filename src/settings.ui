@@ -36,6 +36,13 @@
       <string>Show removed tiles</string>
      </property>
     </widget>
+  </item>
+    <item>
+    <widget class="QCheckBox" name="kcfg_ClearSelectionBackgroundClick" >
+     <property name="text" >
+      <string>Clear selection when clicking on the background</string>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer>

@@ -26,6 +26,7 @@ GameScene::GameScene(QObject * parent)
     , m_pSecondSelectedItem(nullptr)
     , m_gameBackground(nullptr)
     , m_gameRemovedTiles(nullptr)
+    , m_clearSelectionBackground(false)
 {
     initializeGameItemsArray();
 }
@@ -260,7 +261,10 @@ void GameScene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 
     // No item was clicked.
     if (gameItem == nullptr) {
-        Q_EMIT clearSelectedTile();
+        if (m_clearSelectionBackground) {
+            Q_EMIT clearSelectedTile();
+        }
+
         mouseEvent->ignore();
         return;
     }
@@ -282,4 +286,14 @@ void GameScene::wheelEvent(QGraphicsSceneWheelEvent * mouseEvent)
     } else {
         Q_EMIT rotateCCW();
     }
+}
+
+void GameScene::setClearSelectionOnBackgroundClick(bool clearSelectionBackground)
+{
+    m_clearSelectionBackground = clearSelectionBackground;
+}
+
+bool GameScene::getClearSelectionOnBackgroundClick() const
+{
+    return m_clearSelectionBackground;
 }
