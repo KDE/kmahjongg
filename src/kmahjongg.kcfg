@@ -33,6 +33,10 @@
       <label>Whether matching tiles are shown.</label>
       <default>false</default>
     </entry>
+    <entry name="ShowMovesLeft" type="Bool">
+      <label>Show the number of moves left.</label>
+      <default>true</default>
+    </entry>
     <entry name="EditorGeometry" type="Rect">
     </entry>
   </group>

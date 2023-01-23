@@ -215,6 +215,10 @@ public:
      * @return True if game was generated, or false. */
     bool gameGenerated();
 
+    /**
+     * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
+    void populateItemNumber();
+
 public Q_SLOTS:
     /**
      * Add a new item with the given position and update images, position and order. */
@@ -361,10 +365,6 @@ private:
     /**
      * Updates the order of the items. */
     void updateItemsOrder();
-
-    /**
-     * Populates the number of the items, by emit a signal: itemNumberChanged(...). */
-    void populateItemNumber();
 
     /**
      * Sets the status text.

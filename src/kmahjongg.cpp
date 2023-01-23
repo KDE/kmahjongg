@@ -298,6 +298,9 @@ void KMahjongg::loadSettings()
     // Set the blink-matching-tiles option.
     m_gameView->setMatch(Prefs::showMatchingTiles());
 
+    // Repopulate the item number cause the option showing the move left might have changed.
+    m_gameView->populateItemNumber();
+
     // Load the tileset.
     if (!m_gameView->setTilesetPath(Prefs::tileSet())) {
         qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the tileset " << Prefs::tileSet() << " KMahjongg will continue with the default tileset.";
@@ -571,7 +574,13 @@ void KMahjongg::showItemNumber(int maximum, int current, int left)
     // maximum, some tiles have been removed. If the game is not in demo mode, mark the game as changed.
     m_gameChanged = current < maximum && !m_demoAction->isChecked();
 
-    const QString szBuffer = i18n("Removed: %1/%2  Combinations left: %3", maximum - current, maximum, left);
+    QString szBuffer;
+    if (Prefs::showMovesLeft()) {
+        szBuffer = i18n("Removed: %1/%2  Combinations left: %3", maximum - current, maximum, left);
+    } else {
+        szBuffer = i18n("Removed: %1/%2", maximum - current, maximum);
+    }
+
     m_tilesLeftLabel->setText(szBuffer);
 
     updateUndoAndRedoStates();

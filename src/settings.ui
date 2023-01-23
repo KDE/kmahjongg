@@ -38,6 +38,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QCheckBox" name="kcfg_ShowMovesLeft" >
+     <property name="text" >
+      <string>Show the current number of moves left</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
