@@ -49,7 +49,7 @@ public Q_SLOTS:
 
 protected:
     void setupKAction();
-    void setupEnableMessageActions();
+    void setupReenableDialogsActions();
     void setupStatusBar();
     void startNewGameWithNumber(int num);
 
@@ -71,7 +71,7 @@ private Q_SLOTS:
     void slotBoardEditor();
     void noMovesAvailable();
     void toggleFullscreen(bool fullscreen);
-    void enableMessage();
+    void reenableDialog();
 
 private:
     enum class GameState { Gameplay,
@@ -85,15 +85,15 @@ private:
     void updateUndoAndRedoStates();
     void loadLayout();
     void saveSettings();
-    void updateEnableMessageStates();
+    void updateReenableDialogsStates();
 
     /**
-     * @brief Add an action for an enabled message option.
+     * @brief Add an action for an re-enabled dialogs option.
      * @param name an identifier and should be the same as described in kmahjonggui.rc
      * @param text the descriptive name of the menu entry that the user sees
      * @return true if adding is successfully, else false
      */
-    bool addEnableMessageAction(const QString &name, const QString &text);
+    bool addReenableDialogsAction(const QString &name, const QString &text);
 
     /**
      * @brief Ask the user if the game should be saved.
@@ -133,7 +133,7 @@ private:
     KToggleAction * m_fullscreenAction;
     KToggleAction * m_demoAction;
 
-    QHash<QString, QAction *> *m_enableMessageActions;
+    QHash<QString, QAction *> * m_reenableDialogsActions;
 };
 
 #endif

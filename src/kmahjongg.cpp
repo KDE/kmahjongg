@@ -75,7 +75,7 @@ KMahjongg::KMahjongg(QWidget * parent)
     , m_gameView(nullptr)
     , m_gameData(nullptr)
     , m_boardLayout(new KMahjonggLayout())
-    , m_enableMessageActions(new QHash<QString, QAction *>())
+    , m_reenableDialogsActions(new QHash<QString, QAction *>())
 {
     //Use up to 3MB for global application pixmap cache
     QPixmapCache::setCacheLimit(3 * 1024);
@@ -128,7 +128,7 @@ KMahjongg::~KMahjongg()
     delete m_boardLayout;
     delete m_boardEditor;
     delete m_gameData;
-    delete m_enableMessageActions;
+    delete m_reenableDialogsActions;
 }
 
 void KMahjongg::setupKAction()
@@ -181,13 +181,13 @@ void KMahjongg::setupKAction()
     boardEdit->setText(i18n("&Board Editor"));
     connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
-    setupEnableMessageActions();
+    setupReenableDialogsActions();
 
     // settings
     KStandardAction::preferences(this, &KMahjongg::showSettings, actionCollection());
     setupGUI(qApp->primaryScreen()->geometry().size() * 0.7);
 
-    updateEnableMessageStates();
+    updateReenableDialogsStates();
 }
 
 void KMahjongg::toggleFullscreen(bool fullscreen)
@@ -199,32 +199,32 @@ void KMahjongg::toggleFullscreen(bool fullscreen)
     }
 }
 
-bool KMahjongg::addEnableMessageAction(const QString &name, const QString &text)
+bool KMahjongg::addReenableDialogsAction(const QString &name, const QString &text)
 {
     // If there is already an object with the key, override it.
-    if (m_enableMessageActions->contains(name)) {
+    if (m_reenableDialogsActions->contains(name)) {
         return false;
     }
 
     QAction *action = actionCollection()->addAction(name);
     action->setObjectName(name);
     action->setText(text);
-    connect(action, &QAction::triggered, this, &KMahjongg::enableMessage);
+    connect(action, &QAction::triggered, this, &KMahjongg::reenableDialog);
 
-    m_enableMessageActions->insert(name, action);
+    m_reenableDialogsActions->insert(name, action);
 
     return true;
 }
 
-void KMahjongg::setupEnableMessageActions()
+void KMahjongg::setupReenableDialogsActions()
 {
-    addEnableMessageAction(QStringLiteral("ask_save_game"), i18n("Ask for saving the game"));
-    addEnableMessageAction(QStringLiteral("info_game_won"), i18n("Info about a game that has been won"));
+    addReenableDialogsAction(QStringLiteral("ask_save_game"), i18n("Ask for saving the game"));
+    addReenableDialogsAction(QStringLiteral("info_game_won"), i18n("Info about a game that has been won"));
 }
 
-void KMahjongg::updateEnableMessageStates()
+void KMahjongg::updateReenableDialogsStates()
 {
-    QHashIterator<QString, QAction *> i(*m_enableMessageActions);
+    QHashIterator<QString, QAction *> i(*m_reenableDialogsActions);
     while (i.hasNext()) {
         i.next();
         auto action = i.value();
@@ -235,7 +235,7 @@ void KMahjongg::updateEnableMessageStates()
     }
 }
 
-void KMahjongg::enableMessage()
+void KMahjongg::reenableDialog()
 {
     auto action = qobject_cast<QAction *>(sender());
     if (action == nullptr) {
@@ -246,7 +246,7 @@ void KMahjongg::enableMessage()
     action->setEnabled(false);
     KMessageBox::enableMessage(action->objectName());
 
-    updateEnableMessageStates();
+    updateReenableDialogsStates();
 }
 
 void KMahjongg::setupStatusBar()
@@ -597,7 +597,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
             .arg(score);
     KMessageBox::information(this, i18n(infoGameWon.toStdString().c_str()), i18n("You won"),
             QStringLiteral("info_game_won"));
-    updateEnableMessageStates();
+    updateReenableDialogsStates();
 
     //TODO: add gameNum as a Custom KScoreDialog field?
     //int elapsed = gameTimer->seconds();
@@ -817,7 +817,7 @@ bool KMahjongg::askSaveGame()
 #endif
             i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
             KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), QStringLiteral("ask_save_game"));
-    updateEnableMessageStates();
+    updateReenableDialogsStates();
 
     switch (ret) {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
