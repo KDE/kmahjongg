@@ -394,6 +394,11 @@ void KMahjongg::slotBoardEditor()
 
 void KMahjongg::noMovesAvailable()
 {
+    // If the user does not want to get an information about no moves left, return.
+    if (!Prefs::noMovesLeft()) {
+        return;
+    }
+
     m_gameTimer->pause();
     updateState(GameState::Stuck);
 

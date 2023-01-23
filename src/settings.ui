@@ -38,6 +38,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QCheckBox" name="kcfg_NoMovesLeft" >
+     <property name="text" >
+      <string>Show a dialog when no moves left</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>

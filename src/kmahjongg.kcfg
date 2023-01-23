@@ -33,6 +33,10 @@
       <label>Whether matching tiles are shown.</label>
       <default>false</default>
     </entry>
+    <entry name="NoMovesLeft" type="Bool">
+      <label>Show a dialog when no moves left and ask how to proceed.</label>
+      <default>true</default>
+    </entry>
     <entry name="EditorGeometry" type="Rect">
     </entry>
   </group>
