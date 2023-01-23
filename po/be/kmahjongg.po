@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 00:54+0000\n"
 "PO-Revision-Date: 2007-10-28 14:02+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -321,65 +321,65 @@ msgstr "Новая гульня"
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:521
-#, fuzzy, kde-format
-msgid "You have won!"
-msgstr "Вы выйгралі!"
+#: src/kmahjongg.cpp:539
+#, kde-format
+msgid "You have won with a final time of %1 and a score of %2!"
+msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:564
 #, fuzzy, kde-format
 msgid "Game number: %1"
 msgstr "Нумар гульні: %1"
 
-#: src/kmahjongg.cpp:571
+#: src/kmahjongg.cpp:574
 #, fuzzy, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Знята: %1/%2  Засталося камбінацый: %3"
 
-#: src/kmahjongg.cpp:632
+#: src/kmahjongg.cpp:635
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Загрузіць гульню"
 
-#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:644
 #, fuzzy, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Не атрымліваецца прачытаць з файла. Адмена."
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:665
+#: src/kmahjongg.cpp:668
 #, fuzzy, kde-format
 msgid "File format not recognized."
 msgstr "Невядомы фармат файла."
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:710
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Захаваць схему"
 
-#: src/kmahjongg.cpp:717
+#: src/kmahjongg.cpp:720
 #, fuzzy, kde-format
 msgid "Could not open file for saving."
 msgstr "Не атрымліваецца запісаць файл. Адмена."
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
@@ -580,6 +580,10 @@ msgstr "Генераваць развязальныя гульні"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Паказаць знятыя пліткі"
+
+#, fuzzy
+#~ msgid "You have won!"
+#~ msgstr "Вы выйгралі!"
 
 #, fuzzy
 #~ msgid "Sorry, you have lost the game."

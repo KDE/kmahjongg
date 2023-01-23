@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/kmahjongg.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 00:54+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -322,67 +322,67 @@ msgstr "Cluiche Nua"
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:521
+#: src/kmahjongg.cpp:539
 #, kde-format
-msgid "You have won!"
-msgstr "Bhí an bua agat!"
+msgid "You have won with a final time of %1 and a score of %2!"
+msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:564
 #, kde-format
 msgid "Game number: %1"
 msgstr "Uimhir an chluiche: %1"
 
-#: src/kmahjongg.cpp:571
+#: src/kmahjongg.cpp:574
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Bainte: %1/%2  Péirí fágtha: %3"
 
-#: src/kmahjongg.cpp:632
+#: src/kmahjongg.cpp:635
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Luchtaigh Cluiche"
 
-#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:644
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Níorbh fhéidir an comhad a léamh. Ag Tobscor."
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Ní cluiche KMahjongg é an comhad seo."
 
-#: src/kmahjongg.cpp:665
+#: src/kmahjongg.cpp:668
 #, kde-format
 msgid "File format not recognized."
 msgstr "Ní aithnítear formáid an chomhaid."
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:710
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Sábháil an Cluiche"
 
-#: src/kmahjongg.cpp:717
+#: src/kmahjongg.cpp:720
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "Ní féidir scríobh sa chomhad. Ag Tobscor."
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgid "Save game?"
@@ -591,6 +591,9 @@ msgstr "Gin cluichí inréitithe"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Taispeáin na tíleanna bainte"
+
+#~ msgid "You have won!"
+#~ msgstr "Bhí an bua agat!"
 
 #~ msgid "Sorry, you have lost the game."
 #~ msgstr "Tá brón orm, chaill tú an cluiche."

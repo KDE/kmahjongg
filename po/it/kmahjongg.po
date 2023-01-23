@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 00:54+0000\n"
 "PO-Revision-Date: 2022-07-09 19:43+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -312,64 +312,64 @@ msgstr "Nuova partita"
 msgid "Restart"
 msgstr "Riavviala"
 
-#: src/kmahjongg.cpp:521
+#: src/kmahjongg.cpp:539
 #, kde-format
-msgid "You have won!"
-msgstr "Hai vinto!"
+msgid "You have won with a final time of %1 and a score of %2!"
+msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:564
 #, kde-format
 msgid "Game number: %1"
 msgstr "Numero partita: %1"
 
-#: src/kmahjongg.cpp:571
+#: src/kmahjongg.cpp:574
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Rimosse: %1/%2  Coppie rimaste: %3"
 
-#: src/kmahjongg.cpp:632
+#: src/kmahjongg.cpp:635
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Carica partita"
 
-#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Partita di KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:644
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Impossibile leggere il file. Tentativo abortito."
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Il file non è una partita di KMahjongg."
 
-#: src/kmahjongg.cpp:665
+#: src/kmahjongg.cpp:668
 #, kde-format
 msgid "File format not recognized."
 msgstr "Formato di file non riconosciuto."
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:710
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Salva partita"
 
-#: src/kmahjongg.cpp:717
+#: src/kmahjongg.cpp:720
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Impossibile aprire il file per il salvataggio."
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Salvi la partita?"
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Save game?"
 msgstr "Vuoi salvare la partita?"
@@ -577,6 +577,9 @@ msgstr "Genera giochi risolvibili"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostra le tessere rimosse"
+
+#~ msgid "You have won!"
+#~ msgstr "Hai vinto!"
 
 #~ msgid "Sorry, you have lost the game."
 #~ msgstr "Spiacente, hai perso!"

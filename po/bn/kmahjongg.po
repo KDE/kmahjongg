@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 00:54+0000\n"
 "PO-Revision-Date: 2006-04-04 13:15+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -324,67 +324,67 @@ msgstr "খেলা সংরক্ষণ করো"
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:521
+#: src/kmahjongg.cpp:539
 #, kde-format
-msgid "You have won!"
-msgstr "আপনি জিতেছেন!"
+msgid "You have won with a final time of %1 and a score of %2!"
+msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:564
 #, kde-format
 msgid "Game number: %1"
 msgstr "খেলার নম্বর: %1"
 
-#: src/kmahjongg.cpp:571
+#: src/kmahjongg.cpp:574
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "অপসারিত: %1/%2  অবশিষ্ট সমন্বয়: %3"
 
-#: src/kmahjongg.cpp:632
+#: src/kmahjongg.cpp:635
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "খেলা লোড করো"
 
-#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:644
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "ফাইল থেকে পড়া যায় নি।  কাজটি পরিত্যাগ করা হচ্ছে।"
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:665
+#: src/kmahjongg.cpp:668
 #, kde-format
 msgid "File format not recognized."
 msgstr "ফাইলের ফরম্যাট সনাক্ত করা যায় নি।"
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:710
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "থিম (Theme) সংরক্ষণ করো"
 
-#: src/kmahjongg.cpp:717
+#: src/kmahjongg.cpp:720
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "ফাইলে লেখা যায় নি।  লেখার প্রচেষ্টা পরিত্যাগ করা হল।"
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
@@ -586,6 +586,9 @@ msgstr "সমাধানযোগ্য খেলা তৈরি করো"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "অপসারিত ঘুঁটিগুলো দেখাও"
+
+#~ msgid "You have won!"
+#~ msgstr "আপনি জিতেছেন!"
 
 #~ msgid "Sorry, you have lost the game."
 #~ msgstr "দুঃখিত, আপনি খেলায় হেরে গিয়েছেন।"

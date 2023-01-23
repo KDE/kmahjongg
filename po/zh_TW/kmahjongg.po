@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 00:54+0000\n"
 "PO-Revision-Date: 2022-12-30 18:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -322,64 +322,64 @@ msgstr "開始新遊戲"
 msgid "Restart"
 msgstr "重新啟動"
 
-#: src/kmahjongg.cpp:521
+#: src/kmahjongg.cpp:539
 #, kde-format
-msgid "You have won!"
-msgstr "您贏了！"
+msgid "You have won with a final time of %1 and a score of %2!"
+msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:564
 #, kde-format
 msgid "Game number: %1"
 msgstr "遊戲編號：%1"
 
-#: src/kmahjongg.cpp:571
+#: src/kmahjongg.cpp:574
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "移除：%1/%2  剩下的對數：%3"
 
-#: src/kmahjongg.cpp:632
+#: src/kmahjongg.cpp:635
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "載入遊戲"
 
-#: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "KMahjongg 遊戲檔 (*.kmgame)"
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:644
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "無法讀取檔案，放棄。"
 
-#: src/kmahjongg.cpp:652
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "檔案不是一個 KMahjongg 的遊戲檔。"
 
-#: src/kmahjongg.cpp:665
+#: src/kmahjongg.cpp:668
 #, kde-format
 msgid "File format not recognized."
 msgstr "檔案格式不明。"
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:710
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "儲存遊戲"
 
-#: src/kmahjongg.cpp:717
+#: src/kmahjongg.cpp:720
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "無法開啟檔案來儲存。"
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "您要儲存遊戲嗎？"
 
-#: src/kmahjongg.cpp:757
+#: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Save game?"
 msgstr "儲存遊戲？"
@@ -582,3 +582,6 @@ msgstr "產生可解的遊戲"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "顯示移除的麻將牌"
+
+#~ msgid "You have won!"
+#~ msgstr "您贏了！"
