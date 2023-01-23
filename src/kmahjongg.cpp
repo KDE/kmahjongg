@@ -298,6 +298,9 @@ void KMahjongg::loadSettings()
     // Set the blink-matching-tiles option.
     m_gameView->setMatch(Prefs::showMatchingTiles());
 
+    // Set the blink-matching-tiles option with right mouse click.
+    m_gameView->setMatchRightMouseClick(Prefs::showMatchingTilesRightMouseClick());
+
     // Load the tileset.
     if (!m_gameView->setTilesetPath(Prefs::tileSet())) {
         qCDebug(KMAHJONGG_LOG) << "An error occurred when loading the tileset " << Prefs::tileSet() << " KMahjongg will continue with the default tileset.";

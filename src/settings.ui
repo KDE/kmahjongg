@@ -24,6 +24,13 @@
     </widget>
    </item>
    <item>
+     <widget class="QCheckBox" name="kcfg_ShowMatchingTilesRightMouseClick" >
+     <property name="text" >
+      <string>Blink matching tiles when clicking with the right mouse on a tile</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QCheckBox" name="kcfg_SolvableGames" >
      <property name="text" >
       <string>Generate solvable games</string>

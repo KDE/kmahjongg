@@ -136,6 +136,19 @@ public:
     bool getMatch() const;
 
     /**
+     * Set the match variable for right mouse clicks. If set to true, the matching items to the selected will be
+     * animated.
+     *
+     * @param match The match value to set up. */
+    void setMatchRightMouseClick(bool matchRightMouseClick);
+
+    /**
+     * Get the match value for right mouse click.
+     *
+     * @return True when matching items of the right mouse clicked one will be displayed, else false. */
+    bool getMatchRightMouseClick() const;
+
+    /**
      * Gets the tilesetpath that is actually set.
      *
      * @return The tilesetpath as a string. */
@@ -410,6 +423,7 @@ private:
     bool m_match;
     bool m_gameGenerated;
     bool m_showRemovedTiles;
+    bool m_matchRightMouseClick;
 
     qreal m_remTilesWidthFactor;
 

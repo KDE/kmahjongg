@@ -41,6 +41,7 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
     , m_match(false)
     , m_gameGenerated(false)
     , m_showRemovedTiles(true)
+    , m_matchRightMouseClick(false)
     , m_remTilesWidthFactor(0.3)
     , m_gameData(gameData)
     , m_selectedItem(nullptr)
@@ -85,6 +86,9 @@ GameView::GameView(GameScene * gameScene, GameData * gameData, QWidget * parent)
 
     // Add the fix removedtiles item to the scene
     scene()->setRemovedTilesItem(m_gameRemovedTiles);
+
+    // Use the right mouse click exclusivly or not.
+    scene()->setRightMouseClickExclusively(m_matchRightMouseClick);
 
     m_selectionChangedConnect = connect(scene(), &GameScene::selectionChanged, this, &GameView::selectionChanged);
     connect(scene(), &GameScene::rightMousePressed, this, &GameView::rightMouseAction);
@@ -264,6 +268,10 @@ void GameView::createNewGame(long gameNumber)
 
 void GameView::rightMouseAction(GameItem * gameItem)
 {
+    if (!m_matchRightMouseClick) {
+        return;
+    }
+
     if (gameItem == nullptr) {
         return;
     }
@@ -1088,4 +1096,15 @@ void GameView::setMatch(bool match)
 bool GameView::getMatch() const
 {
     return m_match;
+}
+
+void GameView::setMatchRightMouseClick(bool matchRightMouseClick)
+{
+    m_matchRightMouseClick = matchRightMouseClick;
+    scene()->setRightMouseClickExclusively(m_matchRightMouseClick);
+}
+
+bool GameView::getMatchRightMouseClick() const
+{
+    return m_matchRightMouseClick;
 }
