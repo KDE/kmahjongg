@@ -56,6 +56,9 @@ inline QString gameMagic() { return QStringLiteral("kmahjongg-gamedata"); }
 constexpr int gameDataVersion = 1;
 }
 
+const char * ASK_SAVE_GAME = "ask_save_game";
+const char * INFO_GAME_WON = "info_game_won";
+
 /**
  * @author Mauricio Piacentini  <mauricio@tabuleiro.com>
  */
@@ -218,8 +221,8 @@ bool KMahjongg::addReenableDialogsAction(const QString &name, const QString &tex
 
 void KMahjongg::setupReenableDialogsActions()
 {
-    addReenableDialogsAction(QStringLiteral("ask_save_game"), i18n("Ask for saving the game"));
-    addReenableDialogsAction(QStringLiteral("info_game_won"), i18n("Info about a game that has been won"));
+    addReenableDialogsAction(QLatin1String(ASK_SAVE_GAME), i18n("Ask for saving the game"));
+    addReenableDialogsAction(QLatin1String(INFO_GAME_WON), i18n("Info about a game that has been won"));
 }
 
 void KMahjongg::updateReenableDialogsStates()
@@ -596,7 +599,7 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
             .arg(m_gameTimer->timeString())
             .arg(score);
     KMessageBox::information(this, i18n(infoGameWon.toStdString().c_str()), i18n("You won"),
-            QStringLiteral("info_game_won"));
+            QLatin1String(INFO_GAME_WON));
     updateReenableDialogsStates();
 
     //TODO: add gameNum as a Custom KScoreDialog field?
@@ -816,7 +819,7 @@ bool KMahjongg::askSaveGame()
     const KMessageBox::ButtonCode ret = KMessageBox::questionYesNoCancel(this, 
 #endif
             i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
-            KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), QStringLiteral("ask_save_game"));
+            KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), QLatin1String(ASK_SAVE_GAME));
     updateReenableDialogsStates();
 
     switch (ret) {
