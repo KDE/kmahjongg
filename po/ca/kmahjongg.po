@@ -1,9 +1,9 @@
 # Translation of kmahjongg.po to Catalan
-# Copyright (C) 2000-2022 This_file_is_part_of_KDE
+# Copyright (C) 2000-2023 This_file_is_part_of_KDE
 #
 # Francesc J Devesa i Berenguer <frandeve@hotmail.com>, 2000, 2001.
 # Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005.
-# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2012, 2014, 2015, 2016, 2017, 2019, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2012, 2014, 2015, 2016, 2017, 2019, 2021, 2022, 2023.
 # Aleix Pol <aleixpol@gmail.com>, 2007.
 # Manuel Tortosa <manutortosa@gmail.com>, 2009.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2021.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-23 00:54+0000\n"
-"PO-Revision-Date: 2022-07-09 13:55+0200\n"
+"PO-Revision-Date: 2023-01-23 10:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -320,7 +320,7 @@ msgstr "Reinicia"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Heu guanyat amb un temps final de %1 i una puntuació de %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
@@ -577,6 +577,3 @@ msgstr "Genera partides amb solució"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostra les fitxes eliminades"
-
-#~ msgid "You have won!"
-#~ msgstr "Has guanyat!"
