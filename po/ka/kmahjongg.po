@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-10-10 07:17+0200\n"
+"PO-Revision-Date: 2023-01-23 08:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,27 +32,27 @@ msgstr "Temuri.doghonadze@gmail.com"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr ""
+msgstr "დაფის განლაგების ჩასწორება"
 
 #: src/editor.cpp:112
 #, kde-format
 msgid "New board"
-msgstr ""
+msgstr "ახალი დაფა"
 
 #: src/editor.cpp:119
 #, kde-format
 msgid "Open board"
-msgstr ""
+msgstr "დაფის გახსნა"
 
 #: src/editor.cpp:126
 #, kde-format
 msgid "Save board"
-msgstr ""
+msgstr "დაფის შენახვა"
 
 #: src/editor.cpp:136
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "აირჩიეთ"
 
 #: src/editor.cpp:141
 #, kde-format
@@ -62,7 +62,7 @@ msgstr "ამოჭრა"
 #: src/editor.cpp:146
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "კოპირება"
 
 #: src/editor.cpp:151
 #, kde-format
@@ -72,52 +72,52 @@ msgstr "ჩასმა"
 #: src/editor.cpp:158
 #, kde-format
 msgid "Move tiles"
-msgstr ""
+msgstr "ფილების გადაადგილება"
 
 #: src/editor.cpp:162
 #, kde-format
 msgid "Add tiles"
-msgstr ""
+msgstr "ფილების დამატება"
 
 #: src/editor.cpp:165
 #, kde-format
 msgid "Remove tiles"
-msgstr ""
+msgstr "ფილების წაშლა"
 
 #: src/editor.cpp:189
 #, kde-format
 msgid "Shift left"
-msgstr ""
+msgstr "მარცხნივ წანაცვლება"
 
 #: src/editor.cpp:195
 #, kde-format
 msgid "Shift up"
-msgstr ""
+msgstr "ზემოთ წანაცვლება"
 
 #: src/editor.cpp:201
 #, kde-format
 msgid "Shift down"
-msgstr ""
+msgstr "ქვემოთ წანაცვლება"
 
 #: src/editor.cpp:207
 #, kde-format
 msgid "Shift right"
-msgstr ""
+msgstr "მარჯვნივ წანაცვლება"
 
 #: src/editor.cpp:289
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
-msgstr ""
+msgstr "ფილები: %1 მდებ: %2,%3,%4"
 
 #: src/editor.cpp:298
 #, kde-format
 msgid "Open Board Layout"
-msgstr ""
+msgstr "დაფის განლაგების გახსნა"
 
 #: src/editor.cpp:299 src/editor.cpp:337
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr ""
+msgstr "დაფის განლაბება (*.layout);;ყველა ფაილი (*)"
 
 #: src/editor.cpp:330
 #, kde-format
@@ -127,7 +127,7 @@ msgstr ""
 #: src/editor.cpp:336 src/editor.cpp:348
 #, kde-format
 msgid "Save Board Layout"
-msgstr ""
+msgstr "დაფის განლაგების შენახვა"
 
 #: src/editor.cpp:347
 #, kde-format
@@ -142,36 +142,36 @@ msgstr ""
 #: src/editor.cpp:392
 #, kde-format
 msgid "Save failed. Aborting operation."
-msgstr ""
+msgstr "შენახვის შეცდომა. ოპერაცია გაუქმდება."
 
 #: src/gameremovedtiles.cpp:127
 #, kde-format
 msgid "Removed tiles"
-msgstr ""
+msgstr "წაშლილი ფილები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
 #, kde-format
 msgid "Random Layout"
-msgstr ""
+msgstr "შემთხვევითი განლაგება"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:51
 #, kde-format
 msgid "&Get New Layouts"
-msgstr ""
+msgstr "&ახალი განლაგებების მიღება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:60
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "მინიატურა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gametype.ui:93
 #, kde-format
 msgid "Layout Details"
-msgstr ""
+msgstr "განლაგების დეტალები"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:113
@@ -189,12 +189,12 @@ msgstr "კონტაქტი:"
 #: src/gametype.ui:133
 #, kde-format
 msgid "Description:"
-msgstr ""
+msgstr "აღწერა:"
 
 #: src/gameview.cpp:135 src/gameview.cpp:246
 #, kde-format
 msgid "Ready. Now it is your turn."
-msgstr ""
+msgstr "მზადაა. ახლა თქვენი ჯერია."
 
 #: src/gameview.cpp:157
 #, kde-format
@@ -214,12 +214,12 @@ msgstr ""
 #: src/gameview.cpp:203
 #, kde-format
 msgid "Calculating new game..."
-msgstr ""
+msgstr "ახალი თამაშის გამოთვლა...."
 
 #: src/gameview.cpp:261
 #, kde-format
 msgid "Error generating new game!"
-msgstr ""
+msgstr "შეცდომა ახალი თამაშის გენერაციისას!"
 
 #: src/gameview.cpp:366
 #, kde-format
@@ -229,12 +229,12 @@ msgstr ""
 #: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
-msgstr ""
+msgstr "ახალი რიცხვითი თამაში..."
 
 #: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
-msgstr ""
+msgstr "&არევა"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
@@ -249,7 +249,7 @@ msgstr ""
 #: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
-msgstr ""
+msgstr "&დაფის რედაქტორი"
 
 #: src/kmahjongg.cpp:198
 #, kde-format
@@ -259,12 +259,12 @@ msgstr "დრო: 0:00:00"
 #: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
-msgstr ""
+msgstr "წაშლილია: 0000/0000"
 
 #: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
-msgstr ""
+msgstr "თამაში: 000000000000000000000"
 
 #: src/kmahjongg.cpp:225
 #, kde-format
@@ -280,7 +280,7 @@ msgstr "დაიწყეთ ახალი თამაში"
 #: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
-msgstr ""
+msgstr "შეიყვანეთ თამაშის ნომერი:"
 
 #: src/kmahjongg.cpp:266
 #, kde-format
@@ -290,7 +290,7 @@ msgstr "ზოგადი"
 #: src/kmahjongg.cpp:267
 #, kde-format
 msgid "Board Layout"
-msgstr ""
+msgstr "დაფის განლაგება"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
@@ -315,12 +315,12 @@ msgstr "რესტარტი"
 #: src/kmahjongg.cpp:521
 #, kde-format
 msgid "You have won!"
-msgstr ""
+msgstr "გილოცავთ! თქვენ მოიგეთ!"
 
 #: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Game number: %1"
-msgstr ""
+msgstr "თამაშის ნომერი: %1"
 
 #: src/kmahjongg.cpp:571
 #, kde-format
@@ -357,7 +357,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr ""
+msgstr "თამაშის შენახვა"
 
 #: src/kmahjongg.cpp:717
 #, kde-format
@@ -372,7 +372,7 @@ msgstr ""
 #: src/kmahjongg.cpp:757
 #, kde-format
 msgid "Save game?"
-msgstr ""
+msgstr "შევინახო თამაში?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -384,7 +384,7 @@ msgstr ""
 #: src/kmahjongg.kcfg:12
 #, kde-format
 msgid "The background to use."
-msgstr ""
+msgstr "გამოსაყენებელი ფონი."
 
 #. i18n: ectx: label, entry (Layout), group (General)
 #: src/kmahjongg.kcfg:15
@@ -426,13 +426,13 @@ msgstr "&თამაში"
 #: src/kmahjonggui.rc:14
 #, kde-format
 msgid "&Move"
-msgstr ""
+msgstr "&სვლა"
 
 #. i18n: ectx: Menu (view)
 #: src/kmahjonggui.rc:17
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&ნახვა"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kmahjonggui.rc:23
@@ -443,7 +443,7 @@ msgstr "ხელსაწყოთა მთავარი ზოლი"
 #: src/main.cpp:30
 #, kde-format
 msgid "KMahjongg"
-msgstr ""
+msgstr "KMahjongg"
 
 #: src/main.cpp:32
 #, kde-format
@@ -461,7 +461,7 @@ msgstr ""
 #: src/main.cpp:37
 #, kde-format
 msgid "Mathias Mueller"
-msgstr ""
+msgstr "Mathias Mueller"
 
 #: src/main.cpp:37
 #, kde-format
@@ -471,7 +471,7 @@ msgstr "საწყისი ავტორი"
 #: src/main.cpp:38
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "Christian Krippendorf"
 
 #: src/main.cpp:38
 #, kde-format
@@ -486,12 +486,12 @@ msgstr "Albert Astals Cid"
 #: src/main.cpp:39
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "შეცდომების გასწორება"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "David Black"
-msgstr ""
+msgstr "David Black"
 
 #: src/main.cpp:40
 #, kde-format
@@ -501,7 +501,7 @@ msgstr ""
 #: src/main.cpp:41
 #, kde-format
 msgid "Michael Haertjens"
-msgstr ""
+msgstr "Michael Haertjens"
 
 #: src/main.cpp:41
 #, kde-format
@@ -513,7 +513,7 @@ msgstr ""
 #: src/main.cpp:42
 #, kde-format
 msgid "Raquel Ravanini"
-msgstr ""
+msgstr "Raquel Ravanini"
 
 #: src/main.cpp:42
 #, kde-format
@@ -523,7 +523,7 @@ msgstr ""
 #: src/main.cpp:43
 #, kde-format
 msgid "Richard Lohman"
-msgstr ""
+msgstr "Richard Lohman"
 
 #: src/main.cpp:43
 #, kde-format
@@ -533,7 +533,7 @@ msgstr ""
 #: src/main.cpp:44
 #, kde-format
 msgid "Osvaldo Stark"
-msgstr ""
+msgstr "Osvaldo Stark"
 
 #: src/main.cpp:44
 #, kde-format
@@ -548,7 +548,7 @@ msgstr "Benjamin Meyer"
 #: src/main.cpp:45
 #, kde-format
 msgid "Code cleanup"
-msgstr ""
+msgstr "კოდის გაწმენდა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
 #: src/settings.ui:22
@@ -566,4 +566,4 @@ msgstr ""
 #: src/settings.ui:36
 #, kde-format
 msgid "Show removed tiles"
-msgstr ""
+msgstr "წაშლილი ფილების გამოჩენა"
