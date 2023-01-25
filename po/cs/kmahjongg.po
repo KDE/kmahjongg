@@ -574,6 +574,3 @@ msgstr "Generovat řešitelné hry"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Zobrazit odebrané kameny"
-
-#~ msgid "You have won!"
-#~ msgstr "Vyhráli jste!"
