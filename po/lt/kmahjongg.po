@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:54+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2011-08-09 23:18+0300\n"
 "Last-Translator: Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -456,18 +456,18 @@ msgstr "&Rodymas"
 msgid "Main Toolbar"
 msgstr "Pagrindinė įrankinė"
 
-#: src/main.cpp:30
+#: src/main.cpp:32
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:32
+#: src/main.cpp:34
 #, fuzzy, kde-format
 #| msgid "Mahjongg Solitaire for KDE"
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Mahjongg pasjansas skirtas KDE"
 
-#: src/main.cpp:34
+#: src/main.cpp:36
 #, fuzzy, kde-format
 #| msgid ""
 #| "(c) 1997, Mathias Mueller\n"
@@ -480,52 +480,52 @@ msgstr ""
 "(c) 1997, Mathias Mueller\n"
 "(c) 2006, Mauricio Piacentini"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Original Author"
 msgstr "Pradinis autorius"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "Dabartinis prižiūrėtojas"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Bug fixes"
 msgstr "Klaidų taisymai"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Perrašė dėl KDE 3, bei išplėtojo"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -534,42 +534,42 @@ msgstr ""
 "Laimimo žaidimo generavimas\n"
 "remiasi Michael Meeks algoritmu iš GNOME mahjongg"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "Sukūrė SVG kaladėles, skirtas KDE4"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Talkininkas kuriant kaladėles, bei dabartinis tinklapio prižiūrėtojas"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Talkininkas kuriant kaladėles, bei pradinis tinklapio prižiūrėtojas"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Code cleanup"
 msgstr "Kodo valymas"

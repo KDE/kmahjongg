@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:54+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2022-07-14 14:22+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -442,17 +442,17 @@ msgstr "Poh&led"
 msgid "Main Toolbar"
 msgstr "Hlavní panel nástrojů"
 
-#: src/main.cpp:30
+#: src/main.cpp:32
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:32
+#: src/main.cpp:34
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Mahjongg solitér od KDE"
 
-#: src/main.cpp:34
+#: src/main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -463,52 +463,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Original Author"
 msgstr "Původní autor"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "Současný správce"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Bug fixes"
 msgstr "Opravy chyb"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Přepis do KDE 3 a rozšíření"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -517,42 +517,42 @@ msgstr ""
 "Generování řešitelných her založeno\n"
 "na algoritmu Michaela Meekse (GNOME Mahjongg)"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "SVG sada kamenů pro KDE 4"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Sadami kamenů přispěl a webové stránky udržuje"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Sadami kamenů přispěl a webové stránky udržuje"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Code cleanup"
 msgstr "Vyčištění kódu"

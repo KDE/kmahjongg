@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:54+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2006-04-04 13:15+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -457,17 +457,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: src/main.cpp:30
+#: src/main.cpp:32
 #, kde-format
 msgid "KMahjongg"
 msgstr "কে-মাহজং"
 
-#: src/main.cpp:32
+#: src/main.cpp:34
 #, fuzzy, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "কে.ডি.ই-র জন্য মাহজং"
 
-#: src/main.cpp:34
+#: src/main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -475,52 +475,52 @@ msgid ""
 "(c) 2011, Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Mathias Mueller"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Original Author"
 msgstr "মূল লেখক"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "বর্তমান রক্ষণাবেক্ষণকারী"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Bug fixes"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "David Black"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, fuzzy, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "পুনঃলেখন ও বর্ধিতকরণ"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid "Michael Haertjens"
 msgstr ""
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -529,42 +529,42 @@ msgstr ""
 "সমাধানযোগ্য খেলা তৈরি\n"
 "করার অ্যালগরিদমটি মাইকেল মীক্স এর লেখা গনোম মাহজং-এর ওপর ভিত্তি করে বানানো"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr ""
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Richard Lohman"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, fuzzy, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "ঘুঁটির-সেট প্রদানকারী ও ওয়েবপেজ রক্ষণাবেক্ষণকারী"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, fuzzy, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "ঘুঁটির-সেট প্রদানকারী ও ওয়েবপেজ রক্ষণাবেক্ষণকারী"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Code cleanup"
 msgstr "কোড সুবিন্যস্তকরণ"

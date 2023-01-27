@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:54+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2006-08-21 17:03+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -458,17 +458,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: src/main.cpp:30
+#: src/main.cpp:32
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:32
+#: src/main.cpp:34
 #, fuzzy, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Mahjongg za KDE"
 
-#: src/main.cpp:34
+#: src/main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -476,52 +476,52 @@ msgid ""
 "(c) 2011, Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Mathias Mueller"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Original Author"
 msgstr "Izvorni autor"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "Trenutni održavatelj"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Bug fixes"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "David Black"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, fuzzy, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Ponovo napisao i proširio"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid "Michael Haertjens"
 msgstr ""
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -530,42 +530,42 @@ msgstr ""
 "Generiranje rješive igre temeljeno je na algoritmu\n"
 "Michaela Meeksa u Gnomovom mahjonggu."
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr ""
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Richard Lohman"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, fuzzy, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Dodatni skupovi pločica i održavatelj web stranice"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, fuzzy, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Dodatni skupovi pločica i održavatelj web stranice"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Code cleanup"
 msgstr "Pročišćavanje kôda"

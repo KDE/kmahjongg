@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:54+0000\n"
+"POT-Creation-Date: 2023-01-27 00:55+0000\n"
 "PO-Revision-Date: 2022-08-03 10:09+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -446,17 +446,17 @@ msgstr "&Visa"
 msgid "Main Toolbar"
 msgstr "Huvudverktygsrad"
 
-#: src/main.cpp:30
+#: src/main.cpp:32
 #, kde-format
 msgid "KMahjongg"
 msgstr "Kmahjongg"
 
-#: src/main.cpp:32
+#: src/main.cpp:34
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Mahjongg-patiens av KDE"
 
-#: src/main.cpp:34
+#: src/main.cpp:36
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -467,52 +467,52 @@ msgstr ""
 "© 2006, Mauricio Piacentini\n"
 "© 2011, Christian Krippendorf"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Original Author"
 msgstr "Ursprunglig upphovsman"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:38
+#: src/main.cpp:40
 #, kde-format
 msgid "Current maintainer"
 msgstr "Nuvarande utvecklare"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Bug fixes"
 msgstr "Felrättningar"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:40
+#: src/main.cpp:42
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Omskrivning och utökning för KDE 3"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:41
+#: src/main.cpp:43
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -521,42 +521,42 @@ msgstr ""
 "Skapa lösbara spel\n"
 "baserad på algoritm av Michael Meeks i Gnome Mahjongg"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:42
+#: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "SVG-brickuppsättning för KDE4"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:43
+#: src/main.cpp:45
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Bidrag av brickuppsättningar och nuvarande underhåll av webbsida"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:44
+#: src/main.cpp:46
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Bidrag av brickuppsättningar och tidigare underhåll av webbsida"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:45
+#: src/main.cpp:47
 #, kde-format
 msgid "Code cleanup"
 msgstr "Upprensning av kod"
