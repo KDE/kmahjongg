@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2023-01-23 08:53+0100\n"
+"PO-Revision-Date: 2023-01-28 11:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -336,12 +336,12 @@ msgstr "თამაშის ჩატვირთვა"
 #: src/kmahjongg.cpp:632 src/kmahjongg.cpp:707
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "KMahjongg თამაში (*.kmgame)"
 
 #: src/kmahjongg.cpp:641
 #, kde-format
 msgid "Could not read from file. Aborting."
-msgstr ""
+msgstr "ფაილიდან წაკითხვის შეცდომა. შეწყვეტა."
 
 #: src/kmahjongg.cpp:652
 #, kde-format
@@ -351,7 +351,7 @@ msgstr ""
 #: src/kmahjongg.cpp:665
 #, kde-format
 msgid "File format not recognized."
-msgstr ""
+msgstr "ფაილის ფორმატი უცნობია."
 
 #: src/kmahjongg.cpp:707
 #, kde-format
@@ -558,9 +558,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:29
-#, kde-format
+#, fuzzy, kde-format
 msgid "Generate solvable games"
-msgstr ""
+msgstr "ამოხსნადი თამაშების გენერაცია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:36
