@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2023-01-28 11:22+0100\n"
+"PO-Revision-Date: 2023-01-29 07:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -132,12 +132,12 @@ msgstr "დაფის განლაგების შენახვა"
 #: src/editor.cpp:347
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr ""
+msgstr "ფაილი ასეთი სახელით უკვე არსებობს. გნებავთ, გადააწეროთ?"
 
 #: src/editor.cpp:380
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
-msgstr ""
+msgstr "დაფა შეიცვალა. გნებავთ, შეინახოთ ცვლილებები?"
 
 #: src/editor.cpp:392
 #, kde-format
@@ -199,17 +199,17 @@ msgstr "მზადაა. ახლა თქვენი ჯერია."
 #: src/gameview.cpp:157
 #, kde-format
 msgid "Undo operation done successfully."
-msgstr ""
+msgstr "გაუქმება წარმატებულად დასრულდა."
 
 #: src/gameview.cpp:162
 #, kde-format
 msgid "What do you want to undo? You have done nothing!"
-msgstr ""
+msgstr "რა გნებავთ, დააბრუნოთ? არაფერი გაგიკეთებიათ!"
 
 #: src/gameview.cpp:196 src/kmahjongg.cpp:486
 #, kde-format
 msgid "Your computer has lost the game."
-msgstr ""
+msgstr "თქვენმა კომპიუტერმა თამაში წააგო."
 
 #: src/gameview.cpp:203
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "შეცდომა ახალი თამაშის გენე
 #: src/gameview.cpp:366
 #, kde-format
 msgid "Demo mode. Click mousebutton to stop."
-msgstr ""
+msgstr "დემო რეჟიმი. დასასრულებლად დააწკაპუნეთ."
 
 #: src/kmahjongg.cpp:141
 #, kde-format
@@ -239,12 +239,12 @@ msgstr "&არევა"
 #: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
-msgstr ""
+msgstr "ხედის საათის ისრის საწინააღმდეგო &მიმართულებით შებრუნება"
 
 #: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
-msgstr ""
+msgstr "&ხედის საათის ისრის მიმართულებით შებრუნება"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
@@ -295,7 +295,7 @@ msgstr "დაფის განლაგება"
 #: src/kmahjongg.cpp:408
 #, kde-format
 msgid "Game Over: You have no moves left."
-msgstr ""
+msgstr "თამაში დასრულდა: სვლები აღარ დაგრჩათ."
 
 #: src/kmahjongg.cpp:409
 #, kde-format
@@ -325,7 +325,7 @@ msgstr "თამაშის ნომერი: %1"
 #: src/kmahjongg.cpp:571
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
-msgstr ""
+msgstr "წაშლილია: %1/%2  დარჩენილი კომბინაციები: %3"
 
 #: src/kmahjongg.cpp:632
 #, kde-format
@@ -346,7 +346,7 @@ msgstr "ფაილიდან წაკითხვის შეცდომ�
 #: src/kmahjongg.cpp:652
 #, kde-format
 msgid "File is not a KMahjongg game."
-msgstr ""
+msgstr "ფაილი KMahjongg -ის თამაშის არაა."
 
 #: src/kmahjongg.cpp:665
 #, kde-format
@@ -362,12 +362,12 @@ msgstr "თამაშის შენახვა"
 #: src/kmahjongg.cpp:717
 #, kde-format
 msgid "Could not open file for saving."
-msgstr ""
+msgstr "შესანახი ფაილის გახსნის შეცდომა."
 
 #: src/kmahjongg.cpp:757
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "გნებავთ, შეინახოთ თამაში?"
 
 #: src/kmahjongg.cpp:757
 #, kde-format
@@ -378,7 +378,7 @@ msgstr "შევინახო თამაში?"
 #: src/kmahjongg.kcfg:9
 #, kde-format
 msgid "The tile-set to use."
-msgstr ""
+msgstr "გამოსაყენებელი ფილის-სეტი."
 
 #. i18n: ectx: label, entry (Background), group (General)
 #: src/kmahjongg.kcfg:12
@@ -390,7 +390,7 @@ msgstr "გამოსაყენებელი ფონი."
 #: src/kmahjongg.kcfg:15
 #, kde-format
 msgid "The layout of the tiles."
-msgstr ""
+msgstr "ფილების განლაგება."
 
 #. i18n: ectx: label, entry (RemovedTiles), group (General)
 #: src/kmahjongg.kcfg:21
@@ -408,13 +408,13 @@ msgstr ""
 #: src/kmahjongg.kcfg:29
 #, kde-format
 msgid "Whether all games should be solvable."
-msgstr ""
+msgstr "უნდა იყოს თუ არა ყველა თამაში ამოხსნადი."
 
 #. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr ""
+msgstr "ნაჩვენებია შესაბამისი ფილები, თუ არა."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
@@ -448,7 +448,7 @@ msgstr "KMahjongg"
 #: src/main.cpp:32
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr ""
+msgstr "Mahjongg-ი KDE-სგან"
 
 #: src/main.cpp:34
 #, kde-format
@@ -457,6 +457,9 @@ msgid ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 msgstr ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
 
 #: src/main.cpp:37
 #, kde-format
@@ -496,7 +499,7 @@ msgstr "David Black"
 #: src/main.cpp:40
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr ""
+msgstr "KDE3-სთვის გადაწერა და გაფრთოება"
 
 #: src/main.cpp:41
 #, kde-format
@@ -558,7 +561,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Generate solvable games"
 msgstr "ამოხსნადი თამაშების გენერაცია"
 
