@@ -367,7 +367,7 @@ msgstr "Guardeu la partida"
 #: src/kmahjongg.cpp:720
 #, kde-format
 msgid "Could not open file for saving."
-msgstr "No s'ha pogut obrir el fitxer per que es guardarà."
+msgstr "No s'ha pogut obrir el fitxer per a guardar."
 
 #: src/kmahjongg.cpp:760
 #, kde-format
