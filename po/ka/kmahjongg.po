@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2023-02-01 02:24+0100\n"
+"PO-Revision-Date: 2023-02-03 06:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -402,7 +402,7 @@ msgstr ""
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "გაშვებისას არჩეული იქნება შემთხვევითი განლაგება, თუ არა."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
@@ -521,7 +521,7 @@ msgstr "Raquel Ravanini"
 #: src/main.cpp:44
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr ""
+msgstr "SVG ფილების სეტი KDE4-სთვის"
 
 #: src/main.cpp:45
 #, kde-format
@@ -531,7 +531,7 @@ msgstr "Richard Lohman"
 #: src/main.cpp:45
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
-msgstr ""
+msgstr "ფილების სეტის შემომწირავი და ვებგვერდის მიმდინარე მმართველი"
 
 #: src/main.cpp:46
 #, kde-format
@@ -541,7 +541,7 @@ msgstr "Osvaldo Stark"
 #: src/main.cpp:46
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
-msgstr ""
+msgstr "ფილების სეტის შემომწირავი და ვებგვერდის ყოფილი მმართველი"
 
 #: src/main.cpp:47
 #, kde-format
