@@ -9,13 +9,13 @@
 # Stephen Killing <stephen.killing@kdemail.net>, 2005.
 # Mauricio Piacentini <piacentini@kde.org>, 2007.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2016, 2019.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012, 2017, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012, 2017, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2022-07-12 11:59-0300\n"
+"PO-Revision-Date: 2023-02-07 10:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -326,7 +326,7 @@ msgstr "Reiniciar"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Você ganhou com um tempo final de %1 e uma pontuação de %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
