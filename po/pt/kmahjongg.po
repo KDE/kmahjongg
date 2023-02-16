@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2022-07-09 12:52+0100\n"
+"PO-Revision-Date: 2023-02-15 12:39+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -316,7 +316,7 @@ msgstr "Reiniciar"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Ganhou com um tempo final de %1 e uma pontuação igual a %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
@@ -573,6 +573,3 @@ msgstr "Gerar jogos solúveis"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostrar as peças removidas"
-
-#~ msgid "You have won!"
-#~ msgstr "Você ganhou!"
