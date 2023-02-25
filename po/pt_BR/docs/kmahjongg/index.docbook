@@ -1,12 +1,6 @@
 <?xml version="1.0" ?>
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kmahjongg;"
-> 
-  <!ENTITY kappversion "0.9"
-><!--Application version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames"
->  <!-- do not change this! -->
   <!ENTITY % Brazilian-Portuguese "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"
@@ -17,7 +11,7 @@
 > <!-- do not change this! -->
 <bookinfo>
 	<title
->Manual do &kappname;</title
+>Manual do &kmahjongg;</title
 > <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
@@ -77,20 +71,20 @@
 
 <legalnotice
 >&FDLNotice;</legalnotice>
- 
+
 <date
->04/01/2016</date
+>16/06/2021</date
 ><!-- Date of (re)writing, or update.-->
 <releaseinfo
->&kappversion; (&kde; 4.11)</releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
- 
+
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
 	<para
->Esta documentação descreve o jogo &kappname; na versão &kappversion;</para>
+>Esta documentação descreve o jogo &kmahjongg; versão 0.9</para>
 </abstract>
- 
+
 <!--List of relevan keywords-->
 <keywordset>
 	<keyword
@@ -146,7 +140,7 @@
 	<para
 >No &kmahjongg;, as peças são embaralhadas e empilhadas umas por cima das outras, com o objetivo de criar uma determinada forma. O jogador terá depois que remover todas as peças do tabuleiro, localizando o par correspondente de cada peça. </para>
 </chapter>
- 
+
 <chapter id="howto"
 ><title
 >Como jogar</title
@@ -161,7 +155,7 @@
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para
->O &kappname; irá carregar automaticamente uma disposição padrão logo que iniciar o jogo, para que você possa começar logo a jogar. </para>
+>O &kmahjongg; irá carregar automaticamente uma disposição padrão logo que iniciar o jogo, para que você possa começar logo a jogar. </para>
 	<note
 ><title
 >Nota:</title
@@ -187,7 +181,7 @@
 	<para
 >Descobrir o máximo de correspondências para remover todas as peças do campo. </para>
 </chapter>
- 
+
 <chapter id="rules_and_tips"
 ><title
 >Regras do jogo, estratégias e dicas</title
@@ -209,8 +203,8 @@
 >Captura de tela</phrase
 ></textobject>
 				</mediaobject>
-			</screenshot>
-Uma explicação rápida dos componentes da tela do jogo. </para>
+			</screenshot
+>Uma explicação rápida dos componentes da tela do jogo. </para>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -644,7 +638,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 		<itemizedlist>
 			<listitem
 ><para
->O número de peças em um tabuleiro do KMahjongg pode ser diferente do conjunto padrão de peças do Mahjong. Isso significa que o número de ocorrências das peças do mesmo tipo também pode ser diferente do número apresentado na tabela acima.</para
+>O número de peças em um tabuleiro do &kmahjongg; pode ser diferente do conjunto padrão de peças do Mahjong. Isso significa que o número de ocorrências das peças do mesmo tipo também pode ser diferente do número apresentado na tabela acima.</para
 ></listitem>
 			<listitem
 ><para
@@ -675,7 +669,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 >Flores</quote
 > e <quote
 >Estações</quote
->. </para
+>.</para
 ></note>
 		<itemizedlist>
 			<listitem
@@ -712,8 +706,8 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 
 	</sect1>
 </chapter>
- 
- 
+
+
 <chapter id="interface"
 ><title
 >Resumo da interface</title
@@ -722,7 +716,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 > and <varlistentry
 >. Split the chapter into sections using <sect1(2,3)
 > for better viewing.-->
- 
+
 <sect1 id="menu">
 <title
 >Itens dos menus</title>
@@ -910,9 +904,68 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 				<listitem
 ><para
 ><action
->Mostra o editor de tabuleiro.</action
+>Mostra o editor de tabuleiro.</action>
+				<screenshot>
+					<screeninfo
+>O editor de tabuleiros</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>O editor de tabuleiros</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Procedimento para editar o layout: <orderedlist>
+							<listitem
+><para
+>Use a barra de ferramentas do editor do tabuleiro para criar um novo layout ou para carregar um já existente.</para
+></listitem>
+							<listitem
+><para
+>Salve o layout na pasta home local do seu usuário em <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
 ></para
 ></listitem>
+							<listitem
+><para
+>Crie o arquivo <filename
+><replaceable
+>nome_do_seu_layout</replaceable
+>.desktop</filename
+> na mesma pasta.</para
+></listitem>
+							<listitem
+><para
+>Coloque as seguintes linhas neste arquivo usando seu editor de texto favorito: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>nome_do_seu_layout</replaceable>
+Description=<replaceable
+>descriçaõ_do_seu_layout</replaceable>
+VersionFormat=1
+Author=<replaceable
+>seu_nome</replaceable>
+AuthorEmail=<replaceable
+>seu_e-mail</replaceable>
+FileName=<replaceable
+>nome_do_seu_layout</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Recarregue o &kmahjongg; para usar seu novo layout.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
 			</varlistentry>
 			<varlistentry>
 				<term
@@ -933,7 +986,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 ><para
 ><action
 >Sai</action
-> do &kappname;.</para
+> do &kmahjongg;.</para
 ></listitem>
 			</varlistentry>
 
@@ -1068,7 +1121,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 > <guimenu
 >Ver</guimenu
 > <guimenuitem
->Rodar a Janela no Sentido Anti-Horário</guimenuitem
+>Rodar janela no sentido anti-horário</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1080,20 +1133,20 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 			</varlistentry>
 		</variablelist>
 <para
->O &kappname; possui os itens dos menus <guimenu
+>O &kmahjongg; possui os itens dos menus <guimenu
 >Configurações</guimenu
 > e <guimenu
 >Ajuda</guimenu
->, comuns do &kde;. Para mais informações, consulte as seções sobre o <ulink url="help:/fundamentals/ui.html#menus-settings"
+>, comuns do &kde;. Para mais informações, consulte as seções sobre o <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Menu Configurações</ulink
-> e o <ulink url="help:/fundamentals/ui.html#menus-help"
+> e o <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menu Ajuda</ulink
 > dos Fundamentos do &kde;. </para>
 
 </sect1>
 </chapter>
- 
- 
+
+
 <chapter id="faq"
 ><title
 >Perguntas frequentes</title
@@ -1110,7 +1163,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 ></question>
 		 <answer
 ><para
->Sim. Para mudar o visual do &kappname;, use a <link linkend="menu"
+>Sim. Para mudar o visual do &kmahjongg;, use a <link linkend="menu"
 >barra de menus</link
 > para abrir o <link linkend="configuration"
 >utilitário de configuração</link
@@ -1128,10 +1181,10 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 ></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
- 
+
 </qandaset>
 </chapter>
- 
+
 <chapter id="configuration"
 ><title
 >Configuração do jogo</title
@@ -1156,17 +1209,15 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 ><guimenu
 >Configurações</guimenu
 ><guimenuitem
->Configurar o &kappname;...</guimenuitem
+>Configurar o &kmahjongg;...</guimenuitem
 ></menuchoice
 > abre a janela para <guilabel
->Configurar o &kappname;</guilabel
+>Configurar o &kmahjongg;</guilabel
 >.</para>
 
 <sect1 id="general-options"
 ><title
->Configuração <guilabel
->Geral</guilabel
-></title>
+>Opções gerais</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1188,14 +1239,22 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 >Seleciona apenas os jogos que tenham solução quando iniciar um jogo novo. </para
 ></listitem>
 		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Mostrar peças removidas</guilabel
+></term>
+			<listitem
+><para
+>Se marcado, esta configuração permite ao &kmahjongg; mostrar as peças removidas no tabuleiro. </para
+></listitem>
+		</varlistentry>
 	</variablelist>
 </sect1>
 
 <sect1 id="layout-options"
 ><title
->Opções da <guilabel
->Disposição do Tabuleiro</guilabel
-></title>
+>Opções de layout do tabuleiro</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1237,9 +1296,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 
 <sect1 id="tiles-options"
 ><title
->Opções das <guilabel
->Peças</guilabel
-></title>
+>Opções das peças</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1271,9 +1328,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 
 <sect1 id="background-options"
 ><title
->Opções do <guilabel
->Fundo</guilabel
-></title>
+>Opções do fundo</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1475,14 +1530,14 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 
 </sect1>
 </chapter>
- 
+
 <chapter id="credits"
 ><title
 >Créditos e licença</title
 > <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
 	<para
->&kappname; para o &kde; </para>
+>&kmahjongg; do &kde; </para>
 
 	<para
 >Direitos autorais do programa &copy; 1997 <personname
@@ -1495,15 +1550,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 >in5y158@public.uni-hamburg.de</email
 > </para>
 	<para
->Direitos autorais do programa &copy; 2007 <personname
-><firstname
->Mauricio</firstname
-><surname
->Piacentini</surname
-></personname
-> <email
->piacentini@kde.org</email
-> </para>
+>Direitos autorais do programa &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
 	<para
 >Contribuidores: <itemizedlist>
 			<listitem
@@ -1556,15 +1603,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 ></listitem>
 			<listitem
 ><para
-><personname
-><firstname
->Albert</firstname
-><othername
->Astals</othername
-><surname
->Cid</surname
-></personname
-> &Albert.Astals.Cid.mail;</para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
 ></listitem>
 			<listitem
 ><para
@@ -1590,7 +1629,7 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 > <email
 >justlinux@bellsouth.net</email
 > </para>
- 
+
 <!-- !!!do not change ANYTHING after this line!!!! -->
 <para
 >Tradução de Marcus Gama <email
@@ -1598,24 +1637,9 @@ Uma explicação rápida dos componentes da tela do jogo. </para>
 > e André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
- 
- 
-<appendix id="installation">
-<title
->Instalação</title>
- 
-&install.intro.documentation;
- 
- 
-<sect1 id="Compilation">
-<title
->Compilação e instalação</title>
-&install.compile.documentation; </sect1>
-</appendix>
- 
-&documentation.index; 
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
 </book>
 <!--
 Local Variables:
