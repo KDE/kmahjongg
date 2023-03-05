@@ -461,7 +461,7 @@ msgstr "ماهجونج ك"
 #: src/main.cpp:32
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr "سوليتير ماهجونج للكدي"
+msgstr "سوليتير ماهجونج للكِيدِي"
 
 #: src/main.cpp:34
 #, kde-format
@@ -512,7 +512,7 @@ msgstr "David Black"
 #: src/main.cpp:40
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr "إعادة كتابة الكيدي 3 و الإمتداد"
+msgstr "إعادة كتابة الكِيدِي 3 و الإمتداد"
 
 #: src/main.cpp:41
 #, kde-format
@@ -536,7 +536,7 @@ msgstr "Raquel Ravanini"
 #: src/main.cpp:42
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr "مجموعة القراميد SVG للكدي4"
+msgstr "مجموعة القراميد SVG للكِيدِي4"
 
 #: src/main.cpp:43
 #, kde-format
