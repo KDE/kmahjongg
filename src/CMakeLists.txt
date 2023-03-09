@@ -47,7 +47,6 @@ ecm_add_app_icon(kmahjongg ICONS ${ICONS_SRCS})
 
 target_link_libraries(kmahjongg
     KF5KDEGames
-    KF5KMahjongglib
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::Completion
     KF${KF_MAJOR_VERSION}::XmlGui
@@ -55,6 +54,11 @@ target_link_libraries(kmahjongg
     KF${KF_MAJOR_VERSION}::Crash
     Qt::Gui
 )
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(kmahjongg KMahjongglib6)
+else()
+    target_link_libraries(kmahjongg KF5KMahjongglib)
+endif()
 
 install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
