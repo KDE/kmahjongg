@@ -46,7 +46,6 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-kmahjongg.png"
 ecm_add_app_icon(kmahjongg ICONS ${ICONS_SRCS})
 
 target_link_libraries(kmahjongg
-    KF5KDEGames
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::Completion
     KF${KF_MAJOR_VERSION}::XmlGui
@@ -55,9 +54,9 @@ target_link_libraries(kmahjongg
     Qt::Gui
 )
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kmahjongg KMahjongglib6)
+    target_link_libraries(kmahjongg KMahjongglib6 KDEGames6)
 else()
-    target_link_libraries(kmahjongg KF5KMahjongglib)
+    target_link_libraries(kmahjongg KF5KMahjongglib KF5KDEGames)
 endif()
 
 install(TARGETS kmahjongg  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

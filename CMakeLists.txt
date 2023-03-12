@@ -54,10 +54,11 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 if (QT_MAJOR_VERSION STREQUAL "6")
     find_package(KMahjongglib6 5.1.0 REQUIRED)
+    find_package(KDEGames6 7.5.0 REQUIRED)
 else()
     find_package(KF5KMahjongglib 5.1.0 REQUIRED)
+    find_package(KF5KDEGames 7.3.0 REQUIRED)
 endif()
-find_package(KF5KDEGames 7.3.0 REQUIRED)
 
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050F00
