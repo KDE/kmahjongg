@@ -6,14 +6,14 @@
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003.
 # Ilpo Kantonen <ilpo@iki.fi>, 2005.
 # Niklas Laxström <niklas.laxstrom+kdetrans@gmail.com>, 2007.
-# Tommi Nieminen <translator@legisign.org>, 2010, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2010, 2020, 2021, 2022, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2022-07-20 21:54+0300\n"
+"PO-Revision-Date: 2023-04-02 18:18+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:24:03+0000\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -323,7 +323,7 @@ msgstr "Aloita alusta"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Voitit loppuajassa %1 ja tuloksella %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
