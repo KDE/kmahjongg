@@ -1,25 +1,26 @@
 # translation of kmahjongg.po to galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2009.
 # Xosé <xosecalvo@gmail.com>, 2009, 2012.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2009, 2016, 2017.
 # Marce Villarino <mvillarino@kde-espana.org>, 2014.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:55+0000\n"
-"PO-Revision-Date: 2019-07-13 12:21+0200\n"
+"PO-Revision-Date: 2023-04-28 17:56+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,8 +33,7 @@ msgid "Your emails"
 msgstr "mvillarino@gmail.com, xosecalvo@gmail.com, adrian@chaves.io"
 
 #: src/editor.cpp:72
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Editar a disposición do taboleiro"
@@ -276,8 +276,7 @@ msgid "Time: "
 msgstr "Tempo: "
 
 #: src/kmahjongg.cpp:231
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Nova partida"
@@ -320,7 +319,7 @@ msgstr "Reiniciar"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Gañou a partida cun tempo final de %1 e unha puntuación de %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
@@ -333,8 +332,7 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Retiradas: %1/%2 Combinacións restantes: %3"
 
 #: src/kmahjongg.cpp:635
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Cargar unha partida"
@@ -360,8 +358,7 @@ msgid "File format not recognized."
 msgstr "Non se recoñece o formato de ficheiro."
 
 #: src/kmahjongg.cpp:710
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Gardar a partida"
@@ -374,13 +371,12 @@ msgstr "Non se puido abrir o ficheiro para gardar."
 #: src/kmahjongg.cpp:760
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "Queres gardar a partida?"
 
 #: src/kmahjongg.cpp:760
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgid "Save game?"
-msgstr "Gardar a partida"
+msgstr "Gardar a partida?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
