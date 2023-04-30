@@ -317,7 +317,7 @@ msgstr "Mulai ulang"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Kamu menang dengan menempuh waktu %1 dan hasil skornya %2!"
 
 #: src/kmahjongg.cpp:564
 #, kde-format
