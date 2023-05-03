@@ -536,10 +536,8 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
         score = 0;
     }
 
-    QString infoGameWon = i18n("You have won with a final time of %1 and a score of %2!")
-            .arg(m_gameTimer->timeString())
-            .arg(score);
-    KMessageBox::information(this, i18n(infoGameWon.toStdString().c_str()));
+    const QString infoGameWon = i18n("You have won with a final time of %1 and a score of %2!", m_gameTimer->timeString(), score);
+    KMessageBox::information(this, infoGameWon);
 
     //TODO: add gameNum as a Custom KScoreDialog field?
     //int elapsed = gameTimer->seconds();
