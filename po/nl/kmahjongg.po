@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:55+0000\n"
+"POT-Creation-Date: 2023-05-04 02:54+0000\n"
 "PO-Revision-Date: 2023-01-23 16:19+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -332,59 +332,59 @@ msgstr "Herstarten"
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "U hebt gewonnen met een totaaltijd van %1 en een score van %2!"
 
-#: src/kmahjongg.cpp:564
+#: src/kmahjongg.cpp:562
 #, kde-format
 msgid "Game number: %1"
 msgstr "Spelnummer: %1"
 
-#: src/kmahjongg.cpp:574
+#: src/kmahjongg.cpp:572
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Verwijderd: %1/%2. Overgebleven paren: %3"
 
-#: src/kmahjongg.cpp:635
+#: src/kmahjongg.cpp:633
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Spel laden"
 
-#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
+#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "KMahjongg-spel (*.kmgame)"
 
-#: src/kmahjongg.cpp:644
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Kon het bestand niet lezen. Afgebroken."
 
-#: src/kmahjongg.cpp:655
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Bestand is geen KMahjongg-spel."
 
-#: src/kmahjongg.cpp:668
+#: src/kmahjongg.cpp:666
 #, kde-format
 msgid "File format not recognized."
 msgstr "Bestandsformaat werd niet herkend."
 
-#: src/kmahjongg.cpp:710
+#: src/kmahjongg.cpp:708
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Spel opslaan"
 
-#: src/kmahjongg.cpp:720
+#: src/kmahjongg.cpp:718
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Kon bestand niet openen voor opslaan."
 
-#: src/kmahjongg.cpp:760
+#: src/kmahjongg.cpp:758
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Wilt u uw spel opslaan?"
 
-#: src/kmahjongg.cpp:760
+#: src/kmahjongg.cpp:758
 #, kde-format
 msgid "Save game?"
 msgstr "Spel opslaan?"

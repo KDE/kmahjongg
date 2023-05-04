@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:55+0000\n"
+"POT-Creation-Date: 2023-05-04 02:54+0000\n"
 "PO-Revision-Date: 2023-01-24 08:27+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -326,59 +326,59 @@ msgstr "Znova zaženi"
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Zmagali ste s končnim časom %1 in rezultatom %2!"
 
-#: src/kmahjongg.cpp:564
+#: src/kmahjongg.cpp:562
 #, kde-format
 msgid "Game number: %1"
 msgstr "Igra št.: %1"
 
-#: src/kmahjongg.cpp:574
+#: src/kmahjongg.cpp:572
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Odstranjenih: %1/%2  Preostali pari: %3"
 
-#: src/kmahjongg.cpp:635
+#: src/kmahjongg.cpp:633
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Naloži igro"
 
-#: src/kmahjongg.cpp:635 src/kmahjongg.cpp:710
+#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Igra KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:644
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Datoteke ni bilo mogoče prebrati. Prekinjam."
 
-#: src/kmahjongg.cpp:655
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "To ni datoteka z igro KMahjongg."
 
-#: src/kmahjongg.cpp:668
+#: src/kmahjongg.cpp:666
 #, kde-format
 msgid "File format not recognized."
 msgstr "Oblika datoteke ni bila prepoznana."
 
-#: src/kmahjongg.cpp:710
+#: src/kmahjongg.cpp:708
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Shrani igro"
 
-#: src/kmahjongg.cpp:720
+#: src/kmahjongg.cpp:718
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Datoteke ni bilo mogoče odpreti za shranjevanje."
 
-#: src/kmahjongg.cpp:760
+#: src/kmahjongg.cpp:758
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Ali želite shraniti vašo igro?"
 
-#: src/kmahjongg.cpp:760
+#: src/kmahjongg.cpp:758
 #, kde-format
 msgid "Save game?"
 msgstr "Naj shranim igro?"
