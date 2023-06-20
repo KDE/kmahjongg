@@ -400,7 +400,7 @@ msgstr "A disposición das fichas."
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr "Se as fichas retiradas se mostrarán no taboleiro."
+msgstr "Se as fichas retiradas se amosarán no taboleiro."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
@@ -418,7 +418,7 @@ msgstr "Indica se todas as partidas deben ser resolúbeis."
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr "Indica se debe mostrar as fichas que cases coa escollida."
+msgstr "Indica se debe amosar as fichas que cases coa escollida."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
@@ -575,7 +575,7 @@ msgstr "Xerar partidas con solución"
 #: src/settings.ui:36
 #, kde-format
 msgid "Show removed tiles"
-msgstr "Mostrar as fichas retiradas"
+msgstr "Amosar as fichas retiradas"
 
 #~ msgid "You have won!"
 #~ msgstr "Gañaches!"
