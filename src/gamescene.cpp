@@ -283,3 +283,5 @@ void GameScene::wheelEvent(QGraphicsSceneWheelEvent * mouseEvent)
         Q_EMIT rotateCCW();
     }
 }
+
+#include "moc_gamescene.cpp"

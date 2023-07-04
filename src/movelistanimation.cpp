@@ -79,3 +79,5 @@ void MoveListAnimation::timeoutOccurred()
         }
     }
 }
+
+#include "moc_movelistanimation.cpp"

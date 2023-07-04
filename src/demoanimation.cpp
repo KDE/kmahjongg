@@ -95,3 +95,5 @@ void DemoAnimation::timeoutOccurred()
             break;
     }
 }
+
+#include "moc_demoanimation.cpp"

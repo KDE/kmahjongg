@@ -211,3 +211,5 @@ void GameRemovedTiles::removeLastItem()
 {
     m_itemFaces->removeLast();
 }
+
+#include "moc_gameremovedtiles.cpp"

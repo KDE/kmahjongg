@@ -217,3 +217,5 @@ USHORT GameItem::getGridPosZ() const
 {
     return m_stPos.z;
 }
+
+#include "moc_gameitem.cpp"

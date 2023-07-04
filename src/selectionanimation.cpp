@@ -106,3 +106,5 @@ void SelectionAnimation::setSelectedGameItems(bool selected)
         m_gameItems->at(i)->setSelected(selected);
     }
 }
+
+#include "moc_selectionanimation.cpp"

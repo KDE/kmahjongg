@@ -1075,3 +1075,5 @@ bool GameView::getMatch() const
 {
     return m_match;
 }
+
+#include "moc_gameview.cpp"

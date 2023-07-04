@@ -743,3 +743,5 @@ void Editor::setTilesetFromSettings()
 
     updateTileSize(size());
 }
+
+#include "moc_editor.cpp"

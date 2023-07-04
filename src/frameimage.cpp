@@ -109,3 +109,5 @@ void FrameImage::mouseMoveEvent(QMouseEvent * e)
 {
     Q_EMIT mouseMoved(e);
 }
+
+#include "moc_frameimage.cpp"

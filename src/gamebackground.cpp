@@ -54,3 +54,5 @@ QRectF GameBackground::rect() const
 {
     return boundingRect();
 }
+
+#include "moc_gamebackground.cpp"

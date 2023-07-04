@@ -794,3 +794,5 @@ bool KMahjongg::testForGameChangeSave()
 
     return true;
 }
+
+#include "moc_kmahjongg.cpp"
