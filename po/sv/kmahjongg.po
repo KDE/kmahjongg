@@ -7,13 +7,13 @@
 # Karl Backström <backstrom@kde.org>, 2000.
 # Anders Widell <awl@hem.passagen.se>, 2000.
 # Mattias Newzella <newzella@linux.nu>, 2003.
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2007, 2009, 2012, 2016, 2017, 2019, 2021, 2022.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2007, 2009, 2012, 2016, 2017, 2019, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-04 00:44+0000\n"
-"PO-Revision-Date: 2022-08-03 10:09+0200\n"
+"PO-Revision-Date: 2023-07-31 09:49+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -321,7 +321,7 @@ msgstr "Starta om"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Du vann med sluttid %1 och poäng %2."
 
 #: src/kmahjongg.cpp:562
 #, kde-format
