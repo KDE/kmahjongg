@@ -345,7 +345,7 @@ void KMahjongg::demoMode()
 {
     // Test if a game is already running and whether the user wants to save the game.
     if (m_gameChanged && m_demoAction->isChecked()) {
-        if (!askSaveGame()) {
+        if (!askSaveGame(QStringLiteral("kmahjongg_start_demo_ask_for_saving"))) {
             // The user canceled the action, so don't go further with demo mode.
             m_demoAction->setChecked(false);
             return;
@@ -431,7 +431,7 @@ void KMahjongg::startNewGame()
 
 void KMahjongg::startNewGameWithNumber(int item)
 {
-    if (!testForGameChangeSave()) {
+    if (!testForGameChangeSave(QStringLiteral("kmahjongg_start_new_game_ask_for_saving"))) {
         return;
     }
 
@@ -610,7 +610,7 @@ void KMahjongg::updateUndoAndRedoStates()
 
 void KMahjongg::restartGame()
 {
-    if (!testForGameChangeSave()) {
+    if (!testForGameChangeSave(QStringLiteral("kmahjongg_restart_game_ask_for_saving"))) {
         return;
     }
 
@@ -626,7 +626,7 @@ void KMahjongg::restartGame()
 
 void KMahjongg::loadGame()
 {
-    if (!testForGameChangeSave()) {
+    if (!testForGameChangeSave(QStringLiteral("kmahjongg_load_game_ask_for_saving"))) {
         return;
     }
 
@@ -748,7 +748,7 @@ void KMahjongg::saveGame()
     m_gameChanged = false;
 }
 
-bool KMahjongg::askSaveGame()
+bool KMahjongg::askSaveGame(const QString &dontAskAgainName)
 {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     const KMessageBox::ButtonCode ret = KMessageBox::questionTwoActionsCancel(this,
@@ -756,7 +756,7 @@ bool KMahjongg::askSaveGame()
     const KMessageBox::ButtonCode ret = KMessageBox::questionYesNoCancel(this, 
 #endif
             i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
-            KStandardGuiItem::dontSave(), KStandardGuiItem::cancel());
+            KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), dontAskAgainName);
 
     switch (ret) {
 #if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
@@ -781,12 +781,12 @@ bool KMahjongg::askSaveGame()
     return true;
 }
 
-bool KMahjongg::testForGameChangeSave() 
+bool KMahjongg::testForGameChangeSave(const QString &dontAskAgainName)
 {
     // Ask to save the game when it has been changed. The question is also only relevant, if the user is in gameplay
     // or the game has been paused.
     if (m_gameChanged && (m_gameState == GameState::Gameplay || m_gameState == GameState::Paused)) {
-        if (!askSaveGame()) {
+        if (!askSaveGame(dontAskAgainName)) {
             // The user wants to cancel the action.
             return false;
         }
