@@ -1,14 +1,14 @@
 # Translation of kmahjongg to Korean.
 # Copyright (C) 1999, 2007 Free Software Foundation, Inc.
 # LinuxKorea Co. <kde@linuxkorea.co.kr>, 1999.
-# Shinjo Park <kde@peremen.name>, 2007, 2011, 2013, 2019, 2020, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2007, 2011, 2013, 2019, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ktetris\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-04 00:44+0000\n"
-"PO-Revision-Date: 2022-05-15 22:32+0200\n"
+"PO-Revision-Date: 2023-08-07 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -315,7 +315,7 @@ msgstr "다시 시작"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "소요 시간 %1, %2점으로 게임에서 이겼습니다!"
 
 #: src/kmahjongg.cpp:562
 #, kde-format
@@ -367,14 +367,12 @@ msgstr "파일에 저장하려고 열 수 없습니다."
 #: src/kmahjongg.cpp:758
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "게임을 저장하시겠습니까?"
 
 #: src/kmahjongg.cpp:758
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Game"
+#, kde-format
 msgid "Save game?"
-msgstr "게임 저장"
+msgstr "게임 저장?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
