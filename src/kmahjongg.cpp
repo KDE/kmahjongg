@@ -25,7 +25,6 @@
 #include <QRandomGenerator>
 
 // KF
-#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KLocalizedString>
@@ -399,27 +398,15 @@ void KMahjongg::noMovesAvailable()
 
     const QIcon newGameIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::New)))->icon();
     const QIcon restartIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::Restart)))->icon();
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     int answer = KMessageBox::questionTwoActionsCancel(
-#else
-    int answer = KMessageBox::questionYesNoCancel(
-#endif
         this,
         i18n("Game Over: You have no moves left."),
         i18n("Game Over"),
         KGuiItem(i18n("New Game"), newGameIcon),
         KGuiItem(i18n("Restart"), restartIcon));
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (answer == KMessageBox::PrimaryAction) {
-#else
-    if (answer == KMessageBox::Yes) {
-#endif
         startNewGame();
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     } else if (answer == KMessageBox::SecondaryAction) {
-#else
-    } else if (answer == KMessageBox::No) {
-#endif
         restartGame();
     }
 }
@@ -750,27 +737,15 @@ void KMahjongg::saveGame()
 
 bool KMahjongg::askSaveGame(const QString &dontAskAgainName)
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     const KMessageBox::ButtonCode ret = KMessageBox::questionTwoActionsCancel(this,
-#else
-    const KMessageBox::ButtonCode ret = KMessageBox::questionYesNoCancel(this, 
-#endif
             i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
             KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), dontAskAgainName);
 
     switch (ret) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::PrimaryAction:
-#else
-    case KMessageBox::ButtonCode::Yes:
-#endif
         saveGame();
         break;
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     case KMessageBox::SecondaryAction:
-#else
-    case KMessageBox::ButtonCode::No:
-#endif
         break;
     case KMessageBox::ButtonCode::Cancel:
         return false;

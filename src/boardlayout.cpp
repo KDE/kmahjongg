@@ -10,9 +10,6 @@
 
 // Qt
 #include <QFile>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QTextCodec>
-#endif
 #include <QTextStream>
 
 namespace {
@@ -109,9 +106,6 @@ bool BoardLayout::loadBoardLayout_10(const QString & from)
 
     if (f.open(QIODevice::ReadOnly)) {
         QTextStream t(&f);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
         QString s(t.readLine());
 
         if (s != layoutMagic1_0()) {
@@ -159,9 +153,6 @@ bool BoardLayout::loadBoardLayout(const QString & from)
     QFile f(from);
     if (f.open(QIODevice::ReadOnly)) {
         QTextStream t(&f);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
         QString s(t.readLine());
 
         if (s != layoutMagic1_1()) {
@@ -180,27 +171,15 @@ bool BoardLayout::loadBoardLayout(const QString & from)
                 continue;
             }
             if (s[0] == QLatin1Char('w')) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                m_width = s.midRef(1).toInt();
-#else
                 m_width = QStringView(s).mid(1).toInt();
-#endif
                 continue;
             }
             if (s[0] == QLatin1Char('h')) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                m_height = s.midRef(1).toInt();
-#else
                 m_height = QStringView(s).mid(1).toInt();
-#endif
                 continue;
             }
             if (s[0] == QLatin1Char('d')) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                m_depth = s.midRef(1).toInt();
-#else
                 m_depth = QStringView(s).mid(1).toInt();
-#endif
                 continue;
             }
             all += s;

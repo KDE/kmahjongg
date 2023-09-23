@@ -13,19 +13,13 @@
 #include <KCrash>
 #include <KDBusService>
 #include <KLocalizedString>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
+
 // KMahjongg
 #include "kmahjongg.h"
 #include "kmahjongg_version.h"
 
 int main(int argc, char ** argv)
 {
-    // Fixes blurry icons with fractional scaling
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain("kmahjongg");
@@ -52,13 +46,7 @@ int main(int argc, char ** argv)
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // Migrate pre-existing (4.x) configuration
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("kmahjongg"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("kmahjonggrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("kmahjonggui.rc"));
-    migrate.migrate();
-#endif
+
     KDBusService service;
 
     if (app.isSessionRestored()) {
