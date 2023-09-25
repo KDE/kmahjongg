@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ktetris\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-08-07 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -28,118 +28,118 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: src/editor.cpp:72
+#: src/editor.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "보드 레이아웃 편집"
 
-#: src/editor.cpp:112
+#: src/editor.cpp:111
 #, kde-format
 msgid "New board"
 msgstr "새 보드"
 
-#: src/editor.cpp:119
+#: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
 msgstr "보드 열기"
 
-#: src/editor.cpp:126
+#: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
 msgstr "보드 저장"
 
-#: src/editor.cpp:136
+#: src/editor.cpp:135
 #, kde-format
 msgid "Select"
 msgstr "선택"
 
-#: src/editor.cpp:141
+#: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
 msgstr "잘라내기"
 
-#: src/editor.cpp:146
+#: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
 msgstr "복사"
 
-#: src/editor.cpp:151
+#: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: src/editor.cpp:158
+#: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
 msgstr "조각 이동"
 
-#: src/editor.cpp:162
+#: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
 msgstr "조각 추가"
 
-#: src/editor.cpp:165
+#: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
 msgstr "조각 삭제"
 
-#: src/editor.cpp:189
+#: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
 msgstr "왼쪽으로 밀기"
 
-#: src/editor.cpp:195
+#: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
 msgstr "위로 밀기"
 
-#: src/editor.cpp:201
+#: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
 msgstr "아래로 밀기"
 
-#: src/editor.cpp:207
+#: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
 msgstr "오른쪽으로 밀기"
 
-#: src/editor.cpp:289
+#: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "조각: %1 위치: %2,%3,%4"
 
-#: src/editor.cpp:298
+#: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
 msgstr "보드 레이아웃 열기"
 
-#: src/editor.cpp:299 src/editor.cpp:337
+#: src/editor.cpp:298 src/editor.cpp:336
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "보드 레이아웃 (*.layout);;모든 파일(*)"
 
-#: src/editor.cpp:330
+#: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "조각이 짝 수 개 남아 있을 때에만 저장할 수 있습니다."
 
-#: src/editor.cpp:336 src/editor.cpp:348
+#: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
 msgstr "보드 레이아웃 저장"
 
-#: src/editor.cpp:347
+#: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "같은 이름의 파일이 이미 존재합니다. 덮어쓰시겠습니까?"
 
-#: src/editor.cpp:380
+#: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "보드가 수정되었습니다. 변경 사항을 저장하시겠습니까?"
 
-#: src/editor.cpp:392
+#: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "저장에 실패했습니다. 작업을 중단합니다."
@@ -206,7 +206,7 @@ msgstr "실행 취소 작업이 성공했습니다."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "아무것도 한 것이 없습니다! 무엇을 실행 취소하시겠습니까?"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:486
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "컴퓨터가 게임에 졌습니다."
@@ -226,150 +226,150 @@ msgstr "새 게임 생성 오류!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "데모 모드. 마우스 단추를 클릭하면 중단합니다."
 
-#: src/kmahjongg.cpp:141
+#: src/kmahjongg.cpp:140
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "새 게임(번호 지정)..."
 
-#: src/kmahjongg.cpp:148
+#: src/kmahjongg.cpp:147
 #, kde-format
 msgid "Shu&ffle"
 msgstr "섞기(&F)"
 
-#: src/kmahjongg.cpp:153
+#: src/kmahjongg.cpp:152
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "반시계 방향으로 보기 회전"
 
-#: src/kmahjongg.cpp:159
+#: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "시계 방향으로 보기 회전"
 
-#: src/kmahjongg.cpp:179
+#: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
 msgstr "보드 편집기(&B)"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "시간: 0:00:00"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "제거함: 0000/0000"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "게임: 000000000000000000000"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
 msgstr "시간: "
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "새 게임"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
 msgstr "게임 번호를 입력하십시오:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:265
 #, kde-format
 msgid "General"
 msgstr "일반"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "Board Layout"
 msgstr "보드 레이아웃"
 
-#: src/kmahjongg.cpp:408
+#: src/kmahjongg.cpp:403
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "게임 끝: 더 이상 이동할 수 없습니다."
 
-#: src/kmahjongg.cpp:409
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
 msgstr "게임 끝"
 
-#: src/kmahjongg.cpp:410
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
 msgstr "새 게임"
 
-#: src/kmahjongg.cpp:411
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
 msgstr "다시 시작"
 
-#: src/kmahjongg.cpp:539
+#: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "소요 시간 %1, %2점으로 게임에서 이겼습니다!"
 
-#: src/kmahjongg.cpp:562
+#: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
 msgstr "게임 번호: %1"
 
-#: src/kmahjongg.cpp:572
+#: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "제거함: %1/%2 남은 조합: %3"
 
-#: src/kmahjongg.cpp:633
+#: src/kmahjongg.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "게임 불러오기"
 
-#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "KMahjongg 게임 (*.kmgame)"
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:629
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "파일에서 읽어올 수 없습니다. 중지합니다."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "파일은 KMahjongg 게임이 아닙니다."
 
-#: src/kmahjongg.cpp:666
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
 msgstr "파일 형식을 알 수 없습니다."
 
-#: src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:695
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "게임 저장"
 
-#: src/kmahjongg.cpp:718
+#: src/kmahjongg.cpp:705
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "파일에 저장하려고 열 수 없습니다."
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "게임을 저장하시겠습니까?"
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Save game?"
 msgstr "게임 저장?"
@@ -440,17 +440,17 @@ msgstr "보기(&V)"
 msgid "Main Toolbar"
 msgstr "주 도구 모음"
 
-#: src/main.cpp:32
+#: src/main.cpp:26
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:34
+#: src/main.cpp:28
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "KDE의 마작 게임"
 
-#: src/main.cpp:36
+#: src/main.cpp:30
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -461,52 +461,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
 msgstr "원 작성자"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Current maintainer"
 msgstr "현재 관리자"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
 msgstr "버그 수리"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "KDE 3 재작성, 확장"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -515,42 +515,42 @@ msgstr ""
 "그놈 마작의 Michael Meeks의\n"
 "알고리즘을 기반으로 한 풀 수 있는 게임 생성"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "KDE 4용 SVG 타일 셋"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "타일 셋 기여자, 현재 웹 페이지 관리자"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "타일 셋 기여자, 원본 웹 페이지 관리자"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
 msgstr "코드 청소"

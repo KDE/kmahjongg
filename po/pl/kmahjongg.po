@@ -1,4 +1,4 @@
-# Version: $Revision: 1650876 $
+# Version: $Revision: 1660889 $
 # translation of kmahjongg.po to Polish
 # translation of kmahjongg.po to
 # translation of kmahjongg.po to
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-02-12 09:20+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,118 +34,118 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mrudolf@kdewebdev.org"
 
-#: src/editor.cpp:72
+#: src/editor.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Edytuj układ planszy"
 
-#: src/editor.cpp:112
+#: src/editor.cpp:111
 #, kde-format
 msgid "New board"
 msgstr "Nowa plansza"
 
-#: src/editor.cpp:119
+#: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
 msgstr "Otwórz planszę"
 
-#: src/editor.cpp:126
+#: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
 msgstr "Zapisz planszę"
 
-#: src/editor.cpp:136
+#: src/editor.cpp:135
 #, kde-format
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/editor.cpp:141
+#: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
 msgstr "Wytnij"
 
-#: src/editor.cpp:146
+#: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/editor.cpp:151
+#: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
 msgstr "Wklej"
 
-#: src/editor.cpp:158
+#: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
 msgstr "Przesuń kamienie"
 
-#: src/editor.cpp:162
+#: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
 msgstr "Dodaj kamienie"
 
-#: src/editor.cpp:165
+#: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
 msgstr "Usuń kamienie"
 
-#: src/editor.cpp:189
+#: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
 msgstr "Przesuń w lewo"
 
-#: src/editor.cpp:195
+#: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
 msgstr "Przesuń w górę"
 
-#: src/editor.cpp:201
+#: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
 msgstr "Przesuń w dół"
 
-#: src/editor.cpp:207
+#: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
 msgstr "Przesuń w prawo"
 
-#: src/editor.cpp:289
+#: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Kamienie: %1 Pozycja: %2,%3,%4"
 
-#: src/editor.cpp:298
+#: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Otwórz układ planszy"
 
-#: src/editor.cpp:299 src/editor.cpp:337
+#: src/editor.cpp:298 src/editor.cpp:336
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Układ planszy (*.layout);;Wszystkie pliki (*)"
 
-#: src/editor.cpp:330
+#: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Możesz zapisać tylko z parzystą liczbą kamieni."
 
-#: src/editor.cpp:336 src/editor.cpp:348
+#: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Zapisz układ planszy"
 
-#: src/editor.cpp:347
+#: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "Plik o tej nazwie już istnieje. Zastąpić go?"
 
-#: src/editor.cpp:380
+#: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Plansza została zmieniona. Zapisać zmiany?"
 
-#: src/editor.cpp:392
+#: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Błąd podczas zapisu."
@@ -212,7 +212,7 @@ msgstr "Cofnięcie ruchu."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Nie możesz cofnąć ruchu. Jeszcze nie wykonałeś żadnego!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:486
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Twój komputer przegrał grę."
@@ -232,150 +232,150 @@ msgstr "Błąd podczas tworzenia nowej gry!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Tryb demo. Kliknij myszą aby zatrzymać."
 
-#: src/kmahjongg.cpp:141
+#: src/kmahjongg.cpp:140
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Nowa wybrana gra..."
 
-#: src/kmahjongg.cpp:148
+#: src/kmahjongg.cpp:147
 #, kde-format
 msgid "Shu&ffle"
 msgstr "Wymiesza&j"
 
-#: src/kmahjongg.cpp:153
+#: src/kmahjongg.cpp:152
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "Obróć widok w lewo"
 
-#: src/kmahjongg.cpp:159
+#: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "Obróć widok w prawo"
 
-#: src/kmahjongg.cpp:179
+#: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
 msgstr "Edytor &planszy"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "Czas: 0:00:00"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "Usunięte: 0000/0000"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "Gra: 000000000000000000000"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
 msgstr "Czas: "
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Nowa gra"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
 msgstr "Podaj numer gry:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:265
 #, kde-format
 msgid "General"
 msgstr "Ogólne"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "Board Layout"
 msgstr "Układ planszy"
 
-#: src/kmahjongg.cpp:408
+#: src/kmahjongg.cpp:403
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "Koniec gry: Nie ma więcej ruchów."
 
-#: src/kmahjongg.cpp:409
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
 msgstr "Koniec gry"
 
-#: src/kmahjongg.cpp:410
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
 msgstr "Nowa gra"
 
-#: src/kmahjongg.cpp:411
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
 msgstr "Zagraj ponownie"
 
-#: src/kmahjongg.cpp:539
+#: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Wygrałeś z czasem końcowym %1 i wynikiem %2!"
 
-#: src/kmahjongg.cpp:562
+#: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
 msgstr "Gra nr: %1"
 
-#: src/kmahjongg.cpp:572
+#: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Usunięto: %1/%2  Pozostało par: %3"
 
-#: src/kmahjongg.cpp:633
+#: src/kmahjongg.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Wczytaj grę"
 
-#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Gra KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:629
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Nie można odczytać pliku."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "To nie jest plik z grą KMahjongg."
 
-#: src/kmahjongg.cpp:666
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
 msgstr "Nieznany format pliku."
 
-#: src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:695
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Zapisz grę"
 
-#: src/kmahjongg.cpp:718
+#: src/kmahjongg.cpp:705
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Nie można otworzyć pliku do zapisu."
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Czy chcesz zapisać swoją grę?"
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Save game?"
 msgstr "Zapisać grę?"
@@ -446,17 +446,17 @@ msgstr "&Widok"
 msgid "Main Toolbar"
 msgstr "Główny pasek narzędzi"
 
-#: src/main.cpp:32
+#: src/main.cpp:26
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:34
+#: src/main.cpp:28
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Układanka Mahjongg w ramach KDE"
 
-#: src/main.cpp:36
+#: src/main.cpp:30
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -467,52 +467,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
 msgstr "Autor pierwszej wersji"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Current maintainer"
 msgstr "Aktualny opiekun"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
 msgstr "Poprawki"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Wersja KDE 3 i rozbudowa"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -521,42 +521,42 @@ msgstr ""
 "Generowanie gier mających rozwiązanie\n"
 "na podstawie algorytmu Michaela Meeksa (GNOME mahjonng)"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "Zestaw kamieni SVG dla KDE4"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Projektant kamieni i opiekun strony WWW"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Projektant kamieni i opiekun oryginalnej strony WWW"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
 msgstr "Uporządkowanie kodu"

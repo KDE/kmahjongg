@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-01-23 10:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -33,118 +33,118 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "frandeve@hotmail.com,aacid@kde.org,aleixpol@gmail.com"
 
-#: src/editor.cpp:72
+#: src/editor.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Editeu la disposició del tauler"
 
-#: src/editor.cpp:112
+#: src/editor.cpp:111
 #, kde-format
 msgid "New board"
 msgstr "Tauler nou"
 
-#: src/editor.cpp:119
+#: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
 msgstr "Obri el tauler"
 
-#: src/editor.cpp:126
+#: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
 msgstr "Guarda el tauler"
 
-#: src/editor.cpp:136
+#: src/editor.cpp:135
 #, kde-format
 msgid "Select"
 msgstr "Selecciona"
 
-#: src/editor.cpp:141
+#: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
 msgstr "Retalla"
 
-#: src/editor.cpp:146
+#: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
-#: src/editor.cpp:151
+#: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
 msgstr "Apega"
 
-#: src/editor.cpp:158
+#: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
 msgstr "Mou les fitxes"
 
-#: src/editor.cpp:162
+#: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
 msgstr "Afig fitxes"
 
-#: src/editor.cpp:165
+#: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
 msgstr "Elimina les fitxes"
 
-#: src/editor.cpp:189
+#: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
 msgstr "Desplaça a l'esquerra"
 
-#: src/editor.cpp:195
+#: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
 msgstr "Desplaça amunt"
 
-#: src/editor.cpp:201
+#: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
 msgstr "Desplaça avall"
 
-#: src/editor.cpp:207
+#: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
 msgstr "Desplaça a la dreta"
 
-#: src/editor.cpp:289
+#: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Fitxers: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:298
+#: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Obri una disposició del tauler"
 
-#: src/editor.cpp:299 src/editor.cpp:337
+#: src/editor.cpp:298 src/editor.cpp:336
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Disposició de tauler (*.layout);;Tots els fitxers (*)"
 
-#: src/editor.cpp:330
+#: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Només es pot guardar amb un nombre parell de fitxes."
 
-#: src/editor.cpp:336 src/editor.cpp:348
+#: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Guarda la disposició del tauler"
 
-#: src/editor.cpp:347
+#: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "Ja existix un fitxer amb este nom. Voleu sobreescriure'l?"
 
-#: src/editor.cpp:380
+#: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "El tauler ha sigut modificat. Voleu guardar els canvis?"
 
-#: src/editor.cpp:392
+#: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "No s'ha pogut guardar. S'ha interromput l'operació."
@@ -211,7 +211,7 @@ msgstr "S'ha desfet amb èxit."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Què voleu desfer? No heu fet res!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:486
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "L'ordinador ha perdut la partida."
@@ -231,150 +231,150 @@ msgstr "S'ha produït una errada en generar la partida nova!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Mode demo. Prem un botó del ratolí per a parar."
 
-#: src/kmahjongg.cpp:141
+#: src/kmahjongg.cpp:140
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Partida nova numerada..."
 
-#: src/kmahjongg.cpp:148
+#: src/kmahjongg.cpp:147
 #, kde-format
 msgid "Shu&ffle"
 msgstr "&Barreja"
 
-#: src/kmahjongg.cpp:153
+#: src/kmahjongg.cpp:152
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "Gira la vista en el sentit invers a les agulles del rellotge"
 
-#: src/kmahjongg.cpp:159
+#: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "Gira la vista en el sentit de les agulles del rellotge"
 
-#: src/kmahjongg.cpp:179
+#: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
 msgstr "&Editor de tauler"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "Temps: 0:00:00"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "Eliminat: 0000/0000"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "Partida: 000000000000000000000"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
 msgstr "Temps: "
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Partida nova"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
 msgstr "Introduïu el número de la partida:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:265
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "Board Layout"
 msgstr "Disposició de tauler"
 
-#: src/kmahjongg.cpp:408
+#: src/kmahjongg.cpp:403
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "S'ha acabat la partida: No vos queden més moviments."
 
-#: src/kmahjongg.cpp:409
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
 msgstr "S'ha acabat la partida"
 
-#: src/kmahjongg.cpp:410
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
 msgstr "Joc nou"
 
-#: src/kmahjongg.cpp:411
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
 msgstr "Reinicia"
 
-#: src/kmahjongg.cpp:539
+#: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Heu guanyat amb un temps final de %1 i una puntuació de %2!"
 
-#: src/kmahjongg.cpp:562
+#: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
 msgstr "Joc número: %1"
 
-#: src/kmahjongg.cpp:572
+#: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Eliminat: %1/%2 Queden %3 combinacions"
 
-#: src/kmahjongg.cpp:633
+#: src/kmahjongg.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Carrega una partida"
 
-#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Partida de KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:629
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "No s'ha pogut llegir del fitxer. S'interromp."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "El fitxer no és un joc de KMahjongg."
 
-#: src/kmahjongg.cpp:666
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
 msgstr "Format de fitxer no reconegut."
 
-#: src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:695
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Guardeu la partida"
 
-#: src/kmahjongg.cpp:718
+#: src/kmahjongg.cpp:705
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "No s'ha pogut obrir el fitxer per a guardar."
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Vols guardar la partida?"
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Save game?"
 msgstr "Voleu guardar la partida?"
@@ -445,17 +445,17 @@ msgstr "&Vista"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: src/main.cpp:32
+#: src/main.cpp:26
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:34
+#: src/main.cpp:28
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Solitari Mahjongg, creat per la comunitat KDE"
 
-#: src/main.cpp:36
+#: src/main.cpp:30
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -466,52 +466,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
 msgstr "Autor original"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Current maintainer"
 msgstr "Mantenidor actual"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
 msgstr "Correcció d'errors"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Reescriptura i ampliació de KDE 3"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -520,42 +520,42 @@ msgstr ""
 "Generació de partides amb solució\n"
 "basada en l'algorisme d'en Michael Meeks del mahjongg de GNOME"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "Joc de fitxes en SVG per a KDE 4"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Col·laborador dels jocs de fitxes i mantenidor actual de la pàgina web"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Col·laborador dels jocs de fitxes i mantenidor de la pàgina web"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
 msgstr "Neteja del codi"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-08-02 00:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -34,118 +34,118 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "omer_fad@hotmail.com, emir_sari@icloud.com"
 
-#: src/editor.cpp:72
+#: src/editor.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Tahta Yerleşimini Düzenle"
 
-#: src/editor.cpp:112
+#: src/editor.cpp:111
 #, kde-format
 msgid "New board"
 msgstr "Yeni tahta"
 
-#: src/editor.cpp:119
+#: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
 msgstr "Tahtayı aç"
 
-#: src/editor.cpp:126
+#: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
 msgstr "Tahtayı kaydet"
 
-#: src/editor.cpp:136
+#: src/editor.cpp:135
 #, kde-format
 msgid "Select"
 msgstr "Seç"
 
-#: src/editor.cpp:141
+#: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
 msgstr "Kes"
 
-#: src/editor.cpp:146
+#: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/editor.cpp:151
+#: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: src/editor.cpp:158
+#: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
 msgstr "Döşemeleri taşı"
 
-#: src/editor.cpp:162
+#: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
 msgstr "Döşeme ekle"
 
-#: src/editor.cpp:165
+#: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
 msgstr "Döşemeleri sil"
 
-#: src/editor.cpp:189
+#: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
 msgstr "Sola kaydır"
 
-#: src/editor.cpp:195
+#: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
 msgstr "Yukarı kaydır"
 
-#: src/editor.cpp:201
+#: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
 msgstr "Aşağı kaydır"
 
-#: src/editor.cpp:207
+#: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
 msgstr "Sağa kaydır"
 
-#: src/editor.cpp:289
+#: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Döşemeler: %1 Sıra: %2,%3,%4"
 
-#: src/editor.cpp:298
+#: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Tahta Düzeni Aç"
 
-#: src/editor.cpp:299 src/editor.cpp:337
+#: src/editor.cpp:298 src/editor.cpp:336
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Tahta Düzeni (*.layout);;Tüm Dosyalar (*)"
 
-#: src/editor.cpp:330
+#: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Yalnızca çift sayıda döşeme ile kaydedebilirsiniz."
 
-#: src/editor.cpp:336 src/editor.cpp:348
+#: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Tahta Düzenini Kaydet"
 
-#: src/editor.cpp:347
+#: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "Bu adda bir dosya zaten var, üzerine yazmak istiyor musunuz?"
 
-#: src/editor.cpp:380
+#: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Tahta düzeni değiştirildi. Değişiklikleri kaydetmek istiyor musunuz?"
 
-#: src/editor.cpp:392
+#: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Kaydetme başarısız. İşlem durduruldu."
@@ -212,7 +212,7 @@ msgstr "Geri alma işlemi başarı ile tamamlandı."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Neyi geri alacaksın? Bir şey yapmadın ki!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:486
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Bilgisayarınız oyunu kaybetmiştir."
@@ -232,150 +232,150 @@ msgstr "Oyunu oluşturmada hata!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demo kipi. Durmak için tıkla."
 
-#: src/kmahjongg.cpp:141
+#: src/kmahjongg.cpp:140
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Yeni Sayılı Oyun..."
 
-#: src/kmahjongg.cpp:148
+#: src/kmahjongg.cpp:147
 #, kde-format
 msgid "Shu&ffle"
 msgstr "&Karıştır"
 
-#: src/kmahjongg.cpp:153
+#: src/kmahjongg.cpp:152
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "Görünümü Saat Yönünün Tersine Döndür"
 
-#: src/kmahjongg.cpp:159
+#: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "Görünümü Saat Yönünde Döndür"
 
-#: src/kmahjongg.cpp:179
+#: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
 msgstr "&Tahta Düzenleyicisi"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "Süre: 0:00:00"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "Kaldırılan: 0000/0000"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "Oyun: 000000000000000000000"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
 msgstr "Süre:"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Yeni Oyun"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
 msgstr "Oyunun numarasını girin:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:265
 #, kde-format
 msgid "General"
 msgstr "Genel"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "Board Layout"
 msgstr "Tahta Düzeni"
 
-#: src/kmahjongg.cpp:408
+#: src/kmahjongg.cpp:403
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "Oyun bitti: Hamle yapamıyorsunuz."
 
-#: src/kmahjongg.cpp:409
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
 msgstr "Oyun Bitti"
 
-#: src/kmahjongg.cpp:410
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
 msgstr "Yeni Oyun"
 
-#: src/kmahjongg.cpp:411
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: src/kmahjongg.cpp:539
+#: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "%1 toplam zaman ve %2 puanla oyunu kazandınız!"
 
-#: src/kmahjongg.cpp:562
+#: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
 msgstr "Oyun numarası: %1"
 
-#: src/kmahjongg.cpp:572
+#: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Kaldırılan: %1/%2 Kalan kombinasyonlar: %3"
 
-#: src/kmahjongg.cpp:633
+#: src/kmahjongg.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Oyun Yükle"
 
-#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "K Mahjongg Oyunu (*.kmgame)"
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:629
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Dosyadan okunamıyor. İşlem durdurulacak."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Bu dosya bir K Mahjongg  dosyası değil."
 
-#: src/kmahjongg.cpp:666
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
 msgstr "Dosya yapısı bilinmiyor."
 
-#: src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:695
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Oyun Kaydet"
 
-#: src/kmahjongg.cpp:718
+#: src/kmahjongg.cpp:705
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Dosya kayıt için açılamadı."
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Oyununuzu kaydetmek istiyor musunuz?"
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Save game?"
 msgstr "Oyun kaydedilsin mi?"
@@ -446,17 +446,17 @@ msgstr "&Görünüm"
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
-#: src/main.cpp:32
+#: src/main.cpp:26
 #, kde-format
 msgid "KMahjongg"
 msgstr "K Mahjongg"
 
-#: src/main.cpp:34
+#: src/main.cpp:28
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "KDE için Mahjongg Solitaire Oyunu"
 
-#: src/main.cpp:36
+#: src/main.cpp:30
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -467,52 +467,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Mathias Mueller"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
 msgstr "Asıl Yazar"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Current maintainer"
 msgstr "Şimdiki geliştirici"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Cid"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
 msgstr "Hata düzeltmeleri"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "David Black"
 msgstr "David Black"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "KDE 3 yeniden yazılımı ve Eklentisi"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Michael Haertjens"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -521,42 +521,42 @@ msgstr ""
 "Çözülebilir oyun oluşturulmasında Michael Meeks'in\n"
 "GNOME Mahjongg'daki algoritması temel alınmıştır"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Raquel Ravanini"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "KDE4 için SVG Döşeme Seti"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Richard Lohman"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Döşeme seti katkıcısı ve güncel web sitesinin bakıcısı"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Döşeme seti katkıcısı ve orijinal web sitesinin bakıcısı"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
 msgstr "Kod temizleme"

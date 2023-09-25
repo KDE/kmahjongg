@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:44+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2007-08-20 12:21+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -27,94 +27,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "submanesh@gmail.com"
 
-#: src/editor.cpp:72
+#: src/editor.cpp:71
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "बोर्ड सजावट सम्पादन गर्नुहोस्"
 
-#: src/editor.cpp:112
+#: src/editor.cpp:111
 #, kde-format
 msgid "New board"
 msgstr "नयाँ बोर्ड"
 
-#: src/editor.cpp:119
+#: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
 msgstr "बोर्ड खोल्नुहोस्"
 
-#: src/editor.cpp:126
+#: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
 msgstr "बोर्ड बचत गर्नुहोस्"
 
-#: src/editor.cpp:136
+#: src/editor.cpp:135
 #, kde-format
 msgid "Select"
 msgstr "चयन गर्नुहोस्"
 
-#: src/editor.cpp:141
+#: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
 msgstr "काट्नुहोस्"
 
-#: src/editor.cpp:146
+#: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
 msgstr "प्रतिलिपि गर्नुहोस्"
 
-#: src/editor.cpp:151
+#: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
 msgstr "टाँस्नुहोस्"
 
-#: src/editor.cpp:158
+#: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
 msgstr "टायल सार्नुहोस्"
 
-#: src/editor.cpp:162
+#: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
 msgstr "टायल थप्नुहोस्"
 
-#: src/editor.cpp:165
+#: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
 msgstr "टायल हटाउनुहोस्"
 
-#: src/editor.cpp:189
+#: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
 msgstr "Shift left"
 
-#: src/editor.cpp:195
+#: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
 msgstr "Shift up"
 
-#: src/editor.cpp:201
+#: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
 msgstr "Shift down"
 
-#: src/editor.cpp:207
+#: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
 msgstr "Shift right"
 
-#: src/editor.cpp:289
+#: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "टायल: %1 स्थान: %2,%3,%4"
 
-#: src/editor.cpp:298
+#: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
 msgstr "बोर्ड सजावट खोल्नुहोस्"
 
-#: src/editor.cpp:299 src/editor.cpp:337
+#: src/editor.cpp:298 src/editor.cpp:336
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -124,27 +124,27 @@ msgstr ""
 "*.layout|बोर्ड सजावट (*.layout)\n"
 "*|सबै फाइल"
 
-#: src/editor.cpp:330
+#: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:336 src/editor.cpp:348
+#: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
 msgstr "बोर्ड सजावट बचत गर्नुहोस्"
 
-#: src/editor.cpp:347
+#: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
 msgstr "यो नामको फाइल पहिल्यै अवस्थित छ । तपाईँले यसलाई अधिलेखन गर्न चाहनुहुन्छ?"
 
-#: src/editor.cpp:380
+#: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "बोर्ड परिमार्जन गरिएको छ । तपाईँ परिवर्तन बचत गर्न चाहनुहुन्छ?"
 
-#: src/editor.cpp:392
+#: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "बचत असफल भयो । सञ्चालन परित्याग गरिदैछ ।"
@@ -215,7 +215,7 @@ msgstr "पूर्वस्थितिमा फर्काउने का�
 msgid "What do you want to undo? You have done nothing!"
 msgstr "तपाईँले पूर्वस्थितिमा फर्काउन के गर्न चाहनुहुन्छ? तपाईँले केही पनि गर्नु भएको छैन!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:486
+#: src/gameview.cpp:196 src/kmahjongg.cpp:473
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "तपाईँको कम्प्युटरले खेल हारेको छ ।"
@@ -235,158 +235,158 @@ msgstr "नयाँ खेल उत्पन्न गर्दा त्र�
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "डेमो मोड । रोक्नका लागि माउस बटन क्लिक गर्नुहोस् ।"
 
-#: src/kmahjongg.cpp:141
+#: src/kmahjongg.cpp:140
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "नयाँ क्रमाङ्कन गरिएको खेल..."
 
-#: src/kmahjongg.cpp:148
+#: src/kmahjongg.cpp:147
 #, kde-format
 msgid "Shu&ffle"
 msgstr "अनियमित"
 
-#: src/kmahjongg.cpp:153
+#: src/kmahjongg.cpp:152
 #, fuzzy, kde-format
 #| msgid "Rotate View Counter Clockwise"
 msgid "Rotate View Counterclockwise"
 msgstr "दृश्य घडीको विपरित दिशामा घुमाउनुहोस्"
 
-#: src/kmahjongg.cpp:159
+#: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "दृश्य घडिको दिशामा घुमाउनुहोस्"
 
-#: src/kmahjongg.cpp:179
+#: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
 msgstr "बोर्ड सम्पादक"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "समय: ०:००:००"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "हटाइएका: ००००/००००"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "खेल: ०००००००००००००००००००००"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
 msgstr "समय: "
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "नयाँ खेल"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
 msgstr "खेल नम्बर प्रविष्ट गर्नुहोस्:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:265
 #, kde-format
 msgid "General"
 msgstr "साधारण"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:266
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgid "Board Layout"
 msgstr "बोर्ड सजावट सम्पादन गर्नुहोस्"
 
-#: src/kmahjongg.cpp:408
+#: src/kmahjongg.cpp:403
 #, fuzzy, kde-format
 #| msgid "Game over: You have no moves left."
 msgid "Game Over: You have no moves left."
 msgstr "खेल समाप्त: तपाईँका लागि चाल बाँकी छैन ।"
 
-#: src/kmahjongg.cpp:409
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:410
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
 msgstr "नयाँ खेल"
 
-#: src/kmahjongg.cpp:411
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:539
+#: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:562
+#: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
 msgstr "खेल नम्बर: %1"
 
-#: src/kmahjongg.cpp:572
+#: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "हटाइयो: %1/%2  संयोजन बाँकी रह्यो: %3"
 
-#: src/kmahjongg.cpp:633
+#: src/kmahjongg.cpp:620
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "विषयवस्तु बचत गर्नुहोस्"
 
-#: src/kmahjongg.cpp:633 src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:629
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not read from file. Aborting."
 msgstr "फाइलमा लेख्न सकेन । परित्याग गर्दैछ ।"
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:666
+#: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
 msgstr ""
 
-#: src/kmahjongg.cpp:708
+#: src/kmahjongg.cpp:695
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "विषयवस्तु बचत गर्नुहोस्"
 
-#: src/kmahjongg.cpp:718
+#: src/kmahjongg.cpp:705
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "फाइलमा लेख्न सकेन । परित्याग गर्दैछ ।"
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:758
+#: src/kmahjongg.cpp:741
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
@@ -459,18 +459,18 @@ msgstr "दृश्य"
 msgid "Main Toolbar"
 msgstr "मुख्य उपकरणपट्टी"
 
-#: src/main.cpp:32
+#: src/main.cpp:26
 #, kde-format
 msgid "KMahjongg"
 msgstr "केडीई माहजोङ्ग"
 
-#: src/main.cpp:34
+#: src/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "Mahjongg Solitaire for KDE"
 msgid "Mahjongg Solitaire by KDE"
 msgstr "केडीईका लागि माहजोङ्ग सोलिटेयर"
 
-#: src/main.cpp:36
+#: src/main.cpp:30
 #, fuzzy, kde-format
 #| msgid ""
 #| "(c) 1997, Mathias Mueller\n"
@@ -483,52 +483,52 @@ msgstr ""
 "(c) 1997, माथिहास मेलर\n"
 "(c) 2006, माउरिसिओ पियासेन्टिनि"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "म्याथिहास मेलर"
 
-#: src/main.cpp:39
+#: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
 msgstr "मौलिक लेखक"
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:34
 #, kde-format
 msgid "Current maintainer"
 msgstr "हालको मर्मतकर्ता"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "अल्बर्ट एस्टल्स सिड"
 
-#: src/main.cpp:41
+#: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
 msgstr "त्रुटि समाधान गर्दछ"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "David Black"
 msgstr "डेभिड ब्ल्याक"
 
-#: src/main.cpp:42
+#: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "केडीई ३ पुनर्लेखन र विस्तार"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "माइकल हार्टजेन्स"
 
-#: src/main.cpp:43
+#: src/main.cpp:37
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -537,42 +537,42 @@ msgstr ""
 "जिनोम माहजोङ्गमा माइकल मिकद्वारा एलगोरिदममा आधारित\n"
 "समाधान योग्य खेल संस्करण"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "राक्वेल राभानिनि"
 
-#: src/main.cpp:44
+#: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "केडीई४ का लागि SVG टायलसेट"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
 msgstr "रिचार्ड लोम्यान"
 
-#: src/main.cpp:45
+#: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "टायल सेट सहयोगि र हालको वेब पृष्ठ मर्मतकर्ता"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "ओस्भाल्डो स्टार्क"
 
-#: src/main.cpp:46
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "टायल सेट सहयोगि र मौलिक वेब पृष्ठ मर्मतकर्ता"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "बेन्जामिन मेयर"
 
-#: src/main.cpp:47
+#: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
 msgstr "सङ्केत सफाइ"
