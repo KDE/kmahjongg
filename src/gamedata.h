@@ -9,8 +9,8 @@
 #define GAMEDATA_H
 
 // Qt
+#include <QList>
 #include <QRandomGenerator>
-#include <QVector>
 
 // KMahjongg
 #include "kmtypes.h"
@@ -114,13 +114,13 @@ private:
     QByteArray m_board;
     QByteArray m_mask;
     QByteArray m_highlight;
-    QVector<POSITION> m_moveList;
+    QList<POSITION> m_moveList;
 
-    QVector<POSITION> m_tilePositions;
-    QVector<DEPENDENCY> m_positionDepends;
+    QList<POSITION> m_tilePositions;
+    QList<DEPENDENCY> m_positionDepends;
 
     //PosTable, scratch storage used for highlighting matching tiles
-    QVector<POSITION> m_posTable;
+    QList<POSITION> m_posTable;
 };
 
 #endif // GAMEDATA_H

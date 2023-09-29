@@ -29,10 +29,10 @@ GameData::GameData(BoardLayout * boardlayout)
 
     POSITION e; //constructor initializes it to 0
 
-    m_moveList = QVector<POSITION>(m_maxTiles, e);
-    m_tilePositions = QVector<POSITION>(m_maxTiles, e);
-    m_posTable = QVector<POSITION>(m_maxTiles, e);
-    m_positionDepends = QVector<DEPENDENCY>(m_maxTiles);
+    m_moveList = QList<POSITION>(m_maxTiles, e);
+    m_tilePositions = QList<POSITION>(m_maxTiles, e);
+    m_posTable = QList<POSITION>(m_maxTiles, e);
+    m_positionDepends = QList<DEPENDENCY>(m_maxTiles);
 
     //Copy board layout over
     boardlayout->copyBoardLayout((UCHAR *)getMaskBytes(), m_maxTileNum); //FIXME: is this cast safe?
@@ -317,8 +317,8 @@ bool GameData::onlyFreeInLine(int position) const
     int i, i0, w;
     int lin, rin, out;
 
-    QVector<int> nextLeft = QVector<int>(m_maxTiles, 0);
-    QVector<int> nextRight = QVector<int>(m_maxTiles, 0);
+    QList<int> nextLeft = QList<int>(m_maxTiles, 0);
+    QList<int> nextRight = QList<int>(m_maxTiles, 0);
 
     /* Check left, starting at position */
     lin = 0;
