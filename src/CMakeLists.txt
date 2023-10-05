@@ -53,6 +53,7 @@ target_link_libraries(kmahjongg
     KF6::XmlGui
     KF6::DBusAddons
     KF6::Crash
+    KF6::I18n
     Qt6::Gui
 )
 
