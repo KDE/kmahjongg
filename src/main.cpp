@@ -40,9 +40,10 @@ int main(int argc, char ** argv)
     aboutData.addCredit(i18n("Osvaldo Stark"), i18n("Tile set contributor and original web page maintainer"), QStringLiteral("starko@dnet.it"));
     aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), QStringLiteral("ben+kmahjongg@meyerhome.net"));
 
-    QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
     KCrash::initialize();
+
+    QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
