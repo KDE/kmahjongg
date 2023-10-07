@@ -58,14 +58,15 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
         }
     }
     tilesAvailable.sort();
-    QString namestr(QStringLiteral("Name"));
+
     int numvalidentries = 0;
     for (int i = 0; i < tilesAvailable.size(); ++i) {
         KMahjonggLayout * aset = new KMahjonggLayout();
         QString atileset = tilesAvailable.at(i);
         if (aset->load(atileset)) {
-            layoutMap.insert(aset->authorProperty(namestr), aset);
-            layoutList->addItem(aset->authorProperty(namestr));
+            const QString name = aset->authorProperty(QStringLiteral("Name"));
+            layoutMap.insert(name, aset);
+            layoutList->addItem(name);
             //Find if this is our currently configured Tileset
             if (atileset == initialGroup) {
                 //Select current entry
