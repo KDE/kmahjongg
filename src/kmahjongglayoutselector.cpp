@@ -41,41 +41,40 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     KConfigGroup group = config->group("General");
     QString initialGroup = group.readEntry("Layout_file");
 
-    //The lineEdit widget holds our tileset path, but the user does not manipulate it directly
+    //The lineEdit widget holds our layout path, but the user does not manipulate it directly
     kcfg_Layout->hide();
 
     //No new stuff yet
     getNewButton->hide();
 
-    //Now get our tilesets into a list
-    QStringList tilesAvailable;
+    //Now get our layouts into a list
+    QStringList layoutsAvailable;
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
     for (const QString & dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         for (const QString & file : fileNames) {
-            tilesAvailable.append(dir + QLatin1Char('/') + file);
+            layoutsAvailable.append(dir + QLatin1Char('/') + file);
         }
     }
-    tilesAvailable.sort();
+    layoutsAvailable.sort();
 
     int numvalidentries = 0;
-    for (int i = 0; i < tilesAvailable.size(); ++i) {
-        KMahjonggLayout * aset = new KMahjonggLayout();
-        QString atileset = tilesAvailable.at(i);
-        if (aset->load(atileset)) {
-            const QString name = aset->authorProperty(QStringLiteral("Name"));
-            layoutMap.insert(name, aset);
+    for (const QString &layoutPath : std::as_const(layoutsAvailable)) {
+        auto *alayout = new KMahjonggLayout();
+        if (alayout->load(layoutPath)) {
+            const QString name = alayout->authorProperty(QStringLiteral("Name"));
+            layoutMap.insert(name, alayout);
             layoutList->addItem(name);
-            //Find if this is our currently configured Tileset
-            if (atileset == initialGroup) {
+            //Find if this is our currently configured layout
+            if (layoutPath == initialGroup) {
                 //Select current entry
                 layoutList->setCurrentRow(numvalidentries);
                 layoutChanged();
             }
             ++numvalidentries;
         } else {
-            delete aset;
+            delete alayout;
         }
     }
 
