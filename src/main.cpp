@@ -41,6 +41,8 @@ int main(int argc, char ** argv)
     aboutData.addCredit(i18n("Benjamin Meyer"), i18n("Code cleanup"), QStringLiteral("ben+kmahjongg@meyerhome.net"));
 
     KAboutData::setApplicationData(aboutData);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kmahjongg")));
+
     KCrash::initialize();
 
     QCommandLineParser parser;
@@ -56,8 +58,6 @@ int main(int argc, char ** argv)
         KMahjongg * window = new KMahjongg();
         window->show();
     }
-
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kmahjongg")));
 
     return app.exec();
 }
