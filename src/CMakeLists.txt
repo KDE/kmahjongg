@@ -49,7 +49,6 @@ target_link_libraries(kmahjongg
     KMahjongglib6
     KDEGames6
     KF6::CoreAddons
-    KF6::Completion
     KF6::XmlGui
     KF6::DBusAddons
     KF6::Crash
