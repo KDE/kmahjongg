@@ -50,7 +50,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     //Now get our layouts into a list
     QStringList layoutsAvailable;
 
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts/"), QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts"), QStandardPaths::LocateDirectory);
     for (const QString & dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         for (const QString & file : fileNames) {
