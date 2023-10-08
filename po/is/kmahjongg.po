@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2009-06-13 16:24+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: icelandic <kde-isl@molar.is>\n"
@@ -181,7 +181,7 @@ msgid "Preview"
 msgstr "Forsýn"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -189,19 +189,19 @@ msgid "Layout Details"
 msgstr "ra@ra.is, bre@mmedia.is, pjetur@pjetur.net"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, fuzzy, kde-format
 msgid "Author:"
 msgstr "Höfundur:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, fuzzy, kde-format
 msgid "Contact:"
 msgstr "Tengiliður:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, fuzzy, kde-format
 msgid "Description:"
 msgstr "Lýsing:"
@@ -574,19 +574,19 @@ msgid "Code cleanup"
 msgstr "Hreinsun forrita"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "Búa til leysanlega leiki"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, fuzzy, kde-format
 #| msgid "Remove tiles"
 msgid "Show removed tiles"

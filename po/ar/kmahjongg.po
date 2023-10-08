@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2021-12-19 16:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -175,25 +175,25 @@ msgid "Preview"
 msgstr "معاينة"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, kde-format
 msgid "Layout Details"
 msgstr "تفاصيل التخطيط"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, kde-format
 msgid "Author:"
 msgstr "المؤلف:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, kde-format
 msgid "Contact:"
 msgstr "الإتصال:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, kde-format
 msgid "Description:"
 msgstr "الوصف:"
@@ -569,19 +569,19 @@ msgid "Code cleanup"
 msgstr "تنظيف الشفرة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, fuzzy, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr "وميض مواءمة الأوّل هو مُنتقى"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "ولد ألعاب قابلة للحل"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, fuzzy, kde-format
 #| msgid "Remove tiles"
 msgid "Show removed tiles"

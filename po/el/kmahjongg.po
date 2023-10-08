@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2023-01-07 09:01+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -174,25 +174,25 @@ msgid "Preview"
 msgstr "Προεπισκόπηση"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, kde-format
 msgid "Layout Details"
 msgstr "Λεπτομέρειες διάταξης"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, kde-format
 msgid "Author:"
 msgstr "Συγγραφέας:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, kde-format
 msgid "Contact:"
 msgstr "Επικοινωνία:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, kde-format
 msgid "Description:"
 msgstr "Περιγραφή:"
@@ -562,19 +562,19 @@ msgid "Code cleanup"
 msgstr "Καθάρισμα κώδικα"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr "Αναβόσβημα ταιριαστών πιονιών μόλις επιλεγεί το ένα"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "Δημιουργία παιχνιδιών που έχουν λύση"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Εμφάνιση διαγραμμένων πιονιών"

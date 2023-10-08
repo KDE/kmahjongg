@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2019-12-12 21:40+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -168,25 +168,25 @@ msgid "Preview"
 msgstr "തിരനോട്ടം"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, kde-format
 msgid "Layout Details"
 msgstr "ലേഔട്ട് വിശദാംശങ്ങൾ"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, kde-format
 msgid "Author:"
 msgstr "രചയിതാവ്:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, kde-format
 msgid "Contact:"
 msgstr "ബന്ധപ്പെടുക:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, kde-format
 msgid "Description:"
 msgstr "വിവരണം:"
@@ -558,19 +558,19 @@ msgid "Code cleanup"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr "ആദ്യത്തേത് തിരഞ്ഞെടുക്കുമ്പോൾ പൊരുത്തപ്പെടുന്ന ടൈലുകൾ മിന്നിക്കുക"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "പരിഹരിക്കാവുന്ന കളികൾ സൃഷ്ടിക്കുക"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, kde-format
 msgid "Show removed tiles"
 msgstr "നീക്കംചെയ്‌ത ടൈലുകൾ കാണിക്കുക"

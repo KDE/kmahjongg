@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2008-12-23 11:25+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -183,25 +183,25 @@ msgid "Preview"
 msgstr "プレビュー"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, kde-format
 msgid "Layout Details"
 msgstr "レイアウトの詳細"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, kde-format
 msgid "Author:"
 msgstr "作者:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, kde-format
 msgid "Contact:"
 msgstr "連絡先:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, kde-format
 msgid "Description:"
 msgstr "説明:"
@@ -580,19 +580,19 @@ msgid "Code cleanup"
 msgstr "コード整理"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr "選択した牌にマッチする牌を点滅させる"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "解決可能なゲームを生成する"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, fuzzy, kde-format
 #| msgid "Remove tiles"
 msgid "Show removed tiles"

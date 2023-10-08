@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ktetris\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
 "PO-Revision-Date: 2023-08-07 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -168,25 +168,25 @@ msgid "Preview"
 msgstr "미리 보기"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:93
+#: src/gametype.ui:87
 #, kde-format
 msgid "Layout Details"
 msgstr "레이아웃 정보"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:113
+#: src/gametype.ui:98
 #, kde-format
 msgid "Author:"
 msgstr "작성자:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:123
+#: src/gametype.ui:108
 #, kde-format
 msgid "Contact:"
 msgstr "연락처:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:133
+#: src/gametype.ui:118
 #, kde-format
 msgid "Description:"
 msgstr "설명:"
@@ -556,19 +556,19 @@ msgid "Code cleanup"
 msgstr "코드 청소"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
-#: src/settings.ui:22
+#: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
 msgstr "첫 번째가 선택되면 맞는 조각 깜빡이기"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
-#: src/settings.ui:29
+#: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
 msgstr "풀 수 있는 게임 만들기"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
-#: src/settings.ui:36
+#: src/settings.ui:30
 #, kde-format
 msgid "Show removed tiles"
 msgstr "삭제된 조각 표시"
