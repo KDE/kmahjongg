@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/kmahjongg.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -164,37 +164,37 @@ msgid "Random Layout"
 msgstr "Leagan Amach Randamach"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
-#: src/gametype.ui:51
+#: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
 msgstr "Fai&gh Leaganacha Amach Nua"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gametype.ui:60
+#: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
 msgstr "Réamhamharc"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:87
+#: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
 msgstr "Mionsonraí an Leagain Amach"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:98
+#: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
 msgstr "Údar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:108
+#: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
 msgstr "Teagmháil:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:118
+#: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
 msgstr "Cur Síos:"

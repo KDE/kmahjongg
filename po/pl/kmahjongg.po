@@ -1,4 +1,4 @@
-# Version: $Revision: 1661907 $
+# Version: $Revision: 1661987 $
 # translation of kmahjongg.po to Polish
 # translation of kmahjongg.po to
 # translation of kmahjongg.po to
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-02-12 09:20+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -162,37 +162,37 @@ msgid "Random Layout"
 msgstr "Losowy układ"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
-#: src/gametype.ui:51
+#: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
 msgstr "&Pobierz nowe układy"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gametype.ui:60
+#: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
 msgstr "Podgląd"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:87
+#: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
 msgstr "Szczegóły układu"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:98
+#: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
 msgstr "Autor:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:108
+#: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
 msgstr "Kontakt:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:118
+#: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
 msgstr "Opis:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2017-04-07 00:52+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -165,37 +165,37 @@ msgid "Random Layout"
 msgstr "Насумични распоред"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
-#: src/gametype.ui:51
+#: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
 msgstr "&Добави нове распореде"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gametype.ui:60
+#: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
 msgstr "Преглед"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:87
+#: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
 msgstr "Детаљи распореда"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:98
+#: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
 msgstr "Аутор:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:108
+#: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
 msgstr "Контакт:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:118
+#: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
 msgstr "Опис:"

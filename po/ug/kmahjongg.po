@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -160,19 +160,19 @@ msgid "Random Layout"
 msgstr "E"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
-#: src/gametype.ui:51
+#: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gametype.ui:60
+#: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
 msgstr "ئالدىن كۆزەت"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:87
+#: src/gametype.ui:90
 #, fuzzy, kde-format
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
@@ -180,19 +180,19 @@ msgid "Layout Details"
 msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:98
+#: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
 msgstr "ئاپتور:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:108
+#: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
 msgstr "ئالاقەداش:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:118
+#: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
 msgstr "چۈشەندۈرۈش:"

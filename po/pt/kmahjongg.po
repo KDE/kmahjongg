@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"POT-Creation-Date: 2023-10-09 01:44+0000\n"
 "PO-Revision-Date: 2023-02-15 12:39+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -157,37 +157,37 @@ msgid "Random Layout"
 msgstr "Disposição Aleatória"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
-#: src/gametype.ui:51
+#: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
 msgstr "O&bter Disposições Novas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/gametype.ui:60
+#: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
 msgstr "Antevisão"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: src/gametype.ui:87
+#: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
 msgstr "Detalhes da Disposição"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
-#: src/gametype.ui:98
+#: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
 msgstr "Autor:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
-#: src/gametype.ui:108
+#: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
 msgstr "Contacto:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
-#: src/gametype.ui:118
+#: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
 msgstr "Descrição:"
