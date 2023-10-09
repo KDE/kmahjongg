@@ -224,7 +224,7 @@ void BoardLayout::initialiseBoard()
         switch (c) {
             case static_cast<UCHAR>('1'):
                 ++m_maxTileNum;
-                Q_FALLTHROUGH();
+                [[fallthrough]];
             case static_cast<UCHAR>('2'):
             case static_cast<UCHAR>('3'):
             case static_cast<UCHAR>('4'):
