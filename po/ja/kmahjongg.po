@@ -597,6 +597,3 @@ msgstr "解決可能なゲームを生成する"
 #| msgid "Remove tiles"
 msgid "Show removed tiles"
 msgstr "牌を削除"
-
-#~ msgid "You have won!"
-#~ msgstr "あなたの勝ちです!"
