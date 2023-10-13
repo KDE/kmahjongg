@@ -1,58 +1,58 @@
 # Esperantaj mesaĝoj por "kmahjongg"
 # Copyright (C) 1998 Free Software Foundation, Inc.
 # Wolfram Diestel <diestel@rzaix340.rz.uni-leipzig.de>, 1998.
-#
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kmahjongg 1.0\n"
+"Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-09 01:44+0000\n"
-"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"PO-Revision-Date: 2023-10-12 06:03+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
-"Language-Team: Esperanto <eo@li.org>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9beta4\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #: src/editor.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "Redaktu tabularanĝon"
+msgstr "Redakti tabularanĝon"
 
 #: src/editor.cpp:111
 #, kde-format
 msgid "New board"
-msgstr ""
+msgstr "Nova tabulo"
 
 #: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
-msgstr ""
+msgstr "Malfermi tabulon"
 
 #: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
-msgstr ""
+msgstr "Konservi tabulon"
 
 #: src/editor.cpp:135
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "Elekti"
 
 #: src/editor.cpp:140
 #, kde-format
@@ -72,72 +72,72 @@ msgstr "Alglui"
 #: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
-msgstr ""
+msgstr "Movi kahelojn"
 
 #: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
-msgstr ""
+msgstr "Aldoni kahelojn"
 
 #: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
-msgstr ""
+msgstr "Forigi kahelojn"
 
 #: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
-msgstr ""
+msgstr "Movi maldekstren"
 
 #: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
-msgstr ""
+msgstr "Movi supren"
 
 #: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
-msgstr ""
+msgstr "Movi malsupren"
 
 #: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
-msgstr ""
+msgstr "Movi dekstren"
 
 #: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
-msgstr ""
+msgstr "Kaheloj: %1 Pozo: %2,%3,%4"
 
 #: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
-msgstr ""
+msgstr "Malfermi Tabularanĝon"
 
 #: src/editor.cpp:298 src/editor.cpp:336
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr ""
+msgstr "Tabularanĝo (*.layout);;Ĉiuj Dosieroj (*)"
 
 #: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "Vi povas konservi nur kun para nombro da kaheloj."
 
 #: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
-msgstr ""
+msgstr "Konservi Tabularanĝon"
 
 #: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr ""
+msgstr "Dosiero kun tiu nomo jam ekzistas. Ĉu vi volas anstataŭigi ĝin?"
 
 #: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
-msgstr ""
+msgstr "La tabulo estis modifita. Ĉu vi ŝatus konservi la ŝanĝojn?"
 
 #: src/editor.cpp:383
 #, kde-format
@@ -147,19 +147,19 @@ msgstr "Konservo malsukcesis. Finante la operacion."
 #: src/gameremovedtiles.cpp:127
 #, kde-format
 msgid "Removed tiles"
-msgstr ""
+msgstr "Forigitaj kaheloj"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
 #, kde-format
 msgid "Random Layout"
-msgstr ""
+msgstr "Hazarda Aranĝo"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
-msgstr ""
+msgstr "&Ekpreni Novajn Aranĝojn"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -171,7 +171,7 @@ msgstr "Antaŭrigardo"
 #: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
-msgstr ""
+msgstr "Aranĝo Detaloj"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:96
@@ -194,7 +194,7 @@ msgstr "Priskribo:"
 #: src/gameview.cpp:135 src/gameview.cpp:246
 #, kde-format
 msgid "Ready. Now it is your turn."
-msgstr ""
+msgstr "Preta. Nun estas via vico."
 
 #: src/gameview.cpp:157
 #, kde-format
@@ -239,48 +239,48 @@ msgstr "&Miksu"
 #: src/kmahjongg.cpp:152
 #, kde-format
 msgid "Rotate View Counterclockwise"
-msgstr ""
+msgstr "Rotacii Vidon Maldekstrume"
 
 #: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
-msgstr ""
+msgstr "Rotacii Vidon dekstrume"
 
 #: src/kmahjongg.cpp:178
 #, kde-format
 msgid "&Board Editor"
-msgstr ""
+msgstr "Ta&bula Redaktilo"
 
 #: src/kmahjongg.cpp:197
 #, kde-format
 msgid "Time: 0:00:00"
-msgstr ""
+msgstr "Tempo: 0:00:00"
 
 #: src/kmahjongg.cpp:204
 #, kde-format
 msgid "Removed: 0000/0000"
-msgstr ""
+msgstr "Forigita: 0000/0000"
 
 #: src/kmahjongg.cpp:211
 #, kde-format
 msgid "Game: 000000000000000000000"
-msgstr ""
+msgstr "Ludo: 000000000000000000000"
 
 #: src/kmahjongg.cpp:224
 #, kde-format
 msgid "Time: "
-msgstr ""
+msgstr "Tempo:"
 
 #: src/kmahjongg.cpp:230
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr ""
+msgstr "Nova Ludo"
 
 #: src/kmahjongg.cpp:230
 #, kde-format
 msgid "Enter game number:"
-msgstr ""
+msgstr "Enigu ludonumeron:"
 
 #: src/kmahjongg.cpp:265
 #, kde-format
@@ -290,42 +290,42 @@ msgstr "Ĝeneralo"
 #: src/kmahjongg.cpp:266
 #, kde-format
 msgid "Board Layout"
-msgstr ""
+msgstr "Estraro Aranĝo"
 
 #: src/kmahjongg.cpp:403
 #, kde-format
 msgid "Game Over: You have no moves left."
-msgstr ""
+msgstr "Game Over: Al vi restas neniuj movoj."
 
 #: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over"
-msgstr ""
+msgstr "La ludo finiĝis"
 
 #: src/kmahjongg.cpp:405
 #, kde-format
 msgid "New Game"
-msgstr ""
+msgstr "Nova Ludo"
 
 #: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Rekomenci"
 
 #: src/kmahjongg.cpp:526
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Vi venkis kun fina tempo de %1 kaj poentaro de %2!"
 
 #: src/kmahjongg.cpp:549
 #, kde-format
 msgid "Game number: %1"
-msgstr ""
+msgstr "Ludnumero: %1"
 
 #: src/kmahjongg.cpp:559
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
-msgstr ""
+msgstr "Forigita: %1/%2 Kombinaĵoj restas: %3"
 
 #: src/kmahjongg.cpp:620
 #, kde-format
@@ -336,7 +336,7 @@ msgstr "Ŝargu ludon"
 #: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "KMahjongg-Ludo (*.kmgame)"
 
 #: src/kmahjongg.cpp:629
 #, kde-format
@@ -346,75 +346,75 @@ msgstr "Ne eblis legi de dosiero. Ĉesante."
 #: src/kmahjongg.cpp:640
 #, kde-format
 msgid "File is not a KMahjongg game."
-msgstr ""
+msgstr "Dosiero ne estas KMahjongg-ludo."
 
 #: src/kmahjongg.cpp:653
 #, kde-format
 msgid "File format not recognized."
-msgstr ""
+msgstr "Dosierformato ne rekonita."
 
 #: src/kmahjongg.cpp:695
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr ""
+msgstr "Konservi Ludon"
 
 #: src/kmahjongg.cpp:705
 #, kde-format
 msgid "Could not open file for saving."
-msgstr ""
+msgstr "Ne eblis malfermi dosieron por konservi."
 
 #: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "Ĉu vi volas konservi vian ludon?"
 
 #: src/kmahjongg.cpp:741
 #, kde-format
 msgid "Save game?"
-msgstr ""
+msgstr "Ĉu konservi ludon?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
 #, kde-format
 msgid "The tile-set to use."
-msgstr ""
+msgstr "La kahelaro por uzi."
 
 #. i18n: ectx: label, entry (Background), group (General)
 #: src/kmahjongg.kcfg:12
 #, kde-format
 msgid "The background to use."
-msgstr ""
+msgstr "La fono por uzi."
 
 #. i18n: ectx: label, entry (Layout), group (General)
 #: src/kmahjongg.kcfg:15
 #, kde-format
 msgid "The layout of the tiles."
-msgstr ""
+msgstr "La aranĝo de la kaheloj."
 
 #. i18n: ectx: label, entry (RemovedTiles), group (General)
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "Ĉu la forigitaj kaheloj estos montritaj sur la tabulo."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "Ĉu hazarda aranĝo estas elektita dum ekfunkciigo."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
 #, kde-format
 msgid "Whether all games should be solvable."
-msgstr ""
+msgstr "Ĉu ĉiuj ludoj devus esti solveblaj."
 
 #. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr ""
+msgstr "Ĉu kongruaj kaheloj estas montritaj."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
@@ -448,7 +448,7 @@ msgstr "Mahjongo"
 #: src/main.cpp:28
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr ""
+msgstr "Mahjongg Solitaire de KDE"
 
 #: src/main.cpp:30
 #, kde-format
@@ -457,6 +457,9 @@ msgid ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 msgstr ""
+"(c) 1997, Mathias Mueller\n"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
 
 #: src/main.cpp:33
 #, kde-format
@@ -471,7 +474,7 @@ msgstr "Originala aŭtoro"
 #: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "Christian Krippendorf"
 
 #: src/main.cpp:34
 #, kde-format
@@ -496,7 +499,7 @@ msgstr "David Black"
 #: src/main.cpp:36
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr ""
+msgstr "KDE 3 reverko kaj etendo"
 
 #: src/main.cpp:37
 #, kde-format
@@ -509,6 +512,8 @@ msgid ""
 "Solvable game generation\n"
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
+"Solvebla ludgeneracio\n"
+"surbaze de algoritmo de Michael Meeks en GNOME-maĥongo"
 
 #: src/main.cpp:38
 #, kde-format
@@ -518,7 +523,7 @@ msgstr "Raquel Ravanini"
 #: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr ""
+msgstr "SVG Tileset por KDE4"
 
 #: src/main.cpp:39
 #, kde-format
@@ -528,7 +533,7 @@ msgstr "Richard Lohman"
 #: src/main.cpp:39
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
-msgstr ""
+msgstr "Kahelaro kontribuanto kaj nuna retpaĝa prizorganto"
 
 #: src/main.cpp:40
 #, kde-format
@@ -538,7 +543,7 @@ msgstr "Osvaldo Stark"
 #: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
-msgstr ""
+msgstr "Kahelaro kontribuanto kaj originala retpaĝa prizorganto"
 
 #: src/main.cpp:41
 #, kde-format
@@ -548,22 +553,22 @@ msgstr "Benjamin Meyer"
 #: src/main.cpp:41
 #, kde-format
 msgid "Code cleanup"
-msgstr ""
+msgstr "Kodpurigado"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
 #: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
-msgstr ""
+msgstr "Ekbriligi kongruajn kahelojn kiam la unua estas elektita"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
-msgstr ""
+msgstr "Generi solveblajn ludojn"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:30
 #, kde-format
 msgid "Show removed tiles"
-msgstr "Montru forigitajn tegolojn"
+msgstr "Montri forigitajn kahelojn"
