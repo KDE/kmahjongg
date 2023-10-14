@@ -92,7 +92,7 @@ msgstr "Elimina les fitxes"
 #: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
-msgstr "Desplaça a l'esquerra"
+msgstr "Desplaça cap a l'esquerra"
 
 #: src/editor.cpp:194
 #, kde-format
@@ -107,7 +107,7 @@ msgstr "Desplaça avall"
 #: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
-msgstr "Desplaça a la dreta"
+msgstr "Desplaça cap a la dreta"
 
 #: src/editor.cpp:288
 #, kde-format
