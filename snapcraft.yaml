@@ -4,6 +4,7 @@ confinement: strict
 grade: stable
 base: core22
 adopt-info: kmahjongg
+version: '23.08.2'
 apps:
     kmahjongg:
         # extensions:
