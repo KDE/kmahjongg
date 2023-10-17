@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-04 00:44+0000\n"
-"PO-Revision-Date: 2023-02-03 06:22+0100\n"
+"PO-Revision-Date: 2023-10-16 06:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -122,7 +122,7 @@ msgstr "დაფის განლაბება (*.layout);;ყველა 
 #: src/editor.cpp:330
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "ფილების, მხოლოდ, ლუწი რაოდენობის შენახვა შეგიძლიათ."
 
 #: src/editor.cpp:336 src/editor.cpp:348
 #, kde-format
@@ -315,7 +315,7 @@ msgstr "რესტარტი"
 #: src/kmahjongg.cpp:539
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "მოიგეთ დროში %1 და ქულებით %2!"
 
 #: src/kmahjongg.cpp:562
 #, kde-format
@@ -396,7 +396,7 @@ msgstr "ფილების განლაგება."
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "ნაჩვენები იქნება თუ არა წაშლილი ფილები დაფაზე."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
@@ -512,6 +512,8 @@ msgid ""
 "Solvable game generation\n"
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
+"ამოხსნადი თამაშის გენერაცია\n"
+"დაფუძნებულია მაიკლ მიკსის ალგორითმზე, GNOME-ის მაჰჯონგისთვის"
 
 #: src/main.cpp:44
 #, kde-format
