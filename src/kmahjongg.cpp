@@ -34,7 +34,7 @@
 // KDEGames
 #include <KGameClock>
 #include <KScoreDialog>
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 
 // LibKMahjongg
 #include <KMahjonggConfigDialog>
@@ -130,17 +130,17 @@ KMahjongg::~KMahjongg()
 
 void KMahjongg::setupKAction()
 {
-    KStandardGameAction::gameNew(this, &KMahjongg::startNewGame, actionCollection());
-    KStandardGameAction::load(this, &KMahjongg::loadGame, actionCollection());
-    KStandardGameAction::save(this, &KMahjongg::saveGame, actionCollection());
-    KStandardGameAction::quit(this, &KMahjongg::close, actionCollection());
-    KStandardGameAction::restart(this, &KMahjongg::restartGame, actionCollection());
+    KGameStandardAction::gameNew(this, &KMahjongg::startNewGame, actionCollection());
+    KGameStandardAction::load(this, &KMahjongg::loadGame, actionCollection());
+    KGameStandardAction::save(this, &KMahjongg::saveGame, actionCollection());
+    KGameStandardAction::quit(this, &KMahjongg::close, actionCollection());
+    KGameStandardAction::restart(this, &KMahjongg::restartGame, actionCollection());
 
     QAction * newNumGame = actionCollection()->addAction(QStringLiteral("game_new_numeric"));
     newNumGame->setText(i18n("New Numbered Game..."));
     connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
-    QAction * action = KStandardGameAction::hint(m_gameView, &GameView::helpMove, this);
+    QAction * action = KGameStandardAction::hint(m_gameView, &GameView::helpMove, this);
     actionCollection()->addAction(action->objectName(), action);
 
     QAction * shuffle = actionCollection()->addAction(QStringLiteral("move_shuffle"));
@@ -164,14 +164,14 @@ void KMahjongg::setupKAction()
         this, &KMahjongg::toggleFullscreen, this, actionCollection()
     );
 
-    m_demoAction = KStandardGameAction::demo(this, &KMahjongg::demoMode, actionCollection());
+    m_demoAction = KGameStandardAction::demo(this, &KMahjongg::demoMode, actionCollection());
 
-    KStandardGameAction::highscores(this, &KMahjongg::showHighscores, actionCollection());
-    m_pauseAction = KStandardGameAction::pause(this, &KMahjongg::pause, actionCollection());
+    KGameStandardAction::highscores(this, &KMahjongg::showHighscores, actionCollection());
+    m_pauseAction = KGameStandardAction::pause(this, &KMahjongg::pause, actionCollection());
 
     // move
-    m_undoAction = KStandardGameAction::undo(this, &KMahjongg::undo, actionCollection());
-    m_redoAction = KStandardGameAction::redo(this, &KMahjongg::redo, actionCollection());
+    m_undoAction = KGameStandardAction::undo(this, &KMahjongg::undo, actionCollection());
+    m_redoAction = KGameStandardAction::redo(this, &KMahjongg::redo, actionCollection());
 
     // edit
     QAction * boardEdit = actionCollection()->addAction(QStringLiteral("game_board_editor"));
@@ -396,8 +396,8 @@ void KMahjongg::noMovesAvailable()
     m_gameTimer->pause();
     updateState(GameState::Stuck);
 
-    const QIcon newGameIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::New)))->icon();
-    const QIcon restartIcon = actionCollection()->action(QString::fromLatin1(KStandardGameAction::name(KStandardGameAction::Restart)))->icon();
+    const QIcon newGameIcon = actionCollection()->action(QString::fromLatin1(KGameStandardAction::name(KGameStandardAction::New)))->icon();
+    const QIcon restartIcon = actionCollection()->action(QString::fromLatin1(KGameStandardAction::name(KGameStandardAction::Restart)))->icon();
     int answer = KMessageBox::questionTwoActionsCancel(
         this,
         i18n("Game Over: You have no moves left."),
