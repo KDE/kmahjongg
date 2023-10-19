@@ -51,7 +51,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(KMahjongglib6 5.1.0 REQUIRED)
+find_package(KMahjongglib6 6.0.0 REQUIRED)
 find_package(KDEGames6 6.0.0 REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
