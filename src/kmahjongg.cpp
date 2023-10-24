@@ -396,8 +396,8 @@ void KMahjongg::noMovesAvailable()
     m_gameTimer->pause();
     updateState(GameState::Stuck);
 
-    const QIcon newGameIcon = actionCollection()->action(QString::fromLatin1(KGameStandardAction::name(KGameStandardAction::New)))->icon();
-    const QIcon restartIcon = actionCollection()->action(QString::fromLatin1(KGameStandardAction::name(KGameStandardAction::Restart)))->icon();
+    const QIcon newGameIcon = actionCollection()->action(KGameStandardAction::name(KGameStandardAction::New))->icon();
+    const QIcon restartIcon = actionCollection()->action(KGameStandardAction::name(KGameStandardAction::Restart))->icon();
     int answer = KMessageBox::questionTwoActionsCancel(
         this,
         i18n("Game Over: You have no moves left."),
