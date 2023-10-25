@@ -97,12 +97,12 @@ msgstr "Desplaça cap a l'esquerra"
 #: src/editor.cpp:195
 #, kde-format
 msgid "Shift up"
-msgstr "Desplaça amunt"
+msgstr "Desplaça cap amunt"
 
 #: src/editor.cpp:201
 #, kde-format
 msgid "Shift down"
-msgstr "Desplaça avall"
+msgstr "Desplaça cap avall"
 
 #: src/editor.cpp:207
 #, kde-format
