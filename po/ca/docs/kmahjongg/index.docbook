@@ -140,13 +140,7 @@
 ><title
 >Nota:</title>
 		<para
->Recordeu que només podeu seleccionar les fitxes que estan <quote
->obertes</quote
->. Les fitxes es consideraran <quote
->bloquejades</quote
-> quan es col·loquen al darrere d'altres fitxes, o quan els costats dret i esquerre de la fitxa estan ocupats per una altra. Si almenys un dels costats laterals està buit, la fitxa es considerarà <quote
->oberta</quote
-> i es podrà treure. </para
+>Recordeu que només podeu seleccionar les fitxes que estan «obertes». Les fitxes es consideraran «bloquejades» quan es col·loquen al darrere d'altres fitxes, o quan els costats dret i esquerre de la fitxa estan ocupats per una altra. Si almenys un dels costats laterals està buit, la fitxa es considerarà «oberta» i es podrà treure. </para
 ></note>
 	<para
 >Una vegada hàgiu seleccionat la parella correcta de fitxes, desapareixeran del tauler de joc, revelant així les fitxes prèviament situades a sota i obrint les fitxes adjacents. </para>
@@ -614,15 +608,11 @@
 ></listitem>
 			<listitem
 ><para
->Només es poden seleccionar les fitxes <quote
->obertes</quote
->.</para
+>Només es poden seleccionar les fitxes «obertes».</para
 ></listitem>
 			<listitem
 ><para
->La fitxa <quote
->oberta</quote
-> és la que té obert un dels costats laterals de la fitxa, el qual vol dir que no hi ha altres fitxes immediatament al seu costat.</para
+>La fitxa «oberta» és la que té obert un dels costats laterals de la fitxa, el qual vol dir que no hi ha altres fitxes immediatament al seu costat.</para
 ></listitem>
 			<listitem
 ><para
@@ -637,24 +627,16 @@
 ><title
 >Nota:</title
 ><para
->Hi ha excepcions a aquesta regla! En el joc tradicional de Mahjong, cada fitxa té una coincidència, excepte per a les fitxes <quote
->Flors</quote
-> i <quote
->Estacions</quote
->.</para
+>Hi ha excepcions a aquesta regla! En el joc tradicional de Mahjong, cada fitxa té una coincidència, excepte per a les fitxes «Flors» i «Estacions».</para
 ></note>
 		<itemizedlist>
 			<listitem
 ><para
->Les fitxes <quote
->Flors</quote
-> no tenen dobles en el joc i es poden combinar directament entre si.</para
+>Les fitxes «Flors» no tenen dobles en el joc i es poden combinar directament entre si.</para
 ></listitem>
 			<listitem
 ><para
->Les fitxes <quote
->Estacions</quote
-> no tenen dobles en el joc i es poden combinar directament entre si.</para
+>Les fitxes «Estacions» no tenen dobles en el joc i es poden combinar directament entre si.</para
 ></listitem>
 			<listitem
 ><para
@@ -671,9 +653,7 @@
 ><title
 >Nota:</title
 ><para
->Si el jugador utilitza la característica &nbsp;<quote
->Consell</quote
->, el rècord no es considerarà com una puntuació alta.</para
+>Si el jugador utilitza la característica &nbsp;«Consell», el rècord no es considerarà com una puntuació alta.</para
 ></note>
 
 	</sect1>
