@@ -917,6 +917,7 @@ QList<GameItem *> GameView::getGameItems() const
     QList<QGraphicsItem *> items = QGraphicsView::items();
     QList<GameItem *> tmpList;
 
+    tmpList.reserve(items.size());
     for (int i = 0; i < items.size(); ++i) {
         GameItem *gameItem = dynamic_cast<GameItem *>(items.at(i));
         if (nullptr != gameItem) {

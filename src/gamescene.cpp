@@ -161,6 +161,7 @@ QList<GameItem *> GameScene::selectedItems() const
     QList<QGraphicsItem *> originalList = QGraphicsScene::selectedItems();
     QList<GameItem *> tmpList;
 
+    tmpList.reserve(originalList.size());
     for (int i = 0; i < originalList.size(); ++i) {
         tmpList.append(dynamic_cast<GameItem *>(originalList.at(i)));
     }
@@ -173,6 +174,7 @@ QList<GameItem *> GameScene::items() const
     QList<QGraphicsItem *> originalList = QGraphicsScene::items();
     QList<GameItem *> tmpList;
 
+    tmpList.reserve(originalList.size());
     for (int i = 0; i < originalList.size(); ++i) {
         GameItem * gameItem = dynamic_cast<GameItem *>(originalList.at(i));
         if (gameItem != nullptr) {
