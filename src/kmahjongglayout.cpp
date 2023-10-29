@@ -110,7 +110,7 @@ bool KMahjonggLayout::load(const QString & file)
         return false;
     }
 
-    filename = file;
+    m_fileName = file;
 
     return true;
 }
@@ -122,7 +122,7 @@ BoardLayout * KMahjonggLayout::board() const
 
 QString KMahjonggLayout::path() const
 {
-    return filename;
+    return m_fileName;
 }
 
 QString KMahjonggLayout::name() const

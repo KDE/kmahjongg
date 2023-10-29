@@ -33,7 +33,7 @@ public:
 private:
     friend class KMahjonggLayoutPrivate;
     KMahjonggLayoutPrivate * const d;
-    QString filename;
+    QString m_fileName;
 
     QString m_name;
     QString m_description;
