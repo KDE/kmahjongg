@@ -430,7 +430,7 @@ void KMahjongg::startNewGameWithNumber(int item)
         QStringList availableLayouts;
         const QStringList layoutDirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("layouts"), QStandardPaths::LocateDirectory);
         for (const QString & dir : layoutDirs) {
-            const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+            const QStringList fileNames = QDir(dir).entryList({QStringLiteral("*.desktop")});
             for (const QString & file : fileNames) {
                 availableLayouts.append(dir + QLatin1Char('/') + file);
             }
