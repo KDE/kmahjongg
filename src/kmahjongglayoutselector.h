@@ -9,7 +9,8 @@
 
 // KF
 #include <KConfigSkeleton>
-
+// Qt
+#include <QHash>
 // KMahjongg
 #include "ui_gametype.h"
 
@@ -32,7 +33,7 @@ public Q_SLOTS:
 private:
     void setupData(KConfigSkeleton * config);
 
-    QMap<QString, KMahjonggLayout *> layoutMap;
+    QHash<QString, KMahjonggLayout *> layoutMap;
     GameScene * m_gameScene;
     GameData * m_gameData;
     GameView * m_gameView;
