@@ -49,13 +49,6 @@ int SelectionAnimation::getRepetitions() const
     return m_repetitions;
 }
 
-void SelectionAnimation::addGameItems(QList<GameItem *> gameItems)
-{
-    while (gameItems.size() > 0) {
-        m_gameItems->append(gameItems.takeFirst());
-    }
-}
-
 void SelectionAnimation::addGameItem(GameItem * gameItem)
 {
     m_gameItems->append(gameItem);

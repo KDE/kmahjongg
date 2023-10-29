@@ -58,12 +58,6 @@ public:
     void addGameItem(GameItem * gameItem);
 
     /**
-     * Add the GameItems that should be selected.
-     *
-     * @param gameItems The game items that should be selected. */
-    void addGameItems(QList<GameItem *> gameItems);
-
-    /**
      * Get all the game items.
      *
      * @return A list of game items. */
