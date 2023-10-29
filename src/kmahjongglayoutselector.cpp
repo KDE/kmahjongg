@@ -63,7 +63,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
     for (const QString &layoutPath : std::as_const(layoutsAvailable)) {
         auto *alayout = new KMahjonggLayout();
         if (alayout->load(layoutPath)) {
-            const QString name = alayout->authorProperty(QStringLiteral("Name"));
+            const QString name = alayout->name();
             layoutMap.insert(name, alayout);
             layoutList->addItem(name);
             //Find if this is our currently configured layout
@@ -93,9 +93,9 @@ void KMahjonggLayoutSelector::layoutChanged()
     }
 
     kcfg_Layout->setText(selLayout->path());
-    layoutAuthor->setText(selLayout->authorProperty(QStringLiteral("Author")));
-    layoutContact->setText(selLayout->authorProperty(QStringLiteral("AuthorEmail")));
-    layoutDescription->setText(selLayout->authorProperty(QStringLiteral("Description")));
+    layoutAuthor->setText(selLayout->authorName());
+    layoutContact->setText(selLayout->authorEmailAddress());
+    layoutDescription->setText(selLayout->description());
 
     //If settings for tiles/background have been applied, update our preview
     if (m_gameView->getTilesetPath() != Prefs::tileSet()) {

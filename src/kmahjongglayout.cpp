@@ -9,7 +9,6 @@
 
 // Qt
 #include <QFile>
-#include <QMap>
 #include <QStandardPaths>
 
 // KF
@@ -37,7 +36,6 @@ public:
     }
 
     BoardLayout * board;
-    QMap<QString, QString> authorproperties;
     QString filename;
 };
 
@@ -75,6 +73,10 @@ bool KMahjonggLayout::load(const QString & file)
     // verify if it is a valid file first and if we can open it
     QFile bgfile(file);
     if (!bgfile.open(QIODevice::ReadOnly)) {
+        m_name.clear();
+        m_description.clear();
+        m_authorName.clear();
+        m_authorEmailAddress.clear();
         return false;
     }
     bgfile.close();
@@ -82,10 +84,10 @@ bool KMahjonggLayout::load(const QString & file)
     KConfig bgconfig(file, KConfig::SimpleConfig);
     KConfigGroup group = bgconfig.group("KMahjonggLayout");
 
-    d->authorproperties.insert(QStringLiteral("Name"), group.readEntry("Name")); // Returns translated data
-    d->authorproperties.insert(QStringLiteral("Author"), group.readEntry("Author"));
-    d->authorproperties.insert(QStringLiteral("Description"), group.readEntry("Description"));
-    d->authorproperties.insert(QStringLiteral("AuthorEmail"), group.readEntry("AuthorEmail"));
+    m_name = group.readEntry("Name"); // Returns translated data
+    m_description = group.readEntry("Description");
+    m_authorName = group.readEntry("Author");
+    m_authorEmailAddress = group.readEntry("AuthorEmail");
 
     // Version control
     const int bgversion = group.readEntry("VersionFormat", 0);
@@ -112,8 +114,6 @@ bool KMahjonggLayout::load(const QString & file)
 
     filename = file;
 
-    m_layoutName = group.readEntry("Name");
-
     return true;
 }
 
@@ -127,12 +127,22 @@ QString KMahjonggLayout::path() const
     return filename;
 }
 
-QString KMahjonggLayout::authorProperty(const QString & key) const
+QString KMahjonggLayout::name() const
 {
-    return d->authorproperties[key];
+    return m_name;
 }
 
-QString KMahjonggLayout::layoutName() const
+QString KMahjonggLayout::description() const
 {
-    return m_layoutName;
+    return m_description;
+}
+
+QString KMahjonggLayout::authorName() const
+{
+    return m_authorName;
+}
+
+QString KMahjonggLayout::authorEmailAddress() const
+{
+    return m_authorEmailAddress;
 }

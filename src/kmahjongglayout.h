@@ -22,15 +22,23 @@ public:
     bool load(const QString & file);
     bool loadDefault();
     QString path() const;
-    QString authorProperty(const QString & key) const;
+
+    QString name() const;
+    QString description() const;
+    QString authorName() const;
+    QString authorEmailAddress() const;
+
     BoardLayout * board() const;
-    QString layoutName() const;
 
 private:
     friend class KMahjonggLayoutPrivate;
     KMahjonggLayoutPrivate * const d;
     QString filename;
-    QString m_layoutName;
+
+    QString m_name;
+    QString m_description;
+    QString m_authorName;
+    QString m_authorEmailAddress;
 
     Q_DISABLE_COPY(KMahjonggLayout)
 };
