@@ -36,7 +36,6 @@ public:
     }
 
     BoardLayout * board;
-    QString filename;
 };
 
 KMahjonggLayout::KMahjonggLayout()
@@ -102,13 +101,12 @@ bool KMahjonggLayout::load(const QString & file)
 
     const QString layoutPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, subdir + layoutFileName);
     qCDebug(KMAHJONGG_LOG) << "Using layout at" << layoutPath;
-    d->filename = layoutPath;
 
     if (layoutPath.isEmpty()) {
         return false;
     }
 
-    if (!d->board->loadBoardLayout(d->filename)) {
+    if (!d->board->loadBoardLayout(layoutPath)) {
         return false;
     }
 
