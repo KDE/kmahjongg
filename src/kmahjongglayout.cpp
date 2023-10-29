@@ -23,23 +23,8 @@ namespace {
 constexpr int kLayoutVersionFormat = 1;
 }
 
-class KMahjonggLayoutPrivate
-{
-public:
-    KMahjonggLayoutPrivate()
-    {
-        board = new BoardLayout();
-    }
-    ~KMahjonggLayoutPrivate()
-    {
-        delete board;
-    }
-
-    BoardLayout * board;
-};
-
 KMahjonggLayout::KMahjonggLayout()
-    : d(new KMahjonggLayoutPrivate)
+    : m_board(new BoardLayout())
 {
     static bool s_inited = false;
     if (s_inited) {
@@ -49,10 +34,7 @@ KMahjonggLayout::KMahjonggLayout()
     s_inited = true;
 }
 
-KMahjonggLayout::~KMahjonggLayout()
-{
-    delete d;
-}
+KMahjonggLayout::~KMahjonggLayout() = default;
 
 bool KMahjonggLayout::loadDefault()
 {
@@ -106,7 +88,7 @@ bool KMahjonggLayout::load(const QString & file)
         return false;
     }
 
-    if (!d->board->loadBoardLayout(layoutPath)) {
+    if (!m_board->loadBoardLayout(layoutPath)) {
         return false;
     }
 
@@ -117,7 +99,7 @@ bool KMahjonggLayout::load(const QString & file)
 
 BoardLayout * KMahjonggLayout::board() const
 {
-    return d->board;
+    return m_board.get();
 }
 
 QString KMahjonggLayout::path() const

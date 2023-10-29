@@ -9,9 +9,10 @@
 
 // Qt
 #include <QString>
+// Std
+#include <memory>
 
 class BoardLayout;
-class KMahjonggLayoutPrivate;
 
 class KMahjonggLayout
 {
@@ -31,14 +32,14 @@ public:
     BoardLayout * board() const;
 
 private:
-    friend class KMahjonggLayoutPrivate;
-    KMahjonggLayoutPrivate * const d;
     QString m_fileName;
 
     QString m_name;
     QString m_description;
     QString m_authorName;
     QString m_authorEmailAddress;
+
+    std::unique_ptr<BoardLayout> const m_board;
 
     Q_DISABLE_COPY(KMahjonggLayout)
 };
