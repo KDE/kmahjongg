@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-30 01:40+0000\n"
 "PO-Revision-Date: 2023-01-24 08:27+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -215,7 +215,7 @@ msgstr "Poteza je bila uspešno razveljavljena."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Kaj želite razveljaviti? Saj še niste ničesar naredili!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:474
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Vaš računalnik je izgubil igro."
@@ -321,64 +321,64 @@ msgstr "Nova igra"
 msgid "Restart"
 msgstr "Znova zaženi"
 
-#: src/kmahjongg.cpp:526
+#: src/kmahjongg.cpp:527
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Zmagali ste s končnim časom %1 in rezultatom %2!"
 
-#: src/kmahjongg.cpp:549
+#: src/kmahjongg.cpp:550
 #, kde-format
 msgid "Game number: %1"
 msgstr "Igra št.: %1"
 
-#: src/kmahjongg.cpp:559
+#: src/kmahjongg.cpp:560
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Odstranjenih: %1/%2  Preostali pari: %3"
 
-#: src/kmahjongg.cpp:620
+#: src/kmahjongg.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Naloži igro"
 
-#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Igra KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:629
+#: src/kmahjongg.cpp:630
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Datoteke ni bilo mogoče prebrati. Prekinjam."
 
-#: src/kmahjongg.cpp:640
+#: src/kmahjongg.cpp:641
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "To ni datoteka z igro KMahjongg."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:654
 #, kde-format
 msgid "File format not recognized."
 msgstr "Oblika datoteke ni bila prepoznana."
 
-#: src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:696
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Shrani igro"
 
-#: src/kmahjongg.cpp:705
+#: src/kmahjongg.cpp:706
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Datoteke ni bilo mogoče odpreti za shranjevanje."
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Ali želite shraniti vašo igro?"
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Save game?"
 msgstr "Naj shranim igro?"

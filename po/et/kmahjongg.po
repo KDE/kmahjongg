@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-30 01:40+0000\n"
 "PO-Revision-Date: 2019-11-11 12:49+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -208,7 +208,7 @@ msgstr "Käik tagasi võetud."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Käik tagasi võtta? Aga sa pole veel käike teinud!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:474
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Sinu arvuti on mängu kaotanud."
@@ -315,66 +315,66 @@ msgstr "Uus mäng"
 msgid "Restart"
 msgstr "Käivita uuesti"
 
-#: src/kmahjongg.cpp:526
+#: src/kmahjongg.cpp:527
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:549
+#: src/kmahjongg.cpp:550
 #, kde-format
 msgid "Game number: %1"
 msgstr "Mängu number: %1"
 
-#: src/kmahjongg.cpp:559
+#: src/kmahjongg.cpp:560
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Eemaldatud: %1/%2 Kombinatsioone jäänud: %3"
 
-#: src/kmahjongg.cpp:620
+#: src/kmahjongg.cpp:621
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Mängu laadimine"
 
-#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "KMahjonggi mäng (*.kmgame)"
 
-#: src/kmahjongg.cpp:629
+#: src/kmahjongg.cpp:630
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Faili lugemine nurjus. Katkestatakse."
 
-#: src/kmahjongg.cpp:640
+#: src/kmahjongg.cpp:641
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "See fail ei ole KMahjonggi mäng."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:654
 #, kde-format
 msgid "File format not recognized."
 msgstr "Tundmatu failivorming."
 
-#: src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:696
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Mängu salvestamine"
 
-#: src/kmahjongg.cpp:705
+#: src/kmahjongg.cpp:706
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Faili avamine salvestamiseks nurjus."
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgid "Save game?"

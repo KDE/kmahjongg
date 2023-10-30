@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:44+0000\n"
+"POT-Creation-Date: 2023-10-30 01:40+0000\n"
 "PO-Revision-Date: 2022-07-14 14:22+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -208,7 +208,7 @@ msgstr "Vrácení tahu provedeno úspěšně."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Co si přejete vrátit? Ještě se nic nezměnilo!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:473
+#: src/gameview.cpp:196 src/kmahjongg.cpp:474
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Váš počítač prohrál hru."
@@ -314,64 +314,64 @@ msgstr "Nová hra"
 msgid "Restart"
 msgstr "Restartovat"
 
-#: src/kmahjongg.cpp:526
+#: src/kmahjongg.cpp:527
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:549
+#: src/kmahjongg.cpp:550
 #, kde-format
 msgid "Game number: %1"
 msgstr "Hra číslo: %1"
 
-#: src/kmahjongg.cpp:559
+#: src/kmahjongg.cpp:560
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Odebráno: %1/%2  Zbývá kombinací: %3"
 
-#: src/kmahjongg.cpp:620
+#: src/kmahjongg.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Načíst hru"
 
-#: src/kmahjongg.cpp:620 src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Hry KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:629
+#: src/kmahjongg.cpp:630
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Nelze číst ze souboru. Přerušuje se."
 
-#: src/kmahjongg.cpp:640
+#: src/kmahjongg.cpp:641
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Soubor není hrou KMahjongg."
 
-#: src/kmahjongg.cpp:653
+#: src/kmahjongg.cpp:654
 #, kde-format
 msgid "File format not recognized."
 msgstr "Formát souboru nebyl rozpoznán."
 
-#: src/kmahjongg.cpp:695
+#: src/kmahjongg.cpp:696
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Uložit hru"
 
-#: src/kmahjongg.cpp:705
+#: src/kmahjongg.cpp:706
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Nelze otevřít soubor pro uložení."
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Přejete si uložit vaši hru?"
 
-#: src/kmahjongg.cpp:741
+#: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Save game?"
 msgstr "Uložit hru?"
