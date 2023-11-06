@@ -63,7 +63,7 @@ bool KMahjonggLayout::load(const QString & file)
     bgfile.close();
 
     KConfig bgconfig(file, KConfig::SimpleConfig);
-    KConfigGroup group = bgconfig.group("KMahjonggLayout");
+    KConfigGroup group = bgconfig.group(QStringLiteral("KMahjonggLayout"));
 
     m_name = group.readEntry("Name"); // Returns translated data
     m_description = group.readEntry("Description");

@@ -38,7 +38,7 @@ void KMahjonggLayoutSelector::setupData(KConfigSkeleton * aconfig)
 {
     //Get our currently configured Layout entry
     KConfig * config = aconfig->config();
-    KConfigGroup group = config->group("General");
+    KConfigGroup group = config->group(QStringLiteral("General"));
     QString initialGroup = group.readEntry("Layout_file");
 
     //The lineEdit widget holds our layout path, but the user does not manipulate it directly
