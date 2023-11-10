@@ -33,7 +33,7 @@
 
 // KDEGames
 #include <KGameClock>
-#include <KScoreDialog>
+#include <KGameHighScoreDialog>
 #include <KGameStandardAction>
 
 // LibKMahjongg
@@ -377,7 +377,7 @@ void KMahjongg::pause()
 
 void KMahjongg::showHighscores()
 {
-    KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    KGameHighScoreDialog ksdialog(KGameHighScoreDialog::Name | KGameHighScoreDialog::Time, this);
     const QString layoutName = m_boardLayout->name();
     ksdialog.setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
     ksdialog.exec();
@@ -527,17 +527,17 @@ void KMahjongg::gameOver(unsigned short numRemoved, unsigned short cheats)
     const QString infoGameWon = i18n("You have won with a final time of %1 and a score of %2!", m_gameTimer->timeString(), score);
     KMessageBox::information(this, infoGameWon);
 
-    //TODO: add gameNum as a Custom KScoreDialog field?
+    //TODO: add gameNum as a Custom KGameHighScoreDialog field?
     //int elapsed = gameTimer->seconds();
     //long gameNum = m_pGameView->getGameNumber();
     //theHighScores->checkHighScore(score, elapsed, gameNum, m_pGameView->getBoardName());
-    QPointer<KScoreDialog> ksdialog = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    QPointer<KGameHighScoreDialog> ksdialog = new KGameHighScoreDialog(KGameHighScoreDialog::Name | KGameHighScoreDialog::Time, this);
     const QString layoutName = m_boardLayout->name();
     ksdialog->setConfigGroup(qMakePair(QByteArray(layoutName.toUtf8()), layoutName));
-    KScoreDialog::FieldInfo scoreInfo;
-    scoreInfo[KScoreDialog::Score].setNum(score);
-    scoreInfo[KScoreDialog::Time] = m_gameTimer->timeString();
-    if (ksdialog->addScore(scoreInfo, KScoreDialog::AskName)) {
+    KGameHighScoreDialog::FieldInfo scoreInfo;
+    scoreInfo[KGameHighScoreDialog::Score].setNum(score);
+    scoreInfo[KGameHighScoreDialog::Time] = m_gameTimer->timeString();
+    if (ksdialog->addScore(scoreInfo, KGameHighScoreDialog::AskName)) {
         ksdialog->exec();
     }
 
