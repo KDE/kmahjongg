@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-30 01:40+0000\n"
-"PO-Revision-Date: 2023-11-11 07:20\n"
+"PO-Revision-Date: 2023-11-19 03:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -245,7 +245,7 @@ msgstr "顺时针选择牌沿"
 #: src/kmahjongg.cpp:158
 #, kde-format
 msgid "Rotate View Clockwise"
-msgstr "逆时针旋转牌沿"
+msgstr "旋转牌沿 (逆时针)"
 
 #: src/kmahjongg.cpp:178
 #, kde-format
