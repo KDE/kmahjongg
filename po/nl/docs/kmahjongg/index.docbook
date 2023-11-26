@@ -1073,14 +1073,14 @@ FileName=<replaceable
 > <guimenu
 >Beeld</guimenu
 > <guimenuitem
->Blik naar boven verplaatsen</guimenuitem
+>Blik rechtsom draaien</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Verplaatst</action
-> het oogpunt waaruit naar de stenen wordt gekeken naar boven.</para
+>Verdraait</action
+> het oogpunt waaruit naar de stenen wordt gekeken rechtsom.</para
 ></listitem>
 			</varlistentry>
 			<varlistentry id="view-menu-rotate-cc">
