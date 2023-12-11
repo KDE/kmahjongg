@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-30 01:40+0000\n"
-"PO-Revision-Date: 2023-12-05 17:25+0100\n"
+"PO-Revision-Date: 2023-12-10 15:05+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -317,7 +317,7 @@ msgstr "Reštart"
 #: src/kmahjongg.cpp:527
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Vyhrali ste s celkovým časom %1 a skóre %2!"
 
 #: src/kmahjongg.cpp:550
 #, kde-format
@@ -369,7 +369,7 @@ msgstr "Chyba pri otváraní súboru na uloženie."
 #: src/kmahjongg.cpp:742
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "Chcete uložiť vašu hru?"
 
 #: src/kmahjongg.cpp:742
 #, kde-format
