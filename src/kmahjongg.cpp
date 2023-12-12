@@ -18,6 +18,7 @@
 #include <QInputDialog>
 #include <QLabel>
 #include <QPixmapCache>
+#include <QPointer>
 #include <QScreen>
 #include <QShortcut>
 #include <QStatusBar>
