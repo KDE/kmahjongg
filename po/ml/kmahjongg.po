@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:40+0000\n"
+"POT-Creation-Date: 2023-12-13 01:33+0000\n"
 "PO-Revision-Date: 2019-12-12 21:40+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -206,7 +206,7 @@ msgstr "പൂർവസ്ഥിതിയിലാക്കുന്നത് �
 msgid "What do you want to undo? You have done nothing!"
 msgstr "എന്താണ് പഴയപടിയാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നത്? നിങ്ങൾ ഒന്നും ചെയ്തിട്ടില്ല!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:474
+#: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "നിങ്ങളുടെ കമ്പ്യൂട്ടറിന് ഗെയിം നഷ്‌ടപ്പെട്ടു."
@@ -226,153 +226,153 @@ msgstr "പുതിയ കളി സൃഷ്‌ടിക്കുന്നത�
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "ഡെമോ മോഡ്. നിർത്താൻ മൗസ്ബട്ടൺ ക്ലിക്കുചെയ്യുക."
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "പുതിയ അക്കമിട്ട കളി..."
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "ഷഫിൾ ചെയ്യുക(&f)"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "കാഴ്ച എതിർ ഘടികാരദിശയിൽ തിരിക്കുക"
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "കാഴ്ച ഘടികാരദിശയിൽ തിരിക്കുക"
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "ബോർഡ് എഡിറ്റർ(&B)"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "സമയം: 0:00:00"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "നീക്കംചെയ്യപ്പെട്ടത്"
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "കളി: 000000000000000000000"
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, kde-format
 msgid "Time: "
 msgstr "സമയം: "
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "പുതിയ കളി"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "കളി നമ്പർ നൽകുക:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "സാധാരണ"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, kde-format
 msgid "Board Layout"
 msgstr "ബോർഡ് ലേട്ട്"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "കളി അവസാനിച്ചു: നിങ്ങൾക്ക് നീക്കങ്ങളൊന്നും ശേഷിക്കുന്നില്ല."
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
 msgstr "കളി അവസാനിച്ചു"
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "New Game"
 msgstr "പുതിയ കളി"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
 msgstr "പുനരാരംഭിക്കുക"
 
-#: src/kmahjongg.cpp:527
+#: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:550
+#: src/kmahjongg.cpp:551
 #, kde-format
 msgid "Game number: %1"
 msgstr "കളി നമ്പർ:%1"
 
-#: src/kmahjongg.cpp:560
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "നീക്കംചെയ്തവ: %1/%2  ശേഷിക്കുന്നകോമ്പിനേഷനുകൾ: %3"
 
-#: src/kmahjongg.cpp:621
+#: src/kmahjongg.cpp:622
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "കളി ലോഡ് ചെയ്യുക"
 
-#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "കെമഹ്ജോംഗ് കളി (*.kmgame)"
 
-#: src/kmahjongg.cpp:630
+#: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "ഫയലിൽ നിന്ന് വായിക്കാൻ കഴിഞ്ഞില്ല. നിർത്തലാക്കുന്നു."
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "ഫയൽ ഒരു കെമഹ്ജോംഗ് കളിയല്ല."
 
-#: src/kmahjongg.cpp:654
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File format not recognized."
 msgstr "ഫയൽ ഫോർമാറ്റ് തിരിച്ചറിഞ്ഞില്ല."
 
-#: src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:697
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "കളി സംരക്ഷിക്കുക"
 
-#: src/kmahjongg.cpp:706
+#: src/kmahjongg.cpp:707
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "സംരക്ഷിക്കുന്നതിനായി ഫയൽ തുറക്കാൻ കഴിഞ്ഞില്ല."
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgid "Save game?"

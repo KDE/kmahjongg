@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:40+0000\n"
+"POT-Creation-Date: 2023-12-13 01:33+0000\n"
 "PO-Revision-Date: 2023-02-09 21:43+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -208,7 +208,7 @@ msgstr "Angring utført."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Kva vil du angra? Du har ikkje gjort noko."
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:474
+#: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Datamaskina tapte spelet."
@@ -228,150 +228,150 @@ msgstr "Feil ved oppsett av nytt spel."
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demonstrasjon. Klikk med musa for å stoppa."
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Nytt spel (nummerert) …"
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "Sto&kk"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "Roter visinga mot klokka"
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "Roter visinga med klokka"
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "&Brettredigering"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "Tid: 0:00:00"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "Fjerna: 0000/0000"
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "Spel: 000000000000000000000"
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, kde-format
 msgid "Time: "
 msgstr "Tid: "
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Nytt spel"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "Vel spelnummer:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "Generelt"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, kde-format
 msgid "Board Layout"
 msgstr "Brettutforming"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:404
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "Spelet er slutt. Du kan ikkje flytta nokon brikker."
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
 msgstr "Spelet er slutt"
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "New Game"
 msgstr "Nytt parti"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
 msgstr "Start på nytt"
 
-#: src/kmahjongg.cpp:527
+#: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Du vann med sluttid %1 og poengsummen %2!"
 
-#: src/kmahjongg.cpp:550
+#: src/kmahjongg.cpp:551
 #, kde-format
 msgid "Game number: %1"
 msgstr "Spelnummer: %1"
 
-#: src/kmahjongg.cpp:560
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Fjerna: %1/%2  Par att: %3"
 
-#: src/kmahjongg.cpp:621
+#: src/kmahjongg.cpp:622
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Opna parti"
 
-#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "KMahjongg-spel (*.kmgame)"
 
-#: src/kmahjongg.cpp:630
+#: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Klarte ikkje lesa frå fil. Avbryt."
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "Fila er eit eit KMahjongg-parti."
 
-#: src/kmahjongg.cpp:654
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File format not recognized."
 msgstr "Kjenner ikkje att filformatet."
 
-#: src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Lagra parti"
 
-#: src/kmahjongg.cpp:706
+#: src/kmahjongg.cpp:707
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Klarte ikkje opna fila for lagring."
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Vil du lagra partiet?"
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Save game?"
 msgstr "Lagra partiet?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:40+0000\n"
+"POT-Creation-Date: 2023-12-13 01:33+0000\n"
 "PO-Revision-Date: 2009-10-24 10:11+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -213,7 +213,7 @@ msgstr "មិន​ធ្វើ​ប្រតិបត្តិការ​ដ
 msgid "What do you want to undo? You have done nothing!"
 msgstr "តើ​អ្នក​ចង់​មិន​ធ្វើ​អ្វី​វិញ​​ឬ ? បើ​អ្នក​មិន​បាន​ធ្វើ​អ្វី​សោះ​នោះ !"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:474
+#: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "កុំព្យូទ័រ​របស់​អ្នក​បាន​ចាញ់​​ហើយ ។"
@@ -233,156 +233,156 @@ msgstr "កំហុស​ក្នុង​ការ​បង្កើត​ល
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "របៀប​​បង្ហាញ​សាកល្បង ​។ ចុច​ប៊ូតុង​កណ្ដុរ ដើម្បី​បញ្ឈប់ ។"
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "ល្បែង​ដែល​បាន​បង់​លេខ​ថ្មី..."
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "សាប់"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr "បង្វិល​ទិដ្ឋភាព​ច្រាស​ទ្រនិច​នាឡិកា"
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr "បង្វិល​ទិដ្ឋភាព​ស្រប​​​ទ្រនិច​នាឡិកា"
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "កម្មវិធី​កែសម្រួល​ក្ដារ"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "ពេលវេលា ៖ ០ ៖ ០​០ ៖ ០​០"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "បាន​យកចេញ ៖ ០​០​០​​​​​​​​​០​/០​​​​​​​​០​​​​​០​​​​០​"
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "ល្បែង ៖ ០​០​​០​​​០​​០​០​០​០​០​០​០​០​០​០​០​០​០​០​០​០​០​"
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, kde-format
 msgid "Time: "
 msgstr "ពេលវេលា ៖ "
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "ល្បែង​ថ្មី"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "បញ្ចូល​លេខ​ល្បែង​ ៖"
 
 #  i18n: file settings.ui line 47
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "ទូទៅ"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, kde-format
 msgid "Board Layout"
 msgstr "ប្លង់​ក្ដារ"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:404
 #, fuzzy, kde-format
 #| msgid "Game over: You have no moves left."
 msgid "Game Over: You have no moves left."
 msgstr "ល្បែង​ចប់ហើយ​​ ។ អ្នក​មិន​អាច​ផ្លាស់ទី​បាន​ទៀត​ទេ ។"
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "New Game"
 msgstr "ល្បែង​ថ្មី"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:527
+#: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:550
+#: src/kmahjongg.cpp:551
 #, kde-format
 msgid "Game number: %1"
 msgstr "លេខ​ល្បែង ៖ %1"
 
-#: src/kmahjongg.cpp:560
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "បាន​យក​ចេញ ៖ %1/%2  នៅសល់​បន្សំ ៖ %3"
 
-#: src/kmahjongg.cpp:621
+#: src/kmahjongg.cpp:622
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "ផ្ទុក​ល្បែង"
 
-#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:630
+#: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "មិន​អាច​អាន​ពី​ឯកសារ ។ កំពុង​បោះ​បង់ ។"
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "ឯកសារ​មិនមែន​​ជា​ល្បែង KMahjongg ទេ ។"
 
-#: src/kmahjongg.cpp:654
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File format not recognized."
 msgstr "មិន​ទទួល​ស្គាល់​ទ្រង់ទ្រាយ​ឯកសារ​ទេ ។"
 
-#: src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:697
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "រក្សាទុក​ល្បែង"
 
-#: src/kmahjongg.cpp:706
+#: src/kmahjongg.cpp:707
 #, fuzzy, kde-format
 #| msgid "Could not read from file. Aborting."
 msgid "Could not open file for saving."
 msgstr "មិន​អាច​អាន​ពី​ឯកសារ ។ កំពុង​បោះ​បង់ ។"
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgid "Save game?"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:40+0000\n"
+"POT-Creation-Date: 2023-12-13 01:33+0000\n"
 "PO-Revision-Date: 2006-08-21 17:03+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -217,7 +217,7 @@ msgstr "Poništavanje poteza uspješno je dovršeno."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Što želite poništiti? Niste ništa ni učinili!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:474
+#: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Vaše je računalo poraženo."
@@ -237,155 +237,155 @@ msgstr "Pogreška tijekom izrade nove igre!"
 msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demostracija. Za zaustavljanje kliknite tipku miša."
 
-#: src/kmahjongg.cpp:140
+#: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
 msgstr "Nova numerirana igra …"
 
-#: src/kmahjongg.cpp:147
+#: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
 msgstr "&Promiješaj"
 
-#: src/kmahjongg.cpp:152
+#: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:158
+#: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
 msgstr ""
 
-#: src/kmahjongg.cpp:178
+#: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
 msgstr "&Uređivač ploče"
 
-#: src/kmahjongg.cpp:197
+#: src/kmahjongg.cpp:198
 #, fuzzy, kde-format
 msgid "Time: 0:00:00"
 msgstr "Vrijeme"
 
-#: src/kmahjongg.cpp:204
+#: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr ""
 
-#: src/kmahjongg.cpp:211
+#: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr ""
 
-#: src/kmahjongg.cpp:224
+#: src/kmahjongg.cpp:225
 #, fuzzy, kde-format
 msgid "Time: "
 msgstr "Vrijeme"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Spremi igru"
 
-#: src/kmahjongg.cpp:230
+#: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
 msgstr "Unesite broj igre:"
 
-#: src/kmahjongg.cpp:265
+#: src/kmahjongg.cpp:266
 #, kde-format
 msgid "General"
 msgstr "Opće"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgid "Board Layout"
 msgstr "Uredi predložak ploče"
 
-#: src/kmahjongg.cpp:403
+#: src/kmahjongg.cpp:404
 #, fuzzy, kde-format
 #| msgid "Game over: You have no moves left."
 msgid "Game Over: You have no moves left."
 msgstr "Igra je završena. Nemate više preostalih poteza."
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, fuzzy, kde-format
 msgid "New Game"
 msgstr "Spremi igru"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:527
+#: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:550
+#: src/kmahjongg.cpp:551
 #, kde-format
 msgid "Game number: %1"
 msgstr "Broj igre: %1"
 
-#: src/kmahjongg.cpp:560
+#: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Uklonjeno: %1/%2  Preostalo parova: %3"
 
-#: src/kmahjongg.cpp:621
+#: src/kmahjongg.cpp:622
 #, fuzzy, kde-format
 #| msgid "Load Game"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Učitaj igru"
 
-#: src/kmahjongg.cpp:621 src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:630
+#: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Nije moguće čitati iz datoteke. Odustajanje."
 
-#: src/kmahjongg.cpp:641
+#: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:654
+#: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File format not recognized."
 msgstr "Oblik datoteke nije prepoznat."
 
-#: src/kmahjongg.cpp:696
+#: src/kmahjongg.cpp:697
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Spremi temu"
 
-#: src/kmahjongg.cpp:706
+#: src/kmahjongg.cpp:707
 #, fuzzy, kde-format
 #| msgid "Could not write to file. Aborting."
 msgid "Could not open file for saving."
 msgstr "Zapisivanje u datoteku nije moguće. Odustajanje."
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:742
+#: src/kmahjongg.cpp:743
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
