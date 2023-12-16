@@ -12,38 +12,38 @@
 # Diego Iastrubni <elcuco@kde.org>, 2005.
 # Israel Berger <Israelb@gmail.com>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-13 01:33+0000\n"
-"PO-Revision-Date: 2017-05-16 07:01-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
+"PO-Revision-Date: 2023-12-14 13:32+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Israel Berger"
+msgstr "Israel Berger,צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "israelb@gmail.com"
+msgstr "israelb@gmail.com,kde-l10n-he@kde.org"
 
 #: src/editor.cpp:71
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "עריכת סידור הלוח"
+msgstr "עריכת פריסת הלוח"
 
 #: src/editor.cpp:111
 #, kde-format
@@ -53,157 +53,154 @@ msgstr "לוח חדש"
 #: src/editor.cpp:118
 #, kde-format
 msgid "Open board"
-msgstr "פתח לוח"
+msgstr "פתיחת לוח"
 
 #: src/editor.cpp:125
 #, kde-format
 msgid "Save board"
-msgstr "שמור לוח"
+msgstr "שמירת לוח"
 
 #: src/editor.cpp:135
 #, kde-format
 msgid "Select"
-msgstr "בחר"
+msgstr "בחירה"
 
 #: src/editor.cpp:140
 #, kde-format
 msgid "Cut"
-msgstr ""
+msgstr "גזירה"
 
 #: src/editor.cpp:145
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "העתקה"
 
 #: src/editor.cpp:150
 #, kde-format
 msgid "Paste"
-msgstr ""
+msgstr "הדבקה"
 
 #: src/editor.cpp:157
 #, kde-format
 msgid "Move tiles"
-msgstr "הזז מרצפות"
+msgstr "הזזת אריחים"
 
 #: src/editor.cpp:161
 #, kde-format
 msgid "Add tiles"
-msgstr "הוסף מרצפות"
+msgstr "הוספת אריחים"
 
 #: src/editor.cpp:164
 #, kde-format
 msgid "Remove tiles"
-msgstr "הסר מרצפות"
+msgstr "הסרת אריחים"
 
 #: src/editor.cpp:188
 #, kde-format
 msgid "Shift left"
-msgstr "הזז שמאלה"
+msgstr "הזזה שמאלה"
 
 #: src/editor.cpp:194
 #, kde-format
 msgid "Shift up"
-msgstr "הזז למעלה"
+msgstr "הזזה למעלה"
 
 #: src/editor.cpp:200
 #, kde-format
 msgid "Shift down"
-msgstr "הזז למטה"
+msgstr "הזזה למטה"
 
 #: src/editor.cpp:206
 #, kde-format
 msgid "Shift right"
-msgstr "הזז ימינה"
+msgstr "הזזה ימינה"
 
 #: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
-msgstr "מרצפות: %1 מיקום: %2,%3,%4"
+msgstr "אריחים: %1 מקום: %2,%3,%4"
 
 #: src/editor.cpp:297
 #, kde-format
 msgid "Open Board Layout"
-msgstr "פתיחת סידור לוח"
+msgstr "פתיחת פריסת לוח"
 
 #: src/editor.cpp:298 src/editor.cpp:336
-#, fuzzy, kde-format
+#, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr ""
-"*.layout|סידור לוח (*.layout)\n"
-"*|כל הקבצים"
+msgstr "פריסת לוח (‎*.layout);;כל הקבצים (*)"
 
 #: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "אפשר לשמור רק עם מספר זוגי של אריחים."
 
 #: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
 msgid "Save Board Layout"
-msgstr "שמירת סידור לוח"
+msgstr "שמירת פריסת לוח"
 
 #: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "קובץ בשם זה כבר קיים. האם ברצונך לכתוב עליו?"
+msgstr "כבר קיים קובץ בשם הזה. לכתוב עליו?"
 
 #: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
-msgstr "הלוח שונה. האם ברצונך לשמור את השינויים?"
+msgstr "הלוח נערך. לשמור את השינויים?"
 
 #: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
-msgstr "השמירה נכשלה. מבטל את הפעולה."
+msgstr "השמירה נכשלה. הפעולה מבוטלת."
 
 #: src/gameremovedtiles.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Removed tiles"
-msgstr "הסר מרצפות"
+msgstr "אריחים שהוסרו"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Random Layout"
-msgstr "עריכת סידור הלוח"
+msgstr "פריסה אקראית"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
 #, kde-format
 msgid "&Get New Layouts"
-msgstr ""
+msgstr "הורדת פריסות &חדשות"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gametype.ui:90
-#, fuzzy, kde-format
+#, kde-format
 msgid "Layout Details"
-msgstr "israelb@gmail.com"
+msgstr "פרטי פריסה"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
-msgstr ""
+msgstr "יצירה:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
 #: src/gametype.ui:106
 #, kde-format
 msgid "Contact:"
-msgstr ""
+msgstr "פרטי קשר:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDescription)
 #: src/gametype.ui:116
 #, kde-format
 msgid "Description:"
-msgstr ""
+msgstr "תיאור:"
 
 #: src/gameview.cpp:135 src/gameview.cpp:246
 #, kde-format
@@ -218,7 +215,7 @@ msgstr "פעולת הביטול הושלמה בהצלחה."
 #: src/gameview.cpp:162
 #, kde-format
 msgid "What do you want to undo? You have done nothing!"
-msgstr "מה אתה רוצה לבטל? לא עשית כלום!"
+msgstr "מה לבטל? לא עשית כלום!"
 
 #: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
@@ -228,7 +225,7 @@ msgstr "המחשב שלך הפסיד במשחק."
 #: src/gameview.cpp:203
 #, kde-format
 msgid "Calculating new game..."
-msgstr "מחשב משחק חדש..."
+msgstr "מחשב משחק חדש…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -238,63 +235,63 @@ msgstr "שגיאה ביצירת המשחק החדש!"
 #: src/gameview.cpp:366
 #, kde-format
 msgid "Demo mode. Click mousebutton to stop."
-msgstr "מצב הדגמה.  לחץ על לחצן העכבר כדי להפסיק."
+msgstr "מצב הדגמה. לחיצה עם העכבר תפסיק אותה."
 
 #: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
-msgstr "משחק ממוספר חדש..."
+msgstr "משחק ממוספר חדש…"
 
 #: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
-msgstr "ער&בב"
+msgstr "ער&בוב"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
 msgid "Rotate View Counterclockwise"
-msgstr ""
+msgstr "הטיית התצוגה נגד כיוון השעון"
 
 #: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
-msgstr ""
+msgstr "הטיית התצוגה עם כיוון השעון"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
-msgstr "עורך ה&לוחות"
+msgstr "עורך &לוחות"
 
 #: src/kmahjongg.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time: 0:00:00"
-msgstr "זמן"
+msgstr "זמן: 0:00:00"
 
 #: src/kmahjongg.cpp:205
 #, kde-format
 msgid "Removed: 0000/0000"
-msgstr ""
+msgstr "הוסרו: 0000/0000"
 
 #: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
-msgstr ""
+msgstr "משחק: 000000000000000000000"
 
 #: src/kmahjongg.cpp:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time: "
-msgstr "זמן"
+msgstr "זמן:"
 
 #: src/kmahjongg.cpp:231
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "שמירת משחק"
+msgstr "משחק חדש"
 
 #: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
-msgstr "הזן את מספר המשחק:"
+msgstr "נא למלא מספר משחק:"
 
 #: src/kmahjongg.cpp:266
 #, kde-format
@@ -302,34 +299,34 @@ msgid "General"
 msgstr "כללי"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
+#, kde-format
 msgid "Board Layout"
-msgstr "עריכת סידור הלוח"
+msgstr "פריסת לוח"
 
 #: src/kmahjongg.cpp:404
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game Over: You have no moves left."
-msgstr "המשחק הסתיים: לא נשארו לך יותר מהלכים."
+msgstr "המשחק נגמר: לא נשארו לך יותר מהלכים."
 
 #: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
-msgstr ""
+msgstr "המשחק נגמר"
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
+#, kde-format
 msgid "New Game"
-msgstr "שמירת משחק"
+msgstr "משחק חדש"
 
 #: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "התחלה מחדש"
 
 #: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "ניצחת תוך %1 עם הניקוד %2!"
 
 #: src/kmahjongg.cpp:551
 #, kde-format
@@ -342,26 +339,25 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "הוסרו: %1 מתוך %2, צירופים שנשארו: %3"
 
 #: src/kmahjongg.cpp:622
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr "טען משחק"
+msgstr "טעינת משחק"
 
 #: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "משחק KMahjongg ‏(‎*.kmgame)"
 
 #: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
-msgstr "אין אפשרות לקרוא מהקובץ. יוצא."
+msgstr "אי אפשר לקרוא מהקובץ. יוצא."
 
 #: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
-msgstr ""
+msgstr "הקובץ אינו  משחק KMahjongg."
 
 #: src/kmahjongg.cpp:655
 #, kde-format
@@ -369,31 +365,31 @@ msgid "File format not recognized."
 msgstr "תבנית הקובץ אינה מזוהה."
 
 #: src/kmahjongg.cpp:697
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "שמירת ערכת נושא"
+msgstr "שמירת משחק"
 
 #: src/kmahjongg.cpp:707
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not open file for saving."
-msgstr "אין אפשרות לכתוב לקובץ. יוצא."
+msgstr "לא ניתן לפתוח את הקובץ לשמירה."
 
 #: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "לשמור את המשחק שלך?"
 
 #: src/kmahjongg.cpp:743
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save game?"
-msgstr "שמירת ערכת נושא"
+msgstr "לשמור את המשחק?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
 #, kde-format
 msgid "The tile-set to use."
-msgstr "ערכת לבנים לשימוש."
+msgstr "ערכת אריחים לשימוש."
 
 #. i18n: ectx: label, entry (Background), group (General)
 #: src/kmahjongg.kcfg:12
@@ -405,55 +401,55 @@ msgstr "תמונת הרקע לשימוש."
 #: src/kmahjongg.kcfg:15
 #, kde-format
 msgid "The layout of the tiles."
-msgstr "מראה הלבנים."
+msgstr "פריסת האריחים."
 
 #. i18n: ectx: label, entry (RemovedTiles), group (General)
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "האם האריחים שהוסרו יופיעו על הלוח."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "האם תיבחר פריסה אקראית עם ההפעלה."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
 #, kde-format
 msgid "Whether all games should be solvable."
-msgstr "האם כל המשחקים יהיו ניתנים לפתרון."
+msgstr "האם כל המשחקים יהיו פתירים."
 
 #. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr "האם למלבנים יהיה צל."
+msgstr "האם אריחים תואמים יופיעו."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Game"
-msgstr "שם"
+msgstr "מ&שחק"
 
 #. i18n: ectx: Menu (move)
 #: src/kmahjonggui.rc:14
 #, kde-format
 msgid "&Move"
-msgstr "&הזז"
+msgstr "ה&זזה"
 
 #. i18n: ectx: Menu (view)
 #: src/kmahjonggui.rc:17
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "ת&צוגה"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/kmahjonggui.rc:23
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים ראשי"
 
 #: src/main.cpp:26
 #, kde-format
@@ -461,9 +457,9 @@ msgid "KMahjongg"
 msgstr "KMahjongg"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr "משחק KMahjongg עבור KDE"
+msgstr "משחק מהג׳ונג ליחיד מבית KDE"
 
 #: src/main.cpp:30
 #, kde-format
@@ -472,21 +468,24 @@ msgid ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 msgstr ""
+"(c) 1997, מתיאס מילר\n"
+"(c) 2006, מאוריציו פיאצנטיני\n"
+"(c) 2011, כריסטיאן קריפנדורף"
 
 #: src/main.cpp:33
 #, kde-format
 msgid "Mathias Mueller"
-msgstr ""
+msgstr "מתיאס מילר"
 
 #: src/main.cpp:33
 #, kde-format
 msgid "Original Author"
-msgstr "כותב מקורי"
+msgstr "יוצר מקורי"
 
 #: src/main.cpp:34
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "כריסטיאן קריפנדורף"
 
 #: src/main.cpp:34
 #, kde-format
@@ -496,27 +495,27 @@ msgstr "מתחזק נוכחי"
 #: src/main.cpp:35
 #, kde-format
 msgid "Albert Astals Cid"
-msgstr ""
+msgstr "אלברט אסטלס סיד"
 
 #: src/main.cpp:35
 #, kde-format
 msgid "Bug fixes"
-msgstr ""
+msgstr "תיקוני תקלות"
 
 #: src/main.cpp:36
 #, kde-format
 msgid "David Black"
-msgstr ""
+msgstr "דיויד בלאק"
 
 #: src/main.cpp:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr "כתיבה מחדש והרחבה"
+msgstr "שכתוב ל־KDE 3 והרחבה"
 
 #: src/main.cpp:37
 #, kde-format
 msgid "Michael Haertjens"
-msgstr ""
+msgstr "מייקל הרטיינס"
 
 #: src/main.cpp:37
 #, kde-format
@@ -524,43 +523,43 @@ msgid ""
 "Solvable game generation\n"
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
-"יצירת משחקים הניתנים לסיום\n"
+"יצירת משחקים שניתן לסיים\n"
 "מבוסס על אלגוריתם מאת מייקל מיקס ב־GNOME mahjongg"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "Raquel Ravanini"
-msgstr ""
+msgstr "רקל רבניני"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr ""
+msgstr "ערכות אריחי SVG ל־KDE4"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "Richard Lohman"
-msgstr ""
+msgstr "ריצ׳ארד לוהמן"
 
 #: src/main.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tile set contributor and current web page maintainer"
-msgstr "תורם ערכות מרצפות והמתחזק של אתר האינטרנט"
+msgstr "תורם ערכות אריחים ומתחזק האתר הנוכחי"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Osvaldo Stark"
-msgstr ""
+msgstr "אוסוולדו שטארק"
 
 #: src/main.cpp:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tile set contributor and original web page maintainer"
-msgstr "תורם ערכות מרצפות והמתחזק של אתר האינטרנט"
+msgstr "תורם ערכות אריחים ומתחזק האתר המקורי"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr ""
+msgstr "בנג׳מין מייר"
 
 #: src/main.cpp:41
 #, kde-format
@@ -571,20 +570,19 @@ msgstr "ניקוי קוד"
 #: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
-msgstr ""
+msgstr "למצמץ אריחים תואמים כשנבחר הראשון"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
-msgstr "צור משחקים הניתנים לסיום"
+msgstr "יצירת משחקים שניתן לסיים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:30
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Show removed tiles"
-msgstr "הסר מרצפות"
+msgstr "הצגת אריחים שהוסרו"
 
 #~ msgid "You have won!"
 #~ msgstr "ניצחת!"
