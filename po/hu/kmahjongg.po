@@ -1,13 +1,13 @@
 #
 # Sári Gábor <saga@mail.externet.hu>, 1999.
 # Balázs Úr <urbalazs@gmail.com>, 2012.
-# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-13 01:33+0000\n"
-"PO-Revision-Date: 2021-12-13 08:44+0100\n"
+"PO-Revision-Date: 2024-01-12 21:39+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kiszel Kristóf,Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ulysses@fsf.hu,taszanto@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: src/editor.cpp:71
 #, kde-format
@@ -314,7 +314,7 @@ msgstr "Újraindítás"
 #: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Ön nyert %1 végső idővel és %2 ponttal!"
 
 #: src/kmahjongg.cpp:551
 #, kde-format
@@ -366,14 +366,12 @@ msgstr "Nem sikerült megnyitni a fájlt mentésre."
 #: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "Szeretné menteni a játékot?"
 
 #: src/kmahjongg.cpp:743
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Game"
+#, kde-format
 msgid "Save game?"
-msgstr "Játék mentése"
+msgstr "Játék mentése?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
