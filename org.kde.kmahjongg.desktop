@@ -128,7 +128,5 @@ GenericName[zh_CN]=麻将纸牌
 GenericName[zh_TW]=上海麻將遊戲
 Icon=kmahjongg
 X-KDE-StartupNotify=true
-X-DBUS-StartupType=Multi
 X-DocPath=kmahjongg/index.html
 Categories=Qt;KDE;Game;BoardGame;
-X-DBUS-ServiceName=org.kde.kmahjongg
