@@ -22,7 +22,8 @@ int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("kmahjongg");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("kmahjongg"));
+
     KAboutData aboutData(QStringLiteral("kmahjongg"), i18n("KMahjongg"),
                          QStringLiteral(KMAHJONGG_VERSION_STRING),
                          i18n("Mahjongg Solitaire by KDE"),
