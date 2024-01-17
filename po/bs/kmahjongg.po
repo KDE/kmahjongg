@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 01:33+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2013-10-18 20:21+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -458,18 +458,18 @@ msgstr "&Prikaz"
 msgid "Main Toolbar"
 msgstr "Glavna traka"
 
-#: src/main.cpp:26
+#: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:28
+#: src/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "Mahjongg Solitaire for KDE"
 msgid "Mahjongg Solitaire by KDE"
 msgstr "Mahđong pasijans za KDE"
 
-#: src/main.cpp:30
+#: src/main.cpp:31
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -480,52 +480,52 @@ msgstr ""
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "Matijas Miler"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
 msgstr "Originalni autor"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "Christian Krippendorf"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
 msgstr "Trenutno održava"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "Albert Astals Sid"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
 msgstr "Ispravke grešaka"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "David Black"
 msgstr "Dejvid Blek"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "Pisanje iznova za KDE3 i proširenje"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "Majkl Hartjens"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -534,42 +534,42 @@ msgstr ""
 "Generacija rješivih igara\n"
 "bazirano na algoritmu Michael Meeks-a u GNOME mahjongg"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "Rakel Ravanini"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "SVG pločice za KDE4"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Richard Lohman"
 msgstr "Ričard Loman"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "Dodatni kompleti pločica, tekući održavalac veb stranice"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "Osvaldo Stark"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "Dodatni kompleti pločica, prvobitni održavalac veb stranice"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Bendžamin K. Mejer"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Code cleanup"
 msgstr "Čišćenje koda"

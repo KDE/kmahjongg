@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 01:33+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2023-12-14 13:32+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -451,17 +451,17 @@ msgstr "ת&צוגה"
 msgid "Main Toolbar"
 msgstr "סרגל כלים ראשי"
 
-#: src/main.cpp:26
+#: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
 msgstr "KMahjongg"
 
-#: src/main.cpp:28
+#: src/main.cpp:29
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "משחק מהג׳ונג ליחיד מבית KDE"
 
-#: src/main.cpp:30
+#: src/main.cpp:31
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -472,52 +472,52 @@ msgstr ""
 "(c) 2006, מאוריציו פיאצנטיני\n"
 "(c) 2011, כריסטיאן קריפנדורף"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "מתיאס מילר"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
 msgstr "יוצר מקורי"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "כריסטיאן קריפנדורף"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
 msgstr "מתחזק נוכחי"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "אלברט אסטלס סיד"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
 msgstr "תיקוני תקלות"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "David Black"
 msgstr "דיויד בלאק"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "שכתוב ל־KDE 3 והרחבה"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "מייקל הרטיינס"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -526,42 +526,42 @@ msgstr ""
 "יצירת משחקים שניתן לסיים\n"
 "מבוסס על אלגוריתם מאת מייקל מיקס ב־GNOME mahjongg"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "רקל רבניני"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "ערכות אריחי SVG ל־KDE4"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Richard Lohman"
 msgstr "ריצ׳ארד לוהמן"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "תורם ערכות אריחים ומתחזק האתר הנוכחי"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "אוסוולדו שטארק"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "תורם ערכות אריחים ומתחזק האתר המקורי"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "בנג׳מין מייר"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Code cleanup"
 msgstr "ניקוי קוד"

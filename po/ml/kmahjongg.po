@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 01:33+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2019-12-12 21:40+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -444,17 +444,17 @@ msgstr "കാഴ്ച (&V)"
 msgid "Main Toolbar"
 msgstr "പ്രധാന ടൂൾബാർ"
 
-#: src/main.cpp:26
+#: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
 msgstr "കെ മഹ്ജോംഗ്"
 
-#: src/main.cpp:28
+#: src/main.cpp:29
 #, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "കെഡിഇയുടെ മഹ്ജോംഗ് സോളിറ്റയർ"
 
-#: src/main.cpp:30
+#: src/main.cpp:31
 #, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
@@ -465,94 +465,94 @@ msgstr ""
 "(c) 2006, മൗറീഷ്യോ പിയസെന്റിനി\n"
 "(c) 2011, ക്രിസ്റ്റ്യൻ ക്രിപ്പെൻഡോർഫ്"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "മത്തിയാസ് മുള്ളർ"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
 msgstr "യഥാർത്ഥ രചയിതാവ്"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr "ക്രിസ്റ്റ്യൻ ക്രിപ്പെൻഡോർഫ്"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
 msgstr "ഇപ്പോഴത്തെ പരിപാലകൻ"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "ആൽബർട്ട് അസ്റ്റൽസ് സിഡ്"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
 msgstr "ബഗ് പരിഹാരങ്ങൾ"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "David Black"
 msgstr "ഡേവിഡ് ബ്ലാക്ക്"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Michael Haertjens"
 msgstr ""
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Solvable game generation\n"
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Richard Lohman"
 msgstr ""
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr ""
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr ""
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Code cleanup"
 msgstr ""

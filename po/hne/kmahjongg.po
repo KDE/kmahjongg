@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-13 01:33+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2009-02-26 10:14+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -456,18 +456,18 @@ msgstr "देखव (&V)"
 msgid "Main Toolbar"
 msgstr "मुख्य औजार पट्टी"
 
-#: src/main.cpp:26
+#: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
 msgstr "के-महजोंग"
 
-#: src/main.cpp:28
+#: src/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "Mahjongg Solitaire for KDE"
 msgid "Mahjongg Solitaire by KDE"
 msgstr "केडीई बर महजोंग सालिटेयर"
 
-#: src/main.cpp:30
+#: src/main.cpp:31
 #, fuzzy, kde-format
 #| msgid ""
 #| "(c) 1997, Mathias Mueller\n"
@@ -480,52 +480,52 @@ msgstr ""
 "(c) 1997, मैथियास मुलर\n"
 "(c) 2006, मारिसियो पियासेन्टिनि"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Mathias Mueller"
 msgstr "मैथियास मुलर"
 
-#: src/main.cpp:33
+#: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
 msgstr "मूल लेखक"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
 msgstr ""
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
 msgstr "अभी हाल के मेंटेनर"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Albert Astals Cid"
 msgstr "अलबर्ट एस्टल्स सिड"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
 msgstr "बग फिक्सेस"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "David Black"
 msgstr "डेविड ब्लैक"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
 msgstr "केडीई ३ बर फिर से लेखन अउ एक्सटेंसन"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Michael Haertjens"
 msgstr "माइकल हेर्तजेन्स"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid ""
 "Solvable game generation\n"
@@ -534,42 +534,42 @@ msgstr ""
 "हल करे जा सके खेल बनाय जाना\n"
 "अल्गोरिदम मिखाइल मीक्स के ग्नोम महजोंग खेल मं आधारित."
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "Raquel Ravanini"
 msgstr "राकेल रावानिनि"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
 msgstr "केडीई४ बर नवा एसवीजी टाइलसेट"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Richard Lohman"
 msgstr "रिचर्ड लोहमैन"
 
-#: src/main.cpp:39
+#: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
 msgstr "अभी हाल के वेब पेज मेंटेनर अउ टाइल सेट सहयोग"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Osvaldo Stark"
 msgstr "ओसवाल्दो स्टार्क"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
 msgstr "मूल वेब पेज मेंटेनर अउ टाइल सेट सहयोग"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "बेंजामिन मेयर"
 
-#: src/main.cpp:41
+#: src/main.cpp:42
 #, kde-format
 msgid "Code cleanup"
 msgstr "कोड क्लीनअप"
