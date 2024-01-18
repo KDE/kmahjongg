@@ -127,6 +127,6 @@ GenericName[x-test]=xxMahjongg Solitairexx
 GenericName[zh_CN]=麻将纸牌
 GenericName[zh_TW]=上海麻將遊戲
 Icon=kmahjongg
-X-KDE-StartupNotify=true
+StartupNotify=true
 X-DocPath=kmahjongg/index.html
 Categories=Qt;KDE;Game;BoardGame;
