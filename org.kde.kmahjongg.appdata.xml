@@ -19,6 +19,7 @@
   <name xml:lang="fi">KMahjongg</name>
   <name xml:lang="fr">KMahjongg</name>
   <name xml:lang="gl">KMahjongg</name>
+  <name xml:lang="he">KMahjongg</name>
   <name xml:lang="hu">KMahjongg</name>
   <name xml:lang="ia">KMahjongg</name>
   <name xml:lang="id">KMahjongg</name>
@@ -58,6 +59,7 @@
   <summary xml:lang="fi">Mahjongg-yksinpeli</summary>
   <summary xml:lang="fr">Mahjongg Solitaire</summary>
   <summary xml:lang="gl">Xogo de Mahjong</summary>
+  <summary xml:lang="he">משחק מהג׳ונג ליחיד</summary>
   <summary xml:lang="hu">Majong kirakó</summary>
   <summary xml:lang="id">Mahjong Solitaire</summary>
   <summary xml:lang="it">Solitario Mahjong</summary>
@@ -99,6 +101,7 @@
     <p xml:lang="fi">KMahjongg on hauska lautapeli, joka perustuu tunnettuun itämaiseen Mahjong-peliin (kiinaksi 麻將).</p>
     <p xml:lang="fr">KMahjongg est un jeu de plateau amusant créé à partir du célèbre jeu oriental, le Mahjong (du chinois 麻將).</p>
     <p xml:lang="gl">KMahjongg é un xogo de taboleiro divertido que se creou a partir do famoso xogo oriental Mahjong (do chinés «麻將»).</p>
+    <p xml:lang="he">KMahjongg הוא משחק לוח מהנה שנוצר בהשראת המשחק מהמזרח הרחוק בשם מה־ג׳ונג (בסינית 麻將).</p>
     <p xml:lang="hu">A KMahjongg egy, a híres keleti Mahjong (kínaiul: 麻將) játék alapján készült digitális táblajáték.</p>
     <p xml:lang="id">KMahjongg adalah permainan papan yang menyenangkan yang diciptakan setelah permainan oriental Mahjong yang terkenal (dari China 麻將).</p>
     <p xml:lang="it">KMahjongg è un divertente gioco da tavolo basato sul famoso gioco orientale Mahjong (dal cinese 麻將).</p>
@@ -144,6 +147,7 @@
       <caption xml:lang="fi">KMahjonggin pelaaminen</caption>
       <caption xml:lang="fr">Partie de KMahjongg en cours</caption>
       <caption xml:lang="gl">Xogando a KMahjongg</caption>
+      <caption xml:lang="he">איך משחקים במהג׳ונג</caption>
       <caption xml:lang="hu">Játék a KMahjonggal</caption>
       <caption xml:lang="id">Memainkan KMahjongg</caption>
       <caption xml:lang="it">Giocare con KMahjongg</caption>
