@@ -13,7 +13,7 @@ set(KMAHJONGG_VERSION "${KMAHJONGG_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSI
 project(kmahjongg VERSION ${KMAHJONGG_VERSION})
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "5.240.0")
+set(KF_MIN_VERSION "6.0.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -56,7 +56,7 @@ find_package(KDEGames6 6.0.0 REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.5
-    KF 5.239
+    KF 6.0
     KDEGAMES 6.0
 )
 
