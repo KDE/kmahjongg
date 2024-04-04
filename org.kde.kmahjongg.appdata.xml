@@ -29,6 +29,7 @@
   <name xml:lang="it">KMahjongg</name>
   <name xml:lang="ka">KMahjongg</name>
   <name xml:lang="ko">KMahjongg</name>
+  <name xml:lang="lv">KMahjongg</name>
   <name xml:lang="nl">KMahjongg</name>
   <name xml:lang="nn">KMahjongg</name>
   <name xml:lang="pl">KMahjongg</name>
@@ -68,6 +69,7 @@
   <summary xml:lang="it">Solitario Mahjong</summary>
   <summary xml:lang="ka">Mahjong Solitaire</summary>
   <summary xml:lang="ko">마작 카드 게임</summary>
+  <summary xml:lang="lv">Mahjong Solitaire</summary>
   <summary xml:lang="nl">Mahjong Solitaire</summary>
   <summary xml:lang="nn">Mahjongg-kabal</summary>
   <summary xml:lang="pl">Pasjans Mahjong</summary>
@@ -110,6 +112,7 @@
     <p xml:lang="it">KMahjongg è un divertente gioco da tavolo basato sul famoso gioco orientale Mahjong (dal cinese 麻將).</p>
     <p xml:lang="ka">KMahjongg სახალისო სამაგიდო თამაშია, რომელიც ცნობილი თამაშის, Mahjong (ჩინური თამაშიდან 麻將) ბაზაზე შეიქმნა.</p>
     <p xml:lang="ko">KMahjongg은 마작 게임을 구현한 보드 게임입니다.</p>
+    <p xml:lang="lv">„KMahjongg“ ir aizraujoša galda spēle, kurai pamatā ir pazīstamā austrumu mah-džonga spēle (no ķīniešu valodas vārda 麻將).</p>
     <p xml:lang="nl">KMahjongg is een bordspel naar het voorbeeld van het bekende oosterse spel Mahjongg (van het Chinese 麻將)</p>
     <p xml:lang="nn">KMahjongg er eit morosamt brettspel basert på det gamle kinesiske spelet mahjong (frå kinsesik «麻將»).</p>
     <p xml:lang="pl">KMahjongg jest grą planszową stworzoną na wzór słynnej gry orientalnej Mahjong (z chińskiego 麻將).</p>
@@ -156,6 +159,7 @@
       <caption xml:lang="it">Giocare con KMahjongg</caption>
       <caption xml:lang="ka">KMahjongg-ის თამაში</caption>
       <caption xml:lang="ko">KMahjongg 플레이</caption>
+      <caption xml:lang="lv">KMahjongg partija</caption>
       <caption xml:lang="nl">KMahjongg spelen</caption>
       <caption xml:lang="nn">Spelar KMahjongg</caption>
       <caption xml:lang="pl">Grane w KMahjongg</caption>
