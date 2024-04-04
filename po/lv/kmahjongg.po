@@ -3,35 +3,35 @@
 #
 # Maris Nartiss <maris.kde@gmail.com>, 2007, 2009.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
+# SPDX-FileCopyrightText: 2024 Toms Trasūns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:36+0000\n"
-"PO-Revision-Date: 2009-07-19 10:45+0300\n"
-"Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-04-02 14:15+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Māris Nartišs"
+msgstr "Māris Nartišs, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "maris.kde@gmail.com"
+msgstr "maris.kde@gmail.com, toms.trasuns@posteo.net"
 
 #: src/editor.cpp:71
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Rediģēt laukuma izkārtojumu"
@@ -54,7 +54,7 @@ msgstr "Saglabāt laukumu"
 #: src/editor.cpp:135
 #, kde-format
 msgid "Select"
-msgstr "Izvēlēties"
+msgstr "Atlasīt"
 
 #: src/editor.cpp:140
 #, kde-format
@@ -109,7 +109,7 @@ msgstr "Pārbīdīt lejup"
 #: src/editor.cpp:288
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
-msgstr "Kauliņi: %1 Pozīcija: %2, %3, %4"
+msgstr "Kauliņi: %1, pozīcija: %2, %3, %4"
 
 #: src/editor.cpp:297
 #, kde-format
@@ -117,19 +117,14 @@ msgid "Open Board Layout"
 msgstr "Atvērt laukuma izkārtojumu"
 
 #: src/editor.cpp:298 src/editor.cpp:336
-#, fuzzy, kde-format
-#| msgid ""
-#| "*.layout|Board Layout (*.layout)\n"
-#| "*|All Files"
+#, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr ""
-"*.layout|Laukuma izkārtojums (*.layout)\n"
-"*|Visi faili"
+msgstr "Laukuma izkārtojums (*.layout);;Visas datnes (*)"
 
 #: src/editor.cpp:329
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "Saglabāšanu varat veikt tikai ar pāra kauliņu skaitu"
 
 #: src/editor.cpp:335 src/editor.cpp:347
 #, kde-format
@@ -139,30 +134,28 @@ msgstr "Saglabāt laukuma izkārtojumu"
 #: src/editor.cpp:346
 #, kde-format
 msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Fails ar tādu nosaukumu jau esksitē. Vai vēlaties to pārrakstīt?"
+msgstr "Datne ar tādu nosaukumu jau pastāv. Vai vēlaties to pārrakstīt?"
 
 #: src/editor.cpp:375
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
-msgstr "Laukuma izkārtojums ir izmainīts. Vai jūs vēlaties saglabāt izmaiņas?"
+msgstr "Laukuma izkārtojums ir izmainīts. Vai vēlaties saglabāt izmaiņas?"
 
 #: src/editor.cpp:383
 #, kde-format
 msgid "Save failed. Aborting operation."
-msgstr "Saglabāšana neizdevās. Operācija pārtraukta."
+msgstr "Saglabāšana neizdevās. Darbība pārtraukta."
 
 #: src/gameremovedtiles.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Removed tiles"
-msgstr "Noņemt kauliņus"
+msgstr "Noņemtie kauliņi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgid "Random Layout"
-msgstr "Laukuma izkārtojums"
+msgstr "Nejaušs izkārtojums"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
@@ -208,37 +201,37 @@ msgstr "Gatavs. Jūsu gājiens."
 #: src/gameview.cpp:157
 #, kde-format
 msgid "Undo operation done successfully."
-msgstr "Atsaukšanas operācija sekmīgi pabeigta."
+msgstr "Atsaukšana sekmīgi pabeigta."
 
 #: src/gameview.cpp:162
 #, kde-format
 msgid "What do you want to undo? You have done nothing!"
-msgstr "Ko jūs gribat atsaukt? Jūs neesat neko izdarījis!"
+msgstr "Ko vēlaties atsaukt? Jūs vēl neko neesat izdarījis!"
 
 #: src/gameview.cpp:196 src/kmahjongg.cpp:475
 #, kde-format
 msgid "Your computer has lost the game."
-msgstr "Jūsu dators zaudēja spēli."
+msgstr "Jūsu dators zaudēja partiju."
 
 #: src/gameview.cpp:203
 #, kde-format
 msgid "Calculating new game..."
-msgstr "Aprēķinu jaunu spēli..."
+msgstr "Aprēķina jaunu partiju..."
 
 #: src/gameview.cpp:261
 #, kde-format
 msgid "Error generating new game!"
-msgstr "Kļūda ģenerējot jaunu spēli!"
+msgstr "Kļūda, ģenerējot jaunu partiju!"
 
 #: src/gameview.cpp:366
 #, kde-format
 msgid "Demo mode. Click mousebutton to stop."
-msgstr "Demo režīms. Klikšķiniet, lai apturētu."
+msgstr "Demonstrācijas režīms. Klikšķiniet, lai apturētu."
 
 #: src/kmahjongg.cpp:141
 #, kde-format
 msgid "New Numbered Game..."
-msgstr "Jauna spēle pēc numura..."
+msgstr "Jauna partija pēc numura..."
 
 #: src/kmahjongg.cpp:148
 #, kde-format
@@ -258,7 +251,7 @@ msgstr "Pagriezt skatu pulksteņrādītāja virzienā"
 #: src/kmahjongg.cpp:179
 #, kde-format
 msgid "&Board Editor"
-msgstr ""
+msgstr "&Laukuma redaktors"
 
 #: src/kmahjongg.cpp:198
 #, kde-format
@@ -273,7 +266,7 @@ msgstr "Noņemts: 0000/0000"
 #: src/kmahjongg.cpp:212
 #, kde-format
 msgid "Game: 000000000000000000000"
-msgstr "Spēle: 000000000000000000000"
+msgstr "Partija: 000000000000000000000"
 
 #: src/kmahjongg.cpp:225
 #, kde-format
@@ -281,16 +274,15 @@ msgid "Time: "
 msgstr "Laiks: "
 
 #: src/kmahjongg.cpp:231
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Jauna spēle"
+msgstr "Jauna partija"
 
 #: src/kmahjongg.cpp:231
 #, kde-format
 msgid "Enter game number:"
-msgstr "Ievadiet spēles numuru:"
+msgstr "Ievadiet partijas numuru:"
 
 #: src/kmahjongg.cpp:266
 #, kde-format
@@ -303,91 +295,86 @@ msgid "Board Layout"
 msgstr "Laukuma izkārtojums"
 
 #: src/kmahjongg.cpp:404
-#, fuzzy, kde-format
-#| msgid "Game over: You have no moves left."
+#, kde-format
 msgid "Game Over: You have no moves left."
-msgstr "Spēles beigas: jums vairs nav gājienu."
+msgstr "Partijas beigas: jums vairs nav gājienu."
 
 #: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
-msgstr ""
+msgstr "Partijas beigas"
 
 #: src/kmahjongg.cpp:406
 #, kde-format
 msgid "New Game"
-msgstr "Jauna spēle"
+msgstr "Jauna partija"
 
 #: src/kmahjongg.cpp:407
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "Pārstartēt"
 
 #: src/kmahjongg.cpp:528
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "Uzvarējāt! Jūsu laiks ir %1, bet rezultāts — %2."
 
 #: src/kmahjongg.cpp:551
 #, kde-format
 msgid "Game number: %1"
-msgstr "Spēle numur: %1"
+msgstr "Partijas numurs: %1"
 
 #: src/kmahjongg.cpp:561
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
-msgstr "Noņemts: %1/%2 Atlikušās kombinācijas: %3"
+msgstr "Noņemts: %1/%2. Atlikušās kombinācijas: %3"
 
 #: src/kmahjongg.cpp:622
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr "Ielādēt spēli"
+msgstr "Ielādēt partiju"
 
 #: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "„KMahjongg“ partija (*.kmgame)"
 
 #: src/kmahjongg.cpp:631
 #, kde-format
 msgid "Could not read from file. Aborting."
-msgstr "Neizdevās nolasīt no faila. Pārtraucu."
+msgstr "Neizdevās nolasīt no datnes. Darbība atcelta."
 
 #: src/kmahjongg.cpp:642
 #, kde-format
 msgid "File is not a KMahjongg game."
-msgstr "Fails nav KMahjongg spēle."
+msgstr "Datne nav „KMahjongg“ partija."
 
 #: src/kmahjongg.cpp:655
 #, kde-format
 msgid "File format not recognized."
-msgstr "Faila formāts nav atpazīts."
+msgstr "Datnes formāts nav atpazīts."
 
 #: src/kmahjongg.cpp:697
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "Saglabāt spēli"
+msgstr "Saglabāt partiju"
 
 #: src/kmahjongg.cpp:707
-#, fuzzy, kde-format
-#| msgid "Could not read from file. Aborting."
+#, kde-format
 msgid "Could not open file for saving."
-msgstr "Neizdevās nolasīt no faila. Pārtraucu."
+msgstr "Neizdevās atvērt datni saglabāšanai."
 
 #: src/kmahjongg.cpp:743
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "Vai vēlaties saglabāt šo partiju?"
 
 #: src/kmahjongg.cpp:743
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgid "Save game?"
-msgstr "Saglabāt spēli"
+msgstr "Saglabāt partiju?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -411,25 +398,25 @@ msgstr "Kauliņu izkārtojums."
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "Noņemtos kauliņus rādīt laukumā."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "Ieslēdzot partiju, izvēlēties nejaušu izkārtojumu."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
 #, kde-format
 msgid "Whether all games should be solvable."
-msgstr "Vai visām spēlēm jābūt atrisināmām."
+msgstr "Visām partijām jābūt atrisināmām."
 
 #. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr "Vai saderīgie kauliņi tiek rādīti."
+msgstr "Spēle parāda visus saderīgos kauliņus."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
@@ -461,23 +448,20 @@ msgid "KMahjongg"
 msgstr "KMahjongg"
 
 #: src/main.cpp:29
-#, fuzzy, kde-format
-#| msgid "Mahjongg Solitaire for KDE"
+#, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr "Mahjongg Solitaire priekš KDE"
+msgstr "KDE „Mahjongg“ galda spēle"
 
 #: src/main.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "(c) 1997, Mathias Mueller\n"
-#| "(c) 2006, Mauricio Piacentini"
+#, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 msgstr ""
 "(c) 1997, Mathias Mueller\n"
-"(c) 2006, Mauricio Piacentini"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
 
 #: src/main.cpp:34
 #, kde-format
@@ -492,7 +476,7 @@ msgstr "Sākotnējais autors"
 #: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "Christian Krippendorf"
 
 #: src/main.cpp:35
 #, kde-format
@@ -517,7 +501,7 @@ msgstr "David Black"
 #: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr "Pārrakstīšana uz KDE 3 un paplašinājumi"
+msgstr "KDE 3 pārrakstīšana un paplašinājumi"
 
 #: src/main.cpp:38
 #, kde-format
@@ -531,7 +515,7 @@ msgid ""
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
 "Atrisināmu spēļu ģenerēšana\n"
-"bāzēts uz Michael Meeks izstrādātā GNOME mahjing algoritma"
+"pamatā ir Michael Meeks izstrādātais GNOME „mahjing“ algoritms"
 
 #: src/main.cpp:39
 #, kde-format
@@ -541,7 +525,7 @@ msgstr "Raquel Ravanini"
 #: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr "SVG kauliņi priekš KDE4"
+msgstr "KDE4 izmantotie SVG kauliņi"
 
 #: src/main.cpp:40
 #, kde-format
@@ -577,20 +561,19 @@ msgstr "Koda sakopšana"
 #: src/settings.ui:16
 #, kde-format
 msgid "Blink matching tiles when first one is selected"
-msgstr "Likt saderīgiem kauliņiem mirgot, kad pirmais ir izvēlēts."
+msgstr "Likt saderīgiem kauliņiem mirgot, kad ir izvēlēts pirmais."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:23
 #, kde-format
 msgid "Generate solvable games"
-msgstr "Ģenerēt atrisināmas spēles"
+msgstr "Ģenerēt atrisināmas partijas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:30
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Show removed tiles"
-msgstr "Noņemt kauliņus"
+msgstr "Rādīt noņemtos kauliņus"
 
 #~ msgid "You have won!"
 #~ msgstr "Jūs uzvarējāt!"
