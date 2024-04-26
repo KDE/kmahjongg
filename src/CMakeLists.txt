@@ -35,7 +35,8 @@ ki18n_wrap_ui(kmahjongg
 ecm_qt_declare_logging_category(kmahjongg
     HEADER kmahjongg_debug.h
     IDENTIFIER KMAHJONGG_LOG
-    CATEGORY_NAME log_kmahjongg
+    CATEGORY_NAME kmahjongg
+    OLD_CATEGORY_NAMES log_kmahjongg
     DESCRIPTION "KMahjongg game"
     EXPORT KMAHJONGG
 )
