@@ -11,7 +11,6 @@
 // Qt
 #include <QAction>
 #include <QFileDialog>
-#include <QFileInfo>
 #include <QGridLayout>
 #include <QIcon>
 #include <QLabel>
@@ -337,18 +336,6 @@ bool Editor::saveBoard()
 
     if (filename.isEmpty()) {
         return false;
-    }
-
-    const QFileInfo f(filename);
-    if (f.exists()) {
-        // if it already exists, query the user for replacement
-        int res = KMessageBox::warningContinueCancel(this,
-                                                     i18n("A file with that name already exists. Do you wish to overwrite it?"),
-                                                     i18n("Save Board Layout"), KStandardGuiItem::save());
-
-        if (res != KMessageBox::Continue) {
-            return false;
-        }
     }
 
     bool result = m_theBoard.saveBoardLayout(filename);
