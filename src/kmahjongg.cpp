@@ -177,6 +177,7 @@ void KMahjongg::setupKAction()
     // edit
     QAction * boardEdit = actionCollection()->addAction(QStringLiteral("game_board_editor"));
     boardEdit->setText(i18n("&Board Editor"));
+    boardEdit->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
     connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
     // settings
