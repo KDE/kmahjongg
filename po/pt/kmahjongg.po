@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2023-02-15 12:39+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -29,118 +29,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "morais@kde.org,zepires@gmail.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Editar a Disposição do Tabuleiro"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Novo tabuleiro"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Abrir um tabuleiro"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Gravar o tabuleiro"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "Cortar"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "Colar"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Mover as peças"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Adicionar peças"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Apagar peças"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Mover para a esquerda"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Mover para cima"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Mover para baixo"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Mover para a direita"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Peças: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Abrir Disposição do Tabuleiro."
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Disposições de tabuleiro (*.layout);;Todos os Ficheiros (*)"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Só poderá gravar com um número par de peças."
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Gravar a Disposição do Tabuleiro"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Já existe um ficheiro com esse nome. Deseja escrever por cima dele?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "O tabuleiro foi modificado. Deseja gravar as alterações?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "A gravação falhou. A cancelar a operação."
@@ -573,3 +568,6 @@ msgstr "Gerar jogos solúveis"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostrar as peças removidas"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "Já existe um ficheiro com esse nome. Deseja escrever por cima dele?"

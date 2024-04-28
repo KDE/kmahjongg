@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2020-07-21 18:05+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -29,119 +29,114 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "erik@binghamton.edu"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Redigér brætlayout"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Nyt bræt"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Åbn bræt"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Gem bræt"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Vælg"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "Klip"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "Kopiér"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "Indsæt"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Flyt brikker"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Tilføj brikker"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Fjern brikker"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Skift til venstre"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Skift op"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Skift ned"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Skift til højre"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Brikker: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Åbn brætudlægning"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Board layout (*.layout);;Alle filer (*)"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Du kan kun gemme med et lige antal brikker."
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Gem spiludlægning"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "En fil med dette navn findes allerede. Vil du overskrive den?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Brættet er ændret, vil du gemme ændringerne?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Det mislykkedes at gemme. Afbryder operationen."
@@ -578,6 +573,9 @@ msgstr "Generér løsbare spil"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Vis fjernede brikker"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "En fil med dette navn findes allerede. Vil du overskrive den?"
 
 #~ msgid "You have won!"
 #~ msgstr "Du vandt!"

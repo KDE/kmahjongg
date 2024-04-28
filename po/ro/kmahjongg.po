@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg-0.4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2022-02-06 20:14+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -28,118 +28,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md,ovidiu.b13@gmail.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Modifică aranjamentul tablei"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Tablă nouă"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Deschide o tablă"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Salvează tabla"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Selecție"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "Taie"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "Copiază"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "Lipește"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Mută dale"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Adaugă dale"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Elimină dale"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Mută la stînga"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Mută în sus"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Mută în jos"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Mută la dreapta"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Dale: %1 Poz.: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Deschide un aranjament de tablă"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Aranjament tablă (*.layout);;Toate fișierele (*)"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Puteți salva numai cu un număr par de dale."
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Salvează aranjamentul tablei"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Există deja un fișier cu această denumire. Îl suprascrieți?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Tabla a fost modificată. Salvați schimbările?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Salvarea a eșuat. Abandonez operația."
@@ -574,6 +569,9 @@ msgstr "Generează jocuri rezolvabile"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Afișează piesele eliminate"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "Există deja un fișier cu această denumire. Îl suprascrieți?"
 
 #~ msgid "You have won!"
 #~ msgstr "Ați câștigat!"

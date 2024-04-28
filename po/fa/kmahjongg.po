@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2008-04-16 22:36+0330\n"
 "Last-Translator: Emil Sedgh <emilsedgh@gmail.com>\n"
 "Language-Team: American English <kde-i18n-doc@lists.kde.org>\n"
@@ -29,94 +29,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "daniarzadeh@itland.ir"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "ویرایش طرح‌بندی تخته"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "تخته جدید"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "باز کردن تخته"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "ذخیره تخته"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "برگزیدن"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "برش"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "رونوشت"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "چسباندن"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "حرکت دادن کاشیها"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "افزودن کاشیها"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "حذف کاشی‌ها"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "رفتن به چپ"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "رفتن به بالا"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "رفتن به پایین"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "رفتن به راست"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "کاشیها: %1 Pos: %2،%3،%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "باز کردن طرح‌بندی تخته"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -126,27 +126,22 @@ msgstr ""
 "*.layout|طرح‌بندی تخته (*.layout)\n"
 "*|تمام پرونده‌ها"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "ذخیره طرح‌بندی تخته"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "یک پرونده با آن نام از قبل موجود می‌باشد. می‌خواهید آن را جای‌نوشت کنید؟"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "تخته تغییر داده شده است. مایل هستید تغییرات را ذخیره کنید؟"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "خرابی در ذخیره‌سازی. در حال ساقط کردن عمل."
@@ -591,6 +586,10 @@ msgstr "ایجاد بازیهای قابل حل"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "نمایش کاشیهای حذف‌‌شده"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr ""
+#~ "یک پرونده با آن نام از قبل موجود می‌باشد. می‌خواهید آن را جای‌نوشت کنید؟"
 
 #~ msgid "You have won!"
 #~ msgstr "شما بردید!"

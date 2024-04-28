@@ -1,4 +1,4 @@
-# Version: $Revision: 1670167 $
+# Version: $Revision: 1678819 $
 # translation of kmahjongg.po to Polish
 # translation of kmahjongg.po to
 # translation of kmahjongg.po to
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2023-02-12 09:20+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,118 +34,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mrudolf@kdewebdev.org"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Edytuj układ planszy"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Nowa plansza"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Otwórz planszę"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Zapisz planszę"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "Wytnij"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "Wklej"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Przesuń kamienie"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Dodaj kamienie"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Usuń kamienie"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Przesuń w lewo"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Przesuń w górę"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Przesuń w dół"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Przesuń w prawo"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Kamienie: %1 Pozycja: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Otwórz układ planszy"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Układ planszy (*.layout);;Wszystkie pliki (*)"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Możesz zapisać tylko z parzystą liczbą kamieni."
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Zapisz układ planszy"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Plik o tej nazwie już istnieje. Zastąpić go?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Plansza została zmieniona. Zapisać zmiany?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Błąd podczas zapisu."
@@ -578,6 +573,9 @@ msgstr "Tylko gry mające rozwiązanie"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Pokaż usunięte kamienie"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "Plik o tej nazwie już istnieje. Zastąpić go?"
 
 #~ msgid "You have won!"
 #~ msgstr "Wygrałeś!"

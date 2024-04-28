@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2007-08-20 12:21+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -27,94 +27,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "submanesh@gmail.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "बोर्ड सजावट सम्पादन गर्नुहोस्"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "नयाँ बोर्ड"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "बोर्ड खोल्नुहोस्"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "बोर्ड बचत गर्नुहोस्"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "चयन गर्नुहोस्"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "काट्नुहोस्"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "प्रतिलिपि गर्नुहोस्"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "टाँस्नुहोस्"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "टायल सार्नुहोस्"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "टायल थप्नुहोस्"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "टायल हटाउनुहोस्"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Shift left"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Shift up"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Shift down"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Shift right"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "टायल: %1 स्थान: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "बोर्ड सजावट खोल्नुहोस्"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -124,27 +124,22 @@ msgstr ""
 "*.layout|बोर्ड सजावट (*.layout)\n"
 "*|सबै फाइल"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "बोर्ड सजावट बचत गर्नुहोस्"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "यो नामको फाइल पहिल्यै अवस्थित छ । तपाईँले यसलाई अधिलेखन गर्न चाहनुहुन्छ?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "बोर्ड परिमार्जन गरिएको छ । तपाईँ परिवर्तन बचत गर्न चाहनुहुन्छ?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "बचत असफल भयो । सञ्चालन परित्याग गरिदैछ ।"
@@ -594,6 +589,9 @@ msgstr "समाधान योग्य खेल उत्पन्न ग�
 #, kde-format
 msgid "Show removed tiles"
 msgstr "हटाइएका टायल देखाउनुहोस्"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "यो नामको फाइल पहिल्यै अवस्थित छ । तपाईँले यसलाई अधिलेखन गर्न चाहनुहुन्छ?"
 
 #~ msgid "You have won!"
 #~ msgstr "तपाईँले जित्नु भयो!"

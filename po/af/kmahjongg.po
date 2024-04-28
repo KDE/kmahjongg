@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -26,121 +26,116 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "frix@expertron.co.za"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Redigeer Bord Uitleg"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Nuwe bord"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Open bord"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Stoor bord"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Kies"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Beweeg teëls"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Voeg by teëls"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Verwyder teëls"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Verskuiwende links"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Verskuiwende begin"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Verskuiwende ondertoe"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Verskuiwende regterkant"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Teëls: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Open Bord Uitleg"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, fuzzy, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 "*.uitleg|Bord uitleg (*.uitleg)\n"
 "*|Alle lêers"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Stoor Bord Uitleg"
 
-#: src/editor.cpp:346
-#, fuzzy, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "'n lêer met wat naam alreeds bestaan, doen jy wens na oorskryf dit?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, fuzzy, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Die bord het al veranderde, sal jy daarvan hou na stoor Die verander?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Stoor gevaal. Gaan staak operasie."
@@ -577,6 +572,10 @@ msgstr "Genereer oplosbaar speletjies"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Vertoon verwyder teëls"
+
+#, fuzzy
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "'n lêer met wat naam alreeds bestaan, doen jy wens na oorskryf dit?"
 
 #, fuzzy
 #~ msgid "You have won!"

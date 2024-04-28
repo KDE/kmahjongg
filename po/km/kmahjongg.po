@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2009-10-24 10:11+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -28,94 +28,94 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "កែ​សម្រួល​ប្លង់​ក្ដារ"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "ក្ដារ​ថ្មី"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "បើក​ក្ដារ"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "រក្សាទុក​ក្ដារ"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "ជ្រើស"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "កាត់"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "ចម្លង"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "បិទភ្ជាប់"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "ផ្លាស់​ទី​ក្រឡា​ក្បឿង"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "បន្ថែម​ក្រឡា​​ក្បឿង"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "យក​ក្រឡា​​ក្បឿង​ចេញ"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "អង្កិល​ទៅ​ឆ្វេង"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "អង្កិល​ឡើង​លើ"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "អង្កិល​ចុះ​ក្រោម"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "អង្កិល​ទៅ​ស្តាំ"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "ក្រឡា​ក្បឿង​ ៖ %1 ទីតាំង ៖ %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "បើក​ប្លង់​ក្ដារ"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -125,27 +125,22 @@ msgstr ""
 "*.layout|ប្លង់​ក្ដារ (*.layout)\n"
 "*|ឯកសារ​ទាំងអស់"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "អ្នក​អាច​រក្សាទុក​បាន​តែ​ក្រឡា​ក្បឿង​ដែល​មាន​លេខ​គូ​ប៉ុណ្ណោះ ។"
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "រក្សាទុក​ប្លង់​ក្ដារ"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "មាន​ឯកសារ​ឈ្មោះ​នោះ​រួច​ហើយ ។ តើ​អ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬ ?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "ក្ដារ​ត្រូវ​បាន​កែប្រែ ។ តើ​អ្នក​ចង់​រក្សាទុក​ការ​ផ្លាស់ប្ដូរ​ឬ​ទេ ?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "បរាជ័យ​ក្នុង​ការ​រក្សាទុក ។ កំពុង​បោះបង់​ប្រតិបត្តិការ ។"
@@ -595,6 +590,9 @@ msgstr "បង្កើត​ល្បែង​មាន​ដំណោះស្
 #| msgid "Remove tiles"
 msgid "Show removed tiles"
 msgstr "យក​ក្រឡា​​ក្បឿង​ចេញ"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "មាន​ឯកសារ​ឈ្មោះ​នោះ​រួច​ហើយ ។ តើ​អ្នក​ចង់​សរសេរ​ជាន់​លើ​វា​ឬ ?"
 
 #~ msgid "You have won!"
 #~ msgstr "អ្នក​ឈ្នះ​ហើយ !"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 02:22+0000\n"
 "PO-Revision-Date: 2002-10-09 13:53SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -33,121 +33,116 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "thelma@translator.org.za"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Hlela Ubeko Lwebhodi"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Ibhodi entsha"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Vula ibhodi"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Gcina ibhodi"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Khetha"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Hambisa iithayile"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Dibanisa iithayile"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Susa iithayile"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Shenxela ekhohlo."
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Shenxela phezulu"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Shenxela phantsi"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Shenxela ekunene"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Iithayile: %1 Pos: %2,%3,%4 "
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Vula ubeko lwebhodi"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, fuzzy, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 "*.layout|Ubeko lwebhodi (*.layout)\n"
 "*|Zonke iifayile"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Gcina ubeko lwebhodi"
 
-#: src/editor.cpp:346
-#, fuzzy, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Ifayile enelo gama sele ikhona, unqwenela ukuyibhala ngaphezulu?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, fuzzy, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Ibhodi iguqulwe kancinane, ungathanda ukugcina utshintsho?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Ugcino aluphumelelanga. Ilahla umsebenzi."
@@ -586,6 +581,10 @@ msgstr "Dala imidlalo esembululekayo"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Bonisa iithayile ezisusiweyo"
+
+#, fuzzy
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr "Ifayile enelo gama sele ikhona, unqwenela ukuyibhala ngaphezulu?"
 
 #, fuzzy
 #~ msgid "You have won!"
