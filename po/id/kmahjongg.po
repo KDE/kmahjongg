@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 00:37+0000\n"
 "PO-Revision-Date: 2023-01-22 21:42+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -30,118 +30,113 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Edit Tataletak Papan"
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr "Papan baru"
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr "Buka papan"
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, kde-format
 msgid "Save board"
 msgstr "Simpan papan"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Pilih"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr "Potong"
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr "Salin"
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr "Tempel"
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr "Pindah kartu"
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, kde-format
 msgid "Add tiles"
 msgstr "Tambahkan kartu"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr "Singkirkan kartu"
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr "Geser ke kiri"
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr "Geser ke atas"
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr "Geser ke bawah"
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr "Geser ke kanan"
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Kartu: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, kde-format
 msgid "Open Board Layout"
 msgstr "Buka Tataletak Papan"
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Tataletak Papan (*.layout);;Semua File (*)"
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Kamu hanya bisa menyimpan jumlah kartu yang genap."
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr "Simpan Tataletak Papan"
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr "Sebuah file dengan nama itu sudah ada. Apakah kamu ingin menimpanya?"
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Papan akan dimodifikasi. Apakah kamu hendak menyimpan perubahan?"
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Gagal simpan. Operasi gugur."
@@ -208,7 +203,7 @@ msgstr "Operasi urungkan telah berhasil."
 msgid "What do you want to undo? You have done nothing!"
 msgstr "Mengapa kamu ingin mengurungkannya? Kamu tidak bisa berbuat banyak!"
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:475
+#: src/gameview.cpp:196 src/kmahjongg.cpp:476
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr "Komputermu kalah bermain."
@@ -253,125 +248,125 @@ msgstr "Rotasikan Tampilan Searah-Jarum-Jam"
 msgid "&Board Editor"
 msgstr "&Pengedit Papan"
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:199
 #, kde-format
 msgid "Time: 0:00:00"
 msgstr "Waktu: 0:00:00"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:206
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr "Disingkirkan: 0000/0000"
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:213
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr "Permainan: 000000000000000000000"
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:226
 #, kde-format
 msgid "Time: "
 msgstr "Waktu:"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:232
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Permainan Baru"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:232
 #, kde-format
 msgid "Enter game number:"
 msgstr "Masukkan nomor permainan:"
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, kde-format
 msgid "General"
 msgstr "Umum"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:268
 #, kde-format
 msgid "Board Layout"
 msgstr "Tataletak Papan"
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "Permainan Berakhir: Kamu tidak bisa menyingkirkan lagi."
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Game Over"
 msgstr "Permainan Berakhir"
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, kde-format
 msgid "New Game"
 msgstr "Permainan Baru"
 
-#: src/kmahjongg.cpp:407
+#: src/kmahjongg.cpp:408
 #, kde-format
 msgid "Restart"
 msgstr "Mulai ulang"
 
-#: src/kmahjongg.cpp:528
+#: src/kmahjongg.cpp:529
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr "Kamu menang dengan menempuh waktu %1 dan hasil skornya %2!"
 
-#: src/kmahjongg.cpp:551
+#: src/kmahjongg.cpp:552
 #, kde-format
 msgid "Game number: %1"
 msgstr "Nomor permainan: %1"
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:562
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Disingkirkan: %1/%2 Kombinasi tinggal: %3"
 
-#: src/kmahjongg.cpp:622
+#: src/kmahjongg.cpp:623
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Muat Permainan"
 
-#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
+#: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr "Permainan KMahjongg (*.kmgame)"
 
-#: src/kmahjongg.cpp:631
+#: src/kmahjongg.cpp:632
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr "Tidak bisa membaca dari file. Gugurkan."
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:643
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr "File ini bukan sebuah permainan KMahjongg."
 
-#: src/kmahjongg.cpp:655
+#: src/kmahjongg.cpp:656
 #, kde-format
 msgid "File format not recognized."
 msgstr "Format file tidak diakui."
 
-#: src/kmahjongg.cpp:697
+#: src/kmahjongg.cpp:698
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Simpan Permainan"
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:708
 #, kde-format
 msgid "Could not open file for saving."
 msgstr "Tidak bisa membuka file untuk menyimpan."
 
-#: src/kmahjongg.cpp:743
+#: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Apakah kamu ingin menyimpan permainanmu?"
 
-#: src/kmahjongg.cpp:743
+#: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Save game?"
 msgstr "Simpan permainan?"
@@ -574,6 +569,10 @@ msgstr "Hasilkan permainan dapat terpecahkan"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Tampilkan kartu yang disingkirkan"
+
+#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
+#~ msgstr ""
+#~ "Sebuah file dengan nama itu sudah ada. Apakah kamu ingin menimpanya?"
 
 #~ msgid "You have won!"
 #~ msgstr "Kamu Menang!"

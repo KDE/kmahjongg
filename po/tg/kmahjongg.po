@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-04-28 00:37+0000\n"
 "PO-Revision-Date: 2005-09-16 16:57+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -40,121 +40,116 @@ msgstr ""
 ",rkovacs@khujand.org,youth_opportunities@tajikngo.org,MarinaKL@tajikngo."
 "org,,,,,,,,,,,,"
 
-#: src/editor.cpp:71
+#: src/editor.cpp:70
 #, fuzzy, kde-format
 #| msgid "Open La&yout..."
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "Кушодани &Нақша..."
 
-#: src/editor.cpp:111
+#: src/editor.cpp:110
 #, kde-format
 msgid "New board"
 msgstr ""
 
-#: src/editor.cpp:118
+#: src/editor.cpp:117
 #, kde-format
 msgid "Open board"
 msgstr ""
 
-#: src/editor.cpp:125
+#: src/editor.cpp:124
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save board"
 msgstr "Нигоҳдоштани Мавзӯъ"
 
-#: src/editor.cpp:135
+#: src/editor.cpp:134
 #, kde-format
 msgid "Select"
 msgstr "Интихоб кунед"
 
-#: src/editor.cpp:140
+#: src/editor.cpp:139
 #, kde-format
 msgid "Cut"
 msgstr ""
 
-#: src/editor.cpp:145
+#: src/editor.cpp:144
 #, kde-format
 msgid "Copy"
 msgstr ""
 
-#: src/editor.cpp:150
+#: src/editor.cpp:149
 #, kde-format
 msgid "Paste"
 msgstr ""
 
-#: src/editor.cpp:157
+#: src/editor.cpp:156
 #, kde-format
 msgid "Move tiles"
 msgstr ""
 
-#: src/editor.cpp:161
+#: src/editor.cpp:160
 #, fuzzy, kde-format
 msgid "Add tiles"
 msgstr "*|Ҳама Файлҳо\n"
 
-#: src/editor.cpp:164
+#: src/editor.cpp:163
 #, kde-format
 msgid "Remove tiles"
 msgstr ""
 
-#: src/editor.cpp:188
+#: src/editor.cpp:187
 #, kde-format
 msgid "Shift left"
 msgstr ""
 
-#: src/editor.cpp:194
+#: src/editor.cpp:193
 #, kde-format
 msgid "Shift up"
 msgstr ""
 
-#: src/editor.cpp:200
+#: src/editor.cpp:199
 #, kde-format
 msgid "Shift down"
 msgstr ""
 
-#: src/editor.cpp:206
+#: src/editor.cpp:205
 #, kde-format
 msgid "Shift right"
 msgstr ""
 
-#: src/editor.cpp:288
+#: src/editor.cpp:287
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr ""
 
-#: src/editor.cpp:297
+#: src/editor.cpp:296
 #, fuzzy, kde-format
 #| msgid "Open La&yout..."
 msgid "Open Board Layout"
 msgstr "Кушодани &Нақша..."
 
-#: src/editor.cpp:298 src/editor.cpp:336
+#: src/editor.cpp:297 src/editor.cpp:335
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 
-#: src/editor.cpp:329
+#: src/editor.cpp:328
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:335 src/editor.cpp:347
+#: src/editor.cpp:334
 #, kde-format
 msgid "Save Board Layout"
 msgstr ""
 
-#: src/editor.cpp:346
-#, kde-format
-msgid "A file with that name already exists. Do you wish to overwrite it?"
-msgstr ""
-
-#: src/editor.cpp:375
+#: src/editor.cpp:362
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr ""
 
-#: src/editor.cpp:383
+#: src/editor.cpp:370
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr ""
@@ -224,7 +219,7 @@ msgstr ""
 msgid "What do you want to undo? You have done nothing!"
 msgstr ""
 
-#: src/gameview.cpp:196 src/kmahjongg.cpp:475
+#: src/gameview.cpp:196 src/kmahjongg.cpp:476
 #, kde-format
 msgid "Your computer has lost the game."
 msgstr ""
@@ -269,127 +264,127 @@ msgstr ""
 msgid "&Board Editor"
 msgstr ""
 
-#: src/kmahjongg.cpp:198
+#: src/kmahjongg.cpp:199
 #, fuzzy, kde-format
 msgid "Time: 0:00:00"
 msgstr "Вақт"
 
-#: src/kmahjongg.cpp:205
+#: src/kmahjongg.cpp:206
 #, kde-format
 msgid "Removed: 0000/0000"
 msgstr ""
 
-#: src/kmahjongg.cpp:212
+#: src/kmahjongg.cpp:213
 #, kde-format
 msgid "Game: 000000000000000000000"
 msgstr ""
 
-#: src/kmahjongg.cpp:225
+#: src/kmahjongg.cpp:226
 #, fuzzy, kde-format
 msgid "Time: "
 msgstr "Вақт"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:232
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Нигоҳдоштани Бозӣ"
 
-#: src/kmahjongg.cpp:231
+#: src/kmahjongg.cpp:232
 #, kde-format
 msgid "Enter game number:"
 msgstr ""
 
-#: src/kmahjongg.cpp:266
+#: src/kmahjongg.cpp:267
 #, kde-format
 msgid "General"
 msgstr "Умумӣ"
 
-#: src/kmahjongg.cpp:267
+#: src/kmahjongg.cpp:268
 #, kde-format
 msgid "Board Layout"
 msgstr ""
 
-#: src/kmahjongg.cpp:404
+#: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over: You have no moves left."
 msgstr ""
 
-#: src/kmahjongg.cpp:405
+#: src/kmahjongg.cpp:406
 #, kde-format
 msgid "Game Over"
 msgstr ""
 
-#: src/kmahjongg.cpp:406
+#: src/kmahjongg.cpp:407
 #, fuzzy, kde-format
 msgid "New Game"
 msgstr "Нигоҳдоштани Бозӣ"
 
-#: src/kmahjongg.cpp:407
+#: src/kmahjongg.cpp:408
 #, kde-format
 msgid "Restart"
 msgstr ""
 
-#: src/kmahjongg.cpp:528
+#: src/kmahjongg.cpp:529
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
 msgstr ""
 
-#: src/kmahjongg.cpp:551
+#: src/kmahjongg.cpp:552
 #, kde-format
 msgid "Game number: %1"
 msgstr ""
 
-#: src/kmahjongg.cpp:561
+#: src/kmahjongg.cpp:562
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
 msgstr ""
 
-#: src/kmahjongg.cpp:622
+#: src/kmahjongg.cpp:623
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "Нигоҳдоштани Мавзӯъ"
 
-#: src/kmahjongg.cpp:622 src/kmahjongg.cpp:697
+#: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
 msgstr ""
 
-#: src/kmahjongg.cpp:631
+#: src/kmahjongg.cpp:632
 #, kde-format
 msgid "Could not read from file. Aborting."
 msgstr ""
 
-#: src/kmahjongg.cpp:642
+#: src/kmahjongg.cpp:643
 #, kde-format
 msgid "File is not a KMahjongg game."
 msgstr ""
 
-#: src/kmahjongg.cpp:655
+#: src/kmahjongg.cpp:656
 #, kde-format
 msgid "File format not recognized."
 msgstr ""
 
-#: src/kmahjongg.cpp:697
+#: src/kmahjongg.cpp:698
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "Нигоҳдоштани Мавзӯъ"
 
-#: src/kmahjongg.cpp:707
+#: src/kmahjongg.cpp:708
 #, kde-format
 msgid "Could not open file for saving."
 msgstr ""
 
-#: src/kmahjongg.cpp:743
+#: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
 
-#: src/kmahjongg.cpp:743
+#: src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgid "Save game?"
