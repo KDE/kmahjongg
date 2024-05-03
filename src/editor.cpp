@@ -134,19 +134,13 @@ void Editor::setupToolbar()
     select->setText(i18nc("@action", "Select"));
     topToolbar->addAction(select);
 
-    QAction * cut = actionCollection->addAction(QLatin1String("edit_cut"));
-    cut->setIcon(QIcon::fromTheme(QLatin1String("edit-cut")));
-    cut->setText(i18n("Cut"));
+    QAction * cut = m_actionCollection->addAction(KStandardAction::Cut);
     topToolbar->addAction(cut);
 
-    QAction * copy = actionCollection->addAction(QLatin1String("edit_copy"));
-    copy->setIcon(QIcon::fromTheme(QLatin1String("edit-copy")));
-    copy->setText(i18n("Copy"));
+    QAction * copy = m_actionCollection->addAction(KStandardAction::Copy);
     topToolbar->addAction(copy);
 
-    QAction * paste = actionCollection->addAction(QLatin1String("edit_paste"));
-    paste->setIcon(QIcon::fromTheme(QLatin1String("edit-paste")));
-    paste->setText(i18n("Paste"));
+    QAction * paste = m_actionCollection->addAction(KStandardAction::Paste);
     topToolbar->addAction(paste);
 
     topToolbar->addSeparator();
