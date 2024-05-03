@@ -138,25 +138,25 @@ void KMahjongg::setupKAction()
     KGameStandardAction::restart(this, &KMahjongg::restartGame, actionCollection());
 
     QAction * newNumGame = actionCollection()->addAction(QStringLiteral("game_new_numeric"));
-    newNumGame->setText(i18n("New Numbered Game..."));
+    newNumGame->setText(i18nc("@action", "New Numbered Game…"));
     connect(newNumGame, &QAction::triggered, this, &KMahjongg::startNewNumeric);
 
     QAction * action = KGameStandardAction::hint(m_gameView, &GameView::helpMove, this);
     actionCollection()->addAction(action->objectName(), action);
 
     QAction * shuffle = actionCollection()->addAction(QStringLiteral("move_shuffle"));
-    shuffle->setText(i18n("Shu&ffle"));
+    shuffle->setText(i18nc("@action", "Shu&ffle"));
     shuffle->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
     connect(shuffle, &QAction::triggered, m_gameView, &GameView::shuffle);
 
     QAction * angleccw = actionCollection()->addAction(QStringLiteral("view_angleccw"));
-    angleccw->setText(i18n("Rotate View Counterclockwise"));
+    angleccw->setText(i18nc("@action", "Rotate View Counterclockwise"));
     angleccw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-left")));
     KActionCollection::setDefaultShortcut(angleccw, Qt::Key_F);
     connect(angleccw, &QAction::triggered, m_gameView, &GameView::angleSwitchCCW);
 
     QAction * anglecw = actionCollection()->addAction(QStringLiteral("view_anglecw"));
-    anglecw->setText(i18n("Rotate View Clockwise"));
+    anglecw->setText(i18nc("@action", "Rotate View Clockwise"));
     anglecw->setIcon(QIcon::fromTheme(QStringLiteral("object-rotate-right")));
     KActionCollection::setDefaultShortcut(anglecw, Qt::Key_G);
     connect(anglecw, &QAction::triggered, m_gameView, &GameView::angleSwitchCW);
@@ -176,7 +176,7 @@ void KMahjongg::setupKAction()
 
     // edit
     QAction * boardEdit = actionCollection()->addAction(QStringLiteral("game_board_editor"));
-    boardEdit->setText(i18n("&Board Editor"));
+    boardEdit->setText(i18nc("@action", "&Board Editor"));
     boardEdit->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
     connect(boardEdit, &QAction::triggered, this, &KMahjongg::slotBoardEditor);
 
@@ -229,7 +229,7 @@ void KMahjongg::displayTime(const QString & timestring)
 void KMahjongg::startNewNumeric()
 {
     bool ok;
-    int s = QInputDialog::getInt(this, i18nc("@title:window", "New Game"), i18n("Enter game number:"), 0, 0, INT_MAX, 1, &ok);
+    int s = QInputDialog::getInt(this, i18nc("@title:window", "New Game"), i18nc("@label:textbox", "Game number:"), 0, 0, INT_MAX, 1, &ok);
 
     if (ok) {
         startNewGameWithNumber(s);
@@ -264,8 +264,8 @@ void KMahjongg::showSettings()
     KMahjonggConfigDialog * dialog = new KMahjonggConfigDialog(this, QStringLiteral("settings"), Prefs::self());
 
     //The Settings class is ours
-    dialog->addPage(new Settings(dialog), i18n("General"), QStringLiteral("games-config-options"));
-    dialog->addPage(new KMahjonggLayoutSelector(dialog, Prefs::self()), i18n("Board Layout"), QStringLiteral("games-config-board"));
+    dialog->addPage(new Settings(dialog), i18nc("@title:tab", "General"), QStringLiteral("games-config-options"));
+    dialog->addPage(new KMahjonggLayoutSelector(dialog, Prefs::self()), i18nc("@title:tab", "Board Layout"), QStringLiteral("games-config-board"));
     dialog->addTilesetPage();
     dialog->addBackgroundPage();
 
@@ -403,9 +403,9 @@ void KMahjongg::noMovesAvailable()
     int answer = KMessageBox::questionTwoActionsCancel(
         this,
         i18n("Game Over: You have no moves left."),
-        i18n("Game Over"),
-        KGuiItem(i18n("New Game"), newGameIcon),
-        KGuiItem(i18n("Restart"), restartIcon));
+        i18nc("@title:window", "Game Over"),
+        KGuiItem(i18nc("@action:button", "New Game"), newGameIcon),
+        KGuiItem(i18nc("@action:button", "Restart"), restartIcon));
     if (answer == KMessageBox::PrimaryAction) {
         startNewGame();
     } else if (answer == KMessageBox::SecondaryAction) {
@@ -741,7 +741,7 @@ void KMahjongg::saveGame()
 bool KMahjongg::askSaveGame(const QString &dontAskAgainName)
 {
     const KMessageBox::ButtonCode ret = KMessageBox::questionTwoActionsCancel(this,
-            i18n("Do you want to save your game?"), i18n("Save game?"), KStandardGuiItem::save(), 
+            i18n("Do you want to save your game?"), i18nc("@title:window", "Save Game"), KStandardGuiItem::save(),
             KStandardGuiItem::dontSave(), KStandardGuiItem::cancel(), dontAskAgainName);
 
     switch (ret) {

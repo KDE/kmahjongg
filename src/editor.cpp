@@ -107,21 +107,21 @@ void Editor::setupToolbar()
     // new game
     QAction * newBoard = m_actionCollection->addAction(QStringLiteral("new_board"));
     newBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
-    newBoard->setText(i18n("New board"));
+    newBoard->setText(i18nc("@action", "New Board"));
     connect(newBoard, &QAction::triggered, this, &Editor::newBoard);
     m_topToolbar->addAction(newBoard);
 
     // open game
     QAction * openBoard = m_actionCollection->addAction(QStringLiteral("open_board"));
     openBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
-    openBoard->setText(i18n("Open board"));
+    openBoard->setText(i18nc("@action", "Open Board"));
     connect(openBoard, &QAction::triggered, this, &Editor::loadBoard);
     m_topToolbar->addAction(openBoard);
 
     // save game
     QAction * saveBoard = m_actionCollection->addAction(QStringLiteral("save_board"));
     saveBoard->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
-    saveBoard->setText(i18n("Save board"));
+    saveBoard->setText(i18nc("@action", "Save Board"));
     connect(saveBoard, &QAction::triggered, this, &Editor::saveBoard);
     m_topToolbar->addAction(saveBoard);
 
@@ -131,7 +131,7 @@ void Editor::setupToolbar()
     // Select
     QAction * select = actionCollection->addAction(QLatin1String("select"));
     select->setIcon(QIcon::fromTheme(QLatin1String("rectangle_select")));
-    select->setText(i18n("Select"));
+    select->setText(i18nc("@action", "Select"));
     topToolbar->addAction(select);
 
     QAction * cut = actionCollection->addAction(QLatin1String("edit_cut"));
@@ -153,14 +153,16 @@ void Editor::setupToolbar()
 
     QAction * moveTiles = actionCollection->addAction(QLatin1String("move_tiles"));
     moveTiles->setIcon(QIcon::fromTheme(QLatin1String("move")));
-    moveTiles->setText(i18n("Move tiles"));
+    moveTiles->setText(i18nc("@action", "Move Tiles"));
     topToolbar->addAction(moveTiles);
 #endif
 
-    KToggleAction * addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")), i18n("Add tiles"), this);
+    KToggleAction * addTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("draw-freehand")),
+                                                 i18nc("@option:check", "Add Tiles"), this);
     m_actionCollection->addAction(QStringLiteral("add_tiles"), addTiles);
     m_topToolbar->addAction(addTiles);
-    KToggleAction * delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Remove tiles"), this);
+    KToggleAction * delTiles = new KToggleAction(QIcon::fromTheme(QStringLiteral("edit-delete")),
+                                                 i18nc("@option:check", "Remove Tiles"), this);
     m_actionCollection->addAction(QStringLiteral("del_tiles"), delTiles);
     m_topToolbar->addAction(delTiles);
 
@@ -184,25 +186,25 @@ void Editor::setupToolbar()
     // Does this makes sense? dimsuz
     QAction * shiftLeft = m_actionCollection->addAction(QStringLiteral("shift_left"));
     shiftLeft->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
-    shiftLeft->setText(i18n("Shift left"));
+    shiftLeft->setText(i18nc("@action", "Shift Left"));
     connect(shiftLeft, &QAction::triggered, this, &Editor::slotShiftLeft);
     m_topToolbar->addAction(shiftLeft);
 
     QAction * shiftUp = m_actionCollection->addAction(QStringLiteral("shift_up"));
     shiftUp->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
-    shiftUp->setText(i18n("Shift up"));
+    shiftUp->setText(i18nc("@action", "Shift Up"));
     connect(shiftUp, &QAction::triggered, this, &Editor::slotShiftUp);
     m_topToolbar->addAction(shiftUp);
 
     QAction * shiftDown = m_actionCollection->addAction(QStringLiteral("shift_down"));
     shiftDown->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
-    shiftDown->setText(i18n("Shift down"));
+    shiftDown->setText(i18nc("@action", "Shift Down"));
     connect(shiftDown, &QAction::triggered, this, &Editor::slotShiftDown);
     m_topToolbar->addAction(shiftDown);
 
     QAction * shiftRight = m_actionCollection->addAction(QStringLiteral("shift_right"));
     shiftRight->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
-    shiftRight->setText(i18n("Shift right"));
+    shiftRight->setText(i18nc("@action", "Shift Right"));
     connect(shiftRight, &QAction::triggered, this, &Editor::slotShiftRight);
     m_topToolbar->addAction(shiftRight);
 
@@ -293,7 +295,7 @@ void Editor::loadBoard()
         return;
     }
 
-    const QString filename = QFileDialog::getOpenFileName(this, i18n("Open Board Layout"), QString(),
+    const QString filename = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Open Board Layout"), QString(),
                                                           i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (filename.isEmpty()) {
@@ -331,7 +333,7 @@ bool Editor::saveBoard()
     }
 
     // get a save file name
-    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Board Layout"), QString(),
+    const QString filename = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save Board Layout"), QString(),
                                                           i18n("Board Layout (*.layout);;All Files (*)"));
 
     if (filename.isEmpty()) {

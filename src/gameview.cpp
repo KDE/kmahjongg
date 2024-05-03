@@ -200,7 +200,7 @@ void GameView::demoGameOver(bool won)
 
 void GameView::createNewGame(long gameNumber)
 {
-    setStatusText(i18n("Calculating new game..."));
+    setStatusText(i18nc("@info:status", "Calculating new game…"));
 
     // Check any animations are running and stop them.
     checkHelpAnimationActive(true);
