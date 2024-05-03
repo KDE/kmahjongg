@@ -223,7 +223,7 @@ void KMahjongg::setupStatusBar()
 
 void KMahjongg::displayTime(const QString & timestring)
 {
-    m_gameTimerLabel->setText(i18n("Time: ") + timestring);
+    m_gameTimerLabel->setText(i18n("Time: %1", timestring));
 }
 
 void KMahjongg::startNewNumeric()
