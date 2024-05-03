@@ -221,7 +221,7 @@
 				<term><menuchoice>
 					<shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></shortcut>
 					<guimenu>Game</guimenu>
-					<guimenuitem>Load...</guimenuitem>
+					<guimenuitem>Load…</guimenuitem>
 				</menuchoice></term>
 				<listitem><para><action>Loads a saved game.</action></para></listitem>
 			</varlistentry>
@@ -236,7 +236,7 @@
 			<varlistentry>
 				<term><menuchoice>
 					<guimenu>Game</guimenu>
-					<guimenuitem>New Numbered Game...</guimenuitem>
+					<guimenuitem>New Numbered Game…</guimenuitem>
 				</menuchoice></term>
 				<listitem><para><action>Starts a specifically numbered game.</action>
 				<screenshot>
@@ -426,7 +426,7 @@ of the &kde; Fundamentals.
 	</mediaobject>
 </screenshot>
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;...</guimenuitem></menuchoice> opens the <guilabel>Configure - &kmahjongg;</guilabel> dialog.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kmahjongg;…</guimenuitem></menuchoice> opens the <guilabel>Configure - &kmahjongg;</guilabel> dialog.</para>
 
 <sect1 id="general-options"><title>General options</title>
 	<variablelist>
@@ -522,7 +522,7 @@ of the &kde; Fundamentals.
 <sect1 id="default-keybindings">
 <title>Default Keybindings</title>
 
-<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem></menuchoice> allows you to change the default keyboard bindings.</para>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts…</guimenuitem></menuchoice> allows you to change the default keyboard bindings.</para>
 
 <para>
 The default kebindings are as follows:
