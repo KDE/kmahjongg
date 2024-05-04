@@ -129,8 +129,8 @@ void Editor::setupToolbar()
 
 #ifdef FUTURE_OPTIONS
     // Select
-    QAction * select = actionCollection->addAction(QLatin1String("select"));
-    select->setIcon(QIcon::fromTheme(QLatin1String("rectangle_select")));
+    QAction * select = actionCollection->addAction(QStringLiteral("select"));
+    select->setIcon(QIcon::fromTheme(QStringLiteral("rectangle_select")));
     select->setText(i18nc("@action", "Select"));
     topToolbar->addAction(select);
 
@@ -145,8 +145,8 @@ void Editor::setupToolbar()
 
     topToolbar->addSeparator();
 
-    QAction * moveTiles = actionCollection->addAction(QLatin1String("move_tiles"));
-    moveTiles->setIcon(QIcon::fromTheme(QLatin1String("move")));
+    QAction * moveTiles = actionCollection->addAction(QStringLiteral("move_tiles"));
+    moveTiles->setIcon(QIcon::fromTheme(QStringLiteral("move")));
     moveTiles->setText(i18nc("@action", "Move Tiles"));
     topToolbar->addAction(moveTiles);
 #endif
