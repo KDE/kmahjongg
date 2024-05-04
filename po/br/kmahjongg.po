@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2004-05-10 17:37+0200\n"
 "Last-Translator: Romuald Texier <texierr@worldnet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -35,106 +35,111 @@ msgid "Edit Board Layout"
 msgstr "Aozañ ar reizhadur taolenn."
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "Kartenn nevez"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "Digeriñ an daolenn"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "Enrollañ an daolenn"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "Dibabit"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr "Troc'hañ"
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr "Eilañ"
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr "Pegañ"
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "Fiñval an teoloù"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "Ouzhpennañ teoloù"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "Lemel an teoloù"
 
-#: src/editor.cpp:187
+#: src/editor.cpp:183
 #, kde-format
-msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr ""
 
-#: src/editor.cpp:193
+#: src/editor.cpp:189
 #, kde-format
-msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr ""
 
-#: src/editor.cpp:199
+#: src/editor.cpp:195
 #, kde-format
-msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr ""
 
-#: src/editor.cpp:205
+#: src/editor.cpp:201
 #, kde-format
-msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr ""
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "teoloù : %1 Lec'hiadur : %2,%3,%4"
 
-#: src/editor.cpp:296
+#: src/editor.cpp:292
 #, fuzzy, kde-format
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "K&argañ ur skeudenn drekleur ..."
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:334
+#: src/editor.cpp:330
 #, fuzzy, kde-format
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "K&argañ ur skeudenn drekleur ..."
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr ""
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Enrollañ sac'het. Emaon o nullañ."
@@ -211,8 +216,10 @@ msgid "Your computer has lost the game."
 msgstr "Hoc'h urzhiataer en deus kollet."
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "Emaon o jediñ ur c'hoari nevez ..."
 
 #: src/gameview.cpp:261
@@ -227,26 +234,32 @@ msgstr "Mod diskouez. Klikit un afell al logodenn evit paouez."
 
 #: src/kmahjongg.cpp:141
 #, fuzzy, kde-format
-msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "K&regiñ gant ur c'hoari nevez"
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "En &dizurzh"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:159
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:179
 #, kde-format
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr ""
 
@@ -267,8 +280,9 @@ msgid "Game: 000000000000000000000"
 msgstr ""
 
 #: src/kmahjongg.cpp:226
-#, kde-format
-msgid "Time: "
+#, fuzzy, kde-format
+#| msgid "Time: "
+msgid "Time: %1"
 msgstr "Eur : "
 
 #: src/kmahjongg.cpp:232
@@ -279,18 +293,23 @@ msgid "New Game"
 msgstr "C'hoari nevez"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "Roit niver ar c'hoari :"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "Niver ar c'hoari : %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Pennañ"
 
 #: src/kmahjongg.cpp:268
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Aozañ ar reizhadur taolenn."
 
@@ -301,16 +320,20 @@ msgstr ""
 
 #: src/kmahjongg.cpp:406
 #, kde-format
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "C'hoari nevez"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
+msgctxt "@action:button"
 msgid "Restart"
 msgstr ""
 
@@ -356,7 +379,7 @@ msgstr ""
 msgid "File format not recognized."
 msgstr ""
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
@@ -373,12 +396,6 @@ msgstr "Ne m'eus ket gallet skrivañ ar restr. Emaon o nullañ."
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
-
-#: src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Theme"
-msgid "Save game?"
-msgstr "Enrollañ ar c'hiz"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -573,6 +590,23 @@ msgstr ""
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Diskouez an teoloù lemelet"
+
+#~ msgid "Cut"
+#~ msgstr "Troc'hañ"
+
+#~ msgid "Copy"
+#~ msgstr "Eilañ"
+
+#~ msgid "Paste"
+#~ msgstr "Pegañ"
+
+#~ msgid "Enter game number:"
+#~ msgstr "Roit niver ar c'hoari :"
+
+#, fuzzy
+#~| msgid "Save Theme"
+#~ msgid "Save game?"
+#~ msgstr "Enrollañ ar c'hiz"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "Ur restr gant an anv-se a zo c'hoazh. C'hoant ho peus e rasklañ ?"

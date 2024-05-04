@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2006-04-26 01:21+0200\n"
 "Last-Translator: Zaklina Gjalevska <gjalevska@yahoo.com>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -38,86 +38,95 @@ msgid "Edit Board Layout"
 msgstr "Уредете го изгледот на таблата"
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "Нова табла"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "Отвора табла"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "Зачувува табла"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "Изберете"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr ""
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr ""
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr ""
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "Преместува плочки"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "Додава плочки"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "Отстранува плочки"
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
+#: src/editor.cpp:183
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "Поместува налево"
 
-#: src/editor.cpp:193
-#, kde-format
-msgid "Shift up"
+#: src/editor.cpp:189
+#, fuzzy, kde-format
+#| msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "Поместува нагоре"
 
-#: src/editor.cpp:199
-#, kde-format
-msgid "Shift down"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr "Поместува надолу"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "Поместува надесно"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Плочки: %1 Поз: %2,%3,%4"
 
-#: src/editor.cpp:296
-#, kde-format
+#: src/editor.cpp:292
+#, fuzzy, kde-format
+#| msgid "Open Board Layout"
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Го отвора изгледот на таблата"
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -127,22 +136,24 @@ msgstr ""
 "*.layout|Изглед на табла (*.layout)\n"
 "*|Сите датотеки"
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:334
-#, kde-format
+#: src/editor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Save Board Layout"
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Го зачувува изгледот на таблата"
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Таблата е изменета. Дали сакате да ги зачувате промените?"
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Зачувувањето не успеа. Ја прекинувам операцијата."
@@ -219,8 +230,10 @@ msgid "Your computer has lost the game."
 msgstr "Вашиот компјутер ја загуби играта."
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "Пресметки за новата игра..."
 
 #: src/gameview.cpp:261
@@ -234,27 +247,35 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Режим на демонстрација. Кликнете со глувчето за да запре."
 
 #: src/kmahjongg.cpp:141
-#, kde-format
-msgid "New Numbered Game..."
+#, fuzzy, kde-format
+#| msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "Нова нумерирана игра..."
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&Мешај"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:159
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:179
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Board Editor"
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Уредувач на табли"
 
@@ -275,7 +296,7 @@ msgstr ""
 
 #: src/kmahjongg.cpp:226
 #, fuzzy, kde-format
-msgid "Time: "
+msgid "Time: %1"
 msgstr "Време"
 
 #: src/kmahjongg.cpp:232
@@ -285,18 +306,23 @@ msgid "New Game"
 msgstr "Зачувај игра"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "Внесете број на игра:"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "Број на играта: %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Општо"
 
 #: src/kmahjongg.cpp:268
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Уредете го изгледот на таблата"
 
@@ -308,16 +334,19 @@ msgstr "Играта заврши. Немате повеќе потези."
 
 #: src/kmahjongg.cpp:406
 #, kde-format
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "Зачувај игра"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
+msgctxt "@action:button"
 msgid "Restart"
 msgstr ""
 
@@ -363,7 +392,7 @@ msgstr ""
 msgid "File format not recognized."
 msgstr "Форматот на датотеката не е препознаен."
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
@@ -380,12 +409,6 @@ msgstr "Не можам да запишам во датотеката. Прек�
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
-
-#: src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Theme"
-msgid "Save game?"
-msgstr "Зачувај тема"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -583,6 +606,14 @@ msgstr "Генерирај решливи игри"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Прикажи ги отстранетите плочки"
+
+#~ msgid "Enter game number:"
+#~ msgstr "Внесете број на игра:"
+
+#, fuzzy
+#~| msgid "Save Theme"
+#~ msgid "Save game?"
+#~ msgstr "Зачувај тема"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "Датотека со тоа име веќе постои. Дали сакате да запишете врз неа?"

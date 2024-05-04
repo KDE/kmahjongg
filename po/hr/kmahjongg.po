@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2006-08-21 17:03+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -37,86 +37,95 @@ msgid "Edit Board Layout"
 msgstr "Uredi predložak ploče"
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "Nova ploča"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "Otvori ploču"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "Spremi ploču"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "Odaberi"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr ""
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr ""
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr ""
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "Pomakni pločice"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "Dodaj pločice"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "Ukloni pločice"
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
+#: src/editor.cpp:183
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "Pomakni ulijevo"
 
-#: src/editor.cpp:193
-#, kde-format
-msgid "Shift up"
+#: src/editor.cpp:189
+#, fuzzy, kde-format
+#| msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "Pomakni gore"
 
-#: src/editor.cpp:199
-#, kde-format
-msgid "Shift down"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr "Pomakni dolje"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "Pomakni udesno"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Pločice: %1 položaj: %2,%3,%4"
 
-#: src/editor.cpp:296
-#, kde-format
+#: src/editor.cpp:292
+#, fuzzy, kde-format
+#| msgid "Open Board Layout"
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Otvori predložak ploče"
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -126,22 +135,24 @@ msgstr ""
 "*.layout|Predložak ploče (*.layout)\n"
 "*|Sve datoteke"
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:334
-#, kde-format
+#: src/editor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Save Board Layout"
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Spremi predložak ploče"
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Ploča je izmijenjena- Želite li spremiti izmjene?"
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "Spremanje nije uspjelo. Odustajanje."
@@ -218,8 +229,10 @@ msgid "Your computer has lost the game."
 msgstr "Vaše je računalo poraženo."
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "Izračunavanje nove igre …"
 
 #: src/gameview.cpp:261
@@ -233,27 +246,35 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demostracija. Za zaustavljanje kliknite tipku miša."
 
 #: src/kmahjongg.cpp:141
-#, kde-format
-msgid "New Numbered Game..."
+#, fuzzy, kde-format
+#| msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "Nova numerirana igra …"
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&Promiješaj"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:159
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:179
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Board Editor"
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Uređivač ploče"
 
@@ -274,7 +295,7 @@ msgstr ""
 
 #: src/kmahjongg.cpp:226
 #, fuzzy, kde-format
-msgid "Time: "
+msgid "Time: %1"
 msgstr "Vrijeme"
 
 #: src/kmahjongg.cpp:232
@@ -284,18 +305,23 @@ msgid "New Game"
 msgstr "Spremi igru"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "Unesite broj igre:"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "Broj igre: %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Opće"
 
 #: src/kmahjongg.cpp:268
 #, fuzzy, kde-format
 #| msgid "Edit Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Uredi predložak ploče"
 
@@ -307,16 +333,19 @@ msgstr "Igra je završena. Nemate više preostalih poteza."
 
 #: src/kmahjongg.cpp:406
 #, kde-format
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
 #, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "Spremi igru"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
+msgctxt "@action:button"
 msgid "Restart"
 msgstr ""
 
@@ -362,7 +391,7 @@ msgstr ""
 msgid "File format not recognized."
 msgstr "Oblik datoteke nije prepoznat."
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "Save Theme"
 msgctxt "@title:window"
@@ -379,12 +408,6 @@ msgstr "Zapisivanje u datoteku nije moguće. Odustajanje."
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
-
-#: src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Theme"
-msgid "Save game?"
-msgstr "Spremi temu"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -582,6 +605,14 @@ msgstr "Generiraj rješivu igru"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Prikaži uklonjene pločice"
+
+#~ msgid "Enter game number:"
+#~ msgstr "Unesite broj igre:"
+
+#, fuzzy
+#~| msgid "Save Theme"
+#~ msgid "Save game?"
+#~ msgstr "Spremi temu"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "Datoteka s tim nazivom već postoji. Želite li ju presnimiti?"

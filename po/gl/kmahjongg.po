@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2023-04-28 17:56+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -39,106 +39,117 @@ msgid "Edit Board Layout"
 msgstr "Editar a disposición do taboleiro"
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "Novo taboleiro"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "Abrir un taboleiro"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "Gardar o taboleiro"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "Escoller"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr "Cortar"
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr "Copiar"
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr "Pegar"
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "Mover as fichas"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "Engadir fichas"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "Retirar fichas"
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
+#: src/editor.cpp:183
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "Cambiar para a esquerda"
 
-#: src/editor.cpp:193
-#, kde-format
-msgid "Shift up"
+#: src/editor.cpp:189
+#, fuzzy, kde-format
+#| msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "Cambiar para riba"
 
-#: src/editor.cpp:199
-#, kde-format
-msgid "Shift down"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr "Cambiar para baixo"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "Cambiar para a dereita"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Fichas: %1 Pos: %2,%3,%4"
 
-#: src/editor.cpp:296
-#, kde-format
+#: src/editor.cpp:292
+#, fuzzy, kde-format
+#| msgid "Open Board Layout"
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Abrir unha disposición do taboleiro"
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "Disposición do taboleiro(*.layout);;Todos os ficheiros (*)"
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "Só se pode gardar cun número par de fichas."
 
-#: src/editor.cpp:334
-#, kde-format
+#: src/editor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Save Board Layout"
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Gardar a disposición do taboleiro"
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "Modificouse o taboleiro. Queres gardas os cambios?"
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "A garda fallou. Interrómpese a operación."
@@ -211,8 +222,10 @@ msgid "Your computer has lost the game."
 msgstr "O teu computador perdeu a partida."
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "Calculando a nova partida…"
 
 #: src/gameview.cpp:261
@@ -226,27 +239,37 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Modo de demostración. Preme o botón do rato para parar."
 
 #: src/kmahjongg.cpp:141
-#, kde-format
-msgid "New Numbered Game..."
+#, fuzzy, kde-format
+#| msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "Nova partida numerada…"
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&Barallar"
 
 #: src/kmahjongg.cpp:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Counterclockwise"
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "Rotar a vista en sentido antihorario"
 
 #: src/kmahjongg.cpp:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Clockwise"
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "Rotar a vista no sentido horario"
 
 #: src/kmahjongg.cpp:179
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Board Editor"
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Editor do taboleiro"
 
@@ -266,8 +289,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Partida: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, kde-format
-msgid "Time: "
+#, fuzzy, kde-format
+#| msgid "Time: "
+msgid "Time: %1"
 msgstr "Tempo: "
 
 #: src/kmahjongg.cpp:232
@@ -277,17 +301,23 @@ msgid "New Game"
 msgstr "Nova partida"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "Insire o número da partida:"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "Número da partida: %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Xeral"
 
 #: src/kmahjongg.cpp:268
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Disposición do taboleiro"
 
@@ -297,17 +327,23 @@ msgid "Game Over: You have no moves left."
 msgstr "Rematou a partida: non lle quedan máis fichas."
 
 #: src/kmahjongg.cpp:406
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Game Over"
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Rematou a partida"
 
 #: src/kmahjongg.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nova partida"
 
 #: src/kmahjongg.cpp:408
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Restart"
+msgctxt "@action:button"
 msgid "Restart"
 msgstr "Reiniciar"
 
@@ -352,7 +388,7 @@ msgstr "O ficheiro non é unha partida de KMahjongg."
 msgid "File format not recognized."
 msgstr "Non se recoñece o formato de ficheiro."
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
@@ -367,11 +403,6 @@ msgstr "Non foi posíbel abrir o ficheiro para gardar."
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "Queres gardar a partida?"
-
-#: src/kmahjongg.cpp:744
-#, kde-format
-msgid "Save game?"
-msgstr "Gardar a partida?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -571,6 +602,21 @@ msgstr "Xerar partidas con solución"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Amosar as fichas retiradas"
+
+#~ msgid "Cut"
+#~ msgstr "Cortar"
+
+#~ msgid "Copy"
+#~ msgstr "Copiar"
+
+#~ msgid "Paste"
+#~ msgstr "Pegar"
+
+#~ msgid "Enter game number:"
+#~ msgstr "Insire o número da partida:"
+
+#~ msgid "Save game?"
+#~ msgstr "Gardar a partida?"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "Xa existe un ficheiro con ese nome. Queres sobrescribilo?"

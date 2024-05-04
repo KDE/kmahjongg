@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ktetris\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2023-08-07 00:03+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -35,106 +35,117 @@ msgid "Edit Board Layout"
 msgstr "보드 레이아웃 편집"
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "새 보드"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "보드 열기"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "보드 저장"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "선택"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr "잘라내기"
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr "복사"
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr "붙여넣기"
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "조각 이동"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "조각 추가"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "조각 삭제"
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
+#: src/editor.cpp:183
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "왼쪽으로 밀기"
 
-#: src/editor.cpp:193
-#, kde-format
-msgid "Shift up"
+#: src/editor.cpp:189
+#, fuzzy, kde-format
+#| msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "위로 밀기"
 
-#: src/editor.cpp:199
-#, kde-format
-msgid "Shift down"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr "아래로 밀기"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "오른쪽으로 밀기"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "조각: %1 위치: %2,%3,%4"
 
-#: src/editor.cpp:296
-#, kde-format
+#: src/editor.cpp:292
+#, fuzzy, kde-format
+#| msgid "Open Board Layout"
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "보드 레이아웃 열기"
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr "보드 레이아웃 (*.layout);;모든 파일(*)"
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr "조각이 짝 수 개 남아 있을 때에만 저장할 수 있습니다."
 
-#: src/editor.cpp:334
-#, kde-format
+#: src/editor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Save Board Layout"
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "보드 레이아웃 저장"
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "보드가 수정되었습니다. 변경 사항을 저장하시겠습니까?"
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "저장에 실패했습니다. 작업을 중단합니다."
@@ -207,8 +218,10 @@ msgid "Your computer has lost the game."
 msgstr "컴퓨터가 게임에 졌습니다."
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "새 게임을 만드는 중..."
 
 #: src/gameview.cpp:261
@@ -222,27 +235,37 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "데모 모드. 마우스 단추를 클릭하면 중단합니다."
 
 #: src/kmahjongg.cpp:141
-#, kde-format
-msgid "New Numbered Game..."
+#, fuzzy, kde-format
+#| msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "새 게임(번호 지정)..."
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "섞기(&F)"
 
 #: src/kmahjongg.cpp:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Counterclockwise"
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "반시계 방향으로 보기 회전"
 
 #: src/kmahjongg.cpp:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Clockwise"
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "시계 방향으로 보기 회전"
 
 #: src/kmahjongg.cpp:179
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Board Editor"
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr "보드 편집기(&B)"
 
@@ -262,8 +285,9 @@ msgid "Game: 000000000000000000000"
 msgstr "게임: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, kde-format
-msgid "Time: "
+#, fuzzy, kde-format
+#| msgid "Time: "
+msgid "Time: %1"
 msgstr "시간: "
 
 #: src/kmahjongg.cpp:232
@@ -273,17 +297,23 @@ msgid "New Game"
 msgstr "새 게임"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "게임 번호를 입력하십시오:"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "게임 번호: %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "일반"
 
 #: src/kmahjongg.cpp:268
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "보드 레이아웃"
 
@@ -293,17 +323,23 @@ msgid "Game Over: You have no moves left."
 msgstr "게임 끝: 더 이상 이동할 수 없습니다."
 
 #: src/kmahjongg.cpp:406
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Game Over"
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr "게임 끝"
 
 #: src/kmahjongg.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "새 게임"
 
 #: src/kmahjongg.cpp:408
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Restart"
+msgctxt "@action:button"
 msgid "Restart"
 msgstr "다시 시작"
 
@@ -348,7 +384,7 @@ msgstr "파일은 KMahjongg 게임이 아닙니다."
 msgid "File format not recognized."
 msgstr "파일 형식을 알 수 없습니다."
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
@@ -363,11 +399,6 @@ msgstr "파일에 저장하려고 열 수 없습니다."
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr "게임을 저장하시겠습니까?"
-
-#: src/kmahjongg.cpp:744
-#, kde-format
-msgid "Save game?"
-msgstr "게임 저장?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -567,6 +598,21 @@ msgstr "풀 수 있는 게임 만들기"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "삭제된 조각 표시"
+
+#~ msgid "Cut"
+#~ msgstr "잘라내기"
+
+#~ msgid "Copy"
+#~ msgstr "복사"
+
+#~ msgid "Paste"
+#~ msgstr "붙여넣기"
+
+#~ msgid "Enter game number:"
+#~ msgstr "게임 번호를 입력하십시오:"
+
+#~ msgid "Save game?"
+#~ msgstr "게임 저장?"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "같은 이름의 파일이 이미 존재합니다. 덮어쓰시겠습니까?"

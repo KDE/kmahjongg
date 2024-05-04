@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2010-03-21 19:38+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -37,86 +37,95 @@ msgid "Edit Board Layout"
 msgstr "แก้ไขรูปแบบการจัดกระดาน"
 
 #: src/editor.cpp:110
-#, kde-format
-msgid "New board"
+#, fuzzy, kde-format
+#| msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr "กระดานใหม่"
 
 #: src/editor.cpp:117
-#, kde-format
-msgid "Open board"
+#, fuzzy, kde-format
+#| msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr "เปิดกระดาน"
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
+#, fuzzy, kde-format
+#| msgid "Save board"
+msgctxt "@action"
+msgid "Save Board"
 msgstr "บันทึกกระดาน"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "เลือก"
 
-#: src/editor.cpp:139
-#, kde-format
-msgid "Cut"
-msgstr "ตัด"
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr "คัดลอก"
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr "วาง"
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+#: src/editor.cpp:150
+#, fuzzy, kde-format
+#| msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr "เลื่อนตัวหมาก"
 
-#: src/editor.cpp:160
-#, kde-format
-msgid "Add tiles"
+#: src/editor.cpp:155
+#, fuzzy, kde-format
+#| msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr "เพิ่มตัวหมาก"
 
-#: src/editor.cpp:163
-#, kde-format
-msgid "Remove tiles"
+#: src/editor.cpp:159
+#, fuzzy, kde-format
+#| msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr "ลบตัวหมาก"
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
+#: src/editor.cpp:183
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "เลื่อนซ้าย"
 
-#: src/editor.cpp:193
-#, kde-format
-msgid "Shift up"
+#: src/editor.cpp:189
+#, fuzzy, kde-format
+#| msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "เลื่อนขึ้น"
 
-#: src/editor.cpp:199
-#, kde-format
-msgid "Shift down"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Down"
 msgstr "เลื่อนลง"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "เลื่อนขวา"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "หมาก: %1 ตำแหน่ง: %2,%3,%4"
 
-#: src/editor.cpp:296
-#, kde-format
+#: src/editor.cpp:292
+#, fuzzy, kde-format
+#| msgid "Open Board Layout"
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "เปิดรูปแบบการจัดกระดาน"
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, fuzzy, kde-format
 #| msgid ""
 #| "*.layout|Board Layout (*.layout)\n"
@@ -126,22 +135,24 @@ msgstr ""
 "*.layout|รูปแบบการจัดกระดาน (*.layout)\n"
 "*|แฟ้มทั้งหมด"
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:334
-#, kde-format
+#: src/editor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Save Board Layout"
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "บันทึกรูปแบบการจัดกระดาน"
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr "กระดานมีการแก้ไข คุณต้องการที่จะบันทึกความเปลี่ยนแปลงหรือไม่ ?"
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr "การบันทึกล้มเหลว ทำการยกเลิกปฏิบัติการ"
@@ -216,8 +227,10 @@ msgid "Your computer has lost the game."
 msgstr "คอมพิวเตอร์ของคุณแพ้แล้ว"
 
 #: src/gameview.cpp:203
-#, kde-format
-msgid "Calculating new game..."
+#, fuzzy, kde-format
+#| msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr "กำลังคำนวณเกมใหม่..."
 
 #: src/gameview.cpp:261
@@ -231,27 +244,36 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "โหมดสาธิต คลิกปุ่มเมาส์เพื่อหยุด"
 
 #: src/kmahjongg.cpp:141
-#, kde-format
-msgid "New Numbered Game..."
+#, fuzzy, kde-format
+#| msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr "เริ่มเกมใหม่หมายเลขอื่น..."
 
 #: src/kmahjongg.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shu&ffle"
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&สลับไพ่"
 
 #: src/kmahjongg.cpp:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Counterclockwise"
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "หมุนมุมมองทวนเข็มนาฬิกา"
 
 #: src/kmahjongg.cpp:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rotate View Clockwise"
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "หมุนมุมมองตามเข็มนาฬิกา"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr ""
 
@@ -271,8 +293,9 @@ msgid "Game: 000000000000000000000"
 msgstr "เกม: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, kde-format
-msgid "Time: "
+#, fuzzy, kde-format
+#| msgid "Time: "
+msgid "Time: %1"
 msgstr "เวลา: "
 
 #: src/kmahjongg.cpp:232
@@ -283,17 +306,23 @@ msgid "New Game"
 msgstr "เริ่มเกมใหม่"
 
 #: src/kmahjongg.cpp:232
-#, kde-format
-msgid "Enter game number:"
-msgstr "ป้อนหมายเลขเกม:"
+#, fuzzy, kde-format
+#| msgid "Game number: %1"
+msgctxt "@label:textbox"
+msgid "Game number:"
+msgstr "เกมหมายเลข: %1"
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "ทั่วไป"
 
 #: src/kmahjongg.cpp:268
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Board Layout"
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "รูปแบบการจัดกระดาน"
 
@@ -305,16 +334,20 @@ msgstr "จบเกม: คุณไม่เหลือตาเดินแ�
 
 #: src/kmahjongg.cpp:406
 #, kde-format
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "เริ่มเกมใหม่"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
+msgctxt "@action:button"
 msgid "Restart"
 msgstr ""
 
@@ -360,7 +393,7 @@ msgstr "แฟ้มไม่ใช่แฟ้มเกมมาจง-K"
 msgid "File format not recognized."
 msgstr "ไม่สามารถจัดการแฟ้มประเภทนี้ได้"
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "Save Game"
 msgctxt "@title:window"
@@ -377,12 +410,6 @@ msgstr "ไม่สามารถอ่านแฟ้มได้ ทำก�
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
-
-#: src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Game"
-msgid "Save game?"
-msgstr "บันทึกเกม"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -586,6 +613,23 @@ msgstr "สร้างเกมที่สามารถแก้ปัญห
 #| msgid "Remove tiles"
 msgid "Show removed tiles"
 msgstr "ลบตัวหมาก"
+
+#~ msgid "Cut"
+#~ msgstr "ตัด"
+
+#~ msgid "Copy"
+#~ msgstr "คัดลอก"
+
+#~ msgid "Paste"
+#~ msgstr "วาง"
+
+#~ msgid "Enter game number:"
+#~ msgstr "ป้อนหมายเลขเกม:"
+
+#, fuzzy
+#~| msgid "Save Game"
+#~ msgid "Save game?"
+#~ msgstr "บันทึกเกม"
 
 #~ msgid "A file with that name already exists. Do you wish to overwrite it?"
 #~ msgstr "มีแฟ้มชื่อนี้อยู่ก่อนแล้ว คุณต้องการจะเขียนทับหรือไม่ ?"

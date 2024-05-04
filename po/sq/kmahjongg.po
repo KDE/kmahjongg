@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:37+0000\n"
+"POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2009-06-01 14:43+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -37,107 +37,109 @@ msgstr ""
 
 #: src/editor.cpp:110
 #, kde-format
-msgid "New board"
+msgctxt "@action"
+msgid "New Board"
 msgstr ""
 
 #: src/editor.cpp:117
 #, kde-format
-msgid "Open board"
+msgctxt "@action"
+msgid "Open Board"
 msgstr ""
 
 #: src/editor.cpp:124
-#, kde-format
-msgid "Save board"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action"
+msgid "Save Board"
+msgstr "Lojë e Re"
 
 #: src/editor.cpp:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select"
+msgctxt "@action"
 msgid "Select"
 msgstr "Përzgjidhni"
 
-#: src/editor.cpp:139
+#: src/editor.cpp:150
 #, kde-format
-msgid "Cut"
-msgstr "Prije"
-
-#: src/editor.cpp:144
-#, kde-format
-msgid "Copy"
-msgstr "Kopjo"
-
-#: src/editor.cpp:149
-#, kde-format
-msgid "Paste"
-msgstr "Ngjit"
-
-#: src/editor.cpp:156
-#, kde-format
-msgid "Move tiles"
+msgctxt "@action"
+msgid "Move Tiles"
 msgstr ""
 
-#: src/editor.cpp:160
+#: src/editor.cpp:155
 #, kde-format
-msgid "Add tiles"
+msgctxt "@option:check"
+msgid "Add Tiles"
 msgstr ""
 
-#: src/editor.cpp:163
+#: src/editor.cpp:159
 #, kde-format
-msgid "Remove tiles"
+msgctxt "@option:check"
+msgid "Remove Tiles"
 msgstr ""
 
-#: src/editor.cpp:187
-#, kde-format
-msgid "Shift left"
-msgstr "Shifti i majte"
-
-#: src/editor.cpp:193
+#: src/editor.cpp:183
 #, fuzzy, kde-format
 #| msgid "Shift left"
-msgid "Shift up"
+msgctxt "@action"
+msgid "Shift Left"
 msgstr "Shifti i majte"
 
-#: src/editor.cpp:199
+#: src/editor.cpp:189
 #, fuzzy, kde-format
 #| msgid "Shift left"
-msgid "Shift down"
+msgctxt "@action"
+msgid "Shift Up"
 msgstr "Shifti i majte"
 
-#: src/editor.cpp:205
-#, kde-format
-msgid "Shift right"
+#: src/editor.cpp:195
+#, fuzzy, kde-format
+#| msgid "Shift left"
+msgctxt "@action"
+msgid "Shift Down"
+msgstr "Shifti i majte"
+
+#: src/editor.cpp:201
+#, fuzzy, kde-format
+#| msgid "Shift right"
+msgctxt "@action"
+msgid "Shift Right"
 msgstr "Shifti i djathte"
 
-#: src/editor.cpp:287
+#: src/editor.cpp:283
 #, kde-format
 msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr ""
 
-#: src/editor.cpp:296
+#: src/editor.cpp:292
 #, kde-format
+msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr ""
 
-#: src/editor.cpp:297 src/editor.cpp:335
+#: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 
-#: src/editor.cpp:328
+#: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
 msgstr ""
 
-#: src/editor.cpp:334
+#: src/editor.cpp:330
 #, kde-format
+msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr ""
 
-#: src/editor.cpp:362
+#: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
 msgstr ""
 
-#: src/editor.cpp:370
+#: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
 msgstr ""
@@ -211,7 +213,8 @@ msgstr ""
 
 #: src/gameview.cpp:203
 #, kde-format
-msgid "Calculating new game..."
+msgctxt "@info:status"
+msgid "Calculating new game…"
 msgstr ""
 
 #: src/gameview.cpp:261
@@ -226,26 +229,31 @@ msgstr ""
 
 #: src/kmahjongg.cpp:141
 #, kde-format
-msgid "New Numbered Game..."
+msgctxt "@action"
+msgid "New Numbered Game…"
 msgstr ""
 
 #: src/kmahjongg.cpp:148
 #, kde-format
+msgctxt "@action"
 msgid "Shu&ffle"
 msgstr ""
 
 #: src/kmahjongg.cpp:153
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:159
 #, kde-format
+msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr ""
 
 #: src/kmahjongg.cpp:179
 #, kde-format
+msgctxt "@action"
 msgid "&Board Editor"
 msgstr ""
 
@@ -266,8 +274,9 @@ msgid "Game: 000000000000000000000"
 msgstr ""
 
 #: src/kmahjongg.cpp:226
-#, kde-format
-msgid "Time: "
+#, fuzzy, kde-format
+#| msgid "Time: "
+msgid "Time: %1"
 msgstr "Koha: "
 
 #: src/kmahjongg.cpp:232
@@ -279,16 +288,20 @@ msgstr "Lojë e Re"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
-msgid "Enter game number:"
+msgctxt "@label:textbox"
+msgid "Game number:"
 msgstr ""
 
 #: src/kmahjongg.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Të Përgjithshme"
 
 #: src/kmahjongg.cpp:268
 #, kde-format
+msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr ""
 
@@ -299,16 +312,20 @@ msgstr ""
 
 #: src/kmahjongg.cpp:406
 #, kde-format
+msgctxt "@title:window"
 msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@action:button"
 msgid "New Game"
 msgstr "Lojë e Re"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
+msgctxt "@action:button"
 msgid "Restart"
 msgstr ""
 
@@ -354,7 +371,7 @@ msgstr ""
 msgid "File format not recognized."
 msgstr ""
 
-#: src/kmahjongg.cpp:698
+#: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
@@ -370,12 +387,6 @@ msgstr ""
 #, kde-format
 msgid "Do you want to save your game?"
 msgstr ""
-
-#: src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "New Game"
-msgid "Save game?"
-msgstr "Lojë e Re"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -575,6 +586,20 @@ msgstr ""
 #, kde-format
 msgid "Show removed tiles"
 msgstr ""
+
+#~ msgid "Cut"
+#~ msgstr "Prije"
+
+#~ msgid "Copy"
+#~ msgstr "Kopjo"
+
+#~ msgid "Paste"
+#~ msgstr "Ngjit"
+
+#, fuzzy
+#~| msgid "New Game"
+#~ msgid "Save game?"
+#~ msgstr "Lojë e Re"
 
 #~ msgid "Mauricio Piacentini"
 #~ msgstr "Mauricio Piacentini"
