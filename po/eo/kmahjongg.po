@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2024-01-03 14:17+0100\n"
+"PO-Revision-Date: 2024-05-04 07:47+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -35,81 +35,70 @@ msgid "Edit Board Layout"
 msgstr "Redakti tabularanĝon"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr "Nova tabulo"
+msgstr "Nova Tabulo"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "Malfermi tabulon"
+msgstr "Malfermi Tabulon"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "Konservi tabulon"
+msgstr "Konservi Tabulon"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Elekti"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr "Movi kahelojn"
+msgstr "Movi Kahelojn"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr "Aldoni kahelojn"
+msgstr "Aldoni Kahelojn"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr "Forigi kahelojn"
+msgstr "Forigi Kahelojn"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr "Movi maldekstren"
+msgstr "Deŝovi Maldekstren"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Movi supren"
+msgstr "Deŝovi Supren"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Movi malsupren"
+msgstr "Deŝovi Malsupren"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr "Movi dekstren"
+msgstr "Deŝovi Dekstren"
 
 #: src/editor.cpp:283
 #, kde-format
@@ -117,8 +106,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Kaheloj: %1 Pozo: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Malfermi Tabularanĝon"
@@ -134,8 +122,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "Vi povas konservi nur kun para nombro da kaheloj."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Konservi Tabularanĝon"
@@ -218,11 +205,10 @@ msgid "Your computer has lost the game."
 msgstr "Via komputilo malvenkis la ludon."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Elpensante novan ludon..."
+msgstr "Elpensante novan ludon…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -235,36 +221,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demonstro. Kliku musbutonon por fini."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Nova kalkulata ludo..."
+msgstr "Nova Kalkulata Ludo…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "&Miksu"
+msgstr "&Miksi"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "Rotacii Vidon Maldekstrume"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Rotacii Vidon dekstrume"
+msgstr "Rotacii Vidon Dekstrume"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "Ta&bula Redaktilo"
@@ -285,10 +266,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Ludo: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Tempo:"
+msgstr "Tempo: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -297,25 +277,22 @@ msgid "New Game"
 msgstr "Nova Ludo"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Ludnumero: %1"
+msgstr "Ludnumero:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Ĝenerala"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "Estraro Aranĝo"
+msgstr "Tabula Aranĝo"
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -323,22 +300,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Game Over: Al vi restas neniuj movoj."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "La ludo finiĝis"
+msgstr "Ludo Finiĝis"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nova Ludo"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Rekomenci"
@@ -598,21 +572,3 @@ msgstr "Generi solveblajn ludojn"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Montri forigitajn kahelojn"
-
-#~ msgid "Cut"
-#~ msgstr "Eltondi"
-
-#~ msgid "Copy"
-#~ msgstr "Kopii"
-
-#~ msgid "Paste"
-#~ msgstr "Alglui"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Enigu ludonumeron:"
-
-#~ msgid "Save game?"
-#~ msgstr "Ĉu konservi ludon?"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Dosiero kun tiu nomo jam ekzistas. Ĉu vi volas anstataŭigi ĝin?"

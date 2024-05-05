@@ -740,7 +740,7 @@
 > <guimenu
 >Гра</guimenu
 > <guimenuitem
->Завантажити...</guimenuitem
+>Завантажити…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -776,7 +776,7 @@
 ><guimenu
 >Гра</guimenu
 > <guimenuitem
->Нова пронумерована гра...</guimenuitem
+>Нова пронумерована гра…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1193,7 +1193,7 @@ FileName=<replaceable
 ><guimenu
 >Параметри</guimenu
 ><guimenuitem
->Налаштувати &kmahjongg;...</guimenuitem
+>Налаштувати &kmahjongg;…</guimenuitem
 ></menuchoice
 > відкриває діалогове вікно <guilabel
 >Налаштувати &kmahjongg;</guilabel
@@ -1351,7 +1351,7 @@ FileName=<replaceable
 ><guimenu
 >Параметри</guimenu
 ><guimenuitem
->Налаштувати скорочення...</guimenuitem
+>Налаштувати скорочення…</guimenuitem
 ></menuchoice
 > надає вам змогу змінити типові клавіатурні скорочення.</para>
 

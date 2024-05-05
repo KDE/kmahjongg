@@ -1,9 +1,9 @@
 # Translation of kmahjongg.po to Catalan
-# Copyright (C) 2000-2023 This_file_is_part_of_KDE
+# Copyright (C) 2000-2024 This_file_is_part_of_KDE
 #
 # Francesc J Devesa i Berenguer <frandeve@hotmail.com>, 2000, 2001.
 # Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005.
-# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2012, 2014, 2015, 2016, 2017, 2019, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2007, 2008, 2009, 2010, 2012, 2014, 2015, 2016, 2017, 2019, 2021, 2022, 2023, 2024.
 # Aleix Pol <aleixpol@gmail.com>, 2007.
 # Manuel Tortosa <manutortosa@gmail.com>, 2009.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2021.
@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 10:48+0100\n"
+"PO-Revision-Date: 2024-05-04 10:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -40,78 +40,67 @@ msgid "Edit Board Layout"
 msgstr "Edició de la disposició del tauler"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Tauler nou"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Obre el tauler"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Desa el tauler"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Selecciona"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Mou les fitxes"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Afegeix fitxes"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Elimina les fitxes"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Desplaça a l'esquerra"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "Desplaça amunt"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "Desplaça avall"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Desplaça a la dreta"
@@ -122,8 +111,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Fitxers: %1 Pos: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Obre una disposició del tauler"
@@ -139,8 +127,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "Només es pot desar amb un nombre parell de fitxes."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Desa la disposició del tauler"
@@ -223,11 +210,10 @@ msgid "Your computer has lost the game."
 msgstr "L'ordinador ha perdut la partida."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "S'està preparant la partida nova..."
+msgstr "S'està preparant la partida nova…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -240,36 +226,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Mode demo. Prem un botó del ratolí per a aturar."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Partida nova numerada..."
+msgstr "Partida nova numerada…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&Barreja"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Gira la vista en el sentit invers a les agulles del rellotge"
+msgstr "Gira la vista en el sentit antihorari"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Gira la vista en el sentit de les agulles del rellotge"
+msgstr "Gira la vista en el sentit horari"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Editor de tauler"
@@ -290,10 +271,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Partida: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Temps: "
+msgstr "Temps: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -302,25 +282,22 @@ msgid "New Game"
 msgstr "Partida nova"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Joc número: %1"
+msgstr "Joc número:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "Disposició de tauler"
+msgstr "Disposició del tauler"
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -328,22 +305,19 @@ msgid "Game Over: You have no moves left."
 msgstr "S'ha acabat la partida: No us queden més moviments."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "S'ha acabat la partida"
+msgstr "Final de la partida"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr "Joc nou"
+msgstr "Partida nova"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Reinicia"

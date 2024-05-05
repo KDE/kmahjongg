@@ -15,7 +15,7 @@
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004, 2005.
 # Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007.
 # Jaap Woldringh <jjh.woldringh@planet.nl>, 2007, 2012.
-# Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2009.
+# SPDX-FileCopyrightText: 2009, 2024 Freek de Kruijf <f.de.kruijf@hetnet.nl>
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2012, 2016, 2017, 2019, 2021, 2022, 2023.
 # Jaap Woldringh <jjh punt woldringh op planet punt nl>, 2010.
 msgid ""
@@ -23,20 +23,20 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 16:19+0100\n"
+"PO-Revision-Date: 2024-05-04 12:45+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Rinse de Vries,Freek de Kruijf - t/m 2019;2021-2023"
+msgstr "Rinse de Vries,Freek de Kruijf - t/m 2019;2021-2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -50,81 +50,70 @@ msgid "Edit Board Layout"
 msgstr "Opstelling bewerken"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Nieuw bord"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Bord openen"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Bord opslaan"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Selecteren"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Stenen verplaatsen"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Stenen toevoegen"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Stenen verwijderen"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr "Shift-links"
+msgstr "Links schuiven"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Shift-omhoog"
+msgstr "omhoog schuiven"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Shift-omlaag"
+msgstr "Omlaag schuiven"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr "Shift-rechts"
+msgstr "Rechts schuiven"
 
 #: src/editor.cpp:283
 #, kde-format
@@ -132,8 +121,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Stenen: %1 Pos: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Opstelling openen"
@@ -149,8 +137,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "U kunt alleen een even aantal stenen opslaan."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Opstelling opslaan"
@@ -233,11 +220,10 @@ msgid "Your computer has lost the game."
 msgstr "Uw computer heeft het spel verloren."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Bezig met aanmaken van een nieuw spel..."
+msgstr "Bezig met aanmaken van een nieuw spel…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -250,36 +236,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demonstratie. Klik met muisknop om te stoppen."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Nieuw genummerd spel..."
+msgstr "Nieuw genummerd spel…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "Sch&udden"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "Blik naar boven verplaatsen"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "Blik naar beneden verplaatsen"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Bordbewerker"
@@ -300,10 +281,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Spel: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Tijd: "
+msgstr "Tijd: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -312,22 +292,19 @@ msgid "New Game"
 msgstr "Nieuw spel"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Spelnummer: %1"
+msgstr "Spelnummer:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Algemeen"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Bordopstelling"
@@ -338,22 +315,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Spel is afgelopen: u kunt geen zet meer doen."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Spel is afgelopen"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nieuw spel"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Herstarten"

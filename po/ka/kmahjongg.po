@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-09-25 09:52+0200\n"
+"PO-Revision-Date: 2024-05-04 05:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -35,78 +35,67 @@ msgid "Edit Board Layout"
 msgstr "დაფის განლაგების ჩასწორება"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "ახალი დაფა"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "დაფის გახსნა"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "დაფის შენახვა"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "არჩევა"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "ფილების გადაადგილება"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "ფილების დამატება"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "ფილების წაშლა"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "მარცხნივ წანაცვლება"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "ზემოთ წანაცვლება"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "ქვემოთ წანაცვლება"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "მარჯვნივ წანაცვლება"
@@ -117,8 +106,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "ფილები: %1 მდებ: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "დაფის განლაგების გახსნა"
@@ -134,8 +122,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "ფილების, მხოლოდ, ლუწი რაოდენობის შენახვა შეგიძლიათ."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "დაფის განლაგების შენახვა"
@@ -218,11 +205,10 @@ msgid "Your computer has lost the game."
 msgstr "თქვენმა კომპიუტერმა თამაში წააგო."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "ახალი თამაშის გამოთვლა...."
+msgstr "ახალი თამაშის გამოთვლა…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -235,36 +221,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "დემო რეჟიმი. დასასრულებლად დააწკაპუნეთ."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "ახალი რიცხვითი თამაში..."
+msgstr "ახალი რიცხვითი თამაში…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&არევა"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "ხედის საათის ისრის საწინააღმდეგო &მიმართულებით შებრუნება"
+msgstr "ხედის საათის ისრის საწინააღმდეგო მიმართულებით შებრუნება"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "&ხედის საათის ისრის მიმართულებით შებრუნება"
+msgstr "ხედის საათის ისრის მიმართულებით შებრუნება"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&დაფის რედაქტორი"
@@ -285,10 +266,9 @@ msgid "Game: 000000000000000000000"
 msgstr "თამაში: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "დრო: "
+msgstr "დრო: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -297,22 +277,19 @@ msgid "New Game"
 msgstr "დაიწყეთ ახალი თამაში"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "თამაშის ნომერი: %1"
+msgstr "თამაშის ნომერი:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "ზოგადი"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "დაფის განლაგება"
@@ -323,25 +300,22 @@ msgid "Game Over: You have no moves left."
 msgstr "თამაში დასრულდა: სვლები აღარ დაგრჩათ."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "თამაში დასრულდა"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr "დაიწყეთ ახალი თამაში"
+msgstr "ახალი თამაში"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr "რესტარტი"
+msgstr "გადატვირთვა"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
