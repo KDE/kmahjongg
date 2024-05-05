@@ -1053,7 +1053,7 @@ FileName=<replaceable
 > <guimenu
 >Visualitza</guimenu
 > <guimenuitem
->Gira la vista en el sentit de les agulles del rellotge</guimenuitem
+>Gira la vista en el sentit horari</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1073,7 +1073,7 @@ FileName=<replaceable
 > <guimenu
 >Visualitza</guimenu
 > <guimenuitem
->Gira l'angle de vista en el sentit invers de les agulles del rellotge</guimenuitem
+>Gira la vista en el sentit antihorari</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
