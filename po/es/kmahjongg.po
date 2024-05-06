@@ -8,7 +8,7 @@
 # Jaime Robles <jaime@kde.org>, 2005.
 # santi <santi@kde-es.org>, 2005.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2012, 2016, 2017, 2019, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2009, 2012, 2016, 2017, 2019, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010, 2012.
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 18:10+0100\n"
+"PO-Revision-Date: 2024-05-05 22:01+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Carlos García Argos <garcia@ieee.org>\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -48,78 +48,67 @@ msgid "Edit Board Layout"
 msgstr "Editar diseño de tablero"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Nuevo tablero"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Abrir tablero"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Guardar tablero"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Seleccionar"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Mover fichas"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Añadir fichas"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr "Quitar fichas"
+msgstr "Eliminar fichas"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Desplazar a la izquierda"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "Desplazar hacia arriba"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "Desplazar hacia abajo"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Desplazar a la derecha"
@@ -130,8 +119,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Fichas: %1 Posición: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Abrir diseño de tablero"
@@ -144,11 +132,10 @@ msgstr "Diseño de tablero (*.layout);;Todos los archivos (*)"
 #: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr "Solo puede guardar con un número par de fichas."
+msgstr "Solo puedes guardar con un número par de fichas."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Guardar diseño de tablero"
@@ -156,12 +143,12 @@ msgstr "Guardar diseño de tablero"
 #: src/editor.cpp:358
 #, kde-format
 msgid "The board has been modified. Would you like to save the changes?"
-msgstr "El tablero ha sido modificado. ¿Desea guardar los cambios?"
+msgstr "Has modificado el tablero. ¿Quieres guardar los cambios?"
 
 #: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
-msgstr "Fallo al guardar. Abandonando la operación."
+msgstr "Ha ocurrido un error al guardar. Se interrumpe la operación."
 
 #: src/gameremovedtiles.cpp:127
 #, kde-format
@@ -213,26 +200,25 @@ msgstr "Descripción:"
 #: src/gameview.cpp:135 src/gameview.cpp:246
 #, kde-format
 msgid "Ready. Now it is your turn."
-msgstr "Listo. Ahora es su turno."
+msgstr "Listo. Ahora es tu turno."
 
 #: src/gameview.cpp:157
 #, kde-format
 msgid "Undo operation done successfully."
-msgstr "Operación de deshacer concluida satisfactoriamente."
+msgstr "La operación de deshacer ha terminado correctamente."
 
 #: src/gameview.cpp:162
 #, kde-format
 msgid "What do you want to undo? You have done nothing!"
-msgstr "¿Qué desea deshacer? ¡No ha hecho nada!"
+msgstr "¿Qué quieres deshacer? ¡No has hecho nada!"
 
 #: src/gameview.cpp:196 src/kmahjongg.cpp:476
 #, kde-format
 msgid "Your computer has lost the game."
-msgstr "Su máquina ha perdido la partida."
+msgstr "Tu máquina ha perdido la partida."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
 msgstr "Calculando nueva partida..."
@@ -240,44 +226,39 @@ msgstr "Calculando nueva partida..."
 #: src/gameview.cpp:261
 #, kde-format
 msgid "Error generating new game!"
-msgstr "¡Error generando nueva partida!"
+msgstr "¡Ha ocurrido un error al generar una nueva partida!"
 
 #: src/gameview.cpp:366
 #, kde-format
 msgid "Demo mode. Click mousebutton to stop."
-msgstr "Modo demostración. Pulse un botón del ratón para detener."
+msgstr "Modo de demostración. Pulsa un botón del ratón para detenerlo."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
 msgstr "Nueva partida numerada..."
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "Bara&jar"
+msgstr "&Mezclar"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Girar vista en sentido contrario a las agujas del reloj"
+msgstr "Girar la vista en sentido antihorario"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Girar vista en el sentido de las agujas del reloj"
+msgstr "Girar la vista en sentido horario"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "Editor de ta&blero"
@@ -298,10 +279,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Juego: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Tiempo: "
+msgstr "Tiempo: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -310,22 +290,19 @@ msgid "New Game"
 msgstr "Nueva partida"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Número de partida: %1"
+msgstr "Número de partida:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Diseño de tablero"
@@ -333,25 +310,22 @@ msgstr "Diseño de tablero"
 #: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over: You have no moves left."
-msgstr "Fin del juego: no le quedan más movimientos."
+msgstr "Partida terminada: no te quedan más movimientos."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Fin del juego"
+msgstr "Partida terminada"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr "Partida nueva"
+msgstr "Nueva partida"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Reiniciar"
@@ -359,7 +333,7 @@ msgstr "Reiniciar"
 #: src/kmahjongg.cpp:529
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr "Ha ganado con un tiempo final de %1 y una puntuación de %2."
+msgstr "Has ganado con un tiempo final de %1 y una puntuación de %2."
 
 #: src/kmahjongg.cpp:552
 #, kde-format
@@ -369,7 +343,7 @@ msgstr "Número de partida: %1"
 #: src/kmahjongg.cpp:562
 #, kde-format
 msgid "Removed: %1/%2  Combinations left: %3"
-msgstr "Eliminado: %1/%2  Restantes combinaciones: %3"
+msgstr "Eliminado: %1/%2  Combinaciones restantes: %3"
 
 #: src/kmahjongg.cpp:623
 #, kde-format
@@ -385,7 +359,7 @@ msgstr "Juego de KMahjongg (*.kmgame)"
 #: src/kmahjongg.cpp:632
 #, kde-format
 msgid "Could not read from file. Aborting."
-msgstr "No se pudo leer del archivo. Abandonando."
+msgstr "No se ha podido leer del archivo. Se interrumpe."
 
 #: src/kmahjongg.cpp:643
 #, kde-format
@@ -411,19 +385,19 @@ msgstr "No se ha podido abrir el archivo para escritura."
 #: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr "¿Desea guardar la partida?"
+msgstr "¿Quieres guardar la partida?"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
 #, kde-format
 msgid "The tile-set to use."
-msgstr "Conjunto de fichas a usar."
+msgstr "Conjunto de fichas que se usará."
 
 #. i18n: ectx: label, entry (Background), group (General)
 #: src/kmahjongg.kcfg:12
 #, kde-format
 msgid "The background to use."
-msgstr "Fondo a usar."
+msgstr "Fondo que se usará."
 
 #. i18n: ectx: label, entry (Layout), group (General)
 #: src/kmahjongg.kcfg:15
@@ -435,25 +409,25 @@ msgstr "Diseño de las fichas."
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr "Si se deben mostrar en el tablero las fichas eliminadas o no."
+msgstr "Indica si se deben mostrar en el tablero las fichas eliminadas o no."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr "Si se elige un diseño aleatorio al inicio."
+msgstr "Indica si se elige un diseño aleatorio al inicio."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
 #, kde-format
 msgid "Whether all games should be solvable."
-msgstr "Todas las partidas deben tener solución."
+msgstr "Indica si todas las partidas deben tener solución."
 
 #. i18n: ectx: label, entry (ShowMatchingTiles), group (General)
 #: src/kmahjongg.kcfg:33
 #, kde-format
 msgid "Whether matching tiles are shown."
-msgstr "Se muestra la coincidencia de las fichas."
+msgstr "Indica si se muestran parejas de las fichas."
 
 #. i18n: ectx: Menu (game)
 #: src/kmahjonggui.rc:10
@@ -508,7 +482,7 @@ msgstr "Mathias Mueller"
 #: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
-msgstr "Autor original"
+msgstr "Autor original."
 
 #: src/main.cpp:35
 #, kde-format
@@ -518,7 +492,7 @@ msgstr "Christian Krippendorf"
 #: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
-msgstr "Responsable actual"
+msgstr "Responsable actual."
 
 #: src/main.cpp:36
 #, kde-format
@@ -528,7 +502,7 @@ msgstr "Albert Astals Cid"
 #: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
-msgstr "Corrección de errores"
+msgstr "Corrección de errores."
 
 #: src/main.cpp:37
 #, kde-format
@@ -538,7 +512,7 @@ msgstr "David Black"
 #: src/main.cpp:37
 #, kde-format
 msgid "KDE 3 rewrite and Extension"
-msgstr "Reescritura y ampliación de KDE 3"
+msgstr "Reescritura para KDE 3 y ampliación."
 
 #: src/main.cpp:38
 #, kde-format
@@ -552,7 +526,7 @@ msgid ""
 "based on algorithm by Michael Meeks in GNOME mahjongg"
 msgstr ""
 "Generación de juegos con solución\n"
-"basada en un algoritmo de Michael Meeks en GNOME mahjongg"
+"basada en un algoritmo de Michael Meeks en GNOME mahjongg."
 
 #: src/main.cpp:39
 #, kde-format
@@ -562,7 +536,7 @@ msgstr "Raquel Ravanini"
 #: src/main.cpp:39
 #, kde-format
 msgid "SVG Tileset for KDE4"
-msgstr "Baldosas SVG para KDE4"
+msgstr "Conjunto de fichas SVG para KDE4."
 
 #: src/main.cpp:40
 #, kde-format
@@ -572,7 +546,7 @@ msgstr "Richard Lohman"
 #: src/main.cpp:40
 #, kde-format
 msgid "Tile set contributor and current web page maintainer"
-msgstr "Diseño del mosaico y responsable actual de la página web"
+msgstr "Conjunto de fichas y responsable actual de la página web."
 
 #: src/main.cpp:41
 #, kde-format
@@ -582,7 +556,7 @@ msgstr "Osvaldo Stark"
 #: src/main.cpp:41
 #, kde-format
 msgid "Tile set contributor and original web page maintainer"
-msgstr "Diseño del mosaico y responsable original de la página web"
+msgstr "Conjunto de fichas y responsable original de la página web."
 
 #: src/main.cpp:42
 #, kde-format
@@ -592,7 +566,7 @@ msgstr "Benjamin Meyer"
 #: src/main.cpp:42
 #, kde-format
 msgid "Code cleanup"
-msgstr "Limpieza del código"
+msgstr "Limpieza del código."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
 #: src/settings.ui:16
