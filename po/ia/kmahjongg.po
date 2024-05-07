@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kmahjongg package.
 #
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-09-25 18:06+0200\n"
+"PO-Revision-Date: 2024-05-06 12:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -34,29 +34,25 @@ msgid "Edit Board Layout"
 msgstr ""
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Nove tabula"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "Nove tabula"
+msgstr "Aperi tabula"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "Nove tabula"
+msgstr "Salveguarda tabula"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Selige"
@@ -101,7 +97,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr ""
+msgstr "Shift Dextere"
 
 #: src/editor.cpp:283
 #, kde-format
@@ -230,8 +226,7 @@ msgid "New Numbered Game…"
 msgstr ""
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "Shu&ffle (miscer)"
@@ -270,10 +265,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Joco: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Tempore: "
+msgstr "Tempore: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -282,15 +276,13 @@ msgid "New Game"
 msgstr "Nove Joco"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Joco Terminate"
+msgstr "Numero de Joco :"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
@@ -307,22 +299,19 @@ msgid "Game Over: You have no moves left."
 msgstr ""
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Joco Terminate"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nove Joco"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Re-Initia"
@@ -346,7 +335,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr ""
+msgstr "Carga Joco"
 
 #: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
@@ -372,7 +361,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr ""
+msgstr "Salveguarda  Joco"
 
 #: src/kmahjongg.cpp:708
 #, kde-format
@@ -453,7 +442,7 @@ msgstr "Barra de instrumento principal"
 #: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
-msgstr ""
+msgstr "KMahjongg"
 
 #: src/main.cpp:29
 #, kde-format
