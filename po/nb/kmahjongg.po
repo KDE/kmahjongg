@@ -600,18 +600,3 @@ msgstr "Generer spill som kan løses"
 #, kde-format
 msgid "Show removed tiles"
 msgstr ""
-
-#~ msgid "Cut"
-#~ msgstr "Klipp ut"
-
-#~ msgid "Copy"
-#~ msgstr "Kopier"
-
-#~ msgid "Paste"
-#~ msgstr "Lim inn"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Oppgi spillnummer:"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "En fil med det navnet finnes fra før. Vil du skrive over den?"

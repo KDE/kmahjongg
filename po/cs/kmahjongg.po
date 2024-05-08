@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
 "PO-Revision-Date: 2022-07-14 14:22+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -37,81 +37,70 @@ msgid "Edit Board Layout"
 msgstr "Upravit rozložení hrací desky"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr "Nová hrací deska"
+msgstr ""
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "Otevřít hrací desku"
+msgstr ""
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "Uložit hrací desku"
+msgstr ""
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Vybrat"
+msgstr ""
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr "Přesunout kameny"
+msgstr ""
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr "Přidat kameny"
+msgstr ""
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr "Odebrat kameny"
+msgstr ""
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr "Posunout doleva"
+msgstr ""
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Posunout nahoru"
+msgstr ""
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Posunout dolů"
+msgstr ""
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr "Posunout doprava"
+msgstr ""
 
 #: src/editor.cpp:283
 #, kde-format
@@ -119,11 +108,10 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Kamenů: %1 Pozice: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "Otevřít rozložení hrací desky"
+msgstr ""
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
@@ -136,11 +124,10 @@ msgid "You can only save with a even number of tiles."
 msgstr "Můžete ukládat pouze se sudým počtem kamenů."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr "Uložit rozložení hrací desky"
+msgstr ""
 
 #: src/editor.cpp:358
 #, kde-format
@@ -220,11 +207,10 @@ msgid "Your computer has lost the game."
 msgstr "Váš počítač prohrál hru."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Počítá se nová hra..."
+msgstr ""
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -237,39 +223,34 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Ukázkový režim. Klikněte myší k ukončení."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Nová očíslovaná hra..."
+msgstr ""
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "Promí&chat"
+msgstr ""
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Otočit pohled proti směru hodin"
+msgstr ""
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Otočit pohled po směru hodin"
+msgstr ""
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr "E&ditor desky"
+msgstr ""
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -287,10 +268,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Hra: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Čas: "
+msgstr "Čas: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -299,25 +279,22 @@ msgid "New Game"
 msgstr "Nová hra"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Hra číslo: %1"
+msgstr ""
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Obecné"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "Uspořádání hrací desky"
+msgstr ""
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -325,22 +302,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Konec hry: Nejsou možné další tahy."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Konec hry"
+msgstr ""
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr "Nová hra"
+msgstr ""
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Restartovat"
@@ -600,21 +574,3 @@ msgstr "Generovat řešitelné hry"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Zobrazit odebrané kameny"
-
-#~ msgid "Cut"
-#~ msgstr "Vyjmout"
-
-#~ msgid "Copy"
-#~ msgstr "Kopírovat"
-
-#~ msgid "Paste"
-#~ msgstr "Vložit"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Zadejte číslo hry:"
-
-#~ msgid "Save game?"
-#~ msgstr "Uložit hru?"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Soubor s tímto názvem již existuje, přejete si jej přepsat?"

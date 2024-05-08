@@ -9,21 +9,21 @@
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2009.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # pan93412 <pan93412@gmail.com>, 2019.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2023-06-15 04:11+0900\n"
+"PO-Revision-Date: 2024-05-07 18:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "dot tw>\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -45,78 +45,67 @@ msgid "Edit Board Layout"
 msgstr "編輯版面布局"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "新版面"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "開啟版面"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "儲存版面"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "選擇"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "移動麻將牌"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "增加麻將牌"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "移除麻將牌"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "向左移動"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "向上移動"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "向下移動"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "向右移動"
@@ -127,8 +116,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "麻將牌：%1 位置：%2，%3，%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "開啟版面佈局"
@@ -144,8 +132,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "您只能儲存雙數牌張。"
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "儲存版面佈局"
@@ -228,11 +215,10 @@ msgid "Your computer has lost the game."
 msgstr "電腦輸了這場遊戲"
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "計算新版面中..."
+msgstr "計算新版面中…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -245,36 +231,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "範例模式：敲擊滑鼠按鍵停止"
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "新編號的遊戲..."
+msgstr "新編號的遊戲…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "洗牌(&F)"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "逆時針旋轉檢視計數器"
+msgstr "逆時針旋轉檢視"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "順時針旋轉檢視"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "版面編輯器(&B)"
@@ -295,10 +276,9 @@ msgid "Game: 000000000000000000000"
 msgstr "遊戲：000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "時間："
+msgstr "時間：%1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -307,22 +287,19 @@ msgid "New Game"
 msgstr "開始新遊戲"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "遊戲編號：%1"
+msgstr "遊戲編號："
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "一般"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "版面布局"
@@ -333,25 +310,22 @@ msgid "Game Over: You have no moves left."
 msgstr "遊戲結束：您無法再移動了"
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "遊戲結束"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "開始新遊戲"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr "重新啟動"
+msgstr "重新開始"
 
 #: src/kmahjongg.cpp:529
 #, kde-format

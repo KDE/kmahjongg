@@ -34,81 +34,70 @@ msgid "Edit Board Layout"
 msgstr "编辑版面布局"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr "新建版面"
+msgstr ""
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "打开版面"
+msgstr ""
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "保存版面"
+msgstr ""
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "选择"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr "移动牌"
+msgstr ""
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr "添加牌"
+msgstr ""
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr "删除牌"
+msgstr ""
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr "左移"
+msgstr ""
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "上移"
+msgstr ""
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "下移"
+msgstr ""
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr "右移"
+msgstr ""
 
 #: src/editor.cpp:283
 #, kde-format
@@ -116,8 +105,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "牌：%1 位置：%2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "打开版面布局"
@@ -135,8 +123,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "只有在有偶数块牌的时候，您才能保存。"
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "保存版面布局"
@@ -219,11 +206,10 @@ msgid "Your computer has lost the game."
 msgstr "电脑输了。"
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "正在计算新游戏..."
+msgstr ""
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -236,36 +222,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "演示模式。单击鼠标按钮停止。"
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "新建编号游戏..."
+msgstr ""
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "洗牌(&F)"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "顺时针选择牌沿"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "旋转牌沿 (逆时针)"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "版面编辑器(&B)"
@@ -286,10 +267,9 @@ msgid "Game: 000000000000000000000"
 msgstr "游戏：000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "时间："
+msgstr ""
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -298,22 +278,19 @@ msgid "New Game"
 msgstr "新建游戏"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "游戏编号：%1"
+msgstr ""
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "常规"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "版面布局"
@@ -324,22 +301,19 @@ msgid "Game Over: You have no moves left."
 msgstr "游戏结束：您没有可动的牌了。"
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "游戏结束"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "新建游戏"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "重启启动"
@@ -599,18 +573,3 @@ msgstr "生成有解的游戏"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "显示已移除的麻将牌"
-
-#~ msgid "Cut"
-#~ msgstr "剪切"
-
-#~ msgid "Copy"
-#~ msgstr "复制"
-
-#~ msgid "Paste"
-#~ msgstr "粘贴"
-
-#~ msgid "Enter game number:"
-#~ msgstr "输入游戏编号："
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "同名文件已经存在，您想覆盖它吗？"
