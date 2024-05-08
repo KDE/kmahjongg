@@ -569,6 +569,3 @@ msgstr "Generer berre spel som kan løysast"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Vis fjerna brikker"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Det finst alt ei fil med det namnet. Vil du skriva over ho?"

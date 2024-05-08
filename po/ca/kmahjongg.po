@@ -572,6 +572,3 @@ msgstr "Genera partides amb solució"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostra les fitxes eliminades"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Ja existeix un fitxer amb aquest nom. Voleu sobreescriure'l?"

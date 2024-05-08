@@ -568,6 +568,3 @@ msgstr "生成有解的游戏"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "显示已移除的麻将牌"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "同名文件已经存在，您想覆盖它吗？"
