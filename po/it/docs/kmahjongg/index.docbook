@@ -766,11 +766,11 @@
 				<term
 ><menuchoice
 ><shortcut
-> <keycombo action="simul"
+><keycombo action="simul"
 >&Ctrl;<keycap
 >O</keycap
 ></keycombo
-> </shortcut
+></shortcut
 > <guimenu
 >Partita</guimenu
 > <guimenuitem
@@ -810,7 +810,7 @@
 ><guimenu
 >Partita</guimenu
 > <guimenuitem
->Avvia gioco numero...</guimenuitem
+>Avvia partita numerata...</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1229,8 +1229,8 @@ FileName=<replaceable
 ><guimenuitem
 >Configura &kmahjongg;...</guimenuitem
 ></menuchoice
-> apre il modulo <guilabel
->Configurazione – &kmahjongg;</guilabel
+> apre la finestra <guilabel
+>Configura – &kmahjongg;</guilabel
 >.</para>
 
 <sect1 id="general-options"
@@ -1387,7 +1387,7 @@ FileName=<replaceable
 ><guimenuitem
 >Configura le scorciatoie...</guimenuitem
 ></menuchoice
-> ti permette di modificare le combinazioni di tasti predefinite.</para>
+> ti consente di modificare le combinazioni di tasti predefinite.</para>
 
 <para
 >Queste sono le associazioni di tasti predefinite: </para>
