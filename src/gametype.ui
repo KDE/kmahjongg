@@ -51,7 +51,7 @@
               <item>
                <widget class="QPushButton" name="getNewButton">
                 <property name="text">
-                 <string>&amp;Get New Layouts</string>
+                 <string>Download New Layouts…</string>
                 </property>
                </widget>
               </item>
