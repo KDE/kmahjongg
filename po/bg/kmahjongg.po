@@ -2,23 +2,24 @@
 # Bulgarian translation of KDE.
 # This file is licensed under the GPL.
 #
-# $Id: kmahjongg.po 1679202 2024-05-04 01:13:01Z scripty $
+# $Id: kmahjongg.po 1679994 2024-05-14 01:10:29Z scripty $
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
 # Petar Toushkov <pt.launchpad@gmail.com>, 2010.
+# SPDX-FileCopyrightText: 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-04 00:37+0000\n"
-"PO-Revision-Date: 2010-03-18 21:00+0200\n"
-"Last-Translator: Petar Toushkov <pt.launchpad@gmail.com>\n"
-"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"PO-Revision-Date: 2024-05-13 22:47+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -227,7 +228,7 @@ msgstr "Компютърът загуби играта."
 #| msgid "Calculating new game..."
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Подготвяне на нова игра..."
+msgstr "Подготвяне на нова игра…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -244,7 +245,7 @@ msgstr "Демонстрация. За прекъсване натиснете �
 #| msgid "New Numbered Game..."
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Нова игра по избор..."
+msgstr "Нова игра по избор…"
 
 #: src/kmahjongg.cpp:148
 #, fuzzy, kde-format
