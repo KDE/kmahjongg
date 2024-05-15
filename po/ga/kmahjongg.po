@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/kmahjongg.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -171,8 +171,9 @@ msgstr "Leagan Amach Randamach"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, kde-format
-msgid "&Get New Layouts"
+#, fuzzy, kde-format
+#| msgid "&Get New Layouts"
+msgid "Download New Layouts…"
 msgstr "Fai&gh Leaganacha Amach Nua"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)

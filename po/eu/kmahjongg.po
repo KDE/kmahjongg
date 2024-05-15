@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2023-01-23 07:52+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -167,8 +167,9 @@ msgstr "Ausazko antolaera"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, kde-format
-msgid "&Get New Layouts"
+#, fuzzy, kde-format
+#| msgid "&Get New Layouts"
+msgid "Download New Layouts…"
 msgstr "&Lortu diseinu berriak"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)

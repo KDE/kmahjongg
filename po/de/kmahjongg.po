@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2023-05-05 19:52+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -165,8 +165,9 @@ msgstr "Zufälliger Spielfeldaufbau"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, kde-format
-msgid "&Get New Layouts"
+#, fuzzy, kde-format
+#| msgid "&Get New Layouts"
+msgid "Download New Layouts…"
 msgstr "Neue Spiel&felder abholen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)

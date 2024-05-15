@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2008-12-23 11:25+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -178,8 +178,9 @@ msgstr "ボードのレイアウト"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, kde-format
-msgid "&Get New Layouts"
+#, fuzzy, kde-format
+#| msgid "&Get New Layouts"
+msgid "Download New Layouts…"
 msgstr "新しいレイアウトを取得(&G)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)

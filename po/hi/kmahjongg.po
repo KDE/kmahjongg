@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-04 00:37+0000\n"
+"POT-Creation-Date: 2024-05-15 00:37+0000\n"
 "PO-Revision-Date: 2022-02-26 11:47+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-l10n-hi@kde.org>\n"
@@ -174,8 +174,9 @@ msgstr "बिसात ख़ाका"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, kde-format
-msgid "&Get New Layouts"
+#, fuzzy, kde-format
+#| msgid "&Get New Layouts"
+msgid "Download New Layouts…"
 msgstr "नया खाका लाएँ (&G)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
