@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-04 10:30+0200\n"
+"PO-Revision-Date: 2024-05-15 10:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -155,10 +155,9 @@ msgstr "Disposició aleatòria"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "&Obtén disposicions noves"
+msgstr "Baixa disposicions noves…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-04 09:44+0300\n"
+"PO-Revision-Date: 2024-05-15 09:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -154,10 +154,9 @@ msgstr "Випадкове компонування"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "&Отримати нові теми"
+msgstr "&Отримати нові компонування…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
