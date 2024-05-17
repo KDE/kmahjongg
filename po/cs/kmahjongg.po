@@ -569,6 +569,3 @@ msgstr "Generovat řešitelné hry"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Zobrazit odebrané kameny"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Soubor s tímto názvem již existuje, přejete si jej přepsat?"
