@@ -1,15 +1,15 @@
 # Esperantaj mesaĝoj por "kmahjongg"
 # Copyright (C) 1998 Free Software Foundation, Inc.
 # Wolfram Diestel <diestel@rzaix340.rz.uni-leipzig.de>, 1998.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-28 02:22+0000\n"
-"PO-Revision-Date: 2024-01-03 14:17+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Axel Rousseau,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
+msgstr "axel@esperanto-jeunes.org,olivermkellogg@gmail.com"
 
 #: src/editor.cpp:70
 #, kde-format
@@ -166,7 +166,7 @@ msgstr "Antaŭrigardo"
 #: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
-msgstr "Aranĝo Detaloj"
+msgstr "Detaloj de Aranĝo"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:96
@@ -229,7 +229,7 @@ msgstr "Nova kalkulata ludo..."
 #: src/kmahjongg.cpp:148
 #, kde-format
 msgid "Shu&ffle"
-msgstr "&Miksu"
+msgstr "&Miksi"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
@@ -239,7 +239,7 @@ msgstr "Rotacii Vidon Maldekstrume"
 #: src/kmahjongg.cpp:159
 #, kde-format
 msgid "Rotate View Clockwise"
-msgstr "Rotacii Vidon dekstrume"
+msgstr "Rotacii Vidon Dekstrume"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
@@ -285,7 +285,7 @@ msgstr "Ĝenerala"
 #: src/kmahjongg.cpp:267
 #, kde-format
 msgid "Board Layout"
-msgstr "Estraro Aranĝo"
+msgstr "Tabula Aranĝo"
 
 #: src/kmahjongg.cpp:404
 #, kde-format
@@ -295,7 +295,7 @@ msgstr "Game Over: Al vi restas neniuj movoj."
 #: src/kmahjongg.cpp:405
 #, kde-format
 msgid "Game Over"
-msgstr "La ludo finiĝis"
+msgstr "Ludo Finiĝis"
 
 #: src/kmahjongg.cpp:406
 #, kde-format
@@ -567,6 +567,3 @@ msgstr "Generi solveblajn ludojn"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Montri forigitajn kahelojn"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Dosiero kun tiu nomo jam ekzistas. Ĉu vi volas anstataŭigi ĝin?"
