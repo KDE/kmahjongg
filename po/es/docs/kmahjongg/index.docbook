@@ -80,6 +80,20 @@
 > <contrib
 >Traductora</contrib
 > </othercredit
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 
@@ -117,7 +131,7 @@
 	<keyword
 >tablero</keyword>
 	<keyword
->arcade</keyword>
+>recreativo</keyword>
 	<keyword
 >juego de fichas</keyword>
 	<keyword
@@ -137,7 +151,7 @@
 ><title
 >Tipo de juego:</title
 ><para
->Tablero, Arcade</para
+>Tablero, Recreativo</para
 ></note
 ><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note
@@ -148,11 +162,11 @@
 ></note
 ><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 	<para
->&kmahjongg; es un divertido juego de tablero creado a partir del famoso juego oriental Mahjong (del chino <foreignphrase lang="zh"
+>&kmahjongg; es un divertido juego de tablero creado a partir del famoso juego oriental mahjong (del chino <foreignphrase lang="zh"
 >麻將</foreignphrase
 >). A diferencia del juego original, &kmahjongg; es un juego de parejas de fichas para uno o dos jugadores, una variante del conocido solitario Mahjong. </para>
 	<para
->En el &kmahjongg; las fichas se mezclan y apilan unas sobre otras para crear una determinada forma. El jugador debe eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja. </para>
+>En &kmahjongg; las fichas se mezclan y apilan unas sobre otras para crear una determinada forma. El jugador debe eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja. </para>
 </chapter>
 
 <chapter id="howto"
@@ -164,30 +178,30 @@
 ><title
 >Objetivo:</title
 ><para
->Eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja tan pronto como sea posible.</para
+>Eliminar todas las fichas del tablero de juego haciendo coincidir cada ficha con su pareja tan rápido como sea posible.</para
 ></note
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para
->&kmahjongg; cargará automáticamente un diseño predeterminado de forma que pueda comenzar a jugar inmediatamente. </para>
+>&kmahjongg; cargará automáticamente un diseño predeterminado de forma que puedas comenzar a jugar inmediatamente. </para>
 	<note
 ><title
 >Nota:</title
 ><para
->El cronómetro del juego se iniciará inmediatamente si se comienza a jugar.</para
+>El cronómetro del juego se iniciará inmediatamente en cuanto empieces a jugar.</para
 ></note>
 	<para
->Debería estudiar con cuidado las fichas exteriores de las pilas del tablero de juego y encontrar dos fichas exactamente iguales. Cuando haya encontrado un par use el ratón para seleccionarlo. </para>
+>Deberías estudiar con cuidado las fichas exteriores de las pilas del tablero de juego y encontrar dos fichas exactamente iguales. Cuando hayas encontrado una pareja, usa el ratón para seleccionarla. </para>
 	<note
 ><title
 >Nota:</title>
 		<para
->Tenga en cuenta que solo puede seleccionar las fichas que estén «abiertas». Las fichas se consideran «bloqueadas» cuando estén situadas detrás de otras o cuando los lados derecho e izquierdo de la ficha están ocupados por otras. Si al menos uno de estos lados está vacío, la ficha se considera «abierta» y se puede eliminar. </para
+>Ten en cuenta que solo puedes seleccionar las fichas que estén «abiertas». Las fichas se consideran «bloqueadas» cuando están situadas detrás de otras o cuando los lados derecho e izquierdo de la ficha están ocupados por otras. Si al menos uno de estos lados está vacío, la ficha se considera «abierta» y se puede eliminar. </para
 ></note>
 	<para
->Una vez que haya seleccionado la ficha correcta la pareja de fichas desaparecerán del tablero de juego, de forma que se muestren fichas que estaban bajo ellas, y abriendo las fichas adyacentes. </para>
+>Una vez que hayas seleccionado una pareja de fichas correcta, desaparecerán del tablero de juego, de forma que se muestren fichas que estaban debajo de ellas, abriendo las fichas adyacentes. </para>
 	<para
->Encuentre tantas coincidencias como sea posible para eliminar todas las fichas del tablero de juego. </para>
+>Encuentra tantas parejas como sea posible para eliminar todas las fichas del tablero de juego. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -212,14 +226,14 @@
 ></textobject>
 				</mediaobject>
 			</screenshot
->Una explicación rápida de las partes de la pantalla de juego. </para>
+>Una breve explicación de las partes de la pantalla de juego. </para>
 	<variablelist>
 		<varlistentry>
 			<term
 >Pantalla de juego</term>
 			<listitem
 ><para
->La pantalla de juego está situada en el centro de la pantalla y es la sección más grande de la ventana. El fondo es el tradicional de los juegos de fichas. </para
+>La zona de juego está situada en el centro de la pantalla y es la sección más grande de la ventana. El fondo es el tradicional de los juegos de fichas. </para
 ></listitem>
 		</varlistentry>
 		<varlistentry>
@@ -227,7 +241,7 @@
 >Barra de estado</term>
 			<listitem
 ><para
->La barra de estado está situada en la parte inferior de la pantalla y contiene cuatro paneles. El primero muestra el cronómetro del juego, que sigue el tiempo transcurrido desde el inicio de la partida hasta que esta finalice. El segundo panel lista las fichas eliminadas/totales y el número de fichas emparejadas con lados libres. El tercer panel indica la secuencia numérica de la partida que está jugando. El último panel le permite saber si el juego está preparado. </para
+>La barra de estado está situada en la parte inferior de la pantalla y contiene cuatro paneles. El primero muestra el cronómetro del juego, que sigue el tiempo transcurrido desde el inicio de la partida hasta que esta finalice. El segundo panel lista las fichas eliminadas y totales, así como el número de fichas emparejadas con lados libres. El tercer panel indica la secuencia numérica de la partida que estás jugando. El último panel permite saber si el juego está preparado. </para
 ></listitem>
 		</varlistentry>
 	</variablelist>
@@ -236,7 +250,7 @@
 		<title
 >Reglas</title>
 		<para
->El conjunto de fichas estándar del Mahjong incluye: <informaltable
+>El conjunto de fichas estándar del mahjong incluye: <informaltable
 > <tgroup cols="3"
 > <tbody>
 					<row
@@ -245,7 +259,7 @@
 ><entry
 >Nombre de la ficha</entry
 ><entry
->Cantidad en el conjunto</entry
+>Cantidad de un conjunto</entry
 ></row>
 					<row
 ><entry
@@ -646,7 +660,7 @@
 		<itemizedlist>
 			<listitem
 ><para
->El número de fichas del diseño de un tablero de &kmahjongg; puede diferir del número de fichas estándar del mahjongg. Esto significa que el número de fichas coincidentes del mismo tipo también puede diferir del número mostrado en la tabla anterior.</para
+>El número de fichas del diseño de un tablero de &kmahjongg; puede diferir del número de fichas estándar del mahjong. Esto significa que el número de fichas coincidentes del mismo tipo también puede diferir del número que se muestra en la tabla anterior.</para
 ></listitem>
 			<listitem
 ><para
@@ -669,20 +683,20 @@
 ><title
 >Nota:</title
 ><para
->Existen excepciones a esta regla. En el juego tradicional del Mahjong cada ficha tiene una igual, excepto las fichas de «Flores» y de «Estaciones».</para
+>Existen excepciones a esta regla. En el juego tradicional del mahjong, cada ficha tiene una igual, excepto las fichas de «Flores» y de «Estaciones».</para
 ></note>
 		<itemizedlist>
 			<listitem
 ><para
->Las fichas de «Flores» no tienen dobles y puede casarse entre sí.</para
+>Las fichas de «Flores» no tienen dobles y puede emparejarse entre sí.</para
 ></listitem>
 			<listitem
 ><para
->Las fichas de «Estaciones» no tienen dobles entre sí y pueden casarse entre sí.</para
+>Las fichas de «Estaciones» no tienen dobles y pueden emparejarse entre sí.</para
 ></listitem>
 			<listitem
 ><para
->No todas las partidas de &kmahjongg; se pueden terminar. Algunas veces las fichas se mezclan de tal forma que puede no ser posible hacer que todas las fichas coincidan. Este problema puede evitarse. Consulte <link linkend="general-options"
+>No todas las partidas de &kmahjongg; se pueden terminar. Algunas veces, las fichas se mezclan de tal forma que se posible que no coincidan todas las fichas. Este problema puede evitarse. Consulta <link linkend="general-options"
 >esta sección</link
 > del diálogo de configuración.</para
 ></listitem>
@@ -695,7 +709,7 @@
 ><title
 >Nota:</title
 ><para
->Si el jugador usa la funcionalidad «Pista» la puntuación no se considerará como mejor puntuación.</para
+>Si el jugador usa la función «Pista», su puntuación no se mostrará entre las mejores puntuaciones.</para
 ></note>
 
 	</sect1>
@@ -713,7 +727,7 @@
 
 <sect1 id="menu">
 <title
->Opciones de menú</title>
+>Opciones del menú</title>
 
 		<variablelist>
 			<varlistentry id="game-menu-new">
@@ -734,7 +748,7 @@
 				<listitem
 ><para
 ><action
->Inicia una nueva partida.</action
+>Empieza una partida nueva.</action
 ></para
 ></listitem>
 			</varlistentry>
@@ -792,7 +806,7 @@
 				<listitem
 ><para
 ><action
->Inicia una partida numerada específicamente.</action>
+>Inicia específicamente una partida numerada.</action>
 				<screenshot>
 					<screeninfo
 >Diálogo para iniciar una partida numerada</screeninfo>
@@ -827,7 +841,7 @@
 ><para
 ><action
 >Guarda</action
-> el juego actual.</para
+> la partida actual.</para
 ></listitem>
 			</varlistentry>
 			<varlistentry id="game-menu-pause">
@@ -846,7 +860,7 @@
 				<listitem
 ><para
 ><action
->Detiene o reinicia la partida. Mientras el juego está parado, las fichas se ocultan.</action
+>Detiene o continúa la partida. Mientras el juego está parado, las fichas se ocultan.</action
 ></para
 ></listitem>
 			</varlistentry>
@@ -862,28 +876,28 @@
 > <guimenu
 >Juego</guimenu
 > <guimenuitem
->Mostrar mejores puntuaciones...</guimenuitem
+>Mostrar las mejores puntuaciones...</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Muestra la lista con las mejores puntuaciones.</action>
+>Muestra la lista de las mejores puntuaciones.</action>
 				<screenshot>
 					<screeninfo
->Mostrar mejores puntuaciones</screeninfo>
+>Mostrar las mejores puntuaciones</screeninfo>
 					<mediaobject>
 						<imageobject
 ><imagedata fileref="highscore.png" format="PNG"/></imageobject>
 						<textobject
 ><phrase
->Mostrar mejores puntuaciones</phrase
+>Mostrar las mejores puntuaciones</phrase
 ></textobject>
 					</mediaobject>
 				</screenshot>
 				</para>
 				<para
->Cuando su puntuación supere a las diez listadas en las puntuaciones se le pedirá que introduzca su nombre. </para
+>Si tu puntuación es superior a las diez mejores que se muestran, se te pedirá que introduzcas tu nombre. </para
 >	</listitem>
 			</varlistentry>
 			<varlistentry id="game-menu-boardeditor">
@@ -892,13 +906,13 @@
 ><guimenu
 >Juego</guimenu
 > <guimenuitem
->Editor de tablero</guimenuitem
+>Editor del tablero</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
 ><para
 ><action
->Muestra el editor de tablero.</action>
+>Muestra el editor del tablero.</action>
 				<screenshot>
 					<screeninfo
 >El editor del tablero</screeninfo>
@@ -916,11 +930,11 @@
 >Procedimiento para editar el diseño: <orderedlist>
 							<listitem
 ><para
->Use la barra de herramientas del editor del tablero para crear un nuevo diseño o para cargar y modificar uno existente.</para
+>Usa la barra de herramientas del editor del tablero para crear un nuevo diseño o para cargar y modificar uno existente.</para
 ></listitem>
 							<listitem
 ><para
->Guarde el diseño en su carpeta personal local <filename
+>Guarda el diseño en tu carpeta personal local <filename
 >$<envar
 >XDG_DATA_HOME</envar
 >/kmahjongg/layouts</filename
@@ -928,7 +942,7 @@
 ></listitem>
 							<listitem
 ><para
->Cree el archivo <filename
+>Crea el archivo <filename
 ><replaceable
 >nombre_del_diseño</replaceable
 >.desktop</filename
@@ -936,7 +950,7 @@
 ></listitem>
 							<listitem
 ><para
->Escriba las siguientes líneas en dicho archivo usado su editor de texto favorito: <programlisting
+>Escribe las siguientes líneas en dicho archivo usado tu editor de texto favorito: <programlisting
 >[KMahjonggLayout]
 Name=<replaceable
 >nombre_del_diseño</replaceable>
@@ -944,18 +958,18 @@ Description=<replaceable
 >descripción_del_diseño</replaceable>
 VersionFormat=1
 Author=<replaceable
->su_nombre</replaceable>
+>tu_nombre</replaceable>
 AuthorEmail=<replaceable
->su_email</replaceable>
+>tu_email</replaceable>
 FileName=<replaceable
->nombre del diseño</replaceable
+>nombre_dedel_diseño</replaceable
 >.layout
 </programlisting
 ></para
 ></listitem>
 							<listitem
 ><para
->Vuelva a cargar &kmahjongg; para usar el nuevo diseño.</para
+>Vuelve a cargar &kmahjongg; para usar el nuevo diseño.</para
 ></listitem>
 						</orderedlist>
 </para>
@@ -1003,7 +1017,7 @@ FileName=<replaceable
 ><para
 ><action
 >Deshacer</action
-> su último movimiento.</para
+> tu último movimiento.</para
 ></listitem>
 			</varlistentry>
 			<varlistentry id="move-menu-redo">
@@ -1044,8 +1058,8 @@ FileName=<replaceable
 				<listitem
 ><para
 ><action
->Le proporciona una pista</action
-> iluminando una pareja de fichas emparejables.</para
+>Proporciona una pista</action
+> iluminando una pareja de fichas coincidentes.</para
 ></listitem>
 			</varlistentry>
 			<varlistentry id="move-menu-demo">
@@ -1095,7 +1109,7 @@ FileName=<replaceable
 > <guimenu
 >Ver</guimenu
 > <guimenuitem
->Girar vista en el sentido de las agujas del reloj</guimenuitem
+>Girar la vista en sentido horario</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1115,7 +1129,7 @@ FileName=<replaceable
 > <guimenu
 >Ver</guimenu
 > <guimenuitem
->Girar vista en sentido contrario a las agujas del reloj</guimenuitem
+>Girar la vista en sentido antihorario</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1127,15 +1141,15 @@ FileName=<replaceable
 			</varlistentry>
 		</variablelist>
 <para
->Además &kmahjongg; tiene las opciones de menú <guimenu
+>Además, &kmahjongg; tiene las opciones de los menús <guimenu
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
-> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
->Menú «Preferencias»</ulink
-> y <ulink url="help:/fundamentals/menus.html#menus-help"
->Menú «Ayuda» </ulink
-> de «Aspectos básicos de &kde;». </para>
+> comunes de &kde;. Para obtener más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menú «Preferencias»</ulink
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
+>menú «Ayuda» </ulink
+> de los «Aspectos básicos de &kde;». </para>
 
 </sect1>
 </chapter>
@@ -1153,12 +1167,12 @@ FileName=<replaceable
 	<qandaentry>
 		 <question
 ><para
->Quiero cambiar el aspecto del juego ¿Puedo? </para
+>Quiero cambiar el aspecto del juego. ¿Puedo? </para
 ></question>
 		 <answer
 ><para
->Sí. Para cambiar el aspecto de &kmahjongg; use la <link linkend="menu"
->barra de menús</link
+>Sí. Para cambiar el aspecto de &kmahjongg;, usa la <link linkend="menu"
+>barra de menú</link
 > para abrir la <link linkend="configuration"
 >utilidad de configuración</link
 >.</para
@@ -1167,11 +1181,11 @@ FileName=<replaceable
 	<qandaentry>
 		 <question
 ><para
->¿Puedo usar el teclado para jugar a este juego?</para
+>¿Puedo usar el teclado para jugar?</para
 ></question>
 		 <answer
 ><para
->No. Este juego todavía no tiene una funcionalidad de jugar con el teclado.</para
+>No. Este juego no incluye la posibilidad de jugar con teclado.</para
 ></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
@@ -1216,11 +1230,11 @@ FileName=<replaceable
 		<varlistentry>
 			<term
 ><guilabel
->Hacer parpadear las fichas coincidentes cuando se haya seleccionado uno</guilabel
+>Hacer que parpadeen las fichas coincidentes al seleccionar una</guilabel
 ></term>
 			<listitem
 ><para
->Esta opción hace que se resalte la ficha seleccionada con el ratón, y que parpadee cualquier ficha que seleccione y que tenga una cara libre que se pueda usar. No se resaltarán las fichas que no tengan una ficha libre. </para
+>Esta opción hace que se resalte la ficha seleccionada con el ratón, y que parpadee cualquier ficha coincidente que tenga una cara libre. No se resaltarán las fichas que no tengan una ficha libre. </para
 ></listitem>
 		</varlistentry>
 		<varlistentry>
@@ -1230,7 +1244,7 @@ FileName=<replaceable
 ></term>
 			<listitem
 ><para
->Selecciona solo juegos que puedan ser resueltos cuando inicie una nueva partida. </para
+>Selecciona solo juegos que se puedan resolver cuando inicies una nueva partida. </para
 ></listitem>
 		</varlistentry>
 		<varlistentry>
@@ -1240,7 +1254,7 @@ FileName=<replaceable
 ></term>
 			<listitem
 ><para
->Si está marcado, este ajuste permite que &kmahjongg; muestre las fichas eliminadas en el tablero. </para
+>Si está marcado, este ajuste permite que &kmahjongg; muestre las fichas eliminadas del tablero. </para
 ></listitem>
 		</varlistentry>
 	</variablelist>
@@ -1267,7 +1281,7 @@ FileName=<replaceable
 ></term>
 			<listitem
 ><para
->Use el selector de <guilabel
+>Usa el selector de <guilabel
 >Diseño del tablero</guilabel
 > para elegir un tablero de juego. Se incluyen tableros con diferentes niveles de dificultad, dependiendo del número de fichas y de su posición. </para>
 			<screenshot>
@@ -1299,12 +1313,12 @@ FileName=<replaceable
 ></term>
 			<listitem
 ><para
->Use el selector de <guilabel
+>Usa el selector de <guilabel
 >Fichas</guilabel
 > para elegir los gráficos para las fichas. </para>
 			<screenshot>
 				<screeninfo
->Selector de ficha</screeninfo>
+>Selector de fichas</screeninfo>
 				<mediaobject>
 					<imageobject>
 						<imagedata fileref="config_tiles.png" format="PNG"/>
@@ -1331,7 +1345,7 @@ FileName=<replaceable
 ></term>
 			<listitem
 ><para
->Use el selector del <guilabel
+>Usa el selector del <guilabel
 >Fondo</guilabel
 > para elegir el gráfico del fondo para el juego. </para>
 			<screenshot>
@@ -1354,7 +1368,7 @@ FileName=<replaceable
 
 <sect1 id="default-keybindings">
 <title
->Asociaciones de teclas predeterminadas</title>
+>Atajos de teclado predeterminados</title>
 
 <para
 ><menuchoice
@@ -1389,7 +1403,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Inicia una nueva partida</entry
+>Empieza una nueva partida</entry
 ></row>
 <row
 ><entry
@@ -1399,7 +1413,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Carga una partida guardada con anterioridad.</entry
+>Carga una partida guardada previamente</entry
 ></row>
 <row
 ><entry
@@ -1417,7 +1431,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Guarda la partida.</entry
+>Guarda la partida</entry
 ></row>
 <row
 ><entry
@@ -1425,7 +1439,7 @@ FileName=<replaceable
 >P</keycap
 ></entry
 ><entry
->Pausa o reinicia una partida.</entry
+>Pausa o continúa una partida</entry
 ></row>
 <row
 ><entry
@@ -1455,7 +1469,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Deshace el movimiento.</entry
+>Deshace un movimiento</entry
 ></row>
 <row
 ><entry
@@ -1465,7 +1479,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Rehace el movimiento.</entry
+>Vuelve a hacer un movimiento deshecho</entry
 ></row>
 <row
 ><entry
@@ -1473,7 +1487,7 @@ FileName=<replaceable
 >H</keycap
 ></entry
 ><entry
->Le da una pista iluminando dos fichas que se pueden emparejar</entry
+>Te da una pista iluminando dos fichas que se pueden emparejar</entry
 ></row>
 <row
 ><entry
@@ -1515,7 +1529,7 @@ FileName=<replaceable
 ></keycombo
 ></entry
 ><entry
->Ayuda ¿Qué es esto?</entry
+>Ayuda «¿Qué es esto?»</entry
 ></row>
 
 </tbody>
@@ -1534,7 +1548,7 @@ FileName=<replaceable
 >&kmahjongg; para &kde; </para>
 
 	<para
->Derechos de autor del programa &copy; 1997 <personname
+>Copyright del programa &copy; 1997 <personname
 ><firstname
 >Mathias</firstname
 ><surname
@@ -1614,7 +1628,7 @@ FileName=<replaceable
 		</itemizedlist>
 	</para>
 	<para
->Derechos de autor de la documentación &copy; 2005 <personname
+>Copyright de la documentación &copy; 2005 <personname
 ><firstname
 >John</firstname
 ><surname
@@ -1626,12 +1640,16 @@ FileName=<replaceable
 
 <!-- !!!do not change ANYTHING after this line!!!! -->
 <para
->Traducido por Rocío Gallego <email
+>Documentación traducida por Rocío Gallego <email
 >traducciones@rociogallego.com</email
 >, Santiago Fernández Sancho <email
 >santi@kde-es.org</email
 > y Kira J. Fernández <email
 >kirajfdez@gmail.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 

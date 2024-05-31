@@ -2,7 +2,7 @@
 # Bulgarian translation of KDE.
 # This file is licensed under the GPL.
 #
-# $Id: kmahjongg.po 1678819 2024-04-28 02:48:31Z scripty $
+# $Id: kmahjongg.po 1681214 2024-05-30 16:46:16Z mkkdr $
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
 # Petar Toushkov <pt.launchpad@gmail.com>, 2010.
@@ -573,6 +573,3 @@ msgstr "Генериране само на разрешими игри"
 #, fuzzy, kde-format
 msgid "Show removed tiles"
 msgstr "Премахване на плочки"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Вече има файл с такова име. Искате ли да бъде презаписан?"
