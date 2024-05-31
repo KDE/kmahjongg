@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-04 16:20+0200\n"
+"PO-Revision-Date: 2024-05-15 15:31+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -150,10 +150,9 @@ msgstr "Disposizione casuale"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "S&carica nuove disposizioni di apertura"
+msgstr "Scarica nuove disposizioni..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
