@@ -2,6 +2,7 @@
 # translation of kmahjongg.po to
 # traduction de kmahjongg.po en Français
 # First-Translator : 1999-03-05
+# SPDX-FileCopyrightText: 2012, 2013, 2021, 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Francois-Xavier Duranceau <Francois-Xavier.Duranceau@loria.fr>
 # Philippe Thomin <Philippe.Thomin@univ-valenciennes.fr>
 # Gérard Delafond <gerard@delafond.org>, 2002, 2003, 2004.
@@ -12,7 +13,6 @@
 # Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2005, 2008.
 # Matthieu Robin <matthieu@macolu.org>, 2005.
 # Stanislas Zeller <uncensored.assault@gmail.com>, 2008, 2012.
-# Xavier Besnard <xavier.besnard@kde.org>, 2012, 2013, 2021, 2022.
 # Vincent PINON <vincent.pinon@st.com>, 2013.
 # Vincent Pinon <vpinon@kde.org>, 2016.
 # Simon Depiets <sdepiets@gmail.com>, 2017, 2019.
@@ -24,9 +24,9 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2023-01-23 20:20+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-06-09 16:23+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,17 +35,19 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Gérard Delafond, Nicolas Ternisien, Simon Depiets"
+msgstr "Gérard Delafond, Nicolas Ternisien, Simon Depiets, Xavier Besnard"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "gerard@delafond.org, nicolas.ternisien@gmail.com, sdepiets@gmail.com"
+msgstr ""
+"gerard@delafond.org, nicolas.ternisien@gmail.com, sdepiets@gmail.com, xavier."
+"besnard@kde.org"
 
 #: src/editor.cpp:70
 #, kde-format
@@ -54,78 +56,67 @@ msgid "Edit Board Layout"
 msgstr "Modifier la disposition du plateau"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Nouveau plateau"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Ouvrir un plateau"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Enregistrer le plateau"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Sélectionner"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Déplacer des tuiles"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Ajouter des tuiles"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Supprimer des tuiles"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Décaler vers la gauche"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "Décaler vers le haut"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "Décaler vers le bas"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Décaler vers la droite"
@@ -136,11 +127,10 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Tuiles : %1 Position : %2, %3, %4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "Charger un plateau"
+msgstr "Ouvrir une disposition de plateau"
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
@@ -153,8 +143,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "Vous ne pouvez enregistrer qu'avec un nombre pair de tuiles."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Enregistrer la disposition du plateau"
@@ -182,10 +171,9 @@ msgstr "Disposition aléatoire"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "&Obtenir d'autres dispositions"
+msgstr "Télécharger d'autres dispositions..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -238,8 +226,7 @@ msgid "Your computer has lost the game."
 msgstr "L'ordinateur a perdu la partie."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
 msgstr "Préparation d'une nouvelle partie..."
@@ -256,39 +243,34 @@ msgstr ""
 "Mode de démonstration. Cliquez avec le bouton de la souris pour l'arrêter."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
 msgstr "Nouvelle partie numérotée..."
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "Mé&langer"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Tourner l'affichage dans le sens inverse des aiguilles d'une montre"
+msgstr "Faire pivoter dans le sens inverse des aiguilles d'une montre"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Tourner l'affichage dans le sens des aiguilles d'une montre"
+msgstr "Faire pivoter dans le sens des aiguilles d'une montre"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr "&Éditeur de plateau"
+msgstr "Éditeur de &plateau"
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -306,10 +288,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Partie : 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Temps : "
+msgstr "Temps : %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -318,22 +299,19 @@ msgid "New Game"
 msgstr "Nouvelle partie"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Numéro de partie : %1"
+msgstr "Numéro de partie :"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Général"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Disposition du plateau"
@@ -344,22 +322,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Fin de la partie. Vous n'avez aucun déplacement possible."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Fin de la partie"
+msgstr "Fin de partie"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nouvelle partie"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Redémarrer"
