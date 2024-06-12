@@ -2,13 +2,13 @@
 # Copyright (C) 2002, 2007 Free Software Foundation, Inc.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2021-12-19 16:10+0400\n"
+"PO-Revision-Date: 2024-06-08 13:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,78 +36,67 @@ msgid "Edit Board Layout"
 msgstr "حرر تخطيط اللوحة"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "لوحة جديدة"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "افتح لوحة"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "احفظ اللوحة"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "اختر"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "انقل القراميد"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "أضف القراميد"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "احذف القراميد"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "أزح لليسار"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "أزح للأعلى"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "أزح للأسفل"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "أزح لليمين"
@@ -117,28 +107,23 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "القراميد: %1 المكان: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "افتح تخطيط لوحة"
 
 #: src/editor.cpp:293 src/editor.cpp:331
-#, fuzzy, kde-format
+#, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr ""
-"تخطيط\n"
-"نسق لوح التصميم تخطيط\n"
-"نسق n الكل ملفات"
+msgstr "تخطيط لوحة (*.layout);;كل الملفات (*)"
 
 #: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "يمكنك فقط حفظ أعداد زوجية من القطع."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "احفظ تخطيط لوحة"
@@ -154,24 +139,21 @@ msgid "Save failed. Aborting operation."
 msgstr "فشل الحفظ. احبطت العملية."
 
 #: src/gameremovedtiles.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Removed tiles"
-msgstr "احذف القراميد"
+msgstr "القطع المحذوفة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Random Layout"
-msgstr ""
-"لوح تخطيط\n"
-"نسق"
+msgstr "تخطيط عشوائي"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "احصل جديد التصاميم"
+msgstr "نزل تخطيطات جديدة…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -224,11 +206,10 @@ msgid "Your computer has lost the game."
 msgstr "حاسبك خسر هذه اللعبة."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "حساب لعبة جديدة..."
+msgstr "حساب لعبة جديدة…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -241,28 +222,25 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "الوضع الإستعراضي. انقر زر الفأرة لتتوقف."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "لعبة مرقمة جديدة..."
+msgstr "لعبة مرقمة جديدة…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "&خلط"
+msgstr "ا&خلط"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "ادر العرض عكس عقارب الساعة"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "ادر العرض باتجاه عقارب الساعة"
@@ -271,7 +249,7 @@ msgstr "ادر العرض باتجاه عقارب الساعة"
 #, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr ""
+msgstr "&محرر اللوحة"
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -289,43 +267,36 @@ msgid "Game: 000000000000000000000"
 msgstr "اللعبة: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "الوقت:"
+msgstr "الوقت: %1"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "لعبة جديدة"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "رقم اللعبة:%1"
+msgstr "رقم اللعبة:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr "عام"
+msgstr "عامّ"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr ""
-"لوح تخطيط\n"
-"نسق"
+msgstr "تخطيط لوحة"
 
 #: src/kmahjongg.cpp:405
-#, fuzzy, kde-format
-#| msgid "Game over: You have no moves left."
+#, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "انتهت اللعبة: لم يتبقى لديك أي حركة."
 
@@ -333,11 +304,10 @@ msgstr "انتهت اللعبة: لم يتبقى لديك أي حركة."
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "انتهت اللعبة"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "لعبة جديدة"
@@ -346,12 +316,12 @@ msgstr "لعبة جديدة"
 #, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr ""
+msgstr "أعد التّشغيل"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "قد فزت للمرة الأخيرة بنسبة %1 وبنتيجة %2!"
 
 #: src/kmahjongg.cpp:552
 #, kde-format
@@ -364,7 +334,7 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "أزيل: %1/%2  التجميعات الباقية: %3"
 
 #: src/kmahjongg.cpp:623
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "حمَل لعبة"
@@ -372,22 +342,22 @@ msgstr "حمَل لعبة"
 #: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "لعبة ماهجونج ك(*.kmgame)"
 
 #: src/kmahjongg.cpp:632
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not read from file. Aborting."
-msgstr "يمكن أن ليس قراءة من ملفّ جاري الإجهاض."
+msgstr "لا يمكن القراءة من الملف. الإجهاض."
 
 #: src/kmahjongg.cpp:643
-#, fuzzy, kde-format
+#, kde-format
 msgid "File is not a KMahjongg game."
-msgstr "ملف هو ليس a ماهجونج ك لعبة."
+msgstr "ملف هو ليس لعبة ماهجونج ك."
 
 #: src/kmahjongg.cpp:656
-#, fuzzy, kde-format
+#, kde-format
 msgid "File format not recognized."
-msgstr "ملف تنسيق ليس."
+msgstr "لم يتعرف على تنسيق الملف."
 
 #: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
 #, kde-format
@@ -396,14 +366,14 @@ msgid "Save Game"
 msgstr "احفظ لعبة"
 
 #: src/kmahjongg.cpp:708
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not open file for saving."
-msgstr "يمكن أن ليس قراءة من ملفّ جاري الإجهاض."
+msgstr "تعذر فتح الملف للحفظ."
 
 #: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "هل تريد حفظ لعبتك؟"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -427,13 +397,13 @@ msgstr "تخطيط القراميد."
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "ما إذا كان سيتم عرض القطع المزالة على اللوحة."
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "ما إذا اختير تخطيط عشوائي عند بدء التشغيل."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
@@ -505,7 +475,7 @@ msgstr "المؤلف الأصلي"
 #: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "كريستيان كريبندورف"
 
 #: src/main.cpp:35
 #, kde-format
@@ -588,9 +558,9 @@ msgstr "تنظيف الشفرة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowMatchingTiles)
 #: src/settings.ui:16
-#, fuzzy, kde-format
+#, kde-format
 msgid "Blink matching tiles when first one is selected"
-msgstr "وميض مواءمة الأوّل هو مُنتقى"
+msgstr "أومض القطع المتطابقة عن اختيار أول واحدة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SolvableGames)
 #: src/settings.ui:23
@@ -600,10 +570,9 @@ msgstr "ولد ألعاب قابلة للحل"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:30
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Show removed tiles"
-msgstr "احذف القراميد"
+msgstr "اعرض القطع المحذوفة"
 
 #~ msgid "Cut"
 #~ msgstr "قص"
