@@ -1,7 +1,7 @@
+# SPDX-FileCopyrightText: 2009, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Stefan Winter <swinter@kde.org>, 2003, 2004, 2005, 2007.
 # Stephan Johach <hunsum@gmx.de>, 2005.
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2007.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2009.
 # Burkhard Lück <lueck@hube-lueck.de>, 2010, 2013, 2017, 2019, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2012, 2016, 2022, 2023.
@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2023-05-05 19:52+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2024-08-25 21:43+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,78 +37,67 @@ msgid "Edit Board Layout"
 msgstr "Spielfeldaufbau bearbeiten"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Neues Spielfeld"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Spielfeld laden"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Spielfeld speichern"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Wählen"
+msgstr "Auswählen"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Spielsteine bewegen"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Spielsteine hinzufügen"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Spielsteine entfernen"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Nach links schieben"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "Nach oben schieben"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "Nach unten schieben"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Nach rechts schieben"
@@ -119,8 +108,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Spielsteine: %1 Pos.: %2, %3, %4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Spielfeldaufbau laden"
@@ -136,8 +124,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "Sie können nur mit einer geraden Anzahl Steine abspeichern."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Spielfeldaufbau speichern"
@@ -165,10 +152,9 @@ msgstr "Zufälliger Spielfeldaufbau"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "Neue Spiel&felder abholen"
+msgstr "Neue Spiel&felder herunterladen …"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -222,11 +208,10 @@ msgid "Your computer has lost the game."
 msgstr "Ihr Rechner hat das Spiel verloren."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Neues Spiel wird berechnet ..."
+msgstr "Neues Spiel wird berechnet …"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -239,36 +224,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demomodus. Klicken Sie eine Maustaste, um die Demo anzuhalten."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Spiel aus der Liste ..."
+msgstr "Spiel aus der Liste …"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "&Mischen"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "Ansicht gegen Uhrzeigersinn drehen"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "Ansicht im Uhrzeigersinn drehen"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Spielfeld-Editor"
@@ -289,10 +269,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Spiel: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Zeit: "
+msgstr "Zeit: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -301,22 +280,19 @@ msgid "New Game"
 msgstr "Neues Spiel"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Spielnummer: %1"
+msgstr "Spielnummer:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Allgemein"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Spielfeldaufbau"
@@ -327,22 +303,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Spiel beendet: Sie können nicht mehr ziehen."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Spiel beendet."
+msgstr "Spiel beendet"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Neues Spiel"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Neu starten"
