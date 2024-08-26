@@ -314,7 +314,6 @@ msgstr ""
 
 #: src/kmahjongg.cpp:408
 #, fuzzy, kde-format
-#| msgid "Restart"
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Álggat ođđasit"
