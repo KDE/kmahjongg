@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2016, 2017, 2019.
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2016, 2017, 2019, 2024 Vít Pelčák <vit@pelcak.org>
 # Lukáš Tinkl <lukas@kde.org>, 2012.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 # SPDX-FileCopyrightText: 2021, 2022, 2024 Vit Pelcak <vit@pelcak.org>
@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-27 15:26+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2024-08-20 15:26+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -34,7 +34,7 @@ msgstr "lukas@kde.org, david@kolibac.cz, lukas.vlcek777@gmail.com"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "Upravit rozložení hrací desky"
+msgstr "Upravit rozvržení hrací desky"
 
 #: src/editor.cpp:110
 #, kde-format
@@ -111,12 +111,12 @@ msgstr "Kamenů: %1 Pozice: %2,%3,%4"
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "Otevřít rozložení hrací desky"
+msgstr "Otevřít rozvržení hrací desky"
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
-msgstr "Soubor s rozložením hrací desky (*.layout);;Všechny soubory (*)"
+msgstr "Soubor s rozvržením hrací desky (*.layout);;Všechny soubory (*)"
 
 #: src/editor.cpp:324
 #, kde-format
@@ -127,7 +127,7 @@ msgstr "Můžete ukládat pouze se sudým počtem kamenů."
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr "Uložit rozložení hrací desky"
+msgstr "Uložit rozvržení hrací desky"
 
 #: src/editor.cpp:358
 #, kde-format
@@ -148,13 +148,13 @@ msgstr "Odebrané kameny"
 #: src/gametype.ui:25
 #, kde-format
 msgid "Random Layout"
-msgstr "Náhodné rozložení"
+msgstr "Náhodné rozvržení"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
 #, kde-format
 msgid "Download New Layouts…"
-msgstr "Stáhnout nová rozložení…"
+msgstr "Stáhnout nová rozvržení…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -166,7 +166,7 @@ msgstr "Náhled"
 #: src/gametype.ui:90
 #, kde-format
 msgid "Layout Details"
-msgstr "Podrobnosti rozložení"
+msgstr "Podrobnosti rozvržení"
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:96
@@ -294,7 +294,7 @@ msgstr "Obecné"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "Uspořádání hrací desky"
+msgstr "Rozvržení hrací desky"
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -404,7 +404,7 @@ msgstr "Jestli se zobrazují odebrané kameny."
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr "Při spuštění je vybráno náhodné rozložení."
+msgstr "Při spuštění je vybráno náhodné rozvržení."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
