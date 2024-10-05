@@ -33,8 +33,8 @@ package-repositories:
 parts:
   libkmahjongg:
     plugin: cmake
-    source: .
-    source-type: local
+    source: https://invent.kde.org/games/libkmahjongg.git
+    source-branch: master
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
