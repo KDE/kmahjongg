@@ -77,6 +77,7 @@ parts:
       - -DCMAKE_INSTALL_LIBDIR=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
       - --log-level=STATUS
       - -DCMAKE_LIBRARY_PATH=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR
+      - -DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE:/snap/kde-qt6-core22-sdk/current:/snap/kf6-core22-sdk/current
     prime:
       - -usr/lib/*/cmake/*
       - -usr/include/*
@@ -88,6 +89,7 @@ parts:
       - -usr/share/lintian
   cleanup:
     after:
+      - libkmahjongg
       - kmahjongg
     plugin: nil
     build-snaps:
