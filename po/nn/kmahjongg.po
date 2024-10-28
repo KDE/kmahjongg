@@ -1,20 +1,19 @@
 # Translation of kmahjongg to Norwegian Nynorsk
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 1999, 2000, 2002, 2003, 2004, 2005.
-# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2007, 2008, 2009, 2016, 2017, 2019, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2023-02-09 21:43+0100\n"
+"PO-Revision-Date: 2024-10-27 14:58+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -37,67 +36,67 @@ msgid "Edit Board Layout"
 msgstr "Endra brettoppsett"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Nytt brett"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Opna brett"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Lagra brett"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Vel"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Flytt brikker"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Legg til brikker"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Fjern brikker"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Flytt mot venstre"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Flytt opp"
+msgstr "Flytt oppover"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Flytt ned"
+msgstr "Flytt nedover"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Flytt mot høgre"
@@ -108,7 +107,7 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Brikker: %1 Pos.: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "Opna spelebrett"
@@ -124,7 +123,7 @@ msgid "You can only save with a even number of tiles."
 msgstr "Du kan berre lagra med eit like tal brikker."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "Lagra spelebrett"
@@ -152,9 +151,9 @@ msgstr "Tilfeldige utforming"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "&Hent nye utformingar"
+msgstr "Last ned nye spelebrett …"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -207,7 +206,7 @@ msgid "Your computer has lost the game."
 msgstr "Datamaskina tapte spelet."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
 msgstr "Set opp nytt spel …"
@@ -223,31 +222,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demonstrasjon. Klikk med musa for å stoppa."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
 msgstr "Nytt spel (nummerert) …"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "Sto&kk"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "Roter visinga mot klokka"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "Roter visinga med klokka"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Brettredigering"
@@ -268,9 +267,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Spel: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time: %1"
-msgstr "Tid: "
+msgstr "Tid: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -279,19 +278,19 @@ msgid "New Game"
 msgstr "Nytt spel"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Spelnummer: %1"
+msgstr "Spelnummer:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Generelt"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Brettutforming"
@@ -302,19 +301,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Spelet er slutt. Du kan ikkje flytta nokon brikker."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Spelet er slutt"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Nytt parti"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Start på nytt"
