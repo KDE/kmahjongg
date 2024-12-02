@@ -1,19 +1,19 @@
 # translation of kmahjongg.po to Finnish
 # KDE Finnish translation sprint participants:
 # Author: Lliehu
+# SPDX-FileCopyrightText: 2010, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2003, 2004, 2005.
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003.
 # Ilpo Kantonen <ilpo@iki.fi>, 2005.
 # Niklas Laxström <niklas.laxstrom+kdetrans@gmail.com>, 2007.
-# Tommi Nieminen <translator@legisign.org>, 2010, 2020, 2021, 2022, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2012, 2013, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2023-04-02 18:18+0300\n"
+"PO-Revision-Date: 2024-10-21 16:56+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -21,8 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-POT-Import-Date: 2012-12-01 22:24:03+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -43,78 +42,67 @@ msgid "Edit Board Layout"
 msgstr "Muokkaa laudan asetelmaa"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "Uusi lauta"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "Avaa lauta"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "Tallenna lauta"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "Valitse"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "Siirrä tiiliä"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "Lisää tiiliä"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "Poista tiiliä"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "Siirrä vasemmalle"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Siirrä ylös"
+msgstr "Siirrä ylöspäin"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Siirrä alas"
+msgstr "Siirrä alaspäin"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "Siirrä oikealle"
@@ -125,11 +113,10 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Tiiliä: %1 Sijainti: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "Avaa laudan asetelma."
+msgstr "Avaa laudan asetelma"
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
@@ -142,11 +129,10 @@ msgid "You can only save with a even number of tiles."
 msgstr "Tallentaa voi vain parillisen määrän tiiliä."
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr "Tallennan laudan asetelma"
+msgstr "Tallenna laudan asetelma"
 
 #: src/editor.cpp:358
 #, kde-format
@@ -171,10 +157,9 @@ msgstr "Satunnainen asettelu"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "&Hae uusia asetelmia"
+msgstr "Lataa uusia asetelmia…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -227,11 +212,10 @@ msgid "Your computer has lost the game."
 msgstr "Tietokoneesi hävisi pelin."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Lasken uutta peliä…"
+msgstr "Lasketaan uutta peliä…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -244,36 +228,31 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Demotila. Lopeta napsauttamalla pelialuetta."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
 msgstr "Uusi numeroitu peli…"
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "&Sekoita"
+msgstr "S&ekoita"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Kierrä vastapäivään"
+msgstr "Kierrä näkymää vastapäivään"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Kierrä myötäpäivään"
+msgstr "Kierrä näkymää myötäpäivään"
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
 msgstr "&Lautamuokkain"
@@ -294,10 +273,9 @@ msgid "Game: 000000000000000000000"
 msgstr "Peli: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Kesto: "
+msgstr "Aika: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -306,22 +284,19 @@ msgid "New Game"
 msgstr "Uusi peli"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Pelin numero: %1"
+msgstr "Pelin numero:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Perusasetukset"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "Laudan asetelma"
@@ -332,22 +307,19 @@ msgid "Game Over: You have no moves left."
 msgstr "Peli ohi: Sinulla ei ole siirtoja jäljellä."
 
 #: src/kmahjongg.cpp:406
-#, fuzzy, kde-format
-#| msgid "Game Over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Peli ohi"
+msgstr "Peli päättyi"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "Uusi peli"
 
 #: src/kmahjongg.cpp:408
-#, fuzzy, kde-format
-#| msgid "Restart"
+#, kde-format
 msgctxt "@action:button"
 msgid "Restart"
 msgstr "Aloita alusta"
