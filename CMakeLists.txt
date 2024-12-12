@@ -34,6 +34,8 @@ include(ECMSetupVersion)
 include(ECMDeprecationSettings)
 include(FeatureSummary)
 
+option(BUILD_DOC "Whether to build the documentation" ON)
+
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core
     Gui
@@ -45,7 +47,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Crash
     DBusAddons
-    DocTools
     I18n
     NewStuff
     XmlGui
@@ -53,6 +54,14 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(KMahjongglib6 6.0.0 REQUIRED)
 find_package(KDEGames6 6.0.0 REQUIRED)
+
+if(BUILD_DOC)
+    find_package(KF6DocTools ${KF_MIN_VERSION})
+    set_package_properties(KF6DocTools PROPERTIES
+        DESCRIPTION "Tools to generate documentation"
+        TYPE REQUIRED
+    )
+endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 6.5
@@ -63,15 +72,18 @@ ecm_set_disabled_deprecation_versions(
 add_subdirectory(src)
 add_subdirectory(icons)
 add_subdirectory(layouts)
-add_subdirectory(doc)
 
 ########### install files ###############
 
 install(PROGRAMS org.kde.kmahjongg.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kmahjongg.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
+if(BUILD_DOC)
+    add_subdirectory(doc)
+    kdoctools_install(po)
+endif()
+
 ki18n_install(po)
-kdoctools_install(po)
 
 ########### Display Summary ###############
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
