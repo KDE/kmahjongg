@@ -3,100 +3,103 @@
 # This file is distributed under the same license as the kmahjongg package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/editor.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr ""
+msgstr "बोर्ड लेआउट सम्पादयतु"
 
 #: src/editor.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr ""
+msgstr "नवीन बोर्ड"
 
 #: src/editor.cpp:117
 #, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr ""
+msgstr "खुला बोर्ड"
 
 #: src/editor.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr ""
+msgstr "सेव बोर्ड"
 
 #: src/editor.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr ""
+msgstr "विचि"
 
 #: src/editor.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr ""
+msgstr "टाइल्स् चालयन्तु"
 
 #: src/editor.cpp:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr ""
+msgstr "टाइल्स् योजयन्तु"
 
 #: src/editor.cpp:159
 #, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr ""
+msgstr "टाइल्स् निष्कासयन्तु"
 
 #: src/editor.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr ""
+msgstr "शिफ्ट वाम"
 
 #: src/editor.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr ""
+msgstr "शिफ्ट अप"
 
 #: src/editor.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr ""
+msgstr "Shift Down इति"
 
 #: src/editor.cpp:201
 #, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr ""
+msgstr "शिफ्ट राइट"
 
 #: src/editor.cpp:283
 #, kde-format
@@ -107,7 +110,7 @@ msgstr "टाइल्स्: %1 पद: %2,%3,%4"
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr ""
+msgstr "ओपन बोर्ड लेआउट"
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
@@ -123,7 +126,7 @@ msgstr "भवन्तः केवलं समसङ्ख्यायाः 
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr ""
+msgstr "बोर्ड लेआउट् रक्षतु"
 
 #: src/editor.cpp:358
 #, kde-format
@@ -150,7 +153,7 @@ msgstr "यादृच्छिक विन्यास"
 #: src/gametype.ui:54
 #, kde-format
 msgid "Download New Layouts…"
-msgstr "नवीनविन्यासाः डाउनलोड् कुर्वन्तु..."
+msgstr "नवीनविन्यासाः डाउनलोड् कुर्वन्तु…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -206,7 +209,7 @@ msgstr "भवतः सङ्गणकः क्रीडां हारित
 #, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr ""
+msgstr "नूतनक्रीडायाः गणना…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -222,31 +225,31 @@ msgstr "डेमो मोड। स्थगयितुं mousebutton नु
 #, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr ""
+msgstr "नवीन संख्याबद्ध खेल…"
 
 #: src/kmahjongg.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr ""
+msgstr "शु&फ्ले"
 
 #: src/kmahjongg.cpp:153
 #, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr ""
+msgstr "दृश्यं घड़ीयाः विपरीतदिशायां परिभ्रमन्तु"
 
 #: src/kmahjongg.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr ""
+msgstr "View Clockwise परिभ्रमन्तु"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr ""
+msgstr "&बोर्ड सम्पादक"
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -272,25 +275,25 @@ msgstr "समयः %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr ""
+msgstr "नवीन खेल"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr ""
+msgstr "क्रीडासङ्ख्या : १."
 
 #: src/kmahjongg.cpp:267
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: src/kmahjongg.cpp:268
 #, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr ""
+msgstr "बोर्ड लेआउट"
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -301,19 +304,19 @@ msgstr "Game Over: भवतः कोऽपि चालः अवशिष्�
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "गेम ओवर"
 
 #: src/kmahjongg.cpp:407
 #, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr ""
+msgstr "नवीन खेल"
 
 #: src/kmahjongg.cpp:408
 #, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr ""
+msgstr "पुनः आरभत"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
@@ -334,7 +337,7 @@ msgstr "निष्कासितम्: %1/%2 संयोजनानि अ
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr ""
+msgstr "लोड गेम"
 
 #: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
@@ -360,7 +363,7 @@ msgstr "सञ्चिकास्वरूपं न ज्ञातम्।"
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr ""
+msgstr "गेम रक्षतु"
 
 #: src/kmahjongg.cpp:708
 #, kde-format
