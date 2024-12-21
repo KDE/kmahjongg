@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -281,7 +281,7 @@ msgstr "नवीन खेल"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "क्रीडासङ्ख्या : १."
+msgstr "क्रीडासङ्ख्या :"
 
 #: src/kmahjongg.cpp:267
 #, kde-format
