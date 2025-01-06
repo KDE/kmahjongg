@@ -7,6 +7,7 @@
     <name translate="no">KDE</name>
   </developer>
   <name>KMahjongg</name>
+  <name xml:lang="ar">ماهجونج ك</name>
   <name xml:lang="ast">KMahjongg</name>
   <name xml:lang="ca">KMahjongg</name>
   <name xml:lang="ca-valencia">KMahjongg</name>
@@ -51,6 +52,7 @@
   <name xml:lang="zh-CN">KMahjongg</name>
   <name xml:lang="zh-TW">KMahjongg</name>
   <summary>Mahjong Solitaire</summary>
+  <summary xml:lang="ar">ماهجونج سوليتير</summary>
   <summary xml:lang="ca">Solitari Mahjongg</summary>
   <summary xml:lang="ca-valencia">Solitari Mahjongg</summary>
   <summary xml:lang="cs">Mahjong solitér</summary>
@@ -95,6 +97,7 @@
     <p>
       KMahjongg is a fun board game created after the famous oriental game of Mahjong (from Chinese 麻將).
     </p>
+    <p xml:lang="ar">ماهجونج ك هي لعبة لوحية ممتعة أنشئت على غرار لعبة ماهجونج الشرقية الشهيرة (من الصينية 麻將).</p>
     <p xml:lang="ca">El KMahjongg és un joc de tauler divertit creat a partir del famós joc oriental Mahjong (del xinès 麻將).</p>
     <p xml:lang="ca-valencia">KMahjongg és un joc de tauler divertit creat a partir del famós joc oriental Mahjong (del xinés 麻將).</p>
     <p xml:lang="cs">KMahjongg je zábavná desková hra vytvořená podle proslulé orientální hry Mahjong (z čínského 麻將).</p>
@@ -143,6 +146,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Playing KMahjongg</caption>
+      <caption xml:lang="ar">يلعب ماهجونج ك</caption>
       <caption xml:lang="ca">Jugant al KMahjongg</caption>
       <caption xml:lang="ca-valencia">Jugant a KMahjongg</caption>
       <caption xml:lang="cs">Hraní KMahjongg</caption>
