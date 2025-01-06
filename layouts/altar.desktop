@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Altar
+Name[ar]=المذبح
 Name[bs]=Oltar
 Name[ca]=Altar
 Name[ca@valencia]=Altar
@@ -49,6 +50,7 @@ Name[x-test]=xxAltarxx
 Name[zh_CN]=祭坛
 Name[zh_TW]=聖壇
 Description=An elevated surface with stairs and columns aside
+Description[ar]=سطح مرتفع مع السلالم والأعمدة جانبا
 Description[bs]=Povišena površina sa stepenicama i stubovima sa strane
 Description[ca]=Una superfície elevada amb escales i columnes al costat
 Description[ca@valencia]=Una superfície elevada amb escales i columnes al costat

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Checkered
+Name[ar]=مشطرجة
 Name[bs]=Kockast
 Name[ca]=Escacada
 Name[ca@valencia]=Escacada
@@ -46,6 +47,7 @@ Name[x-test]=xxCheckeredxx
 Name[zh_CN]=棋局
 Name[zh_TW]=棋盤式佈局
 Description=What if the chess board was not square?
+Description[ar]=ماذا لو لم تكن رقعة الشطرنج مربعة؟
 Description[bs]=Šta ako ploča za šah nije kvadratna?
 Description[ca]=Què passa si el tauler d'escacs no és quadrat?
 Description[ca@valencia]=Què passa si el tauler d'escacs no és quadrat?

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=4 Winds
+Name[ar]=4 الرياح
 Name[bs]=4 vjetra
 Name[ca]=4 vents
 Name[ca@valencia]=4 vents
@@ -50,6 +51,7 @@ Name[x-test]=xx4 Windsxx
 Name[zh_CN]=四风牌
 Name[zh_TW]=風牌
 Description=A layout resembling a fortress
+Description[ar]=تخطيط يشبه القلعة
 Description[bs]=Izgleda kao tvrđava
 Description[ca]=Una disposició semblant a una fortalesa
 Description[ca@valencia]=Una disposició pareixent a una fortalesa

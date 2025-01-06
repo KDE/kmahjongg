@@ -58,6 +58,7 @@ Name[x-test]=xxTowerxx
 Name[zh_CN]=堡垒
 Name[zh_TW]=塔
 Description=Remove the towers
+Description[ar]=أزل الأبراج
 Description[bs]=Ukloni tornjeve
 Description[ca]=Elimina les torres
 Description[ca@valencia]=Elimina les torres

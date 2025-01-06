@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pillars
+Name[ar]=الأعمدة
 Name[bs]=Stubovi
 Name[ca]=Pilars
 Name[ca@valencia]=Pilars
@@ -48,6 +49,7 @@ Name[x-test]=xxPillarsxx
 Name[zh_CN]=台柱
 Name[zh_TW]=柱子
 Description=A couple of vertical pillars supporting a flat surface
+Description[ar]=زوجان من الأعمدة الرأسية تدعم سطحًا مستويًا
 Description[bs]=Par okomitih stubova podupire ravnu površinu
 Description[ca]=Un grup de pilars verticals que suporten una superfície plana
 Description[ca@valencia]=Un grup de pilars verticals que suporten una superfície plana

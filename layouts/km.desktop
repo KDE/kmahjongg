@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=KM
+Name[ar]=KM
 Name[bs]=KM
 Name[ca]=KM
 Name[ca@valencia]=KM
@@ -51,6 +52,7 @@ Name[x-test]=xxKMxx
 Name[zh_CN]=K M
 Name[zh_TW]=KM
 Description=Letters K and M. Do you have your favourite extension for that?
+Description[ar]=الحرفان K وM. هل لديك الامتداد المفضل لذلك؟
 Description[bs]=Slova K i M. Imate li omiljeno proširenje za to?
 Description[ca]=Lletres K i M. Tens la teva ampliació favorita per a això?
 Description[ca@valencia]=Lletres K i M. Tens la teua ampliació favorita per a açò?

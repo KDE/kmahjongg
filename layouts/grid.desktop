@@ -55,6 +55,7 @@ Name[x-test]=xxGridxx
 Name[zh_CN]=网格
 Name[zh_TW]=格子
 Description=A rectangular grid of varying height
+Description[ar]=شبكة مستطيلة متفاوتة الارتفاع
 Description[bs]=Pravougaona mreža različitih visina
 Description[ca]=Una graella rectangular d'alçada variable
 Description[ca@valencia]=Una graella rectangular d'alçària variable

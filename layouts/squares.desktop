@@ -53,6 +53,7 @@ Name[x-test]=xxSquaresxx
 Name[zh_CN]=方块
 Name[zh_TW]=方塊
 Description=Concentric squares of alterating height
+Description[ar]=مربعات متحدة المركز ذات ارتفاع متغير
 Description[bs]=Koncentrični kvadrati svih visina
 Description[ca]=Quadrats concèntrics d'alçada alterada
 Description[ca@valencia]=Quadrats concèntrics d'alçària alterada

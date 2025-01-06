@@ -73,6 +73,7 @@ Name[zh_TW]=KMahjongg 上海麻將
 Exec=kmahjongg -qwindowtitle %c
 Type=Application
 GenericName=Mahjongg Solitaire
+GenericName[ar]=سوليتير ماهجونج
 GenericName[bs]=Mahjongg soliter
 GenericName[ca]=Solitari Mahjongg
 GenericName[ca@valencia]=Solitari Mahjongg

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Maya
+Name[ar]=مايا
 Name[bs]=Maje
 Name[ca]=Maia
 Name[ca@valencia]=Maia
@@ -49,6 +50,7 @@ Name[x-test]=xxMayaxx
 Name[zh_CN]=玛雅
 Name[zh_TW]=馬雅
 Description=A layout resembling Maya pyramids
+Description[ar]=تخطيط يشبه أهرمات المايا
 Description[bs]=Izgled nalik na Maja piramide
 Description[ca]=Una disposició semblant a una piràmide Maia
 Description[ca@valencia]=Una disposició pareixent a una piràmide Maia
