@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Pirates
+Name[ar]=القراصنة
 Name[bs]=Pirati
 Name[ca]=Pirates
 Name[ca@valencia]=Pirates
@@ -50,6 +51,7 @@ Name[x-test]=xxPiratesxx
 Name[zh_CN]=海盗
 Name[zh_TW]=海盜
 Description=A sailing boat under the sun
+Description[ar]=قارب شراعي تحت الشمس
 Description[bs]=Jedrilica pod suncem
 Description[ca]=Un vaixell de vela sota el sol
 Description[ca@valencia]=Un vaixell de vela davall el sol

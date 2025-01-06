@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Shield
+Name[ar]=الدرع
 Name[bs]=Štit
 Name[ca]=Escut
 Name[ca@valencia]=Escut
@@ -49,6 +50,7 @@ Name[x-test]=xxShieldxx
 Name[zh_CN]=剑与盾
 Name[zh_TW]=盾牌
 Description=A shield and a sword made up of Mahjongg tiles
+Description[ar]=درع وسيف مصنوعان من قطع ماهجونغ
 Description[bs]=Štit i mač napravljeni od Mahjongg pločica
 Description[ca]=Fitxes del Mahjongg fetes d'escuts i espases
 Description[ca@valencia]=Fitxes de Mahjongg fetes d'escuts i espases

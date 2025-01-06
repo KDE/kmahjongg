@@ -54,6 +54,7 @@ Name[x-test]=xxGardenxx
 Name[zh_CN]=花园
 Name[zh_TW]=花園
 Description=Regular patterns resembling a classical garden
+Description[ar]=أنماط منتظمة تشبه الحديقة الكلاسيكية
 Description[bs]=Regularni uzorci nalik klasičnom vrtu
 Description[ca]=Formes regulars que semblen un jardí clàssic
 Description[ca@valencia]=Formes regulars que pareixen un jardí clàssic

@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Star Ship
+Name[ar]=سفينة النجوم
 Name[bs]=Zvjezdani brod
 Name[ca]=Nau estel·lar
 Name[ca@valencia]=Nau estel·lar
@@ -49,6 +50,7 @@ Name[x-test]=xxStar Shipxx
 Name[zh_CN]=太空船
 Name[zh_TW]=太空船
 Description=A sci-fi space transport
+Description[ar]=نقل فضائي من الخيال العلمي
 Description[bs]=Sci-Fi svemirski transport
 Description[ca]=Un transport de l'espai de ciència-ficció
 Description[ca@valencia]=Un transport de l'espai de ciència-ficció

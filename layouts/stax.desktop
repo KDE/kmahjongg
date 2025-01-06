@@ -56,6 +56,7 @@ Name[x-test]=xxStacksxx
 Name[zh_CN]=堆叠
 Name[zh_TW]=堆疊
 Description=Difficult layout with stacks of tiles
+Description[ar]=تخطيط صعب مع أكوام من القطع
 Description[bs]=Težak raspored sa stekovima od pločica
 Description[ca]=Disposició difícil amb piles de fitxes
 Description[ca@valencia]=Disposició difícil amb piles de fitxes

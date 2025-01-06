@@ -1,6 +1,6 @@
 [KMahjonggLayout]
 Name=Eagle
-Name[ar]=Eagle
+Name[ar]=عقاب
 Name[bs]=Orao
 Name[ca]=Àguila
 Name[ca@valencia]=Àguila
@@ -54,6 +54,7 @@ Name[x-test]=xxEaglexx
 Name[zh_CN]=鹰
 Name[zh_TW]=老鷹
 Description=A large carnivore bird in Mahjongg tiles
+Description[ar]=طائر كبير آكل للحوم في قطع الماهجونغ
 Description[bs]=Slike velikih pticagrabljivica  na Mahjongg pločicama
 Description[ca]=Un gran ocell carnívor a les fitxes del Mahjongg
 Description[ca@valencia]=Un gran ocell carnívor en les fitxes de Mahjongg

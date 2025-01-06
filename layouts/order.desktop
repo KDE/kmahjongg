@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Order
+Name[ar]=النظام
 Name[bs]=Red
 Name[ca]=Ordre
 Name[ca@valencia]=Ordre
@@ -53,6 +54,7 @@ Name[x-test]=xxOrderxx
 Name[zh_CN]=序列
 Name[zh_TW]=排序
 Description=A cross with thick ends
+Description[ar]=صليب ذو نهايات سميكة
 Description[bs]=Krst sa debelim krajevima
 Description[ca]=Una creu amb extrems gruixuts
 Description[ca@valencia]=Una creu amb extrems gruixuts

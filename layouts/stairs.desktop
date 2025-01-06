@@ -53,6 +53,7 @@ Name[x-test]=xxStairsxx
 Name[zh_CN]=阶梯
 Name[zh_TW]=階梯
 Description=A staircase for those who dislike taking the same path twice
+Description[ar]=درج لمن كره أن يسلك نفس الطريق مرتين
 Description[bs]=Stepenice za one koji ne vole ići istim putem dvaput
 Description[ca]=Una escala per als que no els agrada prendre el mateix camí dues vegades
 Description[ca@valencia]=Una escala per als que no els agrada prendre el mateix camí dues vegades

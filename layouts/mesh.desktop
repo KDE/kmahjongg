@@ -51,6 +51,7 @@ Name[x-test]=xxMeshxx
 Name[zh_CN]=网格
 Name[zh_TW]=網子
 Description=An interweaved structure made up of Mahjongg tiles
+Description[ar]=هيكل متشابك مكون من بلاط الماهجونغ
 Description[bs]=Prepletena struktura sastavljena od Mahjongg pločica
 Description[ca]=Una estructura entrellaçada feta de peces del Mahjongg
 Description[ca@valencia]=Una estructura entrellaçada feta de peces de Mahjongg

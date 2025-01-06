@@ -52,6 +52,7 @@ Name[x-test]=xxMazexx
 Name[zh_CN]=迷路
 Name[zh_TW]=迷失
 Description=An extremely twisted maze. Beware of minotaurs!
+Description[ar]=متاهة ملتوية للغاية. احذر من المينوتور!
 Description[bs]=Vrlo uvijen labirinta. Čuvajte se minotaura!
 Description[ca]=Un laberint recaragolat. Compte amb els minotaures!
 Description[ca@valencia]=Un laberint recaragolat. Compte amb els minotaures!

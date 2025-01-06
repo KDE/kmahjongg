@@ -1,5 +1,6 @@
 [KMahjonggLayout]
 Name=Rocket
+Name[ar]=الصاروخ
 Name[bs]=Raketa
 Name[ca]=Coet
 Name[ca@valencia]=Coet
@@ -49,6 +50,7 @@ Name[x-test]=xxRocketxx
 Name[zh_CN]=火箭
 Name[zh_TW]=火箭
 Description=A rocket for you to launch off the board
+Description[ar]=صاروخ لتطلقه من على اللوحة
 Description[bs]=Raketa koju trebaš lansirati sa ploče
 Description[ca]=Un coet per a llançar-te fora del tauler
 Description[ca@valencia]=Un coet per a llançar-te fora del tauler
