@@ -1,22 +1,19 @@
-# translation of kmahjongg.po to Spanish
-# Sofia Priego <spriego@darksylvania.net>, %Y.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2002,2003.
-# Lucas Garcia <tanke@escomposlinux.org>, 2003.
-# Rafael Osuna <rosuna@wol.es>, 2003, 2004.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2004, 2005.
-# Jaime Robles <jaime@kde.org>, 2005.
-# santi <santi@kde-es.org>, 2005.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007.
+# Spanish translations for kmahjongg.po package.
+#
+# SPDX-FileCopyrightText: 2002, 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2003 Lucas Garcia <tanke@escomposlinux.org>
+# SPDX-FileCopyrightText: 2003, 2004 Rafael Osuna <rosuna@wol.es>
+# SPDX-FileCopyrightText: 2004, 2005, 2007 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2005 Jaime Robles <jaime@kde.org>
 # SPDX-FileCopyrightText: 2009, 2012, 2016, 2017, 2019, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Huever, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010, 2012.
+# SPDX-FileCopyrightText: 2010, 2012 Kira J. Fernandez <kirajfdez@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:37+0000\n"
-"PO-Revision-Date: 2024-05-16 23:48+0100\n"
+"PO-Revision-Date: 2025-04-02 01:14+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -165,7 +162,7 @@ msgstr "Diseño aleatorio"
 #: src/gametype.ui:54
 #, kde-format
 msgid "Download New Layouts…"
-msgstr "Descargar nuevos diseños..."
+msgstr "Descargar nuevos diseños…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -221,7 +218,7 @@ msgstr "Tu máquina ha perdido la partida."
 #, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Calculando nueva partida..."
+msgstr "Calculando nueva partida…"
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -237,7 +234,7 @@ msgstr "Modo de demostración. Pulsa un botón del ratón para detenerlo."
 #, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Nueva partida numerada..."
+msgstr "Nueva partida numerada…"
 
 #: src/kmahjongg.cpp:148
 #, kde-format
@@ -586,42 +583,3 @@ msgstr "Generar partidas con solución"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostrar las fichas eliminadas"
-
-#~ msgid "Cut"
-#~ msgstr "Cortar"
-
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgid "Paste"
-#~ msgstr "Pegar"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Introduzca el número de la partida:"
-
-#~ msgid "Save game?"
-#~ msgstr "¿Guardar la partida?"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Ya existe un archivo con ese nombre ¿Desea sobreescribirlo?"
-
-#~ msgid "You have won!"
-#~ msgstr "¡Ha ganado!"
-
-#~ msgid "Sorry, you have lost the game."
-#~ msgstr "Lo siento, ha perdido la partida."
-
-#~ msgid "Now it is you again."
-#~ msgstr "Ahora es suyo de nuevo."
-
-#~ msgid "Congratulations. You have won!"
-#~ msgstr "Felicidades. ¡Ha ganado!"
-
-#~ msgid "Error converting board information!"
-#~ msgstr "¡Error convirtiendo información del tablero!"
-
-#~ msgid "Only saving to local files currently supported."
-#~ msgstr "Solo se puede guardar en archivos locales."
-
-#~ msgid "Could not write saved game."
-#~ msgstr "No se pudo escribir la partida guardada."
