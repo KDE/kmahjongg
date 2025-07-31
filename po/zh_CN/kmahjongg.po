@@ -37,19 +37,19 @@ msgstr "编辑版面布局"
 #, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr ""
+msgstr "新建版面"
 
 #: src/editor.cpp:117
 #, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr ""
+msgstr "打开版面"
 
 #: src/editor.cpp:124
 #, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr ""
+msgstr "保存版面"
 
 #: src/editor.cpp:134
 #, kde-format
@@ -61,43 +61,43 @@ msgstr "选择"
 #, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr ""
+msgstr "移动牌"
 
 #: src/editor.cpp:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr ""
+msgstr "添加牌"
 
 #: src/editor.cpp:159
 #, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr ""
+msgstr "删除牌"
 
 #: src/editor.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr ""
+msgstr "左移"
 
 #: src/editor.cpp:189
 #, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr ""
+msgstr "上移"
 
 #: src/editor.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr ""
+msgstr "下移"
 
 #: src/editor.cpp:201
 #, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr ""
+msgstr "右移"
 
 #: src/editor.cpp:283
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "随机布局"
 #: src/gametype.ui:54
 #, kde-format
 msgid "Download New Layouts…"
-msgstr ""
+msgstr "下载新的布局..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -209,7 +209,7 @@ msgstr "电脑输了。"
 #, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr ""
+msgstr "正在计算新游戏..."
 
 #: src/gameview.cpp:261
 #, kde-format
