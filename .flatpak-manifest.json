@@ -6,10 +6,10 @@
     "command": "kmahjongg",
     "rename-icon": "kmahjongg",
     "finish-args": [
+        "--device=dri",
         "--share=ipc",
-        "--socket=wayland",
         "--socket=fallback-x11",
-        "--device=dri"
+        "--socket=wayland"
     ],
     "modules": [
         {
