@@ -225,7 +225,7 @@ msgstr "演示模式。单击鼠标按钮停止。"
 #, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr ""
+msgstr "新建编号游戏..."
 
 #: src/kmahjongg.cpp:148
 #, kde-format
@@ -269,7 +269,7 @@ msgstr "游戏：000000000000000000000"
 #: src/kmahjongg.cpp:226
 #, kde-format
 msgid "Time: %1"
-msgstr ""
+msgstr "时间：%1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -281,7 +281,7 @@ msgstr "新建游戏"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr ""
+msgstr "游戏编号："
 
 #: src/kmahjongg.cpp:267
 #, kde-format
