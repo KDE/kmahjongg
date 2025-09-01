@@ -61,7 +61,7 @@ msgstr "Guarda el tauler"
 #, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Selecciona"
+msgstr "Tria"
 
 #: src/editor.cpp:150
 #, kde-format
@@ -407,7 +407,7 @@ msgstr "Si les fitxes eliminades s'han de mostrar al tauler."
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr "Si se selecciona una disposició aleatòria en iniciar."
+msgstr "Si es tria una disposició aleatòria en iniciar."
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
