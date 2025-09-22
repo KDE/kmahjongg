@@ -764,7 +764,7 @@
 > <guimenu
 >Juego</guimenu
 > <guimenuitem
->Cargar...</guimenuitem
+>Cargar…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -800,7 +800,7 @@
 ><guimenu
 >Juego</guimenu
 > <guimenuitem
->Nueva partida numerada...</guimenuitem
+>Nueva partida numerada…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -876,7 +876,7 @@
 > <guimenu
 >Juego</guimenu
 > <guimenuitem
->Mostrar las mejores puntuaciones...</guimenuitem
+>Mostrar las mejores puntuaciones…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1217,7 +1217,7 @@ FileName=<replaceable
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar &kmahjongg;...</guimenuitem
+>Configurar &kmahjongg;…</guimenuitem
 ></menuchoice
 > abre el diálogo <guilabel
 >Configurar &kmahjongg;</guilabel
@@ -1375,7 +1375,7 @@ FileName=<replaceable
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar atajos de teclado...</guimenuitem
+>Configurar atajos de teclado…</guimenuitem
 ></menuchoice
 > te permite cambiar las asociaciones de teclas predeterminadas.</para>
 
