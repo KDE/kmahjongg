@@ -188,6 +188,7 @@
     <binary>kmahjongg</binary>
   </provides>
   <releases>
+    <release version="0.9.25082" date="2025-10-09"/>
     <release version="0.9.25081" date="2025-09-11"/>
     <release version="0.9.25080" date="2025-08-14"/>
     <release version="0.9.25043" date="2025-07-03"/>
