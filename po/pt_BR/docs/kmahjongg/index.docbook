@@ -756,7 +756,7 @@
 > <guimenu
 >Jogo</guimenu
 > <guimenuitem
->Carregar...</guimenuitem
+>Carregar…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -792,7 +792,7 @@
 ><guimenu
 >Jogo</guimenu
 > <guimenuitem
->Novo Jogo Numerado...</guimenuitem
+>Novo jogo numerado…</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -1209,7 +1209,7 @@ FileName=<replaceable
 ><guimenu
 >Configurações</guimenu
 ><guimenuitem
->Configurar o &kmahjongg;...</guimenuitem
+>Configurar &kmahjongg;…</guimenuitem
 ></menuchoice
 > abre a janela para <guilabel
 >Configurar o &kmahjongg;</guilabel
@@ -1367,7 +1367,7 @@ FileName=<replaceable
 ><guimenu
 >Configurações</guimenu
 ><guimenuitem
->Configurar os Atalhos...</guimenuitem
+>Configurar os atalhos do teclado…</guimenuitem
 ></menuchoice
 > permite-lhe modificar os atalhos de teclado padrão.</para>
 
