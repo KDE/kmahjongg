@@ -212,4 +212,7 @@
     <release version="0.9.24020" date="2024-02-28"/>
     <release version="0.9.23085" date="2024-02-15"/>
   </releases>
+  <custom>
+    <value key="KDE::supporters">Aki S.</value>
+  </custom>
 </component>
