@@ -140,7 +140,7 @@ msgstr "El tauler ha sigut modificat. Voleu guardar els canvis?"
 #: src/editor.cpp:366
 #, kde-format
 msgid "Save failed. Aborting operation."
-msgstr "No s'ha pogut guardar. S'ha interromput l'operació."
+msgstr "Ha fallat mentre es guardava. S'ha interromput l'operació."
 
 #: src/gameremovedtiles.cpp:127
 #, kde-format
