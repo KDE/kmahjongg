@@ -28,88 +28,76 @@ msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: src/editor.cpp:70
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "Cuir Leagan Amach an Chláir in Eagar"
+msgstr ""
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr "Clár nua"
+msgstr ""
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "Oscail clár"
+msgstr ""
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "Sábháil clár"
+msgstr ""
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
-msgstr "Roghnaigh"
+msgstr ""
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
-msgstr "Bog tíleanna"
+msgstr ""
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
-msgstr "Cuir tíleanna leis"
+msgstr ""
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
-msgstr "Bain tíleanna"
+msgstr ""
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
-msgstr "Bog ar chlé"
+msgstr ""
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
-msgstr "Bog suas"
+msgstr ""
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
-msgstr "Bog síos"
+msgstr ""
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
-msgstr "Bog ar dheis"
+msgstr ""
 
 #: src/editor.cpp:283
 #, kde-format
@@ -117,21 +105,15 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "Tíleanna: %1 Láthair: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "Oscail Leagan Amach Cláir"
+msgstr ""
 
 #: src/editor.cpp:293 src/editor.cpp:331
-#, fuzzy, kde-format
-#| msgid ""
-#| "*.layout|Board Layout (*.layout)\n"
-#| "*|All Files"
+#, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
-"*.layout|Leagan Amach Cláir (*.layout)\n"
-"*|Gach Comhad"
 
 #: src/editor.cpp:324
 #, kde-format
@@ -139,11 +121,10 @@ msgid "You can only save with a even number of tiles."
 msgstr ""
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr "Sábháil Leagan Amach an Chláir"
+msgstr ""
 
 #: src/editor.cpp:358
 #, kde-format
@@ -158,10 +139,9 @@ msgid "Save failed. Aborting operation."
 msgstr "Theip ar shábháil. Ag tobscor."
 
 #: src/gameremovedtiles.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Removed tiles"
-msgstr "Bain tíleanna"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
@@ -171,10 +151,9 @@ msgstr "Leagan Amach Randamach"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "Fai&gh Leaganacha Amach Nua"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -227,11 +206,10 @@ msgid "Your computer has lost the game."
 msgstr "Chaill do ríomhaire an cluiche."
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
-msgstr "Cluiche nua á áireamh..."
+msgstr ""
 
 #: src/gameview.cpp:261
 #, kde-format
@@ -244,39 +222,34 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "Mód taispeána. Cliceáil cnaipe na luiche chun é a stopadh."
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "Cluiche Nua Uimhrithe..."
+msgstr ""
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "&Suaitheadh"
+msgstr ""
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Rothlaigh an tAmharc go Tuathalach"
+msgstr ""
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Rothlaigh an tAmharc go Deisealach"
+msgstr ""
 
 #: src/kmahjongg.cpp:179
-#, fuzzy, kde-format
-#| msgid "&Board Editor"
+#, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr "&Eagarthóir Cláir"
+msgstr ""
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -294,44 +267,38 @@ msgid "Game: 000000000000000000000"
 msgstr "Cluiche: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "Am: "
+msgstr ""
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Cluiche Nua"
+msgstr ""
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Uimhir an chluiche: %1"
+msgstr ""
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr "Ginearálta"
+msgstr ""
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "Leagan Amach an Chláir"
+msgstr ""
 
 #: src/kmahjongg.cpp:405
-#, fuzzy, kde-format
-#| msgid "Game over: You have no moves left."
+#, kde-format
 msgid "Game Over: You have no moves left."
-msgstr "Cluiche thart: Níl aon bheart fágtha agat."
+msgstr ""
 
 #: src/kmahjongg.cpp:406
 #, kde-format
@@ -340,11 +307,10 @@ msgid "Game Over"
 msgstr ""
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
-msgstr "Cluiche Nua"
+msgstr ""
 
 #: src/kmahjongg.cpp:408
 #, kde-format
@@ -368,11 +334,10 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "Bainte: %1/%2  Péirí fágtha: %3"
 
 #: src/kmahjongg.cpp:623
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
-msgstr "Luchtaigh Cluiche"
+msgstr ""
 
 #: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
@@ -395,17 +360,15 @@ msgid "File format not recognized."
 msgstr "Ní aithnítear formáid an chomhaid."
 
 #: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "Sábháil an Cluiche"
+msgstr ""
 
 #: src/kmahjongg.cpp:708
-#, fuzzy, kde-format
-#| msgid "Could not write to file. Aborting."
+#, kde-format
 msgid "Could not open file for saving."
-msgstr "Ní féidir scríobh sa chomhad. Ag Tobscor."
+msgstr ""
 
 #: src/kmahjongg.cpp:744
 #, kde-format
@@ -484,10 +447,9 @@ msgid "KMahjongg"
 msgstr "KMahjongg"
 
 #: src/main.cpp:29
-#, fuzzy, kde-format
-#| msgid "Mahjongg Solitaire for KDE"
+#, kde-format
 msgid "Mahjongg Solitaire by KDE"
-msgstr "Cluiche Aonair Mahjongg le haghaidh KDE"
+msgstr ""
 
 #: src/main.cpp:31
 #, kde-format
@@ -615,154 +577,3 @@ msgstr "Gin cluichí inréitithe"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Taispeáin na tíleanna bainte"
-
-#~ msgid "Cut"
-#~ msgstr "Gearr"
-
-#~ msgid "Copy"
-#~ msgstr "Cóipeáil"
-
-#~ msgid "Paste"
-#~ msgstr "Greamaigh"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Iontráil uimhir an chluiche:"
-
-#, fuzzy
-#~| msgid "Save Game"
-#~ msgid "Save game?"
-#~ msgstr "Sábháil an Cluiche"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Tá comhad darb ainm ann cheana. An bhfuil fonn ort scríobh air?"
-
-#~ msgid "You have won!"
-#~ msgstr "Bhí an bua agat!"
-
-#~ msgid "Sorry, you have lost the game."
-#~ msgstr "Tá brón orm, chaill tú an cluiche."
-
-#~ msgid "Now it is you again."
-#~ msgstr "Is leatsa an imirt arís."
-
-#~ msgid "Congratulations. You have won!"
-#~ msgstr "Comhghairdeas. Bhí an bua agat!"
-
-#~ msgid "Error converting board information!"
-#~ msgstr "Earráid agus faisnéis an chláir á tiontú!"
-
-#~ msgid "Only saving to local files currently supported."
-#~ msgstr "Is féidir sábháil i gcomhaid logánta amháin faoi láthair."
-
-#~ msgid "Could not write saved game."
-#~ msgstr "Níorbh fhéidir cluiche sábháilte a scríobh."
-
-#~ msgid "Mauricio Piacentini"
-#~ msgstr "Mauricio Piacentini"
-
-#~ msgid "&Edit"
-#~ msgstr "&Eagar"
-
-#~ msgid "&Settings"
-#~ msgstr "&Socruithe"
-
-#~ msgid "Load..."
-#~ msgstr "Luchtaigh..."
-
-#~ msgid "Change Background Image"
-#~ msgstr "Athraigh an Íomhá Chúlra"
-
-#~ msgid "*.bgnd|Background Image (*.bgnd)\n"
-#~ msgstr "*.bgnd|Íomhá Chúlra (*.bgnd)\n"
-
-#~ msgid "*.layout|Board Layout File (*.layout)\n"
-#~ msgstr "*.layout|Comhad Leagain Amach (*.layout)\n"
-
-#~ msgid "Change Board Layout"
-#~ msgstr "Athraigh Leagan Amach an Chláir"
-
-#~ msgid "*.theme|KMahjongg Theme File (*.theme)\n"
-#~ msgstr "*.theme|Téama KMahjongg (*.theme)\n"
-
-#~ msgid "Choose Theme"
-#~ msgstr "Roghnaigh Téama"
-
-#~ msgid "*|All Files"
-#~ msgstr "*|Gach Comhad"
-
-#~ msgid "That is not a valid theme file."
-#~ msgstr "Ní comhad bailí téama é sin."
-
-#~ msgid "Save Theme"
-#~ msgstr "Sábháil an Téama"
-
-#~ msgid "Overwrite"
-#~ msgstr "Forscríobh"
-
-#~ msgid "Open La&yout..."
-#~ msgstr "Oscail &Leagan Amach..."
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgid "Pos"
-#~ msgstr "Láthair"
-
-#~ msgid "Name"
-#~ msgstr "Ainm"
-
-#~ msgid "Board"
-#~ msgstr "Clár"
-
-#~ msgid "Score"
-#~ msgstr "Scór"
-
-#~ msgid "Time"
-#~ msgstr "Am"
-
-#~ msgid "Scores"
-#~ msgstr "Scóir"
-
-#~ msgid "Anonymous"
-#~ msgstr "Gan ainm"
-
-#~ msgid "Reset High Scores"
-#~ msgstr "Glan Na Scóir Is Fearr"
-
-#~ msgid "Reset"
-#~ msgstr "Athshocraigh"
-
-#~ msgid ""
-#~ "An error occurred when loading the background image\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Tharla earráid agus an íomhá chúlra á luchtú\n"
-#~ "%1"
-
-#~ msgid ""
-#~ "Failed to load image:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ní féidir an íomhá a luchtú:\n"
-#~ "%1"
-
-#~ msgid "Open Th&eme..."
-#~ msgstr "Oscail &Téama..."
-
-#~ msgid "Open &Background..."
-#~ msgstr "Oscail &Cúlra..."
-
-#~ msgid "Sa&ve Theme..."
-#~ msgstr "Sá&bháil Téama..."
-
-#~ msgid "Background"
-#~ msgstr "Cúlra"
-
-#~ msgid "Scale"
-#~ msgstr "Scála"
-
-#~ msgid "Tiled"
-#~ msgstr "Tílithe"
-
-#~ msgid "Tiles"
-#~ msgstr "Tíleanna"
