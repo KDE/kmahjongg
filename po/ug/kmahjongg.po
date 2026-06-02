@@ -8,56 +8,52 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 18:57-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: src/editor.cpp:70
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
-msgstr "E"
+msgstr ""
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
-msgstr "ئويۇننى ساقلاش"
+msgstr ""
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
-msgstr "E"
+msgstr ""
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
-msgstr "ئويۇننى ساقلاش"
+msgstr ""
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "تاللا"
@@ -110,11 +106,10 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr ""
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
-msgstr "E"
+msgstr ""
 
 #: src/editor.cpp:293 src/editor.cpp:331
 #, kde-format
@@ -127,11 +122,10 @@ msgid "You can only save with a even number of tiles."
 msgstr ""
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
-msgstr "E"
+msgstr ""
 
 #: src/editor.cpp:358
 #, kde-format
@@ -150,10 +144,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgid "Random Layout"
-msgstr "E"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
@@ -169,17 +162,15 @@ msgstr "ئالدىن كۆزەت"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gametype.ui:90
-#, fuzzy, kde-format
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
+#, kde-format
 msgid "Layout Details"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelAuthor)
 #: src/gametype.ui:96
 #, kde-format
 msgid "Author:"
-msgstr "ئاپتور:"
+msgstr "يازغۇچى:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelContact)
 #: src/gametype.ui:106
@@ -230,18 +221,16 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr ""
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
-msgstr "يېڭى نومۇرلۇق ئويۇن…"
+msgstr ""
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
-msgstr "تەرتىپسىز(&F)"
+msgstr ""
 
 #: src/kmahjongg.cpp:153
 #, kde-format
@@ -277,14 +266,12 @@ msgid "Game: 000000000000000000000"
 msgstr ""
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "ۋاقتى: "
+msgstr "ۋاقىت: %1"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "يېڭى ئويۇن"
@@ -296,18 +283,16 @@ msgid "Game number:"
 msgstr ""
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "ئادەتتىكى"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
-msgstr "E"
+msgstr ""
 
 #: src/kmahjongg.cpp:405
 #, kde-format
@@ -318,11 +303,10 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "ئويۇن ئاخىرلاشتى"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "يېڭى ئويۇن"
@@ -331,7 +315,7 @@ msgstr "يېڭى ئويۇن"
 #, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr ""
+msgstr "قايتا قوزغات"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
@@ -349,8 +333,7 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr ""
 
 #: src/kmahjongg.cpp:623
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "ئويۇن ئوقۇش"
@@ -376,11 +359,10 @@ msgid "File format not recognized."
 msgstr ""
 
 #: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
-msgstr "ئويۇننى ساقلاش"
+msgstr ""
 
 #: src/kmahjongg.cpp:708
 #, kde-format
@@ -461,7 +443,7 @@ msgstr "ئاساسىي قورال بالداق"
 #: src/main.cpp:27
 #, kde-format
 msgid "KMahjongg"
-msgstr "KMahjongg"
+msgstr "K شاڭخەي ماجاڭ قارتى"
 
 #: src/main.cpp:29
 #, kde-format
@@ -484,7 +466,7 @@ msgstr ""
 #: src/main.cpp:34
 #, kde-format
 msgid "Original Author"
-msgstr "ئەسلى ئاپتور"
+msgstr "ئەسلى يازغۇچى"
 
 #: src/main.cpp:35
 #, kde-format
@@ -494,7 +476,7 @@ msgstr ""
 #: src/main.cpp:35
 #, kde-format
 msgid "Current maintainer"
-msgstr "نۆۋەتتىكى مەسئۇلى"
+msgstr "نۆۋەتتىكى ئاسرىغۇچى"
 
 #: src/main.cpp:36
 #, kde-format
@@ -504,7 +486,7 @@ msgstr "Albert Astals Cid"
 #: src/main.cpp:36
 #, kde-format
 msgid "Bug fixes"
-msgstr "كەمتۈكلەرنى تۈزىتىش"
+msgstr "كەمتۈك تۈزىتىش"
 
 #: src/main.cpp:37
 #, kde-format
@@ -561,7 +543,7 @@ msgstr ""
 #: src/main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr "Benjamin Meyer"
+msgstr ""
 
 #: src/main.cpp:42
 #, kde-format
@@ -595,7 +577,6 @@ msgstr ""
 #~ msgid "Paste"
 #~ msgstr "چاپلا"
 
-#, fuzzy
 #~| msgid "Save Game"
 #~ msgid "Save game?"
 #~ msgstr "ئويۇننى ساقلاش"
