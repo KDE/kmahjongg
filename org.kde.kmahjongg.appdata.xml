@@ -47,6 +47,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑madžong</name>
   <name xml:lang="sv">Mahjongg</name>
   <name xml:lang="tr">K Mahjongg</name>
+  <name xml:lang="ug">K شاڭخەي ماجاڭ قارتى</name>
   <name xml:lang="uk">KMahjongg</name>
   <name xml:lang="zh-CN">KMahjongg</name>
   <name xml:lang="zh-TW">KMahjongg</name>
@@ -88,6 +89,7 @@
   <summary xml:lang="sr-ijekavianlatin">Madžong pasijans</summary>
   <summary xml:lang="sv">Mahjongg-patiens</summary>
   <summary xml:lang="tr">Mahjongg Solitaire</summary>
+  <summary xml:lang="ug">ماجاڭ قارتى</summary>
   <summary xml:lang="uk">Пасьянс «Маджонґ»</summary>
   <summary xml:lang="zh-CN">麻将棋牌</summary>
   <summary xml:lang="zh-TW">麻將遊戲</summary>
@@ -176,6 +178,7 @@
       <caption xml:lang="sl">Igra KMahjongg</caption>
       <caption xml:lang="sv">Spela Mahjongg</caption>
       <caption xml:lang="tr">K Mahjongg oynarken</caption>
+      <caption xml:lang="ug">K شاڭخەي ماجاڭ قارتى ئويناۋاتىدۇ</caption>
       <caption xml:lang="uk">Гра KMahjongg</caption>
       <caption xml:lang="zh-CN">正在进行麻将游戏</caption>
       <caption xml:lang="zh-TW">KMahjongg 遊玩畫面</caption>
