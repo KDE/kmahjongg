@@ -1,4 +1,5 @@
 # Translation of kmahjongg into Japanese.
+# SPDX-FileCopyrightText: 2026 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # This file is distributed under the same license as the kdegames package.
 # Taiki Komoda <kom@kde.gr.jp>, 2002.
 # Takuro Ashie <ashie@homa.ne.jp>, 2004.
@@ -11,14 +12,14 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2008-12-23 11:25+0900\n"
-"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
+"PO-Revision-Date: 2026-07-06 20:39+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -26,95 +27,83 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Taiki Komoda,Takuro Ashie,Kurose Shushi,Naoya KOJIMA"
+msgstr "Taiki Komoda,Takuro Ashie,Kurose Shushi,Naoya KOJIMA,Ryuichi Yamada"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "kom@kde.gr.jp,ashie@homa.ne.jp,md81@bird.email.ne.jp,naoya@fullmoon.dyndns."
-"org"
+"org,ryuichi_ya220@outlook.jp"
 
 #: src/editor.cpp:70
-#, fuzzy, kde-format
-#| msgid "Edit Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Board Layout"
 msgstr "ボードのレイアウトを編集"
 
 #: src/editor.cpp:110
-#, fuzzy, kde-format
-#| msgid "New board"
+#, kde-format
 msgctxt "@action"
 msgid "New Board"
 msgstr "新しいボード"
 
 #: src/editor.cpp:117
-#, fuzzy, kde-format
-#| msgid "Open board"
+#, kde-format
 msgctxt "@action"
 msgid "Open Board"
 msgstr "ボードを開く"
 
 #: src/editor.cpp:124
-#, fuzzy, kde-format
-#| msgid "Save board"
+#, kde-format
 msgctxt "@action"
 msgid "Save Board"
 msgstr "ボードを保存"
 
 #: src/editor.cpp:134
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgctxt "@action"
 msgid "Select"
 msgstr "選択"
 
 #: src/editor.cpp:150
-#, fuzzy, kde-format
-#| msgid "Move tiles"
+#, kde-format
 msgctxt "@action"
 msgid "Move Tiles"
 msgstr "牌を移動"
 
 #: src/editor.cpp:155
-#, fuzzy, kde-format
-#| msgid "Add tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Add Tiles"
 msgstr "牌を追加"
 
 #: src/editor.cpp:159
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgctxt "@option:check"
 msgid "Remove Tiles"
 msgstr "牌を削除"
 
 #: src/editor.cpp:183
-#, fuzzy, kde-format
-#| msgid "Shift left"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Left"
 msgstr "左にシフト"
 
 #: src/editor.cpp:189
-#, fuzzy, kde-format
-#| msgid "Shift up"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Up"
 msgstr "上にシフト"
 
 #: src/editor.cpp:195
-#, fuzzy, kde-format
-#| msgid "Shift down"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Down"
 msgstr "下にシフト"
 
 #: src/editor.cpp:201
-#, fuzzy, kde-format
-#| msgid "Shift right"
+#, kde-format
 msgctxt "@action"
 msgid "Shift Right"
 msgstr "右にシフト"
@@ -125,17 +114,13 @@ msgid "Tiles: %1 Pos: %2,%3,%4"
 msgstr "牌: %1 位置: %2,%3,%4"
 
 #: src/editor.cpp:292
-#, fuzzy, kde-format
-#| msgid "Open Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open Board Layout"
 msgstr "ボードのレイアウトを開く"
 
 #: src/editor.cpp:293 src/editor.cpp:331
-#, fuzzy, kde-format
-#| msgid ""
-#| "*.layout|Board Layout (*.layout)\n"
-#| "*|All Files"
+#, kde-format
 msgid "Board Layout (*.layout);;All Files (*)"
 msgstr ""
 "*.layout|ボードのレイアウト (*.layout)\n"
@@ -144,11 +129,10 @@ msgstr ""
 #: src/editor.cpp:324
 #, kde-format
 msgid "You can only save with a even number of tiles."
-msgstr ""
+msgstr "牌の数が偶数でなければ保存できません。"
 
 #: src/editor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Save Board Layout"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Board Layout"
 msgstr "ボードのレイアウトを保存"
@@ -164,24 +148,21 @@ msgid "Save failed. Aborting operation."
 msgstr "保存に失敗しました。操作を中止します。"
 
 #: src/gameremovedtiles.cpp:127
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Removed tiles"
-msgstr "牌を削除"
+msgstr "除去された牌"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RandomLayout)
 #: src/gametype.ui:25
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgid "Random Layout"
-msgstr "ボードのレイアウト"
+msgstr "ランダムなレイアウト"
 
 #. i18n: ectx: property (text), widget (QPushButton, getNewButton)
 #: src/gametype.ui:54
-#, fuzzy, kde-format
-#| msgid "&Get New Layouts"
+#, kde-format
 msgid "Download New Layouts…"
-msgstr "新しいレイアウトを取得(&G)"
+msgstr "新しいレイアウトをダウンロード..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/gametype.ui:63
@@ -234,8 +215,7 @@ msgid "Your computer has lost the game."
 msgstr "コンピュータの負けです。"
 
 #: src/gameview.cpp:203
-#, fuzzy, kde-format
-#| msgid "Calculating new game..."
+#, kde-format
 msgctxt "@info:status"
 msgid "Calculating new game…"
 msgstr "新しいゲームを作成中..."
@@ -251,29 +231,25 @@ msgid "Demo mode. Click mousebutton to stop."
 msgstr "デモ中。マウスクリックで中止。"
 
 #: src/kmahjongg.cpp:141
-#, fuzzy, kde-format
-#| msgid "New Numbered Game..."
+#, kde-format
 msgctxt "@action"
 msgid "New Numbered Game…"
 msgstr "新しいナンバーのゲーム..."
 
 #: src/kmahjongg.cpp:148
-#, fuzzy, kde-format
-#| msgid "Shu&ffle"
+#, kde-format
 msgctxt "@action"
 msgid "Shu&ffle"
 msgstr "シャッフル(&F)"
 
 #: src/kmahjongg.cpp:153
-#, fuzzy, kde-format
-#| msgid "Rotate View Counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
 msgstr "ビューを反時計回りに回転"
 
 #: src/kmahjongg.cpp:159
-#, fuzzy, kde-format
-#| msgid "Rotate View Clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
 msgstr "ビューを時計回りに回転"
@@ -282,7 +258,7 @@ msgstr "ビューを時計回りに回転"
 #, kde-format
 msgctxt "@action"
 msgid "&Board Editor"
-msgstr ""
+msgstr "ボードエディタ(&B)"
 
 #: src/kmahjongg.cpp:199
 #, kde-format
@@ -300,42 +276,36 @@ msgid "Game: 000000000000000000000"
 msgstr "ゲーム: 000000000000000000000"
 
 #: src/kmahjongg.cpp:226
-#, fuzzy, kde-format
-#| msgid "Time: "
+#, kde-format
 msgid "Time: %1"
-msgstr "タイム: "
+msgstr "タイム: %1"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "新しいゲーム"
 
 #: src/kmahjongg.cpp:232
-#, fuzzy, kde-format
-#| msgid "Game number: %1"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "ゲームナンバー: %1"
+msgstr "ゲームナンバー:"
 
 #: src/kmahjongg.cpp:267
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "全般"
 
 #: src/kmahjongg.cpp:268
-#, fuzzy, kde-format
-#| msgid "Board Layout"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Board Layout"
 msgstr "ボードのレイアウト"
 
 #: src/kmahjongg.cpp:405
-#, fuzzy, kde-format
-#| msgid "Game over: You have no moves left."
+#, kde-format
 msgid "Game Over: You have no moves left."
 msgstr "ゲームオーバー: 手詰りです。"
 
@@ -343,11 +313,10 @@ msgstr "ゲームオーバー: 手詰りです。"
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "ゲームオーバー"
 
 #: src/kmahjongg.cpp:407
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@action:button"
 msgid "New Game"
 msgstr "新しいゲーム"
@@ -356,12 +325,12 @@ msgstr "新しいゲーム"
 #, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr ""
+msgstr "最初からやり直す"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
 msgid "You have won with a final time of %1 and a score of %2!"
-msgstr ""
+msgstr "経過時間 %1, スコア %2 であなたが勝利しました!"
 
 #: src/kmahjongg.cpp:552
 #, kde-format
@@ -374,8 +343,7 @@ msgid "Removed: %1/%2  Combinations left: %3"
 msgstr "除去済み: %1/%2  残りのペア: %3"
 
 #: src/kmahjongg.cpp:623
-#, fuzzy, kde-format
-#| msgid "Load Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load Game"
 msgstr "ゲームを読み込み"
@@ -383,7 +351,7 @@ msgstr "ゲームを読み込み"
 #: src/kmahjongg.cpp:623 src/kmahjongg.cpp:698
 #, kde-format
 msgid "KMahjongg Game (*.kmgame)"
-msgstr ""
+msgstr "KMahjongg ゲーム (*.kmgame)"
 
 #: src/kmahjongg.cpp:632
 #, kde-format
@@ -401,22 +369,20 @@ msgid "File format not recognized."
 msgstr "未知のファイルフォーマットです。"
 
 #: src/kmahjongg.cpp:698 src/kmahjongg.cpp:744
-#, fuzzy, kde-format
-#| msgid "Save Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Game"
 msgstr "ゲームを保存"
 
 #: src/kmahjongg.cpp:708
-#, fuzzy, kde-format
-#| msgid "Could not read from file. Aborting."
+#, kde-format
 msgid "Could not open file for saving."
-msgstr "ファイルから読み込めませんでした。中止します。"
+msgstr "保存のためにファイルを開けませんでした。"
 
 #: src/kmahjongg.cpp:744
 #, kde-format
 msgid "Do you want to save your game?"
-msgstr ""
+msgstr "ゲームを保存しますか？"
 
 #. i18n: ectx: label, entry (TileSet), group (General)
 #: src/kmahjongg.kcfg:9
@@ -440,13 +406,13 @@ msgstr "牌のレイアウト"
 #: src/kmahjongg.kcfg:21
 #, kde-format
 msgid "Whether the removed tiles will be shown on the board."
-msgstr ""
+msgstr "除去された牌をボードに表示するかどうか"
 
 #. i18n: ectx: label, entry (RandomLayout), group (General)
 #: src/kmahjongg.kcfg:25
 #, kde-format
 msgid "Whether a random layout is chosen on startup."
-msgstr ""
+msgstr "起動時にランダムなレイアウトを選択するかどうか"
 
 #. i18n: ectx: label, entry (SolvableGames), group (General)
 #: src/kmahjongg.kcfg:29
@@ -490,23 +456,20 @@ msgid "KMahjongg"
 msgstr "KMahjongg"
 
 #: src/main.cpp:29
-#, fuzzy, kde-format
-#| msgid "Mahjongg Solitaire for KDE"
+#, kde-format
 msgid "Mahjongg Solitaire by KDE"
 msgstr "KDE 上海マージャン牌ゲーム"
 
 #: src/main.cpp:31
-#, fuzzy, kde-format
-#| msgid ""
-#| "(c) 1997, Mathias Mueller\n"
-#| "(c) 2006, Mauricio Piacentini"
+#, kde-format
 msgid ""
 "(c) 1997, Mathias Mueller\n"
 "(c) 2006, Mauricio Piacentini\n"
 "(c) 2011, Christian Krippendorf"
 msgstr ""
 "(c) 1997, Mathias Mueller\n"
-"(c) 2006, Mauricio Piacentini"
+"(c) 2006, Mauricio Piacentini\n"
+"(c) 2011, Christian Krippendorf"
 
 #: src/main.cpp:34
 #, kde-format
@@ -521,7 +484,7 @@ msgstr "オリジナルの作者"
 #: src/main.cpp:35
 #, kde-format
 msgid "Christian Krippendorf"
-msgstr ""
+msgstr "Christian Krippendorf"
 
 #: src/main.cpp:35
 #, kde-format
@@ -616,27 +579,6 @@ msgstr "解決可能なゲームを生成する"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemovedTiles)
 #: src/settings.ui:30
-#, fuzzy, kde-format
-#| msgid "Remove tiles"
+#, kde-format
 msgid "Show removed tiles"
-msgstr "牌を削除"
-
-#~ msgid "Cut"
-#~ msgstr "切り取り"
-
-#~ msgid "Copy"
-#~ msgstr "コピー"
-
-#~ msgid "Paste"
-#~ msgstr "貼り付け"
-
-#~ msgid "Enter game number:"
-#~ msgstr "ゲームナンバーを入力:"
-
-#, fuzzy
-#~| msgid "Save Game"
-#~ msgid "Save game?"
-#~ msgstr "ゲームを保存"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "同じ名前のファイルが既に存在します。上書きしますか？"
+msgstr "除去された牌を表示"
