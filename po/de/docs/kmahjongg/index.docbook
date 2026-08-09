@@ -149,7 +149,7 @@
 >Die Spielzeit läuft bereits, sobald das Spiel gestartet wurde.</para
 ></note>
 	<para
->Sie sollten den Stapel sorgfältig untersuchen und zwei zusammenpassende Steine finden. Wenn Sie ein solches Paar gefunden haben, benutzen Sie Ihre Maus um diese auszuwählen. </para>
+>Sie sollten den Stapel sorgfältig untersuchen und zwei zusammenpassende Steine finden. Wenn Sie ein solches Paar gefunden haben, verwenden Sie Ihre Maus um diese auszuwählen. </para>
 	<note
 ><title
 >Hinweis:</title>
@@ -687,7 +687,7 @@
 ><para
 >Wenn ein Spieler <quote
 >Tipps</quote
-> als Hilfe benutzt, wird das Ergebnis nicht in die Bestenliste eingetragen.</para
+> als Hilfe verwendet, wird das Ergebnis nicht in die Bestenliste eingetragen.</para
 ></note>
 
 	</sect1>
@@ -738,11 +738,11 @@
 >&Ctrl;<keycap
 >O</keycap
 ></keycombo
-> </shortcut
+></shortcut
 > <guimenu
 >Spiel</guimenu
 > <guimenuitem
->Laden ...</guimenuitem
+>Laden …</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -778,7 +778,7 @@
 ><guimenu
 >Spiel</guimenu
 > <guimenuitem
->Spiel aus der Liste ...</guimenuitem
+>Neues nummeriertes Spiel …</guimenuitem
 > </menuchoice
 ></term>
 				<listitem
@@ -908,7 +908,7 @@
 >Prozedur zum Bearbeiten eines Spielfeldaufbaus: <orderedlist>
 							<listitem
 ><para
->Benutzen Sie den Dialog „Spielfeldaufbau bearbeiten“, um einen neuen Spielfeldaufbau zu erstellen oder einen vorhandenen Spielfeldaufbau zu ändern.</para
+>Verwenden Sie den Dialog „Spielfeldaufbau bearbeiten“, um einen neuen Spielfeldaufbau zu erstellen oder einen vorhandenen Spielfeldaufbau zu ändern.</para
 ></listitem>
 							<listitem
 ><para
@@ -1195,7 +1195,7 @@ FileName=<replaceable
 ><guimenu
 >Einstellungen</guimenu
 ><guimenuitem
->&kmahjongg;einrichten ...</guimenuitem
+>&kmahjongg; einrichten …</guimenuitem
 ></menuchoice
 > öffnet den Einrichtungsdialog für &kmahjongg;.</para>
 
@@ -1351,7 +1351,7 @@ FileName=<replaceable
 ><guimenu
 >Einstellungen</guimenu
 ><guimenuitem
->Kurzbefehle festlegen ...</guimenuitem
+>Kurzbefehle festlegen …</guimenuitem
 ></menuchoice
 > können Sie die voreingestellten Tastenkürzel ändern.</para>
 
@@ -1526,7 +1526,7 @@ FileName=<replaceable
 >&kmahjongg; von KDE </para>
 
 	<para
->Programm Copyright &copy; 1997 <personname
+>Programm-Copyright &copy; 1997 <personname
 ><firstname
 >Mathias</firstname
 ><surname
@@ -1536,7 +1536,7 @@ FileName=<replaceable
 >in5y158@public.uni-hamburg.de</email
 > </para>
 	<para
->Program Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
+>Programm-Copyright &copy; 2007 &Mauricio.Piacentini; &Mauricio.Piacentini.mail; </para>
 	<para
 >Beiträge von: <itemizedlist>
 			<listitem
