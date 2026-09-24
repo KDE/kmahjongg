@@ -1,12 +1,6 @@
 <?xml version="1.0" ?>
 <!--IMPORTANT: please note that 'Do not change this!' notice does not apply to translators -->
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kmahjongg;"
-> 
-  <!ENTITY kappversion "0.8"
-><!--Applicaion version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames"
->  <!-- do not change this! -->
   <!ENTITY % Russian "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE"
@@ -17,7 +11,7 @@
 > <!-- do not change this! -->
 <bookinfo>
 	<title
->Руководство пользователя &kappname;</title
+>Руководство пользователя &kmahjongg;</title
 > <!-- This is the title of this docbook. -->
 <!-- List of immidiate authors begins here. -->
 <!--INPORTANT! - All other contributors: [to be determined] -->
@@ -77,20 +71,20 @@
 
 <legalnotice
 >&FDLNotice;</legalnotice>
- 
+
 <date
->6 мая 2013 г.</date
+>16 июня 2021 г.</date
 ><!-- Date of (re)writing, or update.-->
 <releaseinfo
->&kappversion; (&kde; 4.11)</releaseinfo
+>0.9 (KDE Gear 21.04)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
- 
+
 <!--Short description of this document. Do not change unless necessary!-->
 <abstract>
 	<para
->В этом документе описывается игра &kappname; версии &kappversion;</para>
+>В этом документе описывается игра &kmahjongg; версии 0.9</para>
 </abstract>
- 
+
 <!--List of relevan keywords-->
 <keywordset>
 	<keyword
@@ -111,9 +105,9 @@
 	<keyword
 >аркадная</keyword>
 	<keyword
->игра с косточками</keyword>
+>игра с плитками</keyword>
 	<keyword
->косточки</keyword>
+>плитки</keyword>
 <!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 	<keyword
 >один игрок</keyword>
@@ -142,11 +136,11 @@
 	<para
 >&kmahjongg; — увлекательная настольная игра по мотивам знаменитой восточной игры маджонг (от китайского названия <foreignphrase lang="zh"
 >麻將</foreignphrase
->). Однако, в отличие от своего прототипа &kmahjongg; — игра на поиск одинаковых косточек для одного либо двух игроков. Этот вариант известен как «пасьянс маджонг». </para>
+>). Однако, в отличие от своего прототипа &kmahjongg; — игра на поиск одинаковых плиток для одного игрока. Этот вариант известен как «пасьянс маджонг». </para>
 	<para
->В игре &kmahjongg; косточки тасуются и выкладываются друг на друга в форме определённой фигуры. Перед игроком ставится задача убрать все косточки с игровой доски путём нахождения пар одинаковых косточек. </para>
+>В игре &kmahjongg; плитки тасуются и выкладываются друг на друга в форме определённой фигуры. Перед игроком ставится задача убрать все плитки с игровой доски путём нахождения пар одинаковых плиток. </para>
 </chapter>
- 
+
 <chapter id="howto"
 ><title
 >Как играть</title
@@ -156,12 +150,12 @@
 ><title
 >Цель:</title
 ><para
->Убрать все косточки с игровой доски, найдя к каждой косточке соответствующую пару, как можно скорее.</para
+>Убрать все плитки с игровой доски, найдя к каждой плитке соответствующую пару, как можно скорее.</para
 ></note
 ><!--Describe the objective of the game.-->
 <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
 	<para
->&kappname; загружает раскладку по умолчанию автоматически, как только вы начнёте игру, и вы сразу можете начинать играть. </para>
+>&kmahjongg; загружает раскладку по умолчанию автоматически, как только вы начнёте игру, и вы сразу можете начинать играть. </para>
 	<note
 ><title
 >Примечание:</title
@@ -169,23 +163,25 @@
 >Счётчик игрового времени запускается сразу же после начала игры.</para
 ></note>
 	<para
->Следует тщательно изучить стопку косточек, разложенных на игровой доске, и находить пары абсолютно одинаковых косточек. Когда вы находите такую пару, щёлкните по ним мышью. </para>
+>Следует тщательно изучить стопку плиток, разложенных на игровой доске, и находить пары абсолютно одинаковых плиток. Когда вы находите такую пару, щёлкните по ним мышью. </para>
 	<note
 ><title
 >Примечание:</title>
 		<para
 >Имейте в виду, что можно выбрать только <quote
 >открытую</quote
-> косточку. <quote
+> плитку. <quote
 >Закрытой</quote
-> она считается, если находится за другой косточкой, а также если и справа, и слева от неё место занято другими косточками. Если хотя бы с одной стороны от косточки свободно, она считается открытой и может быть убрана. </para
+> она считается, если находится за другой плиткой, либо если и справа, и слева от неё место занято другими плитками. Если хотя бы с одной стороны от плитки свободно, она считается <quote
+>открытой</quote
+> и её можно убрать. </para
 ></note>
 	<para
->Как только вы выделили правильную пару косточек, они исчезнут с игровой доски, показывая расположенные под ними косточки и открывая смежные. </para>
+>Как только вы выделили правильную пару плиток, они исчезнут с игровой доски, показывая расположенные под ними плитки и открывая смежные. </para>
 	<para
->Найдите как можно больше пар, чтобы убрать все косточки с игровой доски. </para>
+>Найдите как можно больше пар, чтобы убрать все плитки с игровой доски. </para>
 </chapter>
- 
+
 <chapter id="rules_and_tips"
 ><title
 >Правила игры, стратегия и советы</title
@@ -207,15 +203,15 @@
 >Снимок экрана</phrase
 ></textobject>
 				</mediaobject>
-			</screenshot>
-Краткое описание элементов игрового экрана. </para>
+			</screenshot
+>Краткое описание элементов игрового экрана. </para>
 	<variablelist>
 		<varlistentry>
 			<term
 >Игровой экран</term>
 			<listitem
 ><para
->Игровой экран находится в центре и представляет собой самый большой участок окна. На его фоне раскладываются игровые косточки. </para
+>Игровой экран находится в центре и представляет собой самый большой участок окна. На его фоне раскладываются игровые плитки. </para
 ></listitem>
 		</varlistentry>
 		<varlistentry>
@@ -223,7 +219,7 @@
 >Строка состояния</term>
 			<listitem
 ><para
->Строка состояния находится внизу экрана и содержит четыре области. В первой области указывается количество убранных косточек по отношению к общему количеству. Вторая область показывает номер расклада, в который вы играете. В третьей области будет написано, что программа готова к игре. Наконец, в последней области выводится игровой таймер, показывающий время с начала игры, пока она не завершится. </para
+>Строка состояния находится внизу экрана и содержит четыре области. В первой области выводится игровой таймер, показывающий время с начала игры, пока она не завершится. Во второй области указывается количество убранных плиток по отношению к общему количеству и число совпадающих плиток, сбоку от которых свободно. В третьей области показывается номер расклада, в который вы играете, а в последней области будет написано, что программа готова к игре. </para
 ></listitem>
 		</varlistentry>
 	</variablelist>
@@ -232,14 +228,14 @@
 		<title
 >Правила</title>
 		<para
->Стандартный набор косточек для маджонга включает в себя: <informaltable
+>Стандартный набор плиток для маджонга включает в себя: <informaltable
 > <tgroup cols="3"
 > <tbody>
 					<row
 ><entry
 >Название группы</entry
 ><entry
->Название косточки</entry
+>Название плитки</entry
 ><entry
 >Количество в наборе</entry
 ></row>
@@ -642,52 +638,55 @@
 		<itemizedlist>
 			<listitem
 ><para
+>Число плиток в раскладке доски &kmahjongg; может отличаться от числа плиток в стандартном наборе маджонга. Это означает, что число экземпляров плиток одного типа также может отличаться от числа, указанного в таблице выше.</para
+></listitem>
+			<listitem
+><para
 >Можно выбрать только <quote
 >открытые</quote
-> косточки.</para
+> плитки.</para
 ></listitem>
 			<listitem
 ><para
 ><quote
 >Открытая</quote
-> косточка — та, сбоку от которой свободно, то есть нет смежных косточек.</para
+> плитка — та, сбоку от которой свободно, то есть нет смежных плиток.</para
 ></listitem>
 			<listitem
 ><para
->Только совпадающие косточки можно убрать с игровой доски.</para
+>Только совпадающие плитки можно убрать с игровой доски.</para
 ></listitem>
 			<listitem
 ><para
->Совпадающие косточки — те, на лицевой стороне которых изображены одинаковые пиктограммы.</para
+>Совпадающие плитки — те, на лицевой стороне которых изображены одинаковые пиктограммы.</para
 ></listitem>
-		</itemizedlist
->			
+		</itemizedlist>
 		<note
 ><title
 >Примечание:</title
 ><para
->Из этого правила есть исключения! В традиционной игре маджонг для каждой косточки есть пара, за исключением мастей <quote
+>Из этого правила есть исключения! В традиционной игре маджонг для каждой плитки есть пара, за исключением мастей <quote
 >Цветов</quote
 > и <quote
 >Времён года</quote
->. </para
+>.</para
 ></note>
 		<itemizedlist>
 			<listitem
 ><para
->Косточки-<quote
+>Плитки-<quote
 >цветы</quote
 > не имеют пар в наборе и соответствуют непосредственно друг другу.</para
 ></listitem>
 			<listitem
 ><para
->Косточки <quote
+>Плитки <quote
 >времён года</quote
-> не имеют пар в наборе и соответствуют непосредственно друг другу. </para
+> не имеют пар в наборе и соответствуют непосредственно друг другу.</para
 ></listitem>
 			<listitem
 ><para
->Не каждая партия в игре &kmahjongg; может быть доведена до конца. Иногда косточки располагаются таким образом, что все пары выбрать невозможно. Этой проблемы можно избежать. Обратитесь <link linkend="general-options"
+>Не каждая партия в игре &kmahjongg; может быть доведена до конца. Иногда плитки располагаются таким образом, что все пары выбрать невозможно. Этой проблемы можно избежать. Обратитесь <link linkend="general-options"
 >к этому разделу</link
 > диалога настройки.</para
 ></listitem>
@@ -707,8 +706,8 @@
 
 	</sect1>
 </chapter>
- 
- 
+
+
 <chapter id="interface"
 ><title
 >Обзор интерфейса</title
@@ -717,7 +716,7 @@
 > and <varlistentry
 >. Split the chapter into sections using <sect1(2,3)
 > for better viewing.-->
- 
+
 <sect1 id="menu">
 <title
 >Команды меню</title>
@@ -853,7 +852,7 @@
 				<listitem
 ><para
 ><action
->Приостанавливает или возобновляет игру. Во время приостановки все косточки скрываются.</action
+>Приостанавливает или возобновляет игру. Во время приостановки все плитки скрываются.</action
 ></para
 ></listitem>
 			</varlistentry>
@@ -905,9 +904,68 @@
 				<listitem
 ><para
 ><action
->Открывает редактор раскладки.</action
+>Открывает редактор раскладки.</action>
+				<screenshot>
+					<screeninfo
+>Редактор раскладки</screeninfo>
+					<mediaobject>
+						<imageobject
+><imagedata fileref="boardeditor.png" format="PNG"/></imageobject>
+						<textobject
+><phrase
+>Редактор раскладки</phrase
+></textobject>
+					</mediaobject>
+				</screenshot>
+				</para>
+					<para
+>Порядок редактирования раскладки: <orderedlist>
+							<listitem
+><para
+>Панель инструментов редактора раскладки позволяет создать новую раскладку или загрузить и изменить существующую.</para
+></listitem>
+							<listitem
+><para
+>Сохраните раскладку в папке пользователя <filename
+>$<envar
+>XDG_DATA_HOME</envar
+>/kmahjongg/layouts</filename
 ></para
 ></listitem>
+							<listitem
+><para
+>Создайте файл <filename
+><replaceable
+>имя_вашей_раскладки</replaceable
+>.desktop</filename
+> в той же папке.</para
+></listitem>
+							<listitem
+><para
+>Поместите в этот файл следующие строки с помощью любого текстового редактора: <programlisting
+>[KMahjonggLayout]
+Name=<replaceable
+>имя_вашей_раскладки</replaceable>
+Description=<replaceable
+>описание_вашей_раскладки</replaceable>
+VersionFormat=1
+Author=<replaceable
+>ваше_имя</replaceable>
+AuthorEmail=<replaceable
+>ваш_адрес_электронной_почты</replaceable>
+FileName=<replaceable
+>имя_вашей_раскладки</replaceable
+>.layout
+</programlisting
+></para
+></listitem>
+							<listitem
+><para
+>Чтобы использовать новую раскладку, перезапустите &kmahjongg;.</para
+></listitem>
+						</orderedlist>
+</para>
+                                </listitem>
 			</varlistentry>
 			<varlistentry>
 				<term
@@ -928,7 +986,7 @@
 ><para
 >Осуществляет <action
 >выход</action
-> из &kappname;.</para
+> из &kmahjongg;.</para
 ></listitem>
 			</varlistentry>
 
@@ -993,7 +1051,7 @@
 ><para
 ><action
 >Дать подсказку</action
-> миганием парных косточек.</para
+> миганием парных плиток.</para
 ></listitem>
 			</varlistentry>
 			<varlistentry id="move-menu-demo">
@@ -1028,7 +1086,7 @@
 				<listitem
 ><para
 ><action
->Перетасовать косточки</action
+>Перетасовать плитки</action
 > на игровой доске.</para
 ></listitem>
 			</varlistentry>
@@ -1075,20 +1133,20 @@
 			</varlistentry>
 		</variablelist>
 <para
->Кроме того &kappname; имеет стандартные для &kde; меню <guimenu
+>Кроме того &kmahjongg; имеет стандартные для &kde; меню <guimenu
 >Настройка</guimenu
 > и <guimenu
 >Справка</guimenu
->, для большей информации о них обратитесь к разделам документации <ulink url="help:/fundamentals/ui.html#menus-settings"
->Меню Настройка</ulink
-> и <ulink url="help:/fundamentals/ui.html#menus-help"
->Меню Справка</ulink
->. </para>
+>, для получения дополнительных сведений о них обратитесь к разделам <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> документации «Основы &kde;». </para>
 
 </sect1>
 </chapter>
- 
- 
+
+
 <chapter id="faq"
 ><title
 >Вопросы и ответы</title
@@ -1105,7 +1163,7 @@
 ></question>
 		 <answer
 ><para
->Да. Для изменения оформления &kappname; воспользуйтесь <link linkend="menu"
+>Да. Для изменения оформления &kmahjongg; воспользуйтесь <link linkend="menu"
 >меню</link
 >, чтобы открыть <link linkend="configuration"
 >диалоговое окно настройки</link
@@ -1123,10 +1181,10 @@
 ></answer>
 	</qandaentry>
 <!--Please add more Q&As if needed-->
- 
+
 </qandaset>
 </chapter>
- 
+
 <chapter id="configuration"
 ><title
 >Настройка игры</title
@@ -1151,26 +1209,24 @@
 ><guimenu
 >Настройка</guimenu
 ><guimenuitem
->Настроить &kappname;…</guimenuitem
+>Настроить &kmahjongg;…</guimenuitem
 ></menuchoice
 > открывает диалог <guilabel
->Настройка &kappname;</guilabel
+>Настройка &kmahjongg;</guilabel
 >.</para>
 
 <sect1 id="general-options"
 ><title
-><guilabel
->Общие</guilabel
-> параметры</title>
+>Общие параметры</title>
 	<variablelist>
 		<varlistentry>
 			<term
 ><guilabel
->Мигание парных косточек, когда выбрана одна из них.</guilabel
+>Мигание парных плиток, когда выбрана одна из них.</guilabel
 ></term>
 			<listitem
 ><para
->Выбор этого параметра заставляет игру при каждом ходе подсвечивать выделенную косточку при щелчке мыши и миганием отмечать парные косточки, открытые хотя бы с одной стороны. Если таких косточек нет, то ничего отмечаться не будет. </para
+>Выбор этого параметра заставляет игру при каждом ходе подсвечивать выделенную плитку при щелчке мыши и миганием отмечать парные плитки, открытые хотя бы с одной стороны. Если таких плиток нет, то ничего отмечаться не будет. </para
 ></listitem>
 		</varlistentry>
 		<varlistentry>
@@ -1183,14 +1239,22 @@
 >При начале игры предлагает только те расклады, которые могут быть разгаданы. </para
 ></listitem>
 		</varlistentry>
+		<varlistentry>
+			<term
+><guilabel
+>Показывать снятые плитки</guilabel
+></term>
+			<listitem
+><para
+>Если флажок установлен, &kmahjongg; будет показывать убранные плитки на игровой доске. </para
+></listitem>
+		</varlistentry>
 	</variablelist>
 </sect1>
 
 <sect1 id="layout-options"
 ><title
->Настройка <guilabel
->раскладки доски</guilabel
-></title>
+>Параметры раскладки доски</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1211,7 +1275,7 @@
 ><para
 >Воспользуйтесь списком <guilabel
 >Раскладка доски</guilabel
-> для выбора желаемого типа игры. Разные раскладки досок предполагают различную сложность, в зависимости от количества косточек и их расположения. </para>
+> для выбора желаемого типа игры. Разные раскладки досок предполагают различную сложность, в зависимости от количества плиток и их расположения. </para>
 			<screenshot>
 				<screeninfo
 >Список «Раскладки доски»</screeninfo>
@@ -1232,30 +1296,28 @@
 
 <sect1 id="tiles-options"
 ><title
->Настройка <guilabel
->косточек</guilabel
-></title>
+>Параметры плиток</title>
 	<variablelist>
 		<varlistentry>
 			<term
 >Список <guilabel
->Косточки</guilabel
+>Плитки</guilabel
 ></term>
 			<listitem
 ><para
 >При помощи списка <guilabel
->Косточки</guilabel
-> выберите рисунки на лицевой стороне косточек. </para>
+>Плитки</guilabel
+> выберите рисунки на лицевой стороне плиток. </para>
 			<screenshot>
 				<screeninfo
->Список «Косточки»</screeninfo>
+>Список «Плитки»</screeninfo>
 				<mediaobject>
 					<imageobject>
 						<imagedata fileref="config_tiles.png" format="PNG"/>
 					</imageobject>
 					<textobject
 ><phrase
->Список «Косточки»</phrase
+>Список «Плитки»</phrase
 ></textobject>
 				</mediaobject>
 			</screenshot>
@@ -1266,9 +1328,7 @@
 
 <sect1 id="background-options"
 ><title
->Раздел параметров <guilabel
->Фон</guilabel
-></title>
+>Параметры фона</title>
 	<variablelist>
 		<varlistentry>
 			<term
@@ -1307,7 +1367,7 @@
 ><guimenu
 >Настройка</guimenu
 ><guimenuitem
->Комбинации клавиш…</guimenuitem
+>Настроить комбинации клавиш…</guimenuitem
 ></menuchoice
 > позволяет изменить стандартные комбинации клавиш.</para>
 
@@ -1419,7 +1479,7 @@
 >H</keycap
 ></entry
 ><entry
->Даёт подсказку миганием парных косточек.</entry
+>Даёт подсказку миганием парных плиток.</entry
 ></row>
 <row
 ><entry
@@ -1470,14 +1530,14 @@
 
 </sect1>
 </chapter>
- 
+
 <chapter id="credits"
 ><title
->Авторы и лицензия</title
+>Авторские права и лицензия</title
 > <!-- do not change this! -->
 <!--This chapter is for credits and licenses.-->
 	<para
->&kappname; для &kde; </para>
+>&kmahjongg; от &kde; </para>
 
 	<para
 >Авторские права на программу &copy; 1997 <personname
@@ -1490,15 +1550,7 @@
 >in5y158@public.uni-hamburg.de</email
 > </para>
 	<para
->Авторские права на программу &copy; 2007 <personname
-><firstname
->Mauricio</firstname
-><surname
->Piacentini</surname
-></personname
-> <email
->piacentini@kde.org</email
-> </para>
+>© &Mauricio.Piacentini; &Mauricio.Piacentini.mail;, 2007 (программа) </para>
 	<para
 >Участники: <itemizedlist>
 			<listitem
@@ -1551,15 +1603,7 @@
 ></listitem>
 			<listitem
 ><para
-><personname
-><firstname
->Albert</firstname
-><othername
->Astals</othername
-><surname
->Cid</surname
-></personname
-> &Albert.Astals.Cid.mail;</para
+>&Albert.Astals.Cid; &Albert.Astals.Cid.mail;</para
 ></listitem>
 			<listitem
 ><para
@@ -1585,7 +1629,7 @@
 > <email
 >justlinux@bellsouth.net</email
 > </para>
- 
+
 <!-- !!!do not change ANYTHING after this line!!!! -->
 <para
 >Перевод на русский язык: Григорий Мохин <email
@@ -1595,24 +1639,9 @@
 >Перевод на русский язык: Стёпа Семенуха <email
 >semenukha@gmail.com</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
- 
- 
-<appendix id="installation">
-<title
->Установка</title>
- 
-&install.intro.documentation;
- 
- 
-<sect1 id="Compilation">
-<title
->Сборка и установка</title>
-&install.compile.documentation; </sect1>
-</appendix>
- 
-&documentation.index; 
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
 </book>
 <!--
 Local Variables:
