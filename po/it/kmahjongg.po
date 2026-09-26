@@ -1,8 +1,8 @@
 # translation of kmahjongg.po to Italian
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 # Andrea Celli <andrea.celli@libero.it>, 2003, 2004, 2005, 2006, 2016.
 # Luciano Montanaro <mikelima@cirulla.net>, 2007, 2012.
 # Pino Toscano <toscano.pino@tiscali.it>, 2019.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kmahjongg\n"
