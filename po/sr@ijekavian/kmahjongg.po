@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kmahjongg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-10-05 01:57+0200\n"
+"PO-Revision-Date: 2026-10-07 11:45+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
@@ -244,13 +244,13 @@ msgstr "Промијеш&ај"
 #, kde-format
 msgctxt "@action"
 msgid "Rotate View Counterclockwise"
-msgstr "Обрни приказ супротно казаљки сата"
+msgstr "Окрени приказ супротно смјеру казаљке сата"
 
 #: src/kmahjongg.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Rotate View Clockwise"
-msgstr "Обрни приказ у смјеру казаљке сата"
+msgstr "Окрени приказ у смјеру казаљке сата"
 
 #: src/kmahjongg.cpp:179
 #, kde-format
