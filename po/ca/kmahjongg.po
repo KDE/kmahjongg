@@ -577,21 +577,3 @@ msgstr "Genera partides amb solució"
 #, kde-format
 msgid "Show removed tiles"
 msgstr "Mostra les fitxes eliminades"
-
-#~ msgid "Cut"
-#~ msgstr "Retalla"
-
-#~ msgid "Copy"
-#~ msgstr "Copia"
-
-#~ msgid "Paste"
-#~ msgstr "Enganxa"
-
-#~ msgid "Enter game number:"
-#~ msgstr "Introduïu el número de la partida:"
-
-#~ msgid "Save game?"
-#~ msgstr "Deso la partida?"
-
-#~ msgid "A file with that name already exists. Do you wish to overwrite it?"
-#~ msgstr "Ja existeix un fitxer amb aquest nom. Voleu sobreescriure'l?"
