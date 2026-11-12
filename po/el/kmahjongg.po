@@ -277,7 +277,7 @@ msgstr "Παιχνίδι: 000000000000000000000"
 #, fuzzy, kde-format
 #| msgid "Time: "
 msgid "Time: %1"
-msgstr "Ώρα: "
+msgstr "Χρόνος: %1"
 
 #: src/kmahjongg.cpp:232
 #, kde-format
@@ -290,7 +290,7 @@ msgstr "Νέο παιχνίδι"
 #| msgid "Game number: %1"
 msgctxt "@label:textbox"
 msgid "Game number:"
-msgstr "Αριθμός παιχνιδιού: %1"
+msgstr "Αριθμός παιχνιδιού:"
 
 #: src/kmahjongg.cpp:267
 #, kde-format
