@@ -10,7 +10,7 @@
 # Mauricio Piacentini <piacentini@kde.org>, 2007.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2016, 2019.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012, 2017, 2020, 2021, 2022, 2023.
-# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@kde.org>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
