@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kmahjongg/kmahjongg.pot\n"
-"X-Crowdin-File-ID: 46273\n"
+"X-Crowdin-File: /kf6-stable/messages/kmahjongg/kmahjongg.pot\n"
+"X-Crowdin-File-ID: 50772\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -316,7 +316,7 @@ msgstr "新建游戏"
 #, kde-format
 msgctxt "@action:button"
 msgid "Restart"
-msgstr "重启启动"
+msgstr "重新开始"
 
 #: src/kmahjongg.cpp:529
 #, kde-format
